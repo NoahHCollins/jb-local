@@ -1,12 +1,7 @@
 # Requirements to build and run the books
 jupyter-book==0.13.0
-pandas
 numpy
-datascience
-folium
 matplotlib
-scipy
 sphinx-book-theme
 sphinx
 sphinx-thebe
-natsort
