@@ -1,7 +1,0 @@
-# Requirements to build and run the books
-jupyter-book==0.13.0
-numpy
-matplotlib
-sphinx-book-theme
-sphinx
-sphinx-thebe
