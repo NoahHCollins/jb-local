@@ -28,11 +28,6 @@ jobs:
     # Build the book
     - name: Build the book
       run: |
-        python3 scripts/generate_new_toc.py
-        python3 scripts/add_modules.py
-        cd _tmp
-        cat _toc.yml
-        jupyter-book toc migrate _toc.yml -o _toc.yml
         jupyter-book build .
 
     # Push the book's HTML to github-pages
