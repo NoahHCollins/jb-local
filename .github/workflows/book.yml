@@ -32,6 +32,6 @@ jobs:
 
     # Push the book's HTML to github-pages
     - name: GitHub Pages action
-      uses: NoahHCollins/actions-gh-pages@v3.5.9
+      uses: jb-local/github-pages-deploy-action@v4
       with:
         folder: build
