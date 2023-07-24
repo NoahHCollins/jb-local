@@ -32,6 +32,7 @@ jobs:
 
     # Push the book's HTML to github-pages
     - name: GitHub Pages action
-      uses: jb-local/github-pages-deploy-action@v4
+      uses: peaceiris/actions-gh-pages@v3
       with:
-        folder: build
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
