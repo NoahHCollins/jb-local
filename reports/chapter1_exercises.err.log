@@ -1,0 +1,68 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+def setup_figure(grid=False, scale=1.):
+    fig = plt.figure(figsize=plt.figaspect(1))
+    #fig.canvas.header_visible = False
+    ax = plt.axes(projection='3d')
+    # Add axis labels
+    ax.set_xlabel('$e_1$')
+    ax.set_ylabel('$e_2$')
+    ax.set_zlabel('$e_3$')
+    ax.set_xlim(-scale,scale)
+    ax.set_ylim(-scale,scale)
+    ax.set_zlim(-scale,scale)
+    return ax
+
+def add_points(ax,x,y,z,clr='k',lbl='x'):
+    ax.scatter(x, y, z, color=clr)
+    ax.text(x, y, z, '%s' % (lbl), size=15, zorder=1, color='k')
+    
+def add_lines(ax,e,clr='k'):
+    ax.plot3D(np.linspace(0,e[0],11), np.linspace(0,e[1],11), np.linspace(0,e[2],11), clr);
+    
+a = np.array([-0.4,0.3,0.5])
+b = np.array([0.6,-0.9,0.1])
+
+# Start figure
+ax=setup_figure()
+
+# Plot vectors
+add_points(ax,a[0],a[1],a[2],clr='k',lbl='a')
+add_points(ax,b[0],b[1],b[2],clr='r',lbl='b')
+add_lines(ax,a[:],clr='gray')
+add_lines(ax,b[:],clr='orange')
+
+# Calculate and plot components of a that are parallel and perpendicular to b
+# There are parameters for two different ways of calculating each component
+a_par_b1= 
+a_par_b2=
+add_lines(ax,a_par_b1[:],clr='red')
+add_lines(ax,a_par_b2[:],clr='brown')
+a_perp_b1=
+a_perp_b2=
+add_lines(ax,a_perp_b1[:],clr='blue')
+add_lines(ax,a_perp_b2[:],clr='purple')
+------------------
+
+
+[0;36m  Cell [0;32mIn[3], line 35[0;36m[0m
+[0;31m    a_par_b1=[0m
+[0m              ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+
