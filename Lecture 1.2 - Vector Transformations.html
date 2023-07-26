@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Modelling and Numerical Methods &#8212; Modelling and Numerical Methods</title>
+    <title>Lecture 1.2 - Vector Transformations &#8212; Modelling and Numerical Methods</title>
   
   
   
@@ -161,7 +161,8 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Intro to Vector and Tensor Calculus</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Lecture%201.1%20-%20Intro%20to%20Vectors.html">Continuum Mechanics and Vector/Tensor Calculus</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelling and Numerical Methods  <a class="tocSkip"></a></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 1.2 - Vector Transformations  <a class="tocSkip"></a></a></li>
+
 
 
 
@@ -355,7 +356,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Modelling and Numerical Methods  <a class="tocSkip"></h1>
+    <h1>Lecture 1.2 - Vector Transformations  <a class="tocSkip"></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -365,14 +366,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Modelling and Numerical Methods  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-1-2-vector-transformations-a-class-tocskip">Lecture 1.2 - Vector Transformations  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lecture 1.2 - Vector Transformations  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
 <li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lecturer-saskia-goes-s-goes-imperial-ac-uk">Lecturer: Saskia Goes, s.goes@imperial.ac.uk</a></li>
 </ul>
 </a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
-</ul>
-</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-transformation-a-name-vector-transform-a">Vector Transformation <a name="Vector_Transform"></a></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-orthogonal-bases-a-name-transformation-a">Transformation Orthogonal Bases <a name="Transformation"></a></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-calculus-a-name-vector-calc">Vector Calculus <a name="Vector_Calc"></a><ul class="nav section-nav flex-column">
@@ -392,21 +390,7 @@ document.write(`
 </a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-calculus-theorems-a-name-theorems-a">Useful Calculus Theorems <a name="Theorems"></a></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-divergence-theorem-a-name-gauss-a">Gauss Divergence Theorem <a name="Gauss"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stokes-theorem-a-name-stokes-a">Stokes Theorem <a name="Stokes"></a></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-exercise-here">First exercise here</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#first-exercise-solution-here-one-level-lower">First exercise solution here (one level lower)</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-exercise">Optional exercise</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-exercise-answer-one-level-lower">Optional exercise answer (one level lower)</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-exercise">Advanced exercise</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-exercise-answer-one-level-lower">Advanced exercise answer (one level lower)</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stokes-theorem-a-name-stokes-a">Stokes Theorem <a name="Stokes"></a></a></li>
 </ul>
 </li>
 </ul>
@@ -421,48 +405,17 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="modelling-and-numerical-methods-a-class-tocskip">
-<h1>Modelling and Numerical Methods  <a class="tocSkip"><a class="headerlink" href="#modelling-and-numerical-methods-a-class-tocskip" title="Permalink to this heading">#</a></h1>
-<section id="lecture-1-2-vector-transformations-a-class-tocskip">
-<h2>Lecture 1.2 - Vector Transformations  <a class="tocSkip"><a class="headerlink" href="#lecture-1-2-vector-transformations-a-class-tocskip" title="Permalink to this heading">#</a></h2>
+  <section id="lecture-1-2-vector-transformations-a-class-tocskip">
+<h1>Lecture 1.2 - Vector Transformations  <a class="tocSkip"><a class="headerlink" href="#lecture-1-2-vector-transformations-a-class-tocskip" title="Permalink to this heading">#</a></h1>
 <section id="lecturer-saskia-goes-s-goes-imperial-ac-uk">
-<h3>Lecturer: Saskia Goes, <a class="reference external" href="mailto:s&#46;goes&#37;&#52;&#48;imperial&#46;ac&#46;uk">s<span>&#46;</span>goes<span>&#64;</span>imperial<span>&#46;</span>ac<span>&#46;</span>uk</a><a class="headerlink" href="#lecturer-saskia-goes-s-goes-imperial-ac-uk" title="Permalink to this heading">#</a></h3>
+<h2>Lecturer: Saskia Goes, <a class="reference external" href="mailto:s&#46;goes&#37;&#52;&#48;imperial&#46;ac&#46;uk">s<span>&#46;</span>goes<span>&#64;</span>imperial<span>&#46;</span>ac<span>&#46;</span>uk</a><a class="headerlink" href="#lecturer-saskia-goes-s-goes-imperial-ac-uk" title="Permalink to this heading">#</a></h2>
 </section>
 </section>
 <section id="learning-outcomes-a-class-tocskip">
-<h2>Learning outcomes  <a class="tocSkip"><a class="headerlink" href="#learning-outcomes-a-class-tocskip" title="Permalink to this heading">#</a></h2>
+<h1>Learning outcomes  <a class="tocSkip"><a class="headerlink" href="#learning-outcomes-a-class-tocskip" title="Permalink to this heading">#</a></h1>
 <ol class="arabic simple">
 <li><p>Perform transformation of a vector from one Cartesian basis to another</p></li>
 <li><p>Be able to do basic vector/tensor calculus (time and space derivatives, divergence, curl of a vector field) on these bases</p></li>
-</ol>
-<h1>Table of Contents<span class="tocSkip"></span></h1>
-<ol class="arabic simple">
-<li><p><span class="xref myst">Vector Transformation</span></p></li>
-<li><p><span class="xref myst">Transformation Orthogonal Bases</span></p></li>
-<li><p><span class="xref myst">Vector Calculus</span></p>
-<ol class="arabic simple">
-<li><p><span class="xref myst">Vector Derivatives</span></p>
-<ol class="arabic simple">
-<li><p><span class="xref myst">Scalar</span></p></li>
-<li><p><span class="xref myst">Del Operator</span></p></li>
-<li><p><span class="xref myst">Gradient</span></p></li>
-<li><p><span class="xref myst">Directional Derivatives</span></p></li>
-</ol>
-</li>
-<li><p><span class="xref myst">Vector Products with Derivatives</span></p>
-<ol class="arabic simple">
-<li><p><span class="xref myst">Divergence</span></p></li>
-<li><p><span class="xref myst">Curl</span></p></li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p><span class="xref myst">Useful Calculus Theorems</span></p>
-<ol class="arabic simple">
-<li><p><span class="xref myst">Gauss Divergence Theorem</span></p></li>
-<li><p><span class="xref myst">Stokes Theorem</span></p></li>
-</ol>
-</li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -547,7 +500,6 @@ div.advanced {
 </div>
 </div>
 </div>
-</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="vector-transformation-a-name-vector-transform-a">
 <h1>Vector Transformation <a name = "Vector_Transform"></a><a class="headerlink" href="#vector-transformation-a-name-vector-transform-a" title="Permalink to this heading">#</a></h1>
@@ -658,9 +610,14 @@ div.advanced {
 <div>
     <img src = "attachment:Fig4.png" width = "300" />
 </div><h2 style="color:red"> A word of caution!</h2>
-<p style = "text-align:center;">
-<span style="color:red">Vector represented on new basis</span> $\hspace{2cm}$ <span style="color:red;font-weight:bold;">v'</span> = <span style="color:purple;font-weight:bold">A</span> <span style="color:blue;font-weight:bold">v</span> $\hspace{2cm}$ <span style="color:blue;"> Vector represented on old basis</span>
-</p> 
+<div class="math notranslate nohighlight">
+\[
+\color{red}{\text{Vector represented in new basis}}
+\hspace{2.5cm}
+\mathbf{\color{red}{v'} = \color{purple}{A} \color{blue}{v}}
+\hspace{2.5cm} 
+\color{blue}{\text{Vector represented in old basis}}
+\]</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \color{red}{\mathbf{v'}} = 
@@ -670,24 +627,40 @@ div.advanced {
 \end{bmatrix}
 \color{blue}{\mathbf{v}}
 \end{split}\]</div>
-<p style = "text-align:center;">
-<span style="color:purple">Clockwise rotation by $\phi$ </span> $\hspace{1.5cm}$ <span style="color:purple;">Matrix describing change of basis</span> $\hspace{2cm}$ <span style="color:purple;font-weight:bold;"> New basis vectors are ROWS</span>
-</p> <p style = "text-align:center;">
-<span style="color:red">New basis vector</span> $\hspace{2cm}$ 
-$\color{red}{\hat{e}'}$ = $\color{purple}{A^T}$ $\color{blue}{\hat{e}}$ $\hspace{2cm}$ <span style="color:blue;"> Old basis vector</span>
-</p> 
+<div class="math notranslate nohighlight">
+\[
+\color{purple}{\text{Clockwise rotation by} \hspace{0.1cm} \phi 
+\hspace{1cm}
+\text{Matrix describing change of basis}
+\hspace{1cm}
+\mathbf{New \hspace{0.1cm} basis \hspace{0.1cm} vectors \hspace{0.1cm} are \hspace{0.1cm} ROWS}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\color{red}{\text{New basis vector}}
+\hspace{2cm}
+\mathbf{\color{red}{\hat{e}'} = \color{purple}{A^T} \color{blue}{\hat{e}}}
+\hspace{2cm}
+\color{blue}{\text{Old basis vector}}
+\]</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\color{red}{\hat{e}'} = 
+\color{red}{\mathbf{\hat{e}'}} =
 \begin{bmatrix}
-\color{purple}{\cos{\phi}} &amp; \color{purple}{-\sin{\phi}} \\
+\color{purple}{\cos{\phi}} &amp; \color{purple}{- \sin{\phi}} \\
 \color{purple}{\sin{\phi}} &amp; \color{purple}{\cos{\phi}} \\
 \end{bmatrix}
 \color{blue}{\hat{e}}
 \end{split}\]</div>
-<p style = "text-align:center;">
-<span style="color:purple">Anticlockwise rotation by $\phi$ </span> $\hspace{1.5cm}$ <span style="color:purple;">Matrix describing basis transformation</span> $\;\;\;\;\;\;\;$ <span style="color:purple;font-weight:bold;"> New basis vectors are COLUMNS</span>
-</p> </section>
+<div class="math notranslate nohighlight">
+\[
+\color{purple}{\text{Anticlockwise rotation by} \hspace{0.1cm} \phi 
+\hspace{1cm}
+\text{Matrix describing basis transformation}
+\hspace{1cm}
+\mathbf{New \hspace{0.1cm} basis \hspace{0.1cm} vectors \hspace{0.1cm} are \hspace{0.1cm} COLUMNS}}
+\]</div>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="vector-calculus-a-name-vector-calc">
 <h1>Vector Calculus <a name = "Vector_Calc"><a class="headerlink" href="#vector-calculus-a-name-vector-calc" title="Permalink to this heading">#</a></h1>
 <p>Vector calculus is the field of mathematics that handles differentiation and integration of vector fields.
@@ -850,31 +823,6 @@ These can be used to simplify integration over volumes or closed surfaces as wel
 \[ 
 \large{(\nabla \times \mathbf{v})_P \pi a^2 = \oint_{C_a} \mathbf{v} \cdot \mathbf{\hat{t}} \; ds} 
 \]</div>
-<div class="exercise">
-<section id="first-exercise-here">
-<h3>First exercise here<a class="headerlink" href="#first-exercise-here" title="Permalink to this heading">#</a></h3>
-<div class="exercise">
-<section id="first-exercise-solution-here-one-level-lower">
-<h4>First exercise solution here (one level lower)<a class="headerlink" href="#first-exercise-solution-here-one-level-lower" title="Permalink to this heading">#</a></h4>
-<div class="optional">
-</section>
-</section>
-<section id="optional-exercise">
-<h3>Optional exercise<a class="headerlink" href="#optional-exercise" title="Permalink to this heading">#</a></h3>
-<div class="optional">
-<section id="optional-exercise-answer-one-level-lower">
-<h4>Optional exercise answer (one level lower)<a class="headerlink" href="#optional-exercise-answer-one-level-lower" title="Permalink to this heading">#</a></h4>
-<div class="advanced">
-</section>
-</section>
-<section id="advanced-exercise">
-<h3>Advanced exercise<a class="headerlink" href="#advanced-exercise" title="Permalink to this heading">#</a></h3>
-<div class="advanced">
-<section id="advanced-exercise-answer-one-level-lower">
-<h4>Advanced exercise answer (one level lower)<a class="headerlink" href="#advanced-exercise-answer-one-level-lower" title="Permalink to this heading">#</a></h4>
-<p>Advanced or extension exercises don’t need solutions.</p>
-</section>
-</section>
 </section>
 </section>
 
@@ -945,14 +893,11 @@ These can be used to simplify integration over volumes or closed surfaces as wel
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Modelling and Numerical Methods  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-1-2-vector-transformations-a-class-tocskip">Lecture 1.2 - Vector Transformations  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lecture 1.2 - Vector Transformations  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
 <li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lecturer-saskia-goes-s-goes-imperial-ac-uk">Lecturer: Saskia Goes, s.goes@imperial.ac.uk</a></li>
 </ul>
 </a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
-</ul>
-</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-transformation-a-name-vector-transform-a">Vector Transformation <a name="Vector_Transform"></a></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-orthogonal-bases-a-name-transformation-a">Transformation Orthogonal Bases <a name="Transformation"></a></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-calculus-a-name-vector-calc">Vector Calculus <a name="Vector_Calc"></a><ul class="nav section-nav flex-column">
@@ -972,21 +917,7 @@ These can be used to simplify integration over volumes or closed surfaces as wel
 </a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-calculus-theorems-a-name-theorems-a">Useful Calculus Theorems <a name="Theorems"></a></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-divergence-theorem-a-name-gauss-a">Gauss Divergence Theorem <a name="Gauss"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stokes-theorem-a-name-stokes-a">Stokes Theorem <a name="Stokes"></a></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-exercise-here">First exercise here</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#first-exercise-solution-here-one-level-lower">First exercise solution here (one level lower)</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-exercise">Optional exercise</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-exercise-answer-one-level-lower">Optional exercise answer (one level lower)</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-exercise">Advanced exercise</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-exercise-answer-one-level-lower">Advanced exercise answer (one level lower)</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stokes-theorem-a-name-stokes-a">Stokes Theorem <a name="Stokes"></a></a></li>
 </ul>
 </li>
 </ul>
