@@ -4,12 +4,14 @@
 format: jb-book
 root: intro
 parts:
-  - caption: Part 1
+  - caption: Intro to Vector and Tensor Calculus
     chapters:
     - file: "Lecture 1.1 - Intro to Vectors"
     - file: "Lecture 1.2 - Vector Transformations"
     - file: "Lecture 1.3 - Intro to Tensors"
-  - caption: Part 4
+  - caption: Stress Tensor
+  - caption: Kinematics and Strain
+  - caption: Conservation Equations
     chapters:
     - file: "Lecture 4.1 - Conservation Equations"
     - file: "Lecture 4.2 - Rheology"
