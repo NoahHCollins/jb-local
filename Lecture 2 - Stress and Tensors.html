@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Modelling and Numerical Methods &#8212; Modelling and Numerical Methods</title>
+    <title>Stress and Tensors &#8212; Modelling and Numerical Methods</title>
   
   
   
@@ -172,14 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Chapter2.html">Stress Tensor</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Modelling and Numerical Methods  <a class="tocSkip"></a></a></li>
-
-
-
-
-
-
-
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Stress and Tensors</a></li>
 </ul>
 </li>
 </ul>
@@ -370,7 +363,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Modelling and Numerical Methods  <a class="tocSkip"></h1>
+    <h1>Stress and Tensors</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -380,52 +373,28 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Modelling and Numerical Methods  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-2-1-2-2-stress-and-tensors-a-class-tocskip">Lecture 2.1 &amp; 2.2 - Stress and Tensors  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lecturer-saskia-goes-s-goes-imperial-ac-uk">Lecturer: Saskia Goes, s.goes@imperial.ac.uk</a></li>
-</ul>
-</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#outline-a-class-tocskip">Outline  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline-a-class-tocskip">Outline  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
 <li class="nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-stress-and-tensors">Part 1: Stress and Tensors</a></li>
 </ul>
 </a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
-</ul>
-</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-stress-a-name-cauchy">Cauchy Stress <a name="Cauchy"></a></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plane-area-as-a-vector-a-name-plane-a">Plane area as a vector <a name="Plane"></a></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-stress-a-name-cauchy">Cauchy Stress <a name="Cauchy"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plane-area-as-a-vector-a-name-plane-a">Plane area as a vector <a name="Plane"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d-stress-state-a-name-3d-a">3-D Stress State <a name="3D"></a></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-points">Important Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-stress-state-a-name-3d-a">3-D Stress State <a name="3D"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-points">Important Points</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-symmetry-a-name-tensorsym-a">Tensor Symmetry <a name="TensorSym"></a></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetry-of-the-stress-tensor-a-name-symmetry-a">Symmetry of the Stress Tensor  <a name="Symmetry"></a></a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transformations-of-tensors-a-name-transformations-a">Transformations of Tensors <a name="Transformations"></a></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming-the-2-d-stress-tensor-a-name-2d-a">Transforming the 2-D stress tensor  <a name="2D"></a></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformations-of-tensors-a-name-transformations-a">Transformations of Tensors <a name="Transformations"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming-the-2-d-stress-tensor-a-name-2d-a">Transforming the 2-D stress tensor  <a name="2D"></a></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagonalising-principal-stresses">Diagonalising/Principal Stresses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stress-tensor-invariants">Stress/Tensor Invariants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrostatic-and-deviatoric-stress">Hydrostatic and Deviatoric Stress</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stress-tensor-invariants">Stress/Tensor Invariants</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrostatic-and-deviatoric-stress">Hydrostatic and Deviatoric Stress</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-exercise-here">First exercise here</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-exercise-solution-here-one-level-lower">First exercise solution here (one level lower)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-exercise">Optional exercise</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-exercise-answer-one-level-lower">Optional exercise answer (one level lower)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-exercise">Advanced exercise</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-exercise-answer-one-level-lower">Advanced exercise answer (one level lower)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -436,14 +405,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="modelling-and-numerical-methods-a-class-tocskip">
-<h1>Modelling and Numerical Methods  <a class="tocSkip"><a class="headerlink" href="#modelling-and-numerical-methods-a-class-tocskip" title="Permalink to this heading">#</a></h1>
-<section id="lecture-2-1-2-2-stress-and-tensors-a-class-tocskip">
-<h2>Lecture 2.1 &amp; 2.2 - Stress and Tensors  <a class="tocSkip"><a class="headerlink" href="#lecture-2-1-2-2-stress-and-tensors-a-class-tocskip" title="Permalink to this heading">#</a></h2>
-<section id="lecturer-saskia-goes-s-goes-imperial-ac-uk">
-<h3>Lecturer: Saskia Goes, <a class="reference external" href="mailto:s&#46;goes&#37;&#52;&#48;imperial&#46;ac&#46;uk">s<span>&#46;</span>goes<span>&#64;</span>imperial<span>&#46;</span>ac<span>&#46;</span>uk</a><a class="headerlink" href="#lecturer-saskia-goes-s-goes-imperial-ac-uk" title="Permalink to this heading">#</a></h3>
-</section>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="stress-and-tensors">
+<h1>Stress and Tensors<a class="headerlink" href="#stress-and-tensors" title="Permalink to this heading">#</a></h1>
+<p>Lecture 2.1 &amp; 2.2<br />
+Saskia Goes, <a class="reference external" href="mailto:s&#46;goes&#37;&#52;&#48;imperial&#46;ac&#46;uk">s<span>&#46;</span>goes<span>&#64;</span>imperial<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
 <section id="outline-a-class-tocskip">
 <h2>Outline  <a class="tocSkip"><a class="headerlink" href="#outline-a-class-tocskip" title="Permalink to this heading">#</a></h2>
 <section id="part-1-stress-and-tensors">
@@ -466,94 +431,9 @@ document.write(`
 <li><p>Be able to transform rank 2 tensor to a new basis</p></li>
 <li><p>Be able to determine shear and normal stresses on a plane</p></li>
 </ol>
-<h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#First-topic-here" data-toc-modified-id="First-topic-here-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>First topic here</a></span><ul class="toc-item"><li><span><a href="#Sub-topic" data-toc-modified-id="Sub-topic-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Sub topic</a></span><ul class="toc-item"><li><span><a href="#First-exercise-here" data-toc-modified-id="First-exercise-here-1.1.1"><span class="toc-item-num">1.1.1&nbsp;&nbsp;</span>First exercise here</a></span><ul class="toc-item"><li><span><a href="#First-exercise-solution-here-(one-level-lower)" data-toc-modified-id="First-exercise-solution-here-(one-level-lower)-1.1.1.1"><span class="toc-item-num">1.1.1.1&nbsp;&nbsp;</span>First exercise solution here (one level lower)</a></span></li></ul></li><li><span><a href="#Optional-exercise" data-toc-modified-id="Optional-exercise-1.1.2"><span class="toc-item-num">1.1.2&nbsp;&nbsp;</span>Optional exercise</a></span><ul class="toc-item"><li><span><a href="#Optional-exercise-answer-(one-level-lower)" data-toc-modified-id="Optional-exercise-answer-(one-level-lower)-1.1.2.1"><span class="toc-item-num">1.1.2.1&nbsp;&nbsp;</span>Optional exercise answer (one level lower)</a></span></li></ul></li><li><span><a href="#Advanced-exercise" data-toc-modified-id="Advanced-exercise-1.1.3"><span class="toc-item-num">1.1.3&nbsp;&nbsp;</span>Advanced exercise</a></span><ul class="toc-item"><li><span><a href="#Advanced-exercise-answer-(one-level-lower)" data-toc-modified-id="Advanced-exercise-answer-(one-level-lower)-1.1.3.1"><span class="toc-item-num">1.1.3.1&nbsp;&nbsp;</span>Advanced exercise answer (one level lower)</a></span></li></ul></li></ul></li></ul></li></ul></div><div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
-<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="nt">div</span><span class="p">.</span><span class="nc">exercise</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ffd7e2</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ffd7e2</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#ffd7e2</span><span class="p">;</span>
-<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">div</span><span class="p">.</span><span class="nc">optional</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
-<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">div</span><span class="p">.</span><span class="nc">advanced</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
-<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><style>
-div.exercise {
-    display: block;
-    background-color: #ffd7e2;
-    border-color: #ffd7e2;
-    border-left: 5px solid #ffd7e2;
-    padding: 0.5em;
-}
-div.optional {
-    display: block;
-    background-color: #d7e2ff;
-    border-color: #d7e2ff;
-    border-left: 5px solid #d7e2ff;
-    padding: 0.5em;
-}
-div.advanced {
-    display: block;
-    background-color: #fff4d7;
-    border-color: #fff4d7;
-    border-left: 5px solid #fff4d7;
-    padding: 0.5em;
-}
-</style>
-</div></div>
-</div>
-<p>Do not alter this cell. LaTeX commands for frequently used terms.</p>
-<div class="math notranslate nohighlight">
-\[\newcommand{\tensor}[1]{\underline{\underline{\mathbf{#1}}}}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\vector}[1]{\mathbf{#1}}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\ex}{\vector{\hat{e}}_1}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\ey}{\vector{\hat{e}}_2}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\ez}{\vector{\hat{e}}_3}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\x}{\vector{x}}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\v}{\vector{v}}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\u}{\vector{u}}\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages for notebook here</span>
-<span class="kn">import</span> <span class="nn">numpy</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-</div>
-</div>
-</div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="cauchy-stress-a-name-cauchy">
-<h1>Cauchy Stress <a name = "Cauchy"><a class="headerlink" href="#cauchy-stress-a-name-cauchy" title="Permalink to this heading">#</a></h1>
+<section id="cauchy-stress-a-name-cauchy">
+<h2>Cauchy Stress <a name = "Cauchy"><a class="headerlink" href="#cauchy-stress-a-name-cauchy" title="Permalink to this heading">#</a></h2>
 <p>The Cauchy stress tensor is a second-order tensor that completely defines the state of stress at a point inside a material in its deformed state. It is used for the stress analysis of materials undergoing small deformations, whereas for large deformations other methods have to be used such as the Piola-Kirchhoff stress tensor.</p>
 <div>
 <img src = attachment:Fig1%20.png width = "600"/>
@@ -578,8 +458,8 @@ div.advanced {
 </p>
 <p>The first index (j) describes the orientation of the plane, whereas the second index (i) describes the orientation of the force. However <em>are nine components sufficient?</em></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="plane-area-as-a-vector-a-name-plane-a">
-<h1>Plane area as a vector <a name = "Plane"></a><a class="headerlink" href="#plane-area-as-a-vector-a-name-plane-a" title="Permalink to this heading">#</a></h1>
+<section id="plane-area-as-a-vector-a-name-plane-a">
+<h2>Plane area as a vector <a name = "Plane"></a><a class="headerlink" href="#plane-area-as-a-vector-a-name-plane-a" title="Permalink to this heading">#</a></h2>
 <p>The area of plane <em>S</em> can be defined in terms of vectors, assuming that <span class="math notranslate nohighlight">\(S_0\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span> are known.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -596,7 +476,7 @@ S_0 = \mathbf{S} \cdot \mathbf{\hat{n}_0} = S\mathbf{\hat{n}} \cdot \mathbf{\hat
 <div>
 <img src = attachment:Fig2.png width = "200"/>
 </div><section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h2>
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h3>
 <p>Let us now try to answer whether nine components are sufficient to capture all the stresses acting on an object.
 <br>
 We can demonstrate this by taking the equilibrium for a tetrahedron.</p>
@@ -640,8 +520,8 @@ and similarly
 </p> 
 This is known as the Einstein convention. </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="d-stress-state-a-name-3d-a">
-<h1>3-D Stress State <a name = "3D"></a><a class="headerlink" href="#d-stress-state-a-name-3d-a" title="Permalink to this heading">#</a></h1>
+<section id="d-stress-state-a-name-3d-a">
+<h2>3-D Stress State <a name = "3D"></a><a class="headerlink" href="#d-stress-state-a-name-3d-a" title="Permalink to this heading">#</a></h2>
 <div>
 <img src = attachment:Fig6.png width = "350">
 </div>
@@ -663,13 +543,14 @@ $<span class="math notranslate nohighlight">\(
 \cdot \mathbf{\hat{n}}
 \)</span>$</p>
 <section id="important-points">
-<h2>Important Points<a class="headerlink" href="#important-points" title="Permalink to this heading">#</a></h2>
+<h3>Important Points<a class="headerlink" href="#important-points" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p><strong>t</strong> and <span class="math notranslate nohighlight">\(\mathbf{\hat{n}}\)</span> are tensors of rank 1 (i.e vectors) and <span class="math notranslate nohighlight">\(\sigma\)</span> is a tensor of rank 2 in 3-D.</p></li>
 <li><p>Compressive stresses have a negative sign whereas tensile forces have a positive sign.</p></li>
 <li><p>The diagonal members of the matrix (i.e when i = j) are normal stresses and the remaining members are shear stresses.</p></li>
 </ol>
 <p><strong>Rank 2 tensors</strong> can be written as <strong>square matrices</strong> and have algebraic properties similar to matrices.</p>
+</section>
 </section>
 <section id="tensor-symmetry-a-name-tensorsym-a">
 <h2>Tensor Symmetry <a name = "TensorSym"></a><a class="headerlink" href="#tensor-symmetry-a-name-tensorsym-a" title="Permalink to this heading">#</a></h2>
@@ -719,9 +600,8 @@ $ \mathbf{t = \sigma^{T} \cdot \hat{n} \Rightarrow t = \sigma \cdot \hat{n}} $
 </p>
 <p>Thus, the stress tensor is <strong>symmetric</strong>.</p>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="transformations-of-tensors-a-name-transformations-a">
-<h1>Transformations of Tensors <a name = "Transformations"></a><a class="headerlink" href="#transformations-of-tensors-a-name-transformations-a" title="Permalink to this heading">#</a></h1>
+<section id="transformations-of-tensors-a-name-transformations-a">
+<h2>Transformations of Tensors <a name = "Transformations"></a><a class="headerlink" href="#transformations-of-tensors-a-name-transformations-a" title="Permalink to this heading">#</a></h2>
 <p>Recap from Lecture 1.2 that the physical parameters should not depend on the coordinate frame. <strong>Tensors follow the same linear transformation laws</strong>.</p>
 <p>Add link to Lecture 1.2.</p>
 <p>For vectors on an orthonormal basis:</p>
@@ -823,8 +703,8 @@ $$
 For <em>orthonormal</em> bases, the matrices <span class="math notranslate nohighlight">\(\alpha_{ik}\)</span> are <em>orthogonal</em> transformations, i.e <span class="math notranslate nohighlight">\(\alpha_{ik}^{-1} = \alpha_{ki}\)</span> (i.e., <span class="math notranslate nohighlight">\(\mathbf{A} = \mathbf{A}^T\)</span>; columns and rows are orthogonal and have length = 1).
 If the basis is <em>Cartesian</em>, <span class="math notranslate nohighlight">\(\alpha_{ik}\)</span> are <em>real</em>.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="transforming-the-2-d-stress-tensor-a-name-2d-a">
-<h1>Transforming the 2-D stress tensor  <a name = "2D"></a><a class="headerlink" href="#transforming-the-2-d-stress-tensor-a-name-2d-a" title="Permalink to this heading">#</a></h1>
+<section id="transforming-the-2-d-stress-tensor-a-name-2d-a">
+<h2>Transforming the 2-D stress tensor  <a name = "2D"></a><a class="headerlink" href="#transforming-the-2-d-stress-tensor-a-name-2d-a" title="Permalink to this heading">#</a></h2>
 <p>This process lets us determine the normal and shear stress on a plane.</p>
 <div>
 <img src = "attachment:Fig11.PNG" width = "300" />
@@ -981,6 +861,7 @@ The first <strong>row</strong> of <strong>A</strong> consists of <span class="ma
 \end{bmatrix}
 \end{split}\]</div>
 <div class="advanced">
+</section>
 <section id="diagonalising-principal-stresses">
 <h2>Diagonalising/Principal Stresses<a class="headerlink" href="#diagonalising-principal-stresses" title="Permalink to this heading">#</a></h2>
 <p>Real-valued, symmetric rank 2 tensors (square, symmetric matrices) can only be diagonalised, i.e a coordinate frame can be found, such that only the diagonal elements (normal stresses) remain.</p>
@@ -1005,9 +886,8 @@ The first <strong>row</strong> of <strong>A</strong> consists of <span class="ma
 <p>where <span class="math notranslate nohighlight">\(\mathbf{x_i}\)</span> are eigenvectors or characteristic vectors and <span class="math notranslate nohighlight">\(\lambda_i\)</span> are the eigenvalues, characteristic or principal values.</p>
 <p>Note that a non-trivial solution exists only if <span class="math notranslate nohighlight">\(\text{det}(\mathbf{T - \lambda I}) = 0\)</span>.</p>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="stress-tensor-invariants">
-<h1>Stress/Tensor Invariants<a class="headerlink" href="#stress-tensor-invariants" title="Permalink to this heading">#</a></h1>
+<section id="stress-tensor-invariants">
+<h2>Stress/Tensor Invariants<a class="headerlink" href="#stress-tensor-invariants" title="Permalink to this heading">#</a></h2>
 <p>Invariants are properties of a tensor that do not change if the coordinate system is changed.
 <br>
 A rank-2 tensor has three invariants:</p>
@@ -1047,8 +927,8 @@ $$
 $$
 <p>These invariants are important in operations such as diagonalising.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="hydrostatic-and-deviatoric-stress">
-<h1>Hydrostatic and Deviatoric Stress<a class="headerlink" href="#hydrostatic-and-deviatoric-stress" title="Permalink to this heading">#</a></h1>
+<section id="hydrostatic-and-deviatoric-stress">
+<h2>Hydrostatic and Deviatoric Stress<a class="headerlink" href="#hydrostatic-and-deviatoric-stress" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \sigma = 
@@ -1072,30 +952,6 @@ $\text{tr}(\sigma)$ is the trace of the stress tensor and is equal to the sum of
 <p>The <strong>hydrostatic stress</strong> is the stress that leads to volume change.</p>
 <p><span class="math notranslate nohighlight">\(\sigma_{ij}'\)</span> is the <strong>deviatoric stress</strong> <span class="math notranslate nohighlight">\( = \sigma_{ij} + P\delta_{ij}\)</span>. This is the stress that leads to shape change.</p>
 <p>Note that in geological applications <span class="math notranslate nohighlight">\(\sigma_{ij}' \neq \sigma_{ij} + \rho g z \delta_{ij}\)</span></p>
-<div class="exercise">
-<section id="first-exercise-here">
-<h2>First exercise here<a class="headerlink" href="#first-exercise-here" title="Permalink to this heading">#</a></h2>
-<div class="exercise">
-<section id="first-exercise-solution-here-one-level-lower">
-<h3>First exercise solution here (one level lower)<a class="headerlink" href="#first-exercise-solution-here-one-level-lower" title="Permalink to this heading">#</a></h3>
-<div class="optional">
-</section>
-</section>
-<section id="optional-exercise">
-<h2>Optional exercise<a class="headerlink" href="#optional-exercise" title="Permalink to this heading">#</a></h2>
-<div class="optional">
-<section id="optional-exercise-answer-one-level-lower">
-<h3>Optional exercise answer (one level lower)<a class="headerlink" href="#optional-exercise-answer-one-level-lower" title="Permalink to this heading">#</a></h3>
-<div class="advanced">
-</section>
-</section>
-<section id="advanced-exercise">
-<h2>Advanced exercise<a class="headerlink" href="#advanced-exercise" title="Permalink to this heading">#</a></h2>
-<div class="advanced">
-<section id="advanced-exercise-answer-one-level-lower">
-<h3>Advanced exercise answer (one level lower)<a class="headerlink" href="#advanced-exercise-answer-one-level-lower" title="Permalink to this heading">#</a></h3>
-<p>Advanced or extension exercises don’t need solutions.</p>
-</section>
 </section>
 </section>
 
@@ -1166,52 +1022,28 @@ $\text{tr}(\sigma)$ is the trace of the stress tensor and is equal to the sum of
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Modelling and Numerical Methods  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-2-1-2-2-stress-and-tensors-a-class-tocskip">Lecture 2.1 &amp; 2.2 - Stress and Tensors  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lecturer-saskia-goes-s-goes-imperial-ac-uk">Lecturer: Saskia Goes, s.goes@imperial.ac.uk</a></li>
-</ul>
-</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#outline-a-class-tocskip">Outline  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline-a-class-tocskip">Outline  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
 <li class="nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-stress-and-tensors">Part 1: Stress and Tensors</a></li>
 </ul>
 </a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
-</ul>
-</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-stress-a-name-cauchy">Cauchy Stress <a name="Cauchy"></a></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plane-area-as-a-vector-a-name-plane-a">Plane area as a vector <a name="Plane"></a></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-stress-a-name-cauchy">Cauchy Stress <a name="Cauchy"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plane-area-as-a-vector-a-name-plane-a">Plane area as a vector <a name="Plane"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d-stress-state-a-name-3d-a">3-D Stress State <a name="3D"></a></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-points">Important Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-stress-state-a-name-3d-a">3-D Stress State <a name="3D"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-points">Important Points</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-symmetry-a-name-tensorsym-a">Tensor Symmetry <a name="TensorSym"></a></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetry-of-the-stress-tensor-a-name-symmetry-a">Symmetry of the Stress Tensor  <a name="Symmetry"></a></a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transformations-of-tensors-a-name-transformations-a">Transformations of Tensors <a name="Transformations"></a></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming-the-2-d-stress-tensor-a-name-2d-a">Transforming the 2-D stress tensor  <a name="2D"></a></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformations-of-tensors-a-name-transformations-a">Transformations of Tensors <a name="Transformations"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming-the-2-d-stress-tensor-a-name-2d-a">Transforming the 2-D stress tensor  <a name="2D"></a></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagonalising-principal-stresses">Diagonalising/Principal Stresses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stress-tensor-invariants">Stress/Tensor Invariants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrostatic-and-deviatoric-stress">Hydrostatic and Deviatoric Stress</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stress-tensor-invariants">Stress/Tensor Invariants</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrostatic-and-deviatoric-stress">Hydrostatic and Deviatoric Stress</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-exercise-here">First exercise here</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-exercise-solution-here-one-level-lower">First exercise solution here (one level lower)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-exercise">Optional exercise</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-exercise-answer-one-level-lower">Optional exercise answer (one level lower)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-exercise">Advanced exercise</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-exercise-answer-one-level-lower">Advanced exercise answer (one level lower)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
