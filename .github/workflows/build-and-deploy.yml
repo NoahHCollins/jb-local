@@ -1,39 +1,43 @@
-name: Build and Deploy Jupyter Book documentation
+name: deploy-book
+
+# Only run this when the master branch changes
 on:
   push:
     branches:
-      - master
+    - master
+
+# This job installs dependencies, builds the book, and pushes it to `gh-pages`
 jobs:
-  build-and-deploy:
-    if: github.repository == 'NoahHCollins/jb-local'
+  deploy-book:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          persist-credentials: false
+    - uses: actions/checkout@v2
 
-      - name: Setup Miniconda
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-          miniforge-variant: Mambaforge
-          activate-environment: ogusa-dev
-          environment-file: environment.yml
-          python-version: "3.10"
-          auto-activate-base: false
+    # Install dependencies
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.9
 
-      - name: Build # Build Jupyter Book
-        shell: bash -l {0}
-        run: |
-          pip install jupyter-book>=0.11.3
-          pip install sphinxcontrib-bibtex>=2.0.0
-          pip install -e .
-          python -m ipykernel install --user --name=NoahHCollins
-          jb build Numerical_Methods
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
+
+
+    # Build the book
+    - name: Build the book
+      run: |
+        python3 scripts/generate_new_toc.py
+        python3 scripts/add_modules.py
+        cd _tmp
+        cat _toc.yml
+        jupyter-book toc migrate _toc.yml -o _toc.yml
+        jupyter-book build .
+
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
           FOLDER: Numerical_Methods/_build/html # The folder the action should deploy.
