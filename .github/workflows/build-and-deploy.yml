@@ -28,8 +28,7 @@ jobs:
     # Build the book
     - name: Build the book
       run: |
-        jupyter-book toc from-project
-        jupyter-book build .
+        jupyter-book build Numerical_Methods
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
