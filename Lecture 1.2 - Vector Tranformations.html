@@ -1,0 +1,1018 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Modelling and Numerical Methods &#8212; Modelling and Numerical Methods</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lecture 1.2 - Vector Tranformations';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lecture%201.1%20-%20Intro%20to%20Vectors.html">Continuum Mechanics and Vector/Tensor Calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%201.2%20-%20Vector%20Transformations.html">Vector Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%201.3%20-%20Intro%20to%20Tensors.html">Intro to Tensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%204.1%20-%20Conservation%20Equations.html">Conservation Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%204.2%20-%20Rheology.html">Rheology</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLecture 1.2 - Vector Tranformations.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Lecture 1.2 - Vector Tranformations.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Modelling and Numerical Methods  <a class="tocSkip"></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Modelling and Numerical Methods  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-1-2-vector-transformations-a-class-tocskip">Lecture 1.2 - Vector Transformations  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lecturer-saskia-goes-s-goes-imperial-ac-uk">Lecturer: Saskia Goes, s.goes@imperial.ac.uk</a></li>
+</ul>
+</a></li>
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
+</ul>
+</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-transformation-a-name-vector-transform-a">Vector Transformation <a name="Vector_Transform"></a></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-orthogonal-bases-a-name-transformation-a">Transformation Orthogonal Bases <a name="Transformation"></a></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-calculus-a-name-vector-calc">Vector Calculus <a name="Vector_Calc"></a><ul class="nav section-nav flex-column">
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#vector-derivatives-a-name-derivatives-a">Vector derivatives  <a name="Derivatives"></a></a><ul class="nav section-nav flex-column">
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-e-g-time-a-name-scalar-a">Scalar (e.g time)<a name="Scalar"></a></a></li>
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#del-operator-a-name-del-a">Del Operator <a name="Del"></a></a></li>
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-a-name-gradient-a">Gradient <a name="Gradient"></a></a></li>
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#directional-derivatives-space-a-name-dirder-a">Directional Derivatives: Space <a name="DirDer"></a></a></li>
+</ul>
+</li>
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#vector-products-with-derivatives-a-name-vecprod-a">Vector Products with Derivatives <a name="VecProd"></a></a><ul class="nav section-nav flex-column">
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#divergence-of-a-vector-a-name-div-a">Divergence of A Vector <a name="Div"></a></a></li>
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#curl-of-a-vector-a-name-curl-a">Curl of A Vector <a name="Curl"></a></a></li>
+</ul>
+</li>
+</ul>
+</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-calculus-theorems-a-name-theorems-a">Useful Calculus Theorems <a name="Theorems"></a></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-divergence-theorem-a-name-gauss-a">Gauss Divergence Theorem <a name="Gauss"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stokes-theorem-a-name-stokes-a">Stokes Theorem <a name="Stokes"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-exercise-here">First exercise here</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#first-exercise-solution-here-one-level-lower">First exercise solution here (one level lower)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-exercise">Optional exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-exercise-answer-one-level-lower">Optional exercise answer (one level lower)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-exercise">Advanced exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-exercise-answer-one-level-lower">Advanced exercise answer (one level lower)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="modelling-and-numerical-methods-a-class-tocskip">
+<h1>Modelling and Numerical Methods  <a class="tocSkip"><a class="headerlink" href="#modelling-and-numerical-methods-a-class-tocskip" title="Permalink to this heading">#</a></h1>
+<section id="lecture-1-2-vector-transformations-a-class-tocskip">
+<h2>Lecture 1.2 - Vector Transformations  <a class="tocSkip"><a class="headerlink" href="#lecture-1-2-vector-transformations-a-class-tocskip" title="Permalink to this heading">#</a></h2>
+<section id="lecturer-saskia-goes-s-goes-imperial-ac-uk">
+<h3>Lecturer: Saskia Goes, <a class="reference external" href="mailto:s&#46;goes&#37;&#52;&#48;imperial&#46;ac&#46;uk">s<span>&#46;</span>goes<span>&#64;</span>imperial<span>&#46;</span>ac<span>&#46;</span>uk</a><a class="headerlink" href="#lecturer-saskia-goes-s-goes-imperial-ac-uk" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="learning-outcomes-a-class-tocskip">
+<h2>Learning outcomes  <a class="tocSkip"><a class="headerlink" href="#learning-outcomes-a-class-tocskip" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Perform transformation of a vector from one Cartesian basis to another</p></li>
+<li><p>Be able to do basic vector/tensor calculus (time and space derivatives, divergence, curl of a vector field) on these bases</p></li>
+</ol>
+<h1>Table of Contents<span class="tocSkip"></span></h1>
+<ol class="arabic simple">
+<li><p><span class="xref myst">Vector Transformation</span></p></li>
+<li><p><span class="xref myst">Transformation Orthogonal Bases</span></p></li>
+<li><p><span class="xref myst">Vector Calculus</span></p>
+<ol class="arabic simple">
+<li><p><span class="xref myst">Vector Derivatives</span></p>
+<ol class="arabic simple">
+<li><p><span class="xref myst">Scalar</span></p></li>
+<li><p><span class="xref myst">Del Operator</span></p></li>
+<li><p><span class="xref myst">Gradient</span></p></li>
+<li><p><span class="xref myst">Directional Derivatives</span></p></li>
+</ol>
+</li>
+<li><p><span class="xref myst">Vector Products with Derivatives</span></p>
+<ol class="arabic simple">
+<li><p><span class="xref myst">Divergence</span></p></li>
+<li><p><span class="xref myst">Curl</span></p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p><span class="xref myst">Useful Calculus Theorems</span></p>
+<ol class="arabic simple">
+<li><p><span class="xref myst">Gauss Divergence Theorem</span></p></li>
+<li><p><span class="xref myst">Stokes Theorem</span></p></li>
+</ol>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="nt">div</span><span class="p">.</span><span class="nc">exercise</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ffd7e2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ffd7e2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#ffd7e2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">div</span><span class="p">.</span><span class="nc">optional</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">div</span><span class="p">.</span><span class="nc">advanced</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+div.exercise {
+    display: block;
+    background-color: #ffd7e2;
+    border-color: #ffd7e2;
+    border-left: 5px solid #ffd7e2;
+    padding: 0.5em;
+}
+div.optional {
+    display: block;
+    background-color: #d7e2ff;
+    border-color: #d7e2ff;
+    border-left: 5px solid #d7e2ff;
+    padding: 0.5em;
+}
+div.advanced {
+    display: block;
+    background-color: #fff4d7;
+    border-color: #fff4d7;
+    border-left: 5px solid #fff4d7;
+    padding: 0.5em;
+}
+</style>
+</div></div>
+</div>
+<p>Do not alter this cell. LaTeX commands for frequently used terms.</p>
+<div class="math notranslate nohighlight">
+\[\newcommand{\tensor}[1]{\underline{\underline{\mathbf{#1}}}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\vector}[1]{\mathbf{#1}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\ex}{\vector{\hat{e}}_1}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\ey}{\vector{\hat{e}}_2}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\ez}{\vector{\hat{e}}_3}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\x}{\vector{x}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\v}{\vector{v}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\u}{\vector{u}}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages for notebook here</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="vector-transformation-a-name-vector-transform-a">
+<h1>Vector Transformation <a name = "Vector_Transform"></a><a class="headerlink" href="#vector-transformation-a-name-vector-transform-a" title="Permalink to this heading">#</a></h1>
+<p>Vector magnitude and direction do not depend on basis.</p>
+<p>When defined on an orthonormal basis, like rectangular Cartesian, the transformation to other orthonormal basis is simple, with real coefficients.</p>
+<div class="math notranslate nohighlight">
+\[ 
+\hat{e}_i \cdot \hat{e}_j = 0 \hspace{1cm} \text{if i} \neq \text{j} 
+\]</div>
+<div class="math notranslate nohighlight">
+\[ 
+\hat{e}_i \cdot \hat{e}_i = |\hat{e}_i| = 1 
+\]</div>
+<p><em>Check out Khan Academy lectures on orthonormal bases for more information.</em></p>
+<p>Physical parameters should not depend on coordinate frame.</p>
+<p>For vectors on an <strong>orthonormal</strong> basis, the transformed vector <strong>v’</strong> depends on <strong>v</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{v'}_1 = \alpha_{11} \text{v}_1 + \alpha_{12} \text{v}_2
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\text{v'}_2 = \alpha_{21} \text{v}_1 + \alpha_{22} \text{v}_2
+\]</div>
+<p>Coefficients <span class="math notranslate nohighlight">\(\alpha_{ij}\)</span> depend on angle <span class="math notranslate nohighlight">\(\phi\)</span> between <span class="math notranslate nohighlight">\(\text{x}_1\)</span> and <span class="math notranslate nohighlight">\(\text{x'}_1\)</span> (or <span class="math notranslate nohighlight">\(\text{x}_2\)</span> and <span class="math notranslate nohighlight">\(\text{x'}_2\)</span>)</p>
+<div>
+<img src="attachment:Fig1.png" width="300"/>
+</div><div>
+<img src="attachment:Fig2.png" width="300"/>
+</div><p>From the figures above, we can deduce that:</p>
+<p><span class="math notranslate nohighlight">\(\hspace{6cm} \text{v'}_1 = \cos{\phi} \hspace{0.1cm} \text{v}_1 + \sin{\phi} \hspace{0.1cm} \text{v}_2\)</span>
+<span class="math notranslate nohighlight">\(\hspace{4cm} \text{v'}_2 = -\sin{\phi} \hspace{0.1cm} \text{v}_1 + \cos{\phi} \hspace{0.1cm} \text{v}_2\)</span></p>
+<p>This gives:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{v'}=
+\begin{bmatrix}
+\alpha_{11} &amp; \alpha_{12} \\
+\alpha_{21} &amp; \alpha_{22} \\
+\end{bmatrix}
+\mathbf{v}
+\hspace{0.2cm}
+=
+\hspace{0.2cm}
+\begin{bmatrix}
+\cos{\phi} &amp; \sin{\phi} \\
+-\sin{\phi} &amp; \cos{\phi} \\
+\end{bmatrix}
+\mathbf{v}
+\end{split}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha_{11} = \hat{e}'_1 \cdot \hat{e}_1
+\hspace{1.5cm}
+\alpha_{12} = \hat{e}'_1 \cdot \hat{e}_2
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\alpha_{21} = \hat{e}'_2 \cdot \hat{e}_1
+\hspace{1.5cm}
+\alpha_{22} = \hat{e}'_2 \cdot \hat{e}_2
+\]</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="transformation-orthogonal-bases-a-name-transformation-a">
+<h1>Transformation Orthogonal Bases <a name = "Transformation"></a><a class="headerlink" href="#transformation-orthogonal-bases-a-name-transformation-a" title="Permalink to this heading">#</a></h1>
+<div>
+    <img src = "attachment:Fig3.png" width = "250" />
+</div><p>Our new basis vector can be written in terms of the old basis vector:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\hat{e}'_i = \sum_{j = 1,n} \alpha_{ij} \hat{e}_j    
+\]</div>
+<p><span class="math notranslate nohighlight">\( \cdot \hat{e}_1 \)</span> on both sides yields:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\hat{e}'_i \cdot \hat{e}_1 =  \alpha_{i1}     
+\]</div>
+<p>In other words:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\alpha_{ij} = \hat{e}'_i \cdot \hat{e}_j 
+\]</div>
+<p>For example, in the figure above:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\alpha_{11} = \cos{\theta} \hspace{0.5cm} \alpha_{31} = \cos{\alpha} \hspace{0.5cm} \alpha_{23} = \cos{\beta}
+\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{v'}=
+\begin{bmatrix}
+\cos{\phi} &amp; \sin{\phi} \\
+-\sin{\phi} &amp; \cos{\phi} \\
+\end{bmatrix}
+\mathbf{v}
+\hspace{0.2cm}
+=
+\hspace{0.2cm}
+\begin{bmatrix}
+\cos{\phi} &amp; \cos{(90 - \phi)} \\
+\cos{(90 + \phi)} &amp; \cos{\phi} \\
+\end{bmatrix}
+\mathbf{v}
+\end{split}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(90 - \phi\)</span> is the angle between <span class="math notranslate nohighlight">\(x'_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> and <span class="math notranslate nohighlight">\(90 + \phi\)</span> is the angle between <span class="math notranslate nohighlight">\(x'_2\)</span> and <span class="math notranslate nohighlight">\(x_1\)</span>.</p>
+<div>
+    <img src = "attachment:Fig4.png" width = "300" />
+</div><h2 style="color:red"> A word of caution!</h2>
+<p style = "text-align:center;">
+<span style="color:red">Vector represented on new basis</span> $\hspace{2cm}$ <span style="color:red;font-weight:bold;">v'</span> = <span style="color:purple;font-weight:bold">A</span> <span style="color:blue;font-weight:bold">v</span> $\hspace{2cm}$ <span style="color:blue;"> Vector represented on old basis</span>
+</p> 
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\color{red}{\mathbf{v'}} = 
+\begin{bmatrix}
+\color{purple}{\cos{\phi}} &amp; \color{purple}{\sin{\phi}} \\
+\color{purple}{-\sin{\phi}} &amp; \color{purple}{\cos{\phi}} \\
+\end{bmatrix}
+\color{blue}{\mathbf{v}}
+\end{split}\]</div>
+<p style = "text-align:center;">
+<span style="color:purple">Clockwise rotation by $\phi$ </span> $\hspace{1.5cm}$ <span style="color:purple;">Matrix describing change of basis</span> $\hspace{2cm}$ <span style="color:purple;font-weight:bold;"> New basis vectors are ROWS</span>
+</p> <p style = "text-align:center;">
+<span style="color:red">New basis vector</span> $\hspace{2cm}$ 
+$\color{red}{\hat{e}'}$ = $\color{purple}{A^T}$ $\color{blue}{\hat{e}}$ $\hspace{2cm}$ <span style="color:blue;"> Old basis vector</span>
+</p> 
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\color{red}{\hat{e}'} = 
+\begin{bmatrix}
+\color{purple}{\cos{\phi}} &amp; \color{purple}{-\sin{\phi}} \\
+\color{purple}{\sin{\phi}} &amp; \color{purple}{\cos{\phi}} \\
+\end{bmatrix}
+\color{blue}{\hat{e}}
+\end{split}\]</div>
+<p style = "text-align:center;">
+<span style="color:purple">Anticlockwise rotation by $\phi$ </span> $\hspace{1.5cm}$ <span style="color:purple;">Matrix describing basis transformation</span> $\;\;\;\;\;\;\;$ <span style="color:purple;font-weight:bold;"> New basis vectors are COLUMNS</span>
+</p> </section>
+<section class="tex2jax_ignore mathjax_ignore" id="vector-calculus-a-name-vector-calc">
+<h1>Vector Calculus <a name = "Vector_Calc"><a class="headerlink" href="#vector-calculus-a-name-vector-calc" title="Permalink to this heading">#</a></h1>
+<p>Vector calculus is the field of mathematics that handles differentiation and integration of vector fields.
+<br>
+It allows us to describe the spatial variation in scalar and vector fields.</p>
+<section id="vector-derivatives-a-name-derivatives-a">
+<h2>Vector derivatives  <a name = "Derivatives"></a><a class="headerlink" href="#vector-derivatives-a-name-derivatives-a" title="Permalink to this heading">#</a></h2>
+<section id="scalar-e-g-time-a-name-scalar-a">
+<h3>Scalar (e.g time)<a name = "Scalar"></a><a class="headerlink" href="#scalar-e-g-time-a-name-scalar-a" title="Permalink to this heading">#</a></h3>
+<div>
+    <img src = "attachment:Fig5.png" width = "300" />
+</div>
+<p>Taking the derivative of a vector gives:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\large{\frac{d\mathbf{v}}{dt} = 
+\begin{pmatrix}
+\frac{d v_1}{dt} &amp; \frac{d v_2}{dt} &amp; \frac{d v_1}{dt} \\
+\end{pmatrix}}
+\end{split}\]</div>
+<br>
+From first principles, we know: 
+<div class="math notranslate nohighlight">
+\[
+\large{\frac{d\mathbf{v}}{dt} = \lim_{\Delta t \to 0} \frac{\mathbf{v}(t + \Delta t) - \mathbf{v}(t)}{\Delta t}}
+\]</div>
+<p>The derivative of the vector usually has a different direction to <strong>v</strong>.
+<br>
+Remember that</p>
+<div class="math notranslate nohighlight">
+\[
+\large{\mathbf{v} = v_1 \hat{\mathbf{e}}_1 + v_2 \hat{\mathbf{e}}_2 + v_3 \hat{\mathbf{e}}_3} 
+\]</div>
+<p>Therefore, taking the derivative gives:</p>
+<div class="math notranslate nohighlight">
+\[
+\large{\frac{d \mathbf{v}}{dt} = \frac{dv_1}{dt} \hat{\mathbf{e}}_1 + \frac{dv_2}{dt} \hat{\mathbf{e}}_2 + \frac{dv_3}{dt} \hat{\mathbf{e}}_3 + \color{red}{v_1 \frac{d\mathbf{\hat{e}_1}}{dt} + v_2 \frac{d\mathbf{\hat{e}_2}}{dt} + v_3 \frac{d\mathbf{\hat{e}_3}}{dt}}} 
+\]</div>
+<p style = "text-align:center;">
+<span style="color:red">for Cartesian systems = 0</span>
+</p></section>
+<section id="del-operator-a-name-del-a">
+<h3>Del Operator <a name = "Del"></a><a class="headerlink" href="#del-operator-a-name-del-a" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\large{\nabla = \hat{e}_1 \frac{\partial}{\partial x_1} + \hat{e}_2 \frac{\partial}{\partial x_2} + \hat{e}_3 \frac{\partial}{\partial x_3} = 
+\begin{bmatrix}
+\frac{\partial}{\partial x_1} &amp; \frac{\partial}{\partial x_2} &amp; \frac{\partial}{\partial x_3} \\
+\end{bmatrix}}
+\end{split}\]</div>
+<p>The Del operator has some properties of a vector, but not all. Namely, it is not commutative.</p>
+<div class="math notranslate nohighlight">
+\[
+\large{\mathbf{v} \cdot \nabla \phi \neq (\nabla \cdot \mathbf{v}) \phi}
+\]</div>
+</section>
+<section id="gradient-a-name-gradient-a">
+<h3>Gradient <a name = "Gradient"></a><a class="headerlink" href="#gradient-a-name-gradient-a" title="Permalink to this heading">#</a></h3>
+<div>
+    <img src = "attachment:Fig6.png" width = "500" />
+</div>
+<p style = "text-align:center;">
+<p>The <strong>gradient</strong> is a vector measure of change in scalar field with distance.</p>
+<div class="math notranslate nohighlight">
+\[ 
+\large{\color{blue}{\nabla \phi = \Biggl(\frac{\partial \phi}{\partial x_1}, \frac{\partial \phi}{\partial x_2}, \frac{\partial \phi}{\partial x_3}\Biggr)}} 
+\]</div>
+</section>
+<section id="directional-derivatives-space-a-name-dirder-a">
+<h3>Directional Derivatives: Space <a name = "DirDer"></a><a class="headerlink" href="#directional-derivatives-space-a-name-dirder-a" title="Permalink to this heading">#</a></h3>
+<p>By considering the change in <span class="math notranslate nohighlight">\(\phi\)</span> over a small distance <strong>ds</strong>, we can deduce that</p>
+<div class="math notranslate nohighlight">
+\[
+\large{d\phi = \frac{\partial \phi}{\partial x_1} ds_1 + \frac{\partial \phi}{\partial x_2} ds_2  + \frac{\partial \phi}{\partial x_3} ds_3}
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\large{d\phi} = \Biggl( \frac{\partial \phi}{\partial x_1}, \frac{\partial \phi}{\partial x_2}, \frac{\partial \phi}{\partial x_3} \Biggr) \cdot
+\begin{pmatrix}
+ds_1 \\
+ds_2 \\
+ds_3 \\
+\end{pmatrix}
+= 
+\nabla \phi \cdot \mathbf{ds}
+\end{split}\]</div>
+<div>
+    <img src = "attachment:Fig7.png" width = "500" />
+</div>
+<p>Try <span style="color:blue;font-weight:bold">Exercise 5</span></p>
+</section>
+</section>
+<section id="vector-products-with-derivatives-a-name-vecprod-a">
+<h2>Vector Products with Derivatives <a name = "VecProd"></a><a class="headerlink" href="#vector-products-with-derivatives-a-name-vecprod-a" title="Permalink to this heading">#</a></h2>
+<section id="divergence-of-a-vector-a-name-div-a">
+<h3>Divergence of A Vector <a name = "Div"></a><a class="headerlink" href="#divergence-of-a-vector-a-name-div-a" title="Permalink to this heading">#</a></h3>
+<p>Divergence of a vector field represents the net outward flux per unit volume, i.e the measure of source/sink of flow. It is a scalar quantity.</p>
+<div class="math notranslate nohighlight">
+\[
+\large{\nabla} \cdot \mathbf{v} = \sum_{i = 1,3} \frac{\partial v_i}{\partial x_i} = \frac{\partial v_1}{\partial x_1} + \frac{\partial v_2}{\partial x_2} + \frac{\partial v_3}{\partial x_3} 
+\]</div>
+<div>
+    <img src = "attachment:Fig8.png" width = "500" />
+</div></section>
+<section id="curl-of-a-vector-a-name-curl-a">
+<h3>Curl of A Vector <a name = "Curl"></a><a class="headerlink" href="#curl-of-a-vector-a-name-curl-a" title="Permalink to this heading">#</a></h3>
+<p>The curl of a vector represents the amount of turn or spin (vorticity) in a vector field. This is a vector quantity.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\large{\nabla \times \mathbf{v} = 
+\begin{pmatrix}
+\frac{\partial v_3}{\partial x_2} - \frac{\partial v_2}{\partial x_3} \\
+\frac{\partial v_1}{\partial x_3} - \frac{\partial v_3}{\partial x_1} \\
+\frac{\partial v_2}{\partial x_1} - \frac{\partial v_1}{\partial x_2} \\
+\end{pmatrix}}
+\end{split}\]</div>
+<div>
+    <img src = "attachment:Fig9.png" width = "400" />
+</div></section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="useful-calculus-theorems-a-name-theorems-a">
+<h1>Useful Calculus Theorems <a name = "Theorems"></a><a class="headerlink" href="#useful-calculus-theorems-a-name-theorems-a" title="Permalink to this heading">#</a></h1>
+<p>Take a volume <em>V</em> enclosed by a surface <em>S</em> within a vector field <strong>v</strong> with continous partial derivatives.
+<br>
+Then the flow perpendicular to the boundary is: <span class="math notranslate nohighlight">\(\;\; \mathbf{v} \cdot \mathbf{\hat{n}} \;\; \)</span>
+and the flow parallel to the boundary is: <span class="math notranslate nohighlight">\(\;\; \mathbf{v} \cdot \mathbf{\hat{t}} \;\; \)</span>.
+<br>
+These can be used to simplify integration over volumes or closed surfaces as well as gain understanding of the meaning of divergence and curl.</p>
+<section id="gauss-divergence-theorem-a-name-gauss-a">
+<h2>Gauss Divergence Theorem <a name = "Gauss"></a><a class="headerlink" href="#gauss-divergence-theorem-a-name-gauss-a" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+\large{\int_{V} \nabla \cdot \mathbf{v} d\mathbf{x} = \oint_S \mathbf{v} \cdot \mathbf{\hat{n}} \; ds} 
+\]</div>
+<p>Imagine a very small sphere with radius <em>a</em> and boundary <em>S</em> around a point <em>P</em>.</p>
+<div>
+    <img src = "attachment:Fig10.png" width = "50" />
+</div>
+<div class="math notranslate nohighlight">
+\[
+\large{(\nabla \cdot \mathbf{v})_P \frac{4}{3} \pi a^3 = \oint_{S_a} \mathbf{v} \cdot \mathbf{\hat{n}} \; ds} 
+\]</div>
+</section>
+<section id="stokes-theorem-a-name-stokes-a">
+<h2>Stokes Theorem <a name = "Stokes"></a><a class="headerlink" href="#stokes-theorem-a-name-stokes-a" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+\large{\int_{V} \nabla \times \mathbf{v} d\mathbf{x} = \oint_S \mathbf{v} \cdot \mathbf{\hat{t}} \; ds} 
+\]</div>
+<p>The right-hand side of the equation gets larger if the velocities are more parallel to the boundary, or if the vector field is spinning in a consistent direction (i.e there is circulation around the boundary).</p>
+<div>
+    <img src = "attachment:Fig11.png" width = "250" />
+</div><p>Similar to Gauss Theorem, imagine a very small disk with radius <em>a</em> and boundary <span class="math notranslate nohighlight">\(\mathit{C_a}\)</span> around a point <em>P</em>.
+<br></p>
+<div>
+    <img src = "attachment:Fig12.png" width = "150" />
+</div>
+<div class="math notranslate nohighlight">
+\[ 
+\large{(\nabla \times \mathbf{v})_P \pi a^2 = \oint_{C_a} \mathbf{v} \cdot \mathbf{\hat{t}} \; ds} 
+\]</div>
+<div class="exercise">
+<section id="first-exercise-here">
+<h3>First exercise here<a class="headerlink" href="#first-exercise-here" title="Permalink to this heading">#</a></h3>
+<div class="exercise">
+<section id="first-exercise-solution-here-one-level-lower">
+<h4>First exercise solution here (one level lower)<a class="headerlink" href="#first-exercise-solution-here-one-level-lower" title="Permalink to this heading">#</a></h4>
+<div class="optional">
+</section>
+</section>
+<section id="optional-exercise">
+<h3>Optional exercise<a class="headerlink" href="#optional-exercise" title="Permalink to this heading">#</a></h3>
+<div class="optional">
+<section id="optional-exercise-answer-one-level-lower">
+<h4>Optional exercise answer (one level lower)<a class="headerlink" href="#optional-exercise-answer-one-level-lower" title="Permalink to this heading">#</a></h4>
+<div class="advanced">
+</section>
+</section>
+<section id="advanced-exercise">
+<h3>Advanced exercise<a class="headerlink" href="#advanced-exercise" title="Permalink to this heading">#</a></h3>
+<div class="advanced">
+<section id="advanced-exercise-answer-one-level-lower">
+<h4>Advanced exercise answer (one level lower)<a class="headerlink" href="#advanced-exercise-answer-one-level-lower" title="Permalink to this heading">#</a></h4>
+<p>Advanced or extension exercises don’t need solutions.</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Modelling and Numerical Methods  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-1-2-vector-transformations-a-class-tocskip">Lecture 1.2 - Vector Transformations  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lecturer-saskia-goes-s-goes-imperial-ac-uk">Lecturer: Saskia Goes, s.goes@imperial.ac.uk</a></li>
+</ul>
+</a></li>
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
+</ul>
+</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-transformation-a-name-vector-transform-a">Vector Transformation <a name="Vector_Transform"></a></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-orthogonal-bases-a-name-transformation-a">Transformation Orthogonal Bases <a name="Transformation"></a></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-calculus-a-name-vector-calc">Vector Calculus <a name="Vector_Calc"></a><ul class="nav section-nav flex-column">
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#vector-derivatives-a-name-derivatives-a">Vector derivatives  <a name="Derivatives"></a></a><ul class="nav section-nav flex-column">
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-e-g-time-a-name-scalar-a">Scalar (e.g time)<a name="Scalar"></a></a></li>
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#del-operator-a-name-del-a">Del Operator <a name="Del"></a></a></li>
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-a-name-gradient-a">Gradient <a name="Gradient"></a></a></li>
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#directional-derivatives-space-a-name-dirder-a">Directional Derivatives: Space <a name="DirDer"></a></a></li>
+</ul>
+</li>
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#vector-products-with-derivatives-a-name-vecprod-a">Vector Products with Derivatives <a name="VecProd"></a></a><ul class="nav section-nav flex-column">
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#divergence-of-a-vector-a-name-div-a">Divergence of A Vector <a name="Div"></a></a></li>
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#curl-of-a-vector-a-name-curl-a">Curl of A Vector <a name="Curl"></a></a></li>
+</ul>
+</li>
+</ul>
+</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-calculus-theorems-a-name-theorems-a">Useful Calculus Theorems <a name="Theorems"></a></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-divergence-theorem-a-name-gauss-a">Gauss Divergence Theorem <a name="Gauss"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stokes-theorem-a-name-stokes-a">Stokes Theorem <a name="Stokes"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-exercise-here">First exercise here</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#first-exercise-solution-here-one-level-lower">First exercise solution here (one level lower)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-exercise">Optional exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-exercise-answer-one-level-lower">Optional exercise answer (one level lower)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-exercise">Advanced exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-exercise-answer-one-level-lower">Advanced exercise answer (one level lower)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Imperial College London
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
