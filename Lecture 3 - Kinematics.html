@@ -1,0 +1,1017 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Modelling and Numerical Methods &#8212; Modelling and Numerical Methods</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lecture 3 - Kinematics';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Modelling and Numerical Methods
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 1 - Analytical Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter1.html">Intro to Vector/Tensor Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Lecture%201.1%20-%20Intro%20to%20Vectors.html">Continuum Mechanics and Vector/Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lecture%201.2%20-%20Vector%20Transformations.html">Lecture 1.2 - Vector Transformations  <a class="tocSkip"></a></a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="Lecture%201.3%20-%20Intro%20to%20Tensors.html">Intro to Tensors</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter2.html">Stress Tensor</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Lecture%202%20-%20Stress%20and%20Tensors.html">Modelling and Numerical Methods  <a class="tocSkip"></a></a></li>
+
+
+
+
+
+
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lecture%204.2%20-%20Rheology.html">Rheology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%204.1%20-%20Conservation%20Equations.html">Conservation Equations</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLecture 3 - Kinematics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Lecture 3 - Kinematics.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Modelling and Numerical Methods  <a class="tocSkip"></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="modelling-and-numerical-methods-a-class-tocskip">
+<h1>Modelling and Numerical Methods  <a class="tocSkip"><a class="headerlink" href="#modelling-and-numerical-methods-a-class-tocskip" title="Permalink to this heading">#</a></h1>
+<section id="lecture-3-kinematics-a-class-tocskip">
+<h2>Lecture 3, Kinematics   <a class="tocSkip"><a class="headerlink" href="#lecture-3-kinematics-a-class-tocskip" title="Permalink to this heading">#</a></h2>
+<section id="lecturer-saskia-goes-s-goes-imperial-ac-uk">
+<h3>Lecturer: Saskia Goes, <a class="reference external" href="mailto:s&#46;goes&#37;&#52;&#48;imperial&#46;ac&#46;uk">s<span>&#46;</span>goes<span>&#64;</span>imperial<span>&#46;</span>ac<span>&#46;</span>uk</a><a class="headerlink" href="#lecturer-saskia-goes-s-goes-imperial-ac-uk" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Be able to use material and spatial descriptions of variables and their time derivatives.</p></li>
+<li><p>Be able to compute infinitesimal strain (strain rate) tensor given a displacement (velocity) field.</p></li>
+<li><p>Know meaning of the different components of infinitesimal strain (rate) tensor.</p></li>
+<li><p>Be able to find principal strain (rates) and strain (rate) invariants and know what they represent.</p></li>
+<li><p>Understand difference between infinitesimal and finite strain.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="nt">div</span><span class="p">.</span><span class="nc">exercise</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ffd7e2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ffd7e2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#ffd7e2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">div</span><span class="p">.</span><span class="nc">optional</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">div</span><span class="p">.</span><span class="nc">advanced</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+div.exercise {
+    display: block;
+    background-color: #ffd7e2;
+    border-color: #ffd7e2;
+    border-left: 5px solid #ffd7e2;
+    padding: 0.5em;
+}
+div.optional {
+    display: block;
+    background-color: #d7e2ff;
+    border-color: #d7e2ff;
+    border-left: 5px solid #d7e2ff;
+    padding: 0.5em;
+}
+div.advanced {
+    display: block;
+    background-color: #fff4d7;
+    border-color: #fff4d7;
+    border-left: 5px solid #fff4d7;
+    padding: 0.5em;
+}
+</style>
+</div></div>
+</div>
+<p>Do not alter this cell. LaTeX commands for frequently used terms.</p>
+<div class="math notranslate nohighlight">
+\[\newcommand{\tensor}[1]{\underline{\underline{\mathbf{#1}}}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\vector}[1]{\mathbf{#1}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\ex}{\vector{\hat{e}}_1}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\ey}{\vector{\hat{e}}_2}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\ez}{\vector{\hat{e}}_3}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\x}{\vector{x}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\v}{\vector{v}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\u}{\vector{u}}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages for notebook here</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are two main ways to describe motion: <strong>Material</strong> (Lagrangian) and <strong>Spatial</strong> (Eulerian).<br />
+<br>
+In the <strong>material</strong> description, the behavior of individual particles is observed as they move and interact within a fluid or solid mateiral. Each particle is identified by its unique properties such as position, velocity, acceleration and the way these particles interact with each other is understood by monitoring these properties over time. This is often the preferred description for solids.</p>
+<div>
+<img src = "attachment:Fig1.PNG" width = "300" />
+</div>    
+<p>“Particle” at point <span class="math notranslate nohighlight">\(\xi\)</span> at a reference time <span class="math notranslate nohighlight">\(t_0\)</span>, moves to point <span class="math notranslate nohighlight">\(\mathbf{x}'\)</span> at a later time <em>t</em>. Field <em>P</em> described as a function of <span class="math notranslate nohighlight">\(\xi\)</span> and <em>t</em>.</p>
+<p>In the <strong>spatial</strong> description, the behaviour of the body is observed at fixed points in space over time, rather than tracking the individual particles or elements in the fluid. Imagine placing an imaginary grid or network of points throughout the fluid and analyse how the fluid properties, such as velocity, pressure, and density, vary at each point in the grid as time progresses. This is often the preferred description for fluids.</p>
+<br>
+<div>
+<img src = "attachment:Fig2.PNG" width = "300" />
+</div>    
+<p><em>In the example flow, velocity at point <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, does not change with time, but velocity that a particle originally in the same position <span class="math notranslate nohighlight">\(\xi\)</span> experiences with time does change.</em></p>
+</section>
+<section id="material-time-derivative">
+<h2>Material Time Derivative<a class="headerlink" href="#material-time-derivative" title="Permalink to this heading">#</a></h2>
+<p>The time derivative is the rate of change (with time) of a quantity for a material particle.</p>
+<p>In the <u> material description </u>, the time derivative of P is: <span class="math notranslate nohighlight">\(\hspace{0.1cm} \large{\frac{DP}{Dt}} = \Bigl(\frac{\partial P}{\partial t}\Bigr)_\xi \hspace{2cm}\)</span> <em>Note here P(<span class="math notranslate nohighlight">\(\xi, t\)</span>)</em></p>
+<p>In the <u> spatial description </u>, the time derivative of P is: <span class="math notranslate nohighlight">\(\hspace{0.1cm} \large{\frac{DP}{Dt}} = \Bigl(\frac{\partial P}{\partial t}\Bigr)_\xi = \Bigl(\frac{\partial P}{\partial t}\Bigr)_x + \frac{\partial P}{\partial t_i} \Bigl(\frac{\partial x'_i}{\partial t}\Bigr)_\xi \hspace{2cm}\)</span> <em>Note here P(<span class="math notranslate nohighlight">\(\mathbf{x}, t\)</span>)</em></p>
+<p>where <span class="math notranslate nohighlight">\(\large{\Bigl(\frac{\partial \mathbf{x}'}{\partial t}\Bigr)_\xi}= \frac{D\mathbf{x}}{Dt}\)</span> where the velocity of the particle is denoted by <span class="math notranslate nohighlight">\(\xi\)</span>. <br>
+<span class="math notranslate nohighlight">\(\hspace{1cm} \mathit{Material} \hspace{0.7cm} \mathit{Spatial} \)</span>
+<br>
+$<span class="math notranslate nohighlight">\(
+\frac{DP}{Dt} = \frac{\partial P}{\partial t} + \mathbf{v} \cdot \nabla P
+\)</span>$</p>
+<p><em>This definition works in any coordinate frame</em>.</p>
+<section id="example-acceleration">
+<h3>Example: Acceleration<a class="headerlink" href="#example-acceleration" title="Permalink to this heading">#</a></h3>
+<p>In the spatial description: <span class="math notranslate nohighlight">\( \large{\mathbf{a}} = \frac{D\mathbf{v}}{Dt} = \frac{\partial v}{\partial t} + \mathbf{v} \cdot \nabla \mathbf{v}\)</span></p>
+<p>Let’s determine the acceleration of a particle in a spatial velocity field:</p>
+<div class="math notranslate nohighlight">
+\[
+v_i = \frac{kx_i}{(1 + kt)}
+\]</div>
+<p>For <span class="math notranslate nohighlight">\(a_1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial v_1}{\partial t} = -\frac{kx_1 (k)}{(1 + kt)^2} = -\frac{k^2 x_1}{(1 + kt)^2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+v_1 \frac{\partial v_1}{\partial x_1} = \frac{kx_1}{(1 + kt)} \frac{k}{(1 + kt)} = \frac{k^2 x_1}{(1 + kt)^2} 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+v_2 \frac{\partial v_1}{\partial x_2} = 0
+\]</div>
+<p>Hence:</p>
+<div class="math notranslate nohighlight">
+\[
+a_1 = \frac{Dv_1}{Dt} = \frac{\partial v_1}{\partial t} + v_1 \frac{\partial v_1}{\partial x_1} = -\frac{k^2 x_1}{(1 + kt)^2} + \frac{k^2 x_1}{(1 + kt^2)} = 0
+\]</div>
+<br>
+<p style = "text-align:center" >
+    velocity field at $t = 0 \; (k = 1)$
+</p>
+<div>
+<img src ="attachment:Fig3.png" width = "300" />
+</div>    
+<p style = "text-align:center" >
+   Contours for magnitude, arrow direction and size
+   <br>
+   <br>
+    Spatial velocity field: $\hspace{0.2cm} \large{v_i} = \frac{kx_i}{1 + kt} \hspace{5cm}$ Acceleration: $ \hspace{0.2cm} \large{a_i} = \frac{Dv_i}{Dt} = \frac{\partial v_i}{\partial t} + v_j \frac{\partial v_i}{\partial x_j} = 0$
+</p>
+<p style = "text-align:center" >
+velocity field at $t = 2 \; (k = 1)$
+</p> 
+<div>
+<img src = "attachment:Fig4.PNG" width = "300" />
+</div>    
+<p style = "text-align:center" >
+    marker positions at constant time intervals between [0:2]
+</p><div class="optional">
+<p style = "text-align:center" >
+    Force balance: $\mathbf{F} = m \mathbf{a}$ or per unit volume $\mathbf{f} = \rho \mathbf{a}$ becomes:
+<div class="math notranslate nohighlight">
+\[
+    \large{\mathbf{f}} = \rho \frac{D \mathbf{v}}{Dt} = \rho \Biggl(\frac{\partial \mathbf{v}}{\partial t} + \mathbf{v} \cdot \nabla \mathbf{v}\Biggr)
+\]</div>
+</p>    </section>
+</section>
+<section id="displacement">
+<h2>Displacement<a class="headerlink" href="#displacement" title="Permalink to this heading">#</a></h2>
+<p>Motion of a continuum can be described by: path lines <span class="math notranslate nohighlight">\(\mathbf{x}' = \mathbf{x}'(\xi, t)\)</span> or by displacement fields <span class="math notranslate nohighlight">\(\mathbf{u}(\xi, t) = \mathbf{x}'(\xi, t) - \xi\)</span> .</p>
+<div>
+<img src = "attachment:Fig5.PNG" width = "300" />
+</div>    
+<section id="pathlines">
+<h3>Pathlines<a class="headerlink" href="#pathlines" title="Permalink to this heading">#</a></h3>
+<p>Let’s determine the pathline for the <span class="math notranslate nohighlight">\(x'_1\)</span> component of the particle’s position for the spatial velocity field of the earlier acceleration example.</p>
+<div class="math notranslate nohighlight">
+\[
+v_i = \frac{kx_i}{1 + kt}
+\]</div>
+<p>We can see that:</p>
+<div class="math notranslate nohighlight">
+\[
+v_i = \frac{\partial x'_i}{\partial t} = \frac{kx_i}{1 + kt} 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\int_{\xi_i}^{x'_i} \frac{1}{kx_i} dx_i = \int_{0}^{1} \frac{1}{1 + kt} dt  
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{k} [\ln x'_i - \ln \xi_i] = \frac{1}{k}[\ln(1 + kt) - \ln(1)]
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+x'_i(\xi, t) = (1 + kt)\xi_i 
+\]</div>
+<p>From this we can see that:</p>
+<p style = "text-align:center" >
+    Material displacement field: $\hspace{0.2cm} u'_i = kt\xi_i \hspace{1.5cm}$ Material velocity field: $ \hspace{0.2cm} v'_i = v_i = k\xi_i$
+</p>
+<p>Displacement of a body can result in <strong>rigid body motion</strong> or <strong>deformation of the body</strong>.</p>
+</section>
+</section>
+<section id="rigid-body-motion">
+<h2>Rigid Body Motion<a class="headerlink" href="#rigid-body-motion" title="Permalink to this heading">#</a></h2>
+<p>The motion through which a body shifts from one point to another is known as a <u> translation</u> . When a rigid body moves in a translational motion, the line segment between any two particles of the body remains parallel.</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{x}' = \xi + \mathbf{c}(t), \text{with} \mathbf{c}(0) = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\Rightarrow \mathbf{u}' = \mathbf{x}(t) - \xi, \hspace{0.1cm} \text{each point is the same} \hspace{0.2cm} \mathbf{u}(t) = \mathbf{c}(t)
+\]</div>
+<p><u> Rotation</u> is a rigid body motion when a solid body moves in a circular path around a fixed point or fixed axis. It is represented mathematically by:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{x' - b} = \mathbf{R}(t)(\xi - \mathbf{b})
+\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\mathbf{R}(t)\)</span> is the rotation tensor, with <span class="math notranslate nohighlight">\(\mathbf{R(0) = I}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> is the point of rotation. <span class="math notranslate nohighlight">\(\mathbf{R}(t)\)</span> is an orthogonal transformation, meaning it preserves the lengths and angles of the body. (<span class="math notranslate nohighlight">\(\mathbf{R^T R = I}, \text{det}(\mathbf{R}) = 1)\)</span>.</p>
+<br>
+If $\mathbf{u}$ depends on both $\mathbf{x}$ __AND__ _t_, then the body has undergone internal deformation. <section id="example-displacement">
+<h3>Example: Displacement<a class="headerlink" href="#example-displacement" title="Permalink to this heading">#</a></h3>
+<p>Let’s look at the velocity field from earlier. <span class="math notranslate nohighlight">\(\large{v_i} = \frac{kx_i}{1 + kt}\)</span></p>
+<p style = "text-align:center" >
+    t = 0 $\hspace{7.5cm}$ t = 2
+</p>
+<div>
+    <img src ="attachment:Fig6.png" width = "650" />
+</div>
+<p>We can see that the body undergoes translation and deformation.</p>
+</section>
+</section>
+<section id="deformation-tensor">
+<h2>Deformation Tensor<a class="headerlink" href="#deformation-tensor" title="Permalink to this heading">#</a></h2>
+<p>For small <strong>dr</strong></p>
+<div>
+    <img src = "attachment:Fig7.png" width = "450" />
+</div>
+<div class="math notranslate nohighlight">
+\[
+P_1 \hspace{0.2cm} \text{at} \hspace{0.2cm} \mathbf{r} \Rightarrow P'_1 \hspace{0.2cm} \text{at} \hspace{0.2cm} \mathbf{r + u(r)}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P_2 \hspace{0.2cm} \text{at} \hspace{0.2cm} \mathbf{r + dr} \Rightarrow  P'_2 \hspace{0.2cm} \text{at} \hspace{0.2cm} \mathbf{r + dr + u(r + dr)}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{dr}' = P_2 - P_1 = \mathbf{dr + [u(r + dr) - u(r)] = dr + du(r) = dr + dr \cdot \nabla u(r)}  
+\]</div>
+<p style = "text-align:center" >
+    Deformation of $P_2 - P_1$ described by $ \large{du_i = dx_j \frac{\partial u_i}{\partial x_j}} $
+</p>
+$$
+\mathbf{du = dr \cdot \nabla u = \nabla^T u \cdot dr}
+$$
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\large{du_i} = dx_j \frac{\partial u_j}{\partial x_j}\hspace{0.2cm} :  \hspace{1cm} 
+\begin{pmatrix}
+du_1 \\
+du_2 \\
+du_3 \\
+\end{pmatrix} = 
+\begin{pmatrix}
+dx_1 &amp; dx_2 &amp; dx_3 \\
+\end{pmatrix}
+\begin{bmatrix}
+\frac{\partial u_1}{\partial x_1} &amp; \frac{\partial u_2}{\partial x_1} &amp; \frac{\partial u_3}{\partial x_1} \\
+\frac{\partial u_1}{\partial x_2} &amp; \frac{\partial u_2}{\partial x_2} &amp; \frac{\partial u_3}{\partial x_2} \\
+\frac{\partial u_1}{\partial x_3} &amp; \frac{\partial u_2}{\partial x_3} &amp; \frac{\partial u_3}{\partial x_3} \\
+\end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+\large{\frac{\partial u_i}{\partial x_j}} = \frac{1}{2} \Biggl(\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}\Biggr) + \frac{1}{2} \Biggl(\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}\Biggr)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\large{\nabla \mathbf{u^T = \color{red}{\frac{1}{2} (\nabla u + \nabla u^T)} + \color{purple}{\frac{1}{2} (\nabla u - \nabla u^T)}}}   
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\large{\hspace{1cm} \color{red}{\varepsilon_{ij}} \hspace{4cm} \color{purple}{\omega_{ij}}}
+\]</div>
+<p>Total deformation is:</p>
+<ol class="arabic simple">
+<li><p>Rigid body transformation - <span class="math notranslate nohighlight">\(\mathbf{u(r)}\)</span></p></li>
+<li><p>Rigid body rotation - <span class="math notranslate nohighlight">\(\mathbf{\color{purple}{\omega} \hspace{0.1cm} dr}\)</span></p></li>
+<li><p>Internal deformation, strain - <span class="math notranslate nohighlight">\(\mathbf{\color{red}{\varepsilon} \hspace{0.1cm} dr}\)</span> - Result of stresses</p></li>
+</ol>
+</section>
+<section id="infinitesimal-strain-and-rotation-tensors">
+<h2>Infinitesimal Strain and Rotation Tensors<a class="headerlink" href="#infinitesimal-strain-and-rotation-tensors" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\large{\color{red}{\varepsilon}} = 
+\begin{bmatrix}
+\frac{\partial u_1}{\partial x_1} &amp; \frac{1}{2} \Biggl(\frac{\partial u_2}{\partial x_1} + \frac{\partial u_1}{\partial x_2}\Biggr) &amp; \frac{1}{2} \Biggl(\frac{\partial u_3}{\partial x_1} + \frac{\partial u_1}{\partial x_3}\Biggr) \\
+\frac{1}{2} \Biggl(\frac{\partial u_1}{\partial x_2} + \frac{\partial u_2}{\partial x_1}\Biggr) &amp; \frac{\partial u_2}{\partial x_2} &amp; \frac{1}{2} \Biggl(\frac{\partial u_3}{\partial x_2} + \frac{\partial u_2}{\partial x_3}\Biggr) \\
+\frac{1}{2} \Biggl(\frac{\partial u_1}{\partial x_3} + \frac{\partial u_3}{\partial x_2}\Biggr) &amp; \frac{1}{2} \Biggl(\frac{\partial u_2}{\partial x_3} + \frac{\partial u_3}{\partial x_2}\Biggr) &amp; \frac{\partial u_3}{\partial x_3} \\
+\end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\large{\color{purple}{\omega}} = 
+\begin{bmatrix}
+0 &amp; \frac{1}{2} \Biggl(\frac{\partial u_2}{\partial x_1} - \frac{\partial u_1}{\partial x_2}\Biggr) &amp; \frac{1}{2} \Biggl(\frac{\partial u_3}{\partial x_1} - \frac{\partial u_1}{\partial x_3}\Biggr) \\
+\frac{1}{2} \Biggl(\frac{\partial u_1}{\partial x_2} - \frac{\partial u_2}{\partial x_1}\Biggr) &amp; 0 &amp; \frac{1}{2} \Biggl(\frac{\partial u_3}{\partial x_2} - \frac{\partial u_3}{\partial x_2}\Biggr) \\
+\frac{1}{2} \Biggl(\frac{\partial u_1}{\partial x_3} - \frac{\partial u_3}{\partial x_1}\Biggr) &amp; \frac{1}{2} \Biggl(\frac{\partial u_2}{\partial x_3} - \frac{\partial u_3}{\partial x_2}\Biggr) &amp; 0 \\
+\end{bmatrix} 
+\end{split}\]</div>
+<section id="u-diagonal-u-infinitesimal-strain-tensor-elements">
+<h3><u> Diagonal</u> Infinitesimal Strain Tensor Elements<a class="headerlink" href="#u-diagonal-u-infinitesimal-strain-tensor-elements" title="Permalink to this heading">#</a></h3>
+<p>For a line segment <span class="math notranslate nohighlight">\(\mathbf{dr} =  (dx_1, 0, 0)\)</span> deforming in a displacement field <span class="math notranslate nohighlight">\( \mathbf{u} = (u_1, 0, 0) \)</span></p>
+<div>
+    <img src = "attachment:Fig8.png" width = "400" />
+</div>    
+<p>The new length: <span class="math notranslate nohighlight">\( dx'_1 \approx dx_1 + (\partial u_1 / \partial x_1 )dx_1 = dx_1 + \varepsilon_{11} dx_1\)</span></p>
+<div class="math notranslate nohighlight">
+\[ 
+\Rightarrow \large{\varepsilon_{11}} = [dx'_1 - dx_1]/dx_1 
+\]</div>
+<p style = "text-align:center" >
+the relative change in length of a line, element, originally in the $x_1$ direction    
+</p>
+<p>We can similarly find the strain elem
+The relative change in volume <span class="math notranslate nohighlight">\((V' - V)/V\)</span> of a cube <span class="math notranslate nohighlight">\(V =dx_1 dx_2 dx_3 \approx \varepsilon_{11} +  \varepsilon_{22} + \varepsilon_{33} = \varepsilon_{ii} = \text{tr}(\varepsilon) = \nabla \cdot \mathbf{u} \)</span></p>
+</section>
+<section id="u-off-diagonal-u-infinitesimal-strain-tensor-elements">
+<h3><u> Off-Diagonal</u> Infinitesimal Strain Tensor Elements<a class="headerlink" href="#u-off-diagonal-u-infinitesimal-strain-tensor-elements" title="Permalink to this heading">#</a></h3>
+<div>
+    <img src = "attachment:Fig9.png" width = "550" />
+</div>    
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\varepsilon_{12} = \varepsilon_{21} = \frac{(\alpha_1 + \alpha_2)}{2} \hspace{0.5cm}
+\large{\begin{cases}
+\alpha_1 \approx \sin \alpha_1 = \frac{(\partial u_2/\partial x_1) dx_1}{dx_1} = \frac{\partial u_2}{\partial x_1}  \\
+\alpha_2 \approx \frac{(\partial u_1/ \partial x_2) dx_2}{dx_2} = \frac{\partial u_1}{\partial x_2} \\
+\end{cases}}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(2 \varepsilon_{12}\)</span> is the change in angle between <span class="math notranslate nohighlight">\(dx_1\)</span> and <span class="math notranslate nohighlight">\(dx_2\)</span>, orginally 90 degrees .</p>
+</section>
+<section id="infinitesimal-rotation-tensor-elements">
+<h3>Infinitesimal Rotation Tensor Elements<a class="headerlink" href="#infinitesimal-rotation-tensor-elements" title="Permalink to this heading">#</a></h3>
+<div>
+    <img src = "attachment:Fig10.png" width = "400" />
+</div>    
+<div class="math notranslate nohighlight">
+\[
+\large{\omega_{12}} = - \hspace{0.1cm} \omega_{21} = \Biggl[\frac{(\partial u_2/\partial x_1) - (\partial u_1/\partial x_2)}{2}\Biggr] = \frac{(\alpha_1 - \alpha_2)}{2} 
+\]</div>
+<p><span class="math notranslate nohighlight">\(\omega_{12}\)</span> is the common rigid rotation angle of vectors in the <span class="math notranslate nohighlight">\(dx_1 - dx_2\)</span> plane (around <span class="math notranslate nohighlight">\(x_3\)</span>).</p>
+<div class = "advanced" >    
+</section>
+<section id="extra-rotation-tensor-and-rotation-vector">
+<h3>Extra: Rotation tensor and Rotation vector<a class="headerlink" href="#extra-rotation-tensor-and-rotation-vector" title="Permalink to this heading">#</a></h3>
+<p>For an antisymmetric tensor <strong>W</strong>, a corresponding <em><strong>dual</strong></em> or <em><strong>axial vector</strong></em> <strong>w</strong> can be found such that:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{W \cdot a = w \times a}
+\]</div>
+<p style = "text-align:center" >
+    Vector $\mathbf{w}$ relates to the component of $\mathbf{W}$ as: 
+</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{w} = - W_{23} \mathbf{\hat{e}_1} + W_{13} \mathbf{\hat{e}_2}  - W_{12} \mathbf{\hat{e}_3}
+\]</div>
+<p>For the rotation tensor, an equivalent rotation vector exists:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{\omega \cdot dx} = r_\omega \times \mathbf{dx} \hspace{1cm} \text{where} \hspace{1cm} r_\omega = \frac{1}{2} \nabla \times \mathbf{u}
+\]</div>
+<p>Note that <span class="math notranslate nohighlight">\(\omega\)</span> only describes the overall rigid body roation, not the total rotation of each individual segment <strong>dx</strong>, which is also influenced by <span class="math notranslate nohighlight">\( \varepsilon \)</span>.</p>
+</section>
+<section id="example-displacement-infinitesimal-strain">
+<h3>Example Displacement - Infinitesimal Strain<a class="headerlink" href="#example-displacement-infinitesimal-strain" title="Permalink to this heading">#</a></h3>
+<br>
+<div>
+    <img src = "attachment:Fig11.png" width = "300" />
+</div>
+<p style = "text-align:center" >
+    Displacement: 
+</p>    
+<div class="math notranslate nohighlight">
+\[ 
+u_x = 0.1 x^2 
+\hspace{0.5cm}
+u_y = 0.4 xy
+\]</div>
+<div>
+    <img src = "attachment:Fig12.png" width = "800" />
+</div>
+<p>We can then find the strain elements by:
+$<span class="math notranslate nohighlight">\(
+\varepsilon_{xx} = \frac{\partial u_x}{\partial x}
+\hspace{1.5cm}
+\varepsilon_{yx} = \varepsilon_{xy} = \frac{1}{2} \Bigl[\frac{\partial u_y}{\partial x} + \frac{\partial u_x}{\partial y}\Bigr] 
+\hspace{1.5cm}
+\varepsilon_{yy} = \frac{\partial u_y}{\partial y}
+\)</span>$</p>
+<div>
+    <img src = "attachment:Fig14.png" width = "500" />
+</div><p>The deformation after the finite strain can be shown graphically as:</p>
+<div>
+    <img src = "attachment:Fig13.png" width = "450" />
+</div>    <p>Additionally, we can calculate the infinitesimal rotation elements:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_{xx} = 0 \hspace{1.5cm} \omega_{yy} = 0 \hspace{1.5cm} \omega_{xy} = -\hspace{0.1cm}\omega_{yx} = \frac{1}{2} \Bigl[\frac{\partial u_y}{\partial x} - \frac{\partial u_x}{\partial y}\Bigr]
+\]</div>
+<p>We can similarly find the divergence and curl of the velocity field:</p>
+<div>
+    <img src = "attachment:Fig15.png" width = "450" />
+</div>    
+<div class="math notranslate nohighlight">
+\[
+\nabla \cdot \mathbf{u} =
+\frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} 
+\hspace{2.2cm}
+\nabla \times \mathbf{u} = \Bigl(\frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} \Bigr)
+\]</div>
+</section>
+<section id="infinitesimal-strain-tensor-properties">
+<h3>Infinitesimal Strain Tensor Properties<a class="headerlink" href="#infinitesimal-strain-tensor-properties" title="Permalink to this heading">#</a></h3>
+<p>To transform the strain tensor to an arbritary coordinate frame:</p>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon_{nn} = \varepsilon_{11} \cos^2{\phi} + \varepsilon_{12} \sin{\phi}\cos{\phi}  + \varepsilon_{21} \sin{\phi}\cos{\phi} + \varepsilon_{12} \sin^2{\phi}  
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon_{ns} = \varepsilon_{11} \sin{\phi}\cos{\phi} + \varepsilon_{21} \sin^2{\phi}  - \varepsilon_{12} \cos^2{\phi}  - \varepsilon_{22} \sin{\phi} \cos{\phi} 
+\]</div>
+<p><span class="math notranslate nohighlight">\( \varepsilon_1, \hspace{0.1cm} \varepsilon_2, \hspace{0.1cm} \varepsilon_3 \)</span> represent the <em>principal strains</em>. These are the maximum and minimum length changes of an elemental volume.</p>
+<p><span class="math notranslate nohighlight">\( \text{tr}(\varepsilon) = \theta \)</span> is the sum of the normal strains and is equal to the volume change.
+The deviatoric strain <span class="math notranslate nohighlight">\( \varepsilon'_{ij} = \varepsilon - \frac{\theta}{3} \delta_{ij} \)</span>. This stress leads to the change in shape of the object, and no change in volume.</p>
+<p><span class="math notranslate nohighlight">\(\text{tr}(\varepsilon') = 0\)</span>, does not imply that <span class="math notranslate nohighlight">\( \varepsilon'_{ij}\)</span> = 0 for <span class="math notranslate nohighlight">\( i = j \)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\varepsilon = 0\)</span> for <span class="math notranslate nohighlight">\(i = j\)</span> does not ensure no shape change.</p>
+</section>
+</section>
+<section id="strain-elements">
+<h2>Strain Elements<a class="headerlink" href="#strain-elements" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\varepsilon = 
+\begin{bmatrix}
+\varepsilon_{11} &amp; \varepsilon_{12} &amp; \varepsilon_{13} \\
+\varepsilon_{21} &amp; \varepsilon_{22} &amp; \varepsilon_{23} \\
+\varepsilon_{31} &amp; \varepsilon_{32} &amp; \varepsilon_{33} \\
+\end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{\hat{e}_1 \cdot \varepsilon \cdot \hat{e}_1} = \varepsilon_{11} 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{\hat{e}_1 \cdot \varepsilon \cdot \hat{e}_2} = \varepsilon_{12} 
+\]</div>
+<p><span class="math notranslate nohighlight">\(\mathbf{ \varepsilon \cdot \hat{p} = dp'}\)</span> is the change in the unit vector <span class="math notranslate nohighlight">\(\mathbf{\hat{p}}\)</span> after the deformation by <span class="math notranslate nohighlight">\(\varepsilon\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{\hat{p}} \cdot \varepsilon \cdot \mathbf{\hat{p}}\)</span> is the elongation by <span class="math notranslate nohighlight">\(\varepsilon\)</span> of the unit vector <span class="math notranslate nohighlight">\(\mathbf{\hat{p}}\)</span> in the direction <span class="math notranslate nohighlight">\(\mathbf{\hat{p}}\)</span>
+<br></p>
+<p>Which is the same as <span class="math notranslate nohighlight">\(\mathbf{\hat{p} \cdot dp' = |dp'| \cos{\alpha}}\)</span>.</p>
+</section>
+<section id="strain-rate-tensor">
+<h2>Strain Rate Tensor<a class="headerlink" href="#strain-rate-tensor" title="Permalink to this heading">#</a></h2>
+<p>In a similar way as a strain tensor, a tensor that describes the rate of change of deformation can be defined from the <strong>velocity gradient</strong>.</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{D}{Dt}\mathbf{dr} = \nabla \mathbf{v}
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\large{\nabla} \mathbf{v} = 
+\begin{bmatrix}
+\frac{\partial v_1}{\partial x_1} &amp; \frac{\partial v_2}{\partial x_1} &amp; \frac{\partial v_3}{\partial x_1} \\
+\frac{\partial v_1}{\partial x_2} &amp; \frac{\partial v_2}{\partial x_2} &amp; \frac{\partial v_3}{\partial x_2} \\
+\frac{\partial v_1}{\partial x_3} &amp; \frac{\partial v_2}{\partial x_3} &amp; \frac{\partial v_3}{\partial x_3}
+\end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+\nabla \mathbf{v} = \color{red}{\frac{1}{2} (\nabla \mathbf{v} + \nabla \mathbf{v}^T)} + \color{purple}{\frac{1}{2} (\nabla \mathbf{v} - \nabla \mathbf{v}^T)}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\nabla \mathbf{v = \color{red}{D} + \color{purple}{W}}
+\]</div>
+<p>The velocity gradient tensor is the sum of the <span class="math notranslate nohighlight">\(\color{red}{\text{strain rate}}\)</span> and <span class="math notranslate nohighlight">\(\color{purple}{\text{vorticity}}\)</span> tensors.</p>
+<p>Over small increments, we can assume that a constant displacement gradient is encountered.</p>
+<div>
+    <img src = "attachment:Fig13.png" width = "400" />
+</div>    <div>
+    <img src = "attachment:Fig16.png" width = "410" />
+</div>    <div>
+    <img src = "attachment:Fig17.png" width = "410" />
+</div><div class="exercise">
+<section id="first-exercise-here">
+<h3>First exercise here<a class="headerlink" href="#first-exercise-here" title="Permalink to this heading">#</a></h3>
+<div class="exercise">
+<section id="first-exercise-solution-here-one-level-lower">
+<h4>First exercise solution here (one level lower)<a class="headerlink" href="#first-exercise-solution-here-one-level-lower" title="Permalink to this heading">#</a></h4>
+<div class="optional">
+</section>
+</section>
+<section id="optional-exercise">
+<h3>Optional exercise<a class="headerlink" href="#optional-exercise" title="Permalink to this heading">#</a></h3>
+<div class="optional">
+<section id="optional-exercise-answer-one-level-lower">
+<h4>Optional exercise answer (one level lower)<a class="headerlink" href="#optional-exercise-answer-one-level-lower" title="Permalink to this heading">#</a></h4>
+<div class="advanced">
+</section>
+</section>
+<section id="advanced-exercise">
+<h3>Advanced exercise<a class="headerlink" href="#advanced-exercise" title="Permalink to this heading">#</a></h3>
+<div class="advanced">
+<section id="advanced-exercise-answer-one-level-lower">
+<h4>Advanced exercise answer (one level lower)<a class="headerlink" href="#advanced-exercise-answer-one-level-lower" title="Permalink to this heading">#</a></h4>
+<p>Advanced or extension exercises don’t need solutions.</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Imperial College London
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

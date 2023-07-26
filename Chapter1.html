@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Modelling and Numerical Methods &#8212; Modelling and Numerical Methods</title>
+    <title>Intro to Vector/Tensor Calculus &#8212; Modelling and Numerical Methods</title>
   
   
   
@@ -61,10 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter1';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Intro to Vector/Tensor Calculus" href="Chapter1.html" />
+    <link rel="next" title="Continuum Mechanics and Vector/Tensor Calculus" href="Lecture%201.1%20-%20Intro%20to%20Vectors.html" />
+    <link rel="prev" title="Modelling and Numerical Methods" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -130,7 +131,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -149,15 +150,15 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Modelling and Numerical Methods
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 1 - Analytical Background</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter1.html">Intro to Vector/Tensor Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Intro to Vector/Tensor Calculus</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="Lecture%201.1%20-%20Intro%20to%20Vectors.html">Continuum Mechanics and Vector/Tensor Calculus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Lecture%201.2%20-%20Vector%20Transformations.html">Lecture 1.2 - Vector Transformations  <a class="tocSkip"></a></a></li>
 
@@ -255,7 +256,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FChapter1.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -285,7 +286,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/Chapter1.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -295,7 +296,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -354,9 +355,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -367,21 +366,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Modelling and Numerical Methods</h1>
+    <h1>Intro to Vector/Tensor Calculus</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of contents</a><ul class="nav section-nav flex-column">
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -391,46 +380,21 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="modelling-and-numerical-methods">
-<h1>Modelling and Numerical Methods<a class="headerlink" href="#modelling-and-numerical-methods" title="Permalink to this heading">#</a></h1>
-<p>Welcome to the course [short intro]</p>
-<section id="table-of-contents">
-<h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="intro-to-vector-tensor-calculus">
+<h1>Intro to Vector/Tensor Calculus<a class="headerlink" href="#intro-to-vector-tensor-calculus" title="Permalink to this heading">#</a></h1>
+<p>Put a table of contents for the lectures here and an overview of topic?</p>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 1 - Analytical Background</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Chapter1.html">Intro to Vector/Tensor Calculus</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Lecture%201.1%20-%20Intro%20to%20Vectors.html">Continuum Mechanics and Vector/Tensor Calculus</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lecture%201.2%20-%20Vector%20Transformations.html">Lecture 1.2 - Vector Transformations  <a class="tocSkip"></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lecture%201.2%20-%20Vector%20Transformations.html#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lecture%201.2%20-%20Vector%20Transformations.html#vector-transformation-a-name-vector-transform-a">Vector Transformation <a name = "Vector_Transform"></a></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lecture%201.2%20-%20Vector%20Transformations.html#transformation-orthogonal-bases-a-name-transformation-a">Transformation Orthogonal Bases <a name = "Transformation"></a></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lecture%201.2%20-%20Vector%20Transformations.html#vector-calculus-a-name-vector-calc">Vector Calculus <a name = "Vector_Calc"></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lecture%201.2%20-%20Vector%20Transformations.html#useful-calculus-theorems-a-name-theorems-a">Useful Calculus Theorems <a name = "Theorems"></a></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lecture%201.3%20-%20Intro%20to%20Tensors.html">Intro to Tensors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Chapter2.html">Stress Tensor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Lecture%202%20-%20Stress%20and%20Tensors.html">Modelling and Numerical Methods  <a class="tocSkip"></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lecture%202%20-%20Stress%20and%20Tensors.html#cauchy-stress-a-name-cauchy">Cauchy Stress <a name = "Cauchy"></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lecture%202%20-%20Stress%20and%20Tensors.html#plane-area-as-a-vector-a-name-plane-a">Plane area as a vector <a name = "Plane"></a></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lecture%202%20-%20Stress%20and%20Tensors.html#d-stress-state-a-name-3d-a">3-D Stress State <a name = "3D"></a></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lecture%202%20-%20Stress%20and%20Tensors.html#transformations-of-tensors-a-name-transformations-a">Transformations of Tensors <a name = "Transformations"></a></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lecture%202%20-%20Stress%20and%20Tensors.html#transforming-the-2-d-stress-tensor-a-name-2d-a">Transforming the 2-D stress tensor  <a name = "2D"></a></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lecture%202%20-%20Stress%20and%20Tensors.html#stress-tensor-invariants">Stress/Tensor Invariants</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lecture%202%20-%20Stress%20and%20Tensors.html#hydrostatic-and-deviatoric-stress">Hydrostatic and Deviatoric Stress</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%201.1%20-%20Intro%20to%20Vectors.html">Continuum Mechanics and Vector/Tensor Calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%201.2%20-%20Vector%20Transformations.html">Lecture 1.2 - Vector Transformations  <a class="tocSkip"></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%201.2%20-%20Vector%20Transformations.html#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%201.2%20-%20Vector%20Transformations.html#vector-transformation-a-name-vector-transform-a">Vector Transformation <a name = "Vector_Transform"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%201.2%20-%20Vector%20Transformations.html#transformation-orthogonal-bases-a-name-transformation-a">Transformation Orthogonal Bases <a name = "Transformation"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%201.2%20-%20Vector%20Transformations.html#vector-calculus-a-name-vector-calc">Vector Calculus <a name = "Vector_Calc"></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%201.2%20-%20Vector%20Transformations.html#useful-calculus-theorems-a-name-theorems-a">Useful Calculus Theorems <a name = "Theorems"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%201.3%20-%20Intro%20to%20Tensors.html">Intro to Tensors</a></li>
 </ul>
 </div>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Lecture%204.2%20-%20Rheology.html">Rheology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lecture%204.1%20-%20Conservation%20Equations.html">Conservation Equations</a></li>
-</ul>
-</div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -464,12 +428,21 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Modelling and Numerical Methods</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="Chapter1.html"
+       href="Lecture%201.1%20-%20Intro%20to%20Vectors.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Intro to Vector/Tensor Calculus</p>
+        <p class="prev-next-title">Continuum Mechanics and Vector/Tensor Calculus</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -482,22 +455,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of contents</a><ul class="nav section-nav flex-column">
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

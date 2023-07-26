@@ -156,21 +156,35 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Intro to Vector and Tensor Calculus</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 1 - Analytical Background</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Lecture%201.1%20-%20Intro%20to%20Vectors.html">Continuum Mechanics and Vector/Tensor Calculus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lecture%201.2%20-%20Vector%20Transformations.html">Lecture 1.2 - Vector Transformations  <a class="tocSkip"></a></a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter1.html">Intro to Vector/Tensor Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Lecture%201.1%20-%20Intro%20to%20Vectors.html">Continuum Mechanics and Vector/Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lecture%201.2%20-%20Vector%20Transformations.html">Lecture 1.2 - Vector Transformations  <a class="tocSkip"></a></a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="Lecture%201.3%20-%20Intro%20to%20Tensors.html">Intro to Tensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lecture%201.3%20-%20Intro%20to%20Tensors.html">Intro to Tensors</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conservation Equations</span></p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter2.html">Stress Tensor</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Lecture%202%20-%20Stress%20and%20Tensors.html">Modelling and Numerical Methods  <a class="tocSkip"></a></a></li>
+
+
+
+
+
+
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Lecture%204.1%20-%20Conservation%20Equations.html">Conservation Equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lecture%204.2%20-%20Rheology.html">Rheology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%204.1%20-%20Conservation%20Equations.html">Conservation Equations</a></li>
 </ul>
 
     </div>
@@ -1759,7 +1773,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='4baa9c25-0efe-4936-939c-9769c03f3223'></div></div></div>
+</script><div class="output text_html"><div id='a8266bce-96a9-404b-b50f-4edf4865b6bd'></div></div></div>
 </div>
 </section>
 </section>
@@ -2791,7 +2805,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='48254edf-66f3-4e88-84eb-942257eceefa'></div></div></div>
+</script><div class="output text_html"><div id='d5b5ac25-027c-4a6a-ae42-935c570393fd'></div></div></div>
 </div>
 <div class="alert alert-info"> <font color=black>
 <p>b) Is <span class="math notranslate nohighlight">\(\hat{\mathbf{e}}^\prime_1 \cdot \hat{\mathbf{e}}^\prime_2 = 0\)</span>?</p>
@@ -2862,7 +2876,7 @@ $<span class="math notranslate nohighlight">\(\begin{vmatrix}\hat{\mathbf{e}}_1^
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b) Dot product is: 0.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b) Dot product is: 7.66449056764364e-18
 This is effectively zero:  True
 
 c) Cross product minus $e^{\prime}_3$ is: [-1.11022302e-16 -1.11022302e-16 -5.55111512e-17]
@@ -3907,7 +3921,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='a251b9f9-994c-4864-a509-57f7e23af2a8'></div></div></div>
+</script><div class="output text_html"><div id='cbdf66ba-d9bf-4fc2-b442-ed3afd7c8823'></div></div></div>
 </div>
 </section>
 </section>
@@ -4941,7 +4955,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='8d40b63c-5c63-4372-9cf4-20555ec5edbc'></div></div></div>
+</script><div class="output text_html"><div id='ba3f3e39-9616-4f65-8523-571dc5e5fc57'></div></div></div>
 </div>
 <div class="alert alert-info"> <font color=black>
 <p>b) Calculate the gradient vector field;</p>
@@ -5958,7 +5972,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='41960a1a-58be-467d-8b4d-bd590db1dc95'></div></div></div>
+</script><div class="output text_html"><div id='384398eb-a21f-49f9-8557-d2605fdfd015'></div></div></div>
 </div>
 <div class="exercise">
 </section>
@@ -6987,7 +7001,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='89cee458-a65b-48c9-87ea-be3eda22b4df'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
+</script><div class="output text_html"><div id='c3c43135-1d10-4915-8ccf-85f5a1ab3dcf'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
 
@@ -7961,7 +7975,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='da48e3bb-34a4-431e-adf6-32025c59476c'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
+</script><div class="output text_html"><div id='1d829329-0197-40ec-a5fd-8249a8eaf1c9'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
 
@@ -8935,7 +8949,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='e2607426-5b37-456c-b4dd-488ce2291754'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
+</script><div class="output text_html"><div id='2b3e58ad-be09-4fe1-8a5f-d4049a53084c'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
 
@@ -9909,7 +9923,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='1597d6fe-40eb-4d8e-9ca0-c807c1b026bb'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
+</script><div class="output text_html"><div id='6e6e817c-14a6-4ed9-9211-e0a3e9b0e3d8'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
 
@@ -10883,7 +10897,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='fbec1d8a-5902-4bc3-9ea9-a3ff166bda5d'></div></div></div>
+</script><div class="output text_html"><div id='8144f761-889e-4670-9ece-207abeef334c'></div></div></div>
 </div>
 <div class="exercise">
 <section id="answer-b">
@@ -11893,7 +11907,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='a59e0f58-8244-443c-a649-a5c86f4954ec'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
+</script><div class="output text_html"><div id='85b87f82-8350-4ba8-99ff-0193537ab084'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
 
@@ -12867,7 +12881,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='7e32db91-560f-4803-9828-80d95e5b975c'></div></div></div>
+</script><div class="output text_html"><div id='85b534fb-ea9a-43e8-88f4-fb49411f9549'></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -13855,7 +13869,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='44fa79ec-dbbf-4a66-986b-84b5f237f267'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
+</script><div class="output text_html"><div id='246c2de3-2e61-45b2-9d44-638d1d60e15c'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
 
@@ -14829,7 +14843,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='599ab04a-52e1-4188-bde6-6a23ad9fe7ce'></div></div></div>
+</script><div class="output text_html"><div id='442c5ed9-1ec9-4402-874b-74e42ed833a9'></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -15817,7 +15831,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='4b9e9ac5-ac35-46d6-8a82-9a6ceab71554'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
+</script><div class="output text_html"><div id='cfdd57ed-eac1-44c8-b04a-7bafe7215a96'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
 
@@ -16791,7 +16805,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='db214731-961b-44c6-8e44-b20ce0a3f6a3'></div></div></div>
+</script><div class="output text_html"><div id='9b182238-559f-4a01-9dc7-5b1981c08175'></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -17779,7 +17793,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='91f5cf9d-21cb-4737-9c8f-334e94271f0c'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
+</script><div class="output text_html"><div id='86b83659-4d96-4bbb-a606-29e6623e5923'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
 
@@ -18753,7 +18767,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='a77b7ab6-5248-4d33-99b4-9979cef13ae3'></div></div></div>
+</script><div class="output text_html"><div id='edd1f8bd-ab25-4012-8f5a-3b52937f416c'></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -19741,7 +19755,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='03d6bd26-eb83-4387-851b-98035cd12274'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
+</script><div class="output text_html"><div id='d4ded307-fabc-4f80-94c0-47d735473b0e'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
 
@@ -20715,7 +20729,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='0fdb18fe-d51f-4997-a2f9-caf0bef7efc4'></div></div></div>
+</script><div class="output text_html"><div id='949974bf-a7c4-4e77-8ef9-6c9cc95c13c9'></div></div></div>
 </div>
 <div class="exercise">
 </section>
