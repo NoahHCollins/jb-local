@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Vector Operations &#8212; Modelling and Numerical Methods</title>
+    <title>Vector Transformations &#8212; Modelling and Numerical Methods</title>
   
   
   
@@ -46,10 +46,13 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -157,8 +160,10 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Lecture%201.1%20-%20Intro%20to%20Vectors.html">Continuum Mechanics and Vector/Tensor Calculus</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Vector Operations</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Vector Transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lecture%201.3%20-%20Intro%20to%20Tensors.html">Intro to Tensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%204.1%20-%20Conservation%20Equations.html">Conservation Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%204.2%20-%20Rheology.html">Rheology</a></li>
 </ul>
 
     </div>
@@ -342,7 +347,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Vector Operations</h1>
+    <h1>Vector Transformations</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -352,28 +357,24 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-1-2">Lecture 1.2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saskia-goes-s-goes-imperial-ac-uk">Saskia Goes, s.goes@imperial.ac.uk</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning outcomes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-transformation">Vector Transformation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-orthogonal-bases">Transformation Orthogonal Bases</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-calculus">Vector Calculus</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-derivatives">Vector derivatives</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-e-g-time">Scalar (e.g time)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#del-operator">Del Operator</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient">Gradient</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#directional-derivatives-space">Directional Derivatives: Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-calculus">Vector Calculus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-derivatives-a-name-derivatives-a">Vector derivatives  <a name="Derivatives"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-e-g-time">Scalar (e.g time)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#del-operator-a-name-del-a">Del Operator <a name="Del"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-a-name-gradient-a">Gradient <a name="Gradient"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directional-derivatives-space-a-name-dirder-a">Directional Derivatives: Space <a name="DirDer"></a></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-products-with-derivatives">Vector Products with Derivatives</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence-of-a-vector">Divergence of A Vector</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#curl-of-a-vector">Curl of A Vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-products-with-derivatives">Vector Products with Derivatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence-of-a-vector-a-name-div-a">Divergence of A Vector <a name="Div"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curl-of-a-vector-a-name-curl-a">Curl of A Vector <a name="Curl"></a></a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-calculus-theorems">Useful Calculus Theorems</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-calculus-theorems-a-name-theorems-a">Useful Calculus Theorems <a name="Theorems"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-divergence-theorem">Gauss Divergence Theorem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stokes-theorem">Stokes Theorem</a></li>
 </ul>
@@ -389,29 +390,56 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="vector-operations">
-<h1>Vector Operations<a class="headerlink" href="#vector-operations" title="Permalink to this heading">#</a></h1>
-<section id="lecture-1-2">
-<h2>Lecture 1.2<a class="headerlink" href="#lecture-1-2" title="Permalink to this heading">#</a></h2>
-</section>
-<section id="saskia-goes-s-goes-imperial-ac-uk">
-<h2>Saskia Goes, <a class="reference external" href="mailto:s&#46;goes&#37;&#52;&#48;imperial&#46;ac&#46;uk">s<span>&#46;</span>goes<span>&#64;</span>imperial<span>&#46;</span>ac<span>&#46;</span>uk</a><a class="headerlink" href="#saskia-goes-s-goes-imperial-ac-uk" title="Permalink to this heading">#</a></h2>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="vector-transformations">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Vector Transformations</a><a class="headerlink" href="#vector-transformations" title="Permalink to this heading">#</a></h1>
+<p>Lecture 1.2<br />
+Saskia Goes, <a class="reference external" href="mailto:s&#46;goes&#37;&#52;&#48;imperial&#46;ac&#46;uk">s<span>&#46;</span>goes<span>&#64;</span>imperial<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
 <section id="learning-outcomes">
-<h2>Learning outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Learning outcomes</a><a class="headerlink" href="#learning-outcomes" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Be able to perform vector/tensor operations (addition, multiplication) on Cartesian orthonormal bases</p></li>
 <li><p>Perform transformation of a vector from one Cartesian basis to another</p></li>
 <li><p>Be able to do basic vector/tensor calculus (time and space derivatives, divergence, curl of a vector field) on these bases</p></li>
-<li><p>Understand differences/commonalities tensor and vector</p></li>
-<li><p>Use index notation and Einstein convention</p></li>
 </ol>
 </section>
 <section id="table-of-contents">
-<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#vector-transformations" id="id1">Vector Transformations</a></p>
+<ul>
+<li><p><a class="reference internal" href="#learning-outcomes" id="id2">Learning outcomes</a></p></li>
+<li><p><a class="reference internal" href="#table-of-contents" id="id3">Table of Contents</a></p></li>
+<li><p><a class="reference internal" href="#vector-transformation" id="id4">Vector Transformation</a></p></li>
+<li><p><a class="reference internal" href="#transformation-orthogonal-bases" id="id5">Transformation Orthogonal Bases</a></p></li>
+<li><p><a class="reference internal" href="#vector-calculus" id="id6">Vector Calculus</a></p></li>
+<li><p><a class="reference internal" href="#vector-derivatives-a-name-derivatives-a" id="id7">Vector derivatives  <a name = "Derivatives"></a></a></p>
+<ul>
+<li><p><a class="reference internal" href="#scalar-e-g-time" id="id8">Scalar (e.g time)</a></p></li>
+<li><p><a class="reference internal" href="#del-operator-a-name-del-a" id="id9">Del Operator <a name = "Del"></a></a></p></li>
+<li><p><a class="reference internal" href="#gradient-a-name-gradient-a" id="id10">Gradient <a name = "Gradient"></a></a></p></li>
+<li><p><a class="reference internal" href="#directional-derivatives-space-a-name-dirder-a" id="id11">Directional Derivatives: Space <a name = "DirDer"></a></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#vector-products-with-derivatives" id="id12">Vector Products with Derivatives</a></p>
+<ul>
+<li><p><a class="reference internal" href="#divergence-of-a-vector-a-name-div-a" id="id13">Divergence of A Vector <a name = "Div"></a></a></p></li>
+<li><p><a class="reference internal" href="#curl-of-a-vector-a-name-curl-a" id="id14">Curl of A Vector <a name = "Curl"></a></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#useful-calculus-theorems-a-name-theorems-a" id="id15">Useful Calculus Theorems <a name = "Theorems"></a></a></p>
+<ul>
+<li><p><a class="reference internal" href="#gauss-divergence-theorem" id="id16">Gauss Divergence Theorem</a></p></li>
+<li><p><a class="reference internal" href="#stokes-theorem" id="id17">Stokes Theorem</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
 </section>
 <section id="vector-transformation">
-<h2>Vector Transformation<a class="headerlink" href="#vector-transformation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Vector Transformation</a><a class="headerlink" href="#vector-transformation" title="Permalink to this heading">#</a></h2>
 <p>Vector magnitude and direction do not depend on basis.</p>
 <p>When defined on an orthonormal basis, like rectangular Cartesian, the transformation to other orthonormal basis is simple, with real coefficients.</p>
 <p style='text-align: center;'> $ \hat{e}_i \cdot \hat{e}_j = 0 \hspace{1cm} \text{if i} \neq \text{j} $</p>
@@ -425,8 +453,12 @@ $\text{v'}_1 = \alpha_{11} \text{v}_1 + \alpha_{12} \text{v}_2$
 $\text{v'}_2 = \alpha_{21} \text{v}_1 + \alpha_{22} \text{v}_2$ 
 </p>
 <p>Coefficients <span class="math notranslate nohighlight">\(\alpha_{ij}\)</span> depend on angle <span class="math notranslate nohighlight">\(\phi\)</span> between <span class="math notranslate nohighlight">\(\text{x}_1\)</span> and <span class="math notranslate nohighlight">\(\text{x'}_1\)</span> (or <span class="math notranslate nohighlight">\(\text{x}_2\)</span> and <span class="math notranslate nohighlight">\(\text{x'}_2\)</span>)</p>
-<p><img alt="Fig1.png" src="attachment:Fig1.png" /></p>
-<p><img alt="Second%20Figure.png" src="attachment:Second%20Figure.png" /></p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/Fig1.png"><img alt="_images/Fig1.png" src="_images/Fig1.png" style="width: 75%;" /></a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/Fig2.png"><img alt="_images/Fig2.png" src="_images/Fig2.png" style="width: 75%;" /></a>
+</figure>
 <p>From the figures above, we can deduce that:</p>
 <p><span class="math notranslate nohighlight">\(\hspace{6cm} \text{v'}_1 = \cos{\phi} \hspace{0.1cm} \text{v}_1 + \sin{\phi} \hspace{0.1cm} \text{v}_2\)</span>
 <span class="math notranslate nohighlight">\(\hspace{4cm} \text{v'}_2 = -\sin{\phi} \hspace{0.1cm} \text{v}_1 + \cos{\phi} \hspace{0.1cm} \text{v}_2\)</span></p>
@@ -460,26 +492,27 @@ $<span class="math notranslate nohighlight">\(
 \hspace{1.5cm}
 \alpha_{22} = \hat{e}'_2 \cdot \hat{e}_2
 \]</div>
-<p><img alt="Fig1.png" src="attachment:Fig1.png" /></p>
 </section>
 <section id="transformation-orthogonal-bases">
-<h2>Transformation Orthogonal Bases<a class="headerlink" href="#transformation-orthogonal-bases" title="Permalink to this heading">#</a></h2>
-<img src="Figures/Lecture1.2/Fig4.png" style="width:10cm;float:right"> 
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Transformation Orthogonal Bases</a><a class="headerlink" href="#transformation-orthogonal-bases" title="Permalink to this heading">#</a></h2>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/Fig3.png"><img alt="_images/Fig3.png" src="_images/Fig3.png" style="width: 75%;" /></a>
+</figure>
 <p>Our new basis vector can be written in terms of the old basis vector:</p>
 <p style='text-align: center;'>
-$ \hat{e}'_i = \sum_{j = 1,n} \alpha_{ij} \hat{e}_j $    
+$ \large{\hat{e}'_i} = \sum_{j = 1,n} \alpha_{ij} \hat{e}_j $    
 </p>
 <p><span class="math notranslate nohighlight">\( \cdot \hat{e}_1 \)</span> on both sides yields:</p>
 <p style='text-align: center;'>
-$ \hat{e}'_i \cdot \hat{e}_1 =  \alpha_{i1} $    
+$ \large{\hat{e}'_i} \cdot \hat{e}_1 =  \alpha_{i1} $    
 </p>
 <p>In other words:</p>
 <p style='text-align: center;'>
-$ \alpha_{ij} = \hat{e}'_i \cdot \hat{e}_j $
+$ \large{\alpha_{ij}} = \hat{e}'_i \cdot \hat{e}_j $
 </p>
-<p>For example, in the figure to the right:</p>
+<p>For example, in the figure above:</p>
 <p style='text-align: center;'>
-$ \alpha_{11} = \cos{\theta} \hspace{0.5cm} \alpha_{31} = \cos{\alpha} \hspace{0.5cm} \alpha_{23} = \cos{\beta}$
+$ \large{\alpha_{11}} = \cos{\theta} \hspace{0.5cm} \alpha_{31} = \cos{\alpha} \hspace{0.5cm} \alpha_{23} = \cos{\beta}$
 </p>
 Therefore: 
 <div class="math notranslate nohighlight">
@@ -500,7 +533,10 @@ Therefore:
 \mathbf{v}
 \end{split}\]</div>
 <p>Where <span class="math notranslate nohighlight">\(90 - \phi\)</span> is the angle between <span class="math notranslate nohighlight">\(x'_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> and <span class="math notranslate nohighlight">\(90 + \phi\)</span> is the angle between <span class="math notranslate nohighlight">\(x'_2\)</span> and <span class="math notranslate nohighlight">\(x_1\)</span>.</p>
-<img src="Figures/Lecture1.2/Fig1.png" style="width:10cm;"> <h2 style="color:red"> A word of caution!</h2>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/Fig4.png"><img alt="_images/Fig4.png" src="_images/Fig4.png" style="width: 75%;" /></a>
+</figure>
+<h2 style="color:red"> A word of caution!</h2>
 <p style = "text-align:center;">
 <span style="color:red">Vector represented on new basis</span> $\;\;\;\;\;\;\;$ <span style="color:red;font-weight:bold;">v'</span> = <span style="color:purple;font-weight:bold">A</span> <span style="color:blue;font-weight:bold">v</span> $\;\;\;\;\;\;\;$ <span style="color:blue;"> Vector represented on old basis</span>
 </p> 
@@ -533,16 +569,19 @@ $
 <span style="color:purple">Anticlockwise rotation by $\phi$ </span> $\;\;\;\;\;$ <span style="color:purple;">Matrix describing basis transformation</span> $\;\;\;\;\;\;\;$ <span style="color:purple;font-weight:bold;"> New basis vectors are COLUMNS</span>
 </p> </section>
 <section id="vector-calculus">
-<h2>Vector Calculus<a class="headerlink" href="#vector-calculus" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Vector Calculus</a><a class="headerlink" href="#vector-calculus" title="Permalink to this heading">#</a></h2>
 <p>Vector calculus is the field of mathematics that handles differentiation and integration of vector fields.
 <br>
 It allows us to describe the spatial variation in scalar and vector fields.</p>
-<section id="vector-derivatives">
-<h3>Vector derivatives<a class="headerlink" href="#vector-derivatives" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="vector-derivatives-a-name-derivatives-a">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Vector derivatives  <a name = "Derivatives"></a></a><a class="headerlink" href="#vector-derivatives-a-name-derivatives-a" title="Permalink to this heading">#</a></h2>
 <section id="scalar-e-g-time">
-<h4>Scalar (e.g time)<a class="headerlink" href="#scalar-e-g-time" title="Permalink to this heading">#</a></h4>
-<img src = "Figures/Lecture1.2/Fig5.png" style = "width:10cm;float:right"> 
-<p>Taking the derivative of a vector is:</p>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Scalar (e.g time)</a><a class="headerlink" href="#scalar-e-g-time" title="Permalink to this heading">#</a></h3>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/Fig5.png"><img alt="_images/Fig5.png" src="_images/Fig5.png" style="width: 75%;" /></a>
+</figure>
+<p>Taking the derivative of a vector gives:</p>
 <p style = "text-align:center;">
 $$
 \large{\frac{d\mathbf{v}}{dt} = 
@@ -570,8 +609,8 @@ $ \large{\frac{d \mathbf{v}}{dt} = \frac{dv_1}{dt} \hat{\mathbf{e}}_1 + \frac{dv
 <p style = "text-align:center;">
 <span style="color:red">for Cartesian systems = 0</span>
 </p></section>
-<section id="del-operator">
-<h4>Del Operator<a class="headerlink" href="#del-operator" title="Permalink to this heading">#</a></h4>
+<section id="del-operator-a-name-del-a">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Del Operator <a name = "Del"></a></a><a class="headerlink" href="#del-operator-a-name-del-a" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \large{\nabla = \hat{e}_1 \frac{\partial}{\partial x_1} + \hat{e}_2 \frac{\partial}{\partial x_2} + \hat{e}_3 \frac{\partial}{\partial x_3} = 
@@ -583,17 +622,19 @@ $ \large{\frac{d \mathbf{v}}{dt} = \frac{dv_1}{dt} \hat{\mathbf{e}}_1 + \frac{dv
 <p style = "text-align:center;">
 $ \large{\mathbf{v} \cdot \nabla \phi \neq (\nabla \cdot \mathbf{v}) \phi} $
 </p></section>
-<section id="gradient">
-<h4>Gradient<a class="headerlink" href="#gradient" title="Permalink to this heading">#</a></h4>
-<img src = "Figures/Lecture1.2/Fig6.png" style = "width:12cm;">
+<section id="gradient-a-name-gradient-a">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Gradient <a name = "Gradient"></a></a><a class="headerlink" href="#gradient-a-name-gradient-a" title="Permalink to this heading">#</a></h3>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/Fig6.png"><img alt="_images/Fig6.png" src="_images/Fig6.png" style="width: 75%;" /></a>
+</figure>
 <p style = "text-align:center;">
 <p>The <strong>gradient</strong> is a vector measure of change in scalar field with distance.
 $<span class="math notranslate nohighlight">\( 
 \large{\color{blue}{\nabla \phi = \Biggl(\frac{\partial \phi}{\partial x_1}, \frac{\partial \phi}{\partial x_2}, \frac{\partial \phi}{\partial x_3}\Biggr)}} 
 \)</span>$</p>
 </section>
-<section id="directional-derivatives-space">
-<h4>Directional Derivatives: Space<a class="headerlink" href="#directional-derivatives-space" title="Permalink to this heading">#</a></h4>
+<section id="directional-derivatives-space-a-name-dirder-a">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Directional Derivatives: Space <a name = "DirDer"></a></a><a class="headerlink" href="#directional-derivatives-space-a-name-dirder-a" title="Permalink to this heading">#</a></h3>
 <p>By considering the change in <span class="math notranslate nohighlight">\(\phi\)</span> over a small distance <strong>ds</strong>, we can deduce that</p>
 <p style = "text-align:center;">
 $$
@@ -610,21 +651,26 @@ ds_3 \\
 = 
 \nabla \phi \cdot \mathbf{ds}
 \end{split}\]</div>
-<img src = "Figures/Lecture1.2/Fig7.png" style = "width:14cm;" /> 
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/Fig7.png"><img alt="_images/Fig7.png" src="_images/Fig7.png" style="width: 75%;" /></a>
+</figure>
 <p>Try <span style="color:blue;font-weight:bold">Exercise 5</span></p>
 </section>
 </section>
 <section id="vector-products-with-derivatives">
-<h3>Vector Products with Derivatives<a class="headerlink" href="#vector-products-with-derivatives" title="Permalink to this heading">#</a></h3>
-<section id="divergence-of-a-vector">
-<h4>Divergence of A Vector<a class="headerlink" href="#divergence-of-a-vector" title="Permalink to this heading">#</a></h4>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Vector Products with Derivatives</a><a class="headerlink" href="#vector-products-with-derivatives" title="Permalink to this heading">#</a></h2>
+<section id="divergence-of-a-vector-a-name-div-a">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Divergence of A Vector <a name = "Div"></a></a><a class="headerlink" href="#divergence-of-a-vector-a-name-div-a" title="Permalink to this heading">#</a></h3>
 <p>Divergence of a vector field represents the net outward flux per unit volume, i.e the measure of source/sink of flow. It is a scalar quantity.</p>
 <p style="text-align:center;">
 $ \large{\nabla} \cdot \mathbf{v} = \sum_{i = 1,3} \frac{\partial v_i}{\partial x_i} = \frac{\partial v_1}{\partial x_1} + \frac{\partial v_2}{\partial x_2} + \frac{\partial v_3}{\partial x_3} $
 </p>
-<img src = "Figures/Lecture1.2/Fig8.png" style = "width:12cm;"></section>
-<section id="curl-of-a-vector">
-<h4>Curl of A Vector<a class="headerlink" href="#curl-of-a-vector" title="Permalink to this heading">#</a></h4>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/Fig8.png"><img alt="_images/Fig8.png" src="_images/Fig8.png" style="width: 75%;" /></a>
+</figure>
+</section>
+<section id="curl-of-a-vector-a-name-curl-a">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Curl of A Vector <a name = "Curl"></a></a><a class="headerlink" href="#curl-of-a-vector-a-name-curl-a" title="Permalink to this heading">#</a></h3>
 <p>The curl of a vector represents the amount of turn or spin (vorticity) in a vector field. This is a vector quantity.</p>
 <p style="text-align:center;">
 $ \large{\nabla \times \mathbf{v} = 
@@ -635,41 +681,47 @@ $ \large{\nabla \times \mathbf{v} =
 \end{pmatrix}}
 $
 </p>
-<img src = "Figures/Lecture1.2/Fig9.png" style = "width:12cm"></section>
+<br>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/Fig9.png"><img alt="_images/Fig9.png" src="_images/Fig9.png" style="width: 75%;" /></a>
+</figure>
 </section>
 </section>
-<section id="useful-calculus-theorems">
-<h2>Useful Calculus Theorems<a class="headerlink" href="#useful-calculus-theorems" title="Permalink to this heading">#</a></h2>
+<section id="useful-calculus-theorems-a-name-theorems-a">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Useful Calculus Theorems <a name = "Theorems"></a></a><a class="headerlink" href="#useful-calculus-theorems-a-name-theorems-a" title="Permalink to this heading">#</a></h2>
 <p>Take a volume <em>V</em> enclosed by a surface <em>S</em> within a vector field <strong>v</strong> with continous partial derivatives.
 <br>
-Then the flow perpendicular to the boundary is: <span class="math notranslate nohighlight">\(\large{\;\; \mathbf{v} \cdot \mathbf{\hat{n}} \;\;} \)</span>
-and the flow parallel to the boundary is: <span class="math notranslate nohighlight">\(\large{\;\; \mathbf{v} \cdot \mathbf{\hat{t}} \;\;} \)</span>.
+Then the flow perpendicular to the boundary is: <span class="math notranslate nohighlight">\(\;\; \mathbf{v} \cdot \mathbf{\hat{n}} \;\; \)</span>
+and the flow parallel to the boundary is: <span class="math notranslate nohighlight">\(\;\; \mathbf{v} \cdot \mathbf{\hat{t}} \;\; \)</span>.
 <br>
 These can be used to simplify integration over volumes or closed surfaces as well as gain understanding of the meaning of divergence and curl.</p>
 <section id="gauss-divergence-theorem">
-<h3>Gauss Divergence Theorem<a class="headerlink" href="#gauss-divergence-theorem" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Gauss Divergence Theorem</a><a class="headerlink" href="#gauss-divergence-theorem" title="Permalink to this heading">#</a></h3>
 <p style = "text-align:center;">
     $ \large{\int_{V} \nabla \cdot \mathbf{v} d\mathbf{x} = \oint_S \mathbf{v} \cdot \mathbf{\hat{n}} \; ds} $
 </p>
-<p>Imagine a very small sphere with radius <em>a</em> and boundary <em>S</em> around a point <em>P</em>.
-<img src = "Figures/Lecture1.2/Fig10.png" style = "width:5cm;float:left"></p>
+<p>Imagine a very small sphere with radius <em>a</em> and boundary <em>S</em> around a point <em>P</em>.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/Fig10.png"><img alt="_images/Fig10.png" src="_images/Fig10.png" style="width: 75%;" /></a>
+</figure>
 <p style = "text-align:center;">
 $ \large{(\nabla \cdot \mathbf{v})_P \frac{4}{3} \pi a^3 = \oint_{S_a} \mathbf{v} \cdot \mathbf{\hat{n}} \; ds} $
 </p>
 <br></section>
 <section id="stokes-theorem">
-<h3>Stokes Theorem<a class="headerlink" href="#stokes-theorem" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Stokes Theorem</a><a class="headerlink" href="#stokes-theorem" title="Permalink to this heading">#</a></h3>
 <p style = "text-align:center;">
     $ \large{\int_{V} \nabla \times \mathbf{v} d\mathbf{x} = \oint_S \mathbf{v} \cdot \mathbf{\hat{t}} \; ds} $
 </p>
-<img src = "Figures/Fig11.png" style = "width:8cm;float:left">
-<br>
-<br>
-<br>
-<br>
-The right-hand side of the equation gets larger if the velocities are more parallel to the boundary, or if the vector field is spinning in a consistent direction (i.e there is circulation around the boundary). <p>Imagine a very small disk with radius <em>a</em> and boundary <span class="math notranslate nohighlight">\(\mathit{C_a}\)</span> around a point <em>P</em>.</p>
-<img src = "Figures/Lecture1.2/Fig12.png" style = "width:5cm;float:left">
-<br>
+<p>The right-hand side of the equation gets larger if the velocities are more parallel to the boundary, or if the vector field is spinning in a consistent direction (i.e there is circulation around the boundary).</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/Fig11.png"><img alt="_images/Fig11.png" src="_images/Fig11.png" style="width: 75%;" /></a>
+</figure>
+<p>Similar to Gauss Theorem, imagine a very small disk with radius <em>a</em> and boundary <span class="math notranslate nohighlight">\(\mathit{C_a}\)</span> around a point <em>P</em>.
+<br></p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/Fig12.png"><img alt="_images/Fig12.png" src="_images/Fig12.png" style="width: 75%;" /></a>
+</figure>
 <br>
 <p style = "text-align:center;">
 $ \large{(\nabla \times \mathbf{v})_P \pi a^2 = \oint_{C_a} \mathbf{v} \cdot \mathbf{\hat{t}} \; ds} $
@@ -744,28 +796,24 @@ $ \large{(\nabla \times \mathbf{v})_P \pi a^2 = \oint_{C_a} \mathbf{v} \cdot \ma
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-1-2">Lecture 1.2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saskia-goes-s-goes-imperial-ac-uk">Saskia Goes, s.goes@imperial.ac.uk</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning outcomes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-transformation">Vector Transformation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-orthogonal-bases">Transformation Orthogonal Bases</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-calculus">Vector Calculus</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-derivatives">Vector derivatives</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-e-g-time">Scalar (e.g time)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#del-operator">Del Operator</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient">Gradient</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#directional-derivatives-space">Directional Derivatives: Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-calculus">Vector Calculus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-derivatives-a-name-derivatives-a">Vector derivatives  <a name="Derivatives"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-e-g-time">Scalar (e.g time)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#del-operator-a-name-del-a">Del Operator <a name="Del"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-a-name-gradient-a">Gradient <a name="Gradient"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directional-derivatives-space-a-name-dirder-a">Directional Derivatives: Space <a name="DirDer"></a></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-products-with-derivatives">Vector Products with Derivatives</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence-of-a-vector">Divergence of A Vector</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#curl-of-a-vector">Curl of A Vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-products-with-derivatives">Vector Products with Derivatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence-of-a-vector-a-name-div-a">Divergence of A Vector <a name="Div"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curl-of-a-vector-a-name-curl-a">Curl of A Vector <a name="Curl"></a></a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-calculus-theorems">Useful Calculus Theorems</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-calculus-theorems-a-name-theorems-a">Useful Calculus Theorems <a name="Theorems"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-divergence-theorem">Gauss Divergence Theorem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stokes-theorem">Stokes Theorem</a></li>
 </ul>

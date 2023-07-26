@@ -46,10 +46,13 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -155,8 +158,10 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Lecture%201.1%20-%20Intro%20to%20Vectors.html">Continuum Mechanics and Vector/Tensor Calculus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lecture%201.2%20-%20Vector%20Tranformations.html">Vector Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%201.2%20-%20Vector%20Transformations.html">Vector Transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lecture%201.3%20-%20Intro%20to%20Tensors.html">Intro to Tensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%204.1%20-%20Conservation%20Equations.html">Conservation Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%204.2%20-%20Rheology.html">Rheology</a></li>
 </ul>
 
     </div>
@@ -407,7 +412,7 @@ For example, here’s some sample Matplotlib code:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;contextlib.ExitStack at 0x1e9e10020d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;contextlib.ExitStack at 0x7f543043c3d0&gt;
 </pre></div>
 </div>
 </div>
@@ -436,7 +441,7 @@ For example, here’s some sample Matplotlib code:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/669ed9ca52edff2851045aeafccd6f855f4d163ea9713cb0f374ff6852774c82.png" src="_images/669ed9ca52edff2851045aeafccd6f855f4d163ea9713cb0f374ff6852774c82.png" />
+<img alt="_images/10e4426d9a98b8b32d6c7c558b9983b6bfbf3f7b3422996bacff632594cdfad8.png" src="_images/10e4426d9a98b8b32d6c7c558b9983b6bfbf3f7b3422996bacff632594cdfad8.png" />
 </div>
 </div>
 <p>There is a lot more that you can do with outputs (such as including interactive outputs)
