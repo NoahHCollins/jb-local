@@ -1,0 +1,754 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Conservation Equations &#8212; Modelling and Numerical Methods</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lecture 4.1 - Conservation Equations';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lecture%201.1%20-%20Intro%20to%20Vectors.html">Continuum Mechanics and Vector/Tensor Calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%201.3%20-%20Intro%20to%20Tensors.html">Intro to Tensors</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLecture 4.1 - Conservation Equations.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Lecture 4.1 - Conservation Equations.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Conservation Equations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuum-mechanics-equations">Continuum Mechanics Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermodynamics-conservation-of-energy">Thermodynamics: Conservation of Energy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-s-law-for-conduction">Fourier’s Law for conduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-steady-state-conduction">1-D Steady State Conduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-energy-equation">2-D Energy Equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-equation">Energy Equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-heat">Conservation of heat</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conservation Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-advection-diffusion-solution">1-D advection-diffusion solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#take-a-break">Take a break</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="conservation-equations">
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">Conservation Equations</a><a class="headerlink" href="#conservation-equations" title="Permalink to this heading">#</a></h1>
+<p>Lecture 4.1<br />
+Saskia Goes, <a class="reference external" href="mailto:s&#46;goes&#37;&#52;&#48;imperial&#46;ac&#46;uk">s<span>&#46;</span>goes<span>&#64;</span>imperial<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
+<section id="table-of-contents">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#conservation-equations" id="id2">Conservation Equations</a></p>
+<ul>
+<li><p><a class="reference internal" href="#table-of-contents" id="id3">Table of Contents</a></p></li>
+<li><p><a class="reference internal" href="#learning-objectives" id="id4">Learning Objectives</a></p></li>
+<li><p><a class="reference internal" href="#continuum-mechanics-equations" id="id5">Continuum Mechanics Equations</a></p></li>
+<li><p><a class="reference internal" href="#thermodynamics-conservation-of-energy" id="id6">Thermodynamics: Conservation of Energy</a></p>
+<ul>
+<li><p><a class="reference internal" href="#fourier-s-law-for-conduction" id="id7">Fourier’s Law for conduction</a></p></li>
+<li><p><a class="reference internal" href="#d-steady-state-conduction" id="id8">1-D Steady State Conduction</a></p></li>
+<li><p><a class="reference internal" href="#d-energy-equation" id="id9">2-D Energy Equation</a></p></li>
+<li><p><a class="reference internal" href="#energy-equation" id="id10">Energy Equation</a></p></li>
+<li><p><a class="reference internal" href="#conservation-of-heat" id="id11">Conservation of heat</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id1" id="id12">Conservation Equations</a></p>
+<ul>
+<li><p><a class="reference internal" href="#d-advection-diffusion-solution" id="id13">1-D advection-diffusion solution</a></p></li>
+<li><p><a class="reference internal" href="#take-a-break" id="id14">Take a break</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</section>
+<section id="learning-objectives">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Learning Objectives</a><a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Learn main conservation equations used in
+continuum mechanics modelling and understand
+what different terms in these equations represent</p></li>
+<li><p>Be able to solve conservation equations for basic
+analytical solutions given boundary/initial
+conditions.</p></li>
+</ul>
+</section>
+<section id="continuum-mechanics-equations">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Continuum Mechanics Equations</a><a class="headerlink" href="#continuum-mechanics-equations" title="Permalink to this heading">#</a></h2>
+<p><strong>General:</strong></p>
+<ol class="arabic simple">
+<li><p><em>Kinematics</em> – describing deformation and velocity without
+considering forces</p></li>
+<li><p><em>Dynamics</em> – equations that describe force balance, conservation
+of linear and angular momentum</p></li>
+<li><p><em>Thermodynamics</em> – relations temperature, heat flux, stress,
+entropy</p></li>
+</ol>
+<p><strong>Material Specific:</strong></p>
+<ol class="arabic simple" start="4">
+<li><p><em>Constitutive equations</em> - relations describing how material
+properties vary as a function of T,P, stress, ect. Such material
+properties govern dynamics (e.g. density), response to stress
+(viscosity, elastic parameters), heat transport (thermal
+conductivity, diffusivity)</p></li>
+</ol>
+</section>
+<section id="thermodynamics-conservation-of-energy">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Thermodynamics: Conservation of Energy</a><a class="headerlink" href="#thermodynamics-conservation-of-energy" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>First law of thermodynamics</p></li>
+<li><p>Preservation of energy, i.e any change in kinetic or
+internal energy is balanced by work done and heat
+used/produced</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \frac{D(K+U)}{Dt} = W + Q \]</div>
+<p>Where:<br />
+<span class="math notranslate nohighlight">\(K\)</span> - kinetic energy<br />
+<span class="math notranslate nohighlight">\(U\)</span> - internal energy<br />
+<span class="math notranslate nohighlight">\(W\)</span> - power input<br />
+<span class="math notranslate nohighlight">\(Q\)</span> - heat input</p>
+<p>Let’s start with the form that describes preservation of thermal energy, in 2-D</p>
+<section id="fourier-s-law-for-conduction">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Fourier’s Law for conduction</a><a class="headerlink" href="#fourier-s-law-for-conduction" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[q = -k \frac{dT}{dx}\]</div>
+<ul class="simple">
+<li><p>Heat flux, q, = heat/area =
+energy/time/area,
+unit: <span class="math notranslate nohighlight">\(J/s/m^2\)</span> = <span class="math notranslate nohighlight">\(W/m^2\)</span></p></li>
+<li><p>Heat flux proportional to
+temperature gradient</p></li>
+<li><p>Minus sign because heat
+flows from hot to cold</p></li>
+<li><p>Constant of proportionality:
+thermal conductivity, <span class="math notranslate nohighlight">\(k\)</span>,
+unit: <span class="math notranslate nohighlight">\(W/m/K\)</span></p></li>
+</ul>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Images/Lecture4.1/conduction.png"><img alt="Images/Lecture4.1/conduction.png" src="Images/Lecture4.1/conduction.png" style="width: 50%;" /></a>
+</figure>
+</section>
+<section id="d-steady-state-conduction">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">1-D Steady State Conduction</a><a class="headerlink" href="#d-steady-state-conduction" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>net heat flow per unit area per unit time:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[q (x + \delta x) - q(x)\]</div>
+<div class="math notranslate nohighlight">
+\[q (x + \delta x) = q(x) + \delta x \frac{dq}{dx} + ...\]</div>
+<div class="math notranslate nohighlight">
+\[q(x + \delta x) - q(x) \approx \delta x \frac{dq}{dx}\]</div>
+<div class="math notranslate nohighlight">
+\[\partial x \frac{dq}{dx} = \delta x \left[ \frac{d}{dx}\left(-k \frac{dT}{dx}\right) \right]\]</div>
+<div class="math notranslate nohighlight">
+\[\delta x \frac{dq}{dx} = \delta x \left[-k \frac{d^2T}{dx^2} \right]\]</div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Images/Lecture4.1/1d_steady_conduction.png"><img alt="Images/Lecture4.1/1d_steady_conduction.png" src="Images/Lecture4.1/1d_steady_conduction.png" style="width: 50%;" /></a>
+</figure>
+<ul class="simple">
+<li><p>heat produced = <span class="math notranslate nohighlight">\(\rho H \delta x = A \delta x\)</span><br />
+<span class="math notranslate nohighlight">\(H\)</span> - heat production rate per unit mass (<span class="math notranslate nohighlight">\(W/kg\)</span>)<br />
+<span class="math notranslate nohighlight">\(A\)</span> - heat production per unit volume (<span class="math notranslate nohighlight">\(W/m^3\)</span>)</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ -k \frac{d^2T}{dx^2} = \rho H = A\]</div>
+</section>
+<section id="d-energy-equation">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">2-D Energy Equation</a><a class="headerlink" href="#d-energy-equation" title="Permalink to this heading">#</a></h3>
+<p><em>Spatial, constant r, CP, k, incompressible, no heat sources</em></p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Images/Lecture4.1/control_vol.png"><img alt="Images/Lecture4.1/control_vol.png" src="Images/Lecture4.1/control_vol.png" style="width: 75%;" /></a>
+</figure>
+<ul class="simple">
+<li><p>Change in heat content:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\frac{\partial(\rho C_p T)}{\partial t}\delta x \delta y\]</div>
+<ul class="simple">
+<li><p>Advection:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \left[ \frac{\partial(\rho C_p u T)}{\partial x} + \frac{\partial(\rho C_p u T)}{\partial y} \right] \delta x \delta y\]</div>
+<p><em>simplifies by conservation of mass</em></p>
+<div class="math notranslate nohighlight">
+\[ \rho C_P \left[ u \frac{\partial T}{\partial x} + v \frac{\partial T}{\partial y} \right] \delta x \delta y\]</div>
+<ul class="simple">
+<li><p>Conduction:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ -k \left( \frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2}\right) \delta x \delta y \]</div>
+<p><strong>Bringing it all together</strong></p>
+<div class="math notranslate nohighlight">
+\[ \rho C_P \left[\frac{\partial T}{\partial t} + u \frac{\partial T}{\partial x} + v \frac{\partial T}{\partial y} \right] = k \left( \frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2}\right)\]</div>
+<div class="math notranslate nohighlight">
+\[ \rho C_P \left[\frac{\partial T}{\partial t} + \mathbf{u} \cdot \nabla T \right] = k \nabla^2 T\]</div>
+</section>
+<section id="energy-equation">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Energy Equation</a><a class="headerlink" href="#energy-equation" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Material derivative internal heat</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \rho C_P \left[\frac{\partial T}{\partial t} + \mathbf{u} \cdot \nabla T \right] = \rho C_P \frac{DT}{Dt} \Rightarrow \frac{D(\rho C_P T)}{Dt} \]</div>
+<p>Allowing for spatial variations of material parameters</p>
+<ul class="simple">
+<li><p>Heat input</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ k \nabla^2 T \Rightarrow \nabla \cdot k \nabla T + A \]</div>
+<p><span class="math notranslate nohighlight">\(\nabla \cdot k \nabla T\)</span> - Conduction,<br />
+<span class="math notranslate nohighlight">\(A\)</span> - Internal heat production</p>
+<ul class="simple">
+<li><p>Work done</p></li>
+</ul>
+<p>Change in <em>motion</em> (kinetic energy) and <em>internal deformation</em></p>
+<p>Net effect of <span class="math notranslate nohighlight">\(W - \frac{DK}{Dt}\)</span> becomes <span class="math notranslate nohighlight">\(\mathbf{\sigma : D}\)</span>, where <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> is strain rate</p>
+</section>
+<section id="conservation-of-heat">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Conservation of heat</a><a class="headerlink" href="#conservation-of-heat" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[ D (\rho C_P T)/Dt = \nabla \cdot k \nabla T + A + \mathbf{\sigma:D} + (\alpha T\mathbf{v} \cdot \nabla P + ....)\]</div>
+<p><span class="math notranslate nohighlight">\(D (\rho C_P T)/Dt\)</span> - Change in temperature with time<br />
+<span class="math notranslate nohighlight">\(\nabla \cdot k \nabla T\)</span> - Heat transfer by conduction (and radiation)<br />
+<span class="math notranslate nohighlight">\(A\)</span> - heat production (including latent heat)<br />
+<span class="math notranslate nohighlight">\(\mathbf{\sigma:D}\)</span> - heat generated by internal deformation<br />
+<span class="math notranslate nohighlight">\(\alpha T\mathbf{v} \cdot \nabla P\)</span> - heat generated by adiabatic compression<br />
+<span class="math notranslate nohighlight">\(....\)</span> - Other heat sources, e.g. letent heat</p>
+</section>
+</section>
+<section id="id1">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Conservation Equations</a><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Conservation of mass<br />
+Kinematics</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\frac{D\rho}{Dt} + \rho \nabla \cdot \mathbf{v} = 0\]</div>
+<ul class="simple">
+<li><p>Conservation of momentum<br />
+Dynamics<br />
+Newton’s second law<br />
+Angular momentum</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \rho \frac{D\mathbf{v}}{Dt} = \nabla \cdot \underline{\underline{\sigma}} + \mathbf{f} \]</div>
+<div class="math notranslate nohighlight">
+\[ \mathbf{ \sigma = \sigma^T} \]</div>
+<ul class="simple">
+<li><p>Conservation of energy
+First law of thermodynamics</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \frac{D \rho C_P T)}{Dt} = \nabla \cdot k \nabla T + A + \mathbf{\sigma : D} \]</div>
+<ul class="simple">
+<li><p>Entropy inequality
+Which law is this?
+<em>Rate of entropy increase of a particle <span class="math notranslate nohighlight">\(\geq\)</span> entropy supply</em></p></li>
+</ul>
+<section id="d-advection-diffusion-solution">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">1-D advection-diffusion solution</a><a class="headerlink" href="#d-advection-diffusion-solution" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[ -v_z \frac{\partial T}{\partial z} = \kappa \frac{\partial^2 T}{\partial z^2}\]</div>
+<div class="math notranslate nohighlight">
+\[ \kappa = \frac{k}{\rho C_P} \]</div>
+<p>Take <span class="math notranslate nohighlight">\(f(z) = \frac{\partial T}{\partial z}\)</span> and <span class="math notranslate nohighlight">\(c = \frac{v_z}{\kappa}\)</span></p>
+<p>Then <span class="math notranslate nohighlight">\(\frac{\partial f}{\partial z} = -cf(z)\)</span>, which yeilds <span class="math notranslate nohighlight">\(f(z) = f(0) e^{-cz}\)</span></p>
+<p>i.e. <span class="math notranslate nohighlight">\(\large \frac{\partial T}{\partial z}(z) = A e^{-v_z z/ \kappa}\)</span>, <span class="math notranslate nohighlight">\(\large T(z) = B - \frac{A}{v_z / \kappa} e^{-v_z z/ \kappa}\)</span> where <span class="math notranslate nohighlight">\(A, B\)</span> are integration constants</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Images/Lecture4.1/advection.png"><img alt="Images/Lecture4.1/advection.png" src="Images/Lecture4.1/advection.png" style="width: 50%;" /></a>
+</figure>
+<p>For constant temperature boundary conditions <span class="math notranslate nohighlight">\(T(z=0) = 0\)</span> and <span class="math notranslate nohighlight">\(T(z=L) = T_L\)</span>
+<span class="math notranslate nohighlight">\(\Rightarrow\)</span><br />
+Integration gives: <span class="math notranslate nohighlight">\(\large T(z) = T_L \left[ \frac{1 - e^{-v_z z/ \kappa}}{1 - e^{-v_z L/ \kappa}}\right]\)</span></p>
+<p><em>What shape if diffusion dominates, if advection increases?</em></p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Images/Lecture4.1/temp_graph.png"><img alt="Images/Lecture4.1/temp_graph.png" src="Images/Lecture4.1/temp_graph.png" style="width: 50%;" /></a>
+</figure>
+<p>Peclet number, measure of relative importance advection/diffusion: <span class="math notranslate nohighlight">\(\large Pe = \frac{v_z L}{\kappa} = \frac{[(m/s)m]}{[m^2 / s]}\)</span></p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Images/Lecture4.1/colour_graph.png"><img alt="Images/Lecture4.1/colour_graph.png" src="Images/Lecture4.1/colour_graph.png" style="width: 50%;" /></a>
+</figure>
+</section>
+<section id="take-a-break">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Take a break</a><a class="headerlink" href="#take-a-break" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Use Exercise 3 in chapter4.ipynb to
+look at the shape of the solutions</p></li>
+<li><p>Exercise 4 for afternoon workshop</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuum-mechanics-equations">Continuum Mechanics Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermodynamics-conservation-of-energy">Thermodynamics: Conservation of Energy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-s-law-for-conduction">Fourier’s Law for conduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-steady-state-conduction">1-D Steady State Conduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-energy-equation">2-D Energy Equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-equation">Energy Equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-heat">Conservation of heat</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conservation Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-advection-diffusion-solution">1-D advection-diffusion solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#take-a-break">Take a break</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Imperial College London
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
