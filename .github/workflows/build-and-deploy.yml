@@ -28,9 +28,8 @@ jobs:
           pip install jupyter-book>=0.11.3
           pip install sphinxcontrib-bibtex>=2.0.0
           pip install -e .
-          python -m ipykernel install --user --name=ogusa-dev
-          cd docs
-          jb build ./book
+          python -m ipykernel install --user --name=NoahHCollins
+          jb build Numerical_Methods
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
