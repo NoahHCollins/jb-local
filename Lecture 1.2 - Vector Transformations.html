@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Lecture 1.2 - Vector Transformations &#8212; Modelling and Numerical Methods</title>
+    <title>Vector Transformations &#8212; Modelling and Numerical Methods</title>
   
   
   
@@ -162,8 +162,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Chapter1.html">Intro to Vector/Tensor Calculus</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Lecture%201.1%20-%20Intro%20to%20Vectors.html">Continuum Mechanics and Vector Calculus</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lecture 1.2 - Vector Transformations  <a class="tocSkip"></a></a></li>
-
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Vector Transformations  <a class="tocSkip"></a></a></li>
 
 
 
@@ -363,7 +362,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lecture 1.2 - Vector Transformations  <a class="tocSkip"></h1>
+    <h1>Vector Transformations  <a class="tocSkip"></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -373,11 +372,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lecture 1.2 - Vector Transformations  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lecturer-saskia-goes-s-goes-imperial-ac-uk">Lecturer: Saskia Goes, s.goes@imperial.ac.uk</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Vector Transformations  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-1-2">Lecture 1.2</a></li>
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#saskia-goes-s-goes-imperial-ac-uk">Saskia Goes, s.goes@imperial.ac.uk</a></li>
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
 </ul>
 </a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-transformation-a-name-vector-transform-a">Vector Transformation <a name="Vector_Transform"></a></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-orthogonal-bases-a-name-transformation-a">Transformation Orthogonal Bases <a name="Transformation"></a></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-calculus-a-name-vector-calc">Vector Calculus <a name="Vector_Calc"></a><ul class="nav section-nav flex-column">
@@ -412,14 +412,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="lecture-1-2-vector-transformations-a-class-tocskip">
-<h1>Lecture 1.2 - Vector Transformations  <a class="tocSkip"><a class="headerlink" href="#lecture-1-2-vector-transformations-a-class-tocskip" title="Permalink to this heading">#</a></h1>
-<section id="lecturer-saskia-goes-s-goes-imperial-ac-uk">
-<h2>Lecturer: Saskia Goes, <a class="reference external" href="mailto:s&#46;goes&#37;&#52;&#48;imperial&#46;ac&#46;uk">s<span>&#46;</span>goes<span>&#64;</span>imperial<span>&#46;</span>ac<span>&#46;</span>uk</a><a class="headerlink" href="#lecturer-saskia-goes-s-goes-imperial-ac-uk" title="Permalink to this heading">#</a></h2>
+  <section id="vector-transformations-a-class-tocskip">
+<h1>Vector Transformations  <a class="tocSkip"><a class="headerlink" href="#vector-transformations-a-class-tocskip" title="Permalink to this heading">#</a></h1>
+<section id="lecture-1-2">
+<h2>Lecture 1.2<a class="headerlink" href="#lecture-1-2" title="Permalink to this heading">#</a></h2>
 </section>
+<section id="saskia-goes-s-goes-imperial-ac-uk">
+<h2>Saskia Goes, <a class="reference external" href="mailto:s&#46;goes&#37;&#52;&#48;imperial&#46;ac&#46;uk">s<span>&#46;</span>goes<span>&#64;</span>imperial<span>&#46;</span>ac<span>&#46;</span>uk</a><a class="headerlink" href="#saskia-goes-s-goes-imperial-ac-uk" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="learning-outcomes-a-class-tocskip">
-<h1>Learning outcomes  <a class="tocSkip"><a class="headerlink" href="#learning-outcomes-a-class-tocskip" title="Permalink to this heading">#</a></h1>
+<h2>Learning outcomes  <a class="tocSkip"><a class="headerlink" href="#learning-outcomes-a-class-tocskip" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Perform transformation of a vector from one Cartesian basis to another</p></li>
 <li><p>Be able to do basic vector/tensor calculus (time and space derivatives, divergence, curl of a vector field) on these bases</p></li>
@@ -508,7 +510,8 @@ div.advanced {
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="vector-transformation-a-name-vector-transform-a">
+</section>
+<section id="vector-transformation-a-name-vector-transform-a">
 <h1>Vector Transformation <a name = "Vector_Transform"></a><a class="headerlink" href="#vector-transformation-a-name-vector-transform-a" title="Permalink to this heading">#</a></h1>
 <p>Vector magnitude and direction do not depend on basis.</p>
 <p>When defined on an orthonormal basis, like rectangular Cartesian, the transformation to other orthonormal basis is simple, with real coefficients.</p>
@@ -532,11 +535,13 @@ div.advanced {
 \text{v'}_2 = \alpha_{21} \text{v}_1 + \alpha_{22} \text{v}_2
 \]</div>
 <p>Coefficients <span class="math notranslate nohighlight">\(\alpha_{ij}\)</span> depend on angle <span class="math notranslate nohighlight">\(\phi\)</span> between <span class="math notranslate nohighlight">\(\text{x}_1\)</span> and <span class="math notranslate nohighlight">\(\text{x'}_1\)</span> (or <span class="math notranslate nohighlight">\(\text{x}_2\)</span> and <span class="math notranslate nohighlight">\(\text{x'}_2\)</span>)</p>
-<div>
-<img src="attachment:Fig1.png" width="300"/>
-</div><div>
-<img src="attachment:Fig2.png" width="300"/>
-</div><p>From the figures above, we can deduce that:</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Images/&lt;Lecture1.2&gt;/&lt;Fig1.png&gt;"><img alt="Images/&lt;Lecture1.2&gt;/&lt;Fig1.png&gt;" src="Images/&lt;Lecture1.2&gt;/&lt;Fig1.png&gt;" style="width: 50%;" /></a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Images/&lt;Lecture1.2&gt;/&lt;Fig2.png&gt;"><img alt="Images/&lt;Lecture1.2&gt;/&lt;Fig2.png&gt;" src="Images/&lt;Lecture1.2&gt;/&lt;Fig2.png&gt;" style="width: 50%;" /></a>
+</figure>
+<p>From the figures above, we can deduce that:</p>
 <p><span class="math notranslate nohighlight">\(\hspace{6cm} \text{v'}_1 = \cos{\phi} \hspace{0.1cm} \text{v}_1 + \sin{\phi} \hspace{0.1cm} \text{v}_2\)</span>
 <span class="math notranslate nohighlight">\(\hspace{4cm} \text{v'}_2 = -\sin{\phi} \hspace{0.1cm} \text{v}_1 + \cos{\phi} \hspace{0.1cm} \text{v}_2\)</span></p>
 <p>This gives:</p>
@@ -571,11 +576,12 @@ div.advanced {
 \alpha_{22} = \hat{e}'_2 \cdot \hat{e}_2
 \]</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="transformation-orthogonal-bases-a-name-transformation-a">
+<section id="transformation-orthogonal-bases-a-name-transformation-a">
 <h1>Transformation Orthogonal Bases <a name = "Transformation"></a><a class="headerlink" href="#transformation-orthogonal-bases-a-name-transformation-a" title="Permalink to this heading">#</a></h1>
-<div>
-    <img src = "attachment:Fig3.png" width = "250" />
-</div><p>Our new basis vector can be written in terms of the old basis vector:</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Images/&lt;Lecture1.2&gt;/&lt;Fig3.png&gt;"><img alt="Images/&lt;Lecture1.2&gt;/&lt;Fig3.png&gt;" src="Images/&lt;Lecture1.2&gt;/&lt;Fig3.png&gt;" style="width: 50%;" /></a>
+</figure>
+<p>Our new basis vector can be written in terms of the old basis vector:</p>
 <div class="math notranslate nohighlight">
 \[ 
 \hat{e}'_i = \sum_{j = 1,n} \alpha_{ij} \hat{e}_j    
@@ -614,9 +620,10 @@ div.advanced {
 \mathbf{v}
 \end{split}\]</div>
 <p>Where <span class="math notranslate nohighlight">\(90 - \phi\)</span> is the angle between <span class="math notranslate nohighlight">\(x'_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> and <span class="math notranslate nohighlight">\(90 + \phi\)</span> is the angle between <span class="math notranslate nohighlight">\(x'_2\)</span> and <span class="math notranslate nohighlight">\(x_1\)</span>.</p>
-<div>
-    <img src = "attachment:Fig4.png" width = "300" />
-</div><h2 style="color:red"> A word of caution!</h2>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Images/&lt;Lecture1.2&gt;/&lt;Fig4.png&gt;"><img alt="Images/&lt;Lecture1.2&gt;/&lt;Fig4.png&gt;" src="Images/&lt;Lecture1.2&gt;/&lt;Fig4.png&gt;" style="width: 50%;" /></a>
+</figure>
+<h2 style="color:red"> A word of caution!</h2>
 <div class="math notranslate nohighlight">
 \[
 \color{red}{\text{Vector represented in new basis}}
@@ -668,7 +675,7 @@ div.advanced {
 \mathbf{New \hspace{0.1cm} basis \hspace{0.1cm} vectors \hspace{0.1cm} are \hspace{0.1cm} COLUMNS}}
 \]</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="vector-calculus-a-name-vector-calc">
+<section id="vector-calculus-a-name-vector-calc">
 <h1>Vector Calculus <a name = "Vector_Calc"><a class="headerlink" href="#vector-calculus-a-name-vector-calc" title="Permalink to this heading">#</a></h1>
 <p>Vector calculus is the field of mathematics that handles differentiation and integration of vector fields.
 <br>
@@ -677,9 +684,9 @@ It allows us to describe the spatial variation in scalar and vector fields.</p>
 <h2>Vector derivatives  <a name = "Derivatives"></a><a class="headerlink" href="#vector-derivatives-a-name-derivatives-a" title="Permalink to this heading">#</a></h2>
 <section id="scalar-e-g-time-a-name-scalar-a">
 <h3>Scalar (e.g time)<a name = "Scalar"></a><a class="headerlink" href="#scalar-e-g-time-a-name-scalar-a" title="Permalink to this heading">#</a></h3>
-<div>
-    <img src = "attachment:Fig5.png" width = "300" />
-</div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Images/&lt;Lecture1.2&gt;/&lt;Fig5.png&gt;"><img alt="Images/&lt;Lecture1.2&gt;/&lt;Fig5.png&gt;" src="Images/&lt;Lecture1.2&gt;/&lt;Fig5.png&gt;" style="width: 50%;" /></a>
+</figure>
 <p>Taking the derivative of a vector gives:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -726,9 +733,9 @@ Remember that</p>
 </section>
 <section id="gradient-a-name-gradient-a">
 <h3>Gradient <a name = "Gradient"></a><a class="headerlink" href="#gradient-a-name-gradient-a" title="Permalink to this heading">#</a></h3>
-<div>
-    <img src = "attachment:Fig6.png" width = "500" />
-</div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Images/&lt;Lecture1.2&gt;/&lt;Fig6.png&gt;"><img alt="Images/&lt;Lecture1.2&gt;/&lt;Fig6.png&gt;" src="Images/&lt;Lecture1.2&gt;/&lt;Fig6.png&gt;" style="width: 50%;" /></a>
+</figure>
 <p style = "text-align:center;">
 <p>The <strong>gradient</strong> is a vector measure of change in scalar field with distance.</p>
 <div class="math notranslate nohighlight">
@@ -754,10 +761,9 @@ ds_3 \\
 = 
 \nabla \phi \cdot \mathbf{ds}
 \end{split}\]</div>
-<div>
-    <img src = "attachment:Fig7.png" width = "500" />
-</div>
-<p>Try <span style="color:blue;font-weight:bold">Exercise 5</span></p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Images/&lt;Lecture1.2&gt;/&lt;Fig7.png&gt;"><img alt="Images/&lt;Lecture1.2&gt;/&lt;Fig7.png&gt;" src="Images/&lt;Lecture1.2&gt;/&lt;Fig7.png&gt;" style="width: 50%;" /></a>
+</figure>
 </section>
 </section>
 <section id="vector-products-with-derivatives-a-name-vecprod-a">
@@ -769,9 +775,10 @@ ds_3 \\
 \[
 \large{\nabla} \cdot \mathbf{v} = \sum_{i = 1,3} \frac{\partial v_i}{\partial x_i} = \frac{\partial v_1}{\partial x_1} + \frac{\partial v_2}{\partial x_2} + \frac{\partial v_3}{\partial x_3} 
 \]</div>
-<div>
-    <img src = "attachment:Fig8.png" width = "500" />
-</div></section>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Images/&lt;Lecture1.2&gt;/&lt;Fig8.png&gt;"><img alt="Images/&lt;Lecture1.2&gt;/&lt;Fig8.png&gt;" src="Images/&lt;Lecture1.2&gt;/&lt;Fig8.png&gt;" style="width: 50%;" /></a>
+</figure>
+</section>
 <section id="curl-of-a-vector-a-name-curl-a">
 <h3>Curl of A Vector <a name = "Curl"></a><a class="headerlink" href="#curl-of-a-vector-a-name-curl-a" title="Permalink to this heading">#</a></h3>
 <p>The curl of a vector represents the amount of turn or spin (vorticity) in a vector field. This is a vector quantity.</p>
@@ -784,12 +791,13 @@ ds_3 \\
 \frac{\partial v_2}{\partial x_1} - \frac{\partial v_1}{\partial x_2} \\
 \end{pmatrix}}
 \end{split}\]</div>
-<div>
-    <img src = "attachment:Fig9.png" width = "400" />
-</div></section>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Images/&lt;Lecture1.2&gt;/&lt;Fig9.png&gt;"><img alt="Images/&lt;Lecture1.2&gt;/&lt;Fig9.png&gt;" src="Images/&lt;Lecture1.2&gt;/&lt;Fig9.png&gt;" style="width: 50%;" /></a>
+</figure>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="useful-calculus-theorems-a-name-theorems-a">
+</section>
+<section id="useful-calculus-theorems-a-name-theorems-a">
 <h1>Useful Calculus Theorems <a name = "Theorems"></a><a class="headerlink" href="#useful-calculus-theorems-a-name-theorems-a" title="Permalink to this heading">#</a></h1>
 <p>Take a volume <em>V</em> enclosed by a surface <em>S</em> within a vector field <strong>v</strong> with continous partial derivatives.
 <br>
@@ -804,9 +812,9 @@ These can be used to simplify integration over volumes or closed surfaces as wel
 \large{\int_{V} \nabla \cdot \mathbf{v} d\mathbf{x} = \oint_S \mathbf{v} \cdot \mathbf{\hat{n}} \; ds} 
 \]</div>
 <p>Imagine a very small sphere with radius <em>a</em> and boundary <em>S</em> around a point <em>P</em>.</p>
-<div>
-    <img src = "attachment:Fig10.png" width = "50" />
-</div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Images/&lt;Lecture1.2&gt;/&lt;Fig10.png&gt;"><img alt="Images/&lt;Lecture1.2&gt;/&lt;Fig10.png&gt;" src="Images/&lt;Lecture1.2&gt;/&lt;Fig10.png&gt;" style="width: 50%;" /></a>
+</figure>
 <div class="math notranslate nohighlight">
 \[
 \large{(\nabla \cdot \mathbf{v})_P \frac{4}{3} \pi a^3 = \oint_{S_a} \mathbf{v} \cdot \mathbf{\hat{n}} \; ds} 
@@ -823,9 +831,9 @@ These can be used to simplify integration over volumes or closed surfaces as wel
     <img src = "attachment:Fig11.png" width = "250" />
 </div><p>Similar to Gauss Theorem, imagine a very small disk with radius <em>a</em> and boundary <span class="math notranslate nohighlight">\(\mathit{C_a}\)</span> around a point <em>P</em>.
 <br></p>
-<div>
-    <img src = "attachment:Fig12.png" width = "150" />
-</div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Images/&lt;Lecture1.2&gt;/&lt;Fig12.png&gt;"><img alt="Images/&lt;Lecture1.2&gt;/&lt;Fig12.png&gt;" src="Images/&lt;Lecture1.2&gt;/&lt;Fig12.png&gt;" style="width: 50%;" /></a>
+</figure>
 <div class="math notranslate nohighlight">
 \[ 
 \large{(\nabla \times \mathbf{v})_P \pi a^2 = \oint_{C_a} \mathbf{v} \cdot \mathbf{\hat{t}} \; ds} 
@@ -900,11 +908,12 @@ These can be used to simplify integration over volumes or closed surfaces as wel
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lecture 1.2 - Vector Transformations  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lecturer-saskia-goes-s-goes-imperial-ac-uk">Lecturer: Saskia Goes, s.goes@imperial.ac.uk</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Vector Transformations  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-1-2">Lecture 1.2</a></li>
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#saskia-goes-s-goes-imperial-ac-uk">Saskia Goes, s.goes@imperial.ac.uk</a></li>
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
 </ul>
 </a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-transformation-a-name-vector-transform-a">Vector Transformation <a name="Vector_Transform"></a></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-orthogonal-bases-a-name-transformation-a">Transformation Orthogonal Bases <a name="Transformation"></a></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-calculus-a-name-vector-calc">Vector Calculus <a name="Vector_Calc"></a><ul class="nav section-nav flex-column">
