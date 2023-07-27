@@ -21,6 +21,8 @@ parts:
     - file: "Chapter3/intro"
       sections:
       - file: "Chapter3/Lecture 3 - Kinematics"
+      - file: "Chapter3/exercises3"
+      - file: "Chapter3/solutions3"
     - file: "Chapter4/intro"
       sections:
       - file: "Chapter4/Lecture 4.1 - Conservation Equations"
