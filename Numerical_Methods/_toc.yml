@@ -22,6 +22,7 @@ parts:
     - file: "Chapter4/intro"
       sections:
       - file: "Chapter4/Lecture 4.1 - Conservation Equations"
+      - file: "Chapter4/Lecture 4.2 - Rheology"
   - caption: Part 2
     chapters:
-    - file: "Lecture 4.2 - Rheology"
+    - file: "Chapter5/Lecture 5 - Dimensions and Dimensional Analysis"
