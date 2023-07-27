@@ -185,7 +185,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Lecture%204.2%20-%20Rheology.html">4.2 Rheology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercises4.html">Exercises</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Solutions</a></li>
-
 </ul>
 </li>
 </ul>
@@ -385,16 +384,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Solutions</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-content">Types of content</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-for-notebook">Settings for notebook</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuum-mechanics-equations">Continuum mechanics equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-continuity-equation-conservation-of-mass">The continuity equation (conservation of mass)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-1">Answer 1</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-continuity-equation-conservation-of-mass">The continuity equation (conservation of mass)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-1">Answer 1</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-equation-of-motion-and-force-equilibrium">The equation of motion and force equilibrium</a><ul class="nav section-nav flex-column">
@@ -439,9 +437,6 @@ document.write(`
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -614,9 +609,8 @@ document.write(`
 <p>Some problems can be addressed by solving one of these equations alone (e.g. the conservation of energy to solve how heat transfers conductively through an object heated from one side), or a coupled set of equations (e.g. flow of a hot fluid through a porous medium by jointly solving conservation of mass, momentum and energy).</p>
 <p>If material properties vary with any of the primary parameters, then additional equations, describing for example viscosity or thermal conductivity, need to be added.</p>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="the-continuity-equation-conservation-of-mass">
-<h1>The continuity equation (conservation of mass)<a class="headerlink" href="#the-continuity-equation-conservation-of-mass" title="Permalink to this heading">#</a></h1>
+<section id="the-continuity-equation-conservation-of-mass">
+<h2>The continuity equation (conservation of mass)<a class="headerlink" href="#the-continuity-equation-conservation-of-mass" title="Permalink to this heading">#</a></h2>
 <p>The continuity equation captures the requirement that no mass is lost during deformation or flow.</p>
 <p>As discussed in the lecture, if material is incompressible, i.e. its density does not change during flow or deformation, this equation reduces to the form:</p>
 <div class="math notranslate nohighlight">
@@ -630,13 +624,13 @@ document.write(`
 \[\frac{D\rho}{Dt} + \rho\nabla\cdot\v = 0 .\]</div>
 <div class="alert alert-info"> <font color=black>
 <section id="exercise-1">
-<h2>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h2>
+<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
 <p>Given the following 3D velocity field,</p>
 <div class="math notranslate nohighlight">
 \[v_i=\frac{kx_i}{(1+kt)}, \]</div>
 <p>where <span class="math notranslate nohighlight">\(k\)</span> is a constant, find the density of a material particle as a function of time; i.e., derive <span class="math notranslate nohighlight">\(\rho(t)\)</span>.</p>
 <section id="answer-1">
-<h3>Answer 1<a class="headerlink" href="#answer-1" title="Permalink to this heading">#</a></h3>
+<h4>Answer 1<a class="headerlink" href="#answer-1" title="Permalink to this heading">#</a></h4>
 <p>Use the continuity equation in the material description</p>
 <p>Calculating the divergence of velocity for our 3D velocity field:</p>
 <div class="math notranslate nohighlight">
@@ -770,6 +764,7 @@ document.write(`
 <img alt="../_images/d38e869317ede7a45d4c93a02c83a8952a9d7ea98464a9cc3416d53484d8f804.png" src="../_images/d38e869317ede7a45d4c93a02c83a8952a9d7ea98464a9cc3416d53484d8f804.png" />
 </div>
 </div>
+</section>
 </section>
 </section>
 <section id="the-equation-of-motion-and-force-equilibrium">
@@ -1436,16 +1431,15 @@ $<span class="math notranslate nohighlight">\(\sigma_{11}=\sigma_{22}=\sigma_{33
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Solutions</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-content">Types of content</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-for-notebook">Settings for notebook</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuum-mechanics-equations">Continuum mechanics equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-continuity-equation-conservation-of-mass">The continuity equation (conservation of mass)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-1">Answer 1</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-continuity-equation-conservation-of-mass">The continuity equation (conservation of mass)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-1">Answer 1</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-equation-of-motion-and-force-equilibrium">The equation of motion and force equilibrium</a><ul class="nav section-nav flex-column">
@@ -1490,9 +1484,6 @@ $<span class="math notranslate nohighlight">\(\sigma_{11}=\sigma_{22}=\sigma_{33
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
