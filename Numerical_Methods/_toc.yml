@@ -23,6 +23,6 @@ parts:
       sections:
       - file: "Chapter4/Lecture 4.1 - Conservation Equations"
       - file: "Chapter4/Lecture 4.2 - Rheology"
-  - caption: Part 2
+  - caption: Part 2 - Numerical techniques
     chapters:
     - file: "Chapter5/Lecture 5 - Dimensions and Dimensional Analysis"
