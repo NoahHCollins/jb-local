@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Modelling and Numerical Methods &#8212; Modelling and Numerical Methods</title>
+    <title>Chapter 1: Solutions &#8212; Modelling and Numerical Methods</title>
   
   
   
@@ -363,7 +363,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Modelling and Numerical Methods  <a class="tocSkip"></h1>
+    <h1>Chapter 1: Solutions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -373,17 +373,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Modelling and Numerical Methods  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-1-vector-and-tensor-calculus-a-class-tocskip">Chapter 1: Vector and Tensor Calculus   <a class="tocSkip"></a></a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-red-with-answers-font-a-class-tocskip"><font color="red"> WITH ANSWERS </font> <a class="tocSkip"></a></a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-content">Types of content</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#settings-for-notebook">Settings for notebook</a></li>
-</ul>
-</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-operations">Vector Operations</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-dot-product">Scalar (dot) product</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-cross-product">Vector (cross) product</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-content">Types of content</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-for-notebook">Settings for notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-operations">Vector Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-dot-product">Scalar (dot) product</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-cross-product">Vector (cross) product</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">Answer</a></li>
 </ul>
@@ -394,10 +389,8 @@ document.write(`
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinate-transformations">Coordinate Transformations</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orthonormal-bases">Orthonormal Bases</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinate-transformations">Coordinate Transformations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orthonormal-bases">Orthonormal Bases</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Answer</a></li>
 </ul>
@@ -405,34 +398,32 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-calculus">Vector Calculus</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Answer</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Answer</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-calculus">Vector Calculus</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Answer</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Answer</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6">Exercise 6</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-b">Answer (b)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-d">Answer (d)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#index-notation">Index Notation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7">Exercise 7</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Answer</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8">Exercise 8</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Answer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6">Exercise 6</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-b">Answer (b)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-d">Answer (d)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-and-tensor-calculus">Vector and Tensor Calculus</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-on-inner-dot-product-operations-with-tensors">A Note on Inner/Dot Product Operations with Tensors</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-notation">Index Notation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7">Exercise 7</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Answer</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8">Exercise 8</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Answer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-and-tensor-calculus">Vector and Tensor Calculus</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-on-inner-dot-product-operations-with-tensors">A Note on Inner/Dot Product Operations with Tensors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9">Exercise 9</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Answer</a></li>
 </ul>
@@ -441,9 +432,6 @@ document.write(`
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -454,14 +442,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="modelling-and-numerical-methods-a-class-tocskip">
-<h1>Modelling and Numerical Methods  <a class="tocSkip"><a class="headerlink" href="#modelling-and-numerical-methods-a-class-tocskip" title="Permalink to this heading">#</a></h1>
-<section id="chapter-1-vector-and-tensor-calculus-a-class-tocskip">
-<h2>Chapter 1: Vector and Tensor Calculus   <a class="tocSkip"><a class="headerlink" href="#chapter-1-vector-and-tensor-calculus-a-class-tocskip" title="Permalink to this heading">#</a></h2>
-</section>
-<section id="font-color-red-with-answers-font-a-class-tocskip">
-<h2><font color = red> WITH ANSWERS </font> <a class="tocSkip"><a class="headerlink" href="#font-color-red-with-answers-font-a-class-tocskip" title="Permalink to this heading">#</a></h2>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-1-solutions">
+<h1>Chapter 1: Solutions<a class="headerlink" href="#chapter-1-solutions" title="Permalink to this heading">#</a></h1>
 <section id="learning-outcomes-a-class-tocskip">
 <h2>Learning outcomes  <a class="tocSkip"><a class="headerlink" href="#learning-outcomes-a-class-tocskip" title="Permalink to this heading">#</a></h2>
 <p>At the end of this session, you should be able to:</p>
@@ -472,7 +454,7 @@ document.write(`
 <li><p>Compute the spatial derivatives, divergence, gradient and curl of scalar/vector fields, and describe their meaning.</p></li>
 <li><p>Interpret and simplify matrix identities using index notation and the Einstein convention.</p></li>
 </ol>
-<h1>Table of Contents<span class="tocSkip"></span></h1>
+<h2>Table of Contents<span class="tocSkip"></span></h2>
 <div class="toc"><ul class="toc-item"><li><span><a href="#Vector-Operations" data-toc-modified-id="Vector-Operations-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Vector Operations</a></span><ul class="toc-item"><li><span><a href="#Scalar-(dot)-product" data-toc-modified-id="Scalar-(dot)-product-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Scalar (dot) product</a></span></li><li><span><a href="#Vector-(cross)-product" data-toc-modified-id="Vector-(cross)-product-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Vector (cross) product</a></span><ul class="toc-item"><li><span><a href="#Exercise-1" data-toc-modified-id="Exercise-1-1.2.1"><span class="toc-item-num">1.2.1&nbsp;&nbsp;</span>Exercise 1</a></span><ul class="toc-item"><li><span><a href="#Answer" data-toc-modified-id="Answer-1.2.1.1"><span class="toc-item-num">1.2.1.1&nbsp;&nbsp;</span>Answer</a></span></li></ul></li><li><span><a href="#Exercise-2" data-toc-modified-id="Exercise-2-1.2.2"><span class="toc-item-num">1.2.2&nbsp;&nbsp;</span>Exercise 2</a></span><ul class="toc-item"><li><span><a href="#Answer" data-toc-modified-id="Answer-1.2.2.1"><span class="toc-item-num">1.2.2.1&nbsp;&nbsp;</span>Answer</a></span></li></ul></li></ul></li></ul></li><li><span><a href="#Coordinate-Transformations" data-toc-modified-id="Coordinate-Transformations-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Coordinate Transformations</a></span><ul class="toc-item"><li><span><a href="#Orthonormal-Bases" data-toc-modified-id="Orthonormal-Bases-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Orthonormal Bases</a></span><ul class="toc-item"><li><span><a href="#Exercise-3" data-toc-modified-id="Exercise-3-2.1.1"><span class="toc-item-num">2.1.1&nbsp;&nbsp;</span>Exercise 3</a></span><ul class="toc-item"><li><span><a href="#Answer" data-toc-modified-id="Answer-2.1.1.1"><span class="toc-item-num">2.1.1.1&nbsp;&nbsp;</span>Answer</a></span></li></ul></li><li><span><a href="#Exercise-4" data-toc-modified-id="Exercise-4-2.1.2"><span class="toc-item-num">2.1.2&nbsp;&nbsp;</span>Exercise 4</a></span></li></ul></li></ul></li><li><span><a href="#Vector-Calculus" data-toc-modified-id="Vector-Calculus-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Vector Calculus</a></span><ul class="toc-item"><li><ul class="toc-item"><li><span><a href="#Exercise-5" data-toc-modified-id="Exercise-5-3.0.1"><span class="toc-item-num">3.0.1&nbsp;&nbsp;</span>Exercise 5</a></span><ul class="toc-item"><li><span><a href="#Answer" data-toc-modified-id="Answer-3.0.1.1"><span class="toc-item-num">3.0.1.1&nbsp;&nbsp;</span>Answer</a></span></li><li><span><a href="#Answer" data-toc-modified-id="Answer-3.0.1.2"><span class="toc-item-num">3.0.1.2&nbsp;&nbsp;</span>Answer</a></span></li></ul></li><li><span><a href="#Exercise-6" data-toc-modified-id="Exercise-6-3.0.2"><span class="toc-item-num">3.0.2&nbsp;&nbsp;</span>Exercise 6</a></span><ul class="toc-item"><li><span><a href="#Answer-(b)" data-toc-modified-id="Answer-(b)-3.0.2.1"><span class="toc-item-num">3.0.2.1&nbsp;&nbsp;</span>Answer (b)</a></span></li><li><span><a href="#Answer-(d)" data-toc-modified-id="Answer-(d)-3.0.2.2"><span class="toc-item-num">3.0.2.2&nbsp;&nbsp;</span>Answer (d)</a></span></li></ul></li></ul></li></ul></li><li><span><a href="#Index-Notation" data-toc-modified-id="Index-Notation-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>Index Notation</a></span><ul class="toc-item"><li><ul class="toc-item"><li><span><a href="#Exercise-7" data-toc-modified-id="Exercise-7-4.0.1"><span class="toc-item-num">4.0.1&nbsp;&nbsp;</span>Exercise 7</a></span><ul class="toc-item"><li><span><a href="#Answer" data-toc-modified-id="Answer-4.0.1.1"><span class="toc-item-num">4.0.1.1&nbsp;&nbsp;</span>Answer</a></span></li></ul></li><li><span><a href="#Exercise-8" data-toc-modified-id="Exercise-8-4.0.2"><span class="toc-item-num">4.0.2&nbsp;&nbsp;</span>Exercise 8</a></span><ul class="toc-item"><li><span><a href="#Answer" data-toc-modified-id="Answer-4.0.2.1"><span class="toc-item-num">4.0.2.1&nbsp;&nbsp;</span>Answer</a></span></li></ul></li></ul></li></ul></li><li><span><a href="#Vector-and-Tensor-Calculus" data-toc-modified-id="Vector-and-Tensor-Calculus-5"><span class="toc-item-num">5&nbsp;&nbsp;</span>Vector and Tensor Calculus</a></span><ul class="toc-item"><li><span><a href="#A-Note-on-Inner/Dot-Product-Operations-with-Tensors" data-toc-modified-id="A-Note-on Inner/Dot-Product-Operations-with-Tensors-5.1"><span class="toc-item-num">5.1&nbsp;&nbsp;</span>A Note on Inner/Dot Product Operations with Tensors</a></span><ul class="toc-item"><li><span><a href="#Exercise-9" data-toc-modified-id="Exercise-9-5.0.1"><span class="toc-item-num">5.0.1&nbsp;&nbsp;</span>Exercise 9</a></span><ul class="toc-item"><li><span><a href="#Answer" data-toc-modified-id="Answer-5.0.1.1"><span class="toc-item-num">5.0.1.1&nbsp;&nbsp;</span>Answer</a></span></li></ul></li><li><span><a href="#Exercise-10" data-toc-modified-id="Exercise-10-5.0.2"><span class="toc-item-num">5.0.2&nbsp;&nbsp;</span>Exercise 10</a></span></li></ul></li></ul></li></ul></div></section>
 <section id="types-of-content">
 <h2>Types of content<a class="headerlink" href="#types-of-content" title="Permalink to this heading">#</a></h2>
@@ -590,12 +572,11 @@ document.write(`
 </div>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="vector-operations">
-<h1>Vector Operations<a class="headerlink" href="#vector-operations" title="Permalink to this heading">#</a></h1>
+<section id="vector-operations">
+<h2>Vector Operations<a class="headerlink" href="#vector-operations" title="Permalink to this heading">#</a></h2>
 <p>We will be using basic vector operations a lot in this module. In particular, you need to be intimately familiar with the scalar (dot) and vector (cross) products.</p>
 <section id="scalar-dot-product">
-<h2>Scalar (dot) product<a class="headerlink" href="#scalar-dot-product" title="Permalink to this heading">#</a></h2>
+<h3>Scalar (dot) product<a class="headerlink" href="#scalar-dot-product" title="Permalink to this heading">#</a></h3>
 <p>The dot product of <span class="math notranslate nohighlight">\(\vector{a} = (a_1, a_2, a_3)\)</span> and <span class="math notranslate nohighlight">\(\vector{b} = (b_1, b_2, b_3)\)</span> is given by:</p>
 <div class="math notranslate nohighlight">
 \[ \vector{a}\cdot\vector{b} =  a_1b_1 + a_2b_2 + a_3b_3.\]</div>
@@ -613,7 +594,7 @@ document.write(`
 </ul>
 </section>
 <section id="vector-cross-product">
-<h2>Vector (cross) product<a class="headerlink" href="#vector-cross-product" title="Permalink to this heading">#</a></h2>
+<h3>Vector (cross) product<a class="headerlink" href="#vector-cross-product" title="Permalink to this heading">#</a></h3>
 <p>The cross product of <span class="math notranslate nohighlight">\(\vector{a} = (a_1, a_2, a_3)\)</span> and <span class="math notranslate nohighlight">\(\vector{b} = (b_1, b_2, b_3)\)</span> is given by:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\vector{a}\times\vector{b} = \left| \begin{array}{ccc}
@@ -639,6 +620,7 @@ b_1 &amp; b_2 &amp; b_3
 <li><p>The individual components of the cross product vector are therefore each a measure of <em>directional dissimilarity</em> between <span class="math notranslate nohighlight">\(\vector{a}\)</span> and <span class="math notranslate nohighlight">\(\vector{b}\)</span> in the plane normal to that direction. In other words, if the cross product of <span class="math notranslate nohighlight">\(\vector{a}\)</span> and <span class="math notranslate nohighlight">\(\vector{b}\)</span> has a component of zero in the <span class="math notranslate nohighlight">\(\ey\)</span> direction, for example, this implies that the projections of <span class="math notranslate nohighlight">\(\vector{a}\)</span> and <span class="math notranslate nohighlight">\(\vector{b}\)</span> onto the <span class="math notranslate nohighlight">\(x_1\)</span>-<span class="math notranslate nohighlight">\(x_3\)</span> plane are parallel.</p></li>
 </ul>
 <div class="alert alert-success"> <font color=black>
+</section>
 <section id="exercise-1">
 <h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
 <p>The following problems ask you to calculate various vector operations. If it’s been a while since you did these or they are new, have a go at calculating them by hand first. Then see if you can code up and compute them using <span class="math notranslate nohighlight">\(\texttt{numpy}\)</span>. Otherwise, you may want to skip directly to coding these operations up using <code class="docutils literal notranslate"><span class="pre">np.dot</span></code>, <code class="docutils literal notranslate"><span class="pre">np.cross</span></code> and <code class="docutils literal notranslate"><span class="pre">np.linalg.norm</span></code>.</p>
@@ -1768,22 +1750,22 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='772be74a-7d9d-42f5-b6c8-40bad77eebf3'></div></div></div>
+</script><div class="output text_html"><div id='7f0a4229-7cc6-47e5-85c5-99eb04159317'></div></div></div>
 </div>
 </section>
 </section>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="coordinate-transformations">
-<h1>Coordinate Transformations<a class="headerlink" href="#coordinate-transformations" title="Permalink to this heading">#</a></h1>
+<section id="coordinate-transformations">
+<h2>Coordinate Transformations<a class="headerlink" href="#coordinate-transformations" title="Permalink to this heading">#</a></h2>
 <p>Coordinate transformations underpin many of the key numerical methods used in scientific computing, such as Singular Value Decomposition for the solution of linear inverse problems, and Principal Component Analysis, which is used for dimensionality reduction across a huge range of Data Science applications.</p>
 <p>In the lecture we focused on defining coordinate transformations in Cartesian <em>orthonormal</em> bases and this will remain the focus here. To recap, an orthonormal basis is a set of basis vectors that are mutually orthogonal and have a magnitude of 1 (i.e., they are each unit vectors).</p>
 <section id="orthonormal-bases">
-<h2>Orthonormal Bases<a class="headerlink" href="#orthonormal-bases" title="Permalink to this heading">#</a></h2>
+<h3>Orthonormal Bases<a class="headerlink" href="#orthonormal-bases" title="Permalink to this heading">#</a></h3>
 <p>Orthonormal bases have several important properties. For example, reflection or rotation of an orthonormal basis in any real, <em>n</em>-dimensional coordinate space will generate another orthonormal basis. In fact, every possible orthonormal basis in a given coordinate space can be obtained by applying some combination of these transformations to the original basis.</p>
 <p>Another key feature is that using an orthonormal basis makes it simpler to work out the linear combination of basis vectors that represents a given vector in the coordinate space. For example, imagine <span class="math notranslate nohighlight">\(\textbf{v}_1\)</span>, <span class="math notranslate nohighlight">\(\textbf{v}_2\)</span> and <span class="math notranslate nohighlight">\(\textbf{v}_3\)</span> are a set of basis vectors for a real 3D space, we can express any vector in the space (i.e., <span class="math notranslate nohighlight">\(\textbf{v}\in\mathbb{R}^3\)</span>) using,
 <span class="math notranslate nohighlight">\(\textbf{v} = x_1\textbf{v}_1 + x_2\textbf{v}_2 + x_3\textbf{v}_3\)</span>, where <span class="math notranslate nohighlight">\(x_1, x_2, x_3 \in \mathbb{R}\)</span>. If the basis is not orthonormal, although we know that appropriate <span class="math notranslate nohighlight">\(x_i\)</span> coefficients must exist, we have no way of calculating them without solving a relatively complex system of equations. By contrast, if the basis is orthonormal, determining the values of <span class="math notranslate nohighlight">\(x_i\)</span> becomes straightforward since the identity <span class="math notranslate nohighlight">\(x_i = \sum^3_i \textbf{v} \cdot \textbf{v}_i\)</span> holds.</p>
 <div class="alert alert-info"> <font color=black>
+</section>
 <section id="exercise-3">
 <h3>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(\hat{\mathbf{e}}_1\)</span>, <span class="math notranslate nohighlight">\(\hat{\mathbf{e}}_2\)</span>, <span class="math notranslate nohighlight">\(\hat{\mathbf{e}}_3\)</span> be the set of standard orthonormal base vectors. We then define a new right-handed coordinate system by <span class="math notranslate nohighlight">\(\hat{\mathbf{e}}^\prime_1\)</span>, <span class="math notranslate nohighlight">\(\hat{\mathbf{e}}^\prime_2\)</span>, <span class="math notranslate nohighlight">\(\hat{\mathbf{e}}^\prime_3\)</span> where:</p>
@@ -2800,7 +2782,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='7f9ad9c6-5476-4cb0-84da-6fb48dbd0644'></div></div></div>
+</script><div class="output text_html"><div id='f41c7227-1b64-4aba-b6d5-90c63ccc9d7a'></div></div></div>
 </div>
 <div class="alert alert-info"> <font color=black>
 <p>b) Is <span class="math notranslate nohighlight">\(\hat{\mathbf{e}}^\prime_1 \cdot \hat{\mathbf{e}}^\prime_2 = 0\)</span>?</p>
@@ -2871,7 +2853,7 @@ $<span class="math notranslate nohighlight">\(\begin{vmatrix}\hat{\mathbf{e}}_1^
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b) Dot product is: 7.66449056764364e-18
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b) Dot product is: 0.0
 This is effectively zero:  True
 
 c) Cross product minus $e^{\prime}_3$ is: [-1.11022302e-16 -1.11022302e-16 -5.55111512e-17]
@@ -3916,13 +3898,12 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='1c9c49a1-dc00-4737-b5f5-7f18a00ece2a'></div></div></div>
+</script><div class="output text_html"><div id='61661cd4-de19-41de-ae63-fb5016cb0c67'></div></div></div>
 </div>
 </section>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="vector-calculus">
-<h1>Vector Calculus<a class="headerlink" href="#vector-calculus" title="Permalink to this heading">#</a></h1>
+<section id="vector-calculus">
+<h2>Vector Calculus<a class="headerlink" href="#vector-calculus" title="Permalink to this heading">#</a></h2>
 <p>Vector calculus is the mathematics that allows us to describe spatial variation in scalar and vector fields.</p>
 <p>The <strong>gradient</strong> of a scalar field <span class="math notranslate nohighlight">\(f(\x)\)</span> is a vector field formed of the partial derivatives of the scalar field with respect to distance in the coordinate directions. In Cartesian coordinates, it is defined as:</p>
 <div class="math notranslate nohighlight">
@@ -3953,7 +3934,7 @@ if (IPython.notebook.kernel !== null) {
 <p>The following exercises are designed to familiarise you with how to calculate these derivatives and how to interpret their meaning.</p>
 <div class="alert alert-info"> <font color=black>
 <section id="exercise-5">
-<h2>Exercise 5<a class="headerlink" href="#exercise-5" title="Permalink to this heading">#</a></h2>
+<h3>Exercise 5<a class="headerlink" href="#exercise-5" title="Permalink to this heading">#</a></h3>
 <p>Consider the scalar fields:</p>
 <p><span class="math notranslate nohighlight">\(~~~~~~~~\)</span> i) <span class="math notranslate nohighlight">\(\phi = x + 2y\)</span>; <span class="math notranslate nohighlight">\(~~~~~~~~\)</span> ii) <span class="math notranslate nohighlight">\(f = x^2 + 2y + xy\)</span>; <span class="math notranslate nohighlight">\(~~~~~~~~\)</span> iii) <span class="math notranslate nohighlight">\(h = \frac{0.2}{[(x+5)^2 + y^2]^{3/2}}\)</span>.</p>
 <p>For each scalar field:</p>
@@ -4950,7 +4931,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='d41d463f-7ab1-413a-8a4e-9865fd766e68'></div></div></div>
+</script><div class="output text_html"><div id='c37660e2-86df-4804-9223-139ac2fe128e'></div></div></div>
 </div>
 <div class="alert alert-info"> <font color=black>
 <p>b) Calculate the gradient vector field;</p>
@@ -4958,7 +4939,7 @@ if (IPython.notebook.kernel !== null) {
 <p>What do you notice about the relationship between the scalar field and the gradient vector field?</p>
 <div class="exercise">
 <section id="id3">
-<h3>Answer<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<h4>Answer<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
 <p>b) i)</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\nabla{\phi} = \frac{\partial}{\partial x}\left(x+2y\right) \ex + \frac{\partial}{\partial y}\left(x+2y\right) \ey = \ex + 2\ey = \begin{pmatrix} 1\\ 2\end{pmatrix}\end{split}\]</div>
@@ -5967,18 +5948,18 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='3ceaeebc-e8b5-4fa5-9bf4-95b5191d49e2'></div></div></div>
+</script><div class="output text_html"><div id='5aa32faf-56af-45f2-8236-077d8ba7a4b1'></div></div></div>
 </div>
 <div class="exercise">
 </section>
 <section id="id4">
-<h3>Answer<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<h4>Answer<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
 <p>(c) The gradient vector points in the direction of maximum postive gradient. This direction is perpendicular to the contours. The magnitude of the gradient vector at a point is the maximum slope in any direction at that point. Hence, the gradient vector is longer when contours are closer together and shorter when the contours are further apart.</p>
 <div class="alert alert-info"> <font color=black>
 </section>
 </section>
 <section id="exercise-6">
-<h2>Exercise 6<a class="headerlink" href="#exercise-6" title="Permalink to this heading">#</a></h2>
+<h3>Exercise 6<a class="headerlink" href="#exercise-6" title="Permalink to this heading">#</a></h3>
 <p>Consider the velocity vector fields:</p>
 <p>i) <span class="math notranslate nohighlight">\(\mathbf{v} = \begin{bmatrix} 2 \\ -1 \\\end{bmatrix}\)</span>;</p>
 <p>ii) <span class="math notranslate nohighlight">\(\mathbf{v} = \begin{bmatrix} -2y \\ 2x \\\end{bmatrix}\)</span>;</p>
@@ -6996,7 +6977,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='b23037a4-71eb-4acb-afd9-3a3a602102b5'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
+</script><div class="output text_html"><div id='36a1a634-1751-4e7e-a1c5-1acd313ad137'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
 
@@ -7970,7 +7951,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='b3cade98-2d96-4207-8fa6-6d1dc9370265'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
+</script><div class="output text_html"><div id='a005b452-a081-4ff8-862f-de30328291ce'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
 
@@ -8944,7 +8925,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='a67b6266-3b9e-481d-bce0-13f77817d03f'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
+</script><div class="output text_html"><div id='4388a45c-6c14-40ae-bb7a-6705c7971185'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
 
@@ -9918,7 +9899,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='6fcebfe0-2975-427e-a09c-8ad4d257df82'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
+</script><div class="output text_html"><div id='2fdb9b28-4f50-417b-80f4-c9da36a25030'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
 
@@ -10892,11 +10873,11 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='946cc67f-eb13-4ff0-bb1c-822ad33d240c'></div></div></div>
+</script><div class="output text_html"><div id='bb7ff654-e3a2-4cb1-b7d6-8252cb91bc76'></div></div></div>
 </div>
 <div class="exercise">
 <section id="answer-b">
-<h3>Answer (b)<a class="headerlink" href="#answer-b" title="Permalink to this heading">#</a></h3>
+<h4>Answer (b)<a class="headerlink" href="#answer-b" title="Permalink to this heading">#</a></h4>
 <p>i) <span class="math notranslate nohighlight">\(\mathbf{v} = \begin{bmatrix} 2 \\ -1 \\\end{bmatrix}\)</span></p>
 <p>divergence: <span class="math notranslate nohighlight">\(\nabla \cdot \mathbf{v} = \frac{\partial v_i}{\partial x_i} = \frac{\partial}{\partial x}\left(2\right) + \frac{\partial}{\partial y}\left(-1\right) = 0 + 0 = 0\)</span></p>
 <p>curl: <span class="math notranslate nohighlight">\(\nabla \times \mathbf{v} = \left[\frac{\partial v_2}{\partial x_1} - \frac{\partial v_1}{\partial x_2}\right]\ez = \left[\frac{\partial}{\partial x}\left(-1\right) -\frac{\partial}{\partial y}\left(2\right)\right]\ez = (0 - 0)\ez = 0\ez\)</span></p>
@@ -11902,7 +11883,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='ab0606cb-570c-4ecc-a297-91a26eab9eaa'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
+</script><div class="output text_html"><div id='97bc8aaa-6299-4f59-8580-3e31e637f680'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
 
@@ -12876,7 +12857,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='47cfc956-240d-48a9-90a6-0685b3fa3731'></div></div></div>
+</script><div class="output text_html"><div id='38fb0213-49af-49d0-9c2b-f2e437df6276'></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -13864,7 +13845,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='45fa4e78-e25a-4df6-b7fc-34ba3f6bf99a'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
+</script><div class="output text_html"><div id='f6b0cc49-7d09-4dc9-b3e9-77841e135b7f'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
 
@@ -14838,7 +14819,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='f392834b-ed0f-4f4a-86c0-29aa25040295'></div></div></div>
+</script><div class="output text_html"><div id='6cb35d1e-1962-4fef-ae27-2c1ac9c1c5e9'></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -15826,7 +15807,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='5bfd926d-6709-4015-a727-2bc4df408267'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
+</script><div class="output text_html"><div id='b981d2a0-b6eb-4e2a-8a35-16ccc22dc811'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
 
@@ -16800,7 +16781,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='7b624488-ce5c-4d95-b061-4f54a4702445'></div></div></div>
+</script><div class="output text_html"><div id='413320d6-1451-4d0f-ad11-c017ae8a8bde'></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -17788,7 +17769,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='fe805f16-a7a8-4a6a-a23c-c4f794216eb7'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
+</script><div class="output text_html"><div id='58bc9b5c-53bd-479e-a341-6a582412301d'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
 
@@ -18762,7 +18743,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='bbdfe06a-81b7-41ae-9173-97130c4f08fe'></div></div></div>
+</script><div class="output text_html"><div id='3d16dcb9-e07e-4543-8286-c5f6e4489f71'></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -19750,7 +19731,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='dac25bbb-f460-4ce8-9d24-6f34a5a002eb'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
+</script><div class="output text_html"><div id='234385d9-f5e5-4841-93c8-a44f275e3bf1'></div></div><script type="application/javascript">/* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
 
@@ -20724,23 +20705,23 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='cf1110f4-d6ee-4f70-8d67-f646b41d896e'></div></div></div>
+</script><div class="output text_html"><div id='6e232e44-60d2-4c93-b944-d6dd6bdd3e7f'></div></div></div>
 </div>
 <div class="exercise">
 </section>
 <section id="answer-d">
-<h3>Answer (d)<a class="headerlink" href="#answer-d" title="Permalink to this heading">#</a></h3>
+<h4>Answer (d)<a class="headerlink" href="#answer-d" title="Permalink to this heading">#</a></h4>
 <p>Divergence of <strong>velocity</strong> represents the net rate at which material is moving away from (or toward) the point. Zero divergence at a point implies that the same amount of material is moving towards the point as away from it per unit time.</p>
 <p>Curl of <strong>velocity</strong> (also known as <strong>vorticity</strong>) represents rotation of the flow. Curl is a vector quantity. The magnitude of the curl is a measure of the rate at which a ball or paddle placed in the flow would rotate. The direction of the curl defines the axis about which the paddle rotates. For a 2D velocity field, the axis of rotation is always parallel to the <span class="math notranslate nohighlight">\(x_3\)</span> axis: a positive curl implies anticlockwise rotation and a negative curl implies clockwise rotation.</p>
 </section>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="index-notation">
-<h1>Index Notation<a class="headerlink" href="#index-notation" title="Permalink to this heading">#</a></h1>
+<section id="index-notation">
+<h2>Index Notation<a class="headerlink" href="#index-notation" title="Permalink to this heading">#</a></h2>
 <p>Index notation provides a useful shorthand for expressing vector and tensor identities that would become very cumbersome if written out in full. The key to perfoming algebraic operations using this type of notation is to keep track of the dummy and fixed indices in each case, using these to work out the number of terms and equations represented by a particular expression.</p>
 <div class="alert alert-info"> <font color=black>
 <section id="exercise-7">
-<h2>Exercise 7<a class="headerlink" href="#exercise-7" title="Permalink to this heading">#</a></h2>
+<h3>Exercise 7<a class="headerlink" href="#exercise-7" title="Permalink to this heading">#</a></h3>
 <p>a) <span class="math notranslate nohighlight">\(g_k=h_k(2-3a_ib_i)-p_jq_jf_k\)</span> - In this expression which indices are dummy indices and free indices? How many equations does this expression represent and how many terms are in each?</p>
 <p>b) Are the following valid expressions?</p>
 <p>      i) <span class="math notranslate nohighlight">\(a_mb_s=c_m(d_r-f_r)\)</span></p>
@@ -20748,7 +20729,7 @@ if (IPython.notebook.kernel !== null) {
 <p>      iii) <span class="math notranslate nohighlight">\(a_ib_jc_j=3\)</span></p>
 <div class="exercise">
 <section id="id5">
-<h3>Answer<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<h4>Answer<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
 <p>a)</p>
 <p><span class="math notranslate nohighlight">\(k\)</span> is the free index as it appears once in each term of the equation. <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> appear in duplicates and could be substituted for any letter without changing the interpretation of the equation so are dummy indices. Since <span class="math notranslate nohighlight">\(k\)</span> is a free index, there are three equations for each value of <span class="math notranslate nohighlight">\(k\)</span>:
 $<span class="math notranslate nohighlight">\(g_1 = h_1(2-3\sum^3_{i=1}a_ib_i)-f_1\sum^3_{j=1}p_jq_j,\)</span><span class="math notranslate nohighlight">\(
@@ -20772,7 +20753,7 @@ These equations are mathematically valid but are invalid when related to vector 
 </section>
 </section>
 <section id="exercise-8">
-<h2>Exercise 8<a class="headerlink" href="#exercise-8" title="Permalink to this heading">#</a></h2>
+<h3>Exercise 8<a class="headerlink" href="#exercise-8" title="Permalink to this heading">#</a></h3>
 <p>a) Simplify <span class="math notranslate nohighlight">\(\delta_{ij}\delta_{jk}\delta_{kp}\delta_{pi}\)</span></p>
 <p><em>Hint - Start with simplifying the product of <span class="math notranslate nohighlight">\(\delta_{kp}\delta_{pi}\)</span>.</em></p>
 <p>b) Assuming n=3, show that <span class="math notranslate nohighlight">\(\epsilon_{ijk}\epsilon_{lmk} = \delta_{il}\delta_{jm}-\delta_{im}\delta_{jl}\)</span>.</p>
@@ -20784,7 +20765,7 @@ These equations are mathematically valid but are invalid when related to vector 
 \[\nabla\times(\nabla\times\v) = \nabla(\nabla\cdot\v) - {\nabla}^{2}\v \]</div>
 <div class="advanced">
 <section id="id6">
-<h3>Answer<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<h4>Answer<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h4>
 <p><strong>a)</strong></p>
 <p>For any given <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(k\)</span>:</p>
 <p><span class="math notranslate nohighlight">\(\delta_{kp}\delta_{pi} = \delta_{k1}\delta_{1i} + \delta_{k2}\delta_{2i} + \delta_{k3}\delta_{3i}\)</span></p>
@@ -20822,11 +20803,11 @@ $<span class="math notranslate nohighlight">\(\epsilon_{ijk}\epsilon_{lmk} = \ep
 </section>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="vector-and-tensor-calculus">
-<h1>Vector and Tensor Calculus<a class="headerlink" href="#vector-and-tensor-calculus" title="Permalink to this heading">#</a></h1>
+<section id="vector-and-tensor-calculus">
+<h2>Vector and Tensor Calculus<a class="headerlink" href="#vector-and-tensor-calculus" title="Permalink to this heading">#</a></h2>
 <p>There are a range of useful algebraic operations to be aware of when manipulating systems of equations in vector and tensor form, including the dot product, cross product, tensor product and outer product. These operations can be quite work intensive to determine by hand but are mercifully simple in Python thanks to libraries like <span class="math notranslate nohighlight">\(\texttt{numpy}\)</span>.</p>
 <section id="a-note-on-inner-dot-product-operations-with-tensors">
-<h2>A Note on Inner/Dot Product Operations with Tensors<a class="headerlink" href="#a-note-on-inner-dot-product-operations-with-tensors" title="Permalink to this heading">#</a></h2>
+<h3>A Note on Inner/Dot Product Operations with Tensors<a class="headerlink" href="#a-note-on-inner-dot-product-operations-with-tensors" title="Permalink to this heading">#</a></h3>
 <p>In the lecture notes it is mentioned that the inner/dot product of two tensors involves contraction over one index such that the expression <span class="math notranslate nohighlight">\(\mathbf{W} = \mathbf{T}\cdot\mathbf{S}\)</span>, can also be written <span class="math notranslate nohighlight">\(W_{ik} = T_{ij}S_{jk}\)</span>. The contraction in this case is over the <span class="math notranslate nohighlight">\(j\)</span> index, i.e., for a fixed value of <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(k\)</span>, all terms for different values of <span class="math notranslate nohighlight">\(j\)</span> are summed together. The full matrix expression is then:</p>
 <p>$<span class="math notranslate nohighlight">\( \mathbf{W} = \begin{bmatrix} \left(T_{11}S_{11}+T_{12}S_{21}+T_{13}S_{31}\right) &amp; \left(T_{11}S_{12}+T_{12}S_{22}+T_{13}S_{32}\right) &amp; \left(T_{11}S_{13}+T_{12}S_{23}+T_{13}S_{33}\right) \\ \left(T_{21}S_{11}+T_{22}S_{21}+T_{23}S_{31}\right) &amp; \left(T_{21}S_{12}+T_{22}S_{22}+T_{23}S_{32}\right) &amp; \left(T_{21}S_{13}+T_{22}S_{23}+T_{23}S_{33}\right) \\ \left(T_{31}S_{11}+T_{32}S_{21}+T_{33}S_{31}\right) &amp; \left(T_{31}S_{12}+T_{32}S_{22}+T_{33}S_{32}\right) &amp; \left(T_{31}S_{13}+T_{32}S_{23}+T_{33}S_{33}\right) \end{bmatrix}\)</span>$.</p>
 <p>As you can see this dot product operation takes two rank-2 tensors and returns a rank-2 tensor. This operation can be done for two tensors, <span class="math notranslate nohighlight">\(\mathbf{T}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{S}\)</span>, of any rank provided they share the same dimension. In such a case, the rank of the resulting tensor, <span class="math notranslate nohighlight">\(\mathbf{W}\)</span>, can be determined using <span class="math notranslate nohighlight">\(\textrm{rank}(\mathbf{W_{\cdot}}) = \textrm{rank}(\mathbf{T})+\textrm{rank}(\mathbf{S})-2\)</span>.</p>
@@ -20835,6 +20816,7 @@ $<span class="math notranslate nohighlight">\(\epsilon_{ijk}\epsilon_{lmk} = \ep
 <p>The above double dot product operation takes two rank-2 tensors as input and returns a rank-0 tensor (i.e., a scalar). This relationship between the rank of the resulting tensor and the input tensors, <span class="math notranslate nohighlight">\(\mathbf{T}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{S}\)</span>, can be generalised in a manner similar to the standard dot product (i.e., provided dimensions of the input tensors are the same, they can be of any rank). However, in the case of the double dot product, the relationship between input and output ranks is expressed using <span class="math notranslate nohighlight">\(\textrm{rank}(\mathbf{W_{:}}) = \textrm{rank}(\mathbf{T})+\textrm{rank}(\mathbf{S})-4\)</span>. This relationship explains why the stress tensor (<span class="math notranslate nohighlight">\(\mathbf{\sigma}\)</span> in the Hooke’s law expression above is rank-2, i.e. the double dot product of a rank-4 tensor and a rank-2 tensor is a rank-2 tensor (4+2-4=2).</p>
 <p>In \texttt{numpy}, <code class="docutils literal notranslate"><span class="pre">np.tensordot</span></code> calculates the double dot product of two arrays, <span class="math notranslate nohighlight">\(\mathbf{T}:\mathbf{S}\)</span>, by default (i.e., the <code class="docutils literal notranslate"><span class="pre">axes=2</span></code> flag is set automatically; <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.tensordot.html">https://numpy.org/doc/stable/reference/generated/numpy.tensordot.html</a>). However, you could use the same function to calculate the dot product, <span class="math notranslate nohighlight">\(\mathbf{T}\cdot\mathbf{S}\)</span>, by using the <code class="docutils literal notranslate"><span class="pre">axes=1</span></code> flag, or even the outer product (also known as the tensor or dyadic product), <span class="math notranslate nohighlight">\(\mathbf{T}\otimes\mathbf{S}\)</span>, using <code class="docutils literal notranslate"><span class="pre">axes=0</span></code>.</p>
 <div class="alert alert-info"> <font color=black>   
+</section>
 <section id="exercise-9">
 <h3>Exercise 9<a class="headerlink" href="#exercise-9" title="Permalink to this heading">#</a></h3>
 <p>The following problems ask you to calculate various vector and tensor operations. Have a go at calculating them by hand first, including rewriting the expressions in index notation. Then see if you can code up and compute them using <span class="math notranslate nohighlight">\(\texttt{numpy}\)</span>.</p>
@@ -20980,17 +20962,12 @@ h) = [[ 16  -8  32]
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Modelling and Numerical Methods  <a class="tocSkip"></a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-1-vector-and-tensor-calculus-a-class-tocskip">Chapter 1: Vector and Tensor Calculus   <a class="tocSkip"></a></a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-red-with-answers-font-a-class-tocskip"><font color="red"> WITH ANSWERS </font> <a class="tocSkip"></a></a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-content">Types of content</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#settings-for-notebook">Settings for notebook</a></li>
-</ul>
-</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-operations">Vector Operations</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-dot-product">Scalar (dot) product</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-cross-product">Vector (cross) product</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-content">Types of content</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-for-notebook">Settings for notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-operations">Vector Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-dot-product">Scalar (dot) product</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-cross-product">Vector (cross) product</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">Answer</a></li>
 </ul>
@@ -21001,10 +20978,8 @@ h) = [[ 16  -8  32]
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinate-transformations">Coordinate Transformations</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orthonormal-bases">Orthonormal Bases</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinate-transformations">Coordinate Transformations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orthonormal-bases">Orthonormal Bases</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Answer</a></li>
 </ul>
@@ -21012,34 +20987,32 @@ h) = [[ 16  -8  32]
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-calculus">Vector Calculus</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Answer</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Answer</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-calculus">Vector Calculus</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Answer</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Answer</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6">Exercise 6</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-b">Answer (b)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-d">Answer (d)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#index-notation">Index Notation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7">Exercise 7</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Answer</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8">Exercise 8</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Answer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6">Exercise 6</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-b">Answer (b)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-d">Answer (d)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-and-tensor-calculus">Vector and Tensor Calculus</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-on-inner-dot-product-operations-with-tensors">A Note on Inner/Dot Product Operations with Tensors</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-notation">Index Notation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7">Exercise 7</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Answer</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8">Exercise 8</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Answer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-and-tensor-calculus">Vector and Tensor Calculus</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-on-inner-dot-product-operations-with-tensors">A Note on Inner/Dot Product Operations with Tensors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9">Exercise 9</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Answer</a></li>
 </ul>
@@ -21048,9 +21021,6 @@ h) = [[ 16  -8  32]
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
