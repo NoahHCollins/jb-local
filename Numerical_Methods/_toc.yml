@@ -29,6 +29,7 @@ parts:
       - file: "Chapter4/Lecture 4.2 - Rheology"
       - file: "Chapter4/exercises4"
       - file: "Chapter4/solutions4"
+    - file: "Chapter5/intro"
   - caption: Part 2 - Numerical techniques
     chapters:
     - file: "Chapter5/Lecture 5 - Dimensions and Dimensional Analysis"
