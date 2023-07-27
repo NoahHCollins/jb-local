@@ -16,6 +16,8 @@ parts:
     - file: "Chapter2/intro"
       sections:
       - file: "Chapter2/Lecture 2 - Stress and Tensors"
+      - file: "Chapter2/exercises2"
+      - file: "Chapter2/solutions2"
     - file: "Chapter3/intro"
       sections:
       - file: "Chapter3/Lecture 3 - Kinematics"
