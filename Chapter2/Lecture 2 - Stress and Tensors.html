@@ -763,17 +763,19 @@ m_3 = [\sigma_{12} + (\sigma_{12} + \Delta x_1 \frac{\partial \sigma_{12}}{\part
 <h2><a class="toc-backref" href="#id29" role="doc-backlink">Transformations of Tensors <a name = "Transformations"></a></a><a class="headerlink" href="#transformations-of-tensors-a-name-transformations-a" title="Permalink to this heading">#</a></h2>
 <p>Recap from Lecture 1.2 that the physical parameters should not depend on the coordinate frame. <strong>Tensors follow the same linear transformation laws</strong>.</p>
 <p>For vectors on an orthonormal basis:</p>
-<p style = "text-align:center;"> 
-    $\mathbf{v'} = \mathbf{A} \mathbf{v}$
-    $$
-    \Rightarrow \mathbf{v'} = 
-    \begin{bmatrix}
-    \alpha_{11} & \alpha_{12} \\
-    \alpha_{21} & \alpha_{22} \\
-    \end{bmatrix}
-    \mathbf{v}
-    $$
-</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{v'} = \mathbf{A} \mathbf{v}
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\Rightarrow \mathbf{v'} = 
+\begin{bmatrix}
+\alpha_{11} &amp; \alpha_{12} \\
+\alpha_{21} &amp; \alpha_{22} \\
+\end{bmatrix}
+\mathbf{v}
+\end{split}\]</div>
 <p>Coefficients <span class="math notranslate nohighlight">\(\alpha {ij}\)</span> depend on the angle <span class="math notranslate nohighlight">\(\phi\)</span> between <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\( x'_1\)</span> (or <span class="math notranslate nohighlight">\(x_2\)</span> and <span class="math notranslate nohighlight">\( x'_2\)</span>).
 <br></p>
 <figure class="align-default">
@@ -798,8 +800,11 @@ m_3 = [\sigma_{12} + (\sigma_{12} + \Delta x_1 \frac{\partial \sigma_{12}}{\part
 \[
 \color{blue}{\large{\alpha_{ij} = \mathbf{\hat{e}'_i} \cdot \mathbf{\hat{e}_j}}}
 \]</div>
-<p style = "text-align:center;">
-Inverse transform: $\hspace{0.5cm} \text{v}_j = \alpha_{ji} \text{v'}_j \hspace{1.2cm}\alpha_{ji} = \hat{e}_j \cdot \hat{e}'_i$<p>In order to transform our stresses from one coordinate system to another.</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Inverse Transform} \hspace{0.5cm} \text{v}_j = \alpha_{ji} \text{v'}_j \hspace{1.2cm}\alpha_{ji} = \hat{e}_j \cdot \hat{e}'_i
+\]</div>
+<p>In order to transform our stresses from one coordinate system to another.</p>
 <p style = "text-align:center;"> 
 <div class="math notranslate nohighlight">
 \[
