@@ -1,0 +1,1525 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Solutions &#8212; Modelling and Numerical Methods</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter4/solutions4';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Modelling and Numerical Methods
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 1 - Analytical Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter1/intro.html">1. Intro to Vector/Tensor Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/Lecture%201.1%20-%20Intro%20to%20Vectors.html">1.1 Continuum Mechanics and Vector Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/Lecture%201.2%20-%20Vector%20Transformations.html">1.2 Vector Transformations  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/Lecture%201.3%20-%20Intro%20to%20Tensors.html">1.3 Intro to Tensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/exercises.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/solutions.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter2/intro.html">2. Stress Tensor</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/Lecture%202%20-%20Stress%20and%20Tensors.html">2.1 Stress and Tensors  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/exercises2.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/solutions2.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter3/intro.html">3. Kinematics and Strain</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/Lecture%203%20-%20Kinematics.html">3.1 Kinematics   <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/exercises3.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/solutions3.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="intro.html">4. Conservation Equations</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Lecture%204.1%20-%20Conservation%20Equations.html">4.1 Conservation Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lecture%204.2%20-%20Rheology.html">4.2 Rheology</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2 - Numerical techniques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Chapter5/Lecture%205%20-%20Dimensions%20and%20Dimensional%20Analysis.html">Modelling and Numerical Methods  <a class="tocSkip"></a></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FChapter4/solutions4.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Chapter4/solutions4.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Solutions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Solutions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-content">Types of content</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-for-notebook">Settings for notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuum-mechanics-equations">Continuum mechanics equations</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-continuity-equation-conservation-of-mass">The continuity equation (conservation of mass)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-1">Answer 1</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-equation-of-motion-and-force-equilibrium">The equation of motion and force equilibrium</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-2">Answer 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-energy">Conservation of Energy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-advection-diffusion">1D Advection-Diffusion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-3">Answer 3</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-4">Answer 4</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-momentum-hookean-elasticity">Conservation of Momentum: Hookean Elasticity</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-5">Answer 5</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6">Exercise 6</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-6">Answer 6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-momentum-navier-stokes">Conservation of Momentum: Navier-Stokes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7">Exercise 7</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-7">Answer 7</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8">Exercise 8</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-8">Answer 8</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="solutions">
+<h1>Solutions<a class="headerlink" href="#solutions" title="Permalink to this heading">#</a></h1>
+<section id="learning-outcomes-a-class-tocskip">
+<h2>Learning outcomes  <a class="tocSkip"><a class="headerlink" href="#learning-outcomes-a-class-tocskip" title="Permalink to this heading">#</a></h2>
+<p>At the end of this session, you should:</p>
+<ol class="arabic simple">
+<li><p>Know the main conservation equations used in continuum mechanics modelling and understand what different terms in these equations represent</p></li>
+<li><p>Be able to solve conservation equations for basic analytical solutions given boundary/initial conditions.</p></li>
+<li><p>Understand basic properties of elastic and viscous rheology and understand how the choice of rheology leads to different forms of the momentum conservation equation</p></li>
+<li><p>Using tensor analysis to obtain relations between the main isotropic elastic parameters</p></li>
+</ol>
+<h2>Table of Contents<span class="tocSkip"></span></h2>
+</br>
+<div class="toc"><ul class="toc-item">
+<li><span><a href="#Continuum-mechanics-equations" data-toc-modified-id="Continuum-mechanics-equations-0">
+    <span class="toc-item-num">0&nbsp;&nbsp;</span>Continuum mechanics equations</a></span></li>
+<li><span><a href="#The-continuity-equation-(conservation-of-mass)" data-toc-modified-id="The-continuity-equation-(conservation-of-mass)-1">
+    <span class="toc-item-num">1&nbsp;&nbsp;</span>The continuity equation (conservation of mass)</a></span></li>
+    <ul class="toc-item">
+        <ul class="toc-item">
+        <li><span><a href="#Exercise-1" data-toc-modified-id="Exercise-1-1.0.1">
+            <span class="toc-item-num">1.0.1&nbsp;&nbsp;</span>Exercise 1</a></span><ul class="toc-item"></li>
+            <ul class="toc-item">
+            <li><span><a href="#Answer-1" data-toc-modified-id="Answer-1.0.1.1">
+                <span class="toc-item-num">1.0.1.1&nbsp;&nbsp;</span>Answer</a></span></li>
+            </ul>
+        </ul>
+    </ul>
+<li><span><a href="#The-equation-of-motion-and-force-equilibrium" data-toc-modified-id="The-equation-of-motion-and-force-equilibrium-2">
+    <span class="toc-item-num">2&nbsp;&nbsp;</span>The equation of motion and force equilibrium</a></span></li>
+    <ul class="toc-item">
+        <ul class="toc-item">
+        <li><span><a href="#Exercise-2" data-toc-modified-id="Exercise-2-2.0.1">
+            <span class="toc-item-num">2.0.1&nbsp;&nbsp;</span>Exercise 2</a></span><ul class="toc-item"></li>
+            <ul class="toc-item">
+            <li><span><a href="#Answer-2" data-toc-modified-id="Answer-2.0.1.1">
+                <span class="toc-item-num">2.0.1.1&nbsp;&nbsp;</span>Answer</a></span></li>
+            </ul>
+        </ul>
+    </ul>
+<li><span><a href="#Conservation-of-Energy" data-toc-modified-id="Conservation-of-Energy-3">
+    <span class="toc-item-num">3&nbsp;&nbsp;</span>Conservation of Energy</a></span></li>
+    <ul class="toc-item">
+    <li><span><a href="#1D-Advection-Diffusion" data-toc-modified-id="1D-Advection-Diffusion-3.1">
+        <span class="toc-item-num">3.1&nbsp;&nbsp;</span>1D Advection-Diffusion</a></span>
+         <ul class="toc-item">
+        <li><span><a href="#Exercise-3" data-toc-modified-id="Exercise-3-3.1.1">
+            <span class="toc-item-num">3.1.1&nbsp;&nbsp;</span>Exercise 3</a></span><ul class="toc-item"></li>
+            <ul class="toc-item">
+            <li><span><a href="#Answer-3" data-toc-modified-id="Answer-3.1.1.1">
+                <span class="toc-item-num">3.1.1.1&nbsp;&nbsp;</span>Answer</a></span></li>
+            </ul>
+        <li><span><a href="#Exercise-4" data-toc-modified-id="Exercise-4-3.1.2">
+            <span class="toc-item-num">3.1.2&nbsp;&nbsp;</span>Exercise 4</a></span><ul class="toc-item"></li>
+            <ul class="toc-item">
+            <li><span><a href="#Answer-4" data-toc-modified-id="Answer-3.1.2.1">
+                <span class="toc-item-num">3.1.2.1&nbsp;&nbsp;</span>Answer</a></span></li>
+            </ul>
+        </ul>
+    </ul>
+<li><span><a href="#Conservation-of-Momentum:-Hookean-Elasticity" data-toc-modified-id="Conservation-of-Momentum:-Hookean-Elasticity-4">
+    <span class="toc-item-num">4&nbsp;&nbsp;</span>Conservation of Momentum: Hookean Elasticity</a></span></li>
+    <ul class="toc-item">
+        <ul class="toc-item">
+        <li><span><a href="#Exercise-5" data-toc-modified-id="Exercise-5-4.0.1">
+            <span class="toc-item-num">4.0.1&nbsp;&nbsp;</span>Exercise 5</a></span><ul class="toc-item"></li>
+            <ul class="toc-item">
+            <li><span><a href="#Answer-5" data-toc-modified-id="Answer-4.0.1.1">
+                <span class="toc-item-num">4.0.1.1&nbsp;&nbsp;</span>Answer</a></span></li>
+            </ul>
+        <li><span><a href="#Exercise-6" data-toc-modified-id="Exercise-6-4.0.2">
+            <span class="toc-item-num">4.0.2&nbsp;&nbsp;</span>Exercise 6</a></span><ul class="toc-item"></li>
+            <ul class="toc-item">
+            <li><span><a href="#Answer-6" data-toc-modified-id="Answer-4.0.2.1">
+                <span class="toc-item-num">4.0.2.1&nbsp;&nbsp;</span>Answer</a></span></li>
+            </ul> 
+        </ul>
+    </ul>
+<li><span><a href="#Conservation-of-Momentum:-Navier-Stokes" data-toc-modified-id="Conservation-of-Momentum:-Navier-Stokes-5">
+    <span class="toc-item-num">5&nbsp;&nbsp;</span>Conservation of Momentum: Navier-Stokes<a></span></li>
+    <ul class="toc-item">
+        <ul class="toc-item">
+        <li><span><a href="#Exercise-7" data-toc-modified-id="Exercise-7-5.0.1">
+            <span class="toc-item-num">5.0.1&nbsp;&nbsp;</span>Exercise 7</a></span><ul class="toc-item"></li>
+            <ul class="toc-item">
+            <li><span><a href="#Answer-7" data-toc-modified-id="Answer-5.0.1.1">
+                <span class="toc-item-num">5.0.1.1&nbsp;&nbsp;</span>Answer</a></span></li>
+            </ul> 
+        <li><span><a href="#Exercise-8" data-toc-modified-id="Exercise-8-5.0.2">
+            <span class="toc-item-num">5.0.2&nbsp;&nbsp;</span>Exercise 8</a></span><ul class="toc-item"></li>
+            <ul class="toc-item">
+            <li><span><a href="#Answer-8" data-toc-modified-id="Answer-5.0.2.1">
+                <span class="toc-item-num">5.0.2.1&nbsp;&nbsp;</span>Answer</a></span></li>
+            </ul>
+        </ul>
+    </ul>
+</li></ul></div></section>
+<section id="types-of-content">
+<h2>Types of content<a class="headerlink" href="#types-of-content" title="Permalink to this heading">#</a></h2>
+<div class="alert alert-info"> <b><font color=black>Exercises for all</font></b> </div>
+<div class="alert alert-success"> <b><font color=black>Optional additional practise</font></b> </div>
+<div class="alert alert-warning"> <b><font color=black>Optional advanced practise/content</font></b> </div>
+</section>
+<section id="settings-for-notebook">
+<h2>Settings for notebook<a class="headerlink" href="#settings-for-notebook" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages for notebook here</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<p>Do not alter this cell. LaTeX commands for frequently used terms.</p>
+<div class="math notranslate nohighlight">
+\[\newcommand{\tensor}[1]{\underline{\underline{\mathbf{#1}}}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\vector}[1]{\mathbf{#1}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\matrix}[1]{\mathbf{#1}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\det}[1]{\mathrm{det}\left(#1\right)}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\ex}{\vector{\hat{e}}_1}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\ey}{\vector{\hat{e}}_2}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\ez}{\vector{\hat{e}}_3}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\nhat}{\vector{\hat{n}}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\ehat}{\vector{\hat{e}}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\xhat}{\vector{\hat{x}}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\x}{\vector{x}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\v}{\vector{v}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\u}{\vector{u}}\]</div>
+</section>
+<section id="continuum-mechanics-equations">
+<h2>Continuum mechanics equations<a class="headerlink" href="#continuum-mechanics-equations" title="Permalink to this heading">#</a></h2>
+<p>Continuum mechanical modelling involves solving one or more of a set of equations that capture:</p>
+<ol class="arabic simple">
+<li><p>Kinematics - describing deformation and velocity without considering forces</p></li>
+<li><p>Dynamics - describing the balance of forces, i.e., conservation of linear and angular momentum</p></li>
+<li><p>Thermodynamics - describing the relation between temperature, heatflux, stress, entropy</p></li>
+<li><p>Constitutive equations - describing how material properties vary as a function of temperature, pressure, stress,…</p></li>
+</ol>
+<p>The main set of equations are:</p>
+<ol class="arabic simple">
+<li><p><strong>Conservation of mass</strong></p></li>
+<li><p><strong>Conservation of momentum</strong> (Newton’s second law for linear momentum)</p></li>
+<li><p><strong>Conservation of energy</strong> (First law of thermodynamics)</p></li>
+</ol>
+<p>Some problems can be addressed by solving one of these equations alone (e.g. the conservation of energy to solve how heat transfers conductively through an object heated from one side), or a coupled set of equations (e.g. flow of a hot fluid through a porous medium by jointly solving conservation of mass, momentum and energy).</p>
+<p>If material properties vary with any of the primary parameters, then additional equations, describing for example viscosity or thermal conductivity, need to be added.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="the-continuity-equation-conservation-of-mass">
+<h1>The continuity equation (conservation of mass)<a class="headerlink" href="#the-continuity-equation-conservation-of-mass" title="Permalink to this heading">#</a></h1>
+<p>The continuity equation captures the requirement that no mass is lost during deformation or flow.</p>
+<p>As discussed in the lecture, if material is incompressible, i.e. its density does not change during flow or deformation, this equation reduces to the form:</p>
+<div class="math notranslate nohighlight">
+\[\nabla\cdot\v = 0 \]</div>
+<p>If the density changes in time and/or space, additional terms need to be included, yielding the following equation:</p>
+<p>in spatial description:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \rho}{\partial t} + \nabla\cdot(\rho\v) = 0 .\]</div>
+<p>or in material description:</p>
+<div class="math notranslate nohighlight">
+\[\frac{D\rho}{Dt} + \rho\nabla\cdot\v = 0 .\]</div>
+<div class="alert alert-info"> <font color=black>
+<section id="exercise-1">
+<h2>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h2>
+<p>Given the following 3D velocity field,</p>
+<div class="math notranslate nohighlight">
+\[v_i=\frac{kx_i}{(1+kt)}, \]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> is a constant, find the density of a material particle as a function of time; i.e., derive <span class="math notranslate nohighlight">\(\rho(t)\)</span>.</p>
+<section id="answer-1">
+<h3>Answer 1<a class="headerlink" href="#answer-1" title="Permalink to this heading">#</a></h3>
+<p>Use the continuity equation in the material description</p>
+<p>Calculating the divergence of velocity for our 3D velocity field:</p>
+<div class="math notranslate nohighlight">
+\[\nabla\cdot\v = \frac{\partial v_i}{\partial x_i} = \frac{k}{(1+kt)} \frac{\partial x_i}{\partial x_i}\]</div>
+<div class="math notranslate nohighlight">
+\[\nabla\cdot\v = \frac{k}{(1+kt)} \left(\frac{\partial x_1}{\partial x_1} + \frac{\partial x_2}{\partial x_2} +\frac{\partial x_3}{\partial x_3} \right)\]</div>
+<div class="math notranslate nohighlight">
+\[\nabla\cdot\v = \frac{3k}{(1+kt)}\]</div>
+<p>Hence,</p>
+<div class="math notranslate nohighlight">
+\[\frac{D\rho}{Dt} = -\frac{3k\rho}{(1+kt)} .\]</div>
+<p>Integrating with respect to time from <span class="math notranslate nohighlight">\(\rho(0) = \rho_0\)</span> to <span class="math notranslate nohighlight">\(\rho(t)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\int_{\rho_0}^{\rho} \frac{d\rho'}{\rho'} = \int_0^t \frac{-3k}{(1+kt')} dt'\]</div>
+<div class="math notranslate nohighlight">
+\[\ln \rho - \ln\rho_0 = -3 \ln(1+kt)\]</div>
+<div class="math notranslate nohighlight">
+\[\ln \left(\frac{\rho}{\rho_0}\right) = \ln(1+kt)^{-3}\]</div>
+<div class="math notranslate nohighlight">
+\[\rho(t) = \frac{\rho_0}{(1+kt)^3} .\]</div>
+<p>This implies that the density of the particle decreases with time as it moves through the flow. Going back to the (2D version of) the same velocity field from the first example, this is apparent from the fact that shapes expand in area as they move through the flow.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a position grid fine enough to represent velocities as a smooth field.</span>
+<span class="k">def</span> <span class="nf">init_grid</span><span class="p">(</span><span class="n">Lx</span><span class="o">=</span><span class="mf">10.</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Ly</span><span class="o">=</span><span class="mf">10.</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+    <span class="c1"># Use 100 grid points if dx not specified</span>
+    <span class="k">if</span> <span class="n">dx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="n">Lx</span><span class="o">/</span><span class="mf">100.</span>
+    <span class="k">if</span> <span class="n">dy</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dy</span> <span class="o">=</span> <span class="n">Ly</span><span class="o">/</span><span class="mf">100.</span>
+    
+    <span class="c1"># Construct the grid</span>
+    <span class="n">nx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Lx</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span>
+    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+    <span class="n">ny</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Lx</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span>
+    <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span>
+
+<span class="c1"># Define the initial positions of a set of tracer particles to show motion/deformation</span>
+<span class="c1"># Construct two 2D numpy arrays, one for each coordinate direction. The first dimension</span>
+<span class="c1"># is the particle number; the second is the time level. . .</span>
+<span class="k">def</span> <span class="nf">tracers</span><span class="p">(</span><span class="n">p0</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]],</span> <span class="n">nt</span><span class="o">=</span><span class="mi">11</span><span class="p">):</span>
+    
+    <span class="c1"># Create arrays</span>
+    <span class="n">px</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">p0</span><span class="p">),</span> <span class="n">nt</span><span class="p">))</span>
+    <span class="n">py</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">px</span><span class="p">)</span>
+
+    <span class="c1"># Initialise with specified initial coordinates.</span>
+    <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p0</span><span class="p">))):</span>
+        <span class="n">px</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">py</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        
+    <span class="k">return</span> <span class="n">px</span><span class="p">,</span> <span class="n">py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a spatial grid with 100 x 100 points. . .</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">init_grid</span><span class="p">(</span><span class="n">Lx</span><span class="o">=</span><span class="mf">5.</span><span class="p">,</span> <span class="n">Ly</span><span class="o">=</span><span class="mf">5.</span><span class="p">)</span>
+
+<span class="c1"># Choose a time discretisation fine enough for integrating particle paths </span>
+<span class="c1"># with enough precision to reproduce the analytical solution discussed in the lecture.</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">tt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+<span class="n">nt</span> <span class="o">=</span> <span class="n">tt</span><span class="o">.</span><span class="n">size</span>
+
+<span class="c1"># Define five tracers in a square to track shape change</span>
+<span class="n">px</span><span class="p">,</span> <span class="n">py</span> <span class="o">=</span> <span class="n">tracers</span><span class="p">(</span><span class="n">p0</span><span class="o">=</span><span class="p">[[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]],</span> <span class="n">nt</span><span class="o">=</span><span class="n">nt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the spatial description of a 2D velocity field as a function of x, y and time.</span>
+<span class="c1"># You can modify this to consider different spatial velocity functions. . . </span>
+<span class="n">k</span><span class="o">=</span><span class="mi">1</span>
+<span class="k">def</span> <span class="nf">velocity_spatial</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">k</span><span class="o">*</span><span class="n">t</span><span class="p">),</span> <span class="n">k</span><span class="o">*</span><span class="n">y</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">k</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">material_position</span><span class="p">(</span><span class="n">xi_x</span><span class="p">,</span> <span class="n">xi_y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">k</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">xi_x</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">k</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">xi_y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define velocity field at last time step</span>
+<span class="n">vx</span><span class="p">,</span> <span class="n">vy</span> <span class="o">=</span> <span class="n">velocity_spatial</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">tt</span><span class="p">[</span><span class="n">nt</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+<span class="n">vmag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">vx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">vy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Define the particle position using our analytical function</span>
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nt</span><span class="p">):</span>
+    <span class="n">px</span><span class="p">[:,</span> <span class="n">it</span><span class="p">],</span> <span class="n">py</span><span class="p">[:,</span> <span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">material_position</span><span class="p">(</span><span class="n">px</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">py</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">tt</span><span class="p">[</span><span class="n">it</span><span class="p">])</span>
+
+<span class="c1"># Plot the velocity field at time zero</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Velocity Magnitude &amp; Particle Trajectories at t = </span><span class="si">%1.1f</span><span class="s2"> s&quot;</span> <span class="o">%</span> <span class="n">tt</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define a sensible fixed colorscale</span>
+<span class="n">cc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">cl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Contour plot of velocity magnitude</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">vmag</span><span class="p">,</span> <span class="n">cc</span><span class="p">)</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="n">cl</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">left| v </span><span class="se">\\</span><span class="s2">right|$&quot;</span><span class="p">)</span>
+
+<span class="c1"># Quiver plot of velocity vector field</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">[::</span><span class="mi">5</span><span class="p">,::</span><span class="mi">5</span><span class="p">],</span> <span class="n">Y</span><span class="p">[::</span><span class="mi">5</span><span class="p">,::</span><span class="mi">5</span><span class="p">],</span> <span class="n">vx</span><span class="p">[::</span><span class="mi">5</span><span class="p">,::</span><span class="mi">5</span><span class="p">],</span> <span class="n">vy</span><span class="p">[::</span><span class="mi">5</span><span class="p">,::</span><span class="mi">5</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot tracer square at three time levels; beginning, one-third time and end time.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">px</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">py</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;wo-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">px</span><span class="p">[:,</span> <span class="nb">int</span><span class="p">(</span><span class="n">nt</span><span class="o">/</span><span class="mi">3</span><span class="p">)],</span> <span class="n">py</span><span class="p">[:,</span> <span class="nb">int</span><span class="p">(</span><span class="n">nt</span><span class="o">/</span><span class="mi">3</span><span class="p">)],</span> <span class="s1">&#39;co-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">px</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">py</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;ro-&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d38e869317ede7a45d4c93a02c83a8952a9d7ea98464a9cc3416d53484d8f804.png" src="../_images/d38e869317ede7a45d4c93a02c83a8952a9d7ea98464a9cc3416d53484d8f804.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="the-equation-of-motion-and-force-equilibrium">
+<h2>The equation of motion and force equilibrium<a class="headerlink" href="#the-equation-of-motion-and-force-equilibrium" title="Permalink to this heading">#</a></h2>
+<p>In the lecture we saw how taking a force balance acting on an infinitesimal cube in a continuum results in a partial differential equation that describes the conservation of momentum,</p>
+<div class="math notranslate nohighlight">
+\[\rho\frac{\partial^2 \u}{\partial t^2} = \vector{f} + \nabla\cdot\tensor{\sigma} \]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[ \rho\frac{\partial \v}{\partial t} = \vector{f} + \nabla\cdot\tensor{\sigma} .\]</div>
+<p>The term on the left-hand side is the mass (per unit volume) times the acceleration; the terms on the right-hand side are therefore the sum of the forces (per unit mass) acting on the body, which for each coordinate direction include the net body force (per unit mass) <span class="math notranslate nohighlight">\(\vector{f}\)</span> and the sum of the stress gradients <span class="math notranslate nohighlight">\(\nabla\cdot\tensor{\sigma}\)</span> acting in that direction.</p>
+<p>This implies that if the continuum is in equilibrium at a point (i.e., no acceleration), the body force and stress gradients must be in exact balance in each direction.</p>
+<p>If there is no body force then the sum of the stress gradients in each coordinate direction must be zero.</p>
+<div class="alert alert-info"> <font color=black>
+<section id="exercise-2">
+<h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<p>Consider the following stress distribution:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\tensor{\sigma} = \left[\begin{array}{ccc}
+                                x_1 + x_2 &amp; \sigma_{12}(x_1, x_2) &amp; 0 \\
+                                \sigma_{12}(x_1, x_2) &amp; x_1 - 2x_2 &amp; 0 \\
+                                0 &amp; 0 &amp; x_2
+                             \end{array} \right]  ,\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma_{12}\)</span> is a linear function of <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span>.</p>
+<p>Find <span class="math notranslate nohighlight">\(\sigma_{12}\)</span> given that the stress vector on plane <span class="math notranslate nohighlight">\(x_1 = 1\)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[\vector{t} = (1+x_2)\ex + (5-x_2)\ey ,\]</div>
+<p>and that the stress distribution is in equilibrium with zero body force.</p>
+<section id="answer-2">
+<h4>Answer 2<a class="headerlink" href="#answer-2" title="Permalink to this heading">#</a></h4>
+<p>Let <span class="math notranslate nohighlight">\(\sigma_{12}\)</span> be a linear function of <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\sigma_{12} = ax_1 + bx_2 + c ,\]</div>
+<p>where <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(c\)</span> are constants. The plane <span class="math notranslate nohighlight">\(x_1 = 1\)</span> has a normal of <span class="math notranslate nohighlight">\(\ex = (1, 0, 0)\)</span>. Hence, the force on this plane is given by:</p>
+<div class="math notranslate nohighlight">
+\[\vector{t} = \tensor{\sigma}^T \cdot \ex .\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vector{t} = \left[\begin{array}{ccc}
+                                x_1 + x_2 &amp; \sigma_{12}(x_1, x_2) &amp; 0 \\
+                                \sigma_{12}(x_1, x_2) &amp; x_1 - 2x_2 &amp; 0 \\
+                                0 &amp; 0 &amp; x_2
+                             \end{array} \right]\left[\begin{array}{c}
+                                1  \\
+                                0 \\
+                                0
+                             \end{array} \right] = \left[\begin{array}{c}
+                                x_1 + x_2 \\
+                                ax_1 + bx_2 + c \\
+                                0
+                             \end{array} \right].\end{split}\]</div>
+<p>Equating this with <span class="math notranslate nohighlight">\(\vector{t}\)</span> given in the question for <span class="math notranslate nohighlight">\(x_1 = 1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vector{t} = \left[\begin{array}{c}
+                                1 + x_2  \\
+                                5 - x_2 \\
+                                0
+                             \end{array} \right] = \left[\begin{array}{c}
+                                1 + x_2 \\
+                                a + bx_2 + c \\
+                                0
+                             \end{array} \right].\end{split}\]</div>
+<p>By inspection we see that <span class="math notranslate nohighlight">\(b = -1\)</span> and <span class="math notranslate nohighlight">\(a+c = 5\)</span>.  Hence, we have:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\tensor{\sigma} = \left[\begin{array}{ccc}
+                                x_1 + x_2 &amp; ax_1 - x_2 + c &amp; 0 \\
+                                ax_1 - x_2 + c &amp; x_1 - 2x_2 &amp; 0 \\
+                                0 &amp; 0 &amp; x_2
+                             \end{array} \right]    \end{split}\]</div>
+<p>Given the stress state is in equilibrium with no body forces, we can also use the constraint that <span class="math notranslate nohighlight">\(\frac{\partial\sigma_{ij}}{\partial x_j} = 0\)</span> (<span class="math notranslate nohighlight">\(\nabla\cdot\tensor{\sigma} = \vector{0}\)</span>).</p>
+<p>Consider the following stress distribution:</p>
+<p>In the <span class="math notranslate nohighlight">\(x_1\)</span> direction:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial\sigma_{11}}{\partial x_1} + \frac{\partial\sigma_{21}}{\partial x_2} + \frac{\partial\sigma_{31}}{\partial x_3} = 1 - 1 + 0 = 0 ;\]</div>
+<p>in the <span class="math notranslate nohighlight">\(x_2\)</span> direction:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial\sigma_{12}}{\partial x_1} + \frac{\partial\sigma_{22}}{\partial x_2} + \frac{\partial\sigma_{32}}{\partial x_3} = a - 2 + 0 = 0, \]</div>
+<p>which implies <span class="math notranslate nohighlight">\(a=2\)</span> (and <span class="math notranslate nohighlight">\(c = 5-2 = 3\)</span>); and in the <span class="math notranslate nohighlight">\(x_3\)</span> direction:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial\sigma_{13}}{\partial x_1} + \frac{\partial\sigma_{23}}{\partial x_2} + \frac{\partial\sigma_{33}}{\partial x_3} = 0 + 0 + 0 = 0. \]</div>
+<p>Hence, we have the result:</p>
+<div class="math notranslate nohighlight">
+\[\sigma_{12}(x_1, x_2) = 2x_1 - x_2 + 3 .\]</div>
+</section>
+</section>
+</section>
+<section id="conservation-of-energy">
+<h2>Conservation of Energy<a class="headerlink" href="#conservation-of-energy" title="Permalink to this heading">#</a></h2>
+<p>The general form of the conservation of energy equation that we considered in the lecture is:</p>
+<div class="math notranslate nohighlight">
+\[\frac{D\rho C_pT}{Dt} = \nabla\cdot k\nabla T + A + \tensor{\sigma}:\tensor{D} ,\]</div>
+<p>where, from left to right, the different terms represent:</p>
+<ol class="arabic simple">
+<li><p>change in temperature with time</p></li>
+<li><p>heat transfer by conduction (and radiation)</p></li>
+<li><p>heat production (including latent heat)</p></li>
+<li><p>heat generated by internal deformation</p></li>
+</ol>
+<section id="d-advection-diffusion">
+<h3>1D Advection-Diffusion<a class="headerlink" href="#d-advection-diffusion" title="Permalink to this heading">#</a></h3>
+<p>In the lecture, we saw how the conservation of energy equation simplifies to the 1-D steady-state advection-diffusion equation in the absence of spatial variation in material parameters, internal deformation and heat production <span class="math notranslate nohighlight">\(A\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\kappa {\frac {\partial ^2 T}{\partial z^2}}+ v_z\frac{\partial T}{\partial z} = 0\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(T\)</span> is temperature (in <span class="math notranslate nohighlight">\(^{\circ}\)</span>C)</p></li>
+<li><p><span class="math notranslate nohighlight">\(z\)</span> is depth (in m)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\kappa = k/(\rho C_p)\)</span> is thermal diffusivity (in m<span class="math notranslate nohighlight">\(^2\)</span>/s)</p></li>
+<li><p><span class="math notranslate nohighlight">\(v_z\)</span> vertical velocity (in m/s)</p></li>
+</ul>
+<p>Use the code below to calculate and plot analytical solutions to the 1-D steady state advection-diffusion equation for the transport of heat, with constant temperature boundary conditions at <span class="math notranslate nohighlight">\(z=0\)</span> and <span class="math notranslate nohighlight">\(z=L\)</span>.</p>
+<div class="alert alert-info"> <font color=black>
+</section>
+<section id="exercise-3">
+<h3>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
+<p>Use the code below to calculate and plot analytical solutions to the 1-D steady state advection-diffusion equation for the transport of heat, with constant temperature boundary conditions at <span class="math notranslate nohighlight">\(z=0\)</span> and <span class="math notranslate nohighlight">\(z=L\)</span>.</p>
+<p><strong>Step 1:</strong> Set parameter values. In the example, values applicable to Earth’s crust are chosen, but feel free to try others appropriate for a different problem</p>
+<section id="answer-3">
+<h4>Answer 3<a class="headerlink" href="#answer-3" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Thermal diffusivity for rocks (m^2/s)</span>
+<span class="n">kap</span><span class="o">=</span><span class="mf">1e-6</span>
+
+<span class="c1"># Depth range from surface to 30 km depth, in small steps</span>
+<span class="n">dz</span> <span class="o">=</span> <span class="mf">0.2e3</span>
+<span class="n">zz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">30e3</span><span class="p">,</span> <span class="n">dz</span><span class="p">)</span>
+<span class="n">nz</span> <span class="o">=</span> <span class="n">zz</span><span class="o">.</span><span class="n">size</span>
+<span class="n">LL</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">zz</span><span class="p">)</span>
+
+<span class="c1"># A range of vertical advection velocity values</span>
+<span class="n">yr2sec</span><span class="o">=</span><span class="mf">3600.</span><span class="o">*</span><span class="mf">24.</span><span class="o">*</span><span class="mf">365.25</span>
+<span class="n">nv</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">vz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nv</span><span class="p">)</span>
+<span class="c1"># 5 cm/yr</span>
+<span class="n">vz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mf">5e-2</span><span class="o">/</span><span class="n">yr2sec</span> 
+<span class="c1"># 1 cm/yr</span>
+<span class="n">vz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mf">1e-2</span><span class="o">/</span><span class="n">yr2sec</span> 
+<span class="c1"># 5 mm/yr</span>
+<span class="n">vz</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="mf">5e-3</span><span class="o">/</span><span class="n">yr2sec</span>
+<span class="c1"># 1 mm/yr</span>
+<span class="n">vz</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="mf">1e-3</span><span class="o">/</span><span class="n">yr2sec</span>
+<span class="c1"># 0.1 mm/yr</span>
+<span class="n">vz</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">=</span><span class="mf">1e-4</span><span class="o">/</span><span class="n">yr2sec</span>
+<span class="c1"># 0.01 mm/yr</span>
+<span class="n">vz</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">=</span><span class="mf">1e-5</span><span class="o">/</span><span class="n">yr2sec</span>
+<span class="c1"># 5 mm/yr</span>
+<span class="n">vzcm</span> <span class="o">=</span> <span class="n">vz</span><span class="o">*</span><span class="mf">1e2</span><span class="o">*</span><span class="n">yr2sec</span>
+
+<span class="c1"># Boundary conditions:</span>
+<span class="c1"># constant surface temperature and temperature at base of the domain </span>
+<span class="n">T0</span><span class="o">=</span><span class="mi">0</span>            <span class="c1"># surface temperature of 0 oC</span>
+<span class="n">TL</span><span class="o">=</span><span class="mi">500</span>          <span class="c1"># temperature at zmax=L of 500 oC</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-info"> <font color=black>
+<p><strong>Step 2:</strong> Compute and plot temperature solutions for the range of advection velocities</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialise set up for figure</span>
+<span class="n">tempfig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">tempfig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Temperatures vs Depth&quot;</span><span class="p">)</span>
+<span class="n">linecol</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="s1">&#39;b-&#39;</span><span class="p">,</span><span class="s1">&#39;c-&#39;</span><span class="p">,</span><span class="s1">&#39;g-&#39;</span><span class="p">,</span><span class="s1">&#39;y-&#39;</span><span class="p">,</span><span class="s1">&#39;r-&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">LL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Temperature $^{\circ}$C&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
+
+<span class="c1"># Determine temperatures for each advection velocities</span>
+<span class="c1"># and add line to figure</span>
+<span class="k">for</span> <span class="n">iv</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nv</span><span class="p">):</span>
+    <span class="c1"># initialise temperature</span>
+    <span class="n">Tzz</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nz</span><span class="p">)</span>
+    <span class="c1"># calculate temperature for this vz</span>
+    <span class="n">cc</span><span class="o">=-</span><span class="mf">1.</span><span class="o">*</span><span class="n">vz</span><span class="p">[</span><span class="n">iv</span><span class="p">]</span><span class="o">/</span><span class="n">kap</span>
+    <span class="n">prefac</span><span class="o">=</span><span class="n">TL</span><span class="o">/</span><span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">cc</span><span class="o">*</span><span class="n">LL</span><span class="p">))</span>
+    <span class="n">Tzz</span><span class="o">=</span><span class="n">prefac</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">cc</span><span class="o">*</span><span class="n">zz</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tzz</span><span class="p">,</span><span class="n">zz</span><span class="p">,</span><span class="n">linecol</span><span class="p">[</span><span class="n">iv</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">vzcm</span><span class="p">[</span><span class="n">iv</span><span class="p">])))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;vz (cm/yr)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0017a463420528af2c308d846d8211c75c4ea3d32db6f13776ce315679d8d7f5.png" src="../_images/0017a463420528af2c308d846d8211c75c4ea3d32db6f13776ce315679d8d7f5.png" />
+</div>
+</div>
+<div class="alert alert-info"> <font color=black>
+<p>The relative importance of heat advection and heat conduction determines the shape of the temperature-depth profiles. The dimensionless parameter that captures this relative importance is called the <strong>Peclet number</strong>, <span class="math notranslate nohighlight">\(Pe\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ Pe = \frac{v_z L}{\kappa}\]</div>
+<p>where <span class="math notranslate nohighlight">\(v_z\)</span> is vertical velocity, <span class="math notranslate nohighlight">\(L\)</span> is a length scale characteristic of the problem (in this case the depth scale), and  <span class="math notranslate nohighlight">\(\kappa\)</span> is thermal diffusivity.</p>
+<p>In many physical problems, there are dimensionless numbers that characterise the type of solution. This will be discussed further in the next lecture.</p>
+<p><strong>Step 3:</strong> Calculate Peclet numbers for these solutions. What do large/small <span class="math notranslate nohighlight">\(Pe\)</span> indicate?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Pecletno</span><span class="o">=</span><span class="n">vz</span><span class="o">*</span><span class="n">LL</span><span class="o">/</span><span class="n">kap</span>
+<span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Advection velocity: &#39;</span><span class="p">,</span><span class="n">vz</span><span class="o">*</span><span class="mi">100</span><span class="o">*</span><span class="n">yr2sec</span><span class="p">,</span> <span class="s1">&#39;cm/yr&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Peclet number: &#39;</span><span class="p">,</span><span class="n">Pecletno</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Advection velocity:  [5.    1.    0.5   0.1   0.01  0.001] cm/yr
+Peclet number:  [47.215  9.443  4.722  0.944  0.094  0.009]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-success"> <font color=black>
+Things you could try yourself:
+<ul class="simple">
+<li><p>Evaluate how the profile and Peclet number change with advection velocity. At what velocity does the solution become essentially conductive?</p></li>
+<li><p>Add a heat production term (e.g. A = 0.4 <span class="math notranslate nohighlight">\(\mu\)</span>W/m<span class="math notranslate nohighlight">\(^3\)</span>)</p></li>
+<li><p>Find solution for boundary conditions: <span class="math notranslate nohighlight">\(T\)</span>(<span class="math notranslate nohighlight">\(z\)</span>=0)=0 <span class="math notranslate nohighlight">\(^{\circ}\)</span>C and <span class="math notranslate nohighlight">\(\partial T/\partial z\)</span>(<span class="math notranslate nohighlight">\(z\)</span>=0)=20<span class="math notranslate nohighlight">\(^{\circ}\)</span>C/km and plot for different values of <span class="math notranslate nohighlight">\(v_z\)</span>.</p></li>
+</ul>
+<div class="alert alert-info"> <font color=black>
+</section>
+</section>
+<section id="exercise-4">
+<h3>Exercise 4<a class="headerlink" href="#exercise-4" title="Permalink to this heading">#</a></h3>
+<p><strong>(a)</strong> Write down the energy equation for a 1-D steady state problem with internal heat production, but without any contribution of strain or flow.</p>
+<p><strong>(b)</strong> Solve this equation for a layer with constant material properties, with a fixed temperature on the bottom and an insulating top:</p>
+<div class="math notranslate nohighlight">
+\[T(y=0)=T_0, \ \ \ \frac{dT}{dy}(y=h)=0.\]</div>
+<p><strong>(c)</strong> Plot the solution for the following parameter values: <span class="math notranslate nohighlight">\(T_0 = 0^\circ\)</span>C, <span class="math notranslate nohighlight">\(k = 80\)</span> Wm<span class="math notranslate nohighlight">\(^{-1}\)</span>K<span class="math notranslate nohighlight">\(^{-1}\)</span>, <span class="math notranslate nohighlight">\(A = 200\)</span> Wm<span class="math notranslate nohighlight">\(^{-3}\)</span>, <span class="math notranslate nohighlight">\(h = 2\)</span> m.</p>
+<section id="answer-4">
+<h4>Answer 4<a class="headerlink" href="#answer-4" title="Permalink to this heading">#</a></h4>
+<p><strong>(a)</strong>
+The full energy equation is:
+$<span class="math notranslate nohighlight">\(\frac{\partial\rho C_pT}{\partial t} + \vector{v}\cdot\nabla{\rho C_pT}= \nabla\cdot k\nabla T + A + \tensor{\sigma}:\tensor{D} ,\)</span>$</p>
+<ul class="simple">
+<li><p>Steady state means <span class="math notranslate nohighlight">\(\frac{D}{Dt}=0\)</span></p></li>
+<li><p>No flow means <span class="math notranslate nohighlight">\(\vector{v}=\)</span></p></li>
+<li><p>No strain means <span class="math notranslate nohighlight">\(\tensor{\sigma}:\tensor{D} = 0\)</span></p></li>
+</ul>
+<p>So, for this case, the equation reduces to:
+$<span class="math notranslate nohighlight">\(\nabla\cdot k\nabla T + A  = 0\)</span><span class="math notranslate nohighlight">\(
+where \)</span>k<span class="math notranslate nohighlight">\( is conductivity and \)</span>A$ is heat production.</p>
+<p>In 1-D this becomes:
+$<span class="math notranslate nohighlight">\(\frac{d}{dy} k\frac{dT}{dy} + A  = 0\)</span>$</p>
+<p><strong>(b)</strong>
+Coordinate <span class="math notranslate nohighlight">\(y\)</span> = 0 at the base of the domain and <span class="math notranslate nohighlight">\(h\)</span> at the top of the domain.</p>
+<p>For constant <span class="math notranslate nohighlight">\(k\)</span>, the equation can be further rewritten as:
+$<span class="math notranslate nohighlight">\(k\frac{d^2T}{dy^2} + A  = 0\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\frac{d^2T}{dy^2} = -\frac{A}{k}\)</span>$</p>
+<p>Solve this by integrating once:
+$<span class="math notranslate nohighlight">\(\frac{dT}{dy} = -\frac{Ay}{k} + C_1\)</span>$</p>
+<p>Constant <span class="math notranslate nohighlight">\(C_1\)</span> can be found by using the boundary condition: <span class="math notranslate nohighlight">\(\frac{dT}{dy}(y=h) = 0\)</span></p>
+<div class="math notranslate nohighlight">
+\[0 = -\frac{A}{k}h + C_1 \ \ \Rightarrow \ \ C_1 = \frac{A}{k}h .\]</div>
+<p>Integrating again, gives:</p>
+<div class="math notranslate nohighlight">
+\[T(y) = -\frac{A}{2k}y^2 + C_1y + C_2 = -\frac{A}{k}y^2 + \frac{A}{k}hy + C_2.\]</div>
+<p>Using the boundary condition: <span class="math notranslate nohighlight">\(T(0) = T_0\)</span> gives:</p>
+<div class="math notranslate nohighlight">
+\[T_0 = 0 + 0 + C_2  \ \ \Rightarrow C_2 = T_0.\]</div>
+<p>Putting this altogether:</p>
+<div class="math notranslate nohighlight">
+\[T(y) = T_0 + \frac{A}{2k}y(2h-y).\]</div>
+<p><strong>(c)</strong> See code below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define constants</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">80</span>  <span class="c1"># W/m/K</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1"># W/m^3</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mi">2</span>   <span class="c1"># m</span>
+<span class="n">T0</span> <span class="o">=</span> <span class="mf">0.</span> <span class="c1"># degrees C</span>
+
+<span class="c1"># Range of y</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="c1"># Analytical solution (implement your solution here. . .)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">A</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">y</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Temperature [$^\circ$C]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Height [m]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function matplotlib.pyplot.show(close=None, block=None)&gt;
+</pre></div>
+</div>
+<img alt="../_images/d7f024dfa112b1e0c94901464e871e625e5ce29d6a08fcf9f3142e8fc73282e2.png" src="../_images/d7f024dfa112b1e0c94901464e871e625e5ce29d6a08fcf9f3142e8fc73282e2.png" />
+</div>
+</div>
+<div class="alert alert-success"> <font color=black>
+<p><strong>(d)</strong> You could vary the values of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(k\)</span> to get more insight in the relative effects of heat production and conductivity on the temperature profile.</p>
+</section>
+</section>
+</section>
+<section id="conservation-of-momentum-hookean-elasticity">
+<h2>Conservation of Momentum: Hookean Elasticity<a class="headerlink" href="#conservation-of-momentum-hookean-elasticity" title="Permalink to this heading">#</a></h2>
+<p>In the lecture, we saw how combining the conservation of momentum equation with the constitutive equation for an elastic material leads to the elastic wave equation.</p>
+<p>For an isotropic Hookean solid, the constitutive equation only involves two elastic parameters, taking the following form when cast in terms of the two Lamé constants:
+$<span class="math notranslate nohighlight">\(\sigma_{ij}=\lambda \epsilon_{kk} \delta_{ij} + 2 \mu \epsilon_{ij}\)</span>$</p>
+<div class="alert alert-success"> <font color=black>
+Writing out the missing steps in the derivation in the lecture slides is a good practise of tensor and index notation skills<p>Remembering that the conservation of momentum, in index notation is:
+$<span class="math notranslate nohighlight">\(\rho\frac{\partial^2 u_{i}}{\partial t^2} = f_{i} + \frac{\partial{\sigma_{ji}}}{\partial{x_{j}}}\)</span>$</p>
+<p>With the above elastic constitutive equation, the divergence of the stress tensor is:
+$$ \frac{\partial{\sigma_{ji}}}{\partial{x_{j}}} =
+\lambda \frac{\partial{(\partial{u_{k}}/\partial{x_{k}})}}{\partial{x_{i}}}</p>
+<ul class="simple">
+<li><p>\mu \frac{\partial^2 u_i}{\partial</p></li>
+<li><p>\mu \frac{\partial{(\partial{u_{j}}/\partial{x_{j}})}}{\partial{x_{i}}}$$</p></li>
+</ul>
+<p>Or in vector form
+$<span class="math notranslate nohighlight">\(\nabla\cdot\vector{\sigma}=(\lambda+\mu)\nabla(\nabla\cdot\vector{u})+\mu\nabla^2\vector{u}\)</span>$</p>
+<p>Using the relation:
+$<span class="math notranslate nohighlight">\(\nabla^2\vector{u}=\nabla(\nabla\cdot\vector{u})-\nabla\times\nabla\times\vector{u}\)</span>$</p>
+<p>This yields the following elastic wave equation:</p>
+<div class="math notranslate nohighlight">
+\[\rho\frac{\partial^2\vector{u}}{\partial t^2} = 
+\vector{f} + (\lambda+2\mu)\nabla(\nabla\cdot\vector{u}) 
+- \mu \nabla\times\nabla\times\vector{u}\]</div>
+<p>The term with <span class="math notranslate nohighlight">\(\nabla\cdot\vector{u}\)</span> describes changes in volume due to the displacement field and is related to compressional waves, while the term with <span class="math notranslate nohighlight">\(\nabla\times\vector{u}\)</span> describes the rotational component of the displacement field and is related to shear waves.</p>
+<div class="alert alert-info"> <font color=black>
+<section id="exercise-5">
+<h3>Exercise 5<a class="headerlink" href="#exercise-5" title="Permalink to this heading">#</a></h3>
+<p>Two alternative elastic parameters often used are the bulk modulus <span class="math notranslate nohighlight">\(K\)</span> and shear modulus <span class="math notranslate nohighlight">\(G\)</span>. These two moduli are linked, respectively, to isotropic stress (i.e. pressure <span class="math notranslate nohighlight">\(p\)</span>) and strain (<span class="math notranslate nohighlight">\(\theta\)</span>):
+$<span class="math notranslate nohighlight">\( -p = \frac{\sigma_{kk}}{3} = K \epsilon_{kk} = K \theta \)</span>$</p>
+<p>and deviatoric stress <span class="math notranslate nohighlight">\(\sigma'_{ij}\)</span> and strain <span class="math notranslate nohighlight">\(\epsilon'_{ij}\)</span>:
+$<span class="math notranslate nohighlight">\( \sigma'_{ij} = \sigma_{ij} + p \delta_{ij} = 2 G \epsilon'_{ij} \)</span>$</p>
+<p>Derive the expressions relating <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(G\)</span> to the Lamé constants <span class="math notranslate nohighlight">\(\lambda\)</span> and <span class="math notranslate nohighlight">\(\mu\)</span></p>
+<section id="answer-5">
+<h4>Answer 5<a class="headerlink" href="#answer-5" title="Permalink to this heading">#</a></h4>
+<p>For the bulk modulus <span class="math notranslate nohighlight">\(K\)</span>:
+$<span class="math notranslate nohighlight">\(-p = \frac{\sigma_{kk}}{3} = \frac{\lambda \epsilon_{kk} \delta_{kk} + 2 \mu \epsilon_{kk}}{3}
+= \frac{(3 \lambda +2 \mu )\epsilon_{kk}}{3} = (\lambda +\frac{2}{3} \mu ) \theta \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\Rightarrow  K = \lambda +\frac{2}{3} \mu \)</span>$</p>
+<p>For the shear modulus <span class="math notranslate nohighlight">\(G\)</span>:
+$<span class="math notranslate nohighlight">\( \sigma'_{ij} = \sigma_{ij} + p \delta_{ij} = 2 G \epsilon'_{ij} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( \sigma'_{ij} = (\lambda \theta \delta_{ij} + 2 \mu \epsilon_{ij}) - (\lambda +\frac{2}{3} \mu ) \theta \delta_{ij} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( \sigma'_{ij} = 2 \mu \epsilon_{ij} - \frac{2}{3} \mu \theta \delta_{ij}  = 2 \mu (\epsilon_{ij} - \frac{\theta}{3} \delta_{ij})\)</span>$</p>
+<p>As deviatoric strain <span class="math notranslate nohighlight">\(\epsilon'_{ij} = \epsilon_{ij} - \frac{\theta}{3} \delta_{ij} \)</span>, this means:
+$<span class="math notranslate nohighlight">\(\sigma'_{ij} = 2 \mu  \epsilon'_{ij} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\Rightarrow  G = \mu \)</span>$</p>
+<p>Note that the term in the wave equation that pertains to compressional waves is scaled by <span class="math notranslate nohighlight">\((\lambda + 2\mu)\)</span>, i.e. a parameter closely related to <span class="math notranslate nohighlight">\(K\)</span>, while the term that pertains to shear waves is scaled by the shear modulus <span class="math notranslate nohighlight">\(G\)</span>.</p>
+<div class="alert alert-warning"> <font color=black>
+</section>
+</section>
+<section id="exercise-6">
+<h3>Exercise 6<a class="headerlink" href="#exercise-6" title="Permalink to this heading">#</a></h3>
+<p><strong>(a)</strong>	Show that for an isotropic Hookean solid, the principal directions of stress and strain coincide.</p>
+<p><strong>(b)</strong>	Find a relation between the principal values of stress and strain using the two Lamé parameters.</p>
+<p><strong>(c)</strong> For the same Hookean solid, express the elastic Young’s modulus <span class="math notranslate nohighlight">\(E\)</span> and Poisson’s ratio <span class="math notranslate nohighlight">\(\nu\)</span>, which are often used in engineering, in terms of the Lamé parameters <span class="math notranslate nohighlight">\(\lambda\)</span> and <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<p>The two engineering moduli are defined for a uniaxial state of stress, where <span class="math notranslate nohighlight">\(\sigma_1 \ne 0\)</span> and <span class="math notranslate nohighlight">\(\sigma_2 = \sigma_3 = 0\)</span>, a useful system for experimentally determining the elastic parameters. This stress leads to a maximum strain <span class="math notranslate nohighlight">\(\epsilon_1\)</span> in the direction of the applied stress and uniform strain in perpendicular direction, <span class="math notranslate nohighlight">\(\epsilon_2 = \epsilon_3\)</span>.</p>
+<p>The moduli are then defined as:</p>
+<div class="math notranslate nohighlight">
+\[E=\sigma_1/\epsilon_1 \ \  \text{and} \ \ \nu= -\epsilon_3/\epsilon_1 .\]</div>
+<section id="answer-6">
+<h4>Answer 6<a class="headerlink" href="#answer-6" title="Permalink to this heading">#</a></h4>
+<p><strong>(a)</strong> Show that for an isotropic Hookean solid, principal directions of stress and strain coincide.</p>
+<p>For an isotropic Hookean solid, the stress strain relationship is given by:</p>
+<div class="math notranslate nohighlight">
+\[\tensor{\sigma} = \lambda \theta \tensor{I} + 2\mu\tensor{\epsilon} ,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda\)</span> and <span class="math notranslate nohighlight">\(\mu\)</span> are the Lamé parameters and <span class="math notranslate nohighlight">\(\theta\)</span> is the trace of the strain tensor.</p>
+<p>Let <span class="math notranslate nohighlight">\(\x_1\)</span> be an eigenvector of the strain tensor <span class="math notranslate nohighlight">\(\tensor{\epsilon}\)</span>, with eigenvalue <span class="math notranslate nohighlight">\(c_1\)</span>, such that:</p>
+<div class="math notranslate nohighlight">
+\[\tensor{\epsilon}\cdot\x_1 = c_1\x_1 .\]</div>
+<p>Multiplying Hooke’s law through be <span class="math notranslate nohighlight">\(\x_1\)</span> gives:</p>
+<div class="math notranslate nohighlight">
+\[\tensor{\sigma}\cdot\x_1 = \lambda \theta \tensor{I}\cdot\x_1 + 2\mu\tensor{\epsilon}\cdot\x_1 ,\]</div>
+<p>which implies that:</p>
+<div class="math notranslate nohighlight">
+\[\tensor{\sigma}\cdot\x_1 = \lambda \theta \x_1 + 2\mu c_1 \x_1 ,\]</div>
+<div class="math notranslate nohighlight">
+\[\tensor{\sigma}\cdot\x_1 = \left(\lambda \theta + 2\mu c_1\right) \x_1 .\]</div>
+<p>Hence, <span class="math notranslate nohighlight">\(\x_1\)</span> is also an eigenvector of <span class="math notranslate nohighlight">\(\tensor{\sigma}\)</span>, with eignevalue <span class="math notranslate nohighlight">\(\lambda \theta + 2\mu c_1\)</span>.</p>
+<p><strong>(b)</strong> Find a relation between the principal values of stress and strain using the two Lamé parameters.</p>
+<p>The relationship between principal stress and strain components is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{pmatrix} \sigma_1 &amp; 0 &amp; 0 \\
+                  0 &amp; \sigma_2 &amp; 0 \\
+                  0 &amp; 0 &amp; \sigma_3 \end{pmatrix} = \lambda (\epsilon_1 + \epsilon_2 + \epsilon_3)
+                  \begin{pmatrix} 1 &amp; 0 &amp; 0 \\
+                  0 &amp; 1 &amp; 0 \\
+                  0 &amp; 0 &amp; 1 \end{pmatrix} + 2\mu \begin{pmatrix} \epsilon_1 &amp; 0 &amp; 0 \\
+                  0 &amp; \epsilon_2 &amp; 0 \\
+                  0 &amp; 0 &amp; \epsilon_3 \end{pmatrix} .\end{split}\]</div>
+<p>This implies that for individual components:</p>
+<div class="math notranslate nohighlight">
+\[\sigma_1 = \lambda\theta + 2\mu\epsilon_1\]</div>
+<div class="math notranslate nohighlight">
+\[\sigma_2 = \lambda\theta + 2\mu\epsilon_2\]</div>
+<div class="math notranslate nohighlight">
+\[\sigma_3 = \lambda\theta + 2\mu\epsilon_3\]</div>
+<p>Or in index notation:</p>
+<div class="math notranslate nohighlight">
+\[\sigma_i = \lambda\theta + 2\mu\epsilon_i\]</div>
+<p><strong>(c)</strong> For the same Hookean solid, express the elastic Young’s modulus <span class="math notranslate nohighlight">\(E\)</span> and Poisson’s ratio <span class="math notranslate nohighlight">\(\nu\)</span>, which are often used in engineering, in terms of the Lamé parameters <span class="math notranslate nohighlight">\(\lambda\)</span> and <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<p>To answer this, we consider the case of uniaxial stress, for which the principal stresses are: <span class="math notranslate nohighlight">\(\sigma_1 = \sigma_1\)</span>, <span class="math notranslate nohighlight">\(\sigma_2 = \sigma_3 = 0\)</span> and the principal strains are: <span class="math notranslate nohighlight">\(\epsilon_1 = \epsilon_1\)</span>, <span class="math notranslate nohighlight">\(\epsilon_2 = \epsilon_3\)</span>.</p>
+<p>Young’s modulus is defined as <span class="math notranslate nohighlight">\(E=\sigma_1/\epsilon_1\)</span>.</p>
+<p>Poisson’s ratio is defined as <span class="math notranslate nohighlight">\(\nu= -\epsilon_3/\epsilon_1\)</span>.</p>
+<p>Hooke’s law for the third principal stress:</p>
+<div class="math notranslate nohighlight">
+\[\sigma_3 = \lambda(\epsilon_1 + 2\epsilon_3) + 2\mu\epsilon_3 = 0 .\]</div>
+<p>This equation implies:</p>
+<div class="math notranslate nohighlight">
+\[-\lambda\epsilon_1 = 2(\lambda + \mu)\epsilon_3\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{-\lambda}{\lambda + \mu}\epsilon_1 = 2\epsilon_3\]</div>
+<div class="math notranslate nohighlight">
+\[\nu = -\frac{\epsilon_3}{\epsilon_1} = \frac{\lambda}{2(\lambda + \mu)} .\]</div>
+<p>Hooke’s law for the first principal stress:</p>
+<div class="math notranslate nohighlight">
+\[\sigma_1 = \lambda(\epsilon_1 + 2\epsilon_3) + 2\mu\epsilon_1\]</div>
+<p>Using the result from earlier that <span class="math notranslate nohighlight">\(2\epsilon_3 = \frac{-\lambda}{\lambda + \mu}\epsilon_1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\sigma_1 = \lambda\left(\epsilon_1 + \frac{-\lambda}{\lambda + \mu}\epsilon_1\right) + 2\mu\epsilon_1\]</div>
+<div class="math notranslate nohighlight">
+\[\sigma_1 = \left(\lambda - \frac{\lambda^2}{\lambda + \mu} + 2\mu\right) \epsilon_1\]</div>
+<p>Which implies:</p>
+<div class="math notranslate nohighlight">
+\[E = \frac{\sigma_1}{\epsilon_1} = \lambda - \frac{\lambda^2}{\lambda + \mu} + 2\mu  = \frac{(\lambda + 2\mu)(\lambda + \mu) - \lambda^2}{\lambda + \mu}\]</div>
+<p>Or</p>
+<div class="math notranslate nohighlight">
+\[E = \frac{\mu(3\lambda + 2\mu)}{\lambda + \mu}\]</div>
+</section>
+</section>
+</section>
+<section id="conservation-of-momentum-navier-stokes">
+<h2>Conservation of Momentum: Navier-Stokes<a class="headerlink" href="#conservation-of-momentum-navier-stokes" title="Permalink to this heading">#</a></h2>
+<p>The lecture discussed that combining the conservation of momentum equation with the constitutive equation for an viscous material leads to the so-called Navier-Stokes equation for viscous flow and deformation.</p>
+<p>To consider this case, we decomposed the stress tensor, <span class="math notranslate nohighlight">\(\vector{\sigma}\)</span>, into an isotropic part, <span class="math notranslate nohighlight">\(p \vector{I}\)</span>, and a <strong>deviatoric</strong> part, <span class="math notranslate nohighlight">\(\matrix{\sigma'}\)</span>.</p>
+<p><strong>Hydrostatic state of stress</strong></p>
+<p>The isotropic part describes the hydrostatic state of fluids at rest, as fluids are not able to sustain shear stresses. If a fluid is at rest, the force balance reduces to:
+$<span class="math notranslate nohighlight">\(\nabla \cdot \vector{\sigma} + \vector{f} = -\nabla p + \vector{f} = \vector{0} ~~~~\Rightarrow~~~~\nabla p = \vector{f}\)</span>$</p>
+<p><strong>Navier-Stokes for a Newtonian fluid</strong></p>
+<p>In the case of a Newtonian fluid, deviatoric stress, <span class="math notranslate nohighlight">\(\vector{\sigma'}\)</span>, varies linearly with strain rate, <span class="math notranslate nohighlight">\(\vector{D}\)</span>. Similarly to the elastic case, if the material is isotropic, there are only two viscosity parameters: bulk viscosity, <span class="math notranslate nohighlight">\(\zeta\)</span>, and shear viscosity, <span class="math notranslate nohighlight">\(\eta\)</span>. The deviatoric stress tensor (in index notation) is then given by:
+$<span class="math notranslate nohighlight">\(\sigma'_{ij}= \zeta D_{kk} \delta_{ij} + 2\eta D_{ij}\)</span>$</p>
+<p>If we define <span class="math notranslate nohighlight">\(\Delta = D_{kk} = \nabla \cdot \vector{v}\)</span>, then the full expression for the stress tensor for an isotropic, Newtonian fluid is:
+$<span class="math notranslate nohighlight">\(\vector{\sigma} = (-p + \zeta\Delta)\vector{I} + 2\eta \vector{D}\)</span>$</p>
+<p>Putting this expression into the force balance,
+$<span class="math notranslate nohighlight">\(\nabla \cdot \vector{\sigma} + \vector{f} = \rho \frac{D\vector{v}}{Dt}\)</span><span class="math notranslate nohighlight">\(
+assuming that \)</span>\zeta<span class="math notranslate nohighlight">\( and \)</span>\eta<span class="math notranslate nohighlight">\( are constant yields:
+\)</span><span class="math notranslate nohighlight">\(-\nabla p + (\zeta + \eta) \nabla \Delta + \eta \nabla^{2} \vector{v} + \vector{f} 
+= \rho \frac{D\vector{v}}{Dt} 
+= \rho (\frac{\partial{\vector{v}}}{\partial{t}} + \vector{v} \cdot \nabla \vector{v})\)</span>$</p>
+<p><strong>Navier-Stokes for an incompressible, Newtonian fluid</strong></p>
+<p>If the material is incompressible, then <span class="math notranslate nohighlight">\(\Delta = \nabla \cdot \vector{v} = 0\)</span>, and the equation reduces to:</p>
+<div class="math notranslate nohighlight">
+\[-\nabla p + \eta \nabla^{2} \vector{v} + \vector{f} 
+= \rho (\frac{\partial{\vector{v}}}{\partial{t}} + \vector{v} \cdot \nabla \vector{v})\]</div>
+<p><strong>Navier-Stokes + continuity equations</strong></p>
+<p>In 3-D, this Navier-Stokes equations above correspond to three equations (force balance in <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> direction) and has four unknowns: pressure <span class="math notranslate nohighlight">\(p\)</span>, and the three components of velocity <span class="math notranslate nohighlight">\(\vector{v}=(v_x,v_y,v_z)\)</span>. By solving it together with the continuity equation <span class="math notranslate nohighlight">\(\nabla\cdot\vector{v}=0\)</span>, this yields a system of four equations with four unknowns.</p>
+<div class="alert alert-info"> <font color=black>
+<section id="exercise-7">
+<h3>Exercise 7<a class="headerlink" href="#exercise-7" title="Permalink to this heading">#</a></h3>
+<p>Consider a Newtonian shear flow with velocity field <span class="math notranslate nohighlight">\(v_1(x_2), v_2=v_3=0\)</span>.</p>
+<p>Write out all components of the strain rate tensor <strong>D</strong> and the stres tensor <span class="math notranslate nohighlight">\(\vector{\sigma}\)</span>.</p>
+<section id="answer-7">
+<h4>Answer 7<a class="headerlink" href="#answer-7" title="Permalink to this heading">#</a></h4>
+<p>Remember that:</p>
+<div class="math notranslate nohighlight">
+\[ D_{ij} = \frac{1}{2} (\frac{\partial{v_i}}{\partial{x_j}} + \frac{\partial{v_j}}{\partial{x_i}})\]</div>
+<p>With the given velocity field:</p>
+<div class="math notranslate nohighlight">
+\[D_{11}=D_{22}=D_{33}=0\]</div>
+<div class="math notranslate nohighlight">
+\[D_{12}=D_{21}=\frac{1}{2} \frac{d v_1}{d x_2}\]</div>
+<div class="math notranslate nohighlight">
+\[D_{13}=D_{31}=D_{23}=D_{32}=0\]</div>
+<p>Because <span class="math notranslate nohighlight">\(\nabla \cdot \vector{v} = 0\)</span>:
+$<span class="math notranslate nohighlight">\(\sigma_{ij} = -p \delta_{ij} + 2 \eta D_{ij}\)</span>$</p>
+<p>Therefore:
+$<span class="math notranslate nohighlight">\(\sigma_{11}=\sigma_{22}=\sigma_{33}=-p\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\sigma_{12}=\sigma_{21}=\eta \frac{1}{2} \frac{d v_1}{d x_2}\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\sigma_{13}=\sigma_{31}=\sigma_{23}=\sigma_{32}=0\)</span>$</p>
+<p>This example illustrates that <span class="math notranslate nohighlight">\(\eta\)</span> represents the resistance to shearing.</p>
+<div class="alert alert-info"> <font color=black>
+</section>
+</section>
+<section id="exercise-8">
+<h3>Exercise 8<a class="headerlink" href="#exercise-8" title="Permalink to this heading">#</a></h3>
+<p>Consider the case of steady unidirectional flow of an incompressible fluid with constant viscosity <span class="math notranslate nohighlight">\(\eta\)</span> between two parallel fixed plates, both with a normal pointing in the <span class="math notranslate nohighlight">\(x_2\)</span> direction. Assume flow is in the <span class="math notranslate nohighlight">\(x_1\)</span> direction, and the plates extend infinitely in the <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_3\)</span> directions (i.e., the distance between the plates is much smaller than the size of the plates). This type of flow is called plane Poiseuille flow. The velocity field for this flow has the form:</p>
+<div class="math notranslate nohighlight">
+\[v_1=v(x_2), \ \  v_2 = v_3 =0.\]</div>
+<p><strong>(a)</strong> Write down the Navier-Stokes equations for this problem.</p>
+<p><strong>(b)</strong> Show that the pressure gradient is constant in the direction of flow. I.e., that:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2 p}{\partial x_1^2}=0. \]</div>
+<p><strong>(c)</strong> With this information, find the solution for <span class="math notranslate nohighlight">\(v(x_2)\)</span>, assuming the plates are located at <span class="math notranslate nohighlight">\(x_2 = -b\)</span> and <span class="math notranslate nohighlight">\(x_2=b\)</span>.</p>
+<p><strong>(d)</strong> What does the constant <span class="math notranslate nohighlight">\(c\)</span> correspond to in the solution? Use <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> to plot the shapes of solutions for various ratios of <span class="math notranslate nohighlight">\(c/\eta\)</span>.</p>
+<section id="answer-8">
+<h4>Answer 8<a class="headerlink" href="#answer-8" title="Permalink to this heading">#</a></h4>
+<p><strong>(a)</strong></p>
+<p>Since the flow is steady state and there are no external forces we have that the velocity field can be written</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\mathrm{D}\mathbf{v}}{\mathrm{D}t}=0, \qquad \mathbf{F}=0 \]</div>
+<p>Further, we are given that</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{v}=v(x_2)\mathbf{e}_1+0\mathbf{e}_2+0\mathbf{e}_3\]</div>
+<p>Substituting these conditions into the Navier Stokes equations we are left with</p>
+<div class="math notranslate nohighlight">
+\[ -\nabla p + \eta\nabla^{2}\mathbf{v}=0\]</div>
+<p>However, owing to the form of the velocity field this further reduces to, in the <span class="math notranslate nohighlight">\(x_1\)</span> direction:</p>
+<div class="math notranslate nohighlight">
+\[ -\frac{\partial p}{\partial x_1} + \eta\frac{\partial^2 v(x_2)}{\partial x_2^2}=0\]</div>
+<p>Note that in the <span class="math notranslate nohighlight">\(x_2\)</span> and <span class="math notranslate nohighlight">\(x_3\)</span> directions we have that <span class="math notranslate nohighlight">\(\partial p/\partial x_2=0\)</span> and
+<span class="math notranslate nohighlight">\(\partial p/\partial x_3=0\)</span>, i.e. <span class="math notranslate nohighlight">\(p=p(x_1)\)</span>.</p>
+<p><strong>(b)</strong></p>
+<p>From part (a) we have that <span class="math notranslate nohighlight">\(p=p(x_1)\)</span> and that</p>
+<div class="math notranslate nohighlight">
+\[ -\frac{\partial p(x_1)}{\partial x_1} + \eta\frac{\partial^2 v(x_2)}{\partial x_2^2}=0\]</div>
+<p>Differentiating this expression with respect to <span class="math notranslate nohighlight">\(x_1\)</span> to get the pressure gradient we have</p>
+<div class="math notranslate nohighlight">
+\[ -\frac{\partial^2 p(x_1)}{\partial x_1^2} + \eta\frac{\partial}{\partial x_1}\frac{\partial^2 v(x_2)}{\partial x_2^2}=0\]</div>
+<p>However, since our velocity is only a function of <span class="math notranslate nohighlight">\(x_2\)</span></p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial v(x_2)}{\partial x_1}=0\]</div>
+<p>Hence</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial^2 p(x_1)}{\partial x_1^2}=0 \]</div>
+<p><strong>(c)</strong></p>
+<p>Integrating our pressure equation with respect to <span class="math notranslate nohighlight">\(x_1\)</span> we have that</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial p(x_1)}{\partial x_1} = -c\]</div>
+<p>Where <span class="math notranslate nohighlight">\(c\)</span> is some constant and note that we have chosen our right hand side to be <span class="math notranslate nohighlight">\(-c\)</span> since the flow will move in the direction of decreasing pressure (i.e. we know <span class="math notranslate nohighlight">\(c\)</span> will now be some positive constant). We can then substitute this into our Navier stokes equation to obtain</p>
+<div class="math notranslate nohighlight">
+\[c+\eta\frac{\partial^2 v(x_2)}{\partial x_2^2}=0\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2 v(x_2)}{\partial x_2^2}=-\frac{c}{\eta}\]</div>
+<p>Integrating twice with respect to <span class="math notranslate nohighlight">\(x_2\)</span> we have that</p>
+<div class="math notranslate nohighlight">
+\[ v(x_2)=-\frac{c}{2\eta}x_2^2+B_1 x + B_2\]</div>
+<p>where <span class="math notranslate nohighlight">\(B_1\)</span> and <span class="math notranslate nohighlight">\(B_2\)</span> are our new constants of integration. To evaluate the constants <span class="math notranslate nohighlight">\(B_1\)</span> and <span class="math notranslate nohighlight">\(B_2\)</span> we now need to apply our boundary conditions which are given as</p>
+<div class="math notranslate nohighlight">
+\[v(b)=v(-b)=0\]</div>
+<p>The first condition, <span class="math notranslate nohighlight">\(v(b)=0\)</span>, gives</p>
+<div class="math notranslate nohighlight">
+\[-\frac{c}{2\eta}b^2+B_1 b + B_2=0\]</div>
+<p>the second, <span class="math notranslate nohighlight">\(v(-b)=0\)</span>, gives</p>
+<div class="math notranslate nohighlight">
+\[-\frac{c}{2\eta}b^2-B_1 b + B_2=0\]</div>
+<p>Solving these two simultaneous equations yields</p>
+<div class="math notranslate nohighlight">
+\[B_1 = 0, \qquad B_2=\frac{c}{2\eta}b^2\]</div>
+<p>Hence, our final solution can be written as</p>
+<p>$<span class="math notranslate nohighlight">\(v(x_2)=\frac{c}{2\eta}(b-x_2^2)\)</span>$.</p>
+<p>Note that our flow is thus parabolic!</p>
+<p><strong>(d)</strong></p>
+<p>The constant <span class="math notranslate nohighlight">\(c\)</span> corresponds to the strength of the far-field pressure source (that’s forcing the flow in the <span class="math notranslate nohighlight">\(x_1\)</span> direction). Hence (for a fixed viscosity), the larger this force, the larger the peak velocity.</p>
+<p>Below we plot the velocity field for ratios of <span class="math notranslate nohighlight">\(c/\eta\)</span> between 0 and 2. For plotting purposes, we will choose <span class="math notranslate nohighlight">\(b=1\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function defining our velocity</span>
+<span class="k">def</span> <span class="nf">vel</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">coeta</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">coeta</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">x2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">dx2</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">b</span><span class="o">/</span><span class="n">dx2</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Compute velocity profiles for various c/eta</span>
+<span class="n">v01</span> <span class="o">=</span> <span class="n">vel</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">v05</span> <span class="o">=</span> <span class="n">vel</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">v10</span> <span class="o">=</span> <span class="n">vel</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">v15</span> <span class="o">=</span> <span class="n">vel</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+<span class="n">v20</span> <span class="o">=</span> <span class="n">vel</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+
+<span class="c1"># Initialise set up for figure</span>
+<span class="n">tempfig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">tempfig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Various $x_2$ velocity profiles&quot;</span><span class="p">)</span>
+<span class="n">linecol</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="s1">&#39;b-&#39;</span><span class="p">,</span><span class="s1">&#39;c-&#39;</span><span class="p">,</span><span class="s1">&#39;g-&#39;</span><span class="p">,</span><span class="s1">&#39;r-&#39;</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$v(x_2)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$x_2$&quot;</span><span class="p">)</span>
+
+<span class="c1"># Some horizontal lines at +,- b</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=-</span><span class="n">b</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+
+<span class="c1"># Velocity profiles</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v01</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;0.1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v05</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;0.5&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v10</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v15</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;1.5&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v20</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;2.0&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;$\eta/c$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f13f42c44b3384f7526b7fdaafae465667906701511c4771f35b913e8899d43b.png" src="../_images/f13f42c44b3384f7526b7fdaafae465667906701511c4771f35b913e8899d43b.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Chapter4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Solutions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-content">Types of content</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-for-notebook">Settings for notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuum-mechanics-equations">Continuum mechanics equations</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-continuity-equation-conservation-of-mass">The continuity equation (conservation of mass)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-1">Answer 1</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-equation-of-motion-and-force-equilibrium">The equation of motion and force equilibrium</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-2">Answer 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-energy">Conservation of Energy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-advection-diffusion">1D Advection-Diffusion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-3">Answer 3</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-4">Answer 4</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-momentum-hookean-elasticity">Conservation of Momentum: Hookean Elasticity</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-5">Answer 5</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6">Exercise 6</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-6">Answer 6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-momentum-navier-stokes">Conservation of Momentum: Navier-Stokes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7">Exercise 7</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-7">Answer 7</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8">Exercise 8</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-8">Answer 8</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Imperial College London
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
