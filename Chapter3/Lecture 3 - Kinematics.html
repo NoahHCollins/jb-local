@@ -397,8 +397,50 @@ document.write(`
 <h1><a class="toc-backref" href="#id1" role="doc-backlink">3.1 Kinematics   <a class="tocSkip"></a><a class="headerlink" href="#kinematics-a-class-tocskip" title="Permalink to this heading">#</a></h1>
 <p>Lecture 3</p>
 <p>Saskia Goes, <a class="reference external" href="mailto:s&#46;goes&#37;&#52;&#48;imperial&#46;ac&#46;uk">s<span>&#46;</span>goes<span>&#64;</span>imperial<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
+<section id="table-of-contents">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#kinematics-a-class-tocskip" id="id1">3.1 Kinematics   <a class="tocSkip"></a></p>
+<ul>
+<li><p><a class="reference internal" href="#table-of-contents" id="id2">Table of Contents</a></p></li>
+<li><p><a class="reference internal" href="#learning-objectives" id="id3">Learning Objectives</a></p></li>
+<li><p><a class="reference internal" href="#material-time-derivative" id="id4">Material Time Derivative</a></p>
+<ul>
+<li><p><a class="reference internal" href="#example-acceleration" id="id5">Example: Acceleration</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#displacement" id="id6">Displacement</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pathlines" id="id7">Pathlines</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#rigid-body-motion" id="id8">Rigid Body Motion</a></p>
+<ul>
+<li><p><a class="reference internal" href="#example-displacement" id="id9">Example: Displacement</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#deformation-tensor" id="id10">Deformation Tensor</a></p></li>
+<li><p><a class="reference internal" href="#infinitesimal-strain-and-rotation-tensors" id="id11">Infinitesimal Strain and Rotation Tensors</a></p>
+<ul>
+<li><p><a class="reference internal" href="#u-diagonal-u-infinitesimal-strain-tensor-elements" id="id12"><u> Diagonal</u> Infinitesimal Strain Tensor Elements</a></p></li>
+<li><p><a class="reference internal" href="#u-off-diagonal-u-infinitesimal-strain-tensor-elements" id="id13"><u> Off-Diagonal</u> Infinitesimal Strain Tensor Elements</a></p></li>
+<li><p><a class="reference internal" href="#infinitesimal-rotation-tensor-elements" id="id14">Infinitesimal Rotation Tensor Elements</a></p></li>
+<li><p><a class="reference internal" href="#extra-rotation-tensor-and-rotation-vector" id="id15">Extra: Rotation tensor and Rotation vector</a></p></li>
+<li><p><a class="reference internal" href="#example-displacement-infinitesimal-strain" id="id16">Example Displacement - Infinitesimal Strain</a></p></li>
+<li><p><a class="reference internal" href="#infinitesimal-strain-tensor-properties" id="id17">Infinitesimal Strain Tensor Properties</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#strain-elements" id="id18">Strain Elements</a></p></li>
+<li><p><a class="reference internal" href="#strain-rate-tensor" id="id19">Strain Rate Tensor</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+</section>
 <section id="learning-objectives">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Learning Objectives</a><a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Learning Objectives</a><a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Be able to use material and spatial descriptions of variables and their time derivatives.</p></li>
 <li><p>Be able to compute infinitesimal strain (strain rate) tensor given a displacement (velocity) field.</p></li>
@@ -406,128 +448,6 @@ document.write(`
 <li><p>Be able to find principal strain (rates) and strain (rate) invariants and know what they represent.</p></li>
 <li><p>Understand difference between infinitesimal and finite strain.</p></li>
 </ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
-<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="nt">div</span><span class="p">.</span><span class="nc">exercise</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ffd7e2</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ffd7e2</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#ffd7e2</span><span class="p">;</span>
-<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">div</span><span class="p">.</span><span class="nc">optional</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
-<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">div</span><span class="p">.</span><span class="nc">advanced</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
-<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><style>
-div.exercise {
-    display: block;
-    background-color: #ffd7e2;
-    border-color: #ffd7e2;
-    border-left: 5px solid #ffd7e2;
-    padding: 0.5em;
-}
-div.optional {
-    display: block;
-    background-color: #d7e2ff;
-    border-color: #d7e2ff;
-    border-left: 5px solid #d7e2ff;
-    padding: 0.5em;
-}
-div.advanced {
-    display: block;
-    background-color: #fff4d7;
-    border-color: #fff4d7;
-    border-left: 5px solid #fff4d7;
-    padding: 0.5em;
-}
-</style>
-</div></div>
-</div>
-<p>Do not alter this cell. LaTeX commands for frequently used terms.</p>
-<div class="math notranslate nohighlight">
-\[\newcommand{\tensor}[1]{\underline{\underline{\mathbf{#1}}}}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\vector}[1]{\mathbf{#1}}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\ex}{\vector{\hat{e}}_1}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\ey}{\vector{\hat{e}}_2}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\ez}{\vector{\hat{e}}_3}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\x}{\vector{x}}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\v}{\vector{v}}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\u}{\vector{u}}\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages for notebook here</span>
-<span class="kn">import</span> <span class="nn">numpy</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-
-<span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-</div>
-</div>
-</div>
-<nav class="contents" id="contents">
-<p class="topic-title">Contents</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#kinematics-a-class-tocskip" id="id1">3.1 Kinematics   <a class="tocSkip"></a></p>
-<ul>
-<li><p><a class="reference internal" href="#learning-objectives" id="id2">Learning Objectives</a></p></li>
-<li><p><a class="reference internal" href="#material-time-derivative" id="id3">Material Time Derivative</a></p>
-<ul>
-<li><p><a class="reference internal" href="#example-acceleration" id="id4">Example: Acceleration</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#displacement" id="id5">Displacement</a></p>
-<ul>
-<li><p><a class="reference internal" href="#pathlines" id="id6">Pathlines</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#rigid-body-motion" id="id7">Rigid Body Motion</a></p>
-<ul>
-<li><p><a class="reference internal" href="#example-displacement" id="id8">Example: Displacement</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#deformation-tensor" id="id9">Deformation Tensor</a></p></li>
-<li><p><a class="reference internal" href="#infinitesimal-strain-and-rotation-tensors" id="id10">Infinitesimal Strain and Rotation Tensors</a></p>
-<ul>
-<li><p><a class="reference internal" href="#u-diagonal-u-infinitesimal-strain-tensor-elements" id="id11"><u> Diagonal</u> Infinitesimal Strain Tensor Elements</a></p></li>
-<li><p><a class="reference internal" href="#u-off-diagonal-u-infinitesimal-strain-tensor-elements" id="id12"><u> Off-Diagonal</u> Infinitesimal Strain Tensor Elements</a></p></li>
-<li><p><a class="reference internal" href="#infinitesimal-rotation-tensor-elements" id="id13">Infinitesimal Rotation Tensor Elements</a></p></li>
-<li><p><a class="reference internal" href="#extra-rotation-tensor-and-rotation-vector" id="id14">Extra: Rotation tensor and Rotation vector</a></p></li>
-<li><p><a class="reference internal" href="#example-displacement-infinitesimal-strain" id="id15">Example Displacement - Infinitesimal Strain</a></p></li>
-<li><p><a class="reference internal" href="#infinitesimal-strain-tensor-properties" id="id16">Infinitesimal Strain Tensor Properties</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#strain-elements" id="id17">Strain Elements</a></p></li>
-<li><p><a class="reference internal" href="#strain-rate-tensor" id="id18">Strain Rate Tensor</a></p></li>
-</ul>
-</li>
-</ul>
-</nav>
 <p>There are two main ways to describe motion: <strong>Material</strong> (Lagrangian) and <strong>Spatial</strong> (Eulerian).<br />
 <br>
 In the <strong>material</strong> description, the behavior of individual particles is observed as they move and interact within a fluid or solid mateiral. Each particle is identified by its unique properties such as position, velocity, acceleration and the way these particles interact with each other is understood by monitoring these properties over time. This is often the preferred description for solids.</p>
@@ -542,7 +462,7 @@ In the <strong>material</strong> description, the behavior of individual particl
 <p><em>In the example flow, velocity at point <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, does not change with time, but velocity that a particle originally in the same position <span class="math notranslate nohighlight">\(\xi\)</span> experiences with time does change.</em></p>
 </section>
 <section id="material-time-derivative">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Material Time Derivative</a><a class="headerlink" href="#material-time-derivative" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Material Time Derivative</a><a class="headerlink" href="#material-time-derivative" title="Permalink to this heading">#</a></h2>
 <p>The time derivative is the rate of change (with time) of a quantity for a material particle.</p>
 <p>In the <u> material description </u>, the time derivative of P is: <span class="math notranslate nohighlight">\(\hspace{0.1cm} \large{\frac{DP}{Dt}} = \Bigl(\frac{\partial P}{\partial t}\Bigr)_\xi \hspace{2cm}\)</span> <em>Note here P(<span class="math notranslate nohighlight">\(\xi, t\)</span>)</em></p>
 <p>In the <u> spatial description </u>, the time derivative of P is: <span class="math notranslate nohighlight">\(\hspace{0.1cm} \large{\frac{DP}{Dt}} = \Bigl(\frac{\partial P}{\partial t}\Bigr)_\xi = \Bigl(\frac{\partial P}{\partial t}\Bigr)_x + \frac{\partial P}{\partial t_i} \Bigl(\frac{\partial x'_i}{\partial t}\Bigr)_\xi \hspace{1cm}\)</span> <em>Note here P(<span class="math notranslate nohighlight">\(\mathbf{x}, t\)</span>)</em></p>
@@ -554,7 +474,7 @@ In the <strong>material</strong> description, the behavior of individual particl
 \]</div>
 <p><em>This definition works in any coordinate frame</em>.</p>
 <section id="example-acceleration">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">Example: Acceleration</a><a class="headerlink" href="#example-acceleration" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Example: Acceleration</a><a class="headerlink" href="#example-acceleration" title="Permalink to this heading">#</a></h3>
 <p>In the spatial description: <span class="math notranslate nohighlight">\( \large{\mathbf{a}} = \frac{D\mathbf{v}}{Dt} = \frac{\partial v}{\partial t} + \mathbf{v} \cdot \nabla \mathbf{v}\)</span></p>
 <p>Let’s determine the acceleration of a particle in a spatial velocity field:</p>
 <div class="math notranslate nohighlight">
@@ -615,13 +535,13 @@ a_1 = \frac{Dv_1}{Dt} = \frac{\partial v_1}{\partial t} + v_1 \frac{\partial v_1
 </p>    </section>
 </section>
 <section id="displacement">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">Displacement</a><a class="headerlink" href="#displacement" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Displacement</a><a class="headerlink" href="#displacement" title="Permalink to this heading">#</a></h2>
 <p>Motion of a continuum can be described by: path lines <span class="math notranslate nohighlight">\(\mathbf{x}' = \mathbf{x}'(\xi, t)\)</span> or by displacement fields <span class="math notranslate nohighlight">\(\mathbf{u}(\xi, t) = \mathbf{x}'(\xi, t) - \xi\)</span> .</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/Fig5.PNG"><img alt="../_images/Fig5.PNG" src="../_images/Fig5.PNG" style="width: 75%;" /></a>
 </figure>
 <section id="pathlines">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">Pathlines</a><a class="headerlink" href="#pathlines" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Pathlines</a><a class="headerlink" href="#pathlines" title="Permalink to this heading">#</a></h3>
 <p>Let’s determine the pathline for the <span class="math notranslate nohighlight">\(x'_1\)</span> component of the particle’s position for the spatial velocity field of the earlier acceleration example.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -653,7 +573,7 @@ x'_i(\xi, t) = (1 + kt)\xi_i
 </section>
 </section>
 <section id="rigid-body-motion">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">Rigid Body Motion</a><a class="headerlink" href="#rigid-body-motion" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Rigid Body Motion</a><a class="headerlink" href="#rigid-body-motion" title="Permalink to this heading">#</a></h2>
 <p>The motion through which a body shifts from one point to another is known as a <u> translation</u> . When a rigid body moves in a translational motion, the line segment between any two particles of the body remains parallel.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -671,7 +591,7 @@ x'_i(\xi, t) = (1 + kt)\xi_i
 <p>Where <span class="math notranslate nohighlight">\(\mathbf{R}(t)\)</span> is the rotation tensor, with <span class="math notranslate nohighlight">\(\mathbf{R(0) = I}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> is the point of rotation. <span class="math notranslate nohighlight">\(\mathbf{R}(t)\)</span> is an orthogonal transformation, meaning it preserves the lengths and angles of the body. (<span class="math notranslate nohighlight">\(\mathbf{R^T R = I}, \text{det}(\mathbf{R}) = 1)\)</span>.</p>
 <br>
 If $\mathbf{u}$ depends on both $\mathbf{x}$ and $\mathbf{t}$, then the body has undergone internal deformation. <section id="example-displacement">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">Example: Displacement</a><a class="headerlink" href="#example-displacement" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Example: Displacement</a><a class="headerlink" href="#example-displacement" title="Permalink to this heading">#</a></h3>
 <p>Let’s look at the velocity field from earlier. <span class="math notranslate nohighlight">\(\large{v_i} = \frac{kx_i}{1 + kt}\)</span></p>
 <div class="math notranslate nohighlight">
 \[
@@ -684,7 +604,7 @@ t = 0 \hspace{7.5cm} t = 2
 </section>
 </section>
 <section id="deformation-tensor">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">Deformation Tensor</a><a class="headerlink" href="#deformation-tensor" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Deformation Tensor</a><a class="headerlink" href="#deformation-tensor" title="Permalink to this heading">#</a></h2>
 <p>For small <strong>dr</strong></p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/Fig72.png"><img alt="../_images/Fig72.png" src="../_images/Fig72.png" style="width: 75%;" /></a>
@@ -746,7 +666,7 @@ dx_1 &amp; dx_2 &amp; dx_3 \\
 </ol>
 </section>
 <section id="infinitesimal-strain-and-rotation-tensors">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">Infinitesimal Strain and Rotation Tensors</a><a class="headerlink" href="#infinitesimal-strain-and-rotation-tensors" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Infinitesimal Strain and Rotation Tensors</a><a class="headerlink" href="#infinitesimal-strain-and-rotation-tensors" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \large{\color{red}{\varepsilon}} = 
@@ -766,7 +686,7 @@ dx_1 &amp; dx_2 &amp; dx_3 \\
 \end{bmatrix} 
 \end{split}\]</div>
 <section id="u-diagonal-u-infinitesimal-strain-tensor-elements">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink"><u> Diagonal</u> Infinitesimal Strain Tensor Elements</a><a class="headerlink" href="#u-diagonal-u-infinitesimal-strain-tensor-elements" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><u> Diagonal</u> Infinitesimal Strain Tensor Elements</a><a class="headerlink" href="#u-diagonal-u-infinitesimal-strain-tensor-elements" title="Permalink to this heading">#</a></h3>
 <p>For a line segment <span class="math notranslate nohighlight">\(\mathbf{dr} =  (dx_1, 0, 0)\)</span> deforming in a displacement field <span class="math notranslate nohighlight">\( \mathbf{u} = (u_1, 0, 0) \)</span></p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/Fig82.png"><img alt="../_images/Fig82.png" src="../_images/Fig82.png" style="width: 75%;" /></a>
@@ -784,7 +704,7 @@ dx_1 &amp; dx_2 &amp; dx_3 \\
 The relative change in volume <span class="math notranslate nohighlight">\((V' - V)/V\)</span> of a cube <span class="math notranslate nohighlight">\(V =dx_1 dx_2 dx_3 \approx \varepsilon_{11} +  \varepsilon_{22} + \varepsilon_{33} = \varepsilon_{ii} = \text{tr}(\varepsilon) = \nabla \cdot \mathbf{u} \)</span></p>
 </section>
 <section id="u-off-diagonal-u-infinitesimal-strain-tensor-elements">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink"><u> Off-Diagonal</u> Infinitesimal Strain Tensor Elements</a><a class="headerlink" href="#u-off-diagonal-u-infinitesimal-strain-tensor-elements" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink"><u> Off-Diagonal</u> Infinitesimal Strain Tensor Elements</a><a class="headerlink" href="#u-off-diagonal-u-infinitesimal-strain-tensor-elements" title="Permalink to this heading">#</a></h3>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/Fig91.png"><img alt="../_images/Fig91.png" src="../_images/Fig91.png" style="width: 75%;" /></a>
 </figure>
@@ -799,7 +719,7 @@ The relative change in volume <span class="math notranslate nohighlight">\((V' -
 <p><span class="math notranslate nohighlight">\(2 \varepsilon_{12}\)</span> is the change in angle between <span class="math notranslate nohighlight">\(dx_1\)</span> and <span class="math notranslate nohighlight">\(dx_2\)</span>, orginally 90 degrees .</p>
 </section>
 <section id="infinitesimal-rotation-tensor-elements">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">Infinitesimal Rotation Tensor Elements</a><a class="headerlink" href="#infinitesimal-rotation-tensor-elements" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Infinitesimal Rotation Tensor Elements</a><a class="headerlink" href="#infinitesimal-rotation-tensor-elements" title="Permalink to this heading">#</a></h3>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/Fig10.png"><img alt="../_images/Fig10.png" src="../_images/Fig10.png" style="width: 75%;" /></a>
 </figure>
@@ -811,7 +731,7 @@ The relative change in volume <span class="math notranslate nohighlight">\((V' -
 <div class = "advanced">    
 </section>
 <section id="extra-rotation-tensor-and-rotation-vector">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">Extra: Rotation tensor and Rotation vector</a><a class="headerlink" href="#extra-rotation-tensor-and-rotation-vector" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Extra: Rotation tensor and Rotation vector</a><a class="headerlink" href="#extra-rotation-tensor-and-rotation-vector" title="Permalink to this heading">#</a></h3>
 <p>For an antisymmetric tensor <strong>W</strong>, a corresponding <em><strong>dual</strong></em> or <em><strong>axial vector</strong></em> <strong>w</strong> can be found such that:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -832,7 +752,7 @@ The relative change in volume <span class="math notranslate nohighlight">\((V' -
 <p>Note that <span class="math notranslate nohighlight">\(\omega\)</span> only describes the overall rigid body roation, not the total rotation of each individual segment <strong>dx</strong>, which is also influenced by <span class="math notranslate nohighlight">\( \varepsilon \)</span>.</p>
 </section>
 <section id="example-displacement-infinitesimal-strain">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">Example Displacement - Infinitesimal Strain</a><a class="headerlink" href="#example-displacement-infinitesimal-strain" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Example Displacement - Infinitesimal Strain</a><a class="headerlink" href="#example-displacement-infinitesimal-strain" title="Permalink to this heading">#</a></h3>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/Fig111.png"><img alt="../_images/Fig111.png" src="../_images/Fig111.png" style="width: 75%;" /></a>
 </figure>
@@ -882,7 +802,7 @@ u_y = 0.4 xy
 \]</div>
 </section>
 <section id="infinitesimal-strain-tensor-properties">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink">Infinitesimal Strain Tensor Properties</a><a class="headerlink" href="#infinitesimal-strain-tensor-properties" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Infinitesimal Strain Tensor Properties</a><a class="headerlink" href="#infinitesimal-strain-tensor-properties" title="Permalink to this heading">#</a></h3>
 <p>To transform the strain tensor to an arbritary coordinate frame:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -900,7 +820,7 @@ The deviatoric strain <span class="math notranslate nohighlight">\( \varepsilon'
 </section>
 </section>
 <section id="strain-elements">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">Strain Elements</a><a class="headerlink" href="#strain-elements" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Strain Elements</a><a class="headerlink" href="#strain-elements" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \varepsilon = 
@@ -924,7 +844,7 @@ The deviatoric strain <span class="math notranslate nohighlight">\( \varepsilon'
 <p>Which is the same as <span class="math notranslate nohighlight">\(\mathbf{\hat{p} \cdot dp' = |dp'| \cos{\alpha}}\)</span>.</p>
 </section>
 <section id="strain-rate-tensor">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink">Strain Rate Tensor</a><a class="headerlink" href="#strain-rate-tensor" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Strain Rate Tensor</a><a class="headerlink" href="#strain-rate-tensor" title="Permalink to this heading">#</a></h2>
 <p>In a similar way as a strain tensor, a tensor that describes the rate of change of deformation can be defined from the <strong>velocity gradient</strong>.</p>
 <div class="math notranslate nohighlight">
 \[
