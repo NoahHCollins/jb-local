@@ -1,0 +1,1143 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Solving Navier-Stokes Numerically &#8212; Modelling and Numerical Methods</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter7/Lecture 7.1 - Navier-Stokes';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Modelling and Numerical Methods
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 1 - Analytical Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter1/intro.html">1. Intro to Vector/Tensor Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/Lecture%201.1%20-%20Intro%20to%20Vectors.html">1.1 Continuum Mechanics and Vector Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/Lecture%201.2%20-%20Vector%20Transformations.html">1.2 Vector Transformations  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/Lecture%201.3%20-%20Intro%20to%20Tensors.html">1.3 Intro to Tensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/exercises.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/solutions.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter2/intro.html">2. Stress Tensor</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/Lecture%202%20-%20Stress%20and%20Tensors.html">2.1 Stress and Tensors  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/exercises2.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/solutions2.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter3/intro.html">3. Kinematics and Strain</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/Lecture%203%20-%20Kinematics.html">3.1 Kinematics   <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/exercises3.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/solutions3.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter4/intro.html">4. Conservation Equations</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/Lecture%204.1%20-%20Conservation%20Equations.html">4.1 Conservation Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/Lecture%204.2%20-%20Rheology.html">4.2 Rheology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/exercises4.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/solutions4.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter5/intro.html">5. Dimensional Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2 - Numerical techniques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Chapter5/Lecture%205%20-%20Dimensions%20and%20Dimensional%20Analysis.html">5.1 Dimensions and Dimensional Analysis  <a class="tocSkip"></a></a></li>
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FChapter7/Lecture 7.1 - Navier-Stokes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Chapter7/Lecture 7.1 - Navier-Stokes.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Solving Navier-Stokes Numerically</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-navier-stokes-equation">The Navier-Stokes Equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-for-this-lecture">Assumptions for this Lecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incompressible-newtonian-fluid">Incompressible Newtonian Fluid</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#side-note-dynamic-and-kinematic-viscosity">Side note: Dynamic and Kinematic Viscosity</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incompressible-navier-stokes-equation">Incompressible Navier-Stokes Equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-couple-of-notes">A couple of notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-1-implicit-matrix-solution-for-all-variables">Method 1: Implicit Matrix Solution for all Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-2-split-the-pressure-and-velocity-solves">Method 2: Split the Pressure and Velocity Solves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-poisson-equation">Pressure Poisson Equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-difference-approximation-of-pressure-poisson-equation">Finite Difference approximation of Pressure Poisson Equation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-projection">Pressure Projection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-projection-finite-difference-2d">Pressure Projection- Finite Difference (2D)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solid-boundaries-in-fluid-dynamics">Solid Boundaries in Fluid Dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-condition-at-no-slip-boundary">Pressure Condition at No-Slip Boundary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-code-with-explicit-loops">The Code (with explicit loops)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-sure-how-to-put-c-in-yet">NOT SURE HOW TO PUT C++ IN YET</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-example">Test Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-the-pressure-calculation">Note on the Pressure Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-c">More C++</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-for-re-10">Solution for Re = 10</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="solving-navier-stokes-numerically">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Solving Navier-Stokes Numerically</a><a class="headerlink" href="#solving-navier-stokes-numerically" title="Permalink to this heading">#</a></h1>
+<p>Lecture 7.1<br />
+Stephen Neethling</p>
+<section id="table-of-contents">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#solving-navier-stokes-numerically" id="id1">Solving Navier-Stokes Numerically</a></p>
+<ul>
+<li><p><a class="reference internal" href="#table-of-contents" id="id2">Table of Contents</a></p></li>
+<li><p><a class="reference internal" href="#outline" id="id3">Outline</a></p></li>
+<li><p><a class="reference internal" href="#learning-objectives" id="id4">Learning Objectives</a></p></li>
+<li><p><a class="reference internal" href="#the-navier-stokes-equation" id="id5">The Navier-Stokes Equation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#assumptions-for-this-lecture" id="id6">Assumptions for this Lecture</a></p></li>
+<li><p><a class="reference internal" href="#incompressible-newtonian-fluid" id="id7">Incompressible Newtonian Fluid</a></p>
+<ul>
+<li><p><a class="reference internal" href="#side-note-dynamic-and-kinematic-viscosity" id="id8">Side note: Dynamic and Kinematic Viscosity</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#incompressible-navier-stokes-equation" id="id9">Incompressible Navier-Stokes Equation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#a-couple-of-notes" id="id10">A couple of notes</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#method-1-implicit-matrix-solution-for-all-variables" id="id11">Method 1: Implicit Matrix Solution for all Variables</a></p></li>
+<li><p><a class="reference internal" href="#method-2-split-the-pressure-and-velocity-solves" id="id12">Method 2: Split the Pressure and Velocity Solves</a></p></li>
+<li><p><a class="reference internal" href="#pressure-poisson-equation" id="id13">Pressure Poisson Equation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#finite-difference-approximation-of-pressure-poisson-equation" id="id14">Finite Difference approximation of Pressure Poisson Equation</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#pressure-projection" id="id15">Pressure Projection</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pressure-projection-finite-difference-2d" id="id16">Pressure Projection- Finite Difference (2D)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#solid-boundaries-in-fluid-dynamics" id="id17">Solid Boundaries in Fluid Dynamics</a></p></li>
+<li><p><a class="reference internal" href="#pressure-condition-at-no-slip-boundary" id="id18">Pressure Condition at No-Slip Boundary</a></p></li>
+<li><p><a class="reference internal" href="#the-code-with-explicit-loops" id="id19">The Code (with explicit loops)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#not-sure-how-to-put-c-in-yet" id="id20">NOT SURE HOW TO PUT C++ IN YET</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#test-example" id="id21">Test Example</a></p>
+<ul>
+<li><p><a class="reference internal" href="#note-on-the-pressure-calculation" id="id22">Note on the Pressure Calculation</a></p></li>
+<li><p><a class="reference internal" href="#more-c" id="id23">More C++</a></p></li>
+<li><p><a class="reference internal" href="#solution-for-re-10" id="id24">Solution for Re = 10</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</section>
+<section id="outline">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Outline</a><a class="headerlink" href="#outline" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Discuss some of the relevant features of the Navier-Stokes equation</p></li>
+<li><p>Derive and discuss the fully implicit solution to the NS equation</p></li>
+<li><p>Discuss a semi-implicit method for solving the equation (Pressure projection method)</p></li>
+<li><p>Implement the pressure projection method</p></li>
+<li><p>Demonstrate and discuss the solution of some example problems</p></li>
+</ul>
+</section>
+<section id="learning-objectives">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Learning Objectives</a><a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Derive an implicit discretisation for the NS equation</p></li>
+<li><p>Derive a pressure projection discretisation for solving the NS equation</p></li>
+<li><p>Derive appropriate boundary conditions for the problem</p></li>
+<li><p>Learn how to implement a solver for the Pressure Poisson problem</p></li>
+<li><p>Learn how to implement an explicit solver for the momentum
+equation, including the appropriate use of up-winding</p></li>
+<li><p>Combine the solvers into a single Navier-Stokes solver capable of
+solving a range of fluid flow problems</p></li>
+</ul>
+</section>
+<section id="the-navier-stokes-equation">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">The Navier-Stokes Equation</a><a class="headerlink" href="#the-navier-stokes-equation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Momentum balance:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \rho \frac{D\mathbf{u}}{Dt} = - \nabla P + \nabla \cdot \mathbf{\tau} + \rho \mathbf{g} \]</div>
+<p><em>Material derivative:</em> <span class="math notranslate nohighlight">\(\frac{D\mathbf{u}}{Dt} = \frac{\partial \mathbf{u}}{\partial t} + \mathbf{u} \cdot \nabla \mathbf{u}\)</span><br />
+<em>or equivalently:</em> <span class="math notranslate nohighlight">\(\frac{D\mathbf{u}}{Dt} = \frac{\partial \mathbf{u}}{\partial t} + \nabla \cdot \mathbf{u} \mathbf{u} \)</span></p>
+<ul class="simple">
+<li><p>Mass balance (continuity equation):</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial \rho}{ \partial t} + \nabla \cdot ( \rho \mathbf{u} ) = 0 \]</div>
+<section id="assumptions-for-this-lecture">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Assumptions for this Lecture</a><a class="headerlink" href="#assumptions-for-this-lecture" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>We will only be considering incompressible flow – constant density: <span class="math notranslate nohighlight">\(\nabla \cdot \mathbf{u} = 0\)</span></p></li>
+<li><p>We will start by considering Newtonian Flow:<br />
+Shear stress is proportional to strain rate</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \mathbf{\tau} = 2 \mu \mathbf{S} \]</div>
+<div class="math notranslate nohighlight">
+\[ \mathbf{S} = \frac{1}{2} (\nabla \mathbf{u} + \nabla \mathbf{u}^T)\]</div>
+<ul class="simple">
+<li><p>This assumes viscosity is isotropic and also ignores the bulk viscosity, which
+is associated with changes in the volume/density of the fluid (we are
+making an incompressible assumption here).<br />
+Bulk viscosity can be important in, for instance shocks</p></li>
+</ul>
+</section>
+<section id="incompressible-newtonian-fluid">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Incompressible Newtonian Fluid</a><a class="headerlink" href="#incompressible-newtonian-fluid" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>In an incompressible Newtonian fluid the gradient of viscous stress
+can be further simplified if the viscosity is constant and the system is
+incompressible:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \nabla \cdot \mathbf{\tau} = \mu \nabla \cdot ( \nabla \mathbf{u} + \nabla \mathbf{u}^T ) = \mu \nabla^2 \mathbf{u} \]</div>
+<ul class="simple">
+<li><p>Note that the incompressible assumption implies that:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \nabla \cdot \mathbf{u} = 0 \]</div>
+<section id="side-note-dynamic-and-kinematic-viscosity">
+<h4><a class="toc-backref" href="#id8" role="doc-backlink">Side note: Dynamic and Kinematic Viscosity</a><a class="headerlink" href="#side-note-dynamic-and-kinematic-viscosity" title="Permalink to this heading">#</a></h4>
+<p>Be careful when talking about viscosity as to what is meant</p>
+<p>Dynamic viscosity (sometimes called absolute viscosity)</p>
+<ul class="simple">
+<li><p>𝜇 (units: Pa.s)</p></li>
+<li><p>Proportionality between shear stress and strain rate</p></li>
+</ul>
+<p>Kinematic viscosity</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( \nu = \frac{\mu}{\rho}\)</span> (units <span class="math notranslate nohighlight">\(m^2/s\)</span>)</p></li>
+<li><p>Equivalent to a diffusivity for momentum</p></li>
+</ul>
+</section>
+</section>
+<section id="incompressible-navier-stokes-equation">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Incompressible Navier-Stokes Equation</a><a class="headerlink" href="#incompressible-navier-stokes-equation" title="Permalink to this heading">#</a></h3>
+<p>In 3D this is 4 PDEs with 4 dependent variables (3 velocities and pressure) –
+therefore solvable</p>
+<p>Momentum balance: <span class="math notranslate nohighlight">\(\rho \frac{\partial \mathbf{u}}{\partial t} + \rho \mathbf{u} \cdot \nabla \mathbf{u} = - \nabla P + \mu \nabla^2 \mathbf{u} + \rho \mathbf{g}\)</span></p>
+<p>Incompressible continuity: <span class="math notranslate nohighlight">\(\nabla \cdot \mathbf{u} = 0\)</span></p>
+<p>Complexity:</p>
+<ul class="simple">
+<li><p>Non-linear</p>
+<ul>
+<li><p>The momentum advection term is non-lnear</p></li>
+<li><p>Additional non-linearity can occur if the rheology is non-Newtonian or if the system is compressible</p></li>
+</ul>
+</li>
+<li><p>Coupled PDEs</p></li>
+</ul>
+<p>At first glance the momentum equations seem easy to discretise</p>
+<ul class="simple">
+<li><p>If it was not for the pressure you could simply integrate them forward
+in time</p></li>
+<li><p>The problem is that such an integration would not result in velocities
+that obey the continuity equation</p></li>
+<li><p>What we need to do is integrate the momentum equations forward in
+time, but have a pressure field that evolves to ensure that continuity
+is obeyed</p></li>
+</ul>
+<section id="a-couple-of-notes">
+<h4><a class="toc-backref" href="#id10" role="doc-backlink">A couple of notes</a><a class="headerlink" href="#a-couple-of-notes" title="Permalink to this heading">#</a></h4>
+<p>Representing the data</p>
+<ul class="simple">
+<li><p>In the subsequent slides I will quite often represent the data as a vector:</p>
+<ul>
+<li><p>E.g. the velocities at time step 𝑛 will be represented as <span class="math notranslate nohighlight">\(\mathbf{u^n}\)</span></p></li>
+<li><p>Within this vector will be stored each velocity component at every discrete point within the system</p></li>
+<li><p>It is always possible to store higher dimensional data as 1D vector</p></li>
+</ul>
+</li>
+</ul>
+<p>Gravity</p>
+<ul class="simple">
+<li><p>In the subsequent derivations I am going to ignore the gravity term</p></li>
+<li><p>For an incompressible single phase system the gravity term can always be combined into the pressure term</p>
+<ul>
+<li><p>This is not true in either a multiphase system or a compressible system where gravity would need to be explicitly
+considered</p></li>
+</ul>
+</li>
+<li><p>If 𝑃 is the actual pressure, then the gravity term can be eliminated by using a new pressure <span class="math notranslate nohighlight">\( P^* \)</span> that includes the hydrostatic contribution:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ P^* = P - \rho \mathbf{x \cdot g}\]</div>
+<ul class="simple">
+<li><p>Where <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is the location (i.e. <span class="math notranslate nohighlight">\(\nabla (\mathbf{x \cdot g}) = \mathbf{g}\)</span></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="method-1-implicit-matrix-solution-for-all-variables">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Method 1: Implicit Matrix Solution for all Variables</a><a class="headerlink" href="#method-1-implicit-matrix-solution-for-all-variables" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>One way to achieve continuity is to simultaneously solve for the velocity and pressure
+values</p></li>
+<li><p>Using a Crank-Nicolson implicit scheme (2nd order accurate in time)</p>
+<ul>
+<li><p>Crank-Nicolson carries out the spatial derivatives using an average of the current and future time step</p></li>
+</ul>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \frac{\mathbf{u}^{n+1} - \mathbf{u}^n}{\Delta t} + \mathbf{A(\tilde{u})} + \frac{1}{2} (\mathbf{u}^{n+1} + \mathbf{u}^n) - \mathbf{K} \frac{1}{2} (\mathbf{u}^{n+1} - \mathbf{u}^n) + \mathbf{C P^{n+1}} = \mathbf{0} \]</div>
+<div class="math notranslate nohighlight">
+\[ \mathbf{C}^T \mathbf{u}^{n+1} = 0 \]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{K, C}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{C^T}\)</span> are the matrices for the  discretisation of the viscosity (Laplacian), gradient operator and divergence respectively</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{A(\tilde{u})}\)</span> is the matrix containing the discretisation for the momentum advection term.</p>
+<ul>
+<li><p>Note that the matrix for the momentum advection term depends on the velocity. This is what make the problem non-linear</p></li>
+</ul>
+</li>
+<li><p>The equations on the previous slide can be rearranged into a single matrix where
+the velocities and pressures at the next time step are a function of the current
+velocities:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split} \left( \begin{array} \\
+\frac{1}{\Delta t} \mathbf{I} + \frac{1}{2} (\mathbf{A(\tilde{u}) - K}) &amp; \mathbf{C} \\
+\mathbf{C^T} &amp; \mathbf{0} \\
+\end{array} \right)
+\left( \begin{array} \\
+\mathbf{u^{n+1}} \\
+\mathbf{P^{n+1}} \\
+\end{array} \right) = 
+\left( \begin{array} \\
+\left( \frac{1}{\Delta t} \mathbf{I} + \frac{1}{2} (\mathbf{A(\tilde{u}) - K}) \right) \mathbf{u}^n \\  
+\mathbf{0} \\
+\end{array} \right)
+\end{split}\]</div>
+<ul class="simple">
+<li><p>The next decision is the choice use for the velocity in the momentum advection term</p>
+<ul>
+<li><p>The easiest, but least accurate is to use the velocity from the current time step, <span class="math notranslate nohighlight">\(\mathbf{u}^n\)</span></p></li>
+<li><p>More accurate would be to use the same average as used in the rest of the Crank-Nicolson scheme, <span class="math notranslate nohighlight">\(\frac{1}{2}(\mathbf{u}^{n+1} + \mathbf{u}^n)\)</span>. This is more accurate, by the problem is that it requires iteration and multiple assembly and solves of the matrix</p></li>
+</ul>
+</li>
+<li><p>The big problem with this method is that it is computationally expensive because the matrix to be solved is large and difficult to solve because</p></li>
+</ul>
+</section>
+<section id="method-2-split-the-pressure-and-velocity-solves">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Method 2: Split the Pressure and Velocity Solves</a><a class="headerlink" href="#method-2-split-the-pressure-and-velocity-solves" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Firstly, we need an equation for the pressure solve</p></li>
+<li><p>We can achieve this by taking the divergence of the momentum equations:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \nabla \cdot \left( \frac{\partial \mathbf{u}}{\partial t} + \mathbf{u} + \nabla \mathbf{u} \right) = \nabla \cdot \left( - \frac{1}{\rho} \nabla P + \nu \nabla^2 \mathbf{u} \right)\]</div>
+<ul class="simple">
+<li><p>This can be simplified using the fact that the divergence of the Laplacian of the velocity and the divergence of the rate of change of velocity are both commutable and therefore zero given continuity:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \nabla \cdot (\nabla^2 \mathbf{u}) = \nabla^2(\nabla \cdot \mathbf{u}) = 0\]</div>
+<div class="math notranslate nohighlight">
+\[ \nabla \cdot \left( \frac{\partial \mathbf{u}}{\partial t} \right) = \frac{\partial}{\partial t} ( \nabla \cdot \mathbf{u} ) = 0\]</div>
+</section>
+<section id="pressure-poisson-equation">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Pressure Poisson Equation</a><a class="headerlink" href="#pressure-poisson-equation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>This results in the following equation:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \nabla^2 P = - \rho \nabla \cdot ( \mathbf{u} \cdot \nabla \mathbf{u}) \]</div>
+<ul class="simple">
+<li><p>This is known as the pressure Poisson equation. It is very similar to the Laplace equation we solved in the previous lecture, except that it has a non-zero RHS</p>
+<ul>
+<li><p>This equation is therefore quite easy to solve and generally well behaved in terms of its convergence</p></li>
+</ul>
+</li>
+<li><p>In 2D this can be further simplified and expanded to:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial^2 P}{\partial x^2} + \frac{\partial^2 P}{\partial y^2} = - \rho \left( \left( \frac{\partial u}{\partial x} \right)^2 + 2 \frac{\partial u}{\partial y} \frac{\partial v}{\partial x} + \left(\frac{\partial v}{\partial y} \right)^2\right)\]</div>
+<section id="finite-difference-approximation-of-pressure-poisson-equation">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Finite Difference approximation of Pressure Poisson Equation</a><a class="headerlink" href="#finite-difference-approximation-of-pressure-poisson-equation" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>We can do a finite difference approximation of the this equation</p>
+<ul>
+<li><p>I will assume that <span class="math notranslate nohighlight">\(\Delta x = \Delta y\)</span></p></li>
+</ul>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ P_{i+1,j} + P_{i-1,j} + P_{i,j+1} + P_{i,j-1} - 4 P_{i,j} \]</div>
+<div class="math notranslate nohighlight">
+\[ = -\rho \left( (u_{i+1,j} - u_{i-1,j} )^2 + 2(u_{i,j+1} - u_{i,j-1}) (v_{i+1,j} - v_{i+1,j} ) + (v_{i,j+1} - v_{i,j-1} )^2 \right) \]</div>
+<ul class="simple">
+<li><p>We could now simply use an explicit calculation of the new velocities using a discretisation of the momentum equation together with the current velocity and pressure equations and then use the new velocities to calculate the new pressures</p></li>
+<li><p>Would work for a while, but numerical errors will mean that continuity violations will grow with time</p></li>
+</ul>
+</section>
+</section>
+<section id="pressure-projection">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Pressure Projection</a><a class="headerlink" href="#pressure-projection" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>In this method we will calculate an intermediate velocity and then use this velocity to calculate the pressure gradient required to make the velocity at the next step divergence free</p></li>
+<li><p>Start by calculating a velocity <span class="math notranslate nohighlight">\( \mathbf{u^* } \)</span> that ignores the contribution from the pressure gradient (note that this is an explicit forward Euler approximation):</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \frac{ \mathbf{u^* } - \mathbf{u^n} }{\Delta t} + \mathbf{A}( \mathbf{ \tilde{u} } )( \mathbf{u}^n) - \mathbf{K} ( \mathbf{u}^n ) = \mathbf{0} \]</div>
+<ul class="simple">
+<li><p>From the full equation we therefore know that:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \frac{\mathbf{u}^{n+1} - \mathbf{u}^*}{\Delta t} = \frac{-1}{\rho} \nabla \mathbf{P}^{n+1} \]</div>
+<div class="math notranslate nohighlight">
+\[ \mathbf{u}^{n+1} = \mathbf{u}^* - \frac{\Delta t}{\rho} \nabla \mathbf{P}^{n+1} \]</div>
+<ul class="simple">
+<li><p>If we take the divergence of both sides:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \nabla \cdot \mathbf{u}^{n+1} = \nabla \cdot  \mathbf{u}^* - \frac{\Delta t}{\rho} \nabla^2 \mathbf{P}^{n+1} \]</div>
+<ul class="simple">
+<li><p>What we are trying to enforce is that the final velocity is divergence free <span class="math notranslate nohighlight">\(( \nabla \cdot \mathbf{u}^{n+1} = 0 )\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \nabla^2 \mathbf{P}^{n+1} = \frac{\rho}{\Delta t} \nabla \cdot \mathbf{u}^* \]</div>
+<p>We therefore have the following calculation sequence:</p>
+<ul class="simple">
+<li><p>Calculate the intermediate velocity explicitly:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \mathbf{u}^* = \mathbf{u}^n - \Delta t \mathbf{A} (\mathbf{u}^n)(\mathbf{u}^n) + \Delta t \mathbf{K} (\mathbf{u}^n) = \mathbf{0} \]</div>
+<ul class="simple">
+<li><p>Calculate the pressure implicitly using the following pressure Poisson equation (remember to impose any pressure boundary conditions):</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \nabla^2 \mathbf{P}^{n+1} = \frac{\rho}{\Delta t} \nabla \cdot \mathbf{u}^* \]</div>
+<ul class="simple">
+<li><p>Calculate the velocity at the new time step (also remember to impose any velocity boundary conditions):</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \mathbf{u}^{n+1} = \mathbf{u}^* - \frac{\Delta t}{\rho} \mathbf{P}^{n+1} \]</div>
+<section id="pressure-projection-finite-difference-2d">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Pressure Projection- Finite Difference (2D)</a><a class="headerlink" href="#pressure-projection-finite-difference-2d" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Viscous term:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split} \large \mathbf{K}(\mathbf{u}^n) = v \left( \begin{array} \\
+\frac{u^n_{i+1,j} + u^n_{i-1,j} - 2 u^n_{i,j}}{\Delta x^2} + \frac{u^n_{i,j+1} + u^n_{i,j-1} - 2 u^n_{i,j}}{\Delta y^2} \\
+\frac{v^n_{i+1,j} + v^n_{i-1,j} - 2 v^n_{i,j}}{\Delta x^2} + \frac{v^n_{i,j+1} + v^n_{i,j-1} - 2 v^n_{i,j}}{\Delta y^2} \\
+\end{array} \right)
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Momentum advection term:</p>
+<ul>
+<li><p>Note that we need to use upwind discretisations of velocity to be stable at high Reynolds numbers</p></li>
+</ul>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\large \mathbf{A} ( \mathbf{u}^n )( \mathbf{u}^n ) = \left( \begin{array} \\
+\left( u^n_{i,j} 
+\begin{cases} 
+    \frac{u^n_{i,j} - u^n_{i-1,j}}{\Delta x} &amp; \text{if }~~ u^n_{i,j} &gt; 0 \\
+    \frac{u^n_{i+1,j} - u^n_{i,j}}{\Delta x} &amp; \text{if }~~ u^n_{i,j} &lt; 0 \\
+\end{cases} \right) + 
+\left( v^n_{i,j} 
+\begin{cases} 
+    \frac{u^n_{i,j} - u^n_{i,j-1}}{\Delta y} &amp; \text{if }~~ v^n_{i,j} &gt; 0 \\
+    \frac{u^n_{i,j+1} - u^n_{i,j}}{\Delta y} &amp; \text{if }~~ v^n_{i,j} &lt; 0 \\
+\end{cases} \right) \\
+\left( u^n_{i,j} 
+\begin{cases} 
+    \frac{u^n_{i,j} - v^n_{i-1,j}}{\Delta x} &amp; \text{if }~~ u^n_{i,j} &gt; 0 \\
+    \frac{v^n_{i+1,j} - v^n_{i,j}}{\Delta x} &amp; \text{if }~~ u^n_{i,j} &lt; 0 \\
+\end{cases} \right) + 
+\left( v^n_{i,j} 
+\begin{cases} 
+    \frac{v^n_{i,j} - v^n_{i,j-1}}{\Delta y} &amp; \text{if }~~ v^n_{i,j} &gt; 0 \\
+    \frac{v^n_{i,j+1} - v^n_{i,j}}{\Delta y} &amp; \text{if }~~ v^n_{i,j} &lt; 0 \\
+\end{cases} \right) \\
+\end{array} \right)
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Laplacian of the Pressure:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \nabla^2 \mathbf{P}^{n+1} = \frac{P^{n+1}_{i+1,j} + P^{n+1}_{i-1,j} - 2 P^{n+1}_{i,j}}{\Delta x^2} + \frac{P^{n+1}_{i,j+1} + P^{n+1}_{i,j-1} - 2 P^{n+1}_{i,j}}{\Delta y^2} \]</div>
+<ul class="simple">
+<li><p>Gradient of the Pressure:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split} \large \nabla \mathbf{P}^{n+1} = 
+\left( \begin{array} \\
+\frac{P^{n+1}_{i+1,j} - P^{n+1}_{i-1,j}}{2 \Delta x} \\
+\frac{P^{n+1}_{i,j+1} - P^{n+1}_{i,j-1}}{2 \Delta y} \\
+\end{array} \right)
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Divergence of the intermediate velocity:</p></li>
+<li><p>Centeral difference</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\large \nabla \cdot \mathbf{u}^* = \frac{u^*_{i+1,j} - u^*_{i-1,j}}{2 \Delta x} + \frac{v^*_{i,j+1} - v^*_{i,j-1}}{2 \Delta y}\]</div>
+<ul class="simple">
+<li><p>Upwind</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\large \nabla \cdot \mathbf{u}^* = 
+\begin{cases}
+\frac{u^*_{i,j} - u^*_{i-1,j}}{\Delta x} &amp; \text{if }~~ u^*_{i,j} &gt; 0 \\
+\frac{u^*_{i+1,j} - u^*_{i,j}}{\Delta x} &amp; \text{if }~~ u^*_{i,j} &lt; 0 \\
+\end{cases} +
+\begin{cases}
+\frac{v^*_{i,j} - v^*_{i,j-1}}{\Delta y} &amp; \text{if }~~ v^*_{i,j} &gt; 0 \\
+\frac{v^*_{i,j+1} - v^*_{i,j}}{\Delta y} &amp; \text{if }~~ v^*_{i,j} &lt; 0 \\
+\end{cases}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Central difference is more accurate, but can cause problems especially at very high Reynolds numbers</p></li>
+<li><p>Upwinding is less accurate, but is more stable</p></li>
+<li><p>I will generally use central difference approximations for the RHS of the pressure Poisson equation</p></li>
+</ul>
+</section>
+</section>
+<section id="solid-boundaries-in-fluid-dynamics">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Solid Boundaries in Fluid Dynamics</a><a class="headerlink" href="#solid-boundaries-in-fluid-dynamics" title="Permalink to this heading">#</a></h2>
+<p><strong>No Slip Boundary Condition</strong></p>
+<ul class="simple">
+<li><p>A useful assumption for most solid boundaries</p>
+<ul>
+<li><p>Together with no flux through the boundary this implies a zero velocity vector at the boundary</p></li>
+</ul>
+</li>
+<li><p>Not completely true at the very smallest scales</p>
+<ul>
+<li><p>Some molecular slip may need to be included for micro or nano scale fluid flows</p></li>
+<li><p>Good approximation for macroscopic flows</p></li>
+</ul>
+</li>
+<li><p>We will be using no slip conditions in all the examples in this lecture</p></li>
+</ul>
+<p><strong>Velocity Boundary Layers</strong></p>
+<ul class="simple">
+<li><p>Some flows will have velocity boundary layers against solid walls</p>
+<ul>
+<li><p>No slip at the wall, but rapid increase towards free stream velocity away from the wall</p></li>
+<li><p>Boundary layers often thin compared to the scale of the system</p></li>
+</ul>
+</li>
+<li><p>Especially true for turbulent flows</p>
+<ul>
+<li><p>Can also occur in entry regions for laminar flows</p></li>
+<li><p>More on turbulent flow in the next lecture</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Modelling Systems with Boundary Layers</strong></p>
+<ul class="simple">
+<li><p>Could simply have enough resolution near the wall to resolve the wall</p>
+<ul>
+<li><p>Can be computationally very expensive especially in large scale simulations</p></li>
+</ul>
+</li>
+<li><p>Simplest approximation is that there is full slip at the boundary</p>
+<ul>
+<li><p>Not a bad approximation in very turbulent flows, but implies that there are no shear stresses on the wall</p></li>
+</ul>
+</li>
+<li><p>Can use a sub-resolution model to impose a stress at the boundary that is a function of the velocity at the boundary</p>
+<ul>
+<li><p>More complex models will include predictions for the velocity profile in this boundary region and a more complex inter-relationship between the stress at the wall and the velocity profile in the resolved near wall region</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="pressure-condition-at-no-slip-boundary">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Pressure Condition at No-Slip Boundary</a><a class="headerlink" href="#pressure-condition-at-no-slip-boundary" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>To solve the system we need boundary conditions for the pressure and the velocity</p></li>
+<li><p>Lets consider a vertical wall and the momentum balance in the direction normal to the wall:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\require{cancel} \cancel{{\frac{\partial u}{\partial t}}} + \cancel{u{\frac{\partial u}{\partial x}}} + \cancel{v{\frac{\partial u}{\partial y}}} + \cancel{w{\frac{\partial u}{\partial z}}} = - \frac{1}{\rho} \frac{\partial P}{\partial x} + \frac{\mu}{\rho} \left( \frac{\partial^2 u}{\partial x^2} + \cancel{{\frac{\partial^2 u}{\partial y^2}}} + \cancel{{\frac{\partial^2 u}{\partial z^2}}} \right)\]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial P}{\partial x} = \mu {\frac{\partial^2 u}{\partial x^2}} \]</div>
+<ul class="simple">
+<li><p>This says that the total normal stress at the boundary should be zero. For no slip boundaries the shear stress component into the boundary will be small (or zero for fully developed flows)</p></li>
+<li><p>The most commonly used pressure boundaries for these walls is thus:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \large \frac{\partial P}{\partial n} = 0 \]</div>
+</section>
+<section id="the-code-with-explicit-loops">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">The Code (with explicit loops)</a><a class="headerlink" href="#the-code-with-explicit-loops" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>I am firstly going to show the code with explicit loops and if statements</p>
+<ul>
+<li><p>Hopefully make what is being done easier to understand</p></li>
+</ul>
+</li>
+<li><p>This is exactly how I would code this in a compiled language like C/C++</p></li>
+<li><p>Unfortunately Python is an interpreted language and very inefficient
+in its implementation of for loops and conditions</p>
+<ul>
+<li><p>Vectorised portions of the code are executed using libraries written in C++
+and so are fast</p></li>
+</ul>
+</li>
+</ul>
+<section id="not-sure-how-to-put-c-in-yet">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">NOT SURE HOW TO PUT C++ IN YET</a><a class="headerlink" href="#not-sure-how-to-put-c-in-yet" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="test-example">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Test Example</a><a class="headerlink" href="#test-example" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Going to solve the code for the specific case of a lid driven cavity</p></li>
+<li><p>No inflow or outflow</p></li>
+<li><p>Top boundary has an applied velocity of 1</p>
+<ul>
+<li><p>No slip w.r.t. this movement</p></li>
+</ul>
+</li>
+<li><p>All other boundaries are stationary with no slip</p></li>
+<li><p>Box of size 1x1</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \large \rho = 1, \mu = v = 0.1 \]</div>
+<ul class="simple">
+<li><p>This gives a Reynold’s number based on the lid velocity of 10</p></li>
+</ul>
+<section id="note-on-the-pressure-calculation">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Note on the Pressure Calculation</a><a class="headerlink" href="#note-on-the-pressure-calculation" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>In problems such as this where all the pressure boundaries are Neumann
+boundaries (gradient boundaries) there is a potential issue with the
+pressure calculations:</p></li>
+<li><p>Flow only depends on the gradient of the pressure and therefore adding a
+constant to all the pressure values does not change the solution</p>
+<ul>
+<li><p>System is under-specified by one degree of freedom</p></li>
+<li><p>A naïve iteration can therefore drift and never converge</p></li>
+</ul>
+</li>
+<li><p>A solution to this problem is to set pressure at one point in the system</p>
+<ul>
+<li><p>For more direct matrix solution methods for systems like this the removal of what is
+known as the nullspace is required</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="more-c">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">More C++</a><a class="headerlink" href="#more-c" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="solution-for-re-10">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">Solution for Re = 10</a><a class="headerlink" href="#solution-for-re-10" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Chapter7"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-navier-stokes-equation">The Navier-Stokes Equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-for-this-lecture">Assumptions for this Lecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incompressible-newtonian-fluid">Incompressible Newtonian Fluid</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#side-note-dynamic-and-kinematic-viscosity">Side note: Dynamic and Kinematic Viscosity</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incompressible-navier-stokes-equation">Incompressible Navier-Stokes Equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-couple-of-notes">A couple of notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-1-implicit-matrix-solution-for-all-variables">Method 1: Implicit Matrix Solution for all Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-2-split-the-pressure-and-velocity-solves">Method 2: Split the Pressure and Velocity Solves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-poisson-equation">Pressure Poisson Equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-difference-approximation-of-pressure-poisson-equation">Finite Difference approximation of Pressure Poisson Equation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-projection">Pressure Projection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-projection-finite-difference-2d">Pressure Projection- Finite Difference (2D)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solid-boundaries-in-fluid-dynamics">Solid Boundaries in Fluid Dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-condition-at-no-slip-boundary">Pressure Condition at No-Slip Boundary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-code-with-explicit-loops">The Code (with explicit loops)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-sure-how-to-put-c-in-yet">NOT SURE HOW TO PUT C++ IN YET</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-example">Test Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-the-pressure-calculation">Note on the Pressure Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-c">More C++</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-for-re-10">Solution for Re = 10</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Imperial College London
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
