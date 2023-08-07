@@ -188,7 +188,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">5. Dimensional Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.1 Dimensions and Dimensional Analysis  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.1 Dimensions and Dimensional Analysis</a></li>
 </ul>
 </li>
 </ul>
@@ -368,7 +368,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -379,11 +381,62 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>5.1 Dimensions and Dimensional Analysis  <a class="tocSkip"></h1>
+    <h1>5.1 Dimensions and Dimensional Analysis</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advection-diffusion-equation">Advection-Diffusion Equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advection-diffusion-in-1d">Advection-Diffusion in 1D</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-transport-and-diffusion-across-a-membrane">Example: Transport and Diffusion across a membrane</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-dimensionalising-the-equation">Non-dimensionalising the equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#peclet-number">Peclet Number</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution">Numerical Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upwind-schemes">Upwind Schemes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-solutions">Analytical Solutions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensional-analysis">Dimensional Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#number-of-parameters">Number of Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buckingham-pi-theory">Buckingham-Pi Theory</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reynolds-number">Reynolds Number</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#galileo-number">Galileo Number</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-dimensionless-combinations">Other Dimensionless Combinations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instabilities">Instabilities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rayliegh-taylor-instability">Rayliegh-Taylor Instability</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Dimensional Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plateau-rayleigh-instability">Plateau-Rayleigh Instability</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Dimensional Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kelvin-helmholtz-instabilities">Kelvin-Helmholtz Instabilities</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dimension-analysis">Dimension Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-1-a-name-exercise51-a">Exercise 5.1 <a name="Exercise51"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-2-a-name-exercise52-a">Exercise 5.2 <a name="Exercise52"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-3-a-name-exercise53-a">Exercise 5.3 <a name="Exercise53"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-4-a-name-exercise54-a">Exercise 5.4 <a name="Exercise54"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-5-a-name-exercise55-a">Exercise 5.5 <a name="Exercise55"></a></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -393,117 +446,85 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="dimensions-and-dimensional-analysis-a-class-tocskip">
-<h1>5.1 Dimensions and Dimensional Analysis  <a class="tocSkip"><a class="headerlink" href="#dimensions-and-dimensional-analysis-a-class-tocskip" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="dimensions-and-dimensional-analysis">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">5.1 Dimensions and Dimensional Analysis</a><a class="headerlink" href="#dimensions-and-dimensional-analysis" title="Permalink to this heading">#</a></h1>
 <p>Lecture 5.1<br />
 Stephen Neethling, <a class="reference external" href="mailto:s&#46;neethling&#37;&#52;&#48;imperial&#46;ac&#46;uk">s<span>&#46;</span>neethling<span>&#64;</span>imperial<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
-<section id="outline-a-class-tocskip">
-<h2>Outline  <a class="tocSkip"><a class="headerlink" href="#outline-a-class-tocskip" title="Permalink to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>The Advection-Diffusion Equation <br>
-1.1. Non-dimensionalising the equation <br></p></li>
-<li><p>Dimensional Analysis <br>
-2.1. Buckingham-Pi Theory <br></p></li>
-<li><p>Instabilities <br>
-3.1. Rayliegh-Taylor <br>
-3.2. Kevin-Helmholtz <br>
-3.3. Plateau-Rayleigh <br></p></li>
-</ol>
+<section id="table-of-contents">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#dimensions-and-dimensional-analysis" id="id3">5.1 Dimensions and Dimensional Analysis</a></p>
+<ul>
+<li><p><a class="reference internal" href="#table-of-contents" id="id4">Table of Contents</a></p></li>
+<li><p><a class="reference internal" href="#learning-objectives" id="id5">Learning Objectives</a></p></li>
+<li><p><a class="reference internal" href="#advection-diffusion-equation" id="id6">Advection-Diffusion Equation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#advection-diffusion-in-1d" id="id7">Advection-Diffusion in 1D</a></p></li>
+<li><p><a class="reference internal" href="#example-transport-and-diffusion-across-a-membrane" id="id8">Example: Transport and Diffusion across a membrane</a></p></li>
+<li><p><a class="reference internal" href="#non-dimensionalising-the-equation" id="id9">Non-dimensionalising the equation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#peclet-number" id="id10">Peclet Number</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#numerical-solution" id="id11">Numerical Solution</a></p></li>
+<li><p><a class="reference internal" href="#upwind-schemes" id="id12">Upwind Schemes</a></p></li>
+<li><p><a class="reference internal" href="#analytical-solutions" id="id13">Analytical Solutions</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#dimensional-analysis" id="id14">Dimensional Analysis</a></p>
+<ul>
+<li><p><a class="reference internal" href="#number-of-parameters" id="id15">Number of Parameters</a></p></li>
+<li><p><a class="reference internal" href="#buckingham-pi-theory" id="id16">Buckingham-Pi Theory</a></p>
+<ul>
+<li><p><a class="reference internal" href="#reynolds-number" id="id17">Reynolds Number</a></p></li>
+<li><p><a class="reference internal" href="#galileo-number" id="id18">Galileo Number</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#other-dimensionless-combinations" id="id19">Other Dimensionless Combinations</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#instabilities" id="id20">Instabilities</a></p>
+<ul>
+<li><p><a class="reference internal" href="#rayliegh-taylor-instability" id="id21">Rayliegh-Taylor Instability</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id22">Dimensional Analysis</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#plateau-rayleigh-instability" id="id23">Plateau-Rayleigh Instability</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id24">Dimensional Analysis</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#kelvin-helmholtz-instabilities" id="id25">Kelvin-Helmholtz Instabilities</a></p>
+<ul>
+<li><p><a class="reference internal" href="#dimension-analysis" id="id26">Dimension Analysis</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#exercise-5-1-a-name-exercise51-a" id="id27">Exercise 5.1 <a name = "Exercise51"></a></a></p></li>
+<li><p><a class="reference internal" href="#exercise-5-2-a-name-exercise52-a" id="id28">Exercise 5.2 <a name = "Exercise52"></a></a></p></li>
+<li><p><a class="reference internal" href="#exercise-5-3-a-name-exercise53-a" id="id29">Exercise 5.3 <a name = "Exercise53"></a></a></p></li>
+<li><p><a class="reference internal" href="#exercise-5-4-a-name-exercise54-a" id="id30">Exercise 5.4 <a name = "Exercise54"></a></a></p></li>
+<li><p><a class="reference internal" href="#exercise-5-5-a-name-exercise55-a" id="id31">Exercise 5.5 <a name = "Exercise55"></a></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
 </section>
 <section id="learning-objectives">
-<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Learning Objectives</a><a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Learn how to non-dimensionalise variables and equations</p></li>
 <li><p>Understand how to solve the advection-diffusion equation using numerical and analytical methods</p></li>
 <li><p>Learn how to carry out a dimensional analysis using Buckingham-Pi Theory</p></li>
 <li><p>Learn how to apply dimensional analysis to stability problems</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
-<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="nt">div</span><span class="p">.</span><span class="nc">exercise</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ffd7e2</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ffd7e2</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#ffd7e2</span><span class="p">;</span>
-<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">div</span><span class="p">.</span><span class="nc">optional</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
-<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">div</span><span class="p">.</span><span class="nc">advanced</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
-<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><style>
-div.exercise {
-    display: block;
-    background-color: #ffd7e2;
-    border-color: #ffd7e2;
-    border-left: 5px solid #ffd7e2;
-    padding: 0.5em;
-}
-div.optional {
-    display: block;
-    background-color: #d7e2ff;
-    border-color: #d7e2ff;
-    border-left: 5px solid #d7e2ff;
-    padding: 0.5em;
-}
-div.advanced {
-    display: block;
-    background-color: #fff4d7;
-    border-color: #fff4d7;
-    border-left: 5px solid #fff4d7;
-    padding: 0.5em;
-}
-</style>
-</div></div>
-</div>
-<p>Do not alter this cell. LaTeX commands for frequently used terms.</p>
-<div class="math notranslate nohighlight">
-\[\newcommand{\tensor}[1]{\underline{\underline{\mathbf{#1}}}}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\vector}[1]{\mathbf{#1}}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\ex}{\vector{\hat{e}}_1}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\ey}{\vector{\hat{e}}_2}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\ez}{\vector{\hat{e}}_3}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\x}{\vector{x}}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\v}{\vector{v}}\]</div>
-<div class="math notranslate nohighlight">
-\[\newcommand{\u}{\vector{u}}\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages for notebook here</span>
-<span class="kn">import</span> <span class="nn">numpy</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="advection-diffusion-equation">
-<h2>Advection-Diffusion Equation<a class="headerlink" href="#advection-diffusion-equation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Advection-Diffusion Equation</a><a class="headerlink" href="#advection-diffusion-equation" title="Permalink to this heading">#</a></h2>
 <p>To demonstrate dimensional analysis, we shall study the advection-diffusion equation.</p>
 <p>Consider a fluid with a chemical dissolved in it. The chemical will move with the fluid, but it will also spread out due to diffusion. This is the classical example of advection-diffusion, but the equation appears in many other contexts as well (e.g. in semiconductor physics). Even the Navier-Stokes equation has an advection-diffusion equation at its heart, although for momentum rather than substance (viscosity results in the diffusion of momentum).</p>
 <div class="math notranslate nohighlight">
@@ -524,7 +545,7 @@ div.advanced {
 \large{\frac{\partial C}{\partial t}} = - \mathbf{v} \cdot \nabla C + D \nabla^2 C
 \]</div>
 <section id="advection-diffusion-in-1d">
-<h3>Advection-Diffusion in 1D<a class="headerlink" href="#advection-diffusion-in-1d" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Advection-Diffusion in 1D</a><a class="headerlink" href="#advection-diffusion-in-1d" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 \large{\frac{\partial C}{\partial t}} = - v\frac{\partial C}{\partial x} + D\frac{\partial^2 C}{\partial^2 x}
@@ -534,7 +555,7 @@ div.advanced {
 <p>This equation is sometimes called <strong>Burger’s Equation</strong>.</p>
 </section>
 <section id="example-transport-and-diffusion-across-a-membrane">
-<h3>Example: Transport and Diffusion across a membrane<a class="headerlink" href="#example-transport-and-diffusion-across-a-membrane" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Example: Transport and Diffusion across a membrane</a><a class="headerlink" href="#example-transport-and-diffusion-across-a-membrane" title="Permalink to this heading">#</a></h3>
 <p>Let us consider a membrane through which a fluid is being passed:</p>
 <ul class="simple">
 <li><p>The fluid has a superficial velocity <em><strong>v</strong></em> and the chemical has diffusivity, <em><strong>D</strong></em>.</p></li>
@@ -549,7 +570,7 @@ div.advanced {
 <p>However, how many of these variables are actually independent? Are there combinations of things that we can change without changing the form of the solution?</p>
 </section>
 <section id="non-dimensionalising-the-equation">
-<h3>Non-dimensionalising the equation<a class="headerlink" href="#non-dimensionalising-the-equation" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Non-dimensionalising the equation</a><a class="headerlink" href="#non-dimensionalising-the-equation" title="Permalink to this heading">#</a></h3>
 <p>This is a useful way of finding the number of actual parameters in a problem. Additonally, this allows for the the underlying dependencies to be determined in a way that is independent of, for instance, the scale of the system.</p>
 <p>We start by introducing dimensionless versions of the dependent and independent variables. Concentration and distance have obvious ways of being made dimensionless:</p>
 <div class="math notranslate nohighlight">
@@ -583,7 +604,7 @@ t^* = \frac{Dt}{h^2}
 \]</div>
 <p>Note that the dimensionless solution only depends on one dimensionless number - the <strong>Peclet Number</strong>.</p>
 <section id="peclet-number">
-<h4>Peclet Number<a class="headerlink" href="#peclet-number" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id10" role="doc-backlink">Peclet Number</a><a class="headerlink" href="#peclet-number" title="Permalink to this heading">#</a></h4>
 <div class="math notranslate nohighlight">
 \[
 Pe = \frac{vh}{D}
@@ -596,7 +617,7 @@ Pe = \frac{vh}{D}
 </section>
 </section>
 <section id="numerical-solution">
-<h3>Numerical Solution<a class="headerlink" href="#numerical-solution" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Numerical Solution</a><a class="headerlink" href="#numerical-solution" title="Permalink to this heading">#</a></h3>
 <p>The explicit numerical solution for the advection-diffusion equation based on finite differencing is relatively straight forward to implement. This is known as a Forward Time Centered Space (FTCS) scheme:</p>
 <p><span class="math notranslate nohighlight">\(
 \large{\frac{\partial C^*}{\partial t^*} \approx \frac{C\hspace{0.1cm}(x^*, \hspace{0.1cm} t^* + \Delta t^*) \hspace{0.1cm} - \hspace{0.1cm} C\hspace{0.1cm}(x^*, \hspace{0.1cm} t^*)}{\Delta t^*}}
@@ -609,7 +630,7 @@ Pe = \frac{vh}{D}
 \)</span></p>
 </section>
 <section id="upwind-schemes">
-<h3>Upwind Schemes<a class="headerlink" href="#upwind-schemes" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Upwind Schemes</a><a class="headerlink" href="#upwind-schemes" title="Permalink to this heading">#</a></h3>
 <p>Advection (1st order) terms can cause numerical instability, especially for explicit solvers and when diffusive (2nd order) terms are weak. This means that we can use the central difference method for when Pe is small (i.e when diffusion dominates), but can be problematic for large Pe (i.e when advection dominates).</p>
 <p>One way to improve stability is to use an upwind scheme. We can use a forward or backwards differencing scheme depending on the sign of the advective velocity.</p>
 <div class="math notranslate nohighlight">
@@ -641,7 +662,7 @@ The dimensionless rate of advection is <em>Pe</em>, while the dimensionless diff
 <p>Try <span class="xref myst">Exercise 5.1</span></p>
 </section>
 <section id="analytical-solutions">
-<h3>Analytical Solutions<a class="headerlink" href="#analytical-solutions" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Analytical Solutions</a><a class="headerlink" href="#analytical-solutions" title="Permalink to this heading">#</a></h3>
 <p>It is straight forward to get an analytical solution to this equation if we assume steady-state. As time tends to infinity, the PDE becomes and ODE. We could find an analytical solution for the full PDE using separation of variables, though it is more complex to do than the steady state solution and involves infinite series.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -659,7 +680,7 @@ The dimensionless rate of advection is <em>Pe</em>, while the dimensionless diff
 </section>
 </section>
 <section id="dimensional-analysis">
-<h2>Dimensional Analysis<a class="headerlink" href="#dimensional-analysis" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Dimensional Analysis</a><a class="headerlink" href="#dimensional-analysis" title="Permalink to this heading">#</a></h2>
 <p>As you have seen, we can obtain the relevant dimensionless groups and dependencies by non-dimensionalising the governing equations. This requires we have a theory or model to describe the system.</p>
 <p>We can still work out the relevant dimensionless groups even if we don’t have a model for the system.</p>
 <ul class="simple">
@@ -667,14 +688,14 @@ The dimensionless rate of advection is <em>Pe</em>, while the dimensionless diff
 <li><p>What are the dimensionless quantities that should be changed?</p></li>
 </ul>
 <section id="number-of-parameters">
-<h3>Number of Parameters<a class="headerlink" href="#number-of-parameters" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Number of Parameters</a><a class="headerlink" href="#number-of-parameters" title="Permalink to this heading">#</a></h3>
 <p>The first question that we can ask is how many parameters are required to describe the system?</p>
 <p>We need to start by listing all the variables required to describe the system (for example: length scale, viscosity, density, velocity, diffusivity etc.) as well as how many base dimensions these variables involve (for example: distance, time, mass etc.) .</p>
 <p>Because any resultant model must be dimensionally consistent, the number of dimensionless groups required to specify a system is equal to <strong>the number of variables minus the number of base dimensions</strong>.</p>
 <p>To determine the number of base dimensions to use, we need to find the minimum number required for the variables in the system. For example; energy, force and pressure can all be broken down into dimensions of mass, length and time in different proportions. However, dimension must note be broken down if it would introduce more dimensions than are eliminated. This might be the case if the dimension appears in more than one variable and one or more of its internal dimenisons do not appear in any other variables in the system.</p>
 </section>
 <section id="buckingham-pi-theory">
-<h3>Buckingham-Pi Theory<a class="headerlink" href="#buckingham-pi-theory" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Buckingham-Pi Theory</a><a class="headerlink" href="#buckingham-pi-theory" title="Permalink to this heading">#</a></h3>
 <p>The first thing to do is to identify the variables involved in a system and their associated dimensions. For example, imagine a fluid flowing down a pipe under the influence of gravity.</p>
 <ul class="simple">
 <li><p>The relevant variables are: density (<span class="math notranslate nohighlight">\(\rho\)</span>), viscosity (<span class="math notranslate nohighlight">\(\mu\)</span>), pipe diameter (<span class="math notranslate nohighlight">\(d\)</span>), velocity (<span class="math notranslate nohighlight">\(v\)</span>) and gravity (<span class="math notranslate nohighlight">\(g\)</span>)</p></li>
@@ -841,7 +862,7 @@ x_g \\
 \large{N_1 = \frac{\rho dv}{\mu} \hspace{2cm} N_2 = \frac{\rho^2 gd^3}{\mu^2}}
 \]</div>
 <section id="reynolds-number">
-<h4>Reynolds Number<a class="headerlink" href="#reynolds-number" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id17" role="doc-backlink">Reynolds Number</a><a class="headerlink" href="#reynolds-number" title="Permalink to this heading">#</a></h4>
 <div class="math notranslate nohighlight">
 \[
 \large{Re = \frac{\rho d v}{\mu}}
@@ -853,7 +874,7 @@ x_g \\
 \]</div>
 </section>
 <section id="galileo-number">
-<h4>Galileo Number<a class="headerlink" href="#galileo-number" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id18" role="doc-backlink">Galileo Number</a><a class="headerlink" href="#galileo-number" title="Permalink to this heading">#</a></h4>
 <div class="math notranslate nohighlight">
 \[
 \large{Ga = \frac{\rho^2 g d^3}{\mu^2}}
@@ -866,7 +887,7 @@ Ga \propto \frac{\text{Inertial Force} \times \text{Gravitational Force}}{\text{
 </section>
 </section>
 <section id="other-dimensionless-combinations">
-<h3>Other Dimensionless Combinations<a class="headerlink" href="#other-dimensionless-combinations" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Other Dimensionless Combinations</a><a class="headerlink" href="#other-dimensionless-combinations" title="Permalink to this heading">#</a></h3>
 <p>Buckingham-Pi analysis allows you to identify how many dimensionless groups are required to specify the system and allows you to identify a set of suitable numbers, but these numbers are not unique and other valid combinations are possible.</p>
 <p>If the dimensionless groups found are <span class="math notranslate nohighlight">\(N_1, N_2 ... N_i\)</span> then a new valid dimensionless group can be created: <span class="math notranslate nohighlight">\( N_{new} = N_1^{n1} N_2^{n2} ... N_i^{ni} \)</span></p>
 <p>The main restriction on doing this is that the new set of dimensionless numbers must contain all the same variables as the original set (i.e. you must not use the above relationship to eliminate a variable from the set of dimensionless groups).</p>
@@ -886,19 +907,19 @@ Ga \propto \frac{\text{Inertial Force} \times \text{Gravitational Force}}{\text{
 </section>
 </section>
 <section id="instabilities">
-<h2>Instabilities<a class="headerlink" href="#instabilities" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Instabilities</a><a class="headerlink" href="#instabilities" title="Permalink to this heading">#</a></h2>
 <p>Instabilities can be tricky to model as they are inherently time-dependent and can be triggered by small fluctuations. Numerical errors may trigger instabilities more easily than they really occur or models can be more stable than the real world and instabilities are not triggered.</p>
 <p>Dimensional analysis are useful for investigating and quantifying instabilities. Both the conditions for the onset and the subsequent behavior.</p>
 <p>An important instability is associated with the transition from laminar to turbulent flow, which is characterised by the Reynolds Number. This will be covered more in the Fluid Mechanics lectures.</p>
 <section id="rayliegh-taylor-instability">
-<h3>Rayliegh-Taylor Instability<a class="headerlink" href="#rayliegh-taylor-instability" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Rayliegh-Taylor Instability</a><a class="headerlink" href="#rayliegh-taylor-instability" title="Permalink to this heading">#</a></h3>
 <p>The Rayleigh-Taylor instability that occurs at the interface between two fluids if different densities, such as a heavier fluid over a lighter one.</p>
 <p>When two fluids of different densities are in contact, and the denser fluid is placed on top of the lighter one, the system becomes unstable and starts to mix and form complex patterns. Surface tension or diffusion can potentially stop the instability. Density, gravity and viscosity can all impact the size of the instabilities and how fast they grow.</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/RayTaylor.png"><img alt="../_images/RayTaylor.png" src="../_images/RayTaylor.png" style="width: 50%;" /></a>
 </figure>
 <section id="id1">
-<h4>Dimensional Analysis<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id22" role="doc-backlink">Dimensional Analysis</a><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
 <p>To reduce the size of our analysis let’s assume that both fluids have the same kinematic viscosity, <span class="math notranslate nohighlight">\(\large{\nu = \frac{\mu}{\rho}}\)</span> (units: <span class="math notranslate nohighlight">\(m^2/s\)</span>). If the viscosities were different then the ratio of the viscosities could appear as one of the dimensionless groups.</p>
 <p>There are two densities: <span class="math notranslate nohighlight">\(\rho_h\)</span> and <span class="math notranslate nohighlight">\(\rho_l\)</span>.</p>
 <p>Gravity, <span class="math notranslate nohighlight">\(g\)</span>, is the other physical property of the system.</p>
@@ -952,7 +973,7 @@ N_p = \frac{\rho_h}{\rho_l}
 </section>
 </section>
 <section id="plateau-rayleigh-instability">
-<h3>Plateau-Rayleigh Instability<a class="headerlink" href="#plateau-rayleigh-instability" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Plateau-Rayleigh Instability</a><a class="headerlink" href="#plateau-rayleigh-instability" title="Permalink to this heading">#</a></h3>
 <p>Confusingly there are two common instabilities named after Lord Rayleigh. The other person associated with this instability is Joseph Plateau, who was a Belgian physicist who did a lot of work on foam, much of it after going blind.</p>
 <p>The Plateau-Rayleigh instability is what causes a stream of liquid to break into droplets. This phenomena is used in ink-jet printing.</p>
 <p>The mechanism for the instability is:</p>
@@ -962,7 +983,7 @@ N_p = \frac{\rho_h}{\rho_l}
 <li><p>The perturbations will grow with time with a size which depends on the parameters of the system</p></li>
 </ul>
 <section id="id2">
-<h4>Dimensional Analysis<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id24" role="doc-backlink">Dimensional Analysis</a><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
 <p>There are a number of parameters in this system:</p>
 <ul class="simple">
 <li><p>Density of the fluid, <span class="math notranslate nohighlight">\(\rho\)</span></p></li>
@@ -979,7 +1000,7 @@ N_p = \frac{\rho_h}{\rho_l}
 </section>
 </section>
 <section id="kelvin-helmholtz-instabilities">
-<h3>Kelvin-Helmholtz Instabilities<a class="headerlink" href="#kelvin-helmholtz-instabilities" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">Kelvin-Helmholtz Instabilities</a><a class="headerlink" href="#kelvin-helmholtz-instabilities" title="Permalink to this heading">#</a></h3>
 <p>The Kelvin-Helmholtz instability occurs at the interface between two fluids with different velocities and is subject to shearing forces. It is commonly observed in situations where there is a velocity difference between two adjacent fluids or when different regions of a single density stratified fluid are experiencing shearing flow.</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/KelvinHelm.png"><img alt="../_images/KelvinHelm.png" src="../_images/KelvinHelm.png" style="width: 50%;" /></a>
@@ -992,7 +1013,7 @@ N_p = \frac{\rho_h}{\rho_l}
 <li><p>Instability and mixing: As the waves or vortices develop, they can further amplify the velocity differences and create more mixing and deformation at the interface which leads to turbulence in the flow.</p></li>
 </ul>
 <section id="dimension-analysis">
-<h4>Dimension Analysis<a class="headerlink" href="#dimension-analysis" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id26" role="doc-backlink">Dimension Analysis</a><a class="headerlink" href="#dimension-analysis" title="Permalink to this heading">#</a></h4>
 <p>There are a number of parameters in this system:</p>
 <ul class="simple">
 <li><p>Density of the two fluids, <span class="math notranslate nohighlight">\(\rho_h\)</span> and <span class="math notranslate nohighlight">\(\rho_l\)</span></p></li>
@@ -1008,7 +1029,7 @@ N_p = \frac{\rho_h}{\rho_l}
 </section>
 </section>
 <section id="exercise-5-1-a-name-exercise51-a">
-<h3>Exercise 5.1 <a name = "Exercise51"></a><a class="headerlink" href="#exercise-5-1-a-name-exercise51-a" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">Exercise 5.1 <a name = "Exercise51"></a></a><a class="headerlink" href="#exercise-5-1-a-name-exercise51-a" title="Permalink to this heading">#</a></h3>
 <p>Try experimenting with the code below:</p>
 <p><strong>How does changing the Peclet Number change the solution</strong></p>
 <div class="cell docutils container">
@@ -1079,7 +1100,7 @@ Populating the interactive namespace from numpy and matplotlib
 <div class="exercise">
 </section>
 <section id="exercise-5-2-a-name-exercise52-a">
-<h3>Exercise 5.2 <a name = "Exercise52"></a><a class="headerlink" href="#exercise-5-2-a-name-exercise52-a" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">Exercise 5.2 <a name = "Exercise52"></a></a><a class="headerlink" href="#exercise-5-2-a-name-exercise52-a" title="Permalink to this heading">#</a></h3>
 <p>Try showing that to solution to</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1094,7 +1115,7 @@ Populating the interactive namespace from numpy and matplotlib
 <div class="exercise">
 </section>
 <section id="exercise-5-3-a-name-exercise53-a">
-<h3>Exercise 5.3 <a name = "Exercise53"></a><a class="headerlink" href="#exercise-5-3-a-name-exercise53-a" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">Exercise 5.3 <a name = "Exercise53"></a></a><a class="headerlink" href="#exercise-5-3-a-name-exercise53-a" title="Permalink to this heading">#</a></h3>
 <p>We wish to analyse a droplet of water emerging from a needle and, in particular, its average diameter <span class="math notranslate nohighlight">\(d_d\)</span> when it detaches from a needle of diameter <span class="math notranslate nohighlight">\(d_n\)</span></p>
 <p>Initially we can assume that the droplets are being formed slowly. We therefore only need to consider the variables associated with the static shape:</p>
 <ul class="simple">
@@ -1107,7 +1128,7 @@ Populating the interactive namespace from numpy and matplotlib
 <div class="exercise">
 </section>
 <section id="exercise-5-4-a-name-exercise54-a">
-<h3>Exercise 5.4 <a name = "Exercise54"></a><a class="headerlink" href="#exercise-5-4-a-name-exercise54-a" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id30" role="doc-backlink">Exercise 5.4 <a name = "Exercise54"></a></a><a class="headerlink" href="#exercise-5-4-a-name-exercise54-a" title="Permalink to this heading">#</a></h3>
 <p>We have 6 variables (<span class="math notranslate nohighlight">\(\rho\)</span>, <span class="math notranslate nohighlight">\(v\)</span>, <span class="math notranslate nohighlight">\(\lambda\)</span>, <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(l_{crit}\)</span>, <span class="math notranslate nohighlight">\(t_{crit}\)</span>) and 3 dimensions (M,L,T)</p>
 <p>There are therefore 3 dimensionless groups.</p>
 <p>Show that a suitable set are:</p>
@@ -1123,7 +1144,7 @@ N_2 = \frac{v^2 \rho r}{\gamma}}
 <div class="exercise">
 </section>
 <section id="exercise-5-5-a-name-exercise55-a">
-<h3>Exercise 5.5 <a name = "Exercise55"></a><a class="headerlink" href="#exercise-5-5-a-name-exercise55-a" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id31" role="doc-backlink">Exercise 5.5 <a name = "Exercise55"></a></a><a class="headerlink" href="#exercise-5-5-a-name-exercise55-a" title="Permalink to this heading">#</a></h3>
 <p>We wish to investigate the size of the instability generated - <span class="math notranslate nohighlight">\(h\)</span></p>
 <p>Derive  set of dimensionless groups to characterise this problem. Ensure that one of them represents a dimensionless height - <span class="math notranslate nohighlight">\(h^*\)</span></p>
 </section>
@@ -1188,6 +1209,63 @@ N_2 = \frac{v^2 \rho r}{\gamma}}
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advection-diffusion-equation">Advection-Diffusion Equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advection-diffusion-in-1d">Advection-Diffusion in 1D</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-transport-and-diffusion-across-a-membrane">Example: Transport and Diffusion across a membrane</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-dimensionalising-the-equation">Non-dimensionalising the equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#peclet-number">Peclet Number</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution">Numerical Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upwind-schemes">Upwind Schemes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-solutions">Analytical Solutions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensional-analysis">Dimensional Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#number-of-parameters">Number of Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buckingham-pi-theory">Buckingham-Pi Theory</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reynolds-number">Reynolds Number</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#galileo-number">Galileo Number</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-dimensionless-combinations">Other Dimensionless Combinations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instabilities">Instabilities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rayliegh-taylor-instability">Rayliegh-Taylor Instability</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Dimensional Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plateau-rayleigh-instability">Plateau-Rayleigh Instability</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Dimensional Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kelvin-helmholtz-instabilities">Kelvin-Helmholtz Instabilities</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dimension-analysis">Dimension Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-1-a-name-exercise51-a">Exercise 5.1 <a name="Exercise51"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-2-a-name-exercise52-a">Exercise 5.2 <a name="Exercise52"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-3-a-name-exercise53-a">Exercise 5.3 <a name="Exercise53"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-4-a-name-exercise54-a">Exercise 5.4 <a name="Exercise54"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-5-a-name-exercise55-a">Exercise 5.5 <a name="Exercise55"></a></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
