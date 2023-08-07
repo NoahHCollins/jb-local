@@ -30,10 +30,10 @@ parts:
       - file: "Chapter4/exercises4"
       - file: "Chapter4/solutions4"
     - file: "Chapter5/intro"
-    sections:
+      sections:
       - file: "Chapter5/Lecture 5 - Dimensions and Dimensional Analysis"
   - caption: Part 2 - Numerical Solutions
     chapters:
     - file: "Chapter7/intro"
-    sections:
+      sections:
       - file: "Chapter7/Lecture 7.1 - Navier-Stokes"
