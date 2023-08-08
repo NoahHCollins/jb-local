@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>7.1 Solving Navier-Stokes Numerically &#8212; Modelling and Numerical Methods</title>
+    <title>Solving Navier-Stokes Numerically &#8212; Modelling and Numerical Methods</title>
   
   
   
@@ -194,7 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2 - Numerical Solutions</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">7. Navier-Stokes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.1 Solving Navier-Stokes Numerically</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Solving Navier-Stokes Numerically</a></li>
 </ul>
 </li>
 </ul>
@@ -380,7 +380,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>7.1 Solving Navier-Stokes Numerically</h1>
+    <h1>Solving Navier-Stokes Numerically</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -418,15 +418,31 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solid-boundaries-in-fluid-dynamics">Solid Boundaries in Fluid Dynamics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-condition-at-no-slip-boundary">Pressure Condition at No-Slip Boundary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-code-with-explicit-loops">The Code (with explicit loops)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-sure-how-to-put-c-in-yet">NOT SURE HOW TO PUT C++ IN YET</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-the-intermediate-velocities">Calculating the Intermediate Velocities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-and-solving-the-pressure-poisson-equation">Setting up and Solving the Pressure Poisson Equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-updated-velocity-using-pressure-gradient">Calculate Updated Velocity using Pressure Gradient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combine-the-previous-functions-to-solve-ns">Combine the Previous Functions to solve NS</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-example">Test Example</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-the-pressure-calculation">Note on the Pressure Calculation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-c">More C++</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-function-to-solve-lid-driven-cavity">Call the Function to Solve Lid Driven Cavity</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-for-re-10">Solution for Re = 10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-high-resolution-simulations-for-re-10">Comparison to High Resolution Simulations for Re = 10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-for-re-100">Solution for Re = 100</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-high-resolution-simulations-for-re-100">Comparison to High Resolution Simulations for Re = 100</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-driven-steady-flow-between-parallel-plates">Pressure Driven Steady Flow between Parallel Plates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-boundary-conditions">Pressure Boundary Conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-for-delta-p-10-re-approx-120">Solution for <span class="math notranslate nohighlight">\(\Delta P = 10 ( Re \approx 120) \)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-theory-for-delta-p-10-re-approx-120">Comparison to Theory for <span class="math notranslate nohighlight">\(\Delta P = 10 ( Re \approx 120) \)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-uniform-addition-delta-p-0-5">Non-uniform Addition <span class="math notranslate nohighlight">\(\Delta P = 0.5\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-uniform-addition-delta-p-5">Non-uniform Addition <span class="math notranslate nohighlight">\(\Delta P = 5\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#staggered-pressure-and-velocity-grid">Staggered Pressure and Velocity Grid</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-lecture">Next Lecture</a></li>
 </ul>
             </nav>
         </div>
@@ -439,7 +455,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="solving-navier-stokes-numerically">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink">7.1 Solving Navier-Stokes Numerically</a><a class="headerlink" href="#solving-navier-stokes-numerically" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Solving Navier-Stokes Numerically</a><a class="headerlink" href="#solving-navier-stokes-numerically" title="Permalink to this heading">#</a></h1>
 <p>Lecture 7.1<br />
 Stephen Neethling</p>
 <section id="table-of-contents">
@@ -447,7 +463,7 @@ Stephen Neethling</p>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#solving-navier-stokes-numerically" id="id1">7.1 Solving Navier-Stokes Numerically</a></p>
+<li><p><a class="reference internal" href="#solving-navier-stokes-numerically" id="id1">Solving Navier-Stokes Numerically</a></p>
 <ul>
 <li><p><a class="reference internal" href="#table-of-contents" id="id2">Table of Contents</a></p></li>
 <li><p><a class="reference internal" href="#outline" id="id3">Outline</a></p></li>
@@ -483,16 +499,33 @@ Stephen Neethling</p>
 <li><p><a class="reference internal" href="#pressure-condition-at-no-slip-boundary" id="id18">Pressure Condition at No-Slip Boundary</a></p></li>
 <li><p><a class="reference internal" href="#the-code-with-explicit-loops" id="id19">The Code (with explicit loops)</a></p>
 <ul>
-<li><p><a class="reference internal" href="#not-sure-how-to-put-c-in-yet" id="id20">NOT SURE HOW TO PUT C++ IN YET</a></p></li>
+<li><p><a class="reference internal" href="#calculating-the-intermediate-velocities" id="id20">Calculating the Intermediate Velocities</a></p></li>
+<li><p><a class="reference internal" href="#setting-up-and-solving-the-pressure-poisson-equation" id="id21">Setting up and Solving the Pressure Poisson Equation</a></p></li>
+<li><p><a class="reference internal" href="#calculate-updated-velocity-using-pressure-gradient" id="id22">Calculate Updated Velocity using Pressure Gradient</a></p></li>
+<li><p><a class="reference internal" href="#combine-the-previous-functions-to-solve-ns" id="id23">Combine the Previous Functions to solve NS</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#test-example" id="id21">Test Example</a></p>
+<li><p><a class="reference internal" href="#test-example" id="id24">Test Example</a></p>
 <ul>
-<li><p><a class="reference internal" href="#note-on-the-pressure-calculation" id="id22">Note on the Pressure Calculation</a></p></li>
-<li><p><a class="reference internal" href="#more-c" id="id23">More C++</a></p></li>
-<li><p><a class="reference internal" href="#solution-for-re-10" id="id24">Solution for Re = 10</a></p></li>
+<li><p><a class="reference internal" href="#note-on-the-pressure-calculation" id="id25">Note on the Pressure Calculation</a></p></li>
+<li><p><a class="reference internal" href="#call-the-function-to-solve-lid-driven-cavity" id="id26">Call the Function to Solve Lid Driven Cavity</a></p></li>
+<li><p><a class="reference internal" href="#solution-for-re-10" id="id27">Solution for Re = 10</a></p></li>
+<li><p><a class="reference internal" href="#comparison-to-high-resolution-simulations-for-re-10" id="id28">Comparison to High Resolution Simulations for Re = 10</a></p></li>
+<li><p><a class="reference internal" href="#solution-for-re-100" id="id29">Solution for Re = 100</a></p></li>
+<li><p><a class="reference internal" href="#comparison-to-high-resolution-simulations-for-re-100" id="id30">Comparison to High Resolution Simulations for Re = 100</a></p></li>
 </ul>
 </li>
+<li><p><a class="reference internal" href="#pressure-driven-steady-flow-between-parallel-plates" id="id31">Pressure Driven Steady Flow between Parallel Plates</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pressure-boundary-conditions" id="id32">Pressure Boundary Conditions</a></p></li>
+<li><p><a class="reference internal" href="#solution-for-delta-p-10-re-approx-120" id="id33">Solution for <span class="math notranslate nohighlight">\(\Delta P = 10 ( Re \approx 120) \)</span></a></p></li>
+<li><p><a class="reference internal" href="#comparison-to-theory-for-delta-p-10-re-approx-120" id="id34">Comparison to Theory for <span class="math notranslate nohighlight">\(\Delta P = 10 ( Re \approx 120) \)</span></a></p></li>
+<li><p><a class="reference internal" href="#non-uniform-addition-delta-p-0-5" id="id35">Non-uniform Addition <span class="math notranslate nohighlight">\(\Delta P = 0.5\)</span></a></p></li>
+<li><p><a class="reference internal" href="#non-uniform-addition-delta-p-5" id="id36">Non-uniform Addition <span class="math notranslate nohighlight">\(\Delta P = 5\)</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#staggered-pressure-and-velocity-grid" id="id37">Staggered Pressure and Velocity Grid</a></p></li>
+<li><p><a class="reference internal" href="#next-lecture" id="id38">Next Lecture</a></p></li>
 </ul>
 </li>
 </ul>
@@ -951,12 +984,21 @@ and so are fast</p></li>
 </ul>
 </li>
 </ul>
-<section id="not-sure-how-to-put-c-in-yet">
-<h3><a class="toc-backref" href="#id20" role="doc-backlink">NOT SURE HOW TO PUT C++ IN YET</a><a class="headerlink" href="#not-sure-how-to-put-c-in-yet" title="Permalink to this heading">#</a></h3>
+<section id="calculating-the-intermediate-velocities">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Calculating the Intermediate Velocities</a><a class="headerlink" href="#calculating-the-intermediate-velocities" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="setting-up-and-solving-the-pressure-poisson-equation">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Setting up and Solving the Pressure Poisson Equation</a><a class="headerlink" href="#setting-up-and-solving-the-pressure-poisson-equation" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="calculate-updated-velocity-using-pressure-gradient">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Calculate Updated Velocity using Pressure Gradient</a><a class="headerlink" href="#calculate-updated-velocity-using-pressure-gradient" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="combine-the-previous-functions-to-solve-ns">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Combine the Previous Functions to solve NS</a><a class="headerlink" href="#combine-the-previous-functions-to-solve-ns" title="Permalink to this heading">#</a></h3>
 </section>
 </section>
 <section id="test-example">
-<h2><a class="toc-backref" href="#id21" role="doc-backlink">Test Example</a><a class="headerlink" href="#test-example" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">Test Example</a><a class="headerlink" href="#test-example" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Going to solve the code for the specific case of a lid driven cavity</p></li>
 <li><p>No inflow or outflow</p></li>
@@ -974,7 +1016,7 @@ and so are fast</p></li>
 <li><p>This gives a Reynold’s number based on the lid velocity of 10</p></li>
 </ul>
 <section id="note-on-the-pressure-calculation">
-<h3><a class="toc-backref" href="#id22" role="doc-backlink">Note on the Pressure Calculation</a><a class="headerlink" href="#note-on-the-pressure-calculation" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">Note on the Pressure Calculation</a><a class="headerlink" href="#note-on-the-pressure-calculation" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>In problems such as this where all the pressure boundaries are Neumann
 boundaries (gradient boundaries) there is a potential issue with the
@@ -994,12 +1036,144 @@ known as the nullspace is required</p></li>
 </li>
 </ul>
 </section>
-<section id="more-c">
-<h3><a class="toc-backref" href="#id23" role="doc-backlink">More C++</a><a class="headerlink" href="#more-c" title="Permalink to this heading">#</a></h3>
+<section id="call-the-function-to-solve-lid-driven-cavity">
+<h3><a class="toc-backref" href="#id26" role="doc-backlink">Call the Function to Solve Lid Driven Cavity</a><a class="headerlink" href="#call-the-function-to-solve-lid-driven-cavity" title="Permalink to this heading">#</a></h3>
 </section>
 <section id="solution-for-re-10">
-<h3><a class="toc-backref" href="#id24" role="doc-backlink">Solution for Re = 10</a><a class="headerlink" href="#solution-for-re-10" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">Solution for Re = 10</a><a class="headerlink" href="#solution-for-re-10" title="Permalink to this heading">#</a></h3>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Chapter7/Images/Lecture7.1/solution.PNG"><img alt="Chapter7/Images/Lecture7.1/solution.PNG" src="Chapter7/Images/Lecture7.1/solution.PNG" style="width: 75%;" /></a>
+</figure>
 </section>
+<section id="comparison-to-high-resolution-simulations-for-re-10">
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">Comparison to High Resolution Simulations for Re = 10</a><a class="headerlink" href="#comparison-to-high-resolution-simulations-for-re-10" title="Permalink to this heading">#</a></h3>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Chapter7/Images/Lecture7.1/comparison.PNG"><img alt="Chapter7/Images/Lecture7.1/comparison.PNG" src="Chapter7/Images/Lecture7.1/comparison.PNG" style="width: 75%;" /></a>
+</figure>
+<p>Benchmark date: MARCHI, Carlos Henrique; SUERO, Roberta and ARAKI, Luciano Kiyoshi. The lid-driven square cavity flow: numerical solution
+with a 1024 x 1024 grid. J. Braz. Soc. Mech. Sci. &amp; Eng. 2009, vol.31, n.3, pp.186-198. <a class="reference external" href="http://dx.doi.org/10.1590/S1678-58782009000300004">http://dx.doi.org/10.1590/S1678-58782009000300004</a>.</p>
+</section>
+<section id="solution-for-re-100">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">Solution for Re = 100</a><a class="headerlink" href="#solution-for-re-100" title="Permalink to this heading">#</a></h3>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Chapter7/Images/Lecture7.1/solution100.PNG"><img alt="Chapter7/Images/Lecture7.1/solution100.PNG" src="Chapter7/Images/Lecture7.1/solution100.PNG" style="width: 75%;" /></a>
+</figure>
+</section>
+<section id="comparison-to-high-resolution-simulations-for-re-100">
+<h3><a class="toc-backref" href="#id30" role="doc-backlink">Comparison to High Resolution Simulations for Re = 100</a><a class="headerlink" href="#comparison-to-high-resolution-simulations-for-re-100" title="Permalink to this heading">#</a></h3>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Chapter7/Images/Lecture7.1/comparison100.PNG"><img alt="Chapter7/Images/Lecture7.1/comparison100.PNG" src="Chapter7/Images/Lecture7.1/comparison100.PNG" style="width: 75%;" /></a>
+</figure>
+<p>Benchmark date: Ghia, U., Ghia, K. N. &amp; Shin, C. T. High-Re solutions for incompressible flow using the Navier-Stokes equations and a multigrid
+method. J. Comput. Phys. 48, 387–411 (1982).</p>
+</section>
+</section>
+<section id="pressure-driven-steady-flow-between-parallel-plates">
+<h2><a class="toc-backref" href="#id31" role="doc-backlink">Pressure Driven Steady Flow between Parallel Plates</a><a class="headerlink" href="#pressure-driven-steady-flow-between-parallel-plates" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>An analytical solution for steady state can be derived easily either from the Navier-Stoke equation or by considering a force balance on a unit of fluid:</p>
+<ul>
+<li><p>No time dependency</p></li>
+<li><p>Only non-zero velocity components are in the x direction</p></li>
+<li><p>Ignore body forces</p></li>
+</ul>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \large \frac{dP}{dx} = - \frac{\Delta P}{L} = \mu \frac{d^2 u_x}{dy^2} \]</div>
+<ul class="simple">
+<li><p>Integrate and note that <span class="math notranslate nohighlight">\(u_x = 0\)</span> at <span class="math notranslate nohighlight">\(y = h\)</span> and <span class="math notranslate nohighlight">\(y = -h\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \large u_x = \frac{\Delta P}{2 \mu L} (h^2 = y^2) \]</div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Chapter7/Images/Lecture7.1/pipeflow.PNG"><img alt="Chapter7/Images/Lecture7.1/pipeflow.PNG" src="Chapter7/Images/Lecture7.1/pipeflow.PNG" style="width: 75%;" /></a>
+</figure>
+<section id="pressure-boundary-conditions">
+<h3><a class="toc-backref" href="#id32" role="doc-backlink">Pressure Boundary Conditions</a><a class="headerlink" href="#pressure-boundary-conditions" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Pressure boundary for the pressure itself is a Dirichlet boundary in</p></li>
+<li><p>which the pressure is set at the boundary</p>
+<ul>
+<li><p>Note that as a pressure is being specified, there is no issue with drift in
+pressure and so no arbitrary pressure values need to be set</p></li>
+</ul>
+</li>
+<li><p>For the velocity, the easiest boundary to impose is to assume that the
+fluid flow through the boundary is in the normal direction to
+boundary</p>
+<ul>
+<li><p>This implies that the velocity components in the other direction/s are zero</p></li>
+<li><p>This therefore also implies that for an incompressible the gradient in the
+velocity normal to the boundary is zero</p></li>
+</ul>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial v_n}{\partial n} = 0 \]</div>
+</section>
+<section id="solution-for-delta-p-10-re-approx-120">
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">Solution for <span class="math notranslate nohighlight">\(\Delta P = 10 ( Re \approx 120) \)</span></a><a class="headerlink" href="#solution-for-delta-p-10-re-approx-120" title="Permalink to this heading">#</a></h3>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Chapter7/Images/Lecture7.1/deltasolution.PNG"><img alt="Chapter7/Images/Lecture7.1/deltasolution.PNG" src="Chapter7/Images/Lecture7.1/deltasolution.PNG" style="width: 75%;" /></a>
+</figure>
+</section>
+<section id="comparison-to-theory-for-delta-p-10-re-approx-120">
+<h3><a class="toc-backref" href="#id34" role="doc-backlink">Comparison to Theory for <span class="math notranslate nohighlight">\(\Delta P = 10 ( Re \approx 120) \)</span></a><a class="headerlink" href="#comparison-to-theory-for-delta-p-10-re-approx-120" title="Permalink to this heading">#</a></h3>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Chapter7/Images/Lecture7.1/deltasolution.PNG"><img alt="Chapter7/Images/Lecture7.1/deltasolution.PNG" src="Chapter7/Images/Lecture7.1/deltasolution.PNG" style="width: 75%;" /></a>
+</figure>
+</section>
+<section id="non-uniform-addition-delta-p-0-5">
+<h3><a class="toc-backref" href="#id35" role="doc-backlink">Non-uniform Addition <span class="math notranslate nohighlight">\(\Delta P = 0.5\)</span></a><a class="headerlink" href="#non-uniform-addition-delta-p-0-5" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>To make the solution more interesting I have made half the inlet a solid wall and half a pressure boundary</p></li>
+</ul>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Chapter7/Images/Lecture7.1/addition0.5.PNG"><img alt="Chapter7/Images/Lecture7.1/addition0.5.PNG" src="Chapter7/Images/Lecture7.1/addition0.5.PNG" style="width: 75%;" /></a>
+</figure>
+</section>
+<section id="non-uniform-addition-delta-p-5">
+<h3><a class="toc-backref" href="#id36" role="doc-backlink">Non-uniform Addition <span class="math notranslate nohighlight">\(\Delta P = 5\)</span></a><a class="headerlink" href="#non-uniform-addition-delta-p-5" title="Permalink to this heading">#</a></h3>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Chapter7/Images/Lecture7.1/addition5.PNG"><img alt="Chapter7/Images/Lecture7.1/addition5.PNG" src="Chapter7/Images/Lecture7.1/addition5.PNG" style="width: 75%;" /></a>
+</figure>
+</section>
+</section>
+<section id="staggered-pressure-and-velocity-grid">
+<h2><a class="toc-backref" href="#id37" role="doc-backlink">Staggered Pressure and Velocity Grid</a><a class="headerlink" href="#staggered-pressure-and-velocity-grid" title="Permalink to this heading">#</a></h2>
+<p>-The scheme introduced in this lecture is a widely used basis for carrying
+out Navier-Stokes simulations</p>
+<ul class="simple">
+<li><p>It is, though, a very bare bones implementation to illustrate the method without making it too complex to follow</p></li>
+<li><p>In particular, I have co-located the pressure and velocity nodes</p>
+<ul>
+<li><p>In complex flows, especially at higher Reynolds numbers, this can cause instability in
+the pressure solve</p></li>
+<li><p>This instability is characterised by a checkerboard of high and low pressure values</p></li>
+<li><p>Hints of this instability can be seen in the non-uniform inlet solution for ∆𝑃 = 5</p></li>
+<li><p>A way to avoid this is to have the pressure and velocity on separate grids
+that are staggered w.r.t. one another</p></li>
+</ul>
+</li>
+<li><p>You need to take care as to the finite differencing on such a grid</p>
+<ul>
+<li><p>In finite element discretisations, the equivalent issue can be resolved by having
+different orders for the velocity and pressure elements</p>
+<ul>
+<li><p>More on finite elements in a later lecture</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="next-lecture">
+<h2><a class="toc-backref" href="#id38" role="doc-backlink">Next Lecture</a><a class="headerlink" href="#next-lecture" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Turbulent flow</p></li>
+<li><p>Non-Newtonian Rheologies</p></li>
+</ul>
 </section>
 </section>
 
@@ -1089,15 +1263,31 @@ known as the nullspace is required</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solid-boundaries-in-fluid-dynamics">Solid Boundaries in Fluid Dynamics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-condition-at-no-slip-boundary">Pressure Condition at No-Slip Boundary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-code-with-explicit-loops">The Code (with explicit loops)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-sure-how-to-put-c-in-yet">NOT SURE HOW TO PUT C++ IN YET</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-the-intermediate-velocities">Calculating the Intermediate Velocities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-and-solving-the-pressure-poisson-equation">Setting up and Solving the Pressure Poisson Equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-updated-velocity-using-pressure-gradient">Calculate Updated Velocity using Pressure Gradient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combine-the-previous-functions-to-solve-ns">Combine the Previous Functions to solve NS</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-example">Test Example</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-the-pressure-calculation">Note on the Pressure Calculation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-c">More C++</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-function-to-solve-lid-driven-cavity">Call the Function to Solve Lid Driven Cavity</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-for-re-10">Solution for Re = 10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-high-resolution-simulations-for-re-10">Comparison to High Resolution Simulations for Re = 10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-for-re-100">Solution for Re = 100</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-high-resolution-simulations-for-re-100">Comparison to High Resolution Simulations for Re = 100</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-driven-steady-flow-between-parallel-plates">Pressure Driven Steady Flow between Parallel Plates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-boundary-conditions">Pressure Boundary Conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-for-delta-p-10-re-approx-120">Solution for <span class="math notranslate nohighlight">\(\Delta P = 10 ( Re \approx 120) \)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-theory-for-delta-p-10-re-approx-120">Comparison to Theory for <span class="math notranslate nohighlight">\(\Delta P = 10 ( Re \approx 120) \)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-uniform-addition-delta-p-0-5">Non-uniform Addition <span class="math notranslate nohighlight">\(\Delta P = 0.5\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-uniform-addition-delta-p-5">Non-uniform Addition <span class="math notranslate nohighlight">\(\Delta P = 5\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#staggered-pressure-and-velocity-grid">Staggered Pressure and Velocity Grid</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-lecture">Next Lecture</a></li>
 </ul>
   </nav></div>
 
