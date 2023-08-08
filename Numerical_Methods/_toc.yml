@@ -38,3 +38,8 @@ parts:
       sections:
       - file: "Chapter7/Lecture 7.1 - Navier-Stokes"
       - file: "Chapter7/Worksheet"
+      - file: "Chapter7/SolversIntro"
+      - file: "Chapter7/Solvers/Solver_lid_driven_Loops"
+      - file: "Chapter7/Solvers/Solver_lid_driven_Vectorised"
+      - file: "Chapter7/Solvers/Solver_pressure_driven_Vectorised"
+      - file: "Chapter7/Solvers/Solver_pressure_driven_uneven_Vectorised"
