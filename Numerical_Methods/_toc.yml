@@ -43,3 +43,6 @@ parts:
       - file: "Chapter7/Solvers/Solver_lid_driven_Vectorised"
       - file: "Chapter7/Solvers/Solver_pressure_driven_Vectorised"
       - file: "Chapter7/Solvers/Solver_pressure_driven_uneven_Vectorised"
+    - file: "Chapter8/intro"
+      sections:
+      - file: "Chapter8/Lecture 8.1 - Turbulent and Non-Newtonian Flows"
