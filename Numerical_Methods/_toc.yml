@@ -54,4 +54,4 @@ parts:
       sections: 
       - file: "Chapter9/Lecture 9.1 - interpolation quadrature"
       - file: "Chapter9/Homework"
-      - file: "Chapter9/Solutions
+      - file: "Chapter9/Solutions"
