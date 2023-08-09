@@ -48,3 +48,10 @@ parts:
       - file: "Chapter8/Lecture 8.1 - Turbulent and Non-Newtonian Flows"
       - file: "Chapter8/Worksheet"
       - file: "Chapter8/Solutions"
+  - caption: Part 3 - Numerical Techniques
+    chapters:
+    - file: "Chapter9/intro"
+      sections: 
+      - file: "Chapter9/Lecture 9.1 - interpolation quadrature"
+      - file: "Chapter9/Homework"
+      - file: "Chapter9/Solutions
