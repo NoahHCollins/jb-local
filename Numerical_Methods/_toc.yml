@@ -46,3 +46,4 @@ parts:
     - file: "Chapter8/intro"
       sections:
       - file: "Chapter8/Lecture 8.1 - Turbulent and Non-Newtonian Flows"
+      - file: "Chapter8/Worksheet"
