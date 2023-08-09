@@ -211,7 +211,6 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">9. Interpolation Quadrature 2</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Interpolation &amp; Quadrature 2 <a class="tocSkip"></a></a></li>
-
 <li class="toctree-l2"><a class="reference internal" href="Homework.html">Homework <a class="tocSkip"></a></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Solutions.html">Solutions <a class="tocSkip"></a></a></li>
 </ul>
@@ -386,9 +385,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -404,140 +401,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Interpolation &amp; Quadrature 2 <a class="tocSkip"></a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-plan-learning-objectives-a-class-tocskip">Lecture plan / learning objectives: <a class="tocSkip"></a></a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-really-important-here-a-class-tocskip">What’s really important here? <a class="tocSkip"></a></a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation">Interpolation</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#review">Review</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#some-arbitrary-test-data">Some arbitrary test data</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#simple-interpolation-example">Simple interpolation example</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#polynomial-interpolation-revisited">Polynomial interpolation (revisited)</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#expansion-over-basis-functions-e-g-monomials">Expansion over basis functions (e.g. monomials)</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-polynomial">Lagrange polynomial</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#using-scipy-interpolate">Using scipy.interpolate</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#newton-polynomial-star">Newton polynomial  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#approximating-a-function">Approximating a function</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-example">A simple example</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#error-in-lagrange-interpolation">Error in Lagrange interpolation</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#aside-the-lagrange-remainder-theorem-star">Aside: The Lagrange Remainder Theorem  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#observations-star">Observations  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#example-star">Example  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#comments-star">Comments  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#a-more-problematic-example-star">A more problematic example [<span class="math notranslate nohighlight">\(\star\)</span>]</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Observations  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#an-explanation-star">An explanation  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#chebyshev-nodes-star">Chebyshev nodes  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#chebyshev-polynomial-interpolation-star">Chebyshev polynomial interpolation  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#piecewise-polynomial-interpolation">Piecewise polynomial interpolation</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#piecewise-linear-interpolant">Piecewise-linear interpolant</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#piecewise-quadratic-interpolant">Piecewise-quadratic interpolant</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#observations">Observations</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#piecewise-polynomial-interpolation-via-an-appropriate-set-of-basis-functions">Piecewise-polynomial interpolation via an appropriate set of basis functions</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#the-idea">The idea</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#example-revisiting-a-quadratic-example-we-ve-already-seen">Example - revisiting a quadratic example we’ve already seen</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#hat-functions-and-p-w-linear-interpolation-expansions">Hat functions and p/w linear interpolation/expansions</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#some-code-to-return-the-hat-basis-functions">Some code to return the hat/basis functions</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#support-of-basis-functions">Support of basis functions</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#cubic-splines-star-star">Cubic splines [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm-sketch-star-star">Algorithm sketch  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#piecewise-cubic-hermite-interpolating-polynomial-pchip-star-star">Piecewise Cubic Hermite Interpolating Polynomial (PCHIP)  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Observations</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#compare-interpolation-methods">Compare interpolation methods</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#quadrature">Quadrature</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Review</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#the-midpoint-rule">The Midpoint rule</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#trapezoidal-rule">Trapezoidal rule</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#the-composite-version-of-the-trapezoidal-rule">The composite version of the trapezoidal rule</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#quadrature-accuracy-and-errors">Quadrature Accuracy and Errors</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#error-analysis-qualitative">Error analysis (qualitative)</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#error-analysis-mathematical-star">Error analysis (mathematical) [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#trapezoidal-rule-error-one-interval">Trapezoidal rule error (one interval)</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Observations</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#trapezoidal-rule-error-multiple-sub-intervals">Trapezoidal rule error (multiple sub-intervals)</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#midpoint-rule-error">Midpoint rule error</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#simpson-s-rule-review">Simpson’s rule [Review]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-simpson-s-rule">Implementing Simpson’s rule</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#the-composite-version-of-simpson-s-rule">The composite version of Simpson’s Rule</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Observations</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#simpson-s-rule-error-star">Simpson’s rule error [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#weddle-s-rule-extrapolated-simpson-s-rule-star">Weddle’s rule (extrapolated Simpson’s rule) [<span class="math notranslate nohighlight">\(\star\)</span>]</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Observations</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#newton-cotes-quadrature-rules-star-star">Newton-Cotes quadrature rules [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#n-1-trapezoidal">(N=1) Trapezoidal</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#n-2-simpson-s-rule">(N=2) Simpson’s rule</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Observations</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#open-vs-closed-newton-cotes-formulae">Open vs Closed Newton-Cotes formulae</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#richardson-extrapolation-and-romberg-integration-star-star">(Richardson) extrapolation and Romberg integration  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Observations</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#adaptive-quadrature-star">Adaptive quadrature  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">Algorithm</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-a-simple-problem">Application to a simple problem</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-a-complex-problem">Application to a complex problem</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#quadrature-method-comparison">Quadrature method comparison</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-quadrature-star-star">Gaussian quadrature  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-legendre-quadrature">Gauss-Legendre quadrature</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Implementation</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#changing-integration-limits">Changing integration limits</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#other-gaussian-quadrature-families">Other Gaussian quadrature families</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#higher-dimensions-star">Higher dimensions  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-</ul>
-</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-you-need-to-focus-on">What do you need to focus on?</a></li>
-</ul>
-</li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -3263,9 +3126,8 @@ different choices of weighting function lead us to other families of quadrature 
 <p>Note that sometimes higher dimensional quadrature is called “cubature”: <a class="reference external" href="http://mathworld.wolfram.com/Cubature.html">http://mathworld.wolfram.com/Cubature.html</a>.</p>
 <p>For a SciPy method see <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.nquad.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.nquad.html</a>.</p>
 </div></section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="summary">
-<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>We have taken the opportunity to revisit interpolation/the approximation of functions, and covered some new methods…</p></li>
 <li><p>in particular the use of “hat” functions as a basis for p/w linear interpolation.</p></li>
@@ -3273,6 +3135,7 @@ different choices of weighting function lead us to other families of quadrature 
 <li><p>covering more on error analysis,</p></li>
 <li><p>and in particular further families of quadrature methods, including adaptive algorithms.</p></li>
 </ul>
+</section>
 <section id="what-do-you-need-to-focus-on">
 <h2>What do you need to focus on?<a class="headerlink" href="#what-do-you-need-to-focus-on" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
@@ -3340,146 +3203,6 @@ different choices of weighting function lead us to other families of quadrature 
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Interpolation &amp; Quadrature 2 <a class="tocSkip"></a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-plan-learning-objectives-a-class-tocskip">Lecture plan / learning objectives: <a class="tocSkip"></a></a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-really-important-here-a-class-tocskip">What’s really important here? <a class="tocSkip"></a></a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation">Interpolation</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#review">Review</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#some-arbitrary-test-data">Some arbitrary test data</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#simple-interpolation-example">Simple interpolation example</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#polynomial-interpolation-revisited">Polynomial interpolation (revisited)</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#expansion-over-basis-functions-e-g-monomials">Expansion over basis functions (e.g. monomials)</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-polynomial">Lagrange polynomial</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#using-scipy-interpolate">Using scipy.interpolate</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#newton-polynomial-star">Newton polynomial  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#approximating-a-function">Approximating a function</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-example">A simple example</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#error-in-lagrange-interpolation">Error in Lagrange interpolation</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#aside-the-lagrange-remainder-theorem-star">Aside: The Lagrange Remainder Theorem  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#observations-star">Observations  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#example-star">Example  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#comments-star">Comments  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#a-more-problematic-example-star">A more problematic example [<span class="math notranslate nohighlight">\(\star\)</span>]</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Observations  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#an-explanation-star">An explanation  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#chebyshev-nodes-star">Chebyshev nodes  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#chebyshev-polynomial-interpolation-star">Chebyshev polynomial interpolation  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#piecewise-polynomial-interpolation">Piecewise polynomial interpolation</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#piecewise-linear-interpolant">Piecewise-linear interpolant</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#piecewise-quadratic-interpolant">Piecewise-quadratic interpolant</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#observations">Observations</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#piecewise-polynomial-interpolation-via-an-appropriate-set-of-basis-functions">Piecewise-polynomial interpolation via an appropriate set of basis functions</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#the-idea">The idea</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#example-revisiting-a-quadratic-example-we-ve-already-seen">Example - revisiting a quadratic example we’ve already seen</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#hat-functions-and-p-w-linear-interpolation-expansions">Hat functions and p/w linear interpolation/expansions</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#some-code-to-return-the-hat-basis-functions">Some code to return the hat/basis functions</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#support-of-basis-functions">Support of basis functions</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#cubic-splines-star-star">Cubic splines [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm-sketch-star-star">Algorithm sketch  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#piecewise-cubic-hermite-interpolating-polynomial-pchip-star-star">Piecewise Cubic Hermite Interpolating Polynomial (PCHIP)  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Observations</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#compare-interpolation-methods">Compare interpolation methods</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#quadrature">Quadrature</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Review</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#the-midpoint-rule">The Midpoint rule</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#trapezoidal-rule">Trapezoidal rule</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#the-composite-version-of-the-trapezoidal-rule">The composite version of the trapezoidal rule</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#quadrature-accuracy-and-errors">Quadrature Accuracy and Errors</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#error-analysis-qualitative">Error analysis (qualitative)</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#error-analysis-mathematical-star">Error analysis (mathematical) [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#trapezoidal-rule-error-one-interval">Trapezoidal rule error (one interval)</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Observations</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#trapezoidal-rule-error-multiple-sub-intervals">Trapezoidal rule error (multiple sub-intervals)</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#midpoint-rule-error">Midpoint rule error</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#simpson-s-rule-review">Simpson’s rule [Review]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-simpson-s-rule">Implementing Simpson’s rule</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#the-composite-version-of-simpson-s-rule">The composite version of Simpson’s Rule</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Observations</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#simpson-s-rule-error-star">Simpson’s rule error [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#weddle-s-rule-extrapolated-simpson-s-rule-star">Weddle’s rule (extrapolated Simpson’s rule) [<span class="math notranslate nohighlight">\(\star\)</span>]</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Observations</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#newton-cotes-quadrature-rules-star-star">Newton-Cotes quadrature rules [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#n-1-trapezoidal">(N=1) Trapezoidal</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#n-2-simpson-s-rule">(N=2) Simpson’s rule</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Observations</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#open-vs-closed-newton-cotes-formulae">Open vs Closed Newton-Cotes formulae</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#richardson-extrapolation-and-romberg-integration-star-star">(Richardson) extrapolation and Romberg integration  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Observations</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#adaptive-quadrature-star">Adaptive quadrature  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">Algorithm</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-a-simple-problem">Application to a simple problem</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-a-complex-problem">Application to a complex problem</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#quadrature-method-comparison">Quadrature method comparison</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-quadrature-star-star">Gaussian quadrature  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-legendre-quadrature">Gauss-Legendre quadrature</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Implementation</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#changing-integration-limits">Changing integration limits</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#other-gaussian-quadrature-families">Other Gaussian quadrature families</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#higher-dimensions-star">Higher dimensions  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-</ul>
-</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-you-need-to-focus-on">What do you need to focus on?</a></li>
-</ul>
-</li>
-</ul>
-
-  </nav></div>
-
-</div></div>
               
             
           </div>
