@@ -428,20 +428,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">mpltools</span> <span class="kn">import</span> <span class="n">annotation</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># as this lecture is about interpolation we will make use of this SciPy library</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">scipy.interpolate</span> <span class="k">as</span> <span class="nn">si</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">integrate</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># some default font sizes for plots</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="interpolation-quadrature-2-a-class-tocskip">
 <h1>Interpolation &amp; Quadrature 2 <a class="tocSkip"><a class="headerlink" href="#interpolation-quadrature-2-a-class-tocskip" title="Permalink to this heading">#</a></h1>
@@ -534,7 +520,7 @@ Matt Piggott</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fb30ffc691d5348d6528767e70b8aceebcfb90b364ed32d50c7e1db572be4756.png" src="../_images/fb30ffc691d5348d6528767e70b8aceebcfb90b364ed32d50c7e1db572be4756.png" />
+<img alt="../_images/38572805534890ecc7c2b9245c9375062eddc1dfb922a31c148e1bb5af9034b0.png" src="../_images/38572805534890ecc7c2b9245c9375062eddc1dfb922a31c148e1bb5af9034b0.png" />
 </div>
 </div>
 </section>
@@ -570,7 +556,7 @@ Matt Piggott</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f7191ec2ddb482dcf1a620d7e0bf92790cc9aa345e1050b95f84c539e0002d54.png" src="../_images/f7191ec2ddb482dcf1a620d7e0bf92790cc9aa345e1050b95f84c539e0002d54.png" />
+<img alt="../_images/be30753c988575ac36c085ab2b0291c65821fdde1fa769cb1e13d4e7c8bcd332.png" src="../_images/be30753c988575ac36c085ab2b0291c65821fdde1fa769cb1e13d4e7c8bcd332.png" />
 </div>
 </div>
 </section>
@@ -698,25 +684,25 @@ y_2
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>V = 
-[[1.                 0.3                0.09              ]
- [1.                 0.5                0.25              ]
- [1.                 0.8                0.6400000000000001]]
+[[1.   0.3  0.09]
+ [1.   0.5  0.25]
+ [1.   0.8  0.64]]
 
  Our coefficients a = 
-[-1.7999999999999985  8.86666666666666   -7.333333333333326 ]
+[-1.8         8.86666667 -7.33333333]
 
 The output from np.polyfit(x, y, 2) = 
- [-7.333333333333344   8.866666666666676  -1.8000000000000018]
+ [-7.33333333  8.86666667 -1.8       ]
 
 Which agrees with us as long as we reverse the order of our coefficients:
 np.flip(a, 0) = 
-[-7.333333333333326   8.86666666666666   -1.7999999999999985]
+[-7.33333333  8.86666667 -1.8       ]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 1.0)
 </pre></div>
 </div>
-<img alt="../_images/5a971a350502f02ff1343f72a09d889b0d91d36fc177d48131938fcaf1a2536d.png" src="../_images/5a971a350502f02ff1343f72a09d889b0d91d36fc177d48131938fcaf1a2536d.png" />
+<img alt="../_images/726eeeb6e93ca0d6c6486534562fae67c6f439be3e53915be36f10744cd36cb0.png" src="../_images/726eeeb6e93ca0d6c6486534562fae67c6f439be3e53915be36f10744cd36cb0.png" />
 </div>
 </div>
 </section>
@@ -773,10 +759,10 @@ np.flip(a, 0) =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x20586ce5f98&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f0396b854c0&gt;
 </pre></div>
 </div>
-<img alt="../_images/3eae8d35945757098f9e0b972f56442554f899c2fdc8a42724f7de70724b10a2.png" src="../_images/3eae8d35945757098f9e0b972f56442554f899c2fdc8a42724f7de70724b10a2.png" />
+<img alt="../_images/6c380a3719cc3539cb1888b582fcb34fa6b78d0dfa420b33688a96f2d6b6a8ee.png" src="../_images/6c380a3719cc3539cb1888b582fcb34fa6b78d0dfa420b33688a96f2d6b6a8ee.png" />
 </div>
 </div>
 </section>
@@ -820,7 +806,7 @@ from Python’s <a class="reference external" href="http://www.scipy.org">SciPy<
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c4dbcd5a283deeeb5d7215cc23fee5c0ef0c2e64590867f2d576b553489e2943.png" src="../_images/c4dbcd5a283deeeb5d7215cc23fee5c0ef0c2e64590867f2d576b553489e2943.png" />
+<img alt="../_images/45ea101b9d0d537c8317d49293f467385a37d42a83080bf65e16770405d2f0a4.png" src="../_images/45ea101b9d0d537c8317d49293f467385a37d42a83080bf65e16770405d2f0a4.png" />
 </div>
 </div>
 <p>and our larger data set from earlier</p>
@@ -858,7 +844,7 @@ from Python’s <a class="reference external" href="http://www.scipy.org">SciPy<
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/945f04442c8834c3d22b07a965563777bd01be06be0809a5c48c9b8b7b19cdd1.png" src="../_images/945f04442c8834c3d22b07a965563777bd01be06be0809a5c48c9b8b7b19cdd1.png" />
+<img alt="../_images/e3ed837be4a15fa2131a3b4bde6acc42ef425b454ca38f91261bb090eda1f5c3.png" src="../_images/e3ed837be4a15fa2131a3b4bde6acc42ef425b454ca38f91261bb090eda1f5c3.png" />
 </div>
 </div>
 <p>An implementation of the Lagrange basis functions and thus the Lagrange polynomial was a homework exercise when we considered interpolation in the Computational Mathematics module.</p>
@@ -997,7 +983,7 @@ P_3(x) &amp;= a_0 +(x-x_0)a_1 + (x-x_0)(x-x_1)a_2 + (x-x_0)(x-x_1)(x-x_2)a_3\[5p
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d54f36d5fb62dbb17516fa252991acb0ff6ec22d5216b2d2b87f6947da7146f0.png" src="../_images/d54f36d5fb62dbb17516fa252991acb0ff6ec22d5216b2d2b87f6947da7146f0.png" />
+<img alt="../_images/98ebe38495bfa4cc4d83754767a1c444835f6d49f50972044a3e9a6eb302e0eb.png" src="../_images/98ebe38495bfa4cc4d83754767a1c444835f6d49f50972044a3e9a6eb302e0eb.png" />
 </div>
 </div>
 </section>
@@ -1149,7 +1135,7 @@ N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0d0938c68376b766fd806c8e83c694c55cf078e44f0defd13bc3e82556e7c1dd.png" src="../_images/0d0938c68376b766fd806c8e83c694c55cf078e44f0defd13bc3e82556e7c1dd.png" />
+<img alt="../_images/a46cfe6f7536e3a91d1716eee06282dbdd827c0b1c11fbe4f0e14d03fcf3d70c.png" src="../_images/a46cfe6f7536e3a91d1716eee06282dbdd827c0b1c11fbe4f0e14d03fcf3d70c.png" />
 </div>
 </div>
 <div class="optional">
@@ -1224,7 +1210,30 @@ N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5c61e8d3b5d47a343cbe4b668adaeeb476726a768c8dbd6035c0d6448ededd28.png" src="../_images/5c61e8d3b5d47a343cbe4b668adaeeb476726a768c8dbd6035c0d6448ededd28.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+Cell In[10], line 31
+     28 degrees = [1, 2, 3, 5, 9, 12, 15, 20]
+     30 # set up our figs for plotting
+---&gt; 31 fig, axs = plt.subplots(2, np.int(len(degrees)/2), figsize=(12, 8))
+     32 # this turns the 2D array of axes into a 1D vector we can easily call in the loop below
+     33 axs = axs.reshape(-1)
+
+File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/numpy/__init__.py:319, in __getattr__(attr)
+    314     warnings.warn(
+    315         f&quot;In the future `np.{attr}` will be defined as the &quot;
+    316         &quot;corresponding NumPy scalar.&quot;, FutureWarning, stacklevel=2)
+    318 if attr in __former_attrs__:
+--&gt; 319     raise AttributeError(__former_attrs__[attr])
+    321 if attr == &#39;testing&#39;:
+    322     import numpy.testing as testing
+
+AttributeError: module &#39;numpy&#39; has no attribute &#39;int&#39;.
+`np.int` was a deprecated alias for the builtin `int`. To avoid this error in existing code, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+</pre></div>
+</div>
 </div>
 </div>
 <div class="optional">

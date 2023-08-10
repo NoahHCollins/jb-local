@@ -15,30 +15,73 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-%matplotlib inline
-import numpy as np
-import matplotlib.pyplot as plt
-# the following allows us to plot triangles indicating convergence order
-from mpltools import annotation
-# as this lecture is about interpolation we will make use of this SciPy library
-import scipy.interpolate as si
-import scipy.integrate as integrate
+# define the runge function
+def runge(x):
+    return 1.0 / (1.0 + 25.0 * x**2)
 
-# some default font sizes for plots
-plt.rcParams['font.size'] = 12
-plt.rcParams['font.family'] = 'sans-serif'
-plt.rcParams['font.sans-serif'] = ['Arial', 'Dejavu Sans']
+def plot_approximation(f, xi, ax):
+    """Function to plot exact function f (e.g. Runge) and its Lagrange polynomial approximation.
+
+    Parameters
+    ----------
+    f : callable
+        The Runge function
+    xi : array_like
+        The x-component of the data
+    ax : matplotlib axes
+        The axes to plot on
+    """
+    x = np.linspace(-1.0, 1.0, 100)
+    ax.plot(x, f(x), 'k', label='Runge function')
+
+    lp = si.lagrange(xi, f(xi))
+    ax.plot(x, lp(x), 'b', label='Poly. approx.')
+
+    ax.set_xlabel('$x$', fontsize=14)
+    ax.set_ylabel('$f(x)$', fontsize=14)
+
+
+# the problem gets worse at higher degree - list of degrees to consider
+degrees = [1, 2, 3, 5, 9, 12, 15, 20]
+
+# set up our figs for plotting
+fig, axs = plt.subplots(2, np.int(len(degrees)/2), figsize=(12, 8))
+# this turns the 2D array of axes into a 1D vector we can easily call in the loop below
+axs = axs.reshape(-1)
+# add some padding otherwise axes labels overlap
+fig.tight_layout(w_pad=3, h_pad=4)
+
+# enumerate is a useful way to loop over something (here degrees) and have 
+# an automatic counter - here i which we use to identify the correct axis
+for i, degree in enumerate(degrees):
+    xi = np.linspace(-1, 1, degree + 1)
+    plot_approximation(runge, xi, axs[i])
+    axs[i].plot(xi, runge(xi), 'ko', label='data')
+    axs[i].set_title('Degree %i' % degree, fontsize=14)
+    axs[i].legend(loc='best', fontsize=12)
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[1], line 7[0m
-[1;32m      5[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmpltools[39;00m [38;5;28;01mimport[39;00m annotation
-[1;32m      6[0m [38;5;66;03m# as this lecture is about interpolation we will make use of this SciPy library[39;00m
-[0;32m----> 7[0m [38;5;28;01mimport[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01minterpolate[39;00m [38;5;28;01mas[39;00m [38;5;21;01msi[39;00m
-[1;32m      8[0m [38;5;28;01mimport[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mintegrate[39;00m [38;5;28;01mas[39;00m [38;5;21;01mintegrate[39;00m
-[1;32m     10[0m [38;5;66;03m# some default font sizes for plots[39;00m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[10], line 31[0m
+[1;32m     28[0m degrees [38;5;241m=[39m [[38;5;241m1[39m, [38;5;241m2[39m, [38;5;241m3[39m, [38;5;241m5[39m, [38;5;241m9[39m, [38;5;241m12[39m, [38;5;241m15[39m, [38;5;241m20[39m]
+[1;32m     30[0m [38;5;66;03m# set up our figs for plotting[39;00m
+[0;32m---> 31[0m fig, axs [38;5;241m=[39m plt[38;5;241m.[39msubplots([38;5;241m2[39m, [43mnp[49m[38;5;241;43m.[39;49m[43mint[49m([38;5;28mlen[39m(degrees)[38;5;241m/[39m[38;5;241m2[39m), figsize[38;5;241m=[39m([38;5;241m12[39m, [38;5;241m8[39m))
+[1;32m     32[0m [38;5;66;03m# this turns the 2D array of axes into a 1D vector we can easily call in the loop below[39;00m
+[1;32m     33[0m axs [38;5;241m=[39m axs[38;5;241m.[39mreshape([38;5;241m-[39m[38;5;241m1[39m)
 
-[0;31mModuleNotFoundError[0m: No module named 'scipy'
+File [0;32m/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/numpy/__init__.py:319[0m, in [0;36m__getattr__[0;34m(attr)[0m
+[1;32m    314[0m     warnings[38;5;241m.[39mwarn(
+[1;32m    315[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mIn the future `np.[39m[38;5;132;01m{[39;00mattr[38;5;132;01m}[39;00m[38;5;124m` will be defined as the [39m[38;5;124m"[39m
+[1;32m    316[0m         [38;5;124m"[39m[38;5;124mcorresponding NumPy scalar.[39m[38;5;124m"[39m, [38;5;167;01mFutureWarning[39;00m, stacklevel[38;5;241m=[39m[38;5;241m2[39m)
+[1;32m    318[0m [38;5;28;01mif[39;00m attr [38;5;129;01min[39;00m __former_attrs__:
+[0;32m--> 319[0m     [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m(__former_attrs__[attr])
+[1;32m    321[0m [38;5;28;01mif[39;00m attr [38;5;241m==[39m [38;5;124m'[39m[38;5;124mtesting[39m[38;5;124m'[39m:
+[1;32m    322[0m     [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtesting[39;00m [38;5;28;01mas[39;00m [38;5;21;01mtesting[39;00m
+
+[0;31mAttributeError[0m: module 'numpy' has no attribute 'int'.
+`np.int` was a deprecated alias for the builtin `int`. To avoid this error in existing code, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
 

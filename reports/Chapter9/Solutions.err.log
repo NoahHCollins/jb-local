@@ -15,30 +15,86 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-%matplotlib inline
-import numpy as np
-import matplotlib.pyplot as plt
-# the following allows us to plot triangles indicating convergence order
-from mpltools import annotation
-# as this lecture is about interpolation we will make use of this SciPy library
-import scipy.interpolate as si
-import scipy.integrate as integrate
+import sympy
+from math import factorial
 
-# some default font sizes for plots
-plt.rcParams['font.size'] = 12
-plt.rcParams['font.family'] = 'sans-serif'
-plt.rcParams['font.sans-serif'] = ['Arial', 'Dejavu Sans']
+# calculate and plot derivatives of the Runge function
+x = sympy.Symbol('x', real=True)
+f = 1. / (1. + 25. * x**2)
+print("f(x) = ", (sympy.simplify(f)))
+f_ = sympy.lambdify(x,f)
+
+dfdx = sympy.diff(f, x) 
+print("f'(x) = ", (sympy.simplify(dfdx)))
+dfdx_ = sympy.lambdify(x,dfdx)
+
+dfdx2 = sympy.diff(dfdx, x) 
+print("f''(x) = ", (sympy.simplify(dfdx2)))
+dfdx2_ = sympy.lambdify(x,dfdx2)
+
+dfdx3 = sympy.diff(dfdx2, x) 
+print("f'''(x) = ", (sympy.simplify(dfdx3)))
+dfdx3_ = sympy.lambdify(x,dfdx3)
+
+xf = np.linspace(-1.0, 1.0, 1000)
+
+fig, ax = plt.subplots(1, 4, figsize=(12, 4))
+fig.tight_layout(w_pad=3, h_pad=4)
+ax[0].plot(xf, f_(xf), 'b'); ax[0].set_title("f(x)")
+ax[1].plot(xf, dfdx_(xf), 'b'); ax[1].set_title("f'(x)")
+ax[2].plot(xf, dfdx2_(xf), 'b'); ax[2].set_title("f''(x)")
+ax[3].plot(xf, dfdx3_(xf), 'b'); ax[3].set_title("f'''(x)")
+
+# use SymPy to calculate 5th derivative
+N = 4
+df = f
+for i in range(N+1):
+    df = sympy.diff(df, x)
+
+# print & plot error bound
+print("f^{(5)}(x) = ", (sympy.simplify(df)))
+df_ = sympy.lambdify(x,df)
+xi = np.linspace(-1, 1, N + 1)
+Psi = np.prod([(xf - xi[i]) for i in range(N+1)], axis=0)
+fig, ax = plt.subplots(1, 1, figsize=(6, 6))
+ax.plot(xf, (1./factorial(N+1))*np.max(np.abs(df_(xf)))*np.abs(Psi), 'b'); ax.set_title("Error bound. N={0:2d}".format(N))
+
+# use SymPy to calculate 6th derivative
+N = 5
+df = f
+for i in range(N+1):
+    df = sympy.diff(df, x)
+
+# print & plot error bound
+print("f^{(6)}(x) = ", (sympy.simplify(df)))
+df_ = sympy.lambdify(x,df)
+xi = np.linspace(-1, 1, N + 1)
+Psi = np.prod([(xf - xi[i]) for i in range(N+1)], axis=0)
+fig, ax = plt.subplots(1, 1, figsize=(6, 6))
+ax.plot(xf, (1./factorial(N+1))*np.max(np.abs(df_(xf)))*np.abs(Psi), 'b'); ax.set_title("Error bound. N={0:2d}".format(N))
+
+# use SymPy to calculate 12th derivative
+N = 11
+df = f
+for i in range(N+1):
+    df = sympy.diff(df, x) 
+
+# print & plot error bound
+print("f^{(12)}(x) = ", (sympy.simplify(df)))
+df_ = sympy.lambdify(x,df)
+xi = np.linspace(-1, 1, N + 1)
+Psi = np.prod([(xf - xi[i]) for i in range(N+1)], axis=0)
+fig, ax = plt.subplots(1, 1, figsize=(6, 6))
+ax.plot(xf, (1./factorial(N+1))*np.max(np.abs(df_(xf)))*np.abs(Psi), 'b'); ax.set_title("Error bound. N={0:2d}".format(N))
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[2], line 7[0m
-[1;32m      5[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmpltools[39;00m [38;5;28;01mimport[39;00m annotation
-[1;32m      6[0m [38;5;66;03m# as this lecture is about interpolation we will make use of this SciPy library[39;00m
-[0;32m----> 7[0m [38;5;28;01mimport[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01minterpolate[39;00m [38;5;28;01mas[39;00m [38;5;21;01msi[39;00m
-[1;32m      8[0m [38;5;28;01mimport[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mintegrate[39;00m [38;5;28;01mas[39;00m [38;5;21;01mintegrate[39;00m
-[1;32m     10[0m [38;5;66;03m# some default font sizes for plots[39;00m
+Cell [0;32mIn[6], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01msympy[39;00m
+[1;32m      2[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmath[39;00m [38;5;28;01mimport[39;00m factorial
+[1;32m      4[0m [38;5;66;03m# calculate and plot derivatives of the Runge function[39;00m
 
-[0;31mModuleNotFoundError[0m: No module named 'scipy'
+[0;31mModuleNotFoundError[0m: No module named 'sympy'
 

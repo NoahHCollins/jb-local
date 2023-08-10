@@ -473,20 +473,6 @@ div.advanced {
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">mpltools</span> <span class="kn">import</span> <span class="n">annotation</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># as this lecture is about interpolation we will make use of this SciPy library</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">scipy.interpolate</span> <span class="k">as</span> <span class="nn">si</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">integrate</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># some default font sizes for plots</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="optional">
 </section>
@@ -688,7 +674,7 @@ div.advanced {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/85c60c595813be6e54799b21934cb1d05dabb5001972ce4744df9c62abce2125.png" src="../_images/85c60c595813be6e54799b21934cb1d05dabb5001972ce4744df9c62abce2125.png" />
+<img alt="../_images/a86c41af495d7cd65e1ef47dfe84953216b24b439581e7b8710820126c28f2d7.png" src="../_images/a86c41af495d7cd65e1ef47dfe84953216b24b439581e7b8710820126c28f2d7.png" />
 </div>
 </div>
 </section>
@@ -764,7 +750,7 @@ are defined as</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5228037f7227faadef0937d5c4216a3d9a3cff77efc4aae4ed7c553c93a6ef01.png" src="../_images/5228037f7227faadef0937d5c4216a3d9a3cff77efc4aae4ed7c553c93a6ef01.png" />
+<img alt="../_images/5e15193f04d3bd74e461fcdbb253fea7394b3b504be8d245664e3c04cbc903cd.png" src="../_images/5e15193f04d3bd74e461fcdbb253fea7394b3b504be8d245664e3c04cbc903cd.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -818,10 +804,10 @@ are defined as</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1e71d031668&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f7ac73a1d30&gt;
 </pre></div>
 </div>
-<img alt="../_images/22f74ce2ea06c26a685b4010f01b5a3f70f78749b8f89482c9555bb3e06063b3.png" src="../_images/22f74ce2ea06c26a685b4010f01b5a3f70f78749b8f89482c9555bb3e06063b3.png" />
+<img alt="../_images/3b357ba2b4c19ef78ed77a209ba777f6bcc2677173c01155e0a450d0d3ad2fe8.png" src="../_images/3b357ba2b4c19ef78ed77a209ba777f6bcc2677173c01155e0a450d0d3ad2fe8.png" />
 </div>
 </div>
 <div class="optional">
@@ -951,22 +937,16 @@ M:=\max_{x\in(a,b)}\, \left| f^{(N+1)}(x) \right|,\]</div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f(x) =  1.0/(25.0*x**2 + 1.0)
-f&#39;(x) =  -50.0*x/(25.0*x**2 + 1.0)**2
-f&#39;&#39;(x) =  (3750.0*x**2 - 50.0)/(25.0*x**2 + 1.0)**3
-f&#39;&#39;&#39;(x) =  x*(15000.0 - 375000.0*x**2)/(25.0*x**2 + 1.0)**4
-f^{(5)}(x) =  1500000000.0*x**3/(25.0*x**2 + 1.0)**6 - 11250000.0*x/(25.0*x**2 + 1.0)**4
-f^{(6)}(x) =  (11250000000000.0*x**6 - 562500000000.0*x**4*(25.0*x**2 + 1.0) + 6750000000.0*x**2*(25.0*x**2 + 1.0)**2 - 11250000.0*(25.0*x**2 + 1.0)**3)/(25.0*x**2 + 1.0)**7
-f^{(12)}(x) =  (1.1694375e+29*x**12 - 1.28638125e+28*x**10*(25.0*x**2 + 1.0) + 5.26246875e+26*x**8*(25.0*x**2 + 1.0)**2 - 9.823275e+24*x**6*(25.0*x**2 + 1.0)**3 + 8.1860625e+22*x**4*(25.0*x**2 + 1.0)**4 - 2.45581875e+20*x**2*(25.0*x**2 + 1.0)**5 + 1.1694375e+17*(25.0*x**2 + 1.0)**6)/(25.0*x**2 + 1.0)**13
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">sympy</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># calculate and plot derivatives of the Runge function</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sympy&#39;
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Error bound. N=11&#39;)
-</pre></div>
-</div>
-<img alt="../_images/b59d1e48a987c94825c9dd1fc3239113e9199f1a5dc21c95a3afd565e98098b9.png" src="../_images/b59d1e48a987c94825c9dd1fc3239113e9199f1a5dc21c95a3afd565e98098b9.png" />
-<img alt="../_images/9cbf4fc65b62f4bca167bffc39760e9a4ec00d7648a96409083c925e8e02761d.png" src="../_images/9cbf4fc65b62f4bca167bffc39760e9a4ec00d7648a96409083c925e8e02761d.png" />
-<img alt="../_images/a77e2a7588e569b77a773a56b69bcf05eb0d6c0a7abd750641ccb2c37e379a56.png" src="../_images/a77e2a7588e569b77a773a56b69bcf05eb0d6c0a7abd750641ccb2c37e379a56.png" />
-<img alt="../_images/44664b72a667ad2913940cf7964ab3256432d7f2661c7825a1f0e725cd1af587.png" src="../_images/44664b72a667ad2913940cf7964ab3256432d7f2661c7825a1f0e725cd1af587.png" />
 </div>
 </div>
 <div class="optional">
