@@ -1,0 +1,1216 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>6.1 Potential Flow &#8212; Modelling and Numerical Methods</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter6/Lecture 6 - Potential Flow';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Modelling and Numerical Methods
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 1 - Analytical Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter1/intro.html">1. Intro to Vector/Tensor Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/Lecture%201.1%20-%20Intro%20to%20Vectors.html">1.1 Continuum Mechanics and Vector Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/Lecture%201.2%20-%20Vector%20Transformations.html">1.2 Vector Transformations  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/Lecture%201.3%20-%20Intro%20to%20Tensors.html">1.3 Intro to Tensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/exercises.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/solutions.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter2/intro.html">2. Stress Tensor</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/Lecture%202%20-%20Stress%20and%20Tensors.html">2.1 Stress and Tensors  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/exercises2.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/solutions2.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter3/intro.html">3. Kinematics and Strain</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/Lecture%203%20-%20Kinematics.html">3.1 Kinematics   <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/exercises3.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/solutions3.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter4/intro.html">4. Conservation Equations</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/Lecture%204.1%20-%20Conservation%20Equations.html">4.1 Conservation Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/Lecture%204.2%20-%20Rheology.html">4.2 Rheology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/exercises4.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/solutions4.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter5/intro.html">5. Dimensional Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter5/Lecture%205%20-%20Dimensions%20and%20Dimensional%20Analysis.html">5.1 Dimensions and Dimensional Analysis</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2 - Numerical Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter7/intro.html">7. Navier-Stokes</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter7/Lecture%207.1%20-%20Navier-Stokes.html">7.1 Solving Navier-Stokes Numerically</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter7/Worksheet.html">Worksheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter7/SolversIntro.html">Solvers</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter8/intro.html">8. Turbulence and Non-Newtonian Flows</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter8/Lecture%208.1%20-%20Turbulent%20and%20Non-Newtonian%20Flows.html">8.1 Turbulent and Non-Newtonian Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter8/Worksheet.html">Worksheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter8/Solutions.html">Solutions</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 3 - Numerical Techniques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter9/intro.html">9. Interpolation Quadrature 2</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter9/Lecture%209.1%20-%20interpolation%20quadrature.html">Interpolation &amp; Quadrature 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter9/Homework.html">Homework <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter9/Solutions.html">Solutions <a class="tocSkip"></a></a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FChapter6/Lecture 6 - Potential Flow.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Chapter6/Lecture 6 - Potential Flow.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>6.1 Potential Flow  <a class="tocSkip"></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="potential-flow-a-class-tocskip">
+<h1><a class="toc-backref" href="#id33" role="doc-backlink">6.1 Potential Flow  <a class="tocSkip"></a><a class="headerlink" href="#potential-flow-a-class-tocskip" title="Permalink to this heading">#</a></h1>
+<p>Lecture 6.1</p>
+<p>Stephen Neethling, <a class="reference external" href="mailto:s&#46;neethling&#37;&#52;&#48;imperial&#46;ac&#46;uk">s<span>&#46;</span>neethling<span>&#64;</span>imperial<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
+<section id="learning-outcomes-a-class-tocskip">
+<h2><a class="toc-backref" href="#id34" role="doc-backlink">Learning outcomes  <a class="tocSkip"></a><a class="headerlink" href="#learning-outcomes-a-class-tocskip" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Derive the potential flow equation</p>
+<ul class="simple">
+<li><p>Laplace’s equation for constant resistance</p></li>
+</ul>
+</li>
+<li><p>Be able to recognise a range of physical systems that obey potential flow</p></li>
+<li><p>Show that the Navier-Stokes equation can be approximated as a potential flow under certain circumstances</p>
+<ul class="simple">
+<li><p>Including deriving a vorticity formulation for the Navier-Stokes equation</p></li>
+</ul>
+</li>
+<li><p>Demonstrate the stream function formulation for solving incompressible flow problems</p>
+<ul class="simple">
+<li><p>Demonstrate with potential flow problems</p></li>
+</ul>
+</li>
+<li><p>Demonstrate numerical solutions for Laplace’s equations</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="nt">div</span><span class="p">.</span><span class="nc">exercise</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ffd7e2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ffd7e2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#ffd7e2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">div</span><span class="p">.</span><span class="nc">optional</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">div</span><span class="p">.</span><span class="nc">advanced</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+div.exercise {
+    display: block;
+    background-color: #ffd7e2;
+    border-color: #ffd7e2;
+    border-left: 5px solid #ffd7e2;
+    padding: 0.5em;
+}
+div.optional {
+    display: block;
+    background-color: #d7e2ff;
+    border-color: #d7e2ff;
+    border-left: 5px solid #d7e2ff;
+    padding: 0.5em;
+}
+div.advanced {
+    display: block;
+    background-color: #fff4d7;
+    border-color: #fff4d7;
+    border-left: 5px solid #fff4d7;
+    padding: 0.5em;
+}
+</style>
+</div></div>
+</div>
+<p>Do not alter this cell. LaTeX commands for frequently used terms.</p>
+<div class="math notranslate nohighlight">
+\[\newcommand{\tensor}[1]{\underline{\underline{\mathbf{#1}}}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\vector}[1]{\mathbf{#1}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\ex}{\vector{\hat{e}}_1}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\ey}{\vector{\hat{e}}_2}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\ez}{\vector{\hat{e}}_3}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\x}{\vector{x}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\v}{\vector{v}}\]</div>
+<div class="math notranslate nohighlight">
+\[\newcommand{\u}{\vector{u}}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages for notebook here</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#potential-flow-a-class-tocskip" id="id3">6.1 Potential Flow  <a class="tocSkip"></a></p>
+<ul>
+<li><p><a class="reference internal" href="#learning-outcomes-a-class-tocskip" id="id4">Learning outcomes  <a class="tocSkip"></a></p></li>
+<li><p><a class="reference internal" href="#potential-flow" id="id5">Potential Flow</a></p>
+<ul>
+<li><p><a class="reference internal" href="#good-approximations-for-potential-flow" id="id6">Good Approximations for Potential Flow</a></p>
+<ul>
+<li><p><a class="reference internal" href="#flow-in-porous-media" id="id7">Flow in Porous Media</a></p></li>
+<li><p><a class="reference internal" href="#random-motion" id="id8">Random Motion</a></p></li>
+<li><p><a class="reference internal" href="#diffusion-through-a-random-walk" id="id9">Diffusion through a random walk</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#implications-of-potential-flow" id="id10">Implications of Potential Flow</a></p></li>
+<li><p><a class="reference internal" href="#vorticity" id="id11">Vorticity</a></p></li>
+<li><p><a class="reference internal" href="#incompressible-inviscid-flow" id="id12">Incompressible, Inviscid Flow</a></p></li>
+<li><p><a class="reference internal" href="#solving-potential-flow-problems" id="id13">Solving Potential Flow Problems</a></p>
+<ul>
+<li><p><a class="reference internal" href="#boundary-conditions" id="id14">Boundary Conditions</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#stream-function-formulation" id="id15">Stream Function Formulation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#stream-functions" id="id16">Stream Functions</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id17">Boundary Conditions</a></p></li>
+<li><p><a class="reference internal" href="#example" id="id18">Example</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#numerical-solutions-to-laplace-s-equation" id="id19">Numerical Solutions to Laplace’s Equation</a></p></li>
+<li><p><a class="reference internal" href="#finite-difference-approximation" id="id20">Finite Difference Approximation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#finite-difference-approximation-of-a-linear-2nd-order-pdes" id="id21">Finite Difference Approximation of a Linear 2nd Order PDEs</a></p></li>
+<li><p><a class="reference internal" href="#approximating-laplace-s-equation" id="id22">Approximating Laplace’s Equation</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#iterative-and-inversion-methods" id="id23">Iterative and Inversion Methods</a></p>
+<ul>
+<li><p><a class="reference internal" href="#iterative-methods" id="id24">Iterative Methods</a></p></li>
+<li><p><a class="reference internal" href="#jacobi-method" id="id25">Jacobi Method</a></p></li>
+<li><p><a class="reference internal" href="#steps-in-solving-this-problem" id="id26">Steps in solving this problem</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#systems-with-more-complex-boundaries" id="id27">Systems with more Complex Boundaries</a></p>
+<ul>
+<li><p><a class="reference internal" href="#neumann-boundary-conditions" id="id28">Neumann Boundary Conditions</a></p></li>
+<li><p><a class="reference internal" href="#finite-difference-approximation-of-a-neumann-boundary" id="id29">Finite Difference Approximation of a Neumann Boundary</a></p></li>
+<li><p><a class="reference internal" href="#robin-boundary-condition" id="id30">Robin Boundary Condition</a></p></li>
+<li><p><a class="reference internal" href="#finite-difference-approximation-of-a-robin-boundary" id="id31">Finite Difference Approximation of a Robin Boundary</a></p></li>
+<li><p><a class="reference internal" href="#where-do-robin-boundary-conditions-arise" id="id32">Where do Robin Boundary Conditions Arise</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<nav class="contents" id="id1">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#potential-flow-a-class-tocskip" id="id33">6.1 Potential Flow  <a class="tocSkip"></a></p>
+<ul>
+<li><p><a class="reference internal" href="#learning-outcomes-a-class-tocskip" id="id34">Learning outcomes  <a class="tocSkip"></a></p></li>
+<li><p><a class="reference internal" href="#potential-flow" id="id35">Potential Flow</a></p>
+<ul>
+<li><p><a class="reference internal" href="#good-approximations-for-potential-flow" id="id36">Good Approximations for Potential Flow</a></p>
+<ul>
+<li><p><a class="reference internal" href="#flow-in-porous-media" id="id37">Flow in Porous Media</a></p></li>
+<li><p><a class="reference internal" href="#random-motion" id="id38">Random Motion</a></p></li>
+<li><p><a class="reference internal" href="#diffusion-through-a-random-walk" id="id39">Diffusion through a random walk</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#implications-of-potential-flow" id="id40">Implications of Potential Flow</a></p></li>
+<li><p><a class="reference internal" href="#vorticity" id="id41">Vorticity</a></p></li>
+<li><p><a class="reference internal" href="#incompressible-inviscid-flow" id="id42">Incompressible, Inviscid Flow</a></p></li>
+<li><p><a class="reference internal" href="#solving-potential-flow-problems" id="id43">Solving Potential Flow Problems</a></p>
+<ul>
+<li><p><a class="reference internal" href="#boundary-conditions" id="id44">Boundary Conditions</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#stream-function-formulation" id="id45">Stream Function Formulation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#stream-functions" id="id46">Stream Functions</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id47">Boundary Conditions</a></p></li>
+<li><p><a class="reference internal" href="#example" id="id48">Example</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#numerical-solutions-to-laplace-s-equation" id="id49">Numerical Solutions to Laplace’s Equation</a></p></li>
+<li><p><a class="reference internal" href="#finite-difference-approximation" id="id50">Finite Difference Approximation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#finite-difference-approximation-of-a-linear-2nd-order-pdes" id="id51">Finite Difference Approximation of a Linear 2nd Order PDEs</a></p></li>
+<li><p><a class="reference internal" href="#approximating-laplace-s-equation" id="id52">Approximating Laplace’s Equation</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#iterative-and-inversion-methods" id="id53">Iterative and Inversion Methods</a></p>
+<ul>
+<li><p><a class="reference internal" href="#iterative-methods" id="id54">Iterative Methods</a></p></li>
+<li><p><a class="reference internal" href="#jacobi-method" id="id55">Jacobi Method</a></p></li>
+<li><p><a class="reference internal" href="#steps-in-solving-this-problem" id="id56">Steps in solving this problem</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#systems-with-more-complex-boundaries" id="id57">Systems with more Complex Boundaries</a></p>
+<ul>
+<li><p><a class="reference internal" href="#neumann-boundary-conditions" id="id58">Neumann Boundary Conditions</a></p></li>
+<li><p><a class="reference internal" href="#finite-difference-approximation-of-a-neumann-boundary" id="id59">Finite Difference Approximation of a Neumann Boundary</a></p></li>
+<li><p><a class="reference internal" href="#robin-boundary-condition" id="id60">Robin Boundary Condition</a></p></li>
+<li><p><a class="reference internal" href="#finite-difference-approximation-of-a-robin-boundary" id="id61">Finite Difference Approximation of a Robin Boundary</a></p></li>
+<li><p><a class="reference internal" href="#where-do-robin-boundary-conditions-arise" id="id62">Where do Robin Boundary Conditions Arise</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</section>
+<section id="potential-flow">
+<h2><a class="toc-backref" href="#id35" role="doc-backlink">Potential Flow</a><a class="headerlink" href="#potential-flow" title="Permalink to this heading">#</a></h2>
+<p>Potential flow is often used for the specific case of inviscid (zero viscosity) and incompressible fluid flow.</p>
+<p>In this lecture, I will be using potential flow to describe a wider number of problems which can be modelled using Laplace’s equation.</p>
+<p>We will also look at numerical solutions of Laplace’s equation. Analytical solutions do exist, but only in the form of infinite series.</p>
+<p>Flow is proportional to the gradient of a potential:</p>
+<div class="math notranslate nohighlight">
+\[
+\large{\mathbf{v} = -k\nabla \phi}
+\]</div>
+<p>Flow continuity holds:</p>
+<div class="math notranslate nohighlight">
+\[
+\large{\nabla \cdot \mathbf{v} = 0}
+\]</div>
+<p>If the proportionality is constant this results in Laplace’s Equation:</p>
+<div class="math notranslate nohighlight">
+\[
+\large{\nabla^2 \phi = 0}
+\]</div>
+<section id="good-approximations-for-potential-flow">
+<h3><a class="toc-backref" href="#id36" role="doc-backlink">Good Approximations for Potential Flow</a><a class="headerlink" href="#good-approximations-for-potential-flow" title="Permalink to this heading">#</a></h3>
+<p>One type of situation where potential is a good approximation is when the potential exerts a “force” on the quantity being observed, such as an electrical current or a fluid volume. The resistance to the flow is proportional to the flow-rate of the conserved quantity.</p>
+<p>It is a good approximation for a number of systems:</p>
+<ul class="simple">
+<li><p>Heat Flow</p></li>
+<li><p>Electrical Current</p></li>
+<li><p>Saturated flow in porous media</p></li>
+</ul>
+<section id="flow-in-porous-media">
+<h4><a class="toc-backref" href="#id37" role="doc-backlink">Flow in Porous Media</a><a class="headerlink" href="#flow-in-porous-media" title="Permalink to this heading">#</a></h4>
+<p>This is used in a wide range of systems such as:</p>
+<ul class="simple">
+<li><p>Packed bed catalytic reactors</p></li>
+<li><p>Water flow in aquifers</p></li>
+<li><p>Petroleum reservoirs</p></li>
+<li><p>Porous electrodes in flow batteries and fuel cells</p></li>
+</ul>
+<p>It is often characterised by a permeability, <span class="math notranslate nohighlight">\(k\)</span>, with viscosity as a separate term in order to separate the porous media and the fluid effect:</p>
+<div class="math notranslate nohighlight">
+\[
+\large{\mathbf{v} = -\frac{k}{\mu} \nabla P}
+\]</div>
+<p>Note that this velocity is the superficial velocity (volumetric flow rate per area of porous media) rather than the actual average velocity of the fluid. The porosity of the media is the factor by which the superficial velocity will be lower than the average fluid velocity.</p>
+<p>However it does get more complicated for multi-phase flow in porous media due to the introduction of relative permeabilities that are a function of volume fraction of that phase in the pore space and capillarity (forces due to surface tension) can further complicate the situation.</p>
+</section>
+<section id="random-motion">
+<h4><a class="toc-backref" href="#id38" role="doc-backlink">Random Motion</a><a class="headerlink" href="#random-motion" title="Permalink to this heading">#</a></h4>
+<p>Random motion can also lead to potential flow</p>
+<p>Diffusion is a good example. Thermal motion of molecules in a solvent leads to molecules of the solute being randomly nudged (<strong>Brownian motion</strong>). At the microscopic scale, heat flow follows a similar process as the kinetic energy of the particles is randomly transferred to neighbouring particles.</p>
+<p>If particle motion is random, the number of particles leaving a small volume in a given time will be proportional to the number of particles in the volume. The number of particles entering will be proportional to the number of particles in the neighbouring regions. This will results in a net flow down a concentration gradient.</p>
+</section>
+<section id="diffusion-through-a-random-walk">
+<h4><a class="toc-backref" href="#id39" role="doc-backlink">Diffusion through a random walk</a><a class="headerlink" href="#diffusion-through-a-random-walk" title="Permalink to this heading">#</a></h4>
+<p>If we assume that Brownian motion causes a particle of the solute to take a random step of size <span class="math notranslate nohighlight">\( \Delta x\)</span> in time <span class="math notranslate nohighlight">\( \Delta t\)</span>, this will result in the following macroscopic diffusion coefficient:</p>
+<div class="math notranslate nohighlight">
+\[
+\large{D = \frac{\Delta x^2}{2 \Delta t}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\Delta x \hspace{0.1cm} \text{is the Root Mean Square (RMS) of the step size if the step size varies}
+\]</div>
+<p>The macroscopic flux can then be expressed as a function of the diffusion coefficient and the gradient of the concentration:</p>
+<div class="math notranslate nohighlight">
+\[
+\large{\mathbf{F} = -D \nabla C}
+\]</div>
+</section>
+</section>
+</section>
+<section id="implications-of-potential-flow">
+<h2><a class="toc-backref" href="#id40" role="doc-backlink">Implications of Potential Flow</a><a class="headerlink" href="#implications-of-potential-flow" title="Permalink to this heading">#</a></h2>
+<p>The flux is pure potential flow is always irrotational (curl of the vector is zero):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\large{\nabla \times \mathbf{v} = 0} \hspace{2cm} 
+\nabla \times \mathbf{v} =
+\begin{pmatrix}
+\frac{\partial v_z}{\partial y} - \frac{\partial v_y}{\partial z} \\
+\frac{\partial v_x}{\partial z} - \frac{\partial v_z}{\partial x} \\
+\frac{\partial v_x}{\partial z} - \frac{\partial v_z}{\partial x} \\
+\end{pmatrix} 
+\end{split}\]</div>
+<p>Try proving this</p>
+<p>The reverse is also true: Irrotational flows can be written as potential flows.</p>
+</section>
+<section id="vorticity">
+<h2><a class="toc-backref" href="#id41" role="doc-backlink">Vorticity</a><a class="headerlink" href="#vorticity" title="Permalink to this heading">#</a></h2>
+<p>Potential flow implies irrotationality, which means that it has a vorticity:</p>
+<div class="math notranslate nohighlight">
+\[
+\large{\omega = \nabla \times \mathbf{v}}
+\]</div>
+<p>Vorticity, <span class="math notranslate nohighlight">\(\omega\)</span>, is a measure of the rotation of the flow. However, this can be misleading - fluid that has a curving flow path can have zero vorticity while fluid going in a straight line can have a non-zero vorticity.</p>
+<p>Vorticity is a measure of the rotation of a small parcel of fluid - if you put a small twig in the flow will it rotate? (the average path it follows is immaterial to the vorticity?)</p>
+<p>In 3D flow, the axis of the rotation is in the direction that the vorticity vector points and the length of the vector is proportional to how fast it rotates.</p>
+</section>
+<section id="incompressible-inviscid-flow">
+<h2><a class="toc-backref" href="#id42" role="doc-backlink">Incompressible, Inviscid Flow</a><a class="headerlink" href="#incompressible-inviscid-flow" title="Permalink to this heading">#</a></h2>
+<p>Why is incompressible inviscid flow a potential flow problem?</p>
+<p>You have already derived the Navier-Stokes equations (more detail on it later in the course). However, it is important to know what each term represents;</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Momentum Balance:}
+\hspace{1cm}
+\large{\color{orange}{\rho \frac{\partial \mathbf{u}}{\partial t}} + 
+\color{green}{\rho \mathbf{u} \cdot \nabla \mathbf{u}} = 
+\color{blue}{- \nabla P} +
+\color{purple}{\mu \nabla^2 \mathbf{u}} + 
+\color{red}{\rho g}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\color{orange}{\text{Rate of change of momentum}}
+\hspace{1cm}
+\color{green}{\text{Flow of momentum (inertial force)}}
+\hspace{1cm}
+\color{blue}{\text{Pressure}}
+\hspace{1cm}
+\color{purple}{\text{Viscous force}}
+\hspace{1cm}
+\color{red}{\text{Body force}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\text{Incompressible Continuity}
+\hspace{1.5cm}
+\nabla \cdot \mathbf{u} = 0
+\hspace{1.5cm}
+\mathbf{u} \cdot \nabla \mathbf{u} = (\mathbf{u} \cdot \nabla)\mathbf{u} = \mathbf{u} \cdot (\nabla \mathbf{u}) = 
+\begin{pmatrix}
+u_x \frac{\partial u_x}{\partial x} + u_y \frac{\partial u_x}{\partial y} + u_z \frac{\partial u_x}{\partial z} \\
+u_x \frac{\partial u_y}{\partial x} + u_y \frac{\partial u_y}{\partial y} + u_z \frac{\partial u_y}{\partial z} \\
+u_x \frac{\partial u_z}{\partial x} + u_y \frac{\partial u_z}{\partial y} + u_z \frac{\partial u_z}{\partial z} \\
+\end{pmatrix}
+\end{split}\]</div>
+<p>We can obtain the vorticiy equation by taking the curl (<span class="math notranslate nohighlight">\(\nabla \times\)</span>) of the Navier-Stokes equation. Using <span class="math notranslate nohighlight">\(\omega = \nabla \times \mathbf{u}\)</span> as the variable for vorticity:</p>
+<div class="math notranslate nohighlight">
+\[
+\large{\frac{\partial \omega}{\partial t}} + \mathbf{u} \cdot \nabla \omega = (\omega \cdot \nabla)\mathbf{u} + \frac{\mu}{\rho} \nabla^2 \omega + \nabla \times g
+\]</div>
+<p>Note that the pressure does not appear in this equation if the density is constant (incompressible flow) as the curl of the gradient of a scalar is always zero.</p>
+<p>Try and derive this. You will also need to use the incompressible assumption: <span class="math notranslate nohighlight">\(\nabla \cdot \mathbf{u} = 0\)</span></p>
+<p>Additionally the following identities useful:</p>
+<p><span class="math notranslate nohighlight">\(
+\nabla \times (\mathbf{a} + \mathbf{b})  = \nabla \times \mathbf{a} + \nabla \times \mathbf{b}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\nabla \times (\nabla^2 \mathbf{a})  = \nabla^2 (\nabla \times \mathbf{a})
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\nabla \times (\nabla a)  = 0
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\nabla \times \frac{\partial \mathbf{a}}{\partial t} = \frac{\partial}{\partial t} (\nabla \times \mathbf{a})
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\nabla \times (\mathbf{a} \times \mathbf{b}) = -\mathbf{b} (\nabla \cdot \mathbf{a}) + (\mathbf{b} \cdot \nabla)\mathbf{a} - (\mathbf{a} \cdot \nabla) \mathbf{b}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+(\mathbf{u} \cdot \nabla) \mathbf{u} = \nabla \Bigl(\frac{1}{2}\mathbf{u} \cdot \mathbf{u}\Bigr) - \mathbf{u} \times \omega
+\)</span></p>
+<p>This implies that:</p>
+<p><span class="math notranslate nohighlight">\(
+\nabla \times ((\mathbf{u} \cdot \nabla)\mathbf{u}) = (\mathbf{u} \cdot \nabla)\omega + (\nabla \cdot \mathbf{u})\omega - (\omega \cdot \nabla)\mathbf{u}
+\)</span></p>
+<p>Now try deriving the Navier-Stokes vorticity formulation</p>
+<div class="math notranslate nohighlight">
+\[
+\large{\frac{\partial \omega}{\partial t}} + \mathbf{u} \cdot \nabla \omega = (\omega \cdot \nabla)\mathbf{u} + \frac{\mu}{\rho} \nabla^2 \omega + \nabla \times g
+\]</div>
+<p>If we further assume that the flow is inviscid (zero <span class="math notranslate nohighlight">\(\mu\)</span>) and that there is a constant (or conservative, <span class="math notranslate nohighlight">\(\nabla \hspace{0.1cm} \times \hspace{0.1cm} \mathbf{g} \hspace {0.1cm} = \hspace{0.1cm} 0\)</span>) body force:</p>
+<div class="math notranslate nohighlight">
+\[
+\large{\frac{\partial \boldsymbol{\omega}}{\partial t} + \mathbf{u} \cdot \nabla \boldsymbol{\omega} = (\boldsymbol{\omega} \cdot \nabla)\mathbf{u}}
+\]</div>
+<p>The left-hand side of this equation represents the evolution of the vorticity of a parcel of a fluid. This implies that if the vorticity starts with a zero value it will remain zero for all position and all times.</p>
+<p>If we therefore assume that our flow is initially irrotational (zero vorticity), then it will remain irrotational if it incompressible and inviscid.</p>
+<p>Side note: Zero vorticity is also a solution to the equation with viscosity</p>
+<div class="math notranslate nohighlight">
+\[
+\large{\frac{\partial \boldsymbol{\omega}}{\partial t} + \mathbf{u} \cdot \nabla \boldsymbol{\omega} = (\boldsymbol{\omega} \cdot \nabla)\mathbf{u} + \frac{\mu}{\rho} \nabla^2 \boldsymbol{\omega}}
+\]</div>
+<p>but it is incompatible with a shear stress at the boundaries. A shear stress at the boundary will generate vorticity at teh boundary. The viscous term will then cause the vorticity to “diffuse” into the interior.</p>
+<p>Because vorticity diffuses in boundaries, systems can have regions where potential flow is a good approximation and regions where it is not:</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/Vorticity.png"><img alt="../_images/Vorticity.png" src="../_images/Vorticity.png" style="width: 75%;" /></a>
+</figure>
+<p>From our earlier discussion, irrotational flows can be described using a potential: <span class="math notranslate nohighlight">\(\boldsymbol{u} = - \nabla \phi\)</span></p>
+<p>As <span class="math notranslate nohighlight">\(\nabla \cdot \boldsymbol{u} = 0\)</span>, this further implies that <span class="math notranslate nohighlight">\(\nabla^2 \phi = 0\)</span></p>
+<p>The potential described previously is NOT the same as the fluid pressure. To convert between them we need to use the Navier-Stokes Equation.</p>
+<p>Navier-Stokes Equations for Incompressible Newtonian Flow:</p>
+<div class="math notranslate nohighlight">
+\[
+\large{\frac{\partial \mathbf{u}}{\partial t} + \mathbf{u \cdot u} = - \frac{\nabla P}{\rho} + \frac{\mu}{\rho} \nabla^2 \mathbf{u + g}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\large{\nabla \cdot \mathbf{u} = 0}
+\]</div>
+<p>If we assume steady-state and inviscid, then the derivative term and viscosity term go to zero and we are left with:</p>
+<div class="math notranslate nohighlight">
+\[
+\large{(\mathbf{u} \cdot \nabla)\mathbf{u} = -\frac{\nabla P}{\rho} + \mathbf{g}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\large{\nabla \cdot \mathbf{u} = 0}
+\]</div>
+<p>We can also use the identity from earlier:</p>
+<div class="math notranslate nohighlight">
+\[
+\large{(\mathbf{u} \cdot \nabla) \mathbf{u} = \nabla \Biggl(\frac{1}{2} \mathbf{u \cdot u} \Biggr) - \mathbf{u} \times \boldsymbol{\omega}}
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(\boldsymbol{\omega}\)</span> is zero, this means that for an incompressible fluid (constant <span class="math notranslate nohighlight">\(\rho\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[
+\large{\nabla \Biggl(\frac{1}{2} \mathbf{u \cdot u} \Biggr) = \nabla \Biggl( - \frac{P}{\rho} + \mathbf{g} \cdot \mathbf{x}\Biggr)}
+\]</div>
+<p>Where <strong>x</strong> is the location vector.</p>
+<p>Since <span class="math notranslate nohighlight">\(\mathbf{u} = - \nabla \phi\)</span> based on our previous derivation:</p>
+<div class="math notranslate nohighlight">
+\[
+\large{\nabla \Biggl( \frac{|\nabla \phi |^2}{2} \Biggr) = \nabla \Biggl( \frac{P}{\rho} - \mathbf{g \cdot x} \Biggr)}
+\]</div>
+<p>This means that (less a constant of integration):</p>
+<div class="math notranslate nohighlight">
+\[
+\large{ P = \rho \Biggl( \frac{|\nabla \phi|^2}{2} + \mathbf{g \cdot x} \Biggr)}
+\]</div>
+<p>Potential should be solved for first and then subsequently the pressure should be calculated even though they are not the same as one another.</p>
+</section>
+<section id="solving-potential-flow-problems">
+<h2><a class="toc-backref" href="#id43" role="doc-backlink">Solving Potential Flow Problems</a><a class="headerlink" href="#solving-potential-flow-problems" title="Permalink to this heading">#</a></h2>
+<p>While potential flow problems have a variety of physics that can be representedm the underlying equation that is being solved is always Laplace’s Equation.</p>
+<div class="math notranslate nohighlight">
+\[
+\large{\nabla^2 \phi = 0}
+\]</div>
+<p>Since there is no time dependency in this equation and therefore its solution takes the form of a Boundary Value Problem. We therefore need to specify all boundaries.</p>
+<section id="boundary-conditions">
+<h3><a class="toc-backref" href="#id44" role="doc-backlink">Boundary Conditions</a><a class="headerlink" href="#boundary-conditions" title="Permalink to this heading">#</a></h3>
+<p>Two linear boundary types are the specification of the potential at the boundary or the flux through the boundary. Potential specification is a Dirichelt Doundary condition in potential: <span class="math notranslate nohighlight">\(\phi = f(\mathbf{x})\)</span></p>
+<p>Flux specification is a Neumann boundary condition in potential. The condition specifies the values of the derivative applied at the boundary of the domain:
+<span class="math notranslate nohighlight">\( \mathbf{v \cdot \hat{n}} = - k \nabla \phi \cdot \mathbf{\hat{n}} = F(\mathbf{x})\)</span> where <span class="math notranslate nohighlight">\(\mathbf{\hat{n}} \)</span> is the unit normal to the boundary and <span class="math notranslate nohighlight">\(F\)</span> is the scalar flux through the boundary (in the direction of <span class="math notranslate nohighlight">\(\mathbf{\hat{n}}\)</span>)</p>
+</section>
+</section>
+<section id="stream-function-formulation">
+<h2><a class="toc-backref" href="#id45" role="doc-backlink">Stream Function Formulation</a><a class="headerlink" href="#stream-function-formulation" title="Permalink to this heading">#</a></h2>
+<p>Dirichlet boundary conditions are easier to implement than Neumann boundaries and typicallt result in quicker convergence when using a numerical solution scheme.</p>
+<p>A stream function formulation allow flux boundary conditions to be specified using Dirichlet boundary conditions. However, it still doesn’t allow a mixture of potential and flux boundaries, which would still require a combination of Dirichlet and Neumann boundaries. We will solve problems of this type in the next lecture.</p>
+<section id="stream-functions">
+<h3><a class="toc-backref" href="#id46" role="doc-backlink">Stream Functions</a><a class="headerlink" href="#stream-functions" title="Permalink to this heading">#</a></h3>
+<p>Stream functions can be used to represent 2D steady-state systems that exihibit continuity.</p>
+<p>A stream function is a scalar field where flows follows a constant value of the function. In other words, a constant value of the stream functions represents a streamline.</p>
+<p>Stream functions are just one way to solve potential flow problems and they only work in 2D. They can also be used in the analysis or the solution of other flow problems where continuity of glux holds.</p>
+<p>This makes specifying flux conditions easier. For flux boundary conditions, the specification of a potential gradient at the boundary turns into the specification of a stream function value. (i.e turns a Neumann boundary condition, which is harder to solve, into a Dirichlet boundary conditon, which is easier to solve.)</p>
+<p>Other properties of stream functions are:</p>
+<ul class="simple">
+<li><p>Differences in the value of the stream function are equal to the flowrate of the conserved quantity between the streamlines represented by those stream function values.</p></li>
+<li><p>In potential flow problems, lines of constant value of the stream function are orthogonal to lines of constant value of the potential.</p></li>
+</ul>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/StreamFunction.png"><img alt="../_images/StreamFunction.png" src="../_images/StreamFunction.png" style="width: 50%;" /></a>
+</figure>
+<p>The stream function <span class="math notranslate nohighlight">\(\psi\)</span> is related to flux (volume flux is a velocity):</p>
+<div class="math notranslate nohighlight">
+\[
+\large{F_x = \frac{\partial \psi}{\partial y}
+\hspace{2cm}
+F_y = - \frac{\partial \psi}{\partial x}}
+\]</div>
+<p>If this is substituted into the steady state continuity equation you can see that it is satisfied.</p>
+<div class="math notranslate nohighlight">
+\[
+\large{\nabla \cdot \mathbf{F} = 0}
+\hspace{1cm}
+\text{in 2D}
+\hspace{1cm}
+\frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} = \frac{\partial^2 \psi}{\partial x \partial y} - \frac{\partial^2 \psi}{\partial x \partial y} = 0
+\]</div>
+<p>We also know that potential flow implies that there is zero vorticity. (<span class="math notranslate nohighlight">\( \nabla \times \mathbf{F} = 0\)</span>)</p>
+<p>Substituting the definitions of the fluxes into this equation results in Laplace’s equation (strictly speaking the curl is a vector, but in 2D there is only one non-zero component): <span class="math notranslate nohighlight">\(\nabla^2 \psi = 0\)</span></p>
+</section>
+<section id="id2">
+<h3><a class="toc-backref" href="#id47" role="doc-backlink">Boundary Conditions</a><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>Stream functions are useful if the boundaries are flux boundary conditions:</p>
+<div class="math notranslate nohighlight">
+\[
+\large{F_x = \frac{\partial \psi}{\partial y}
+\hspace{2cm}
+F_y = - \frac{\partial \psi}{\partial x}}
+\]</div>
+<p>These definitions imply that the stream function is a constant value along a boundary for a zero flux condition and changes linearly for a constant flux. Other flux boundaries are readily solvable.</p>
+<p>There are few points to note when calculating stream function values around a boundary:</p>
+<ul class="simple">
+<li><p>The velocities in the system depend upon the gradient of hte stream function. Therefore, we have 1 degree of freedom when choosing the stream function values. Adding a constant to all the stream function values does not change the velocities calculated. You can therefore choose any value for the stream function at a single point on the boundary.</p></li>
+<li><p>Values of the stream function must be continuous around the boundary. A discontinuity in the stream function is equivalent to an infinite flux. This will let you set the constants of integration obtained when deriving the boundary conditions.</p></li>
+</ul>
+</section>
+<section id="example">
+<h3><a class="toc-backref" href="#id48" role="doc-backlink">Example</a><a class="headerlink" href="#example" title="Permalink to this heading">#</a></h3>
+<p>A metal block 2m wide and 1m high is being heated from below and cooled on the left and right hand sides. The top boundary is thermally insulated.</p>
+<p>You can assume that the block is insulated at the front and back making this a 2D problem. (It is 1m deep in this direction)</p>
+<p>There is a constant heat flux into the bottom on the block of <span class="math notranslate nohighlight">\(100 W/m^2\)</span>.</p>
+<p>The heat splits evenly out of the left and right hand sides, with a constant flux through each of these sides.</p>
+<p>What are the values of the stream function around the boundaries of the block?</p>
+</section>
+</section>
+<section id="numerical-solutions-to-laplace-s-equation">
+<h2><a class="toc-backref" href="#id49" role="doc-backlink">Numerical Solutions to Laplace’s Equation</a><a class="headerlink" href="#numerical-solutions-to-laplace-s-equation" title="Permalink to this heading">#</a></h2>
+<p>Because these are solutions for steady-state systems, the solution takes the form of a Boundary Value Problem. Therefore, we need to specify conditions along all the boundaries and we need a discretised version of the governing equation to describe all the interior points as a function of their surrounding points.</p>
+<p>Non-steady state problems take the form of Initial Value Problems. However we still need boundary conditions and require an initial value for all the locations in the system (hence initial value problem). The governing equation needs to not only describe the relationships between neighbouring points in space, but also in time.</p>
+</section>
+<section id="finite-difference-approximation">
+<h2><a class="toc-backref" href="#id50" role="doc-backlink">Finite Difference Approximation</a><a class="headerlink" href="#finite-difference-approximation" title="Permalink to this heading">#</a></h2>
+<p>Finite difference is the easiest way to approximate differentials on a grid. There are a number of ways in which first derivatives can be approximated on a grid, three of which are:</p>
+<ul class="simple">
+<li><p>Central Difference: <span class="math notranslate nohighlight">\(\hspace{1cm} \large{\Bigl( \frac{\partial u}{\partial x} \Bigr)_i \approx \frac{ u_{i + 1} \hspace{0.1cm} - \hspace{0.1cm} u_{i - 1} }{ 2 \Delta x}} \hspace{1cm}\)</span> <span class="math notranslate nohighlight">\(  \text{2nd order accurate} \)</span></p></li>
+<li><p>Forward Difference: <span class="math notranslate nohighlight">\(\hspace{1cm} \large{\Bigl( \frac{\partial u}{\partial x} \Bigr)_i \approx \frac{ u_{i + 1} \hspace{0.1cm} - \hspace{0.1cm} u_{i} }{ \Delta x}} \hspace{1cm}\)</span> <span class="math notranslate nohighlight">\(  \text{1st order accurate} \)</span></p></li>
+<li><p>Backward Difference: <span class="math notranslate nohighlight">\(\hspace{1cm} \large{\Bigl( \frac{\partial u}{\partial x} \Bigr)_i \approx \frac{ u_{i} \hspace{0.1cm} - \hspace{0.1cm} u_{i - 1} }{ \Delta x}} \hspace{1cm}\)</span> <span class="math notranslate nohighlight">\(  \text{1st order accurate} \)</span></p></li>
+</ul>
+<p>2nd order derivatives can also be approximated</p>
+<p><span class="math notranslate nohighlight">\( \large{ \Bigl( \frac{\partial^2 u}{\partial x^2}} \Bigr)_i \approx \frac{u_{i + 1} - 2u_i + u_{i - 1}}{\Delta x^2} \)</span></p>
+<section id="finite-difference-approximation-of-a-linear-2nd-order-pdes">
+<h3><a class="toc-backref" href="#id51" role="doc-backlink">Finite Difference Approximation of a Linear 2nd Order PDEs</a><a class="headerlink" href="#finite-difference-approximation-of-a-linear-2nd-order-pdes" title="Permalink to this heading">#</a></h3>
+<p>Using finite difference approximations, any 2D steady state linear 2nd order PDE can be approximated as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+a_{i,j} \hspace{0.1cm} u_{i + 1,j} + b_{i,j} \hspace{0.1cm} u_{i - 1,j} + c_{i,j} \hspace{0.1cm} u_{i,j + 1} + d_{i,j} \hspace{0.1cm} u_{i,j - 1} + e_{i,j} \hspace{0.1cm} u_{i,j} = f_{i,j}
+\]</div>
+<p>The prefactors a, b, c, d, e and f are matrices (i.e functions of position) in the general case, since the linear coefficients in the PDE can also be functions of position.</p>
+</section>
+<section id="approximating-laplace-s-equation">
+<h3><a class="toc-backref" href="#id52" role="doc-backlink">Approximating Laplace’s Equation</a><a class="headerlink" href="#approximating-laplace-s-equation" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\nabla^2 \psi = \frac{\partial^2 \psi}{\partial x^2} + \frac{\partial^2 \psi}{\partial y^2} = 0
+\]</div>
+<p>Using our earlier approximations for the 2nd derivatives and with <span class="math notranslate nohighlight">\(x = x_0 + i \Delta x\)</span> and <span class="math notranslate nohighlight">\(y = y_0 + j \Delta y\)</span> as the difference for the grid:</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla^2 \psi \approx \frac{\psi_{i + 1, j} - 2\psi_{i,j} + \psi_{i - 1, j}}{\Delta x^2} + \frac{\psi_{i, j + 1} - 2\psi_{i,j} + \psi_{i, j - 1}}{\Delta y^2} = 0
+\]</div>
+<p>If we further assume that the grid is square (<span class="math notranslate nohighlight">\(\Delta x = \Delta y\)</span>), then we need to solve the following approximation:</p>
+<div class="math notranslate nohighlight">
+\[
+\psi_{i + 1,j} + \psi_{i - 1,j} + \psi_{i, j + 1} + \psi{i, j - 1} - 4\psi_{i,j} = 0 
+\]</div>
+<p>Using the form on the previous page: <span class="math notranslate nohighlight">\(a = b = c = d = 1, e = -4, f = 0\)</span></p>
+</section>
+</section>
+<section id="iterative-and-inversion-methods">
+<h2><a class="toc-backref" href="#id53" role="doc-backlink">Iterative and Inversion Methods</a><a class="headerlink" href="#iterative-and-inversion-methods" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+a_{i,j} \hspace{0.1cm} u_{i + 1,j} + b_{i,j} \hspace{0.1cm} u_{i - 1,j} + c_{i,j} \hspace{0.1cm} u_{i,j + 1} + d_{i,j} \hspace{0.1cm} u_{i,j - 1} + e_{i,j} \hspace{0.1cm} u_{i,j} = f_{i,j}
+\]</div>
+<p>Since there is one of the above equations for each point in the solution grid, the problem takes the form of a set of coupled linear equations. There are therefore two main approaches that can be used:</p>
+<ul class="simple">
+<li><p><strong>Direct matrix solution or Inversion</strong>: This method can reach the solution in one step, however “stiff” problems (matrices with determinant close to zero, usually in problems with strong convective terms) can result in near singular matrices which give rise to problems with numerical precision.</p></li>
+<li><p><strong>Iterative methods</strong>: This method iteratively approaches the solution using a number of steps, each (hopefully) close to the solution than the previous one. This can be easier to implement and improved convergence speed often requires more complexity in the solution. Generally, it also has lower memory requirements than inversion techniques.</p></li>
+</ul>
+<section id="iterative-methods">
+<h3><a class="toc-backref" href="#id54" role="doc-backlink">Iterative Methods</a><a class="headerlink" href="#iterative-methods" title="Permalink to this heading">#</a></h3>
+<p>Iterative methods work by successfully by successively reducing the error in the solution. The error we use is residual, which is the error in the approximation of the differential equation.</p>
+<p>As we don’t know the final solution as a priori, we can’t use the error in the dependent variable. Equivalently, we could also use the change in the dependent variable with each iteration as a stopping criterion.</p>
+<p>The residual at point <span class="math notranslate nohighlight">\(i, j\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+\xi_{i,j} = a_{i,j} \hspace{0.1cm} u_{i + 1,j} + b_{i,j} \hspace{0.1cm} u_{i - 1,j} + c_{i,j} \hspace{0.1cm} u_{i,j + 1} + d_{i,j} \hspace{0.1cm} u_{i,j - 1} + e_{i,j} \hspace{0.1cm} u_{i,j} - f_{i,j}
+\]</div>
+<p>with iterations continuing until the residual drops below a certain value. For example, continue iterations until <span class="math notranslate nohighlight">\( \large{\frac{\Sigma \Sigma |\xi_{i,j}|}{\Sigma \Sigma |e_{i,j} u_{i,j}|}} \)</span> <span class="math notranslate nohighlight">\(&lt; \text{tolerance}\)</span>.</p>
+</section>
+<section id="jacobi-method">
+<h3><a class="toc-backref" href="#id55" role="doc-backlink">Jacobi Method</a><a class="headerlink" href="#jacobi-method" title="Permalink to this heading">#</a></h3>
+<p>From the finite difference approximation:</p>
+<div class="math notranslate nohighlight">
+\[
+a_{i,j} \hspace{0.1cm} u_{i + 1,j} + b_{i,j} \hspace{0.1cm} u_{i - 1,j} + c_{i,j} \hspace{0.1cm} u_{i,j + 1} + d_{i,j} \hspace{0.1cm} u_{i,j - 1} + e_{i,j} \hspace{0.1cm} u_{i,j} = f_{i,j}
+\]</div>
+<p>We can rearrange this to set the midpoint value as a function of the neighbouring values:</p>
+<div class="math notranslate nohighlight">
+\[
+u_{i,j} = \frac{f_{i,j} - (a_{i,j} \hspace{0.1cm} u_{i + 1,j} + b_{i,j} \hspace{0.1cm} u_{i - 1,j} + c_{i,j} \hspace{0.1cm} u_{i,j + 1} + d_{i,j} \hspace{0.1cm} u_{i,j - 1} + e_{i,j} \hspace{0.1cm} u_{i,j}) }{e_{i,j}}
+\]</div>
+<p>We can use this as the basis for an iterative solution:</p>
+<div class="math notranslate nohighlight">
+\[
+\large{u_{i,j}^{new}} = \frac{ f_{i,j} - (a_{i,j} \hspace{0.1cm} u_{i + 1,j}^{old} + b_{i,j} \hspace{0.1cm} u_{i - 1,j}^{old} + c_{i,j} \hspace{0.1cm} u_{i,j + 1}^{old} + d_{i,j} \hspace{0.1cm} u_{i,j - 1}^{old})}{e_{i,j}}
+\]</div>
+</section>
+<section id="steps-in-solving-this-problem">
+<h3><a class="toc-backref" href="#id56" role="doc-backlink">Steps in solving this problem</a><a class="headerlink" href="#steps-in-solving-this-problem" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Derive boundary conditions/values for each location on the boundary</strong> - We will use the Dirchlet boundary conditions in this example. We will therefore need the value of stream function at each point on thge edge of the grid.</p></li>
+<li><p><strong>Discretise the governing equation</strong> - We have already done this for Laplace’s Equation.</p></li>
+<li><p><strong>Give an initial guess for the stream function value at every point inside the grid</strong> - A good guess can be critical for the convergence of some systems, but it is not very important here as solutions of Laplace’s equation with Dirichlet boundary conditions converges quickly.</p></li>
+<li><p><strong>Implement the iterative solver</strong> - Calculate a new guess for the grid values based on the previous guess. Repeat until the residual (or change in the dependent variable) is sufficiently small.</p></li>
+</ul>
+</section>
+</section>
+<section id="systems-with-more-complex-boundaries">
+<h2><a class="toc-backref" href="#id57" role="doc-backlink">Systems with more Complex Boundaries</a><a class="headerlink" href="#systems-with-more-complex-boundaries" title="Permalink to this heading">#</a></h2>
+<p>Thus far we have only considered problems with Dirichlet boundary conditions. (Values of the dependent variable specified along the boundary)</p>
+<p>These are easier to solve numerically and have better convergence behaviour than Neumann and other more complex boundary conditions. It also makes analytical solutions tractable.</p>
+<p>When solving numerically using SOR, the more complex boundary conditions will require that the points on the boundary are included in the iteration.</p>
+<section id="neumann-boundary-conditions">
+<h3><a class="toc-backref" href="#id58" role="doc-backlink">Neumann Boundary Conditions</a><a class="headerlink" href="#neumann-boundary-conditions" title="Permalink to this heading">#</a></h3>
+<p>This boundary condition is often found in potential flow problems. For example, if the flux through the boundary is specified and the potential is the dependent variable.</p>
+<div class="math notranslate nohighlight">
+\[
+\large{F_{in} = - k\nabla \phi \cdot \mathbf{\hat{n}}}
+\]</div>
+<p>Where <span class="math notranslate nohighlight">\(F_{in}\)</span> is the flux in through the boundary and the unit normal points into the domain.</p>
+<p>A no flux boundary condition in potential flow is thus a zero gradient, which is a special case of the Neumann boundary condition.</p>
+</section>
+<section id="finite-difference-approximation-of-a-neumann-boundary">
+<h3><a class="toc-backref" href="#id59" role="doc-backlink">Finite Difference Approximation of a Neumann Boundary</a><a class="headerlink" href="#finite-difference-approximation-of-a-neumann-boundary" title="Permalink to this heading">#</a></h3>
+<p>As the point being considered by us is, by definition, on the edge of the valid domain, the central difference method can’t be used. Whether a forward or backward approximation is used depends on which side of the domain the boundary is.</p>
+<p>For example, if the forward difference is in the x-direction on the left hand boundary and backward difference on the right hand boundary and similarly, in the y-direction a forward difference needs to be used in the bottom boundary and a backwards difference on the top boundary.</p>
+<p>If the finite difference approximation is expressed as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+a_{i,j} \hspace{0.1cm} u_{i + 1,j} + b_{i,j} \hspace{0.1cm} u_{i - 1,j} + c_{i,j} \hspace{0.1cm} u_{i,j + 1} + d_{i,j} \hspace{0.1cm} u_{i,j - 1} + e_{i,j} \hspace{0.1cm} u_{i,j} = f_{i,j}
+\]</div>
+<p>and <span class="math notranslate nohighlight">\(x_0, y_0\)</span> is in the bottom left hand corner then:</p>
+<p><strong>Vertical Boundaries:</strong> <span class="math notranslate nohighlight">\(\large{\frac{\partial u}{\partial x}}\)</span> <span class="math notranslate nohighlight">\( = g(y)\)</span></p>
+<ul class="simple">
+<li><p>For the left hand boundary: <span class="math notranslate nohighlight">\(a_{i, j} = 1, \hspace{0.1cm} b_{i, j} = c_{i, j} = d_{i, j} = 0, \hspace{0.1cm} e_{i,j} = -1 \hspace{0.5cm} f_{i,j} = \Delta x \hspace{0.1cm} g(y_j)\)</span></p></li>
+<li><p>For the right hand boundary: <span class="math notranslate nohighlight">\(b_{i, j} = -1, \hspace{0.1cm} a_{i, j} = c_{i, j} = d_{i, j} = 0, \hspace{0.1cm} e_{i,j} = 1 \hspace{0.5cm} f_{i,j} = \Delta x \hspace{0.1cm} g(y_j)\)</span></p></li>
+</ul>
+<p><strong>Horizontal Boundaries:</strong> <span class="math notranslate nohighlight">\(\large{\frac{\partial u}{\partial y}}\)</span> <span class="math notranslate nohighlight">\(= g(x)\)</span></p>
+<ul class="simple">
+<li><p>For the bottom boundary: <span class="math notranslate nohighlight">\(c_{i, j} = 1, \hspace{0.1cm} a_{i, j} = b_{i, j} = d_{i, j} = 0, \hspace{0.1cm} e_{i,j} = -1 \hspace{0.5cm} f_{i,j} = \Delta y \hspace{0.1cm} g(x_i)\)</span></p></li>
+<li><p>For the top boundary: <span class="math notranslate nohighlight">\(d_{i, j} = -1, \hspace{0.1cm} a_{i, j} = b_{i, j} = c_{i, j} = 0, \hspace{0.1cm} e_{i,j} = 1 \hspace{0.5cm} f_{i,j} = \Delta y \hspace{0.1cm} g(x_i)\)</span></p></li>
+</ul>
+</section>
+<section id="robin-boundary-condition">
+<h3><a class="toc-backref" href="#id60" role="doc-backlink">Robin Boundary Condition</a><a class="headerlink" href="#robin-boundary-condition" title="Permalink to this heading">#</a></h3>
+<p>The third type of linear PDE boundary condition is the Robin boundary condition. This condition is a linear conmbination of Dirichlet and Neumann boundary condition.</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla u \cdot \hat{n} + g(x,y) u = h(x, y)
+\]</div>
+<p>This means that:</p>
+<ul class="simple">
+<li><p>For a vertical boundary: <span class="math notranslate nohighlight">\(\hspace{1cm} \large{\frac{\partial u}{\partial x}}\)</span> <span class="math notranslate nohighlight">\( + \hspace{0.1cm} g(y) u = h(y)\)</span></p></li>
+<li><p>For a horizontal boundary: <span class="math notranslate nohighlight">\(\hspace{1cm} \large{\frac{\partial u}{\partial y}}\)</span> <span class="math notranslate nohighlight">\( + \hspace{0.1cm} g(x) u = h(x)\)</span></p></li>
+</ul>
+</section>
+<section id="finite-difference-approximation-of-a-robin-boundary">
+<h3><a class="toc-backref" href="#id61" role="doc-backlink">Finite Difference Approximation of a Robin Boundary</a><a class="headerlink" href="#finite-difference-approximation-of-a-robin-boundary" title="Permalink to this heading">#</a></h3>
+<p>Again using the following form for the approximation:</p>
+<div class="math notranslate nohighlight">
+\[
+a_{i,j} \hspace{0.1cm} u_{i + 1,j} + b_{i,j} \hspace{0.1cm} u_{i - 1,j} + c_{i,j} \hspace{0.1cm} u_{i,j + 1} + d_{i,j} \hspace{0.1cm} u_{i,j - 1} + e_{i,j} \hspace{0.1cm} u_{i,j} = f_{i,j}
+\]</div>
+<p><strong>Vertical Boundaries:</strong> <span class="math notranslate nohighlight">\(\large{\frac{\partial u}{\partial x}}\)</span> <span class="math notranslate nohighlight">\(+ \hspace{0.1cm} g(y) u = h(y)\)</span></p>
+<ul class="simple">
+<li><p>For the left hand boundary: <span class="math notranslate nohighlight">\(a_{i, j} = 1, \hspace{0.1cm} b_{i, j} = c_{i, j} = d_{i, j} = 0, \hspace{0.1cm} e_{i,j} = -1 + \Delta x \hspace{0.1cm} g(y_j) \hspace{0.5cm} f_{i,j} = \Delta x \hspace{0.1cm} h(y_j)\)</span></p></li>
+<li><p>For the right hand boundary: <span class="math notranslate nohighlight">\(b_{i, j} = -1, \hspace{0.1cm} a_{i, j} = c_{i, j} = d_{i, j} = 0, \hspace{0.1cm} e_{i,j} = 1 + \Delta x \hspace{0.1cm} g(y_j) \hspace{0.5cm} f_{i,j} = \Delta x \hspace{0.1cm} h(y_j)\)</span></p></li>
+</ul>
+<p><strong>Horizontal Boundaries:</strong> <span class="math notranslate nohighlight">\(\large{\frac{\partial u}{\partial y}}\)</span> <span class="math notranslate nohighlight">\(+ \hspace{0.1cm} g(x) u = h(x)\)</span></p>
+<ul class="simple">
+<li><p>For the bottom boundary: <span class="math notranslate nohighlight">\(c_{i, j} = 1, \hspace{0.1cm} a_{i, j} = b_{i, j} = d_{i, j} = 0, \hspace{0.1cm} e_{i,j} = -1 + \Delta y \hspace{0.1cm} g(x_j) \hspace{0.5cm} f_{i,j} = \Delta y \hspace{0.1cm} h(x_i)\)</span></p></li>
+<li><p>For the top boundary: <span class="math notranslate nohighlight">\(d_{i, j} = -1, \hspace{0.1cm} a_{i, j} = b_{i, j} = c_{i, j} = 0, \hspace{0.1cm} e_{i,j} = 1 + \Delta y \hspace{0.1cm} g(x_j)\hspace{0.5cm} f_{i,j} = \Delta y \hspace{0.1cm} h(x_i)\)</span></p></li>
+</ul>
+</section>
+<section id="where-do-robin-boundary-conditions-arise">
+<h3><a class="toc-backref" href="#id62" role="doc-backlink">Where do Robin Boundary Conditions Arise</a><a class="headerlink" href="#where-do-robin-boundary-conditions-arise" title="Permalink to this heading">#</a></h3>
+<p>Robin boundary condtions are encountered in convective-diffusive problems.</p>
+<p>Convective-diffusive problems are ones in which a flux is proportional to the sum of a zero order (convective) term and a 1st order diffusive term. Note that when substituted into a continuity equation, the convective term becomes 1st order and the diffusive term 2nd order. A flux with a convective and diffusive component takes the following form:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{F} = \mathbf{v} u - D \nabla u
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{F}\)</span> is the flux of <span class="math notranslate nohighlight">\(u\)</span>.  <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> is the convective velocity vector and <span class="math notranslate nohighlight">\(D\)</span> is the diffusion coefficient.</p>
+<p>If the flux through a boundary is <span class="math notranslate nohighlight">\(F_{in}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{\hat{n}}\)</span> is the unit normal to the boundary pointing into the domain, then the flux boundary condition for a convective diffusive problem is:</p>
+<div class="math notranslate nohighlight">
+\[
+\large{F_{in} = (\mathbf{v \cdot \hat{n}})u - D \nabla u \cdot \mathbf{\hat{n}}} 
+\]</div>
+<p>This thus takes the form of the Robin boundary condition.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Chapter6"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Imperial College London
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
