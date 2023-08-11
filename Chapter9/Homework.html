@@ -475,7 +475,6 @@ div.advanced {
 </div>
 </div>
 </div>
-<div class="optional">
 </section>
 <section id="homework-newton-polynomial-star">
 <h2>Homework - Newton polynomial [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#homework-newton-polynomial-star" title="Permalink to this heading">#</a></h2>
@@ -574,7 +573,7 @@ div.advanced {
 <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
 </pre></div>
 </div>
-</div></section>
+</section>
 <section id="homework-hat-functions-and-their-derivatives">
 <h2>Homework - Hat functions and their derivatives<a class="headerlink" href="#homework-hat-functions-and-their-derivatives" title="Permalink to this heading">#</a></h2>
 <p>Recall that the hat functions we used as basis functions for p/w linear interpolation
@@ -592,7 +591,6 @@ are defined as</p>
 <img src="figures/fem_basis_functions.svg" style="width: 800px">
 <br>
 <p>Compute an analytical expression for their derivatives and write a function to evaluate them. Plot your results, what happens if you have non-uniform interval sizes (distances between data points)?</p>
-<div class="optional">
 </section>
 <section id="homework-error-bound-for-polynomial-interpolation-of-the-runge-function-star">
 <h2>Homework - Error bound for polynomial interpolation of the Runge function [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#homework-error-bound-for-polynomial-interpolation-of-the-runge-function-star" title="Permalink to this heading">#</a></h2>
@@ -639,7 +637,6 @@ are defined as</p>
 \;\;\;\;\;\;\text{where}\;\;\;\;\;\;
 M:=\max_{x\in(a,b)}\, \left| f^{(N+1)}(x) \right|,\]</div>
 <p>you should see that as you increase <span class="math notranslate nohighlight">\(N\)</span> the error bound gets larger quite rapidly and more and more focused at the end points of our interval.</p>
-</div><div class="optional">
 </section>
 <section id="homework-chebyshev-interpolation-star">
 <h2>Homework - Chebyshev interpolation [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#homework-chebyshev-interpolation-star" title="Permalink to this heading">#</a></h2>
@@ -655,7 +652,6 @@ M:=\max_{x\in(a,b)}\, \left| f^{(N+1)}(x) \right|,\]</div>
 </pre></div>
 </div>
 <p>Recreate the four plots that resulted, but update the code (specifically our function <code class="docutils literal notranslate"><span class="pre">plot_approximation</span></code>) so that it instead calls our Lagrangian interpolation function <code class="docutils literal notranslate"><span class="pre">Lagrange_interp_poly</span></code>.</p>
-</div><div class="advanced">
 </section>
 <section id="homework-chebyshev-polynomials-as-basis-functions-star-star">
 <h2>Homework - Chebyshev polynomials as basis functions [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-chebyshev-polynomials-as-basis-functions-star-star" title="Permalink to this heading">#</a></h2>
@@ -724,18 +720,16 @@ M:=\max_{x\in(a,b)}\, \left| f^{(N+1)}(x) \right|,\]</div>
 </div>
 <p>I called the new function <code class="docutils literal notranslate"><span class="pre">Chebyshev_interp_poly</span></code>.</p>
 <p>Test your answer by recreating the above plots of the approximation (obtained using <code class="docutils literal notranslate"><span class="pre">Lagrange_interp_poly</span></code>) to the Runge functions using <code class="docutils literal notranslate"><span class="pre">degrees</span> <span class="pre">=</span> <span class="pre">[5,</span> <span class="pre">9,</span> <span class="pre">12,</span> <span class="pre">20]</span></code>.</p>
-</div><div class="advanced">
 </section>
 <section id="homework-cubic-spline-interpolation-star-star">
 <h2>Homework - Cubic spline interpolation [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-cubic-spline-interpolation-star-star" title="Permalink to this heading">#</a></h2>
 <p>Write some code to implement and plot a cubic spline and recreate the figure from class obtained using SciPy, based on the theory below. If you get this right and if you do a little bit of extrapolation outside our data range then you will see that the behaviour here does not quite agree with SciPy. Read the SciPy docs to see why this is (consider the default boundary conditions) and redo the SciPy plot to agree with your code.</p>
-</div></section>
+</section>
 <section id="homework-implement-weddle-s-rule">
 <h2>Homework - Implement Weddle’s rule<a class="headerlink" href="#homework-implement-weddle-s-rule" title="Permalink to this heading">#</a></h2>
 <p>As explained in the lecture, we can implement Weddle’s rule using appropriate calls to the <code class="docutils literal notranslate"><span class="pre">simpsons_composite_rule</span></code> function.</p>
 <p>Do this and try to recreate the convergence plot from the lecture:</p>
 <img src="./figures/weddle_convergence.png" width=500x>
-<div class="optional">
 </section>
 <section id="homework-midpoint-rule-error-star">
 <h2>Homework - Midpoint rule error [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#homework-midpoint-rule-error-star" title="Permalink to this heading">#</a></h2>
@@ -757,7 +751,6 @@ E_M \equiv E_0 = I - I_0
 \end{align*}</p>
 <p>Substitute in the above expression for <span class="math notranslate nohighlight">\(R_0(x)\)</span> and demonstrate that this leading order term in the error expansion is indeed zero.</p>
 <p>Once you’ve convinced yourself of this I suggest take a look at my derivation of the error bound in the sample solution which involves taking the next order term in the Taylor series expansion about the midpoint of an interval.</p>
-</div><div class="advanced">
 </section>
 <section id="homework-derive-simpson-s-rule-as-quadratic-fit-star-star">
 <h2>Homework - Derive Simpson’s rule as quadratic fit [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-derive-simpson-s-rule-as-quadratic-fit-star-star" title="Permalink to this heading">#</a></h2>
@@ -778,7 +771,6 @@ A_0 &amp; = \frac{1}{(x_0-x_1)(x_0-x_2)}\int_{x_0}^{x_2}, (x-x_1)(x - x_2) , dx 
 &amp; = \frac{1}{(-h)(-2h)}\int_{-h}^{h}, \xi(\xi - h) , d\xi = \ldots = \frac{h}{3}.
 \end{align*}</p>
 <p>Fill in the gaps and do the other integrals to complete the derivation.</p>
-</div><div class="advanced">
 </section>
 <section id="homework-open-vs-closed-newton-cotes-star-star">
 <h2>Homework - Open vs closed Newton-Cotes [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-open-vs-closed-newton-cotes-star-star" title="Permalink to this heading">#</a></h2>
@@ -787,7 +779,6 @@ A_0 &amp; = \frac{1}{(x_0-x_1)(x_0-x_2)}\int_{x_0}^{x_2}, (x-x_1)(x - x_2) , dx 
 <p>Compare your solution with a closed scheme such as Simpson’s, e.g. by recreating a convergence plot such as that presented in the Lecture.</p>
 <p><strong>Hint:</strong>  Note that to avoid divide by zero warning you could define your integrand via something like:
 <code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">x:</span> <span class="pre">1./(np.maximum(1e-16,np.sqrt(x)))</span></code></p>
-</div><div class="optional">
 </section>
 <section id="homework-implement-adaptive-quadrature-star">
 <h2>Homework - Implement adaptive quadrature [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#homework-implement-adaptive-quadrature-star" title="Permalink to this heading">#</a></h2>
@@ -813,7 +804,7 @@ A_0 &amp; = \frac{1}{(x_0-x_1)(x_0-x_2)}\int_{x_0}^{x_2}, (x-x_1)(x - x_2) , dx 
 <br>
 <p><strong>I’ve listed this as optional rather than advanced as I think it’s a good one to work through, but it is quite involved and could easily have been tagged as “advanced”.</strong></p>
 <p><strong>Note that you should NOT assume I’ve done this as I’m planning on this being part of the assessment - it will NOT be.</strong></p>
-</div><div class="cell docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># a more complex example (taken from Moin which quotes the exact integral as −0.56681975015)</span>
 
@@ -833,13 +824,12 @@ A_0 &amp; = \frac{1}{(x_0-x_1)(x_0-x_2)}\int_{x_0}^{x_2}, (x-x_1)(x - x_2) , dx 
 </div>
 </div>
 </div>
-<div class="advanced">
 </section>
 <section id="homework-implement-a-composite-version-of-gauss-legendre-quadrature-star-star">
 <h2>Homework - Implement a “composite” version of Gauss-Legendre quadrature [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-implement-a-composite-version-of-gauss-legendre-quadrature-star-star" title="Permalink to this heading">#</a></h2>
 <p>Implement a “composite” version of Gauss-Legendre, i.e. split up the total interval into sub-intervals, apply Gauss-Legendre on each subinterval and sum.</p>
 <p>Compare this method, for differing degrees, against the composite Simpson rule for our <span class="math notranslate nohighlight">\(\sin\)</span> and more complex function we considered in lecture.</p>
-</div></section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

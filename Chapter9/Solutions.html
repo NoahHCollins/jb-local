@@ -474,7 +474,6 @@ div.advanced {
 </div>
 </div>
 </div>
-<div class="optional">
 </section>
 <section id="homework-newton-polynomial-star">
 <h2>Homework - Newton polynomial [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#homework-newton-polynomial-star" title="Permalink to this heading">#</a></h2>
@@ -573,7 +572,7 @@ div.advanced {
 <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
 </pre></div>
 </div>
-</div><section id="solution-newton-polynomial-star">
+<section id="solution-newton-polynomial-star">
 <h3>Solution - Newton polynomial  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#solution-newton-polynomial-star" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -804,13 +803,12 @@ are defined as</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb8238deeb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fef887585b0&gt;
 </pre></div>
 </div>
 <img alt="../_images/3b357ba2b4c19ef78ed77a209ba777f6bcc2677173c01155e0a450d0d3ad2fe8.png" src="../_images/3b357ba2b4c19ef78ed77a209ba777f6bcc2677173c01155e0a450d0d3ad2fe8.png" />
 </div>
 </div>
-<div class="optional">
 </section>
 </section>
 <section id="homework-error-bound-for-polynomial-interpolation-of-the-runge-function-star">
@@ -858,7 +856,7 @@ are defined as</p>
 \;\;\;\;\;\;\text{where}\;\;\;\;\;\;
 M:=\max_{x\in(a,b)}\, \left| f^{(N+1)}(x) \right|,\]</div>
 <p>you should see that as you increase <span class="math notranslate nohighlight">\(N\)</span> the error bound gets larger quite rapidly and more and more focused at the end points of our interval.</p>
-</div><section id="solution-error-bound-for-polynomial-interpolation-of-the-runge-function">
+<section id="solution-error-bound-for-polynomial-interpolation-of-the-runge-function">
 <h3>Solution -  Error bound for polynomial interpolation of the Runge function<a class="headerlink" href="#solution-error-bound-for-polynomial-interpolation-of-the-runge-function" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -949,7 +947,6 @@ M:=\max_{x\in(a,b)}\, \left| f^{(N+1)}(x) \right|,\]</div>
 </div>
 </div>
 </div>
-<div class="optional">
 </section>
 </section>
 <section id="homework-chebyshev-interpolation-star">
@@ -966,7 +963,7 @@ M:=\max_{x\in(a,b)}\, \left| f^{(N+1)}(x) \right|,\]</div>
 </pre></div>
 </div>
 <p>Recreate the four plots that resulted, but update the code (specifically our function <code class="docutils literal notranslate"><span class="pre">plot_approximation</span></code>) so that it instead calls our Lagrangian interpolation function <code class="docutils literal notranslate"><span class="pre">Lagrange_interp_poly</span></code>.</p>
-</div><section id="solution-chebyshev-interpolation">
+<section id="solution-chebyshev-interpolation">
 <h3>Solution - Chebyshev interpolation<a class="headerlink" href="#solution-chebyshev-interpolation" title="Permalink to this heading">#</a></h3>
 <p>The key change here is really just to update</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>    <span class="n">lp</span> <span class="o">=</span> <span class="n">si</span><span class="o">.</span><span class="n">lagrange</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">xi</span><span class="p">))</span>
@@ -1089,10 +1086,9 @@ len(xi), len(x), l.shape:  13 100 (13, 100)
 len(xi), len(x), l.shape:  21 100 (21, 100)
 </pre></div>
 </div>
-<img alt="../_images/66f506f289d1d88e55d48aedbe5064872a8e0549fbdefb633f79a4f23766c581.png" src="../_images/66f506f289d1d88e55d48aedbe5064872a8e0549fbdefb633f79a4f23766c581.png" />
+<img alt="../_images/66c958eb62597c94f76f9d128bf23f10e188b402398699e7d6a2ba5a84a942e8.png" src="../_images/66c958eb62597c94f76f9d128bf23f10e188b402398699e7d6a2ba5a84a942e8.png" />
 </div>
 </div>
-<div class="advanced">
 </section>
 </section>
 <section id="homework-chebyshev-polynomials-as-basis-functions-star-star">
@@ -1162,7 +1158,7 @@ len(xi), len(x), l.shape:  21 100 (21, 100)
 </div>
 <p>I called the new function <code class="docutils literal notranslate"><span class="pre">Chebyshev_interp_poly</span></code>.</p>
 <p>Test your answer by recreating the above plots of the approximation (obtained using <code class="docutils literal notranslate"><span class="pre">Lagrange_interp_poly</span></code>) to the Runge functions using <code class="docutils literal notranslate"><span class="pre">degrees</span> <span class="pre">=</span> <span class="pre">[5,</span> <span class="pre">9,</span> <span class="pre">12,</span> <span class="pre">20]</span></code>.</p>
-</div><section id="solution-chebyshev-polynomials-as-basis-functions">
+<section id="solution-chebyshev-polynomials-as-basis-functions">
 <h3>Solution - Chebyshev polynomials as basis functions<a class="headerlink" href="#solution-chebyshev-polynomials-as-basis-functions" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1271,16 +1267,15 @@ len(xi), len(x), l.shape:  21 100 (21, 100)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0aba00e28420fc945953ed01da7b4a7deb8ccf4cf4602975dae373cc84735fbe.png" src="../_images/0aba00e28420fc945953ed01da7b4a7deb8ccf4cf4602975dae373cc84735fbe.png" />
+<img alt="../_images/e8a63d82b749cafefaa2d9e6c16278e1b390ccc28c687dee9bd0f9e99971b8cc.png" src="../_images/e8a63d82b749cafefaa2d9e6c16278e1b390ccc28c687dee9bd0f9e99971b8cc.png" />
 </div>
 </div>
-<div class="advanced">
 </section>
 </section>
 <section id="homework-cubic-spline-interpolation-star-star">
 <h2>Homework - Cubic spline interpolation [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-cubic-spline-interpolation-star-star" title="Permalink to this heading">#</a></h2>
 <p>Write some code to implement and plot a cubic spline and recreate the figure from class obtained using SciPy, based on the theory below. If you get this right and if you do a little bit of extrapolation outside our data range then you will see that the behaviour here does not quite agree with SciPy. Read the SciPy docs to see why this is (consider the default boundary conditions) and redo the SciPy plot to agree with your code.</p>
-</div><section id="cubic-spline-derivation">
+<section id="cubic-spline-derivation">
 <h3>Cubic spline -  derivation<a class="headerlink" href="#cubic-spline-derivation" title="Permalink to this heading">#</a></h3>
 <p>[See Elementary Numerical Analysis by Kendall Atkinson page 132 and Kiusalaas page 121].</p>
 <p>There are a few different ways to derive a linear system which can be solved for the unknowns to prescribe a cubic spline. The Wikipedia entry for example formulates the problem such that it leads to a linear system for <span class="math notranslate nohighlight">\(k\)</span> defined as the first derivatives of the spline. Here we follow a derivation where we define <span class="math notranslate nohighlight">\(k\)</span> to the the second derivatives (or curvatures) of the spline (Atkinson uses the notation <span class="math notranslate nohighlight">\(M\)</span> for these curvatures; Moin uses <span class="math notranslate nohighlight">\(g''\)</span> in the text and gpp in code).</p>
@@ -1385,7 +1380,7 @@ Atkinson and Kiusalaas agree that after “a great deal of simplification” we 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/00cf848b6c6f4b7c6d8727877326a722c80a5a51929df40e5f54dbfa17dbaa7a.png" src="../_images/00cf848b6c6f4b7c6d8727877326a722c80a5a51929df40e5f54dbfa17dbaa7a.png" />
+<img alt="../_images/de8bfb469df579c1a44e6bb3dd4628afc3fce22381702880d95135e6f0032c2c.png" src="../_images/de8bfb469df579c1a44e6bb3dd4628afc3fce22381702880d95135e6f0032c2c.png" />
 </div>
 </div>
 <p>Write some functions to compute and then evaluate the cubic spline.</p>
@@ -1502,7 +1497,7 @@ Atkinson and Kiusalaas agree that after “a great deal of simplification” we 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9b119ab637b96827a8a8232cced3cede39201496852a15f7fd9c59ff67046dc4.png" src="../_images/9b119ab637b96827a8a8232cced3cede39201496852a15f7fd9c59ff67046dc4.png" />
+<img alt="../_images/dad8c238bf34b0aa562d6d17810f126c4e676c88bd28cbf4ea170eedeac17a38.png" src="../_images/dad8c238bf34b0aa562d6d17810f126c4e676c88bd28cbf4ea170eedeac17a38.png" />
 </div>
 </div>
 <p>If you look closely (at the end points) you will see that this doesn’t quite agree with what we have from SciPy, but with a bit of thought and looking at the SciPy docs we see that the <em>natural</em> BC is not the default. We can ask SciPy to apply this BC instead and re-plot to show an identical result in the eyeball norm.</p>
@@ -1532,7 +1527,7 @@ Atkinson and Kiusalaas agree that after “a great deal of simplification” we 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9b119ab637b96827a8a8232cced3cede39201496852a15f7fd9c59ff67046dc4.png" src="../_images/9b119ab637b96827a8a8232cced3cede39201496852a15f7fd9c59ff67046dc4.png" />
+<img alt="../_images/dad8c238bf34b0aa562d6d17810f126c4e676c88bd28cbf4ea170eedeac17a38.png" src="../_images/dad8c238bf34b0aa562d6d17810f126c4e676c88bd28cbf4ea170eedeac17a38.png" />
 </div>
 </div>
 </section>
@@ -1635,10 +1630,9 @@ Area 100  interval(s), 302  function evaluations for Weddle = 1.9999999999999376
 Area 1000 interval(s), 3002 function evaluations for Weddle = 1.9999999999999991 (error = 8.8817841970012523e-16)
 </pre></div>
 </div>
-<img alt="../_images/2023750138334ac297e7f4a2da57435ca199248c091426d0c1d7f8fe8398cb2f.png" src="../_images/2023750138334ac297e7f4a2da57435ca199248c091426d0c1d7f8fe8398cb2f.png" />
+<img alt="../_images/edb10ae9c871bcccf796faf3d1822f0352f55855f70bea8685ac32b57ef3f0af.png" src="../_images/edb10ae9c871bcccf796faf3d1822f0352f55855f70bea8685ac32b57ef3f0af.png" />
 </div>
 </div>
-<div class="optional">
 </section>
 </section>
 <section id="homework-midpoint-rule-error-star">
@@ -1661,7 +1655,7 @@ E_M \equiv E_0 = I - I_0
 \end{align*}</p>
 <p>Substitute in the above expression for <span class="math notranslate nohighlight">\(R_0(x)\)</span> and demonstrate that this leading order term in the error expansion is indeed zero.</p>
 <p>Once you’ve convinced yourself of this I suggest take a look at my derivation of the error bound in the sample solution which involves taking the next order term in the Taylor series expansion about the midpoint of an interval.</p>
-</div><section id="solution-midpoint-rule-error">
+<section id="solution-midpoint-rule-error">
 <h3>Solution - Midpoint rule error<a class="headerlink" href="#solution-midpoint-rule-error" title="Permalink to this heading">#</a></h3>
 <p>If we start the error bound derivation for the midpoint rule as we did for the Trapezoidal scheme then we would begin by taking <span class="math notranslate nohighlight">\(N=0\)</span> and using our Lagrange remainder result to estimate the interpolation error over the interval <span class="math notranslate nohighlight">\([a,b]\)</span> as:</p>
 <div class="math notranslate nohighlight">
@@ -1715,7 +1709,6 @@ E_M<br />
 <p>The composite Midpoint rule error follows just as for the Trapezoidal rule, applying above to an interval of size <span class="math notranslate nohighlight">\(\Delta x\)</span> and summing up over <span class="math notranslate nohighlight">\(n\)</span> intervals to yield</p>
 <div class="math notranslate nohighlight">
 \[ \left| E_M^n \right| \le \frac{(b-a)^3}{24n^2}  \max_{x\in[a,b]}\, \left| f''(x) \right|. \]</div>
-<div class="advanced">
 </section>
 </section>
 <section id="homework-derive-simpson-s-rule-as-quadratic-fit-star-star">
@@ -1737,7 +1730,7 @@ A_0 &amp; = \frac{1}{(x_0-x_1)(x_0-x_2)}\int_{x_0}^{x_2}, (x-x_1)(x - x_2) , dx 
 &amp; = \frac{1}{(-h)(-2h)}\int_{-h}^{h}, \xi(\xi - h) , d\xi = \ldots = \frac{h}{3}.
 \end{align*}</p>
 <p>Fill in the gaps and do the other integrals to complete the derivation.</p>
-</div><section id="solution-derive-simpson-s-rule-as-quadratic-fit">
+<section id="solution-derive-simpson-s-rule-as-quadratic-fit">
 <h3>Solution - Derive Simpson’s rule as quadratic fit<a class="headerlink" href="#solution-derive-simpson-s-rule-as-quadratic-fit" title="Permalink to this heading">#</a></h3>
 <p>Consider the case <span class="math notranslate nohighlight">\(N=2\)</span> where we have data at two end points of an interval <span class="math notranslate nohighlight">\([a,b]\)</span> as well as the midpoint <span class="math notranslate nohighlight">\(c := \left ( a+b\right )/2\)</span>. To simplify the terminology below call these three points <span class="math notranslate nohighlight">\(x_0\)</span>, <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span>, with <span class="math notranslate nohighlight">\(x_1\)</span> the midpoint <span class="math notranslate nohighlight">\(c\)</span>.</p>
 <p>The three Lagrange basis functions in this case are</p>
@@ -1801,7 +1794,6 @@ I \approx \sum_{i=0}^{2}, A_i , f(x_i)
 &amp;=  \frac{(b-a)}{6} \left( f(a) + 4 f\left( \frac{a+b}{2} \right) + f(b)  \right)
 \end{align*}</p>
 <p>which is Simpson’s rule we derived in another way in the lecture.</p>
-<div class="advanced">
 </section>
 </section>
 <section id="homework-open-vs-closed-newton-cotes-star-star">
@@ -1811,7 +1803,7 @@ I \approx \sum_{i=0}^{2}, A_i , f(x_i)
 <p>Compare your solution with a closed scheme such as Simpson’s, e.g. by recreating a convergence plot such as that presented in the Lecture.</p>
 <p><strong>Hint:</strong>  Note that to avoid divide by zero warning you could define your integrand via something like:
 <code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">x:</span> <span class="pre">1./(np.maximum(1e-16,np.sqrt(x)))</span></code></p>
-</div><section id="solution-open-vs-closed-newton-cotes">
+<section id="solution-open-vs-closed-newton-cotes">
 <h3>Solution - Open vs closed Newton-Cotes<a class="headerlink" href="#solution-open-vs-closed-newton-cotes" title="Permalink to this heading">#</a></h3>
 <p>The integral of <span class="math notranslate nohighlight">\(1/\sqrt{x}\)</span> is <span class="math notranslate nohighlight">\(2\sqrt{x}\)</span>:</p>
 <div class="cell docutils container">
@@ -1832,7 +1824,7 @@ I \approx \sum_{i=0}^{2}, A_i , f(x_i)
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
 \[\displaystyle \int f(x)\,dx =\]</div>
-<img alt="../_images/e3af3a76056ab4cc06456559dedfaf9f2b822ba7f0259e369dc96479450ed702.png" src="../_images/e3af3a76056ab4cc06456559dedfaf9f2b822ba7f0259e369dc96479450ed702.png" />
+<img alt="../_images/4bb351fd3fbb6ec91b142d505e70f2e260ee88aa2bc8afada02b261b893678d4.png" src="../_images/4bb351fd3fbb6ec91b142d505e70f2e260ee88aa2bc8afada02b261b893678d4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1990,10 +1982,9 @@ I \approx \sum_{i=0}^{2}, A_i , f(x_i)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/56ff8e4a7b7a17e8a51338645fc2d22de63e20230c9293d7ab5eeb38ad57dd1d.png" src="../_images/56ff8e4a7b7a17e8a51338645fc2d22de63e20230c9293d7ab5eeb38ad57dd1d.png" />
+<img alt="../_images/a8d5b20cfc787b3f271b734b2f491bba667602e8c42fa473e6b5dfd8c065dc6b.png" src="../_images/a8d5b20cfc787b3f271b734b2f491bba667602e8c42fa473e6b5dfd8c065dc6b.png" />
 </div>
 </div>
-<div class="optional">
 </section>
 </section>
 <section id="homework-implement-adaptive-quadrature-star">
@@ -2020,7 +2011,7 @@ I \approx \sum_{i=0}^{2}, A_i , f(x_i)
 <br>
 <p><strong>I’ve listed this as optional rather than advanced as I think it’s a good one to work through, but it is quite involved and could easily have been tagged as “advanced”.</strong></p>
 <p><strong>Note that you should NOT assume I’ve done this as I’m planning on this being part of the assessment - it will NOT be.</strong></p>
-</div><div class="cell docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># a more complex example (taken from Moin which quotes the exact integral as −0.56681975015)</span>
 
@@ -2191,7 +2182,7 @@ with function evaluations at:  [0.         3.14159265 1.57079633 0.78539816 0.39
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b96092744526cd9f579ed3aa7eed22f6664bf17500fcb1662f97be4ed9604192.png" src="../_images/b96092744526cd9f579ed3aa7eed22f6664bf17500fcb1662f97be4ed9604192.png" />
+<img alt="../_images/b6728209335d8adff089462d310a549bb4423f70e0a7bf401e7d940196b979c6.png" src="../_images/b6728209335d8adff089462d310a549bb4423f70e0a7bf401e7d940196b979c6.png" />
 </div>
 </div>
 <p>It’s pretty clear for this example that adaptive quadrature (based on Simpson’s rule) is not going to beat Simpson’s rule applied on equally spaced intervals.</p>
@@ -2241,7 +2232,7 @@ with function evaluations at:  [0.         3.14159265 1.57079633 0.78539816 0.39
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>estimate of integral: -0.5668253232143081
 </pre></div>
 </div>
-<img alt="../_images/f612da25717f0d3c7079848a8e3afede431be0d5b8b395fcca700df9be70f339.png" src="../_images/f612da25717f0d3c7079848a8e3afede431be0d5b8b395fcca700df9be70f339.png" />
+<img alt="../_images/4f47b128c82fb71fed3069546dc745b616d8f11cc367ecb719bbe10dd370736c.png" src="../_images/4f47b128c82fb71fed3069546dc745b616d8f11cc367ecb719bbe10dd370736c.png" />
 </div>
 </div>
 <p>Let’s compare errors vs number of function evaluations</p>
@@ -2308,10 +2299,10 @@ with function evaluations at:  [0.         3.14159265 1.57079633 0.78539816 0.39
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1e71f6cee48&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x18682acb850&gt;
 </pre></div>
 </div>
-<img alt="../_images/94f838108fb7e17a06f8384081913e80f326232f895d4b774f29b45ddd945f80.png" src="../_images/94f838108fb7e17a06f8384081913e80f326232f895d4b774f29b45ddd945f80.png" />
+<img alt="../_images/20c0a217d796c40daaf0dd565ed0eb36680a84ddffc051f130f06801ac68edb4.png" src="../_images/20c0a217d796c40daaf0dd565ed0eb36680a84ddffc051f130f06801ac68edb4.png" />
 </div>
 </div>
 <p>Let’s see how Romberg integration gets on with this complex example (NB. we don’t expect it to do that well given Weddle wasn’t obviously better than Simpson’s rule).</p>
@@ -2325,7 +2316,7 @@ with function evaluations at:  [0.         3.14159265 1.57079633 0.78539816 0.39
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Romberg integration of &lt;function vectorize1.&lt;locals&gt;.vfunc at 0x000001E720E5D730&gt; from [-1, 1]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Romberg integration of &lt;function vectorize1.&lt;locals&gt;.vfunc at 0x00000186830DBA60&gt; from [-1, 1]
 
  Steps  StepSize   Results
      1  2.000000 -0.044283 
@@ -2350,14 +2341,13 @@ Error = 0.0000000000000006
 </div>
 </div>
 </div>
-<div class="advanced">
 </section>
 </section>
 <section id="homework-implement-a-composite-version-of-gauss-legendre-quadrature-star-star">
 <h2>Homework - Implement a “composite” version of Gauss-Legendre quadrature [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-implement-a-composite-version-of-gauss-legendre-quadrature-star-star" title="Permalink to this heading">#</a></h2>
 <p>Implement a “composite” version of Gauss-Legendre, i.e. split up the total interval into sub-intervals, apply Gauss-Legendre on each subinterval and sum.</p>
 <p>Compare this method, for differing degrees, against the composite Simpson rule for our <span class="math notranslate nohighlight">\(\sin\)</span> and more complex function we considered in lecture.</p>
-</div><section id="solution-implement-a-composite-version-of-gauss-legendre-quadrature">
+<section id="solution-implement-a-composite-version-of-gauss-legendre-quadrature">
 <h3>Solution - Implement a “composite” version of Gauss-Legendre quadrature<a class="headerlink" href="#solution-implement-a-composite-version-of-gauss-legendre-quadrature" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2438,10 +2428,10 @@ Error = 0.0000000000000006
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1e720e6ff60&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x186838ab850&gt;
 </pre></div>
 </div>
-<img alt="../_images/60c83bcc6b0e98cd41b2b5c3793a2e6804f57855eb9529cad50a892b27c21e57.png" src="../_images/60c83bcc6b0e98cd41b2b5c3793a2e6804f57855eb9529cad50a892b27c21e57.png" />
+<img alt="../_images/55a9f73841360e5bf6000eda9c2355f01f9c9fcb00543467b92ab68bd7fb44c4.png" src="../_images/55a9f73841360e5bf6000eda9c2355f01f9c9fcb00543467b92ab68bd7fb44c4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2493,10 +2483,10 @@ Error = 0.0000000000000006
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1e71f4f8470&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x186837797d0&gt;
 </pre></div>
 </div>
-<img alt="../_images/2d9b8f5503d63951017a6810fc5191adf1db16d6d88f92a082906773281ed742.png" src="../_images/2d9b8f5503d63951017a6810fc5191adf1db16d6d88f92a082906773281ed742.png" />
+<img alt="../_images/48fde4315cd6add1afebf7ba49a4996e3ceadd303660dbe0072853e652041ae0.png" src="../_images/48fde4315cd6add1afebf7ba49a4996e3ceadd303660dbe0072853e652041ae0.png" />
 </div>
 </div>
 </section>
