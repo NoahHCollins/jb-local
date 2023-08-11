@@ -3,3 +3,4 @@ matplotlib
 numpy
 mpltools
 scipy
+amsmath
