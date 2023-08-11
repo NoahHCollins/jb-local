@@ -419,11 +419,11 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="potential-flow-a-class-tocskip">
-<h1><a class="toc-backref" href="#id33" role="doc-backlink">6.1 Potential Flow  <a class="tocSkip"></a><a class="headerlink" href="#potential-flow-a-class-tocskip" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">6.1 Potential Flow  <a class="tocSkip"></a><a class="headerlink" href="#potential-flow-a-class-tocskip" title="Permalink to this heading">#</a></h1>
 <p>Lecture 6.1</p>
 <p>Stephen Neethling, <a class="reference external" href="mailto:s&#46;neethling&#37;&#52;&#48;imperial&#46;ac&#46;uk">s<span>&#46;</span>neethling<span>&#64;</span>imperial<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
 <section id="learning-outcomes-a-class-tocskip">
-<h2><a class="toc-backref" href="#id34" role="doc-backlink">Learning outcomes  <a class="tocSkip"></a><a class="headerlink" href="#learning-outcomes-a-class-tocskip" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Learning outcomes  <a class="tocSkip"></a><a class="headerlink" href="#learning-outcomes-a-class-tocskip" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Derive the potential flow equation</p>
 <ul class="simple">
@@ -529,115 +529,56 @@ div.advanced {
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#potential-flow-a-class-tocskip" id="id3">6.1 Potential Flow  <a class="tocSkip"></a></p>
+<li><p><a class="reference internal" href="#potential-flow-a-class-tocskip" id="id2">6.1 Potential Flow  <a class="tocSkip"></a></p>
 <ul>
-<li><p><a class="reference internal" href="#learning-outcomes-a-class-tocskip" id="id4">Learning outcomes  <a class="tocSkip"></a></p></li>
-<li><p><a class="reference internal" href="#potential-flow" id="id5">Potential Flow</a></p>
+<li><p><a class="reference internal" href="#learning-outcomes-a-class-tocskip" id="id3">Learning outcomes  <a class="tocSkip"></a></p></li>
+<li><p><a class="reference internal" href="#potential-flow" id="id4">Potential Flow</a></p>
 <ul>
-<li><p><a class="reference internal" href="#good-approximations-for-potential-flow" id="id6">Good Approximations for Potential Flow</a></p>
+<li><p><a class="reference internal" href="#good-approximations-for-potential-flow" id="id5">Good Approximations for Potential Flow</a></p>
 <ul>
-<li><p><a class="reference internal" href="#flow-in-porous-media" id="id7">Flow in Porous Media</a></p></li>
-<li><p><a class="reference internal" href="#random-motion" id="id8">Random Motion</a></p></li>
-<li><p><a class="reference internal" href="#diffusion-through-a-random-walk" id="id9">Diffusion through a random walk</a></p></li>
+<li><p><a class="reference internal" href="#flow-in-porous-media" id="id6">Flow in Porous Media</a></p></li>
+<li><p><a class="reference internal" href="#random-motion" id="id7">Random Motion</a></p></li>
+<li><p><a class="reference internal" href="#diffusion-through-a-random-walk" id="id8">Diffusion through a random walk</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#implications-of-potential-flow" id="id10">Implications of Potential Flow</a></p></li>
-<li><p><a class="reference internal" href="#vorticity" id="id11">Vorticity</a></p></li>
-<li><p><a class="reference internal" href="#incompressible-inviscid-flow" id="id12">Incompressible, Inviscid Flow</a></p></li>
-<li><p><a class="reference internal" href="#solving-potential-flow-problems" id="id13">Solving Potential Flow Problems</a></p>
+<li><p><a class="reference internal" href="#implications-of-potential-flow" id="id9">Implications of Potential Flow</a></p></li>
+<li><p><a class="reference internal" href="#vorticity" id="id10">Vorticity</a></p></li>
+<li><p><a class="reference internal" href="#incompressible-inviscid-flow" id="id11">Incompressible, Inviscid Flow</a></p></li>
+<li><p><a class="reference internal" href="#solving-potential-flow-problems" id="id12">Solving Potential Flow Problems</a></p>
 <ul>
-<li><p><a class="reference internal" href="#boundary-conditions" id="id14">Boundary Conditions</a></p></li>
+<li><p><a class="reference internal" href="#boundary-conditions" id="id13">Boundary Conditions</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#stream-function-formulation" id="id15">Stream Function Formulation</a></p>
+<li><p><a class="reference internal" href="#stream-function-formulation" id="id14">Stream Function Formulation</a></p>
 <ul>
-<li><p><a class="reference internal" href="#stream-functions" id="id16">Stream Functions</a></p></li>
-<li><p><a class="reference internal" href="#id2" id="id17">Boundary Conditions</a></p></li>
-<li><p><a class="reference internal" href="#example" id="id18">Example</a></p></li>
+<li><p><a class="reference internal" href="#stream-functions" id="id15">Stream Functions</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id16">Boundary Conditions</a></p></li>
+<li><p><a class="reference internal" href="#example" id="id17">Example</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#numerical-solutions-to-laplace-s-equation" id="id19">Numerical Solutions to Laplace’s Equation</a></p></li>
-<li><p><a class="reference internal" href="#finite-difference-approximation" id="id20">Finite Difference Approximation</a></p>
+<li><p><a class="reference internal" href="#numerical-solutions-to-laplace-s-equation" id="id18">Numerical Solutions to Laplace’s Equation</a></p></li>
+<li><p><a class="reference internal" href="#finite-difference-approximation" id="id19">Finite Difference Approximation</a></p>
 <ul>
-<li><p><a class="reference internal" href="#finite-difference-approximation-of-a-linear-2nd-order-pdes" id="id21">Finite Difference Approximation of a Linear 2nd Order PDEs</a></p></li>
-<li><p><a class="reference internal" href="#approximating-laplace-s-equation" id="id22">Approximating Laplace’s Equation</a></p></li>
+<li><p><a class="reference internal" href="#finite-difference-approximation-of-a-linear-2nd-order-pdes" id="id20">Finite Difference Approximation of a Linear 2nd Order PDEs</a></p></li>
+<li><p><a class="reference internal" href="#approximating-laplace-s-equation" id="id21">Approximating Laplace’s Equation</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#iterative-and-inversion-methods" id="id23">Iterative and Inversion Methods</a></p>
+<li><p><a class="reference internal" href="#iterative-and-inversion-methods" id="id22">Iterative and Inversion Methods</a></p>
 <ul>
-<li><p><a class="reference internal" href="#iterative-methods" id="id24">Iterative Methods</a></p></li>
-<li><p><a class="reference internal" href="#jacobi-method" id="id25">Jacobi Method</a></p></li>
-<li><p><a class="reference internal" href="#steps-in-solving-this-problem" id="id26">Steps in solving this problem</a></p></li>
+<li><p><a class="reference internal" href="#iterative-methods" id="id23">Iterative Methods</a></p></li>
+<li><p><a class="reference internal" href="#jacobi-method" id="id24">Jacobi Method</a></p></li>
+<li><p><a class="reference internal" href="#steps-in-solving-this-problem" id="id25">Steps in solving this problem</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#systems-with-more-complex-boundaries" id="id27">Systems with more Complex Boundaries</a></p>
+<li><p><a class="reference internal" href="#systems-with-more-complex-boundaries" id="id26">Systems with more Complex Boundaries</a></p>
 <ul>
-<li><p><a class="reference internal" href="#neumann-boundary-conditions" id="id28">Neumann Boundary Conditions</a></p></li>
-<li><p><a class="reference internal" href="#finite-difference-approximation-of-a-neumann-boundary" id="id29">Finite Difference Approximation of a Neumann Boundary</a></p></li>
-<li><p><a class="reference internal" href="#robin-boundary-condition" id="id30">Robin Boundary Condition</a></p></li>
-<li><p><a class="reference internal" href="#finite-difference-approximation-of-a-robin-boundary" id="id31">Finite Difference Approximation of a Robin Boundary</a></p></li>
-<li><p><a class="reference internal" href="#where-do-robin-boundary-conditions-arise" id="id32">Where do Robin Boundary Conditions Arise</a></p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-<nav class="contents" id="id1">
-<p class="topic-title">Contents</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#potential-flow-a-class-tocskip" id="id33">6.1 Potential Flow  <a class="tocSkip"></a></p>
-<ul>
-<li><p><a class="reference internal" href="#learning-outcomes-a-class-tocskip" id="id34">Learning outcomes  <a class="tocSkip"></a></p></li>
-<li><p><a class="reference internal" href="#potential-flow" id="id35">Potential Flow</a></p>
-<ul>
-<li><p><a class="reference internal" href="#good-approximations-for-potential-flow" id="id36">Good Approximations for Potential Flow</a></p>
-<ul>
-<li><p><a class="reference internal" href="#flow-in-porous-media" id="id37">Flow in Porous Media</a></p></li>
-<li><p><a class="reference internal" href="#random-motion" id="id38">Random Motion</a></p></li>
-<li><p><a class="reference internal" href="#diffusion-through-a-random-walk" id="id39">Diffusion through a random walk</a></p></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#implications-of-potential-flow" id="id40">Implications of Potential Flow</a></p></li>
-<li><p><a class="reference internal" href="#vorticity" id="id41">Vorticity</a></p></li>
-<li><p><a class="reference internal" href="#incompressible-inviscid-flow" id="id42">Incompressible, Inviscid Flow</a></p></li>
-<li><p><a class="reference internal" href="#solving-potential-flow-problems" id="id43">Solving Potential Flow Problems</a></p>
-<ul>
-<li><p><a class="reference internal" href="#boundary-conditions" id="id44">Boundary Conditions</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#stream-function-formulation" id="id45">Stream Function Formulation</a></p>
-<ul>
-<li><p><a class="reference internal" href="#stream-functions" id="id46">Stream Functions</a></p></li>
-<li><p><a class="reference internal" href="#id2" id="id47">Boundary Conditions</a></p></li>
-<li><p><a class="reference internal" href="#example" id="id48">Example</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#numerical-solutions-to-laplace-s-equation" id="id49">Numerical Solutions to Laplace’s Equation</a></p></li>
-<li><p><a class="reference internal" href="#finite-difference-approximation" id="id50">Finite Difference Approximation</a></p>
-<ul>
-<li><p><a class="reference internal" href="#finite-difference-approximation-of-a-linear-2nd-order-pdes" id="id51">Finite Difference Approximation of a Linear 2nd Order PDEs</a></p></li>
-<li><p><a class="reference internal" href="#approximating-laplace-s-equation" id="id52">Approximating Laplace’s Equation</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#iterative-and-inversion-methods" id="id53">Iterative and Inversion Methods</a></p>
-<ul>
-<li><p><a class="reference internal" href="#iterative-methods" id="id54">Iterative Methods</a></p></li>
-<li><p><a class="reference internal" href="#jacobi-method" id="id55">Jacobi Method</a></p></li>
-<li><p><a class="reference internal" href="#steps-in-solving-this-problem" id="id56">Steps in solving this problem</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#systems-with-more-complex-boundaries" id="id57">Systems with more Complex Boundaries</a></p>
-<ul>
-<li><p><a class="reference internal" href="#neumann-boundary-conditions" id="id58">Neumann Boundary Conditions</a></p></li>
-<li><p><a class="reference internal" href="#finite-difference-approximation-of-a-neumann-boundary" id="id59">Finite Difference Approximation of a Neumann Boundary</a></p></li>
-<li><p><a class="reference internal" href="#robin-boundary-condition" id="id60">Robin Boundary Condition</a></p></li>
-<li><p><a class="reference internal" href="#finite-difference-approximation-of-a-robin-boundary" id="id61">Finite Difference Approximation of a Robin Boundary</a></p></li>
-<li><p><a class="reference internal" href="#where-do-robin-boundary-conditions-arise" id="id62">Where do Robin Boundary Conditions Arise</a></p></li>
+<li><p><a class="reference internal" href="#neumann-boundary-conditions" id="id27">Neumann Boundary Conditions</a></p></li>
+<li><p><a class="reference internal" href="#finite-difference-approximation-of-a-neumann-boundary" id="id28">Finite Difference Approximation of a Neumann Boundary</a></p></li>
+<li><p><a class="reference internal" href="#robin-boundary-condition" id="id29">Robin Boundary Condition</a></p></li>
+<li><p><a class="reference internal" href="#finite-difference-approximation-of-a-robin-boundary" id="id30">Finite Difference Approximation of a Robin Boundary</a></p></li>
+<li><p><a class="reference internal" href="#where-do-robin-boundary-conditions-arise" id="id31">Where do Robin Boundary Conditions Arise</a></p></li>
 </ul>
 </li>
 </ul>
@@ -646,7 +587,7 @@ div.advanced {
 </nav>
 </section>
 <section id="potential-flow">
-<h2><a class="toc-backref" href="#id35" role="doc-backlink">Potential Flow</a><a class="headerlink" href="#potential-flow" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Potential Flow</a><a class="headerlink" href="#potential-flow" title="Permalink to this heading">#</a></h2>
 <p>Potential flow is often used for the specific case of inviscid (zero viscosity) and incompressible fluid flow.</p>
 <p>In this lecture, I will be using potential flow to describe a wider number of problems which can be modelled using Laplace’s equation.</p>
 <p>We will also look at numerical solutions of Laplace’s equation. Analytical solutions do exist, but only in the form of infinite series.</p>
@@ -666,7 +607,7 @@ div.advanced {
 \large{\nabla^2 \phi = 0}
 \]</div>
 <section id="good-approximations-for-potential-flow">
-<h3><a class="toc-backref" href="#id36" role="doc-backlink">Good Approximations for Potential Flow</a><a class="headerlink" href="#good-approximations-for-potential-flow" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Good Approximations for Potential Flow</a><a class="headerlink" href="#good-approximations-for-potential-flow" title="Permalink to this heading">#</a></h3>
 <p>One type of situation where potential is a good approximation is when the potential exerts a “force” on the quantity being observed, such as an electrical current or a fluid volume. The resistance to the flow is proportional to the flow-rate of the conserved quantity.</p>
 <p>It is a good approximation for a number of systems:</p>
 <ul class="simple">
@@ -675,7 +616,7 @@ div.advanced {
 <li><p>Saturated flow in porous media</p></li>
 </ul>
 <section id="flow-in-porous-media">
-<h4><a class="toc-backref" href="#id37" role="doc-backlink">Flow in Porous Media</a><a class="headerlink" href="#flow-in-porous-media" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id6" role="doc-backlink">Flow in Porous Media</a><a class="headerlink" href="#flow-in-porous-media" title="Permalink to this heading">#</a></h4>
 <p>This is used in a wide range of systems such as:</p>
 <ul class="simple">
 <li><p>Packed bed catalytic reactors</p></li>
@@ -692,13 +633,13 @@ div.advanced {
 <p>However it does get more complicated for multi-phase flow in porous media due to the introduction of relative permeabilities that are a function of volume fraction of that phase in the pore space and capillarity (forces due to surface tension) can further complicate the situation.</p>
 </section>
 <section id="random-motion">
-<h4><a class="toc-backref" href="#id38" role="doc-backlink">Random Motion</a><a class="headerlink" href="#random-motion" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id7" role="doc-backlink">Random Motion</a><a class="headerlink" href="#random-motion" title="Permalink to this heading">#</a></h4>
 <p>Random motion can also lead to potential flow</p>
 <p>Diffusion is a good example. Thermal motion of molecules in a solvent leads to molecules of the solute being randomly nudged (<strong>Brownian motion</strong>). At the microscopic scale, heat flow follows a similar process as the kinetic energy of the particles is randomly transferred to neighbouring particles.</p>
 <p>If particle motion is random, the number of particles leaving a small volume in a given time will be proportional to the number of particles in the volume. The number of particles entering will be proportional to the number of particles in the neighbouring regions. This will results in a net flow down a concentration gradient.</p>
 </section>
 <section id="diffusion-through-a-random-walk">
-<h4><a class="toc-backref" href="#id39" role="doc-backlink">Diffusion through a random walk</a><a class="headerlink" href="#diffusion-through-a-random-walk" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id8" role="doc-backlink">Diffusion through a random walk</a><a class="headerlink" href="#diffusion-through-a-random-walk" title="Permalink to this heading">#</a></h4>
 <p>If we assume that Brownian motion causes a particle of the solute to take a random step of size <span class="math notranslate nohighlight">\( \Delta x\)</span> in time <span class="math notranslate nohighlight">\( \Delta t\)</span>, this will result in the following macroscopic diffusion coefficient:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -717,7 +658,7 @@ div.advanced {
 </section>
 </section>
 <section id="implications-of-potential-flow">
-<h2><a class="toc-backref" href="#id40" role="doc-backlink">Implications of Potential Flow</a><a class="headerlink" href="#implications-of-potential-flow" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Implications of Potential Flow</a><a class="headerlink" href="#implications-of-potential-flow" title="Permalink to this heading">#</a></h2>
 <p>The flux is pure potential flow is always irrotational (curl of the vector is zero):</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -733,7 +674,7 @@ div.advanced {
 <p>The reverse is also true: Irrotational flows can be written as potential flows.</p>
 </section>
 <section id="vorticity">
-<h2><a class="toc-backref" href="#id41" role="doc-backlink">Vorticity</a><a class="headerlink" href="#vorticity" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Vorticity</a><a class="headerlink" href="#vorticity" title="Permalink to this heading">#</a></h2>
 <p>Potential flow implies irrotationality, which means that it has a vorticity:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -744,7 +685,7 @@ div.advanced {
 <p>In 3D flow, the axis of the rotation is in the direction that the vorticity vector points and the length of the vector is proportional to how fast it rotates.</p>
 </section>
 <section id="incompressible-inviscid-flow">
-<h2><a class="toc-backref" href="#id42" role="doc-backlink">Incompressible, Inviscid Flow</a><a class="headerlink" href="#incompressible-inviscid-flow" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Incompressible, Inviscid Flow</a><a class="headerlink" href="#incompressible-inviscid-flow" title="Permalink to this heading">#</a></h2>
 <p>Why is incompressible inviscid flow a potential flow problem?</p>
 <p>You have already derived the Navier-Stokes equations (more detail on it later in the course). However, it is important to know what each term represents;</p>
 <div class="math notranslate nohighlight">
@@ -879,7 +820,7 @@ u_x \frac{\partial u_z}{\partial x} + u_y \frac{\partial u_z}{\partial y} + u_z 
 <p>Potential should be solved for first and then subsequently the pressure should be calculated even though they are not the same as one another.</p>
 </section>
 <section id="solving-potential-flow-problems">
-<h2><a class="toc-backref" href="#id43" role="doc-backlink">Solving Potential Flow Problems</a><a class="headerlink" href="#solving-potential-flow-problems" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Solving Potential Flow Problems</a><a class="headerlink" href="#solving-potential-flow-problems" title="Permalink to this heading">#</a></h2>
 <p>While potential flow problems have a variety of physics that can be representedm the underlying equation that is being solved is always Laplace’s Equation.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -887,18 +828,18 @@ u_x \frac{\partial u_z}{\partial x} + u_y \frac{\partial u_z}{\partial y} + u_z 
 \]</div>
 <p>Since there is no time dependency in this equation and therefore its solution takes the form of a Boundary Value Problem. We therefore need to specify all boundaries.</p>
 <section id="boundary-conditions">
-<h3><a class="toc-backref" href="#id44" role="doc-backlink">Boundary Conditions</a><a class="headerlink" href="#boundary-conditions" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Boundary Conditions</a><a class="headerlink" href="#boundary-conditions" title="Permalink to this heading">#</a></h3>
 <p>Two linear boundary types are the specification of the potential at the boundary or the flux through the boundary. Potential specification is a Dirichelt Doundary condition in potential: <span class="math notranslate nohighlight">\(\phi = f(\mathbf{x})\)</span></p>
 <p>Flux specification is a Neumann boundary condition in potential. The condition specifies the values of the derivative applied at the boundary of the domain:
 <span class="math notranslate nohighlight">\( \mathbf{v \cdot \hat{n}} = - k \nabla \phi \cdot \mathbf{\hat{n}} = F(\mathbf{x})\)</span> where <span class="math notranslate nohighlight">\(\mathbf{\hat{n}} \)</span> is the unit normal to the boundary and <span class="math notranslate nohighlight">\(F\)</span> is the scalar flux through the boundary (in the direction of <span class="math notranslate nohighlight">\(\mathbf{\hat{n}}\)</span>)</p>
 </section>
 </section>
 <section id="stream-function-formulation">
-<h2><a class="toc-backref" href="#id45" role="doc-backlink">Stream Function Formulation</a><a class="headerlink" href="#stream-function-formulation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Stream Function Formulation</a><a class="headerlink" href="#stream-function-formulation" title="Permalink to this heading">#</a></h2>
 <p>Dirichlet boundary conditions are easier to implement than Neumann boundaries and typicallt result in quicker convergence when using a numerical solution scheme.</p>
 <p>A stream function formulation allow flux boundary conditions to be specified using Dirichlet boundary conditions. However, it still doesn’t allow a mixture of potential and flux boundaries, which would still require a combination of Dirichlet and Neumann boundaries. We will solve problems of this type in the next lecture.</p>
 <section id="stream-functions">
-<h3><a class="toc-backref" href="#id46" role="doc-backlink">Stream Functions</a><a class="headerlink" href="#stream-functions" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Stream Functions</a><a class="headerlink" href="#stream-functions" title="Permalink to this heading">#</a></h3>
 <p>Stream functions can be used to represent 2D steady-state systems that exihibit continuity.</p>
 <p>A stream function is a scalar field where flows follows a constant value of the function. In other words, a constant value of the stream functions represents a streamline.</p>
 <p>Stream functions are just one way to solve potential flow problems and they only work in 2D. They can also be used in the analysis or the solution of other flow problems where continuity of glux holds.</p>
@@ -930,8 +871,8 @@ F_y = - \frac{\partial \psi}{\partial x}}
 <p>We also know that potential flow implies that there is zero vorticity. (<span class="math notranslate nohighlight">\( \nabla \times \mathbf{F} = 0\)</span>)</p>
 <p>Substituting the definitions of the fluxes into this equation results in Laplace’s equation (strictly speaking the curl is a vector, but in 2D there is only one non-zero component): <span class="math notranslate nohighlight">\(\nabla^2 \psi = 0\)</span></p>
 </section>
-<section id="id2">
-<h3><a class="toc-backref" href="#id47" role="doc-backlink">Boundary Conditions</a><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<section id="id1">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Boundary Conditions</a><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>Stream functions are useful if the boundaries are flux boundary conditions:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -947,7 +888,7 @@ F_y = - \frac{\partial \psi}{\partial x}}
 </ul>
 </section>
 <section id="example">
-<h3><a class="toc-backref" href="#id48" role="doc-backlink">Example</a><a class="headerlink" href="#example" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Example</a><a class="headerlink" href="#example" title="Permalink to this heading">#</a></h3>
 <p>A metal block 2m wide and 1m high is being heated from below and cooled on the left and right hand sides. The top boundary is thermally insulated.</p>
 <p>You can assume that the block is insulated at the front and back making this a 2D problem. (It is 1m deep in this direction)</p>
 <p>There is a constant heat flux into the bottom on the block of <span class="math notranslate nohighlight">\(100 W/m^2\)</span>.</p>
@@ -956,12 +897,12 @@ F_y = - \frac{\partial \psi}{\partial x}}
 </section>
 </section>
 <section id="numerical-solutions-to-laplace-s-equation">
-<h2><a class="toc-backref" href="#id49" role="doc-backlink">Numerical Solutions to Laplace’s Equation</a><a class="headerlink" href="#numerical-solutions-to-laplace-s-equation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Numerical Solutions to Laplace’s Equation</a><a class="headerlink" href="#numerical-solutions-to-laplace-s-equation" title="Permalink to this heading">#</a></h2>
 <p>Because these are solutions for steady-state systems, the solution takes the form of a Boundary Value Problem. Therefore, we need to specify conditions along all the boundaries and we need a discretised version of the governing equation to describe all the interior points as a function of their surrounding points.</p>
 <p>Non-steady state problems take the form of Initial Value Problems. However we still need boundary conditions and require an initial value for all the locations in the system (hence initial value problem). The governing equation needs to not only describe the relationships between neighbouring points in space, but also in time.</p>
 </section>
 <section id="finite-difference-approximation">
-<h2><a class="toc-backref" href="#id50" role="doc-backlink">Finite Difference Approximation</a><a class="headerlink" href="#finite-difference-approximation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Finite Difference Approximation</a><a class="headerlink" href="#finite-difference-approximation" title="Permalink to this heading">#</a></h2>
 <p>Finite difference is the easiest way to approximate differentials on a grid. There are a number of ways in which first derivatives can be approximated on a grid, three of which are:</p>
 <ul class="simple">
 <li><p>Central Difference: <span class="math notranslate nohighlight">\(\hspace{1cm} \large{\Bigl( \frac{\partial u}{\partial x} \Bigr)_i \approx \frac{ u_{i + 1} \hspace{0.1cm} - \hspace{0.1cm} u_{i - 1} }{ 2 \Delta x}} \hspace{1cm}\)</span> <span class="math notranslate nohighlight">\(  \text{2nd order accurate} \)</span></p></li>
@@ -971,7 +912,7 @@ F_y = - \frac{\partial \psi}{\partial x}}
 <p>2nd order derivatives can also be approximated</p>
 <p><span class="math notranslate nohighlight">\( \large{ \Bigl( \frac{\partial^2 u}{\partial x^2}} \Bigr)_i \approx \frac{u_{i + 1} - 2u_i + u_{i - 1}}{\Delta x^2} \)</span></p>
 <section id="finite-difference-approximation-of-a-linear-2nd-order-pdes">
-<h3><a class="toc-backref" href="#id51" role="doc-backlink">Finite Difference Approximation of a Linear 2nd Order PDEs</a><a class="headerlink" href="#finite-difference-approximation-of-a-linear-2nd-order-pdes" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Finite Difference Approximation of a Linear 2nd Order PDEs</a><a class="headerlink" href="#finite-difference-approximation-of-a-linear-2nd-order-pdes" title="Permalink to this heading">#</a></h3>
 <p>Using finite difference approximations, any 2D steady state linear 2nd order PDE can be approximated as follows:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -980,7 +921,7 @@ a_{i,j} \hspace{0.1cm} u_{i + 1,j} + b_{i,j} \hspace{0.1cm} u_{i - 1,j} + c_{i,j
 <p>The prefactors a, b, c, d, e and f are matrices (i.e functions of position) in the general case, since the linear coefficients in the PDE can also be functions of position.</p>
 </section>
 <section id="approximating-laplace-s-equation">
-<h3><a class="toc-backref" href="#id52" role="doc-backlink">Approximating Laplace’s Equation</a><a class="headerlink" href="#approximating-laplace-s-equation" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Approximating Laplace’s Equation</a><a class="headerlink" href="#approximating-laplace-s-equation" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 \nabla^2 \psi = \frac{\partial^2 \psi}{\partial x^2} + \frac{\partial^2 \psi}{\partial y^2} = 0
@@ -999,7 +940,7 @@ a_{i,j} \hspace{0.1cm} u_{i + 1,j} + b_{i,j} \hspace{0.1cm} u_{i - 1,j} + c_{i,j
 </section>
 </section>
 <section id="iterative-and-inversion-methods">
-<h2><a class="toc-backref" href="#id53" role="doc-backlink">Iterative and Inversion Methods</a><a class="headerlink" href="#iterative-and-inversion-methods" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">Iterative and Inversion Methods</a><a class="headerlink" href="#iterative-and-inversion-methods" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
 a_{i,j} \hspace{0.1cm} u_{i + 1,j} + b_{i,j} \hspace{0.1cm} u_{i - 1,j} + c_{i,j} \hspace{0.1cm} u_{i,j + 1} + d_{i,j} \hspace{0.1cm} u_{i,j - 1} + e_{i,j} \hspace{0.1cm} u_{i,j} = f_{i,j}
@@ -1010,7 +951,7 @@ a_{i,j} \hspace{0.1cm} u_{i + 1,j} + b_{i,j} \hspace{0.1cm} u_{i - 1,j} + c_{i,j
 <li><p><strong>Iterative methods</strong>: This method iteratively approaches the solution using a number of steps, each (hopefully) close to the solution than the previous one. This can be easier to implement and improved convergence speed often requires more complexity in the solution. Generally, it also has lower memory requirements than inversion techniques.</p></li>
 </ul>
 <section id="iterative-methods">
-<h3><a class="toc-backref" href="#id54" role="doc-backlink">Iterative Methods</a><a class="headerlink" href="#iterative-methods" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Iterative Methods</a><a class="headerlink" href="#iterative-methods" title="Permalink to this heading">#</a></h3>
 <p>Iterative methods work by successfully by successively reducing the error in the solution. The error we use is residual, which is the error in the approximation of the differential equation.</p>
 <p>As we don’t know the final solution as a priori, we can’t use the error in the dependent variable. Equivalently, we could also use the change in the dependent variable with each iteration as a stopping criterion.</p>
 <p>The residual at point <span class="math notranslate nohighlight">\(i, j\)</span> is:</p>
@@ -1021,7 +962,7 @@ a_{i,j} \hspace{0.1cm} u_{i + 1,j} + b_{i,j} \hspace{0.1cm} u_{i - 1,j} + c_{i,j
 <p>with iterations continuing until the residual drops below a certain value. For example, continue iterations until <span class="math notranslate nohighlight">\( \large{\frac{\Sigma \Sigma |\xi_{i,j}|}{\Sigma \Sigma |e_{i,j} u_{i,j}|}} \)</span> <span class="math notranslate nohighlight">\(&lt; \text{tolerance}\)</span>.</p>
 </section>
 <section id="jacobi-method">
-<h3><a class="toc-backref" href="#id55" role="doc-backlink">Jacobi Method</a><a class="headerlink" href="#jacobi-method" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">Jacobi Method</a><a class="headerlink" href="#jacobi-method" title="Permalink to this heading">#</a></h3>
 <p>From the finite difference approximation:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1039,7 +980,7 @@ u_{i,j} = \frac{f_{i,j} - (a_{i,j} \hspace{0.1cm} u_{i + 1,j} + b_{i,j} \hspace{
 \]</div>
 </section>
 <section id="steps-in-solving-this-problem">
-<h3><a class="toc-backref" href="#id56" role="doc-backlink">Steps in solving this problem</a><a class="headerlink" href="#steps-in-solving-this-problem" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">Steps in solving this problem</a><a class="headerlink" href="#steps-in-solving-this-problem" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Derive boundary conditions/values for each location on the boundary</strong> - We will use the Dirchlet boundary conditions in this example. We will therefore need the value of stream function at each point on thge edge of the grid.</p></li>
 <li><p><strong>Discretise the governing equation</strong> - We have already done this for Laplace’s Equation.</p></li>
@@ -1049,12 +990,12 @@ u_{i,j} = \frac{f_{i,j} - (a_{i,j} \hspace{0.1cm} u_{i + 1,j} + b_{i,j} \hspace{
 </section>
 </section>
 <section id="systems-with-more-complex-boundaries">
-<h2><a class="toc-backref" href="#id57" role="doc-backlink">Systems with more Complex Boundaries</a><a class="headerlink" href="#systems-with-more-complex-boundaries" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">Systems with more Complex Boundaries</a><a class="headerlink" href="#systems-with-more-complex-boundaries" title="Permalink to this heading">#</a></h2>
 <p>Thus far we have only considered problems with Dirichlet boundary conditions. (Values of the dependent variable specified along the boundary)</p>
 <p>These are easier to solve numerically and have better convergence behaviour than Neumann and other more complex boundary conditions. It also makes analytical solutions tractable.</p>
 <p>When solving numerically using SOR, the more complex boundary conditions will require that the points on the boundary are included in the iteration.</p>
 <section id="neumann-boundary-conditions">
-<h3><a class="toc-backref" href="#id58" role="doc-backlink">Neumann Boundary Conditions</a><a class="headerlink" href="#neumann-boundary-conditions" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">Neumann Boundary Conditions</a><a class="headerlink" href="#neumann-boundary-conditions" title="Permalink to this heading">#</a></h3>
 <p>This boundary condition is often found in potential flow problems. For example, if the flux through the boundary is specified and the potential is the dependent variable.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1064,7 +1005,7 @@ u_{i,j} = \frac{f_{i,j} - (a_{i,j} \hspace{0.1cm} u_{i + 1,j} + b_{i,j} \hspace{
 <p>A no flux boundary condition in potential flow is thus a zero gradient, which is a special case of the Neumann boundary condition.</p>
 </section>
 <section id="finite-difference-approximation-of-a-neumann-boundary">
-<h3><a class="toc-backref" href="#id59" role="doc-backlink">Finite Difference Approximation of a Neumann Boundary</a><a class="headerlink" href="#finite-difference-approximation-of-a-neumann-boundary" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">Finite Difference Approximation of a Neumann Boundary</a><a class="headerlink" href="#finite-difference-approximation-of-a-neumann-boundary" title="Permalink to this heading">#</a></h3>
 <p>As the point being considered by us is, by definition, on the edge of the valid domain, the central difference method can’t be used. Whether a forward or backward approximation is used depends on which side of the domain the boundary is.</p>
 <p>For example, if the forward difference is in the x-direction on the left hand boundary and backward difference on the right hand boundary and similarly, in the y-direction a forward difference needs to be used in the bottom boundary and a backwards difference on the top boundary.</p>
 <p>If the finite difference approximation is expressed as follows:</p>
@@ -1085,7 +1026,7 @@ a_{i,j} \hspace{0.1cm} u_{i + 1,j} + b_{i,j} \hspace{0.1cm} u_{i - 1,j} + c_{i,j
 </ul>
 </section>
 <section id="robin-boundary-condition">
-<h3><a class="toc-backref" href="#id60" role="doc-backlink">Robin Boundary Condition</a><a class="headerlink" href="#robin-boundary-condition" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">Robin Boundary Condition</a><a class="headerlink" href="#robin-boundary-condition" title="Permalink to this heading">#</a></h3>
 <p>The third type of linear PDE boundary condition is the Robin boundary condition. This condition is a linear conmbination of Dirichlet and Neumann boundary condition.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1098,7 +1039,7 @@ a_{i,j} \hspace{0.1cm} u_{i + 1,j} + b_{i,j} \hspace{0.1cm} u_{i - 1,j} + c_{i,j
 </ul>
 </section>
 <section id="finite-difference-approximation-of-a-robin-boundary">
-<h3><a class="toc-backref" href="#id61" role="doc-backlink">Finite Difference Approximation of a Robin Boundary</a><a class="headerlink" href="#finite-difference-approximation-of-a-robin-boundary" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id30" role="doc-backlink">Finite Difference Approximation of a Robin Boundary</a><a class="headerlink" href="#finite-difference-approximation-of-a-robin-boundary" title="Permalink to this heading">#</a></h3>
 <p>Again using the following form for the approximation:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1116,7 +1057,7 @@ a_{i,j} \hspace{0.1cm} u_{i + 1,j} + b_{i,j} \hspace{0.1cm} u_{i - 1,j} + c_{i,j
 </ul>
 </section>
 <section id="where-do-robin-boundary-conditions-arise">
-<h3><a class="toc-backref" href="#id62" role="doc-backlink">Where do Robin Boundary Conditions Arise</a><a class="headerlink" href="#where-do-robin-boundary-conditions-arise" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id31" role="doc-backlink">Where do Robin Boundary Conditions Arise</a><a class="headerlink" href="#where-do-robin-boundary-conditions-arise" title="Permalink to this heading">#</a></h3>
 <p>Robin boundary condtions are encountered in convective-diffusive problems.</p>
 <p>Convective-diffusive problems are ones in which a flux is proportional to the sum of a zero order (convective) term and a 1st order diffusive term. Note that when substituted into a continuity equation, the convective term becomes 1st order and the diffusive term 2nd order. A flux with a convective and diffusive component takes the following form:</p>
 <div class="math notranslate nohighlight">
