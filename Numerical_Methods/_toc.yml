@@ -55,3 +55,5 @@ parts:
       - file: "Chapter9/Lecture 9.1 - interpolation quadrature"
       - file: "Chapter9/Homework"
       - file: "Chapter9/Solutions"
+    - file: "Chapter10/intro"
+      - file: "Chapter10/Lecture 10.1 - ODE Solver"
