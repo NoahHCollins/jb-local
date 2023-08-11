@@ -412,47 +412,6 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
-<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="nt">div</span><span class="p">.</span><span class="nc">optional</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#d7e2ff</span><span class="p">;</span>
-<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">div</span><span class="p">.</span><span class="nc">advanced</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
-<span class="w">    </span><span class="k">border-left</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#fff4d7</span><span class="p">;</span>
-<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><style>
-div.optional {
-    display: block;
-    background-color: #d7e2ff;
-    border-color: #d7e2ff;
-    border-left: 5px solid #d7e2ff;
-    padding: 0.5em;
-}
-div.advanced {
-    display: block;
-    background-color: #fff4d7;
-    border-color: #fff4d7;
-    border-left: 5px solid #fff4d7;
-    padding: 0.5em;
-}
-</style>
-</div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -800,7 +759,7 @@ np.flip(a, 0) =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fd73fa60fd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f0da2361fd0&gt;
 </pre></div>
 </div>
 <img alt="../_images/6c380a3719cc3539cb1888b582fcb34fa6b78d0dfa420b33688a96f2d6b6a8ee.png" src="../_images/6c380a3719cc3539cb1888b582fcb34fa6b78d0dfa420b33688a96f2d6b6a8ee.png" />
@@ -1243,7 +1202,7 @@ N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
 AttributeError                            Traceback (most recent call last)
-Cell In[11], line 31
+Cell In[10], line 31
      28 degrees = [1, 2, 3, 5, 9, 12, 15, 20]
      30 # set up our figs for plotting
 ---&gt; 31 fig, axs = plt.subplots(2, np.int(len(degrees)/2), figsize=(12, 8))
@@ -1562,7 +1521,9 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 \end{split}\]</div>
 <br>
 <p>which have the name hat (or chapeau) functions, and look like the following.</p>
-<img src="figures/fem_basis_functions.svg" style="width: 800px">
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/fem_basis_functions.svg"><img alt="../_images/fem_basis_functions.svg" src="../_images/fem_basis_functions.svg" width="75%" /></a>
+</figure>
 </section>
 <section id="some-code-to-return-the-hat-basis-functions">
 <h3>Some code to return the hat/basis functions<a class="headerlink" href="#some-code-to-return-the-hat-basis-functions" title="Permalink to this heading">#</a></h3>
@@ -2607,7 +2568,9 @@ E_S
 <p>This is known as <em>Weddle’s rule</em>, or the <em>extrapolated Simpson’s rule</em> because it uses two different values for the interval size and <em>extrapolates</em> from these two to obtain an even more accurate result.</p>
 <p>Making a function for this rule is easy as we can just call our Simpson’s rule functions with two values for the number of intervals.</p>
 <p>Doing this is a homework exercise and should yield the following updated convergence plot</p>
-<img src="./figures/weddle_convergence.png" width=500x>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/weddle_convergence.png"><img alt="../_images/weddle_convergence.png" src="../_images/weddle_convergence.png" style="width: 75%;" /></a>
+</figure>
 <section id="id6">
 <h3>Observations<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
@@ -2693,7 +2656,9 @@ A_0 f(a) + A_1 f(b) = (b - a)\frac{(f(a) + f(b))}{2},
 <div class="math notranslate nohighlight">
 \[I := \int_0^1 \frac{1}{\sqrt{x}}\, dx.\]</div>
 <p>You should find an error plot that looks something like this</p>
-<img src="./figures/open_vs_closed_newton_cotes.png" width=400x>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/open_vs_closed_newton_cotes.png"><img alt="../_images/open_vs_closed_newton_cotes.png" src="../_images/open_vs_closed_newton_cotes.png" style="width: 75%;" /></a>
+</figure>
 <p>We have lost our theoretical order of convergence for the open rule (and the closed rule of course gives garbage) - our analysis no longer applies since the function is singular at <span class="math notranslate nohighlight">\(x=0\)</span>, and our analysis based upon Taylor series does not hold for non-smooth functions (e.g. we cannot assume that higher-order terms in the Taylor series expansion can be ignored).  But still, the open rule is doing a whole lot better than the closed rule!</p>
 </section>
 </section>
@@ -2757,7 +2722,9 @@ I - I_{S_2} \approx \frac {\left(I_{S_2} - I_{S} \right)}{15},
 <section id="application-to-a-simple-problem">
 <h3>Application to a simple problem<a class="headerlink" href="#application-to-a-simple-problem" title="Permalink to this heading">#</a></h3>
 <p>Let’s apply this idea to our simple function. The plot below demonstrates the locations of function evaluations.</p>
-<img src="./figures/adaptive_quadrature_simple_example.png" width=700x>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/adaptive_quadrature_simple_example.png"><img alt="../_images/adaptive_quadrature_simple_example.png" src="../_images/adaptive_quadrature_simple_example.png" style="width: 75%;" /></a>
+</figure>
 <br>
 <br>
 <p>It’s pretty clear for this example that adaptive quadrature (based on Simpson’s rule) is not going to beat Simpson’s rule applied on equally spaced intervals.</p>
@@ -2766,7 +2733,9 @@ I - I_{S_2} \approx \frac {\left(I_{S_2} - I_{S} \right)}{15},
 <section id="application-to-a-complex-problem">
 <h3>Application to a complex problem<a class="headerlink" href="#application-to-a-complex-problem" title="Permalink to this heading">#</a></h3>
 <p>We see in the plot below a far more complex function where we really are making good use of the ability to evaluate the function in an adaptive manner.</p>
-<img src="./figures/adaptive_quadrature_example.png" width=1000x>
+<figure class="align-default">
+<a class="reference internal image-reference" href="Chapter9/Figures/daptive_quadrature_example.png"><img alt="Chapter9/Figures/daptive_quadrature_example.png" src="Chapter9/Figures/daptive_quadrature_example.png" style="width: 75%;" /></a>
+</figure>
 <br>
 <p>Again, this plot is showing the non-uniform, or adaptive, locations at which the function has been evaluated by the algorith.</p>
 <p>Clearly this should help with the efficiency of the method, but let’s check this.</p>
@@ -2795,7 +2764,10 @@ I - I_{S_2} \approx \frac {\left(I_{S_2} - I_{S} \right)}{15},
 <h2>Quadrature method comparison<a class="headerlink" href="#quadrature-method-comparison" title="Permalink to this heading">#</a></h2>
 <p>Let’s compare errors vs number of function evaluations for the more complicated problem used to demonstrate adaptive quadrature.</p>
 <p>Recreating this comparison/graph is given in the homework solutions that asks you to implement adaptive quadrature.</p>
-<img src="./figures/compare_quad_methods_complex_function.png" width=500x><section id="comments">
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/compare_quad_methods_complex_function.png"><img alt="../_images/compare_quad_methods_complex_function.png" src="../_images/compare_quad_methods_complex_function.png" style="width: 75%;" /></a>
+</figure>
+<section id="comments">
 <h3>Comments<a class="headerlink" href="#comments" title="Permalink to this heading">#</a></h3>
 <p>Note that given the higher-order Weddle rule isn’t obviously better than Simpson’s rule for this function, at least at moderate error levels and numbers of function evaluations, it isn’t a surprise that Romberg integration doesn’t do brilliantly for this complex example either.</p>
 <p>However,  this is clearly a problem which is well-suited for adaptive quadrature, as we see in the plot of the function and locations of function evaluations above - for this problem the method really is taking advantage of the ability to vary the subinterval sizes.</p>
