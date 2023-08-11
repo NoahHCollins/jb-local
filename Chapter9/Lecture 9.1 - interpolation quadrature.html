@@ -729,13 +729,14 @@ np.flip(a, 0) =
 <p>we thus have the <span class="math notranslate nohighlight">\((x,y)\)</span> data pairs <span class="math notranslate nohighlight">\((0,2)\)</span>, <span class="math notranslate nohighlight">\((1,9)\)</span>, <span class="math notranslate nohighlight">\((2,24)\)</span>.</p>
 <br>
 <p>The Lagrange polynomial can be immediately written down:</p>
-<p>\begin{align*}L(x) &amp; = 2 \ell_0(x) + 9  \ell_1(x) + 24 \ell_2(x) \[20pt]
-&amp;= 2\frac{(x-1)}{(0-1)}\frac{(x-2)}{(0-2)}</p>
-<ul class="simple">
-<li><p>9\frac{(x-0)}{(1-0)}\frac{(x-2)}{(1-2)}</p></li>
-<li><p>24\frac{(x-0)}{(2-0)}\frac{(x-1)}{(2-1)}
-\end{align*}</p></li>
-</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}L(x) &amp; = 2 \ell_0(x) + 9  \ell_1(x) + 24 \ell_2(x) \\[20pt]
+&amp;= 2\frac{(x-1)}{(0-1)}\frac{(x-2)}{(0-2)} 
++ 9\frac{(x-0)}{(1-0)}\frac{(x-2)}{(1-2)} 
++ 24\frac{(x-0)}{(2-0)}\frac{(x-1)}{(2-1)}
+\end{align*} 
+\end{split}\]</div>
 <p>and either by expanding and collecting terms, of visually, we can establish that this is identical to the original function.</p>
 <p>[We’ll come back to this example and expansion a bit later].</p>
 <div class="cell docutils container">
@@ -759,7 +760,7 @@ np.flip(a, 0) =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f37d62baf40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6fc61e2eb0&gt;
 </pre></div>
 </div>
 <img alt="../_images/6c380a3719cc3539cb1888b582fcb34fa6b78d0dfa420b33688a96f2d6b6a8ee.png" src="../_images/6c380a3719cc3539cb1888b582fcb34fa6b78d0dfa420b33688a96f2d6b6a8ee.png" />
@@ -860,10 +861,13 @@ from Python’s <a class="reference external" href="http://www.scipy.org">SciPy<
 <p>note that this is indeed a degree <span class="math notranslate nohighlight">\(N\)</span> polynomial and as before was have <span class="math notranslate nohighlight">\(N+1\)</span> free parameters  <span class="math notranslate nohighlight">\(a_0, a_1, \ldots, a_N\)</span>, which we need to find using the <span class="math notranslate nohighlight">\(N+1\)</span> pieces of information we have in the given data.</p>
 <p>Efficient derivation of an algorithm to compute the Newton polynomial follows from noticing that we can write this polynomial in a <a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)"><em>recursive form</em></a>.</p>
 <p>Consider for example a case with <span class="math notranslate nohighlight">\(N=3\)</span>:</p>
-<p>\begin{align}
-P_3(x) &amp;= a_0 +(x-x_0)a_1 + (x-x_0)(x-x_1)a_2 + (x-x_0)(x-x_1)(x-x_2)a_3\[5pt]
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+P_3(x) &amp;= a_0 +(x-x_0)a_1 + (x-x_0)(x-x_1)a_2 + (x-x_0)(x-x_1)(x-x_2)a_3\\[5pt]
 &amp;= a_0 +(x-x_0)[a_1 + (x-x_1)[a_2 + (x-x_2)a_3]].
-\end{align}</p>
+\end{align}
+\end{split}\]</div>
 <p>Notice that substituting in the <span class="math notranslate nohighlight">\(x_i\)</span> values leads to a set of simultaneous equations where we can easily evaluate the unknowns <span class="math notranslate nohighlight">\(a_0, a_1, \ldots\)</span> using what is termed ‘back (or forward) substitution’.</p>
 <p>We’ll see an example of this now …</p>
 <ol class="arabic simple">
@@ -884,21 +888,27 @@ P_3(x) &amp;= a_0 +(x-x_0)a_1 + (x-x_0)(x-x_1)a_2 + (x-x_0)(x-x_1)(x-x_2)a_3\[5p
 <li><p>Substituting <span class="math notranslate nohighlight">\(x=x_2\)</span> yields</p></li>
 </ol>
 <br>
-<p>\begin{align*}
-&amp; y_2 = P_3(x_2) = a_0 +(x_2-x_0)[a_1 + (x_2-x_1)a_2] = y_0 + (x_2-x_0)\left[ \frac{(y_1 - y_0)}{(x_1-x_0)} + (x_2-x_1)a_2\right]\[5pt]
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+&amp; y_2 = P_3(x_2) = a_0 +(x_2-x_0)[a_1 + (x_2-x_1)a_2] = y_0 + (x_2-x_0)\left[ \frac{(y_1 - y_0)}{(x_1-x_0)} + (x_2-x_1)a_2\right]\\[5pt]
 &amp;\implies a_2 = \frac{ \frac{(y_2 - y_0)}{(x_2-x_0)} - \frac{(y_1 - y_0)}{(x_1-x_0)}}{x_2-x_1}.
-\end{align*}</p>
+\end{align*}
+\end{split}\]</div>
 <br>
 <ol class="arabic simple" start="4">
 <li><p>And so on …</p></li>
 </ol>
 <p>To define an algorithm for this method in general let’s first introducing the following <a class="reference external" href="https://en.wikipedia.org/wiki/Divided_differences"><em>divided difference</em></a> notation</p>
-<p>\begin{alignat*}{2}
-\Delta y_i &amp;= \frac{y_i-y_0}{x_i-x_0},;;    &amp;&amp; i=1,2,\ldots, N,\[10pt]
-\Delta^2 y_i &amp;= \frac{\Delta y_i-\Delta y_1}{x_i-x_1},;;    &amp;&amp; i=2, 3,\ldots, N,\[10pt]
-&amp;\vdots\[5pt]
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{alignat*}{2}
+\Delta y_i &amp;= \frac{y_i-y_0}{x_i-x_0},\;\;    &amp;&amp; i=1,2,\ldots, N,\\[10pt]
+\Delta^2 y_i &amp;= \frac{\Delta y_i-\Delta y_1}{x_i-x_1},\;\;    &amp;&amp; i=2, 3,\ldots, N,\\[10pt]
+&amp;\vdots\\[5pt]
 \Delta^N y_N &amp;= \frac{\Delta^{N-1} y_N-\Delta^{N-1} y_{N-1}}{x_N-x_{N-1}}.
-\end{alignat*}</p>
+\end{alignat*}
+\end{split}\]</div>
 <p>With a bit of thought we can hopefully see from the above example that the coefficients of the interpolating polynomial in the general case are given by</p>
 <div class="math notranslate nohighlight">
 \[a_0=y_0,\;\;\;\;\; a_1 = \Delta y_1, \;\;\;\;\; a_2 = \Delta^2 y_2, \;\;\;\;\; \ldots \;\;\;\;\; a_N = \Delta^N y_N.\]</div>
@@ -1004,10 +1014,13 @@ P_3(x) &amp;= a_0 +(x-x_0)a_1 + (x-x_0)(x-x_1)a_2 + (x-x_0)(x-x_1)(x-x_2)a_3\[5p
 <div class="math notranslate nohighlight">
 \[ f(x) = P_N(x) + R_N(x) \;\;\;\;\;\; \text{or} \;\;\;\;\;\; R_N(x) = f(x) - P_N(x) \;\;\;\;\;\; \forall x\in[a,b],\]</div>
 <p>where <span class="math notranslate nohighlight">\(R_N(x)\)</span> is the <em>remainder</em>, or the <a class="reference external" href="https://en.wikipedia.org/wiki/Polynomial_interpolation#Interpolation_error"><em>interpolation error</em></a>, and takes the form</p>
-<p>\begin{align*}
-R_N(x) &amp; = \frac{(x-x_0)(x-x_1)\cdots(x-x_N)}{(N+1)!} , f^{(N+1)}(c_x) \[10pt]
-&amp; = \Psi_N(x),\frac{f^{(N+1)}(c_x)}{(N+1)!},
-\end{align*}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*} 
+R_N(x) &amp; = \frac{(x-x_0)(x-x_1)\cdots(x-x_N)}{(N+1)!} \, f^{(N+1)}(c_x) \\[10pt]
+&amp; = \Psi_N(x)\,\frac{f^{(N+1)}(c_x)}{(N+1)!},
+\end{align*}
+\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(c_x\)</span> is <em>some</em> value/point/location between the maximum and minimum values of <span class="math notranslate nohighlight">\(x_0, \ldots, x_N\)</span> and <span class="math notranslate nohighlight">\(x\)</span>,</p>
 <p>and where</p>
 <div class="math notranslate nohighlight">
@@ -1069,12 +1082,14 @@ M:=\max_{x\in(a,b)}\, \left| f^{(N+1)}(x) \right|, \\
 <p>As for our plots above with this example, let’s assume <span class="math notranslate nohighlight">\([a,b]=[0.5, 3.5]\)</span> and compute the error (estimate or bound) based upon the above theory.</p>
 <p>We need the maximum value of the appropriate (i.e. dependent on our polynomial degree) degree derivative over the interval:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{align*}
+\[\begin{split}
+\begin{align*}
 N &amp; = 0: \;\;\;\; &amp; \max_{x\in(a,b)}f'(x) &amp; = \left. 3x^2 \right|_{x = 3.5} = 36.75,\\[15pt]
 N &amp; = 1: \;\;\;\; &amp; \max_{x\in(a,b)}f''(x) &amp; = \left. 6x \right|_{x = 3.5} = 21,\\[15pt]
 N &amp; = 2: \;\;\;\; &amp; \max_{x\in(a,b)}f'''(x) &amp; =  6, \\[15pt]
 N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0. 
-\end{align*}\end{split}\]</div>
+\end{align*}
+\end{split}\]</div>
 <p>Let’s now evaluate the actual error between the function and the interpolating polynomials and see how well these error estimates agree, or bound this error.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2219,12 +2234,14 @@ I_N := \int_a^b\,P_N(x)\,dx  \approx I,
 \[ \Psi_N(x) := \prod^N_{i=0} (x - x_i) = (x-x_0)(x-x_1)\cdots(x-x_N). \]</div>
 <p>This means that our quadrature error satisfies</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{align*}
+\[\begin{split}
+\begin{align*}
 E_N 
 &amp;= I - I_N = \int_{a}^{b} f\left ( x \right )\, dx - \int_a^b\,P_N\left ( x \right )\,dx \\[5pt]
 &amp;= \int_{a}^{b} f\left ( x \right ) - P_N\left ( x \right ) \, dx\\[5pt] 
 &amp;= \int_{a}^{b} R_N\left ( x \right )\, dx.
-\end{align*}\end{split}\]</div>
+\end{align*}
+\end{split}\]</div>
 <section id="trapezoidal-rule-error-one-interval">
 <h4>Trapezoidal rule error (one interval)<a class="headerlink" href="#trapezoidal-rule-error-one-interval" title="Permalink to this heading">#</a></h4>
 <p>The trapezoidal rule follows from taking <span class="math notranslate nohighlight">\(N=1\)</span> in which case we have the interpolation error over the interval <span class="math notranslate nohighlight">\([a,b]\)</span>:</p>
@@ -2232,7 +2249,8 @@ E_N
 \[R_1(x) = (x - a) (x - b) \frac{f''(c_x)}{2},\]</div>
 <p>for some <span class="math notranslate nohighlight">\(c_x\in[a,b]\)</span>, and thus</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{align*}
+\[\begin{split}
+\begin{align*}
 E_T \equiv E_1 
 &amp; = \int_a^b (x - a) (x - b) \frac{f''(c_x)}{2} \,dx \\[5pt]
 &amp; = \frac{f''(c_x)}{2}  \int_a^b (x - a) (x - b) \,dx \\[5pt]
@@ -2243,7 +2261,8 @@ E_T \equiv E_1
 &amp; = \frac{f''(c_x)}{12}  \left(2 (b^3 - a^3) - 3(b^3 - a^3 +ab^2-a^2b)+ 6ab^2 - 6a^2b \right)\\[5pt]
 &amp; = \frac{f''(c_x)}{12}  \left( a^3 - 3a^2b + 3ab^2 -b^3 \right)\\[5pt]
 &amp; = -\frac{(b-a)^3}{12} f''(c_x).
-\end{align*}\end{split}\]</div>
+\end{align*}
+\end{split}\]</div>
 </section>
 <section id="id4">
 <h4>Observations<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
@@ -2273,14 +2292,17 @@ E_T \equiv E_1
 \[ E_T^n \equiv E_1^n = -\sum_{i=0}^{n-1}\, \frac{(x_{i+1}-x_i)^3}{12} f''\left(c_{x_i}\right), \]</div>
 <p>for some <span class="math notranslate nohighlight">\(c_{x_i}\in[x_i,x_{i+1}]\)</span>.</p>
 <p>If we assume uniform intervals then <span class="math notranslate nohighlight">\(x_{i+1}-x_i = \Delta x\)</span> and <span class="math notranslate nohighlight">\(n \Delta x = (b-a)\)</span>, and so we can rewrite this as</p>
-<p>\begin{align*}
-E_1^n &amp; = -\sum_{i=0}^{n-1}, \frac{(x_{i+1}-x_i)^3}{12} f’’\left(c_{x_i}\right) \[5pt]
-&amp; = - \sum_{i=0}^{n-1}, \frac{\Delta x^3}{12} f’’\left(c_{x_i}\right) \[5pt]
-&amp; = - \frac{\Delta x^3}{12} \sum_{i=0}^{n-1},f’’\left(c_{x_i}\right) \[5pt]
-&amp; = - \frac{\Delta x^2}{12} ,\Delta x, \sum_{i=0}^{n-1},f’’\left(c_{x_i}\right) \[5pt]
-&amp; = - \frac{\Delta x^2}{12} ,\frac{(b-a)}{n}, \sum_{i=0}^{n-1},f’’\left(c_{x_i}\right) \[5pt]
-&amp;= -\frac{1}{12} \Delta x^2 (b-a) \frac{1}{n} \sum_{i=0}^{n-1},  f’’\left(c_{x_i}\right).
-\end{align*}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*} 
+E_1^n &amp; = -\sum_{i=0}^{n-1}\, \frac{(x_{i+1}-x_i)^3}{12} f''\left(c_{x_i}\right) \\[5pt]
+&amp; = - \sum_{i=0}^{n-1}\, \frac{\Delta x^3}{12} f''\left(c_{x_i}\right) \\[5pt]
+&amp; = - \frac{\Delta x^3}{12} \sum_{i=0}^{n-1}\,f''\left(c_{x_i}\right) \\[5pt]
+&amp; = - \frac{\Delta x^2}{12} \,\Delta x\, \sum_{i=0}^{n-1}\,f''\left(c_{x_i}\right) \\[5pt]
+&amp; = - \frac{\Delta x^2}{12} \,\frac{(b-a)}{n}\, \sum_{i=0}^{n-1}\,f''\left(c_{x_i}\right) \\[5pt]
+&amp;= -\frac{1}{12} \Delta x^2 (b-a) \frac{1}{n} \sum_{i=0}^{n-1}\,  f''\left(c_{x_i}\right).
+\end{align*}
+\end{split}\]</div>
 <p>We can interpret the <span class="math notranslate nohighlight">\((1/n)\sum_{i=0}^{n-1}\,  f''\left(c_{x_i}\right)\)</span> term, where <span class="math notranslate nohighlight">\(c_{x_i}\)</span> for each <span class="math notranslate nohighlight">\(i\)</span> is some unknown value within each subinterval, as being a kind of average value for the second-derivative over our <em>full</em> interval <span class="math notranslate nohighlight">\([a,b]\)</span>, and as <span class="math notranslate nohighlight">\(n\)</span> is increased it converges to the average value (basically because there is a tighter and tighter constraint on each of the unknown <span class="math notranslate nohighlight">\(c_{x_i}\)</span> values).</p>
 <p>This expression then indeed proves that the Trapezoidal rule is second-order accurate in the interval size <span class="math notranslate nohighlight">\(\Delta x\)</span> (or equivalently the number of subintervals).</p>
 <p>Note that we can turn this error estimate into an <em>error bound</em> by replacing the average value of the second-derivative with its maximum absolute value (an average of as set always being less than or equal to its maximum absolute value):</p>
@@ -2327,11 +2349,14 @@ E_1^n &amp; = -\sum_{i=0}^{n-1}, \frac{(x_{i+1}-x_i)^3}{12} f’’\left(c_{x_i}
 <p>What we’re doing here is using the fact that we know something about (the <em>leading order</em> behaviour of the) two errors, and we can therefore combine them to cancel this error to a certain extent.</p>
 <p>This estimate will generally be more accurate than either <span class="math notranslate nohighlight">\(M\)</span> or <span class="math notranslate nohighlight">\(T\)</span> alone. The error won’t actually be zero in general as we’re only cancelling out the leading order term in the error, but a consequence is that we will be left with higher-degree terms in the error expansion of the new quadrature rule which should be smaller (at least in the asymptotic limit), and converge faster.</p>
 <p>The resulting quadrature method in this case is known as <a class="reference external" href="http://en.wikipedia.org/wiki/Simpson%27s_rule">Simpson’s rule</a>:</p>
-<p>\begin{align*}
-I_S &amp;:= \frac{2}{3}I_M + \frac{1}{3}I_T \[5pt]
-&amp;= \frac{2}{3}  (b-a)f\left ( \frac{a+b}{2}\right ) + \frac{1}{3}(b-a)\frac{(f(a) + f(b))}{2} \[5pt]
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+I_S &amp;:= \frac{2}{3}I_M + \frac{1}{3}I_T \\[5pt]
+&amp;= \frac{2}{3}  (b-a)f\left ( \frac{a+b}{2}\right ) + \frac{1}{3}(b-a)\frac{(f(a) + f(b))}{2} \\[5pt]
 &amp; = \frac{(b-a)}{6}\left( f \left ( a\right ) + 4f \left ( c\right ) + f\left ( b\right )\right),
-\end{align*}</p>
+\end{align*}
+\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are the end points of an interval and <span class="math notranslate nohighlight">\(c = \left ( a+b\right )/2\)</span> is the midpoint.</p>
 <p>Note that an alternate derivation of the same rule involves fitting a <em>quadratic function</em> (i.e. <span class="math notranslate nohighlight">\(P_2(x)\)</span> rather than the constant and linear approximations already considered) that interpolates the integral at the two end points of the interval, <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, as well as at the midpoint, <span class="math notranslate nohighlight">\(c = \left ( a+b\right )/2\)</span>, and calculating the integral under that polynomial approximation.</p>
 <p>See the homework exercise, and note that we’ll come back to this idea a bit later when we introduce the Newton-Cotes family of quadrature rules.</p>
@@ -2402,11 +2427,14 @@ I_S &amp;:= \frac{2}{3}I_M + \frac{1}{3}I_T \[5pt]
 <section id="the-composite-version-of-simpson-s-rule">
 <h3>The composite version of Simpson’s Rule<a class="headerlink" href="#the-composite-version-of-simpson-s-rule" title="Permalink to this heading">#</a></h3>
 <p>If we assume that our interval <span class="math notranslate nohighlight">\([a,b]\)</span> has been split up into <span class="math notranslate nohighlight">\(n\)</span> intervals (or <span class="math notranslate nohighlight">\(n+1\)</span> data points) we can save some function evaluations by writing Simpson’s Rule in the following form (note here we do not introduce any additional midpoint function evaluations)</p>
-<p>\begin{align*}
-I_{S}
-&amp; = \frac{\Delta x}{3}\left[ f \left ( x_0\right ) + 4f \left ( x_1\right ) + 2f\left ( x_2\right ) + 4f \left ( x_3\right ) + \cdots + 2 f \left ( x_{n-2}\right )  + 4 f \left ( x_{n-1}\right ) +  f \left ( x_{n}\right ) \right]\[5pt]
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+I_{S} 
+&amp; = \frac{\Delta x}{3}\left[ f \left ( x_0\right ) + 4f \left ( x_1\right ) + 2f\left ( x_2\right ) + 4f \left ( x_3\right ) + \cdots + 2 f \left ( x_{n-2}\right )  + 4 f \left ( x_{n-1}\right ) +  f \left ( x_{n}\right ) \right]\\[5pt]
 &amp; = \frac{\Delta x}{3}\left[ f \left ( x_0\right ) + 2\sum_{i=1}^{n/2 - 1} f\left(x_{2i}\right) + 4\sum_{i=1}^{n/2} f\left(x_{2i-1}\right)  +  f \left ( x_{n}\right ) \right].
-\end{align*}</p>
+\end{align*}
+\end{split}\]</div>
 <p>This is known as the <a class="reference external" href="http://en.wikipedia.org/wiki/Simpson%27s_rule#Composite_Simpson.27s_rule">Composite Simpson’s rule</a>,
 or more precisely the <em>composite Simpson’s 1/3 rule</em>.</p>
 <p>This is the version of Simpson’s rule implemented by Scipy <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.simps.html"><code class="docutils literal notranslate"><span class="pre">scipy.interpolate.simps</span></code></a>.</p>
@@ -2521,15 +2549,18 @@ or more precisely the <em>composite Simpson’s 1/3 rule</em>.</p>
 <section id="simpson-s-rule-error-star">
 <h3>Simpson’s rule error [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#simpson-s-rule-error-star" title="Permalink to this heading">#</a></h3>
 <p>We can go through the exact same mathematical steps as for the trapezoidal rule above to compute the error in Simpson’s rule applied over the full interval <span class="math notranslate nohighlight">\([a,b]\)</span> (i.e. the error over a single interval):</p>
-<p>\begin{align*}
-E_S
-&amp;= I - I_2 \[5pt]
-&amp;= \int_{a}^{b} , f\left ( x \right ), dx - \int_a^b,P_2\left ( x \right ),dx \[5pt]
-&amp;= \int_{a}^{b} , f\left ( x \right ) - P_2\left ( x \right ) , dx\[5pt]
-&amp;= \int_{a}^{b} , R_2\left ( x \right ), dx \[5pt]
-&amp;\vdots \[5pt]
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+E_S 
+&amp;= I - I_2 \\[5pt]
+&amp;= \int_{a}^{b} \, f\left ( x \right )\, dx - \int_a^b\,P_2\left ( x \right )\,dx \\[5pt]
+&amp;= \int_{a}^{b} \, f\left ( x \right ) - P_2\left ( x \right ) \, dx\\[5pt] 
+&amp;= \int_{a}^{b} \, R_2\left ( x \right )\, dx \\[5pt] 
+&amp;\vdots \\[5pt]
 &amp;=-\frac{1}{90}\left(\frac{b-a}{2}\right)^5 f^{(4)}\left(c_x\right).
-\end{align*}</p>
+\end{align*}
+\end{split}\]</div>
 <p>[Remember that a superscipt number in brackets indicates a derivative - here the fourth derivative of <span class="math notranslate nohighlight">\(f\)</span>.]</p>
 <p>Note this isn’t a mistake - we have gained one order of accuracy over what might have been expected due to cancellation of the leading order term.</p>
 <p>This is <em>a</em> reason for the popularity of Simpson’s rule.</p>
@@ -2556,12 +2587,15 @@ E_S
 \[I_W - I_S = 16 \left ( I_W - I_{S_2} \right ),\]</div>
 <p>for <span class="math notranslate nohighlight">\(I_W\)</span>.</p>
 <p>A bit of manipulation:</p>
-<p>\begin{align*}
-&amp; ;;; I_W - I_S = 16 \left ( I_W - I_{S_2} \right ) \[5pt]
-\implies &amp; ;;; I_W - I_S = 16 I_W - 16 I_{S_2} \[5pt]
-\implies &amp; ;;; 15 I_W  = 16 I_{S_2} - I_S \[5pt]
-\implies &amp; ;;; 15 I_W  = 15 I_{S_2} + (I_{S_2} - I_S) ,
-\end{align*}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+&amp; \;\;\; I_W - I_S = 16 \left ( I_W - I_{S_2} \right ) \\[5pt]
+\implies &amp; \;\;\; I_W - I_S = 16 I_W - 16 I_{S_2} \\[5pt]
+\implies &amp; \;\;\; 15 I_W  = 16 I_{S_2} - I_S \\[5pt]
+\implies &amp; \;\;\; 15 I_W  = 15 I_{S_2} + (I_{S_2} - I_S) ,
+\end{align*}
+\end{split}\]</div>
 <p>leads us to the expression</p>
 <div class="math notranslate nohighlight">
 \[ I_W = I_{S_2} + \frac {\left (I_{S_2} - I_S \right )}{15}.\]</div>
@@ -2594,11 +2628,14 @@ E_S
 \[\begin{split}\ell_i(x) := \prod_{\begin{smallmatrix}0\le m\le N\\ m\neq i\end{smallmatrix}} \frac{x-x_m}{x_i-x_m} = \frac{(x-x_0)}{(x_i-x_0)} \cdots \frac{(x-x_{i-1})}{(x_i-x_{i-1})} \frac{(x-x_{i+1})}{(x_i-x_{i+1})} \cdots \frac{(x-x_N)}{(x_i-x_N)},\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(0\le i\le N\)</span>.</p>
 <p>An approximation to our integral is then given by</p>
-<p>\begin{align*}
-I &amp;\approx \int_a^b,P_N(x),dx,\[10pt]
-&amp;= \sum_{i=0}^{N}, \left[,f(x_i) \int_a^b, \ell_i(x), dx\right],\[10pt]
-&amp;=\sum_{i=0}^{N}, A_i , f(x_i),
-\end{align*}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+I &amp;\approx \int_a^b\,P_N(x)\,dx,\\[10pt]
+&amp;= \sum_{i=0}^{N}\, \left[\,f(x_i) \int_a^b\, \ell_i(x)\, dx\right],\\[10pt]
+&amp;=\sum_{i=0}^{N}\, A_i \, f(x_i),
+\end{align*}
+\end{split}\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight">
 \[ A_i := \int_a^b\, \ell_i(x)\, dx, \;\;\;\; i = 0,1,\ldots,N. \]</div>
@@ -2611,22 +2648,31 @@ I &amp;\approx \int_a^b,P_N(x),dx,\[10pt]
 \[\ell_0(x) = \frac{x-x_1}{x_0-x_1}= \frac{x-b}{a-b}, \;\;\;\;\;\;\;\;
 \ell_1(x) = \frac{x-x_0}{x_1-x_0} = \frac{x-a}{b-a},\]</div>
 <p>with integrals</p>
-<p>\begin{align*}
-A_0 &amp; := \int_a^b, \ell_0(x), dx =  \frac{1}{a-b}\int_a^b, (x-b), dx  \[5pt]
-&amp;= \frac{1}{a-b}\left[\frac{x^2}{2} - b x\right]_a^b = \frac{1}{a-b} \left[\frac{b^2 - a^2}{2} - b (b-a)\right] \[5pt]
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+A_0 &amp; := \int_a^b\, \ell_0(x)\, dx =  \frac{1}{a-b}\int_a^b\, (x-b)\, dx  \\[5pt]
+&amp;= \frac{1}{a-b}\left[\frac{x^2}{2} - b x\right]_a^b = \frac{1}{a-b} \left[\frac{b^2 - a^2}{2} - b (b-a)\right] \\[5pt]
 &amp;= -\frac 12 (a+b) + b = \frac{b-a}2,
-\end{align*}</p>
+\end{align*}
+\end{split}\]</div>
 <p>and</p>
-<p>\begin{align*}
-A_1 &amp; := \int_a^b, \ell_1(x), dx =  \frac{1}{b-a}\int_a^b, (x-a), dx  \[5pt]
-&amp;= \frac{1}{b-a}\left[\frac{x^2}{2} - a x\right]_a^b = \frac{1}{b-a} \left[\frac{b^2 - a^2}{2} -a (b-a)\right] \[5pt]
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+A_1 &amp; := \int_a^b\, \ell_1(x)\, dx =  \frac{1}{b-a}\int_a^b\, (x-a)\, dx  \\[5pt]
+&amp;= \frac{1}{b-a}\left[\frac{x^2}{2} - a x\right]_a^b = \frac{1}{b-a} \left[\frac{b^2 - a^2}{2} -a (b-a)\right] \\[5pt]
 &amp;= \frac 12 (b+a) - a = \frac{b-a}2,
-\end{align*}</p>
+\end{align*}
+\end{split}\]</div>
 <p>and so our quadrature rule over a single interval can be written as</p>
-<p>\begin{align*}
-I \approx \sum_{i=0}^{1}, A_i , f(x_i) =
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+I \approx \sum_{i=0}^{1}\, A_i \, f(x_i) = 
 A_0 f(a) + A_1 f(b) = (b - a)\frac{(f(a) + f(b))}{2},
-\end{align*}</p>
+\end{align*}
+\]</div>
 <p>which we indeed recognise as the Trapezoidal scheme from earlier.</p>
 </section>
 <section id="n-2-simpson-s-rule">
@@ -2776,9 +2822,12 @@ I - I_{S_2} \approx \frac {\left(I_{S_2} - I_{S} \right)}{15},
 <section id="gaussian-quadrature-star-star">
 <h2>Gaussian quadrature  [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#gaussian-quadrature-star-star" title="Permalink to this heading">#</a></h2>
 <p>The quadrature rules introduced above all had the form</p>
-<p>\begin{align*}
-I = \int_a^b,f(x),dx \approx \sum_{i=0}^{N}, A_i , f(x_i),
-\end{align*}</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+I = \int_a^b\,f(x)\,dx \approx \sum_{i=0}^{N}\, A_i \, f(x_i),
+\end{align*}
+\]</div>
 <p>where the <em>nodes</em> (or <em>abscissas</em>) <span class="math notranslate nohighlight">\(x_i\)</span> were fixed in advance (e.g. uniformly spaced with Newton-Cotes), and with the weights <span class="math notranslate nohighlight">\(A_i\)</span> then chosen such that polynomials up to a certain order could be integrated exactly.</p>
 <p>In particular, for Newton-Cotes we used Lagrange interpolation such that with our <span class="math notranslate nohighlight">\(N+1\)</span> free parameters, <span class="math notranslate nohighlight">\(A_i\)</span>, we were able to integrate exactly polynomials of order <em>N</em> (or order <span class="math notranslate nohighlight">\(N+1\)</span> in the case of even <span class="math notranslate nohighlight">\(N\)</span>).</p>
 <p>The idea behind Gaussian quadrature is to start from the same formula as above, but to consider both the weights <strong>and the nodes</strong> as free parameters with which to formulate quadrature rules.</p>
@@ -2810,12 +2859,14 @@ I = \int_a^b,f(x),dx \approx \sum_{i=0}^{N}, A_i , f(x_i),
 \[RHS = \sum_{i=0}^{N}\, A_i \, x_i^1 = A_0x_0 + A_1x_1, \]</div>
 <p>and so on, to yield the four simultaneous equations for our four free parameters <span class="math notranslate nohighlight">\(\{x_0, x_1, A_0, A_1\}\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{align*}
+\[\begin{split}
+\begin{align*}
 j &amp; = 0  &amp; A_0 + A_2 &amp; = 2 \\[5pt]
 j &amp; = 1  &amp; A_0 x_0 + A_2 x_1 &amp; = 0 \\[5pt]
 j &amp; = 2  &amp; A_0 x_0^2 + A_2 x_1^2 &amp; = \frac{2}{3}\\[5pt]
 j &amp; = 3  &amp; A_0 x_0^3 + A_2 x_1^3 &amp; = 0,
-\end{align*}\end{split}\]</div>
+\end{align*}
+\end{split}\]</div>
 <p>which we can solve to yield:</p>
 <div class="math notranslate nohighlight">
 \[x_0 = -\frac{1}{\sqrt{3}}, \;\;\; x_1 = \frac{1}{\sqrt{3}}, \;\;\;

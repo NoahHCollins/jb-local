@@ -709,12 +709,15 @@ taking <span class="math notranslate nohighlight">\(N=0\)</span> (as the midpoin
 <div class="math notranslate nohighlight">
 \[R_0(x) = \left(x - \frac{1}{2}(a+b)\right) {f'(c_x)}.\]</div>
 <p>Our Midpoint rule quadrature error over a single interval <span class="math notranslate nohighlight">\([a,b]\)</span> could then be estimated via</p>
-<p>\begin{align*}
-E_M \equiv E_0 = I - I_0
-&amp;= \int_{a}^{b} f\left ( x \right ), dx - \int_a^b,P_0\left ( x \right ),dx \[5pt]
-&amp;= \int_{a}^{b} f\left ( x \right ) - P_0\left ( x \right ) , dx\[5pt]
-&amp;= \int_{a}^{b} R_0\left ( x \right ), dx.
-\end{align*}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+E_M \equiv E_0 = I - I_0 
+&amp;= \int_{a}^{b} f\left ( x \right )\, dx - \int_a^b\,P_0\left ( x \right )\,dx \\[5pt]
+&amp;= \int_{a}^{b} f\left ( x \right ) - P_0\left ( x \right ) \, dx\\[5pt] 
+&amp;= \int_{a}^{b} R_0\left ( x \right )\, dx.
+\end{align*}
+\end{split}\]</div>
 <p>Substitute in the above expression for <span class="math notranslate nohighlight">\(R_0(x)\)</span> and demonstrate that this leading order term in the error expansion is indeed zero.</p>
 <p>Once you’ve convinced yourself of this I suggest take a look at my derivation of the error bound in the sample solution which involves taking the next order term in the Taylor series expansion about the midpoint of an interval.</p>
 </section>
@@ -726,16 +729,21 @@ E_M \equiv E_0 = I - I_0
 <p>Do this.</p>
 <br>
 <p><strong>Hint:</strong> Note that following the derivation of the Trapezoidal rule from lectures you will need to evaluate integrals of the form</p>
-<p>\begin{align*}
-A_0 &amp;= \int_{x_0}^{x_2}, \ell_0(x), dx \[5pt]
-&amp; = \frac{1}{(x_0-x_1)(x_0-x_2)}\int_{x_0}^{x_2}, (x-x_1)(x - x_2) , dx.
-\end{align*}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+A_0 &amp;= \int_{x_0}^{x_2}\, \ell_0(x)\, dx \\[5pt]
+&amp; = \frac{1}{(x_0-x_1)(x_0-x_2)}\int_{x_0}^{x_2}\, (x-x_1)(x - x_2) \, dx.
+\end{align*}
+\end{split}\]</div>
 <p>This integral is much easier to do if you introduce the new variable (i.e. a <a class="reference external" href="https://en.wikipedia.org/wiki/Integration_by_substitution">change of variables</a>) <span class="math notranslate nohighlight">\(\xi\)</span> such that <span class="math notranslate nohighlight">\(d\xi = dx\)</span> and <span class="math notranslate nohighlight">\(\xi=0\)</span> corresponds to <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(\xi = -h\)</span> corresponds to <span class="math notranslate nohighlight">\(x_0\)</span> and <span class="math notranslate nohighlight">\(\xi = h\)</span> corresponds to <span class="math notranslate nohighlight">\(x_2\)</span>. Note therefore that the interval size <span class="math notranslate nohighlight">\(x_2-x_0 = 2h\)</span>.</p>
 <p>Your integral then becomes</p>
-<p>\begin{align*}
-A_0 &amp; = \frac{1}{(x_0-x_1)(x_0-x_2)}\int_{x_0}^{x_2}, (x-x_1)(x - x_2) , dx \[5pt]
-&amp; = \frac{1}{(-h)(-2h)}\int_{-h}^{h}, \xi(\xi - h) , d\xi = \ldots = \frac{h}{3}.
-\end{align*}</p>
+<p>$<span class="math notranslate nohighlight">\(
+\begin{align*}
+A_0 &amp; = \frac{1}{(x_0-x_1)(x_0-x_2)}\int_{x_0}^{x_2}\, (x-x_1)(x - x_2) \, dx \\[5pt]
+&amp; = \frac{1}{(-h)(-2h)}\int_{-h}^{h}\, \xi(\xi - h) \, d\xi = \ldots = \frac{h}{3}.
+\end{align*}
+\)</span>$s</p>
 <p>Fill in the gaps and do the other integrals to complete the derivation.</p>
 </section>
 <section id="homework-open-vs-closed-newton-cotes-star-star">

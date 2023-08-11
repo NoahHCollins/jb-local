@@ -441,12 +441,15 @@ document.write(`
 \[ P_N(x) = a_0 +(x-x_0)a_1 + (x-x_0)(x-x_1)a_2 + \cdots + (x-x_0)(x-x_1)\ldots(x-x_{N-1})a_N,\]</div>
 <p>where <span class="math notranslate nohighlight">\(a_0, a_1, \ldots, a_N\)</span> are our <span class="math notranslate nohighlight">\(N+1\)</span> free parameters we need to find using the <span class="math notranslate nohighlight">\(N+1\)</span> pieces of information we have in the given data.</p>
 <p>We introduced the divided difference notation</p>
-<p>\begin{alignat*}{2}
-\Delta y_i &amp;= \frac{y_i-y_0}{x_i-x_0},;;    &amp;&amp; i=1,2,\ldots, N,\[10pt]
-\Delta^2 y_i &amp;= \frac{\Delta y_i-\Delta y_1}{x_i-x_1},;;    &amp;&amp; i=2, 3,\ldots, N,\[10pt]
-&amp;\vdots\[5pt]
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{alignat*}{2}
+\Delta y_i &amp;= \frac{y_i-y_0}{x_i-x_0},\;\;    &amp;&amp; i=1,2,\ldots, N,\\[10pt]
+\Delta^2 y_i &amp;= \frac{\Delta y_i-\Delta y_1}{x_i-x_1},\;\;    &amp;&amp; i=2, 3,\ldots, N,\\[10pt]
+&amp;\vdots\\[5pt]
 \Delta^N y_N &amp;= \frac{\Delta^{N-1} y_N-\Delta^{N-1} y_{N-1}}{x_N-x_{N-1}},
-\end{alignat*}</p>
+\end{alignat*}
+\end{split}\]</div>
 <p>and saw that the unknown coefficients <span class="math notranslate nohighlight">\(a\)</span> are given by</p>
 <div class="math notranslate nohighlight">
 \[a_0=y_0,\;\;\;\;\; a_1 = \Delta y_1, \;\;\;\;\; a_2 = \Delta^2 y_2, \;\;\;\;\; \ldots \;\;\;\;\; a_N = \Delta^N y_N.\]</div>
@@ -764,7 +767,7 @@ are defined as</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc56829f880&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f241bbe18e0&gt;
 </pre></div>
 </div>
 <img alt="../_images/3b357ba2b4c19ef78ed77a209ba777f6bcc2677173c01155e0a450d0d3ad2fe8.png" src="../_images/3b357ba2b4c19ef78ed77a209ba777f6bcc2677173c01155e0a450d0d3ad2fe8.png" />
@@ -1610,12 +1613,15 @@ taking <span class="math notranslate nohighlight">\(N=0\)</span> (as the midpoin
 <div class="math notranslate nohighlight">
 \[R_0(x) = \left(x - \frac{1}{2}(a+b)\right) {f'(c_x)}.\]</div>
 <p>Our Midpoint rule quadrature error over a single interval <span class="math notranslate nohighlight">\([a,b]\)</span> could then be estimated via</p>
-<p>\begin{align*}
-E_M \equiv E_0 = I - I_0
-&amp;= \int_{a}^{b} f\left ( x \right ), dx - \int_a^b,P_0\left ( x \right ),dx \[5pt]
-&amp;= \int_{a}^{b} f\left ( x \right ) - P_0\left ( x \right ) , dx\[5pt]
-&amp;= \int_{a}^{b} R_0\left ( x \right ), dx.
-\end{align*}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+E_M \equiv E_0 = I - I_0 
+&amp;= \int_{a}^{b} f\left ( x \right )\, dx - \int_a^b\,P_0\left ( x \right )\,dx \\[5pt]
+&amp;= \int_{a}^{b} f\left ( x \right ) - P_0\left ( x \right ) \, dx\\[5pt] 
+&amp;= \int_{a}^{b} R_0\left ( x \right )\, dx.
+\end{align*}
+\end{split}\]</div>
 <p>Substitute in the above expression for <span class="math notranslate nohighlight">\(R_0(x)\)</span> and demonstrate that this leading order term in the error expansion is indeed zero.</p>
 <p>Once you’ve convinced yourself of this I suggest take a look at my derivation of the error bound in the sample solution which involves taking the next order term in the Taylor series expansion about the midpoint of an interval.</p>
 <section id="solution-midpoint-rule-error">
@@ -1624,15 +1630,18 @@ E_M \equiv E_0 = I - I_0
 <div class="math notranslate nohighlight">
 \[R_0(x) = \left(x - \frac{1}{2}(a+b)\right) {f'(c_x)}.\]</div>
 <p>But we encounter a problem if we progress as for the Trapezoidal scheme and integrate this to find the quadrature error</p>
-<p>\begin{align*}
-E_M \equiv E_0
-&amp; = \int_a^b \left(x - \frac{1}{2}(a+b)\right) {f’(c_x)} ,dx \[5pt]
-&amp; = {f’(c_x)}  \int_a^b \left(x - \frac{1}{2}(a+b)\right) ,dx \[5pt]
-&amp; = {f’(c_x)}  \left[\frac{1}{2}x^2 - \frac{(a+b)}{2}x \right]_a^b\[5pt]
-&amp; = {f’(c_x)}  \left[ \frac{1}{2}b^2 - \frac{(a+b)}{2}b -  \frac{1}{2}a^2 + \frac{(a+b)}{2}a \right]\[5pt]
-&amp; = {f’(c_x)}  \left[ \frac{1}{2}b^2 - \frac{ab}{2} - \frac{b^2}{2} -  \frac{1}{2}a^2 + \frac{a^2}{2} + \frac{ab}{2} \right]\[5pt]
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+E_M \equiv E_0 
+&amp; = \int_a^b \left(x - \frac{1}{2}(a+b)\right) {f'(c_x)} \,dx \\[5pt]
+&amp; = {f'(c_x)}  \int_a^b \left(x - \frac{1}{2}(a+b)\right) \,dx \\[5pt]
+&amp; = {f'(c_x)}  \left[\frac{1}{2}x^2 - \frac{(a+b)}{2}x \right]_a^b\\[5pt]
+&amp; = {f'(c_x)}  \left[ \frac{1}{2}b^2 - \frac{(a+b)}{2}b -  \frac{1}{2}a^2 + \frac{(a+b)}{2}a \right]\\[5pt]
+&amp; = {f'(c_x)}  \left[ \frac{1}{2}b^2 - \frac{ab}{2} - \frac{b^2}{2} -  \frac{1}{2}a^2 + \frac{a^2}{2} + \frac{ab}{2} \right]\\[5pt]
 &amp; = 0
-\end{align*}</p>
+\end{align*}
+\end{split}\]</div>
 <p>The error isn’t actually zero, just the leading order term we considered based upon the Lagrange remainder, when integrated, is zero. This just tells us that the error is one order higher than we might expect (reinforcing what we saw in the lectures). Recall that we noted something similar for Simpson’s rule, and it turns out to be true that we gain an extra order of accuracy with all Newton-Cotes rules based upon fitting an even degree polynomial.</p>
 <p>So actually what we need to do to estimate the error is to consider the next term in the Taylor series expansion.</p>
 <p>If you’re feeling brave you could also attempt this using a Taylor series about the midpoint: <span class="math notranslate nohighlight">\(c:=(a+b)/2\)</span></p>
@@ -1645,25 +1654,31 @@ E_M \equiv E_0
 <div class="math notranslate nohighlight">
 \[f(x) = f(c) + (x-c)f'(c) + \frac{1}{2!}(x-c)^2f''(c) + \frac{1}{3!}(x-c)^3f'''(c) + \ldots\]</div>
 <p>In which case, as the polynomial <span class="math notranslate nohighlight">\(P_0\left ( x \right )\)</span> in this case is constant and equal to <span class="math notranslate nohighlight">\(f(c)\)</span>, we have</p>
-<p>\begin{align*}
-E_M<br />
-&amp;= \int_{a}^{b} f\left ( x \right ), dx - \int_a^b,P_0\left ( x \right ),dx \[5pt]
-&amp;= \int_{a}^{b} f\left ( x \right ) - f(c) , dx\[5pt]
-&amp;= \int_{a}^{b}  \left( (x-c),f’(c) + \frac{1}{2!}(x-c)^2,f’’(c) + h.o.t \right)  , dx,
-\end{align*}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+E_M  
+&amp;= \int_{a}^{b} f\left ( x \right )\, dx - \int_a^b\,P_0\left ( x \right )\,dx \\[5pt]
+&amp;= \int_{a}^{b} f\left ( x \right ) - f(c) \, dx\\[5pt] 
+&amp;= \int_{a}^{b}  \left( (x-c)\,f'(c) + \frac{1}{2!}(x-c)^2\,f''(c) + h.o.t \right)  \, dx,
+\end{align*}
+\end{split}\]</div>
 <p>now the first term we know from above integrates to zero, <span class="math notranslate nohighlight">\(h.o.t.\)</span> refers to higher order terms we can ignore with some care, and provided the <span class="math notranslate nohighlight">\(f''\)</span> term doesn’t also integrate to zero, which we will now check.</p>
 <p>The second order term integrates as follows:</p>
-<p>\begin{align*}
-E_M<br />
-&amp;\approx \int_{a}^{b}  \frac{1}{2!}(x-c)^2,f’’(c)  , dx \[5pt]
-&amp;= \frac{f’’(c)}{2}\int_{a}^{b} (x-c)^2 , dx \[5pt]
-&amp;= \frac{f’’(c)}{2} \left[ \frac{1}{3}(x-c)^3 \right]_a^b \[5pt]
-&amp;= \frac{f’’(c)}{6} \left[ (b-c)^3 - (a-c)^3 \right] \[5pt]
-&amp;= \frac{f’’(c)}{6} \left[ \left( \frac{1}{2}(b-a) \right)^3 - \left( \frac{1}{2}(a-b) \right)^3 \right] \[5pt]
-&amp;= \frac{f’’(c)}{48} \left[ (b-a)^3 - (a-b)^3 \right] \[5pt]
-&amp;= \frac{f’’(c)}{48} \left[ (b-a)^3 + (b-a)^3 \right] \[5pt]
-&amp;= \frac{(b-a)^3 }{24}, f’’(c)
-\end{align*}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+E_M  
+&amp;\approx \int_{a}^{b}  \frac{1}{2!}(x-c)^2\,f''(c)  \, dx \\[5pt]
+&amp;= \frac{f''(c)}{2}\int_{a}^{b} (x-c)^2 \, dx \\[5pt]
+&amp;= \frac{f''(c)}{2} \left[ \frac{1}{3}(x-c)^3 \right]_a^b \\[5pt]
+&amp;= \frac{f''(c)}{6} \left[ (b-c)^3 - (a-c)^3 \right] \\[5pt]
+&amp;= \frac{f''(c)}{6} \left[ \left( \frac{1}{2}(b-a) \right)^3 - \left( \frac{1}{2}(a-b) \right)^3 \right] \\[5pt]
+&amp;= \frac{f''(c)}{48} \left[ (b-a)^3 - (a-b)^3 \right] \\[5pt]
+&amp;= \frac{f''(c)}{48} \left[ (b-a)^3 + (b-a)^3 \right] \\[5pt]
+&amp;= \frac{(b-a)^3 }{24}\, f''(c)
+\end{align*}
+\end{split}\]</div>
 <p>To account for the potential contributions of the h.o.t. terms we ignored, the Lagrange remainder theorem tells us we just need to evaluate the function (derivative) at some location within the interval we are considering, i.e. we have</p>
 <div class="math notranslate nohighlight">
 \[E_M = \frac{(b-a)^3 }{24}\, f''(c_x),\]</div>
@@ -1682,80 +1697,104 @@ E_M<br />
 <p>Do this.</p>
 <br>
 <p><strong>Hint:</strong> Note that following the derivation of the Trapezoidal rule from lectures you will need to evaluate integrals of the form</p>
-<p>\begin{align*}
-A_0 &amp;= \int_{x_0}^{x_2}, \ell_0(x), dx \[5pt]
-&amp; = \frac{1}{(x_0-x_1)(x_0-x_2)}\int_{x_0}^{x_2}, (x-x_1)(x - x_2) , dx.
-\end{align*}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+A_0 &amp;= \int_{x_0}^{x_2}\, \ell_0(x)\, dx \\[5pt]
+&amp; = \frac{1}{(x_0-x_1)(x_0-x_2)}\int_{x_0}^{x_2}\, (x-x_1)(x - x_2) \, dx.
+\end{align*}
+\end{split}\]</div>
 <p>This integral is much easier to do if you introduce the new variable (i.e. a <a class="reference external" href="https://en.wikipedia.org/wiki/Integration_by_substitution">change of variables</a>) <span class="math notranslate nohighlight">\(\xi\)</span> such that <span class="math notranslate nohighlight">\(d\xi = dx\)</span> and <span class="math notranslate nohighlight">\(\xi=0\)</span> corresponds to <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(\xi = -h\)</span> corresponds to <span class="math notranslate nohighlight">\(x_0\)</span> and <span class="math notranslate nohighlight">\(\xi = h\)</span> corresponds to <span class="math notranslate nohighlight">\(x_2\)</span>. Note therefore that the interval size <span class="math notranslate nohighlight">\(x_2-x_0 = 2h\)</span>.</p>
 <p>Your integral then becomes</p>
-<p>\begin{align*}
-A_0 &amp; = \frac{1}{(x_0-x_1)(x_0-x_2)}\int_{x_0}^{x_2}, (x-x_1)(x - x_2) , dx \[5pt]
-&amp; = \frac{1}{(-h)(-2h)}\int_{-h}^{h}, \xi(\xi - h) , d\xi = \ldots = \frac{h}{3}.
-\end{align*}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+A_0 &amp; = \frac{1}{(x_0-x_1)(x_0-x_2)}\int_{x_0}^{x_2}\, (x-x_1)(x - x_2) \, dx \\[5pt]
+&amp; = \frac{1}{(-h)(-2h)}\int_{-h}^{h}\, \xi(\xi - h) \, d\xi = \ldots = \frac{h}{3}.
+\end{align*}
+\end{split}\]</div>
 <p>Fill in the gaps and do the other integrals to complete the derivation.</p>
 <section id="solution-derive-simpson-s-rule-as-quadratic-fit">
 <h3>Solution - Derive Simpson’s rule as quadratic fit<a class="headerlink" href="#solution-derive-simpson-s-rule-as-quadratic-fit" title="Permalink to this heading">#</a></h3>
 <p>Consider the case <span class="math notranslate nohighlight">\(N=2\)</span> where we have data at two end points of an interval <span class="math notranslate nohighlight">\([a,b]\)</span> as well as the midpoint <span class="math notranslate nohighlight">\(c := \left ( a+b\right )/2\)</span>. To simplify the terminology below call these three points <span class="math notranslate nohighlight">\(x_0\)</span>, <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span>, with <span class="math notranslate nohighlight">\(x_1\)</span> the midpoint <span class="math notranslate nohighlight">\(c\)</span>.</p>
 <p>The three Lagrange basis functions in this case are</p>
-<p>\begin{align*}
-\ell_0(x) &amp;= \frac{(x-x_1)(x - x_2)}{(x_0-x_1)(x_0-x_2)}, \[5pt]
-\ell_1(x) &amp;= \frac{(x-x_0)(x - x_2)}{(x_1-x_0)(x_1-x_2)}, \[5pt]
-\ell_2(x) &amp;= \frac{(x-x_0)(x - x_1)}{(x_2-x_0)(x_2-x_1)}.
-\end{align*}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\ell_0(x) &amp;= \frac{(x-x_1)(x - x_2)}{(x_0-x_1)(x_0-x_2)}, \\[5pt]
+\ell_1(x) &amp;= \frac{(x-x_0)(x - x_2)}{(x_1-x_0)(x_1-x_2)}, \\[5pt]
+\ell_2(x) &amp;= \frac{(x-x_0)(x - x_1)}{(x_2-x_0)(x_2-x_1)}. 
+\end{align*}
+\end{split}\]</div>
 <p>The integral of the first of these is</p>
-<p>\begin{align*}
-A_0 &amp;= \int_{x_0}^{x_2}, \ell_0(x), dx \[5pt]
-&amp; = \frac{1}{(x_0-x_1)(x_0-x_2)}\int_{x_0}^{x_2}, (x-x_1)(x - x_2) , dx.
-\end{align*}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+A_0 &amp;= \int_{x_0}^{x_2}\, \ell_0(x)\, dx \\[5pt]
+&amp; = \frac{1}{(x_0-x_1)(x_0-x_2)}\int_{x_0}^{x_2}\, (x-x_1)(x - x_2) \, dx.
+\end{align*}
+\end{split}\]</div>
 <p>This integral is much easier to do if we introduce the new variable (i.e. a <a class="reference external" href="https://en.wikipedia.org/wiki/Integration_by_substitution">change of variables</a>) <span class="math notranslate nohighlight">\(\xi\)</span> such that <span class="math notranslate nohighlight">\(d\xi = dx\)</span> and <span class="math notranslate nohighlight">\(\xi=0\)</span> corresponds to <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(\xi = -h\)</span> corresponds to <span class="math notranslate nohighlight">\(x_0\)</span> and <span class="math notranslate nohighlight">\(\xi = h\)</span> corresponds to <span class="math notranslate nohighlight">\(x_2\)</span>. Note therefore that the interval size <span class="math notranslate nohighlight">\(x_2-x_0 = 2h\)</span>.</p>
 <p>Our integral now becomes</p>
-<p>\begin{align*}
-A_0 &amp; = \frac{1}{(x_0-x_1)(x_0-x_2)}\int_{x_0}^{x_2}, (x-x_1)(x - x_2) , dx \[5pt]
-&amp; = \frac{1}{(-h)(-2h)}\int_{-h}^{h}, \xi(\xi - h) , d\xi
-\[5pt]
-&amp; = \frac{1}{2h^2}\left[\frac{\xi^3}{3} - h \frac{\xi^2}{2}\right]_{-h}^{h}
-\[5pt]
-&amp; = \frac{1}{2h^2}\left[\frac{h^3}{3} - h \frac{h^2}{2} - \frac{(-h)^3}{3} + h \frac{(-h)^2}{2}   \right] \[5pt]
-&amp; = \frac{1}{2h^2}\left[\frac{h^3}{3} - \frac{h^3}{2} + \frac{h^3}{3} +  \frac{h^3}{2}   \right]
-\[5pt]
-&amp; = \frac{1}{2h^2}2\frac{h^3}{3} \[5pt]
-&amp; = \frac{h}{3}.
-\end{align*}</p>
-<p>Similarly,</p>
-<p>\begin{align*}
-A_1 &amp;= \int_{x_0}^{x_2}, \ell_1(x), dx \[5pt]
-&amp; = \int_{x_0}^{x_2}, \frac{(x-x_0)(x - x_2)}{(x_1 - x_0)(x_1-x_2)}  , d\xi \[5pt]
-&amp; = \frac{1}{(x_1-x_0)(x_1-x_2)}\int_{x_0}^{x_2}, (\xi + h)(\xi - h) , d\xi\[5pt]
-&amp; = \frac{1}{(h)(-h)}\int_{-h}^{h}, \xi^2 - h^2 , d\xi
-\[5pt]
-&amp; = \frac{1}{-h^2}\left[\frac{\xi^3}{3} - h^2 \xi\right]_{-h}^{h}
-\[5pt]
-&amp; = \frac{1}{-h^2}\left[\frac{h^3}{3} - h^2 h - \frac{(-h)^3}{3} + h^2(-h) \right] \[5pt]
-&amp; = \frac{1}{-h^2}\left[\frac{h^3}{3} - h^3 + \frac{h^3}{3} - h^3 \right] \[5pt]
-&amp; = \frac{1}{-h^2}\frac{-4h^3}{3} \[5pt]
-&amp; = \frac{4h}{3}.
-\end{align*}</p>
-<p>And finally</p>
-<p>\begin{align*}
-A_2 &amp;= \int_{x_0}^{x_2}, \ell_2(x), dx \[5pt]
-&amp; = \int_{x_0}^{x_2}, \frac{(x-x_0)(x - x_1)}{(x_2-x_0)(x_2-x_1)}  , dx \[5pt]
-&amp; = \frac{1}{(x_2-x_0)(x_2-x_1)}\int_{x_0}^{x_2}, (\xi + h)\xi ,d\xi \[5pt]
-&amp; = \frac{1}{(2h)(h)}\int_{-h}^{h}, \xi^2 + h\xi , d\xi
-\[5pt]
-&amp; = \frac{1}{2h^2}\left[\frac{\xi^3}{3} + h \frac{\xi^2}{2}\right]_{-h}^{h}
-\[5pt]
-&amp; = \frac{1}{2h^2}\left[\frac{h^3}{3} + h \frac{h^2}{2} - \frac{(-h)^3}{3} -  h \frac{(-h)^2}{2} \right] \[5pt]
-&amp; = \frac{1}{2h^2}\left[\frac{h^3}{3} +  \frac{h^3}{2} + \frac{h^3}{3} - \frac{h^3}{2} \right] \[5pt]
-&amp; = \frac{1}{2h^2}\frac{2h^3}{3} \[5pt]
-&amp; = \frac{h}{3}.
-\end{align*}</p>
-<p>Therefore,
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{align*}
-I \approx \sum_{i=0}^{2}, A_i , f(x_i)
-&amp;= A_0 f(a) + A_1 f\left( \frac{a+b}{2} \right) + A_2 f(b) \[5pt]
-&amp;=  \frac{h}{3} \left( f(a) + 4 f\left( \frac{a+b}{2} \right) + f(b)  \right)\[5pt]
+A_0 &amp; = \frac{1}{(x_0-x_1)(x_0-x_2)}\int_{x_0}^{x_2}\, (x-x_1)(x - x_2) \, dx \\[5pt]
+&amp; = \frac{1}{(-h)(-2h)}\int_{-h}^{h}\, \xi(\xi - h) \, d\xi 
+\\[5pt]
+&amp; = \frac{1}{2h^2}\left[\frac{\xi^3}{3} - h \frac{\xi^2}{2}\right]_{-h}^{h}
+\\[5pt]
+&amp; = \frac{1}{2h^2}\left[\frac{h^3}{3} - h \frac{h^2}{2} - \frac{(-h)^3}{3} + h \frac{(-h)^2}{2}   \right] \\[5pt]
+&amp; = \frac{1}{2h^2}\left[\frac{h^3}{3} - \frac{h^3}{2} + \frac{h^3}{3} +  \frac{h^3}{2}   \right] 
+\\[5pt]
+&amp; = \frac{1}{2h^2}2\frac{h^3}{3} \\[5pt]
+&amp; = \frac{h}{3}.
+\end{align*}
+\end{split}\]</div>
+<p>Similarly,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+A_1 &amp;= \int_{x_0}^{x_2}\, \ell_1(x)\, dx \\[5pt]
+&amp; = \int_{x_0}^{x_2}\, \frac{(x-x_0)(x - x_2)}{(x_1 - x_0)(x_1-x_2)}  \, d\xi \\[5pt]
+&amp; = \frac{1}{(x_1-x_0)(x_1-x_2)}\int_{x_0}^{x_2}\, (\xi + h)(\xi - h) \, d\xi\\[5pt]
+&amp; = \frac{1}{(h)(-h)}\int_{-h}^{h}\, \xi^2 - h^2 \, d\xi 
+\\[5pt]
+&amp; = \frac{1}{-h^2}\left[\frac{\xi^3}{3} - h^2 \xi\right]_{-h}^{h}
+\\[5pt]
+&amp; = \frac{1}{-h^2}\left[\frac{h^3}{3} - h^2 h - \frac{(-h)^3}{3} + h^2(-h) \right] \\[5pt]
+&amp; = \frac{1}{-h^2}\left[\frac{h^3}{3} - h^3 + \frac{h^3}{3} - h^3 \right] \\[5pt]
+&amp; = \frac{1}{-h^2}\frac{-4h^3}{3} \\[5pt]
+&amp; = \frac{4h}{3}.
+\end{align*}
+\end{split}\]</div>
+<p>And finally</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+A_2 &amp;= \int_{x_0}^{x_2}\, \ell_2(x)\, dx \\[5pt]
+&amp; = \int_{x_0}^{x_2}\, \frac{(x-x_0)(x - x_1)}{(x_2-x_0)(x_2-x_1)}  \, dx \\[5pt]
+&amp; = \frac{1}{(x_2-x_0)(x_2-x_1)}\int_{x_0}^{x_2}\, (\xi + h)\xi \,d\xi \\[5pt]
+&amp; = \frac{1}{(2h)(h)}\int_{-h}^{h}\, \xi^2 + h\xi \, d\xi
+\\[5pt]
+&amp; = \frac{1}{2h^2}\left[\frac{\xi^3}{3} + h \frac{\xi^2}{2}\right]_{-h}^{h}
+\\[5pt]
+&amp; = \frac{1}{2h^2}\left[\frac{h^3}{3} + h \frac{h^2}{2} - \frac{(-h)^3}{3} -  h \frac{(-h)^2}{2} \right] \\[5pt]
+&amp; = \frac{1}{2h^2}\left[\frac{h^3}{3} +  \frac{h^3}{2} + \frac{h^3}{3} - \frac{h^3}{2} \right] \\[5pt]
+&amp; = \frac{1}{2h^2}\frac{2h^3}{3} \\[5pt]
+&amp; = \frac{h}{3}.
+\end{align*}
+\end{split}\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+I \approx \sum_{i=0}^{2}\, A_i \, f(x_i) 
+&amp;= A_0 f(a) + A_1 f\left( \frac{a+b}{2} \right) + A_2 f(b) \\[5pt]
+&amp;=  \frac{h}{3} \left( f(a) + 4 f\left( \frac{a+b}{2} \right) + f(b)  \right)\\[5pt]
 &amp;=  \frac{(b-a)}{6} \left( f(a) + 4 f\left( \frac{a+b}{2} \right) + f(b)  \right)
-\end{align*}</p>
+\end{align*}
+\end{split}\]</div>
 <p>which is Simpson’s rule we derived in another way in the lecture.</p>
 </section>
 </section>
