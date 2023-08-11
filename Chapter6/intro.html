@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>9. Interpolation Quadrature 2 &#8212; Modelling and Numerical Methods</title>
+    <title>6. Potential Flow &#8212; Modelling and Numerical Methods</title>
   
   
   
@@ -61,9 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter6/intro (1)';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter6/intro';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.1 Potential Flow" href="Lecture%206%20-%20Potential%20Flow.html" />
+    <link rel="prev" title="5.1 Dimensions and Dimensional Analysis" href="../Chapter5/Lecture%205%20-%20Dimensions%20and%20Dimensional%20Analysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -189,14 +191,18 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2 - Numerical Solutions</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter7/intro.html">7. Navier-Stokes</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">6. Potential Flow</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Lecture%206%20-%20Potential%20Flow.html">6.1 Potential Flow  <a class="tocSkip"></a></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter7/intro.html">7. Navier-Stokes</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter7/Lecture%207.1%20-%20Navier-Stokes.html">7.1 Solving Navier-Stokes Numerically</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter7/Worksheet.html">Worksheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter7/SolversIntro.html">Solvers</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter8/intro.html">8. Turbulence and Non-Newtonian Flows</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter8/intro.html">8. Turbulence and Non-Newtonian Flows</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter8/Lecture%208.1%20-%20Turbulent%20and%20Non-Newtonian%20Flows.html">8.1 Turbulent and Non-Newtonian Flows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter8/Worksheet.html">Worksheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter8/Solutions.html">Solutions</a></li>
@@ -205,13 +211,13 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 3 - Numerical Techniques</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter9/intro.html">9. Interpolation Quadrature 2</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter9/intro.html">9. Interpolation Quadrature 2</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter9/Lecture%209.1%20-%20interpolation%20quadrature.html">9.1 Interpolation &amp; Quadrature 2 <a class="tocSkip"></a></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter9/Homework.html">Homework <a class="tocSkip"></a></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter9/Solutions.html">Solutions <a class="tocSkip"></a></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter10/intro.html">10. ODE Solvers 2</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter10/intro.html">10. ODE Solvers 2</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter10/Lecture%2010.1%20-%20ODE%20Solver.html">ODE solvers (or time-stepping methods - numerical solution of IVPs) 2 <a class="tocSkip"></a></a></li>
 </ul>
 </li>
@@ -286,7 +292,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FChapter6/intro (1).html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FChapter6/intro.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -316,7 +322,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/Chapter6/intro (1).ipynb" target="_blank"
+      <li><a href="../_sources/Chapter6/intro.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -396,7 +402,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>9. Interpolation Quadrature 2</h1>
+    <h1>6. Potential Flow</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -410,9 +416,14 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="interpolation-quadrature-2">
-<h1>9. Interpolation Quadrature 2<a class="headerlink" href="#interpolation-quadrature-2" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="potential-flow">
+<h1>6. Potential Flow<a class="headerlink" href="#potential-flow" title="Permalink to this heading">#</a></h1>
 <p>Put a table of contents for the lectures here and an overview of topic?</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%206%20-%20Potential%20Flow.html">6.1 Potential Flow  <a class="tocSkip"></a></li>
+</ul>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -446,6 +457,24 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../Chapter5/Lecture%205%20-%20Dimensions%20and%20Dimensional%20Analysis.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">5.1 Dimensions and Dimensional Analysis</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Lecture%206%20-%20Potential%20Flow.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">6.1 Potential Flow  <a class="tocSkip"></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
