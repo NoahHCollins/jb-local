@@ -32,6 +32,7 @@ parts:
     - file: "Chapter5/intro"
       sections:
       - file: "Chapter5/Lecture 5 - Dimensions and Dimensional Analysis"
+      - file: "Chapter5/Worksheet"
   - caption: Part 2 - Numerical Solutions
     chapters:
     - file: "Chapter6/intro"
