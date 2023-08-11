@@ -56,4 +56,5 @@ parts:
       - file: "Chapter9/Homework"
       - file: "Chapter9/Solutions"
     - file: "Chapter10/intro"
+      sections:
       - file: "Chapter10/Lecture 10.1 - ODE Solver"
