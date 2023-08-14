@@ -41,6 +41,7 @@ parts:
       - file: "Chapter6/Lecture 6 - Potential Flow"
       - file: "Chapter6/Worksheet"
       - file: "Chapter6/Solutions"
+    - file: "Chapter7/intro"
       sections:
       - file: "Chapter7/Lecture 7.1 - Navier-Stokes"
       - file: "Chapter7/Worksheet"
