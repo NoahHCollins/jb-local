@@ -33,12 +33,12 @@ parts:
       sections:
       - file: "Chapter5/Lecture 5 - Dimensions and Dimensional Analysis"
       - file: "Chapter5/Worksheet"
+      - file: "Chapter5/Solutions"
   - caption: Part 2 - Numerical Solutions
     chapters:
     - file: "Chapter6/intro"
       sections:
       - file: "Chapter6/Lecture 6 - Potential Flow"
-      - file: "Chapter6/Worksheet"
     - file: "Chapter7/intro"
       sections:
       - file: "Chapter7/Lecture 7.1 - Navier-Stokes"
