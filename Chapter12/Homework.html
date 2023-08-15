@@ -1,0 +1,1199 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Homework &#8212; Modelling and Numerical Methods</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter12/Homework';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Modelling and Numerical Methods
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 1 - Analytical Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter1/intro.html">1. Intro to Vector/Tensor Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/Lecture%201.1%20-%20Intro%20to%20Vectors.html">1.1 Continuum Mechanics and Vector Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/Lecture%201.2%20-%20Vector%20Transformations.html">1.2 Vector Transformations  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/Lecture%201.3%20-%20Intro%20to%20Tensors.html">1.3 Intro to Tensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/exercises.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/solutions.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter2/intro.html">2. Stress Tensor</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/Lecture%202%20-%20Stress%20and%20Tensors.html">2.1 Stress and Tensors  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/exercises2.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/solutions2.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter3/intro.html">3. Kinematics and Strain</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/Lecture%203%20-%20Kinematics.html">3.1 Kinematics   <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/exercises3.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/solutions3.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter4/intro.html">4. Conservation Equations</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/Lecture%204.1%20-%20Conservation%20Equations.html">4.1 Conservation Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/Lecture%204.2%20-%20Rheology.html">4.2 Rheology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/exercises4.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/solutions4.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter5/intro.html">5. Dimensional Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter5/Lecture%205%20-%20Dimensions%20and%20Dimensional%20Analysis.html">5.1 Dimensions and Dimensional Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter5/Worksheet.html">Worksheet  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter5/Solutions.html">Solutions  <a class="tocSkip"></a></a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2 - Numerical Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter6/intro.html">6. Potential Flow</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter6/Lecture%206%20-%20Potential%20Flow.html">6.1 Potential Flow  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter6/Worksheet.html">Worksheet  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter6/Solutions.html">Solutions  <a class="tocSkip"></a></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter7/intro.html">7. Navier-Stokes</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter7/Lecture%207.1%20-%20Navier-Stokes.html">7.1 Solving Navier-Stokes Numerically</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter7/Worksheet.html">Worksheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter7/SolversIntro.html">Solvers</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter8/intro.html">8. Turbulence and Non-Newtonian Flows</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter8/Lecture%208.1%20-%20Turbulent%20and%20Non-Newtonian%20Flows.html">8.1 Turbulent and Non-Newtonian Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter8/Worksheet.html">Worksheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter8/Solutions.html">Solutions</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 3 - Numerical Techniques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter9/intro.html">9. Interpolation Quadrature 2</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter9/Lecture%209.1%20-%20interpolation%20quadrature.html">9.1 Interpolation &amp; Quadrature 2 <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter9/Homework.html">Homework <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter9/Solutions.html">Solutions <a class="tocSkip"></a></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter10/intro.html">10. ODE Solvers 2</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter10/Lecture%2010.1%20-%20ODE%20Solver.html">10.1 ODE solvers 2 <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter10/Homework.html">Homework <a class="tocSkip"></a></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Chapter10/Solutions.html">Solutions <a class="tocSkip"></a></a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter11/intro.html">11. PDE Solvers: Finite Difference Methods 2</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter11/Lecture%2011.1%20-%20PDE%20Solvers.html">Lecture 12.1 PDE Solvers: Finite Difference Methods 2 <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter11/Homework.html">Homework <a class="tocSkip"></a></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Chapter11/Solutions.html">Solutions <a class="tocSkip"></a></a></li>
+
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FChapter12/Homework.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Chapter12/Homework.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Homework <a class="tocSkip"></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="homework-a-class-tocskip">
+<h1>Homework <a class="tocSkip"><a class="headerlink" href="#homework-a-class-tocskip" title="Permalink to this heading">#</a></h1>
+<section id="finite-element-methods-fem-1-a-class-tocskip">
+<h2>Finite element methods (FEM) 1 <a class="tocSkip"><a class="headerlink" href="#finite-element-methods-fem-1-a-class-tocskip" title="Permalink to this heading">#</a></h2>
+<h2>Table of Contents<span class="tocSkip"></span></h2>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Homework" data-toc-modified-id="Homework-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Homework</a></span><ul class="toc-item"><li><span><a href="#Some-more-complex-BVP-solutions-using-the-FEM" data-toc-modified-id="Some-more-complex-BVP-solutions-using-the-FEM-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Some more complex BVP solutions using the FEM</a></span><ul class="toc-item"><li><span><a href="#An-example-with-a-more-complex-RHS-with-homogeneous-Dirichlet-BCs-[$\star$]" data-toc-modified-id="An-example-with-a-more-complex-RHS-with-homogeneous-Dirichlet-BCs-[$\star$]-1.1.1"><span class="toc-item-num">1.1.1&nbsp;&nbsp;</span>An example with a more complex RHS with homogeneous Dirichlet BCs [$\star$]</a></span></li><li><span><a href="#Dealing-with-more-complex-BCs-(Inhomogeneous-Dirichlet)--[$\star$]" data-toc-modified-id="Dealing-with-more-complex-BCs-(Inhomogeneous-Dirichlet)--[$\star$]-1.1.2"><span class="toc-item-num">1.1.2&nbsp;&nbsp;</span>Dealing with more complex BCs (Inhomogeneous Dirichlet)  [$\star$]</a></span></li><li><span><a href="#Dealing-with-more-complex-BCs-(Neumann-conditions)--[$\star$]" data-toc-modified-id="Dealing-with-more-complex-BCs-(Neumann-conditions)--[$\star$]-1.1.3"><span class="toc-item-num">1.1.3&nbsp;&nbsp;</span>Dealing with more complex BCs (Neumann conditions)  [$\star$]</a></span></li></ul></li><li><span><a href="#Homework---Solving-on-a-non-uniform-mesh" data-toc-modified-id="Homework---Solving-on-a-non-uniform-mesh-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Homework - Solving on a non-uniform mesh</a></span></li><li><span><a href="#Homework---A-BVP-with-an-inhomogeneous-RHS-and-inhomogeneous-Dirichlet-BCs" data-toc-modified-id="Homework---A-BVP-with-an-inhomogeneous-RHS-and-inhomogeneous-Dirichlet-BCs-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Homework - A BVP with an inhomogeneous RHS and inhomogeneous Dirichlet BCs</a></span></li><li><span><a href="#Homework---Another-BVP-with-a-slightly-more-complex-RHS" data-toc-modified-id="Homework---Another-BVP-with-a-slightly-more-complex-RHS-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Homework - Another BVP with a slightly more complex RHS</a></span></li><li><span><a href="#Homework---A-more-complex-BVP-(method-of-manufactured-solutions)" data-toc-modified-id="Homework---A-more-complex-BVP-(method-of-manufactured-solutions)-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Homework - A more complex BVP (method of manufactured solutions)</a></span></li><li><span><a href="#Homework---A-problem-with-non-constant-coefficients-[$\star\star$]" data-toc-modified-id="Homework---A-problem-with-non-constant-coefficients-[$\star\star$]-1.6"><span class="toc-item-num">1.6&nbsp;&nbsp;</span>Homework - A problem with non-constant coefficients [$\star\star$]</a></span></li><li><span><a href="#Homework---Approximation-using-a-discontinuous-function-[$\star$]" data-toc-modified-id="Homework---Approximation-using-a-discontinuous-function-[$\star$]-1.7"><span class="toc-item-num">1.7&nbsp;&nbsp;</span>Homework - Approximation using a discontinuous function [$\star$]</a></span></li><li><span><a href="#Homework---Errors-in-function-approximation-[$\star$]" data-toc-modified-id="Homework---Errors-in-function-approximation-[$\star$]-1.8"><span class="toc-item-num">1.8&nbsp;&nbsp;</span>Homework - Errors in function approximation [$\star$]</a></span></li></ul></li></ul></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">precision</span> 3
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">sl</span>
+<span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">scipy.sparse.linalg</span> <span class="k">as</span> <span class="nn">spla</span>
+<span class="c1"># the following allows us to plot triangles indicating convergence order</span>
+<span class="kn">from</span> <span class="nn">mpltools</span> <span class="kn">import</span> <span class="n">annotation</span>
+<span class="c1"># as we&#39;re in 2D we will be doing some 3D plotting</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="c1"># and using some colormaps</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="c1"># and we will create some animations!</span>
+<span class="kn">import</span> <span class="nn">matplotlib.animation</span> <span class="k">as</span> <span class="nn">animation</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># some useful functions from the lecture</span>
+
+<span class="k">def</span> <span class="nf">hat_function</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x_nodes</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Top hat basis function at node i.</span>
+<span class="sd">    Returns a function for later use in quadrature rules.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">i</span><span class="o">&lt;=</span><span class="nb">len</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">hat</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">select</span><span class="p">([</span> <span class="n">x</span><span class="o">&lt;=</span><span class="n">x_nodes</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">],</span> <span class="p">[</span> <span class="p">(</span><span class="n">x_nodes</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">]</span> <span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">i</span><span class="o">==</span><span class="nb">len</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">hat</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">select</span><span class="p">([</span> <span class="n">x</span><span class="o">&gt;=</span><span class="n">x_nodes</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">],</span> <span class="p">[</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_nodes</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">]</span> <span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">hat</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+                <span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">([[</span><span class="n">x</span><span class="o">&gt;=</span><span class="n">x_nodes</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]],[</span><span class="n">x</span><span class="o">&lt;=</span><span class="n">x_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>  
+                  <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">([[</span><span class="n">x</span><span class="o">&gt;=</span><span class="n">x_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]],[</span><span class="n">x</span><span class="o">&lt;=</span><span class="n">x_nodes</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span> <span class="p">,</span>
+                <span class="p">[</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x_nodes</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="n">x_nodes</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">]</span> <span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">hat</span>
+
+<span class="k">def</span> <span class="nf">hat_function_deriv</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x_nodes</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Top hat basis function derivative at node i.</span>
+<span class="sd">    Returns a function for later use in quadrature rules.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">i</span><span class="o">&lt;=</span><span class="nb">len</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">hat</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">select</span><span class="p">([</span> <span class="n">x</span><span class="o">&lt;=</span><span class="n">x_nodes</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">],</span> <span class="p">[</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">]</span> <span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">i</span><span class="o">==</span><span class="nb">len</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">hat</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">select</span><span class="p">([</span> <span class="n">x</span><span class="o">&gt;=</span><span class="n">x_nodes</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">],</span> <span class="p">[</span> <span class="mi">1</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">]</span> <span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">hat</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+                <span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">([[</span><span class="n">x</span><span class="o">&gt;=</span><span class="n">x_nodes</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]],[</span><span class="n">x</span><span class="o">&lt;=</span><span class="n">x_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>  
+                  <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">([[</span><span class="n">x</span><span class="o">&gt;=</span><span class="n">x_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]],[</span><span class="n">x</span><span class="o">&lt;=</span><span class="n">x_nodes</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span> <span class="p">,</span>
+                <span class="p">[</span> <span class="mi">1</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">]</span> <span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">hat</span>
+
+<span class="k">def</span> <span class="nf">mass_matrix</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+    <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">dx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">3</span>  <span class="o">+</span>  <span class="n">dx</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">/</span><span class="mi">3</span> <span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+    <span class="n">M</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">dx</span><span class="o">/</span><span class="mi">6</span>   <span class="p">,</span> <span class="n">k</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">dx</span><span class="o">/</span><span class="mi">6</span>   <span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">dx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">3</span>
+    <span class="n">M</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">dx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">3</span>
+    <span class="k">return</span> <span class="n">M</span>
+
+
+<span class="c1"># don&#39;t need the composite version of Simpson&#39;s rule here - want the version</span>
+<span class="c1"># that is able to integrate over a single interval and evaluates the function</span>
+<span class="c1"># at the two end points as well as the mid point</span>
+<span class="k">def</span> <span class="nf">simpsons_rule</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">number_intervals</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Function to evaluate Simpson&#39;s rule. </span>
+<span class="sd">    </span>
+<span class="sd">    Note that this implementation takes the function as an argument, </span>
+<span class="sd">    and evaluates this at the midpoint of subintervals in addition to the </span>
+<span class="sd">    end point. Hence additional information is generated and used through </span>
+<span class="sd">    additional function evaluations. </span>
+<span class="sd">    </span>
+<span class="sd">    This is different to the function/implementation available with SciPy  </span>
+<span class="sd">    where discrete data only is passed to the function. </span>
+<span class="sd">    </span>
+<span class="sd">    Bear this in mind when comparing results - there will be a factor of two</span>
+<span class="sd">    in the definition of &quot;n&quot; we need to be careful about!</span>
+<span class="sd">    </span>
+<span class="sd">    Also note that this version of the function performs redundant function </span>
+<span class="sd">    evaluations - see the **composite** implementation below.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">interval_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">number_intervals</span>
+
+    <span class="k">assert</span> <span class="n">interval_size</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">number_intervals</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span>
+
+    <span class="n">I_S</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c1"># Loop to valuate Simpson&#39;s formula over each interval </span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_intervals</span><span class="p">):</span>
+        <span class="c1"># Find a, c, and b</span>
+        <span class="n">this_bin_start</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">interval_size</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">this_bin_mid</span> <span class="o">=</span> <span class="n">this_bin_start</span> <span class="o">+</span> <span class="n">interval_size</span><span class="o">/</span><span class="mi">2</span>
+        <span class="n">this_bin_end</span> <span class="o">=</span> <span class="n">this_bin_start</span> <span class="o">+</span> <span class="n">interval_size</span>
+        <span class="c1"># Calculate the rule and add to running total.</span>
+        <span class="n">I_S</span> <span class="o">+=</span> <span class="p">(</span><span class="n">interval_size</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">this_bin_start</span><span class="p">)</span> <span class="o">+</span>
+                                  <span class="mi">4</span> <span class="o">*</span> <span class="n">function</span><span class="p">(</span><span class="n">this_bin_mid</span><span class="p">)</span> <span class="o">+</span> <span class="n">function</span><span class="p">(</span><span class="n">this_bin_end</span><span class="p">))</span>
+
+    <span class="c1"># Return our running total result</span>
+    <span class="k">return</span> <span class="n">I_S</span>
+
+<span class="k">def</span> <span class="nf">simpsons_composite_rule</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">number_intervals</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Function to evaluate the composite Simpson&#39;s rule only using</span>
+<span class="sd">    function evaluations at (number_intervals + 1) points.</span>
+<span class="sd">    </span>
+<span class="sd">    This implementation requires that the number of subintervals (number_intervals) be even</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">number_intervals</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;number_intervals is not even&quot;</span>
+
+    <span class="n">interval_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">number_intervals</span>
+    <span class="c1"># start with the two end member values</span>
+    <span class="n">I_cS2</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="n">function</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+    <span class="c1"># add in those terms with a coefficient of 4</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">number_intervals</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">I_cS2</span> <span class="o">+=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">function</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">interval_size</span><span class="p">)</span>
+
+    <span class="c1"># and those terms with a coefficient of 2</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">number_intervals</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">I_cS2</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">function</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">interval_size</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">I_cS2</span> <span class="o">*</span> <span class="p">(</span><span class="n">interval_size</span> <span class="o">/</span> <span class="mf">3.0</span><span class="p">)</span>
+
+
+<span class="c1"># now a function to reconstruct the p/w linear function</span>
+<span class="k">def</span> <span class="nf">pwlinear</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">,</span> <span class="n">y_nodes</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Function to return f_h(x) at locations given in x, </span>
+<span class="sd">    with top hat functions on a mesh given by x_nodes, and</span>
+<span class="sd">    corresponding weights given in y_nodes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="c1"># loop over x values, equivalently the basis functions</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+        <span class="c1"># which mesh node is directly to the left of x[i] ?</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">x_nodes</span> <span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># because of the greater than or equals above, deal with problem of hitting last node</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">node</span><span class="p">)</span>
+        <span class="c1"># add together the contributions from the two hat functions at this x location - </span>
+        <span class="c1"># the hat functions centred on &quot;node&quot; (to the left)</span>
+        <span class="n">phi_node</span> <span class="o">=</span> <span class="n">hat_function</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">x_nodes</span><span class="p">)</span>
+        <span class="c1"># and &quot;node+1&quot; (to the right)</span>
+        <span class="n">phi_node_plus_1</span> <span class="o">=</span> <span class="n">hat_function</span><span class="p">(</span><span class="n">node</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">x_nodes</span><span class="p">)</span>
+        <span class="c1"># now take the weighted sum of these two hat functions</span>
+        <span class="n">val</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_nodes</span><span class="p">[</span><span class="n">node</span><span class="p">]</span><span class="o">*</span><span class="n">phi_node</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="n">y_nodes</span><span class="p">[</span><span class="n">node</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">phi_node_plus_1</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">val</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="some-more-complex-bvp-solutions-using-the-fem">
+<h2>Some more complex BVP solutions using the FEM<a class="headerlink" href="#some-more-complex-bvp-solutions-using-the-fem" title="Permalink to this heading">#</a></h2>
+<p>We now go through some further examples of solving BVPs with more complex RHS and/or BCs.</p>
+<p>The following is just here as a read through of some more complex cases - there aren’t specific questions to answer.</p>
+<section id="an-example-with-a-more-complex-rhs-with-homogeneous-dirichlet-bcs-star">
+<h3>An example with a more complex RHS with homogeneous Dirichlet BCs [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#an-example-with-a-more-complex-rhs-with-homogeneous-dirichlet-bcs-star" title="Permalink to this heading">#</a></h3>
+<p>Now let’s consider an example of a problem with a more complex <span class="math notranslate nohighlight">\(f\)</span> and hence solution.</p>
+<p>The complexity of <span class="math notranslate nohighlight">\(f\)</span> means we have more to do when evaluating the RHS vector, but still having homogeneous Dirichlet BCs means we don’t have to change the LHS.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that this is essentially an MMS - we define the solution first that satisfies the BCs</span>
+<span class="c1"># and then substitute into the BVP to find the appropriate RHS source term</span>
+
+<span class="k">def</span> <span class="nf">u_exact</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1"># just -u&#39;&#39;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">N_elements_CG</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">N_nodes_CG</span> <span class="o">=</span> <span class="n">N_elements_CG</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">x_nodes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="n">N_nodes_CG</span> <span class="p">)</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">)</span>
+<span class="c1"># space to store our discretisaton matrices</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N_nodes_CG</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">N_nodes_CG</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">RHS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N_nodes_CG</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">dx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="o">+</span>  <span class="mf">1.</span> <span class="o">/</span> <span class="n">dx</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> \
+    <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">dx</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>   <span class="p">,</span> <span class="n">k</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> \
+    <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">dx</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>   <span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># form RHS vector by integrating function f multiplied by basis function</span>
+<span class="c1"># loop over internal nodes</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N_nodes_CG</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># and integrate our function multiplied by the corresponding cts basis function  </span>
+    <span class="n">phi_i</span> <span class="o">=</span> <span class="n">hat_function</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">x_nodes</span><span class="p">)</span>
+    <span class="n">integrand</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">phi_i</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">RHS</span><span class="p">[</span><span class="n">node</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">simpsons_rule</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">[</span><span class="n">node</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">x_nodes</span><span class="p">[</span><span class="n">node</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">integrand</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
+    <span class="c1"># NB. if we increase the number of intervals we can get arbitrarily </span>
+    <span class="c1"># small errors at the nodes</span>
+
+<span class="c1"># now we have our equation for the unknowns (K @ u=RHS) solve for u:</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">sl</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">RHS</span><span class="p">)</span>
+
+<span class="c1"># plot the result</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$u(x)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Steady state diffusion solve&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">,</span> <span class="s1">&#39;bo-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;FE solution&#39;</span><span class="p">)</span>
+<span class="n">x_fine</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_fine</span><span class="p">,</span> <span class="n">u_exact</span><span class="p">(</span><span class="n">x_fine</span><span class="p">),</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;exact solution&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;error (RMS at nodes only) = &#39;</span><span class="p">,</span> 
+      <span class="n">sl</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u</span> <span class="o">-</span> <span class="n">u_exact</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="p">)</span>
+      <span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">))</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error (RMS at nodes only) =  5.160570601632145e-06
+</pre></div>
+</div>
+<img alt="../_images/2bc3a8d8bffaab4d7853beadf1010bd11b77ed73af17398c0e699252c2b1571d.png" src="../_images/2bc3a8d8bffaab4d7853beadf1010bd11b77ed73af17398c0e699252c2b1571d.png" />
+</div>
+</div>
+<section id="a-convergence-analysis">
+<h4>A convergence analysis<a class="headerlink" href="#a-convergence-analysis" title="Permalink to this heading">#</a></h4>
+<p>Let’s check how the error converges with <span class="math notranslate nohighlight">\(\Delta x\)</span>.</p>
+<p>We will compute the RMS error at the nodes only (as above), but will also evaluate both the exact solution and the p/w linear numerical approximation on a finer mesh and compute the RMS error of the difference - this will be an approximation to the L2 error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">u_exact</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1"># just -u&#39;&#39;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># some meshes of increasingly finer resolution to loop over</span>
+<span class="n">Ns</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">**</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+<span class="n">errors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">Ns</span><span class="p">)))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">N</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">Ns</span><span class="p">):</span>
+    <span class="n">N_elements_CG</span> <span class="o">=</span> <span class="n">N</span>
+    <span class="n">N_nodes_CG</span> <span class="o">=</span> <span class="n">N_elements_CG</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="n">x_nodes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="n">N_nodes_CG</span> <span class="p">)</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">)</span>
+    <span class="c1"># space to store our discretisaton matrices</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N_nodes_CG</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">N_nodes_CG</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">RHS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N_nodes_CG</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">dx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="o">+</span>  <span class="mf">1.</span> <span class="o">/</span> <span class="n">dx</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> \
+        <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">dx</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>   <span class="p">,</span> <span class="n">k</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> \
+        <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">dx</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>   <span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># form RHS vector by integrating function f multiplied by basis function</span>
+    <span class="c1"># loop over internal nodes</span>
+    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N_nodes_CG</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># and integrate our function multiplied by the corresponding cts basis function  </span>
+        <span class="n">phi_i</span> <span class="o">=</span> <span class="n">hat_function</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">x_nodes</span><span class="p">)</span>
+        <span class="n">integrand</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">phi_i</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">RHS</span><span class="p">[</span><span class="n">node</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">simpsons_rule</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">[</span><span class="n">node</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">x_nodes</span><span class="p">[</span><span class="n">node</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">integrand</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
+
+    <span class="n">u</span> <span class="o">=</span> <span class="n">sl</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">RHS</span><span class="p">)</span>
+
+    <span class="c1"># RMS error of the nodal errors - cf. comments in main lecture text</span>
+    <span class="n">errors</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sl</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u</span> <span class="o">-</span> <span class="n">u_exact</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">))</span> 
+    <span class="c1"># now let&#39;s do the RMS on a fine mesh to approximate the L2 norm</span>
+    <span class="n">x_fine</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">x_nodes</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">errors</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sl</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">pwlinear</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">,</span> <span class="n">x_fine</span><span class="p">)</span> <span class="o">-</span> <span class="n">u_exact</span><span class="p">(</span><span class="n">x_fine</span><span class="p">))</span> \
+                        <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_fine</span><span class="p">))</span>
+    
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$\Delta x$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;RMS error&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Convergence plot&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Ns</span><span class="p">),</span> <span class="n">errors</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="s1">&#39;bo-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;error at nodes only&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Ns</span><span class="p">),</span> <span class="n">errors</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="s1">&#39;ko-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;error across elements&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">annotation</span><span class="o">.</span><span class="n">slope_marker</span><span class="p">((</span><span class="mf">1e-2</span><span class="p">,</span> <span class="mf">4e-5</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span>
+                        <span class="n">size_frac</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">pad_frac</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">text_kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">))</span>
+<span class="n">annotation</span><span class="o">.</span><span class="n">slope_marker</span><span class="p">((</span><span class="mf">1e-2</span><span class="p">,</span> <span class="mf">3e-10</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span>
+                        <span class="n">size_frac</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">pad_frac</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">text_kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e3ec651e178cd5190af469e2f965e48fe9a0347e563f6e9eca8edb2af111acc2.png" src="../_images/e3ec651e178cd5190af469e2f965e48fe9a0347e563f6e9eca8edb2af111acc2.png" />
+</div>
+</div>
+</section>
+<section id="comments">
+<h4>Comments<a class="headerlink" href="#comments" title="Permalink to this heading">#</a></h4>
+<p>So our solver is 4th order accurate in terms of the nodal values, while it is second order accurate in the norm we really care about here - the L2 norm (which we approximate via RMS evaluated in a fine mesh).</p>
+</section>
+</section>
+<section id="dealing-with-more-complex-bcs-inhomogeneous-dirichlet-star">
+<h3>Dealing with more complex BCs (Inhomogeneous Dirichlet)  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#dealing-with-more-complex-bcs-inhomogeneous-dirichlet-star" title="Permalink to this heading">#</a></h3>
+<p>Now let’s see what we need to do in the case that the BCs are non-zero.</p>
+<section id="problem-description">
+<h4>Problem description<a class="headerlink" href="#problem-description" title="Permalink to this heading">#</a></h4>
+<p>Now let’s consider a BVP problem we considered in a previous lecture (specifically the diffusion only case with fixed values at the end points - recall the exact solution to the problem was a linear that joined the two boundary condition values).</p>
+<p>Find <span class="math notranslate nohighlight">\(u\equiv u(x)\)</span> which satisfies the ODE over the interval <span class="math notranslate nohighlight">\([0,1]\)</span></p>
+<div class="math notranslate nohighlight">
+\[-u'' = f,\]</div>
+<p>for a given source term <span class="math notranslate nohighlight">\(\,f\)</span>, with inhomogeneous Dirichlet boundary conditions:</p>
+<div class="math notranslate nohighlight">
+\[ u(0) = u_L, \;\;\;\; u(1) = u_R.\]</div>
+<p>We’ll seek to code up the general case, although to match L7 we are interested in a case with <span class="math notranslate nohighlight">\(\,f\equiv 0\,\)</span>, <span class="math notranslate nohighlight">\(\,u_L=0\,\)</span> and <span class="math notranslate nohighlight">\(\,u_R=1\)</span>.</p>
+</section>
+<section id="finite-element-approximation">
+<h4>Finite element approximation<a class="headerlink" href="#finite-element-approximation" title="Permalink to this heading">#</a></h4>
+<p>In this case we write our solution as</p>
+<div class="math notranslate nohighlight">
+\[u_h := \sum_{j=0}^{N} u_j\,\phi_j 
+= \sum_{j=1}^{N-1} u_j\,\phi_j + u_0\,\phi_0 + u_N\,\phi_N,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\phi_0\)</span> and <span class="math notranslate nohighlight">\(\phi_n\)</span> are defined as per the other basis functions (i.e. <span class="math notranslate nohighlight">\(\phi_0\)</span> is unity at node 0 (the boundary) and zero elsewhere), and we choose <span class="math notranslate nohighlight">\(u_0=u_L\)</span> and <span class="math notranslate nohighlight">\(u_N=u_R\)</span>.  These additional components are hence essentially interpolating the prescribed boundary data.</p>
+<p>So we are still actually solving for the internal degrees of freedom:  <span class="math notranslate nohighlight">\(u_j\)</span>, for <span class="math notranslate nohighlight">\(j=1,\ldots,N-1\)</span>.</p>
+<p>This means that it is still appropriate for us to use the reduced space <span class="math notranslate nohighlight">\(V_h^0\)</span> to test our solution against, i.e. we again ignore the boundary terms in the weak form and ask that</p>
+<div class="math notranslate nohighlight">
+\[\int_0^1 u_h'\,\phi_i' \,dx 
+= \int_0^1 f\,\phi_i \,dx, \;\;\;\;\; \text{for}\;\;\;\; i=1, 2,\ldots, N-1. \]</div>
+<p>Note a difference now though that our <span class="math notranslate nohighlight">\(u_h\)</span> does include known <span class="math notranslate nohighlight">\(\phi_0 \)</span> and <span class="math notranslate nohighlight">\(\phi_n\)</span> terms. Let’s see now how this affects things.</p>
+<p>In this case the integral in the LHS can be written as</p>
+<p>\begin{align*}
+\int_0^1 u_h’\phi_i’ ,dx
+&amp;=
+\int_0^1 ,\left(\sum_{j=0}^{N} u_j,\phi_j’\right)\phi_i’ ,dx \[10pt]
+&amp;=
+\sum_{j=0}^{N} u_j, \int_0^1 ,\phi_j’,\phi_i’ ,dx \[10pt]
+&amp;=
+\sum_{j=1}^{N-1} u_j, \int_0^1 \phi_i’, \phi_j’ ,dx
++u_0, \int_0^1 \phi_i’, \phi_0’ ,dx
++u_n, \int_0^1 \phi_i’, \phi_N’ ,dx,
+;;;;; \text{for};;;; i=1, 2,\ldots, N-1.
+\end{align*}</p>
+<p>Note that we will move the (two) boundary term contributions on to the right hand side as they are known.</p>
+<p>We explain in the code that follows how these additional contributions are added into the RHS vector.</p>
+<p>Our left hand side “discretisation” matrix is the same <span class="math notranslate nohighlight">\((N-1)\times (N-1)\)</span> matrix as above (the original full <span class="math notranslate nohighlight">\(K\)</span> without the first and last rows)</p>
+<p>while the RHS vector has entries</p>
+<div class="math notranslate nohighlight">
+\[ b_{i} = \int_0^1 f\, \phi_i \,dx
+-u_0\, \int_0^1 \phi_i'\, \phi_0' \,dx
+-u_n\, \int_0^1 \phi_i'\, \phi_N' \,dx,
+\;\;\;\;\; \text{for}\;\;\;\; i = 1, 2,\ldots, N-1.\]</div>
+<p>Our discretised system is again <span class="math notranslate nohighlight">\(\,K\boldsymbol{u} = \boldsymbol{b}\)</span>.</p>
+<p>If we solve this matrix equation for the coefficients <span class="math notranslate nohighlight">\(\boldsymbol{u}\)</span> then we have a numerical solution to our problem.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uL</span> <span class="o">=</span> <span class="mf">0.</span>
+<span class="n">uR</span> <span class="o">=</span> <span class="mf">1.</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">0.0</span>
+
+<span class="k">def</span> <span class="nf">u_exact</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">uL</span> <span class="o">+</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">uR</span><span class="o">-</span><span class="n">uL</span><span class="p">)</span>
+
+
+<span class="n">N_elements_CG</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">N_nodes_CG</span> <span class="o">=</span> <span class="n">N_elements_CG</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">x_nodes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="n">N_nodes_CG</span> <span class="p">)</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">)</span>
+<span class="c1"># space to store our discretisaton matrices</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N_nodes_CG</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">N_nodes_CG</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">RHS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N_nodes_CG</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">dx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="o">+</span>  <span class="mf">1.</span> <span class="o">/</span> <span class="n">dx</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> \
+    <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">dx</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>   <span class="p">,</span> <span class="n">k</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> \
+    <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">dx</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>   <span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># form RHS vector by integrating function f multiplied by basis function</span>
+<span class="c1"># loop over internal nodes</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N_nodes_CG</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># and integrate our function multiplied by the corresponding cts basis function  </span>
+    <span class="n">phi_i</span> <span class="o">=</span> <span class="n">hat_function</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">x_nodes</span><span class="p">)</span>
+    <span class="n">integrand</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">phi_i</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="c1"># simpsons with number intervals = 2 can integrate this exactly</span>
+    <span class="n">RHS</span><span class="p">[</span><span class="n">node</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">simpsons_rule</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">[</span><span class="n">node</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">x_nodes</span><span class="p">[</span><span class="n">node</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">integrand</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
+
+    
+<span class="c1"># Add in the extra entries due to the inhomogeneous BCs</span>
+
+<span class="c1"># At the left the integral is only non-zero when d(phi_i)/dx and d(phi_0)/dx both have</span>
+<span class="c1"># support - this only occurs over the first element when i=1 (remembering that i=0</span>
+<span class="c1"># isn&#39;t in our trial space. The integrand is then the value u(0) = uL</span>
+<span class="c1"># multiplied by the derivative of \phi_1 in the first cell (1/dx[0])</span>
+<span class="c1"># multiplied by the derivative of \phi_0 in the first cell (-1/dx[0]).</span>
+<span class="c1"># Overall this is a constant, and hence to do the integral we just need to </span>
+<span class="c1"># multiply it by the size of the cell (dx[0]), and subtract the result from the</span>
+<span class="c1"># current RHS entry for this node:</span>
+<span class="n">RHS</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">RHS</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">uL</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span><span class="o">*</span><span class="n">dx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># and similarly for the RHS - we need to update the final entry</span>
+<span class="n">RHS</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">RHS</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">uR</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span><span class="o">*</span><span class="n">dx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># now solve</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">sl</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">RHS</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$u(x)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Steady state diffusion solve&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">,</span> <span class="s1">&#39;bo-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;FE solution&#39;</span><span class="p">)</span>
+<span class="n">x_fine</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_fine</span><span class="p">,</span> <span class="n">u_exact</span><span class="p">(</span><span class="n">x_fine</span><span class="p">),</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;exact solution&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;error (RMS at nodes only) = &#39;</span><span class="p">,</span> 
+      <span class="n">sl</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u</span> <span class="o">-</span> <span class="n">u_exact</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="p">)</span>
+      <span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">))</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error (RMS at nodes only) =  3.142637229273806e-16
+</pre></div>
+</div>
+<img alt="../_images/65e82345f0b7e3278d1179aae06b12dd465f3614993dbcfac2b1046ca7f7e268.png" src="../_images/65e82345f0b7e3278d1179aae06b12dd465f3614993dbcfac2b1046ca7f7e268.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="dealing-with-more-complex-bcs-neumann-conditions-star">
+<h3>Dealing with more complex BCs (Neumann conditions)  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#dealing-with-more-complex-bcs-neumann-conditions-star" title="Permalink to this heading">#</a></h3>
+<p>One of the big advantages of the FEM is that realistic (i.e. physically meaningful) BCs are relatively easy to incorporate.</p>
+<p>Let’s consider Neumann conditions (i.e. specifying the value of the derivative at the boundaries)
+which will see can <em><strong>naturally</strong></em> be incorporated into our FEM formulation, but in a very different way to how we deal with Dirichlet conditions.</p>
+<p>Let’s actually consider a problem with one Dirichlet and one Neumann BC.</p>
+<section id="id1">
+<h4>Problem description<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<p>Find <span class="math notranslate nohighlight">\(u\equiv u(x)\)</span> which satisfies the ODE over the interval <span class="math notranslate nohighlight">\([0,1]\)</span></p>
+<div class="math notranslate nohighlight">
+\[-u'' = f,\]</div>
+<p>for a given source term <span class="math notranslate nohighlight">\(\,f\)</span>, with an inhomogeneous Dirichlet boundary condition at the left
+and an inhomogeneous Nemuann BC at the right:</p>
+<div class="math notranslate nohighlight">
+\[ u(0) = u^D_L, \;\;\;\; u'(1) = u^N_{R}.\]</div>
+<p>NB. for this particular ODE problem specifying <strong>two</strong> Neumann conditions yields an ill-posed problem - why is this?</p>
+</section>
+<section id="variational-form-of-problem">
+<h4>Variational form of problem<a class="headerlink" href="#variational-form-of-problem" title="Permalink to this heading">#</a></h4>
+<p>In this case we integrate by parts</p>
+<div class="math notranslate nohighlight">
+\[
+-\int_0^1 u''\,v \,dx = \int_0^1 u'\,v' \,dx - \left[u'(x)\,v(x)\right]_0^1 = \int_0^1 f\,v \,dx,
+\]</div>
+<p>and keep the boundary integral on those parts of the domain where the Neumann condition is applied (we drop the boundary contribution at the Dirichlet boundary for the same reasons as in the previous example):</p>
+<div class="math notranslate nohighlight">
+\[
+\int_0^1 u'\,v' \,dx = \int_0^1 f\,v \,dx +  u^N_{R}\,v(1) ,
+\]</div>
+<p>where we have substituted in our known Neumann data: <span class="math notranslate nohighlight">\(\,u'(1)= u^N_{R}\)</span> and used the fact that we enforce the Dirichlet with test functions with the property that <span class="math notranslate nohighlight">\(v(0)=0\)</span>.</p>
+</section>
+<section id="aside-homogeneous-neumann-boundary-conditions">
+<h4>Aside: homogeneous Neumann boundary conditions<a class="headerlink" href="#aside-homogeneous-neumann-boundary-conditions" title="Permalink to this heading">#</a></h4>
+<p>Note that the <em>homogeneous</em> form of Neumann conditions are especially easy to deal with, we simply do not perform the boundary integration.</p>
+<p><strong>Doing nothing</strong> is the correct implementation of the boundary condition for the correct underlying problem (i.e. variational) formulation.</p>
+<p>So if in our very first example where we applied homogeneous Dirichlet BCs by actually solving over <span class="math notranslate nohighlight">\(i,j = 1,\ldots, N-1\)</span>.  If we had solved for <span class="math notranslate nohighlight">\(i,j = 0,\ldots, N\)</span> while ignoring the boundaries, we would have effectively solved a version of the problem with homogeneous Neumann BCs (which would have led to a singular matrix for this particular problem due to this issue with two homogeneous Neumann conditions explained above).</p>
+</section>
+<section id="id2">
+<h4>Finite element approximation<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
+<p>In this case we write our solution as</p>
+<div class="math notranslate nohighlight">
+\[u_h := \sum_{j=0}^{N} u_j\,\phi_j 
+= \sum_{j=1}^{n} u_j\,\phi_j + u_0\,\phi_0.\]</div>
+<p>Note that explicit here is that fact that we don’t know our solution at the right hand boundary (and hence we need to solve for <span class="math notranslate nohighlight">\(u_N\)</span>). We thus strip out the <span class="math notranslate nohighlight">\(u_0\)</span> term and define our test function space correspondingly to be that spanned by <span class="math notranslate nohighlight">\(\phi_i\)</span> for <span class="math notranslate nohighlight">\(i=1, 2,\ldots, N\)</span>. We will thus end up solving in this case a <span class="math notranslate nohighlight">\(N\times N\)</span> system.</p>
+<p>Our variational form is in this case</p>
+<div class="math notranslate nohighlight">
+\[\int_0^1 u_h'\,\phi_i' \,dx 
+= \int_0^1 f\,\phi_i \,dx + u_R^N\,\delta_{i,N}, \;\;\;\;\; \text{for}\;\;\;\; i=1, 2,\ldots, N. \]</div>
+<p><span class="math notranslate nohighlight">\(\delta_{i,n}\)</span> is the <a class="reference external" href="https://en.wikipedia.org/wiki/Kronecker_delta"><em>Kronecker delta</em></a> which is equal to one when <span class="math notranslate nohighlight">\(i=n\)</span>, otherwise it is zero. This is introduced here simply to emphasise that the Neumann boundary data contributes as a boundary integral at the right hand boundary node (i.e. <span class="math notranslate nohighlight">\(i=n\)</span>) only.</p>
+<p>In this case the integral in the LHS can be written as</p>
+<p>\begin{align*}
+\int_0^1 u_h’\phi_i’ ,dx
+&amp;=
+\int_0^1 \left(\sum_{j=0}^{N} u_j,\phi_j’\right)\phi_i’ ,dx \[10pt]
+&amp;=
+\sum_{j=1}^{N} u_j, \int_0^1 \phi_i’, \phi_j’ ,dx
++u_0, \int_0^1 \phi_i’, \phi_0’ ,dx,
+;;;;; \text{for};;;; i=1, 2,\ldots, N.
+\end{align*}</p>
+<p>As before we will move the boundary Dirichlet contribution over to the right hand side as it is known.</p>
+<p>Our “discretisation” matrix <span class="math notranslate nohighlight">\(K\)</span> in this case keep the final row of the full <span class="math notranslate nohighlight">\(K\)</span> we originally defined, but does not include the first row.</p>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[ b_{i-1} = \int_0^1 f\, \phi_i \,dx + u^N_{R}\delta_{i,N}
+-u_0\, \int_0^1 \phi_i'\, \phi_0' \,dx,
+\;\;\;\;\; \text{for}\;\;\;\; i = 1, 2,\ldots, N.\]</div>
+<p>So now in this case we have to add into <span class="math notranslate nohighlight">\(\boldsymbol{b}\)</span> a term corresponding to the Dirichlet condition, as well as the Neumann condition.  We explained how to deal with the Dirichlet term in a previous example. As we will see in the code below adding in the Neumann term is especially easy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uL</span> <span class="o">=</span> <span class="mf">0.</span>
+<span class="n">uRn</span> <span class="o">=</span> <span class="mf">1.</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">0.0</span>
+
+<span class="k">def</span> <span class="nf">u_exact</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">uL</span> <span class="o">+</span> <span class="n">uRn</span><span class="o">*</span><span class="n">x</span>
+
+<span class="n">N_elements_CG</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">N_nodes_CG</span> <span class="o">=</span> <span class="n">N_elements_CG</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">x_nodes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="n">N_nodes_CG</span> <span class="p">)</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">)</span>
+<span class="c1"># space to store our discretisaton matrices</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N_nodes_CG</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N_nodes_CG</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">RHS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N_nodes_CG</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">K</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">dx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="o">+</span>  <span class="mf">1.</span> <span class="o">/</span> <span class="n">dx</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> \
+    <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">dx</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>   <span class="p">,</span> <span class="n">k</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> \
+    <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">dx</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>   <span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># add in the extra bottom right entries</span>
+<span class="n">K</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="n">dx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">K</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">dx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">K</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">dx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># form RHS vector by integrating function f multiplied by basis function</span>
+<span class="c1"># loop over internal nodes</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N_nodes_CG</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># and integrate our function multiplied by the corresponding cts basis function  </span>
+    <span class="n">phi_i</span> <span class="o">=</span> <span class="n">hat_function</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">x_nodes</span><span class="p">)</span>
+    <span class="n">integrand</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">phi_i</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="c1"># simpsons with number intervals = 2 can integrate this exactly</span>
+    <span class="n">RHS</span><span class="p">[</span><span class="n">node</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">simpsons_rule</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">[</span><span class="n">node</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">x_nodes</span><span class="p">[</span><span class="n">node</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">integrand</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
+
+<span class="c1"># need to add in the right hand boundary contribution to the RHS vector</span>
+<span class="c1"># only contribution comes from the final element</span>
+<span class="n">phi_i</span> <span class="o">=</span> <span class="n">hat_function</span><span class="p">(</span><span class="n">N_nodes_CG</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">x_nodes</span><span class="p">)</span>
+<span class="n">integrand</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">phi_i</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">RHS</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">simpsons_rule</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">x_nodes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">integrand</span><span class="p">,</span> <span class="mi">1</span> <span class="p">)</span>
+    
+<span class="c1"># Add in the extra entries due to the inhomogeneous BCs</span>
+
+<span class="c1"># At the left the integral is only non-zero when phi_i and phi_0 both have</span>
+<span class="c1"># support - this only occurs over the first element. The integrand is then</span>
+<span class="c1"># uL multiplied by the derivative of \phi_1 in the first cell (1/dx[0])</span>
+<span class="c1"># multiplied by the derivative of \phi_0 in the first cell (-1/dx[0]).</span>
+<span class="c1"># This is a constant, and hence to do the integral we just need to </span>
+<span class="c1"># multiply by the size of the cell (dx[0]):</span>
+<span class="n">RHS</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">RHS</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">uL</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span><span class="o">*</span><span class="n">dx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># And finally, now also add a Neumann condition at the right - </span>
+<span class="c1"># note we&#39;re perform a boundary integral here</span>
+<span class="n">RHS</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">RHS</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">uRn</span>
+
+    
+
+<span class="n">u</span> <span class="o">=</span> <span class="n">sl</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">RHS</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$u(x)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Steady state diffusion solve&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">u</span><span class="p">,</span> <span class="s1">&#39;bo-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;FE solution&#39;</span><span class="p">)</span>
+<span class="n">x_fine</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_fine</span><span class="p">,</span> <span class="n">u_exact</span><span class="p">(</span><span class="n">x_fine</span><span class="p">),</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;exact solution&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;error (RMS at nodes only) = &#39;</span><span class="p">,</span> 
+      <span class="n">sl</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u</span> <span class="o">-</span> <span class="n">u_exact</span><span class="p">(</span><span class="n">x_nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="p">)</span>
+      <span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">))</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error (RMS at nodes only) =  1.2513816881060796e-15
+</pre></div>
+</div>
+<img alt="../_images/2709319f7e800ee4c2a45cc27255227f0f36ef944d4f7d6aeb7d53667b3dafff.png" src="../_images/2709319f7e800ee4c2a45cc27255227f0f36ef944d4f7d6aeb7d53667b3dafff.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="homework-solving-on-a-non-uniform-mesh">
+<h2>Homework - Solving on a non-uniform mesh<a class="headerlink" href="#homework-solving-on-a-non-uniform-mesh" title="Permalink to this heading">#</a></h2>
+<p>We saw that for the initial BVP problem we considere in the class (homogeneous Dirichlet conditions with <span class="math notranslate nohighlight">\(f\equiv 1\)</span>) that the solution we obtained with exact (to round-off) at the nodes.</p>
+<p>Confirm that this exactness is no longer true on a non-uniform mesh - try perturbing our internal nodes (i.e. keep the boundaries where they should be!)  a small random amount.</p>
+</section>
+<section id="homework-a-bvp-with-an-inhomogeneous-rhs-and-inhomogeneous-dirichlet-bcs">
+<h2>Homework - A BVP with an inhomogeneous RHS and inhomogeneous Dirichlet BCs<a class="headerlink" href="#homework-a-bvp-with-an-inhomogeneous-rhs-and-inhomogeneous-dirichlet-bcs" title="Permalink to this heading">#</a></h2>
+<p>Consider the problem</p>
+<div class="math notranslate nohighlight">
+\[-u'' = f, \]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[ f \equiv -1,\]</div>
+<p>and BCs</p>
+<div class="math notranslate nohighlight">
+\[u(0)=0, \;\;\;\; u(1)=1.\]</div>
+<p>First derive the exact solution (integrate up twice and use the BCs to fix the constants of integration), and then use this solution to verify an appropriately implemented FEM solution.</p>
+</section>
+<section id="homework-another-bvp-with-a-slightly-more-complex-rhs">
+<h2>Homework - Another BVP with a slightly more complex RHS<a class="headerlink" href="#homework-another-bvp-with-a-slightly-more-complex-rhs" title="Permalink to this heading">#</a></h2>
+<p>Consider the problem</p>
+<div class="math notranslate nohighlight">
+\[u'' = x \;\;\;\;\;\;\text{or}\;\;\; -u'' = -x.\]</div>
+<p>Integrate up twice to obtain the exact solution with two arbitrary constants of integration.</p>
+<p>Consider the domain and use the the boundary conditions</p>
+<div class="math notranslate nohighlight">
+\[u(0) = 0, \;\;\;\;\;\; u(1)=1,\]</div>
+<p>to fix the values of the two constants in your exact solution.</p>
+<p>Solve the problem using the finite element method and compare with your exact solution.</p>
+</section>
+<section id="homework-a-more-complex-bvp-method-of-manufactured-solutions">
+<h2>Homework - A more complex BVP (method of manufactured solutions)<a class="headerlink" href="#homework-a-more-complex-bvp-method-of-manufactured-solutions" title="Permalink to this heading">#</a></h2>
+<p>Consider the solution function</p>
+<div class="math notranslate nohighlight">
+\[ u(x) = -6 x + x^3 + \frac{5}{\sin(1)}\sin(x). \]</div>
+<p>Verify that <span class="math notranslate nohighlight">\(u(0)=0\)</span> and <span class="math notranslate nohighlight">\(u(1)=0\)</span> for this function.</p>
+<p>Compute</p>
+<div class="math notranslate nohighlight">
+\[ f := u'' + u.\]</div>
+<p>Solve the problem</p>
+<div class="math notranslate nohighlight">
+\[ u'' + u = f,\]</div>
+<p>with the <span class="math notranslate nohighlight">\(f\)</span> you’ve calculated on the interval <span class="math notranslate nohighlight">\([0,1]\)</span>, with homogeneous Dirichlet BCs.</p>
+<p>If you computed <span class="math notranslate nohighlight">\(f\)</span> correctly, and implemented your solver correctly, you should be able to demonstrate convergence to the exact solution we started with.</p>
+<p>[Hint: the solver for this problem involve use of the discretisation matrix <span class="math notranslate nohighlight">\(A\)</span> we’ve used multiple times for simple BVPs, along with the mass matrix <span class="math notranslate nohighlight">\(M\)</span>].</p>
+</section>
+<section id="homework-a-problem-with-non-constant-coefficients-star-star">
+<h2>Homework - A problem with non-constant coefficients [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-a-problem-with-non-constant-coefficients-star-star" title="Permalink to this heading">#</a></h2>
+<p>The next step in complexity is thinking about how we would go about solving problems with non-constant coefficients.</p>
+<p>The added complexity here is that we need to incorporate the variation of coefficients when we compute the entries of the LHS discretisation matrices</p>
+<p>For example consider the general diffusion like problem</p>
+<div class="math notranslate nohighlight">
+\[ -(au')' = f, \]</div>
+<p>where <span class="math notranslate nohighlight">\(a\equiv a(x)\)</span> is a potentially non-constant diffusion coefficient.</p>
+<p>Consider diffusion of heat in a bar where <span class="math notranslate nohighlight">\(f(x)\)</span> represents a hear source and <span class="math notranslate nohighlight">\(a(x)\)</span> represents the heat conductivity.</p>
+<p>Suppose we are in the interval <span class="math notranslate nohighlight">\(I=[0,1]\)</span> with the completely general <a class="reference external" href="https://en.wikipedia.org/wiki/Robin_boundary_condition"><em>Robin boundary conditions</em></a></p>
+<div class="math notranslate nohighlight">
+\[ au'(0) = C_L\,(u(0) - g_L), \;\;\;\;\; au'(1) = C_R\,(u(1) - g_R).\]</div>
+<p>The parameters <span class="math notranslate nohighlight">\(C_L\)</span> and <span class="math notranslate nohighlight">\(C_R\)</span> can be used to control the relative contributions of the Dirichlet and Neumann conditions, with <span class="math notranslate nohighlight">\(g_L\)</span> and <span class="math notranslate nohighlight">\(g_R\)</span> the applied value of the BC.  For example, in the limit of <span class="math notranslate nohighlight">\(C\)</span> being small we recover a homogeneous Neumann condition (and we are free to choose the <span class="math notranslate nohighlight">\(C\)</span>’s to be zero of course), and in the large limit we approximate a Dirichlet BC.  Note that this means if we implement a general solver with these Robin BC, through the choice of <span class="math notranslate nohighlight">\(C\)</span> very large or very small (or actually zero), we approximate the implementation of these BCs.</p>
+<p>Try developing a solver for this case and apply it to a problem where the diffusivity is given by</p>
+<div class="math notranslate nohighlight">
+\[ a(x) = 0.1(1 - 0.5x),\]</div>
+<p>the source by</p>
+<div class="math notranslate nohighlight">
+\[ f(x) = 10(x - 0.6)^4,\]</div>
+<p>and with the BCs</p>
+<div class="math notranslate nohighlight">
+\[u(0) = -1, \;\;\;\;\; u'(1) = 0.\]</div>
+</section>
+<section id="homework-approximation-using-a-discontinuous-function-star">
+<h2>Homework - Approximation using a discontinuous function [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#homework-approximation-using-a-discontinuous-function-star" title="Permalink to this heading">#</a></h2>
+<p>We saw in the lecture how to approximate a given function using a p/w linear <strong>continuous</strong> function via <span class="math notranslate nohighlight">\(L^2\)</span> projection (which involved deriving the system with the mass matrix and solving for the weights in our expansion in terms of the basis functions).</p>
+<p>We can generalise this to a case where we approximate our given function with a p/w linear <strong>discontinuous</strong> function.  This essentially means that instead of having one unknown at every node, we actually have two, each of which “belongs” to the element either side of the mesh vertex.</p>
+<p>We thus have more degrees of freedom to solve for (so we expect an improved solution), and need to think about the appropriate set of test functions to use to obtain the appropriately sizes square discrete system to solve.  To do this we simply split our basis functions so each of them is only half of the hat function.</p>
+<p>Suggest you take a look at my solution and try to follow what is going on.</p>
+</section>
+<section id="homework-errors-in-function-approximation-star">
+<h2>Homework - Errors in function approximation [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#homework-errors-in-function-approximation-star" title="Permalink to this heading">#</a></h2>
+<p>Now compute the <span class="math notranslate nohighlight">\(L^2\)</span> norms of the errors in the three different approximations from the previous question.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Chapter12"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Imperial College London
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
