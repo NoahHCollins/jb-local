@@ -773,7 +773,7 @@ In 1D in particularly FD and FV aren’t that different conceptually and lead to
 \end{split}\]</div>
 <p>which have the name hat (or chapeau) functions, and look like the following.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="Chapter12/Figures/fem_basis_functions.svg"><img alt="Chapter12/Figures/fem_basis_functions.svg" src="Chapter12/Figures/fem_basis_functions.svg" width="75%" /></a>
+<a class="reference internal image-reference" href="../_images/fem_basis_functions.svg"><img alt="../_images/fem_basis_functions.svg" src="../_images/fem_basis_functions.svg" width="75%" /></a>
 </figure>
 </section>
 <section id="support-of-basis-functions">
@@ -902,7 +902,7 @@ In 1D in particularly FD and FV aren’t that different conceptually and lead to
 <p>[Note we’ll return to this topic in more detail when discussing local assembly].</p>
 <p>The following image presents a schematic of an unstructured mesh data structure, or connectivity, in the simple 1D case and assuming that we have two nodes per element, and that these are located at the ends of the elements (other more complex choices are possible!)</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="Chapter12/Figures/connectivity_1d.svg"><img alt="Chapter12/Figures/connectivity_1d.svg" src="Chapter12/Figures/connectivity_1d.svg" width="75%" /></a>
+<a class="reference internal image-reference" href="../_images/connectivity_1d.svg"><img alt="../_images/connectivity_1d.svg" src="../_images/connectivity_1d.svg" width="75%" /></a>
 </figure>
 <ul class="simple">
 <li><p>Blue are the <em>element numbers</em></p></li>
@@ -1361,11 +1361,11 @@ The (0,0) value:  0.3333333333333333
 <p>But above we established that, by construction, our projection approach should yield a result that is optimal w.r.t. the <span class="math notranslate nohighlight">\(L^2\)</span> norm, i.e. we cannot do any better when measuring agreement using this norm.</p>
 <p>Let’s check this - that the (CG) projection has lower errors than the interpolant when measured in the L2 norm (which we compute/approximate using the RMS error norm (see next cell) evaluated on a fine mesh upon which we evaluate the true function and the discrete approximation):</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="Chapter12/Figures/P1vsCGvsDG_convergence.png"><img alt="Chapter12/Figures/P1vsCGvsDG_convergence.png" src="Chapter12/Figures/P1vsCGvsDG_convergence.png" style="width: 75%;" /></a>
+<a class="reference internal image-reference" href="../_images/P1vsCGvsDG_convergence.png"><img alt="../_images/P1vsCGvsDG_convergence.png" src="../_images/P1vsCGvsDG_convergence.png" style="width: 75%;" /></a>
 </figure>
 <p>What’s the DG line? See homework and the image below:</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="Chapter12/Figures/CG_DG_projection.png"><img alt="Chapter12/Figures/CG_DG_projection.png" src="Chapter12/Figures/CG_DG_projection.png" style="width: 75%;" /></a>
+<a class="reference internal image-reference" href="../_images/CG_DG_projection.png"><img alt="../_images/CG_DG_projection.png" src="../_images/CG_DG_projection.png" style="width: 75%;" /></a>
 </figure>
 <p>if we relax the requirement of continuity between elements (and so effectively have twice as many degrees of freedom to solve for) we can achieve an even better approximation.</p>
 </section>
@@ -1511,7 +1511,7 @@ K\boldsymbol{u} &amp;= \boldsymbol{b}.
 \end{split}\]</div>
 <p>which looks like the following:</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="Chapter12/Figures/fem_basis_functions.svg"><img alt="Chapter12/Figures/fem_basis_functions.svg" src="Chapter12/Figures/fem_basis_functions.svg" width="75%" /></a>
+<a class="reference internal image-reference" href="../_images/fem_basis_functions.svg"><img alt="../_images/fem_basis_functions.svg" src="../_images/fem_basis_functions.svg" width="75%" /></a>
 </figure>
 <br>
 <p>and so their derivatives are simply</p>
@@ -1577,7 +1577,7 @@ K\boldsymbol{u} &amp;= \boldsymbol{b}.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fea4c687b80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fbc80e50d60&gt;
 </pre></div>
 </div>
 <img alt="../_images/3b357ba2b4c19ef78ed77a209ba777f6bcc2677173c01155e0a450d0d3ad2fe8.png" src="../_images/3b357ba2b4c19ef78ed77a209ba777f6bcc2677173c01155e0a450d0d3ad2fe8.png" />
@@ -2193,7 +2193,7 @@ array([ 0.137,  0.197, -0.199, -0.092])
 <p>It will seem a triviality in 1D, but it’s vitally important in higher dimensions. We’ll give the 2D generalisation later.</p>
 <p>The following image presents a schematic of an unstructured mesh data structure, or connectivity, in the simple 1D case and assuming that we have two nodes per element (i.e. the p/w linear case), and that these are located at the ends of the elements (other more complex choices are possible!)</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="Chapter12/Figures/connectivity_1d.svg"><img alt="Chapter12/Figures/connectivity_1d.svg" src="Chapter12/Figures/connectivity_1d.svg" width="75%" /></a>
+<a class="reference internal image-reference" href="../_images/connectivity_1d.svg"><img alt="../_images/connectivity_1d.svg" src="../_images/connectivity_1d.svg" width="75%" /></a>
 </figure>
 <ul class="simple">
 <li><p>Blue are the <em>element numbers</em></p></li>
@@ -2348,7 +2348,7 @@ array([ 0.748,  0.967, -1.061, -0.302])
 <p>It turns out that, especially in higher dimensions and for more complicated basis functions, that it is advantageous to transform our integrals over each individual element (which each could be a different shape and size) so that they are all performed over the same “reference” element.</p>
 <p>Consider the schematic below.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="Chapter12/Figures/reference_elements_1d.svg"><img alt="Chapter12/Figures/reference_elements_1d.svg" src="Chapter12/Figures/reference_elements_1d.svg" width="75%" /></a>
+<a class="reference internal image-reference" href="../_images/reference_elements_1d.svg"><img alt="../_images/reference_elements_1d.svg" src="../_images/reference_elements_1d.svg" width="75%" /></a>
 </figure>
 <br>
 <p>The left part shows the mesh in the real physical coordinate we want to compute our solution over; the right shows the reference element we compute integrals over, with the mappings between the two also indicated.</p>
@@ -2428,7 +2428,7 @@ x &amp;= \frac{1}{2}\left(x_L+x_R\right) + \frac{1}{2}\left(x_R - x_L\right)\xi 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fea4c1cf820&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fbc807eadf0&gt;
 </pre></div>
 </div>
 <img alt="../_images/fba9a9ecf301958c4e973253e5bfa4c5dfbf2529dfb8d42a7a986f104129b734.png" src="../_images/fba9a9ecf301958c4e973253e5bfa4c5dfbf2529dfb8d42a7a986f104129b734.png" />
@@ -2551,11 +2551,11 @@ M \,\frac{\boldsymbol{u}^{n+1} - \boldsymbol{u}^{n}}{\Delta t} + \kappa\, K\,\le
 <h2>Higher dimensions and unstructured meshes<a class="headerlink" href="#higher-dimensions-and-unstructured-meshes" title="Permalink to this heading">#</a></h2>
 <p>In 1D we could form a basis for the space of piecewise linear continuous functions, from “hat” (or “tent”) functions that take the value unity at a single node, and are zero at all others, e.g.:</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="Chapter12/Figures/hat-function-1d.png"><img alt="Chapter12/Figures/hat-function-1d.png" src="Chapter12/Figures/hat-function-1d.png" style="width: 50%;" /></a>
+<a class="reference internal image-reference" href="../_images/hat-function-1d.png"><img alt="../_images/hat-function-1d.png" src="../_images/hat-function-1d.png" style="width: 50%;" /></a>
 </figure>
 <p>In two dimension we do exactly the same. This is what it looks like:</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="Chapter12/Figures/hat-function-2d.svg"><img alt="Chapter12/Figures/hat-function-2d.svg" src="Chapter12/Figures/hat-function-2d.svg" width="50%" /></a>
+<a class="reference internal image-reference" href="../_images/hat-function-2d.svg"><img alt="../_images/hat-function-2d.svg" src="../_images/hat-function-2d.svg" width="50%" /></a>
 </figure>
 <p><sup><strong><a class="reference external" href="http://brickisland.net/cs177/?p=309">source</a></strong></sup></p>
 <p>As you can see the basis function <span class="math notranslate nohighlight">\(\phi_i\)</span> is 1 at the node <span class="math notranslate nohighlight">\(i\)</span> and linearly decreases to 0 over the adjacent triangles. Anywhere else <span class="math notranslate nohighlight">\(\phi_i\)</span> is 0.</p>
@@ -2586,7 +2586,7 @@ basis functions and perform integrals over that shape with ease.</p>
 <section class="tex2jax_ignore mathjax_ignore" id="the-perodic-table-of-finite-elements">
 <h1>The perodic table of finite elements<a class="headerlink" href="#the-perodic-table-of-finite-elements" title="Permalink to this heading">#</a></h1>
 <figure class="align-default">
-<a class="reference internal image-reference" href="Chapter12/Figures/femtable.png"><img alt="Chapter12/Figures/femtable.png" src="Chapter12/Figures/femtable.png" style="width: 75%;" /></a>
+<a class="reference internal image-reference" href="../_images/femtable.png"><img alt="../_images/femtable.png" src="../_images/femtable.png" style="width: 75%;" /></a>
 </figure>
 <p>for more details see <a class="reference external" href="http://www-users.math.umn.edu/~arnold/femtable/">http://www-users.math.umn.edu/~arnold/femtable/</a></p>
 </section>
