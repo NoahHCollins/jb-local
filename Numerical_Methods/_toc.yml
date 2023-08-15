@@ -70,3 +70,5 @@ parts:
     - file: "Chapter11/intro"
       sections:
       - file: "Chapter11/Lecture 11.1 - PDE Solvers"
+      - file: "Chapter11/Homework"
+      - file: "Chapter11/Solutions"
