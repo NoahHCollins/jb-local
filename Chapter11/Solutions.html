@@ -235,9 +235,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">11. PDE Solvers: Finite Difference Methods 2</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Lecture%2011.1%20-%20PDE%20Solvers.html">Lecture 12.1 PDE Solvers: Finite Difference Methods 2 <a class="tocSkip"></a></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Homework.html">Homework <a class="tocSkip"></a></a></li>
-
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Solutions <a class="tocSkip"></a></a></li>
-
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter12/intro.html">12. Finite Element Methods</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -419,9 +417,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -437,43 +433,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Solutions <a class="tocSkip"></a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#pde-solvers-finite-difference-methods-2-a-class-tocskip">PDE Solvers: Finite Difference Methods 2 <a class="tocSkip"></a></a></li>
-</ul>
-</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#homework">Homework</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-upwind-vs-central-discretrisation">Homework - Upwind vs central discretrisation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-upwind-vs-central-discretrisation">Solution - Upwind vs central discretrisation</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-larger-stencils-higher-orders-of-accuracy-star-from-comp-math">Homework - Larger stencils / higher orders of accuracy [<span class="math notranslate nohighlight">\(\star\)</span>] [from Comp Math]</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-larger-stencils-higher-orders-of-accuracy">Solution - Larger stencils / higher orders of accuracy</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-stability-study-for-advection-diffusion-using-ftcs">Homework - Stability study for advection-diffusion using FTCS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-an-analytical-solution-to-advection-diffusion-from-comp-math">Homework - An analytical solution to advection-diffusion [from Comp Math]</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-an-analytical-solution-to-advection-diffusion">Solution - An analytical solution to advection-diffusion</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-pure-advection-impact-of-time-step-from-comp-math">Homework - Pure advection - impact of time step [from Comp Math]</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-pure-advection-impact-of-time-step">Solution - Pure advection - impact of time step</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-advection-variable-time-step">Pure advection - variable time step</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Comments</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -510,9 +469,6 @@ document.write(`
 </div>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="homework">
-<h1>Homework<a class="headerlink" href="#homework" title="Permalink to this heading">#</a></h1>
 <section id="homework-upwind-vs-central-discretrisation">
 <h2>Homework - Upwind vs central discretrisation<a class="headerlink" href="#homework-upwind-vs-central-discretrisation" title="Permalink to this heading">#</a></h2>
 <p>Use our codes <code class="docutils literal notranslate"><span class="pre">BVP_AD_central</span></code> and <code class="docutils literal notranslate"><span class="pre">BVP_AD_upwind</span></code> to compute and plot error convergence for these two schemes for our test problem from the lecture with a Peclet number of 10.</p>
@@ -815,14 +771,13 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fd_coeffs =  [-1.  1.]
 fd_coeffs =  [-0.5  0.   0.5]
 fd_coeffs =  [ 0.16666667 -1.          0.5         0.33333333]
-fd_coeffs =  [ 8.33333333e-02 -6.66666667e-01 -2.37904934e-16  6.66666667e-01
- -8.33333333e-02]
+fd_coeffs =  [ 0.08333333 -0.66666667  0.          0.66666667 -0.08333333]
 fd_coeffs =  [-0.03333333  0.25       -1.          0.33333333  0.5        -0.05      ]
-fd_coeffs =  [-1.66666667e-02  1.50000000e-01 -7.50000000e-01 -1.08204910e-15
+fd_coeffs =  [-1.66666667e-02  1.50000000e-01 -7.50000000e-01 -1.64937307e-15
   7.50000000e-01 -1.50000000e-01  1.66666667e-02]
 </pre></div>
 </div>
-<img alt="../_images/6ed3dc27c8c423b08e50cdbdac5109e2175b2c9d7205a442786685fa194038b4.png" src="../_images/6ed3dc27c8c423b08e50cdbdac5109e2175b2c9d7205a442786685fa194038b4.png" />
+<img alt="../_images/0f04d6a807a7a0e12bbf518fe8ec991c373b6cc1aa3c88b85c0879274bdd651d.png" src="../_images/0f04d6a807a7a0e12bbf518fe8ec991c373b6cc1aa3c88b85c0879274bdd651d.png" />
 </div>
 </div>
 </section>
@@ -1216,49 +1171,6 @@ Computing solution for N =  400
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Solutions <a class="tocSkip"></a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#pde-solvers-finite-difference-methods-2-a-class-tocskip">PDE Solvers: Finite Difference Methods 2 <a class="tocSkip"></a></a></li>
-</ul>
-</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#homework">Homework</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-upwind-vs-central-discretrisation">Homework - Upwind vs central discretrisation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-upwind-vs-central-discretrisation">Solution - Upwind vs central discretrisation</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-larger-stencils-higher-orders-of-accuracy-star-from-comp-math">Homework - Larger stencils / higher orders of accuracy [<span class="math notranslate nohighlight">\(\star\)</span>] [from Comp Math]</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-larger-stencils-higher-orders-of-accuracy">Solution - Larger stencils / higher orders of accuracy</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-stability-study-for-advection-diffusion-using-ftcs">Homework - Stability study for advection-diffusion using FTCS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-an-analytical-solution-to-advection-diffusion-from-comp-math">Homework - An analytical solution to advection-diffusion [from Comp Math]</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-an-analytical-solution-to-advection-diffusion">Solution - An analytical solution to advection-diffusion</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-pure-advection-impact-of-time-step-from-comp-math">Homework - Pure advection - impact of time step [from Comp Math]</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-pure-advection-impact-of-time-step">Solution - Pure advection - impact of time step</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-advection-variable-time-step">Pure advection - variable time step</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Comments</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  </nav></div>
-
-</div></div>
               
             
           </div>
