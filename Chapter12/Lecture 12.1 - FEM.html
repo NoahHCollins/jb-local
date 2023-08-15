@@ -239,9 +239,6 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">12. Finite Element Methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">12.1 Finite Element Methods <a class="tocSkip"></a></a></li>
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="Homework.html">Homework <a class="tocSkip"></a></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Solutions.html">Solutions <a class="tocSkip"></a></a></li>
 </ul>
@@ -416,9 +413,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -434,88 +429,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">12.1 Finite Element Methods <a class="tocSkip"></a></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives-a-class-tocskip">Learning objectives <a class="tocSkip"></a></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introductory-comments-a-class-tocskip">Introductory comments <a class="tocSkip"></a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-finite-elements-vs-volumes-vs-differences">Introduction: finite elements vs volumes vs differences</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#approximating-a-function">Approximating a function</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#piecewise-polynomials">Piecewise-polynomials</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#an-example">An example</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation-of-a-function-lagrange-polynomial-a-reminder">Interpolation of a function (Lagrange polynomial - a reminder)</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation-errors">Interpolation errors</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#norms">Norms</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#error-bounds-formulae-star">Error bounds formulae  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Comments</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#basis-functions-reminder-from-a-previous-lecture">Basis functions [reminder from a previous lecture]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#hat-functions">Hat functions</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#support-of-basis-functions">Support of basis functions</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#some-code-to-return-the-hat-basis-functions">Some code to return the hat/basis functions</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#unstructured-mesh-data-structures">Unstructured mesh data structures</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#terminology">Terminology</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#l-2-projection-of-a-function"><span class="math notranslate nohighlight">\(L^2\)</span> projection of a function</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#theory">Theory</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#finite-dimensional-example">Finite-dimensional example</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#theory-continued">Theory - continued</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#link-to-the-finite-element-method">Link to the finite element method</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-the-mass-matrix">Implementation - the mass matrix</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-in-code">Implementation in code</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#quadrature">Quadrature</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#application-of-simpson-s-rule-star">Application of Simpson’s rule [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-using-a-continuous-function">Approximation using a continuous function</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#quality-of-approximation">Quality of approximation</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#rms-root-mean-square-vs-l-2-norm-reminder-from-comp-math">RMS (root mean square) vs <span class="math notranslate nohighlight">\(L^2\)</span> norm [reminder from Comp Math]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#solving-boundary-value-problems-bvps-using-the-fem">Solving boundary value problems (BVPs) using the FEM</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#the-fundamental-form-of-the-discretisation-ignoring-bcs">The fundamental form of the discretisation ignoring BCs</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#weak-or-variational-form-of-problem">Weak or variational form of problem</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-by-restricting-the-function-space-to-be-finite-dimensional">Discretisation by restricting the function space to be finite-dimensional</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#choice-of-basis-functions-a-k-a-choice-of-function-space-a-k-a-choice-of-finite-element">Choice of basis functions (a.k.a. choice of function space a.k.a. choice of “finite element”)</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#finite-element-approximation">Finite element approximation</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Terminology</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-problem-with-homogeneous-dirichlet-bcs">A simple problem with homogeneous Dirichlet BCs</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#problem-description">Problem description</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Finite element approximation</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Comments</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#practical-implementation-of-the-fem-local-assembly-over-elements">Practical implementation of the FEM - local assembly over elements</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#the-underlying-idea">The underlying idea</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#local-assembly-for-the-mass-matrix">Local assembly for the mass matrix</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#example-projection">Example - projection</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#unstructured-mesh-data-structures-the-connectivity-matrix">Unstructured mesh data structures (the connectivity matrix)</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#quadrature-over-the-local-element-change-of-variables-to-a-reference-element">Quadrature over the local element (change of variables to a reference element)</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-to-the-reference-element">Transformation to the reference element</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#aside-quadratic-basis-functions">Aside: quadratic basis functions</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#local-assembly-for-integrands-that-involve-derivatives">Local assembly for integrands that involve derivatives</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-fem-to-solve-time-dependent-pdes">Using the FEM to solve time-dependent PDEs</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#higher-dimensions-and-unstructured-meshes">Higher dimensions and unstructured meshes</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#final-comments">Final comments</a></li>
-</ul>
-</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-perodic-table-of-finite-elements">The perodic table of finite elements</a></li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -530,9 +443,8 @@ document.write(`
 <p>Lecture 12.1<br />
 Matt Piggott</p>
 <h2>Table of Contents<span class="tocSkip"></span></h2>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Introduction:-finite-elements-vs-volumes-vs-differences" data-toc-modified-id="Introduction:-finite-elements-vs-volumes-vs-differences-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Introduction: finite elements vs volumes vs differences</a></span></li><li><span><a href="#Approximating-a-function" data-toc-modified-id="Approximating-a-function-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Approximating a function</a></span><ul class="toc-item"><li><span><a href="#Piecewise-polynomials" data-toc-modified-id="Piecewise-polynomials-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Piecewise-polynomials</a></span></li><li><span><a href="#An-example" data-toc-modified-id="An-example-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>An example</a></span></li><li><span><a href="#Interpolation-of-a-function-(Lagrange-polynomial---a-reminder)" data-toc-modified-id="Interpolation-of-a-function-(Lagrange-polynomial---a-reminder)-2.3"><span class="toc-item-num">2.3&nbsp;&nbsp;</span>Interpolation of a function (Lagrange polynomial - a reminder)</a></span><ul class="toc-item"><li><span><a href="#Comments" data-toc-modified-id="Comments-2.3.1"><span class="toc-item-num">2.3.1&nbsp;&nbsp;</span>Comments</a></span></li></ul></li><li><span><a href="#Interpolation-errors" data-toc-modified-id="Interpolation-errors-2.4"><span class="toc-item-num">2.4&nbsp;&nbsp;</span>Interpolation errors</a></span><ul class="toc-item"><li><span><a href="#Norms" data-toc-modified-id="Norms-2.4.1"><span class="toc-item-num">2.4.1&nbsp;&nbsp;</span>Norms</a></span></li><li><span><a href="#Error-bounds-formulae--[$\star$]" data-toc-modified-id="Error-bounds-formulae--[$\star$]-2.4.2"><span class="toc-item-num">2.4.2&nbsp;&nbsp;</span>Error bounds formulae  [$\star$]</a></span></li><li><span><a href="#Comments" data-toc-modified-id="Comments-2.4.3"><span class="toc-item-num">2.4.3&nbsp;&nbsp;</span>Comments</a></span></li></ul></li></ul></li><li><span><a href="#Basis-functions-[reminder-from-a-previous-lecture]" data-toc-modified-id="Basis-functions-[reminder-from-a-previous-lecture]-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Basis functions [reminder from a previous lecture]</a></span><ul class="toc-item"><li><span><a href="#Hat-functions" data-toc-modified-id="Hat-functions-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Hat functions</a></span></li><li><span><a href="#Support-of-basis-functions" data-toc-modified-id="Support-of-basis-functions-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>Support of basis functions</a></span></li><li><span><a href="#Some-code-to-return-the-hat/basis-functions" data-toc-modified-id="Some-code-to-return-the-hat/basis-functions-3.3"><span class="toc-item-num">3.3&nbsp;&nbsp;</span>Some code to return the hat/basis functions</a></span></li><li><span><a href="#Unstructured-mesh-data-structures" data-toc-modified-id="Unstructured-mesh-data-structures-3.4"><span class="toc-item-num">3.4&nbsp;&nbsp;</span>Unstructured mesh data structures</a></span><ul class="toc-item"><li><span><a href="#Terminology" data-toc-modified-id="Terminology-3.4.1"><span class="toc-item-num">3.4.1&nbsp;&nbsp;</span>Terminology</a></span></li></ul></li></ul></li><li><span><a href="#$L^2$-projection-of-a-function" data-toc-modified-id="$L^2$-projection-of-a-function-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>$L^2$ projection of a function</a></span><ul class="toc-item"><li><span><a href="#Theory" data-toc-modified-id="Theory-4.1"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>Theory</a></span><ul class="toc-item"><li><span><a href="#Finite-dimensional-example" data-toc-modified-id="Finite-dimensional-example-4.1.1"><span class="toc-item-num">4.1.1&nbsp;&nbsp;</span>Finite-dimensional example</a></span></li></ul></li><li><span><a href="#Theory---continued" data-toc-modified-id="Theory---continued-4.2"><span class="toc-item-num">4.2&nbsp;&nbsp;</span>Theory - continued</a></span></li><li><span><a href="#Link-to-the-finite-element-method" data-toc-modified-id="Link-to-the-finite-element-method-4.3"><span class="toc-item-num">4.3&nbsp;&nbsp;</span>Link to the finite element method</a></span></li><li><span><a href="#Implementation---the-mass-matrix" data-toc-modified-id="Implementation---the-mass-matrix-4.4"><span class="toc-item-num">4.4&nbsp;&nbsp;</span>Implementation - the mass matrix</a></span></li><li><span><a href="#Implementation-in-code" data-toc-modified-id="Implementation-in-code-4.5"><span class="toc-item-num">4.5&nbsp;&nbsp;</span>Implementation in code</a></span></li><li><span><a href="#Quadrature" data-toc-modified-id="Quadrature-4.6"><span class="toc-item-num">4.6&nbsp;&nbsp;</span>Quadrature</a></span><ul class="toc-item"><li><span><a href="#Application-of-Simpson's-rule-[$\star$]" data-toc-modified-id="Application-of-Simpson's-rule-[$\star$]-4.6.1"><span class="toc-item-num">4.6.1&nbsp;&nbsp;</span>Application of Simpson's rule [$\star$]</a></span></li></ul></li><li><span><a href="#Approximation-using-a-continuous-function" data-toc-modified-id="Approximation-using-a-continuous-function-4.7"><span class="toc-item-num">4.7&nbsp;&nbsp;</span>Approximation using a continuous function</a></span></li><li><span><a href="#Quality-of-approximation" data-toc-modified-id="Quality-of-approximation-4.8"><span class="toc-item-num">4.8&nbsp;&nbsp;</span>Quality of approximation</a></span></li><li><span><a href="#RMS-(root-mean-square)-vs-$L^2$-norm-[reminder-from-Comp-Math]" data-toc-modified-id="RMS-(root-mean-square)-vs-$L^2$-norm-[reminder-from-Comp-Math]-4.9"><span class="toc-item-num">4.9&nbsp;&nbsp;</span>RMS (root mean square) vs $L^2$ norm [reminder from Comp Math]</a></span></li></ul></li><li><span><a href="#Solving-boundary-value-problems-(BVPs)-using-the-FEM" data-toc-modified-id="Solving-boundary-value-problems-(BVPs)-using-the-FEM-5"><span class="toc-item-num">5&nbsp;&nbsp;</span>Solving boundary value problems (BVPs) using the FEM</a></span><ul class="toc-item"><li><span><a href="#The-fundamental-form-of-the-discretisation-ignoring-BCs" data-toc-modified-id="The-fundamental-form-of-the-discretisation-ignoring-BCs-5.1"><span class="toc-item-num">5.1&nbsp;&nbsp;</span>The fundamental form of the discretisation ignoring BCs</a></span><ul class="toc-item"><li><span><a href="#Weak-or-variational-form-of-problem" data-toc-modified-id="Weak-or-variational-form-of-problem-5.1.1"><span class="toc-item-num">5.1.1&nbsp;&nbsp;</span>Weak or variational form of problem</a></span></li><li><span><a href="#Discretisation-by-restricting-the-function-space-to-be-finite-dimensional" data-toc-modified-id="Discretisation-by-restricting-the-function-space-to-be-finite-dimensional-5.1.2"><span class="toc-item-num">5.1.2&nbsp;&nbsp;</span>Discretisation by restricting the function space to be finite-dimensional</a></span></li><li><span><a href="#Choice-of-basis-functions-(a.k.a.-choice-of-function-space-a.k.a.-choice-of-&quot;finite-element&quot;)" data-toc-modified-id="Choice-of-basis-functions-(a.k.a.-choice-of-function-space-a.k.a.-choice-of-&quot;finite-element&quot;)-5.1.3"><span class="toc-item-num">5.1.3&nbsp;&nbsp;</span>Choice of basis functions (a.k.a. choice of function space a.k.a. choice of "finite element")</a></span></li><li><span><a href="#Finite-element-approximation" data-toc-modified-id="Finite-element-approximation-5.1.4"><span class="toc-item-num">5.1.4&nbsp;&nbsp;</span>Finite element approximation</a></span></li><li><span><a href="#Terminology" data-toc-modified-id="Terminology-5.1.5"><span class="toc-item-num">5.1.5&nbsp;&nbsp;</span>Terminology</a></span></li><li><span><a href="#Implementation" data-toc-modified-id="Implementation-5.1.6"><span class="toc-item-num">5.1.6&nbsp;&nbsp;</span>Implementation</a></span></li></ul></li><li><span><a href="#A-simple-problem-with-homogeneous-Dirichlet-BCs" data-toc-modified-id="A-simple-problem-with-homogeneous-Dirichlet-BCs-5.2"><span class="toc-item-num">5.2&nbsp;&nbsp;</span>A simple problem with homogeneous Dirichlet BCs</a></span><ul class="toc-item"><li><span><a href="#Problem-description" data-toc-modified-id="Problem-description-5.2.1"><span class="toc-item-num">5.2.1&nbsp;&nbsp;</span>Problem description</a></span></li><li><span><a href="#Finite-element-approximation" data-toc-modified-id="Finite-element-approximation-5.2.2"><span class="toc-item-num">5.2.2&nbsp;&nbsp;</span>Finite element approximation</a></span></li><li><span><a href="#Comments" data-toc-modified-id="Comments-5.2.3"><span class="toc-item-num">5.2.3&nbsp;&nbsp;</span>Comments</a></span></li></ul></li></ul></li><li><span><a href="#Practical-implementation-of-the-FEM---local-assembly-over-elements" data-toc-modified-id="Practical-implementation-of-the-FEM---local-assembly-over-elements-6"><span class="toc-item-num">6&nbsp;&nbsp;</span>Practical implementation of the FEM - local assembly over elements</a></span><ul class="toc-item"><li><span><a href="#The-underlying-idea" data-toc-modified-id="The-underlying-idea-6.1"><span class="toc-item-num">6.1&nbsp;&nbsp;</span>The underlying idea</a></span></li><li><span><a href="#Local-assembly-for-the-mass-matrix" data-toc-modified-id="Local-assembly-for-the-mass-matrix-6.2"><span class="toc-item-num">6.2&nbsp;&nbsp;</span>Local assembly for the mass matrix</a></span></li><li><span><a href="#Example---projection" data-toc-modified-id="Example---projection-6.3"><span class="toc-item-num">6.3&nbsp;&nbsp;</span>Example - projection</a></span></li><li><span><a href="#Unstructured-mesh-data-structures-(the-connectivity-matrix)" data-toc-modified-id="Unstructured-mesh-data-structures-(the-connectivity-matrix)-6.4"><span class="toc-item-num">6.4&nbsp;&nbsp;</span>Unstructured mesh data structures (the connectivity matrix)</a></span></li><li><span><a href="#Quadrature-over-the-local-element-(change-of-variables-to-a-reference-element)" data-toc-modified-id="Quadrature-over-the-local-element-(change-of-variables-to-a-reference-element)-6.5"><span class="toc-item-num">6.5&nbsp;&nbsp;</span>Quadrature over the local element (change of variables to a reference element)</a></span></li><li><span><a href="#Transformation-to-the-reference-element" data-toc-modified-id="Transformation-to-the-reference-element-6.6"><span class="toc-item-num">6.6&nbsp;&nbsp;</span>Transformation to the reference element</a></span><ul class="toc-item"><li><span><a href="#Aside:-quadratic-basis-functions" data-toc-modified-id="Aside:-quadratic-basis-functions-6.6.1"><span class="toc-item-num">6.6.1&nbsp;&nbsp;</span>Aside: quadratic basis functions</a></span></li></ul></li><li><span><a href="#Local-assembly-for-integrands-that-involve-derivatives" data-toc-modified-id="Local-assembly-for-integrands-that-involve-derivatives-6.7"><span class="toc-item-num">6.7&nbsp;&nbsp;</span>Local assembly for integrands that involve derivatives</a></span></li></ul></li><li><span><a href="#Using-the-FEM-to-solve-time-dependent-PDEs" data-toc-modified-id="Using-the-FEM-to-solve-time-dependent-PDEs-7"><span class="toc-item-num">7&nbsp;&nbsp;</span>Using the FEM to solve time-dependent PDEs</a></span></li><li><span><a href="#Higher-dimensions-and-unstructured-meshes" data-toc-modified-id="Higher-dimensions-and-unstructured-meshes-8"><span class="toc-item-num">8&nbsp;&nbsp;</span>Higher dimensions and unstructured meshes</a></span></li><li><span><a href="#Final-comments" data-toc-modified-id="Final-comments-9"><span class="toc-item-num">9&nbsp;&nbsp;</span>Final comments</a></span></li><li><span><a href="#The-perodic-table-of-finite-elements" data-toc-modified-id="The-perodic-table-of-finite-elements-10"><span class="toc-item-num">10&nbsp;&nbsp;</span>The perodic table of finite elements</a></span></li></ul></div></section>
-<section class="tex2jax_ignore mathjax_ignore" id="learning-objectives-a-class-tocskip">
-<h1>Learning objectives <a class="tocSkip"><a class="headerlink" href="#learning-objectives-a-class-tocskip" title="Permalink to this heading">#</a></h1>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Introduction:-finite-elements-vs-volumes-vs-differences" data-toc-modified-id="Introduction:-finite-elements-vs-volumes-vs-differences-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Introduction: finite elements vs volumes vs differences</a></span></li><li><span><a href="#Approximating-a-function" data-toc-modified-id="Approximating-a-function-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Approximating a function</a></span><ul class="toc-item"><li><span><a href="#Piecewise-polynomials" data-toc-modified-id="Piecewise-polynomials-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Piecewise-polynomials</a></span></li><li><span><a href="#An-example" data-toc-modified-id="An-example-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>An example</a></span></li><li><span><a href="#Interpolation-of-a-function-(Lagrange-polynomial---a-reminder)" data-toc-modified-id="Interpolation-of-a-function-(Lagrange-polynomial---a-reminder)-2.3"><span class="toc-item-num">2.3&nbsp;&nbsp;</span>Interpolation of a function (Lagrange polynomial - a reminder)</a></span><ul class="toc-item"><li><span><a href="#Comments" data-toc-modified-id="Comments-2.3.1"><span class="toc-item-num">2.3.1&nbsp;&nbsp;</span>Comments</a></span></li></ul></li><li><span><a href="#Interpolation-errors" data-toc-modified-id="Interpolation-errors-2.4"><span class="toc-item-num">2.4&nbsp;&nbsp;</span>Interpolation errors</a></span><ul class="toc-item"><li><span><a href="#Norms" data-toc-modified-id="Norms-2.4.1"><span class="toc-item-num">2.4.1&nbsp;&nbsp;</span>Norms</a></span></li><li><span><a href="#Error-bounds-formulae--[$\star$]" data-toc-modified-id="Error-bounds-formulae--[$\star$]-2.4.2"><span class="toc-item-num">2.4.2&nbsp;&nbsp;</span>Error bounds formulae  [$\star$]</a></span></li><li><span><a href="#Comments" data-toc-modified-id="Comments-2.4.3"><span class="toc-item-num">2.4.3&nbsp;&nbsp;</span>Comments</a></span></li></ul></li></ul></li><li><span><a href="#Basis-functions-[reminder-from-a-previous-lecture]" data-toc-modified-id="Basis-functions-[reminder-from-a-previous-lecture]-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Basis functions [reminder from a previous lecture]</a></span><ul class="toc-item"><li><span><a href="#Hat-functions" data-toc-modified-id="Hat-functions-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Hat functions</a></span></li><li><span><a href="#Support-of-basis-functions" data-toc-modified-id="Support-of-basis-functions-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>Support of basis functions</a></span></li><li><span><a href="#Some-code-to-return-the-hat/basis-functions" data-toc-modified-id="Some-code-to-return-the-hat/basis-functions-3.3"><span class="toc-item-num">3.3&nbsp;&nbsp;</span>Some code to return the hat/basis functions</a></span></li><li><span><a href="#Unstructured-mesh-data-structures" data-toc-modified-id="Unstructured-mesh-data-structures-3.4"><span class="toc-item-num">3.4&nbsp;&nbsp;</span>Unstructured mesh data structures</a></span><ul class="toc-item"><li><span><a href="#Terminology" data-toc-modified-id="Terminology-3.4.1"><span class="toc-item-num">3.4.1&nbsp;&nbsp;</span>Terminology</a></span></li></ul></li></ul></li><li><span><a href="#$L^2$-projection-of-a-function" data-toc-modified-id="$L^2$-projection-of-a-function-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>$L^2$ projection of a function</a></span><ul class="toc-item"><li><span><a href="#Theory" data-toc-modified-id="Theory-4.1"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>Theory</a></span><ul class="toc-item"><li><span><a href="#Finite-dimensional-example" data-toc-modified-id="Finite-dimensional-example-4.1.1"><span class="toc-item-num">4.1.1&nbsp;&nbsp;</span>Finite-dimensional example</a></span></li></ul></li><li><span><a href="#Theory---continued" data-toc-modified-id="Theory---continued-4.2"><span class="toc-item-num">4.2&nbsp;&nbsp;</span>Theory - continued</a></span></li><li><span><a href="#Link-to-the-finite-element-method" data-toc-modified-id="Link-to-the-finite-element-method-4.3"><span class="toc-item-num">4.3&nbsp;&nbsp;</span>Link to the finite element method</a></span></li><li><span><a href="#Implementation---the-mass-matrix" data-toc-modified-id="Implementation---the-mass-matrix-4.4"><span class="toc-item-num">4.4&nbsp;&nbsp;</span>Implementation - the mass matrix</a></span></li><li><span><a href="#Implementation-in-code" data-toc-modified-id="Implementation-in-code-4.5"><span class="toc-item-num">4.5&nbsp;&nbsp;</span>Implementation in code</a></span></li><li><span><a href="#Quadrature" data-toc-modified-id="Quadrature-4.6"><span class="toc-item-num">4.6&nbsp;&nbsp;</span>Quadrature</a></span><ul class="toc-item"><li><span><a href="#Application-of-Simpson's-rule-[$\star$]" data-toc-modified-id="Application-of-Simpson's-rule-[$\star$]-4.6.1"><span class="toc-item-num">4.6.1&nbsp;&nbsp;</span>Application of Simpson's rule [$\star$]</a></span></li></ul></li><li><span><a href="#Approximation-using-a-continuous-function" data-toc-modified-id="Approximation-using-a-continuous-function-4.7"><span class="toc-item-num">4.7&nbsp;&nbsp;</span>Approximation using a continuous function</a></span></li><li><span><a href="#Quality-of-approximation" data-toc-modified-id="Quality-of-approximation-4.8"><span class="toc-item-num">4.8&nbsp;&nbsp;</span>Quality of approximation</a></span></li><li><span><a href="#RMS-(root-mean-square)-vs-$L^2$-norm-[reminder-from-Comp-Math]" data-toc-modified-id="RMS-(root-mean-square)-vs-$L^2$-norm-[reminder-from-Comp-Math]-4.9"><span class="toc-item-num">4.9&nbsp;&nbsp;</span>RMS (root mean square) vs $L^2$ norm [reminder from Comp Math]</a></span></li></ul></li><li><span><a href="#Solving-boundary-value-problems-(BVPs)-using-the-FEM" data-toc-modified-id="Solving-boundary-value-problems-(BVPs)-using-the-FEM-5"><span class="toc-item-num">5&nbsp;&nbsp;</span>Solving boundary value problems (BVPs) using the FEM</a></span><ul class="toc-item"><li><span><a href="#The-fundamental-form-of-the-discretisation-ignoring-BCs" data-toc-modified-id="The-fundamental-form-of-the-discretisation-ignoring-BCs-5.1"><span class="toc-item-num">5.1&nbsp;&nbsp;</span>The fundamental form of the discretisation ignoring BCs</a></span><ul class="toc-item"><li><span><a href="#Weak-or-variational-form-of-problem" data-toc-modified-id="Weak-or-variational-form-of-problem-5.1.1"><span class="toc-item-num">5.1.1&nbsp;&nbsp;</span>Weak or variational form of problem</a></span></li><li><span><a href="#Discretisation-by-restricting-the-function-space-to-be-finite-dimensional" data-toc-modified-id="Discretisation-by-restricting-the-function-space-to-be-finite-dimensional-5.1.2"><span class="toc-item-num">5.1.2&nbsp;&nbsp;</span>Discretisation by restricting the function space to be finite-dimensional</a></span></li><li><span><a href="#Choice-of-basis-functions-(a.k.a.-choice-of-function-space-a.k.a.-choice-of-&quot;finite-element&quot;)" data-toc-modified-id="Choice-of-basis-functions-(a.k.a.-choice-of-function-space-a.k.a.-choice-of-&quot;finite-element&quot;)-5.1.3"><span class="toc-item-num">5.1.3&nbsp;&nbsp;</span>Choice of basis functions (a.k.a. choice of function space a.k.a. choice of "finite element")</a></span></li><li><span><a href="#Finite-element-approximation" data-toc-modified-id="Finite-element-approximation-5.1.4"><span class="toc-item-num">5.1.4&nbsp;&nbsp;</span>Finite element approximation</a></span></li><li><span><a href="#Terminology" data-toc-modified-id="Terminology-5.1.5"><span class="toc-item-num">5.1.5&nbsp;&nbsp;</span>Terminology</a></span></li><li><span><a href="#Implementation" data-toc-modified-id="Implementation-5.1.6"><span class="toc-item-num">5.1.6&nbsp;&nbsp;</span>Implementation</a></span></li></ul></li><li><span><a href="#A-simple-problem-with-homogeneous-Dirichlet-BCs" data-toc-modified-id="A-simple-problem-with-homogeneous-Dirichlet-BCs-5.2"><span class="toc-item-num">5.2&nbsp;&nbsp;</span>A simple problem with homogeneous Dirichlet BCs</a></span><ul class="toc-item"><li><span><a href="#Problem-description" data-toc-modified-id="Problem-description-5.2.1"><span class="toc-item-num">5.2.1&nbsp;&nbsp;</span>Problem description</a></span></li><li><span><a href="#Finite-element-approximation" data-toc-modified-id="Finite-element-approximation-5.2.2"><span class="toc-item-num">5.2.2&nbsp;&nbsp;</span>Finite element approximation</a></span></li><li><span><a href="#Comments" data-toc-modified-id="Comments-5.2.3"><span class="toc-item-num">5.2.3&nbsp;&nbsp;</span>Comments</a></span></li></ul></li></ul></li><li><span><a href="#Practical-implementation-of-the-FEM---local-assembly-over-elements" data-toc-modified-id="Practical-implementation-of-the-FEM---local-assembly-over-elements-6"><span class="toc-item-num">6&nbsp;&nbsp;</span>Practical implementation of the FEM - local assembly over elements</a></span><ul class="toc-item"><li><span><a href="#The-underlying-idea" data-toc-modified-id="The-underlying-idea-6.1"><span class="toc-item-num">6.1&nbsp;&nbsp;</span>The underlying idea</a></span></li><li><span><a href="#Local-assembly-for-the-mass-matrix" data-toc-modified-id="Local-assembly-for-the-mass-matrix-6.2"><span class="toc-item-num">6.2&nbsp;&nbsp;</span>Local assembly for the mass matrix</a></span></li><li><span><a href="#Example---projection" data-toc-modified-id="Example---projection-6.3"><span class="toc-item-num">6.3&nbsp;&nbsp;</span>Example - projection</a></span></li><li><span><a href="#Unstructured-mesh-data-structures-(the-connectivity-matrix)" data-toc-modified-id="Unstructured-mesh-data-structures-(the-connectivity-matrix)-6.4"><span class="toc-item-num">6.4&nbsp;&nbsp;</span>Unstructured mesh data structures (the connectivity matrix)</a></span></li><li><span><a href="#Quadrature-over-the-local-element-(change-of-variables-to-a-reference-element)" data-toc-modified-id="Quadrature-over-the-local-element-(change-of-variables-to-a-reference-element)-6.5"><span class="toc-item-num">6.5&nbsp;&nbsp;</span>Quadrature over the local element (change of variables to a reference element)</a></span></li><li><span><a href="#Transformation-to-the-reference-element" data-toc-modified-id="Transformation-to-the-reference-element-6.6"><span class="toc-item-num">6.6&nbsp;&nbsp;</span>Transformation to the reference element</a></span><ul class="toc-item"><li><span><a href="#Aside:-quadratic-basis-functions" data-toc-modified-id="Aside:-quadratic-basis-functions-6.6.1"><span class="toc-item-num">6.6.1&nbsp;&nbsp;</span>Aside: quadratic basis functions</a></span></li></ul></li><li><span><a href="#Local-assembly-for-integrands-that-involve-derivatives" data-toc-modified-id="Local-assembly-for-integrands-that-involve-derivatives-6.7"><span class="toc-item-num">6.7&nbsp;&nbsp;</span>Local assembly for integrands that involve derivatives</a></span></li></ul></li><li><span><a href="#Using-the-FEM-to-solve-time-dependent-PDEs" data-toc-modified-id="Using-the-FEM-to-solve-time-dependent-PDEs-7"><span class="toc-item-num">7&nbsp;&nbsp;</span>Using the FEM to solve time-dependent PDEs</a></span></li><li><span><a href="#Higher-dimensions-and-unstructured-meshes" data-toc-modified-id="Higher-dimensions-and-unstructured-meshes-8"><span class="toc-item-num">8&nbsp;&nbsp;</span>Higher dimensions and unstructured meshes</a></span></li><li><span><a href="#Final-comments" data-toc-modified-id="Final-comments-9"><span class="toc-item-num">9&nbsp;&nbsp;</span>Final comments</a></span></li><li><span><a href="#The-perodic-table-of-finite-elements" data-toc-modified-id="The-perodic-table-of-finite-elements-10"><span class="toc-item-num">10&nbsp;&nbsp;</span>The perodic table of finite elements</a></span></li></ul></div><section id="learning-objectives-a-class-tocskip">
+<h2>Learning objectives <a class="tocSkip"><a class="headerlink" href="#learning-objectives-a-class-tocskip" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>To introduce the finite element method</p></li>
 <li><p>To review how basis functions can be used to approximate functions,</p></li>
@@ -549,8 +461,8 @@ Matt Piggott</p>
 <li><p>How local assembly can be used to achieve an implementation in code which readily extends things efficiently to complex tesselations of the domain in higher dimensions.</p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="introductory-comments-a-class-tocskip">
-<h1>Introductory comments <a class="tocSkip"><a class="headerlink" href="#introductory-comments-a-class-tocskip" title="Permalink to this heading">#</a></h1>
+<section id="introductory-comments-a-class-tocskip">
+<h2>Introductory comments <a class="tocSkip"><a class="headerlink" href="#introductory-comments-a-class-tocskip" title="Permalink to this heading">#</a></h2>
 <p>Note that there are numerous ways that the finite element method can be introduced and derived.</p>
 <p>A significant subset of these go about this task in a very abstract/mathematical way.</p>
 <p>Here we will take a more practical perspective, but be warned if you pick up a random textbook it may well go about things in a very different manner. Ultimately though we will end up at the same place.</p>
@@ -580,6 +492,7 @@ Matt Piggott</p>
 </div>
 </div>
 </div>
+</section>
 <section id="introduction-finite-elements-vs-volumes-vs-differences">
 <h2>Introduction: finite elements vs volumes vs differences<a class="headerlink" href="#introduction-finite-elements-vs-volumes-vs-differences" title="Permalink to this heading">#</a></h2>
 <p>The finite element method can be interpreted in a way that sets it somewhat apart from finite difference and finite volume methods.</p>
@@ -1574,7 +1487,7 @@ K\boldsymbol{u} &amp;= \boldsymbol{b}.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f3e449b7c10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe18ef6a0a0&gt;
 </pre></div>
 </div>
 <img alt="../_images/3b357ba2b4c19ef78ed77a209ba777f6bcc2677173c01155e0a450d0d3ad2fe8.png" src="../_images/3b357ba2b4c19ef78ed77a209ba777f6bcc2677173c01155e0a450d0d3ad2fe8.png" />
@@ -2425,7 +2338,7 @@ x &amp;= \frac{1}{2}\left(x_L+x_R\right) + \frac{1}{2}\left(x_R - x_L\right)\xi 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f3e44a38340&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe18ed9d550&gt;
 </pre></div>
 </div>
 <img alt="../_images/fba9a9ecf301958c4e973253e5bfa4c5dfbf2529dfb8d42a7a986f104129b734.png" src="../_images/fba9a9ecf301958c4e973253e5bfa4c5dfbf2529dfb8d42a7a986f104129b734.png" />
@@ -2579,13 +2492,13 @@ basis functions and perform integrals over that shape with ease.</p>
 <br>
 <p>An important final thing for you to understand is how we would go about discretising more complex equations - to help with this a homework questions asks you to consider the problem <span class="math notranslate nohighlight">\(u''+u=f\)</span>.</p>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="the-perodic-table-of-finite-elements">
-<h1>The perodic table of finite elements<a class="headerlink" href="#the-perodic-table-of-finite-elements" title="Permalink to this heading">#</a></h1>
+<section id="the-perodic-table-of-finite-elements">
+<h2>The perodic table of finite elements<a class="headerlink" href="#the-perodic-table-of-finite-elements" title="Permalink to this heading">#</a></h2>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/femtable.png"><img alt="../_images/femtable.png" src="../_images/femtable.png" style="width: 75%;" /></a>
 </figure>
 <p>for more details see <a class="reference external" href="http://www-users.math.umn.edu/~arnold/femtable/">http://www-users.math.umn.edu/~arnold/femtable/</a></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -2646,94 +2559,6 @@ basis functions and perform integrals over that shape with ease.</p>
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">12.1 Finite Element Methods <a class="tocSkip"></a></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives-a-class-tocskip">Learning objectives <a class="tocSkip"></a></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introductory-comments-a-class-tocskip">Introductory comments <a class="tocSkip"></a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-finite-elements-vs-volumes-vs-differences">Introduction: finite elements vs volumes vs differences</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#approximating-a-function">Approximating a function</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#piecewise-polynomials">Piecewise-polynomials</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#an-example">An example</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation-of-a-function-lagrange-polynomial-a-reminder">Interpolation of a function (Lagrange polynomial - a reminder)</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation-errors">Interpolation errors</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#norms">Norms</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#error-bounds-formulae-star">Error bounds formulae  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Comments</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#basis-functions-reminder-from-a-previous-lecture">Basis functions [reminder from a previous lecture]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#hat-functions">Hat functions</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#support-of-basis-functions">Support of basis functions</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#some-code-to-return-the-hat-basis-functions">Some code to return the hat/basis functions</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#unstructured-mesh-data-structures">Unstructured mesh data structures</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#terminology">Terminology</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#l-2-projection-of-a-function"><span class="math notranslate nohighlight">\(L^2\)</span> projection of a function</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#theory">Theory</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#finite-dimensional-example">Finite-dimensional example</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#theory-continued">Theory - continued</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#link-to-the-finite-element-method">Link to the finite element method</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-the-mass-matrix">Implementation - the mass matrix</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-in-code">Implementation in code</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#quadrature">Quadrature</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#application-of-simpson-s-rule-star">Application of Simpson’s rule [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-using-a-continuous-function">Approximation using a continuous function</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#quality-of-approximation">Quality of approximation</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#rms-root-mean-square-vs-l-2-norm-reminder-from-comp-math">RMS (root mean square) vs <span class="math notranslate nohighlight">\(L^2\)</span> norm [reminder from Comp Math]</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#solving-boundary-value-problems-bvps-using-the-fem">Solving boundary value problems (BVPs) using the FEM</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#the-fundamental-form-of-the-discretisation-ignoring-bcs">The fundamental form of the discretisation ignoring BCs</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#weak-or-variational-form-of-problem">Weak or variational form of problem</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation-by-restricting-the-function-space-to-be-finite-dimensional">Discretisation by restricting the function space to be finite-dimensional</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#choice-of-basis-functions-a-k-a-choice-of-function-space-a-k-a-choice-of-finite-element">Choice of basis functions (a.k.a. choice of function space a.k.a. choice of “finite element”)</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#finite-element-approximation">Finite element approximation</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Terminology</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-problem-with-homogeneous-dirichlet-bcs">A simple problem with homogeneous Dirichlet BCs</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#problem-description">Problem description</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Finite element approximation</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Comments</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#practical-implementation-of-the-fem-local-assembly-over-elements">Practical implementation of the FEM - local assembly over elements</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#the-underlying-idea">The underlying idea</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#local-assembly-for-the-mass-matrix">Local assembly for the mass matrix</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#example-projection">Example - projection</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#unstructured-mesh-data-structures-the-connectivity-matrix">Unstructured mesh data structures (the connectivity matrix)</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#quadrature-over-the-local-element-change-of-variables-to-a-reference-element">Quadrature over the local element (change of variables to a reference element)</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-to-the-reference-element">Transformation to the reference element</a><ul class="nav section-nav flex-column">
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#aside-quadratic-basis-functions">Aside: quadratic basis functions</a></li>
-</ul>
-</li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#local-assembly-for-integrands-that-involve-derivatives">Local assembly for integrands that involve derivatives</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-fem-to-solve-time-dependent-pdes">Using the FEM to solve time-dependent PDEs</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#higher-dimensions-and-unstructured-meshes">Higher dimensions and unstructured meshes</a></li>
-<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#final-comments">Final comments</a></li>
-</ul>
-</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-perodic-table-of-finite-elements">The perodic table of finite elements</a></li>
-</ul>
-
-  </nav></div>
-
-</div></div>
               
             
           </div>

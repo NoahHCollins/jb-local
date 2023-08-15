@@ -239,9 +239,6 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">12. Finite Element Methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Lecture%2012.1%20-%20FEM.html">12.1 Finite Element Methods <a class="tocSkip"></a></a></li>
-
-
-
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework <a class="tocSkip"></a></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Solutions.html">Solutions <a class="tocSkip"></a></a></li>
 </ul>
@@ -778,18 +775,21 @@ document.write(`
 = \int_0^1 f\,\phi_i \,dx, \;\;\;\;\; \text{for}\;\;\;\; i=1, 2,\ldots, N-1. \]</div>
 <p>Note a difference now though that our <span class="math notranslate nohighlight">\(u_h\)</span> does include known <span class="math notranslate nohighlight">\(\phi_0 \)</span> and <span class="math notranslate nohighlight">\(\phi_n\)</span> terms. Let’s see now how this affects things.</p>
 <p>In this case the integral in the LHS can be written as</p>
-<p>\begin{align*}
-\int_0^1 u_h’\phi_i’ ,dx
-&amp;=
-\int_0^1 ,\left(\sum_{j=0}^{N} u_j,\phi_j’\right)\phi_i’ ,dx \[10pt]
-&amp;=
-\sum_{j=0}^{N} u_j, \int_0^1 ,\phi_j’,\phi_i’ ,dx \[10pt]
-&amp;=
-\sum_{j=1}^{N-1} u_j, \int_0^1 \phi_i’, \phi_j’ ,dx
-+u_0, \int_0^1 \phi_i’, \phi_0’ ,dx
-+u_n, \int_0^1 \phi_i’, \phi_N’ ,dx,
-;;;;; \text{for};;;; i=1, 2,\ldots, N-1.
-\end{align*}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\int_0^1 u_h'\phi_i' \,dx 
+&amp;= 
+\int_0^1 \,\left(\sum_{j=0}^{N} u_j\,\phi_j'\right)\phi_i' \,dx \\[10pt]
+&amp;= 
+\sum_{j=0}^{N} u_j\, \int_0^1 \,\phi_j'\,\phi_i' \,dx \\[10pt]
+&amp;= 
+\sum_{j=1}^{N-1} u_j\, \int_0^1 \phi_i'\, \phi_j' \,dx 
++u_0\, \int_0^1 \phi_i'\, \phi_0' \,dx
++u_n\, \int_0^1 \phi_i'\, \phi_N' \,dx,
+\;\;\;\;\; \text{for}\;\;\;\; i=1, 2,\ldots, N-1.
+\end{align*}
+\end{split}\]</div>
 <p>Note that we will move the (two) boundary term contributions on to the right hand side as they are known.</p>
 <p>We explain in the code that follows how these additional contributions are added into the RHS vector.</p>
 <p>Our left hand side “discretisation” matrix is the same <span class="math notranslate nohighlight">\((N-1)\times (N-1)\)</span> matrix as above (the original full <span class="math notranslate nohighlight">\(K\)</span> without the first and last rows)</p>
@@ -929,15 +929,18 @@ and an inhomogeneous Nemuann BC at the right:</p>
 = \int_0^1 f\,\phi_i \,dx + u_R^N\,\delta_{i,N}, \;\;\;\;\; \text{for}\;\;\;\; i=1, 2,\ldots, N. \]</div>
 <p><span class="math notranslate nohighlight">\(\delta_{i,n}\)</span> is the <a class="reference external" href="https://en.wikipedia.org/wiki/Kronecker_delta"><em>Kronecker delta</em></a> which is equal to one when <span class="math notranslate nohighlight">\(i=n\)</span>, otherwise it is zero. This is introduced here simply to emphasise that the Neumann boundary data contributes as a boundary integral at the right hand boundary node (i.e. <span class="math notranslate nohighlight">\(i=n\)</span>) only.</p>
 <p>In this case the integral in the LHS can be written as</p>
-<p>\begin{align*}
-\int_0^1 u_h’\phi_i’ ,dx
-&amp;=
-\int_0^1 \left(\sum_{j=0}^{N} u_j,\phi_j’\right)\phi_i’ ,dx \[10pt]
-&amp;=
-\sum_{j=1}^{N} u_j, \int_0^1 \phi_i’, \phi_j’ ,dx
-+u_0, \int_0^1 \phi_i’, \phi_0’ ,dx,
-;;;;; \text{for};;;; i=1, 2,\ldots, N.
-\end{align*}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\int_0^1 u_h'\phi_i' \,dx 
+&amp;= 
+\int_0^1 \left(\sum_{j=0}^{N} u_j\,\phi_j'\right)\phi_i' \,dx \\[10pt]
+&amp;= 
+\sum_{j=1}^{N} u_j\, \int_0^1 \phi_i'\, \phi_j' \,dx 
++u_0\, \int_0^1 \phi_i'\, \phi_0' \,dx,
+\;\;\;\;\; \text{for}\;\;\;\; i=1, 2,\ldots, N.
+\end{align*}
+\end{split}\]</div>
 <p>As before we will move the boundary Dirichlet contribution over to the right hand side as it is known.</p>
 <p>Our “discretisation” matrix <span class="math notranslate nohighlight">\(K\)</span> in this case keep the final row of the full <span class="math notranslate nohighlight">\(K\)</span> we originally defined, but does not include the first row.</p>
 <p>and</p>
