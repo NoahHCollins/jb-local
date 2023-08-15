@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -705,7 +706,7 @@ b_1 &amp; b_2 &amp; b_3
 <li><p>In 3D, each component of the cross product vector is equivalent to the cross product of the projections of <span class="math notranslate nohighlight">\(\vector{a}\)</span> and <span class="math notranslate nohighlight">\(\vector{b}\)</span> onto the plane normal to that direction. For example, the <span class="math notranslate nohighlight">\(\ez\)</span> component is equivalent to the cross product of the projections of <span class="math notranslate nohighlight">\(\vector{a}\)</span> and <span class="math notranslate nohighlight">\(\vector{b}\)</span> onto the <span class="math notranslate nohighlight">\(x_1\)</span>-<span class="math notranslate nohighlight">\(x_2\)</span> plane.</p></li>
 <li><p>The individual components of the cross product vector are therefore each a measure of <em>directional dissimilarity</em> between <span class="math notranslate nohighlight">\(\vector{a}\)</span> and <span class="math notranslate nohighlight">\(\vector{b}\)</span> in the plane normal to that direction. In other words, if the cross product of <span class="math notranslate nohighlight">\(\vector{a}\)</span> and <span class="math notranslate nohighlight">\(\vector{b}\)</span> has a component of zero in the <span class="math notranslate nohighlight">\(\ey\)</span> direction, for example, this implies that the projections of <span class="math notranslate nohighlight">\(\vector{a}\)</span> and <span class="math notranslate nohighlight">\(\vector{b}\)</span> onto the <span class="math notranslate nohighlight">\(x_1\)</span>-<span class="math notranslate nohighlight">\(x_3\)</span> plane are parallel.</p></li>
 </ul>
-<div class="alert alert-success docutils">
+<div class="core-cell docutils">
 <p class="rubric">Exercise 1</p>
 <p>The following problems ask you to calculate various vector operations. If it’s been a while since you did these or they are new, have a go at calculating them by hand first. Then see if you can code up and compute them using <span class="math notranslate nohighlight">\(\texttt{numpy}\)</span>. Otherwise, you may want to skip directly to coding these operations up using <code class="docutils literal notranslate"><span class="pre">np.dot</span></code>, <code class="docutils literal notranslate"><span class="pre">np.cross</span></code> and <code class="docutils literal notranslate"><span class="pre">np.linalg.norm</span></code>.</p>
 <p>Assuming</p>
