@@ -69,7 +69,7 @@ parts:
       - file: "Chapter10/Solutions"
     - file: "Chapter11/intro"
       sections:
-      - file: "Chapter11/Lecture 11.1 - PDE Solvers"
+      - file: "Chapter11/Lecture 11 - PDE Solvers - Finite Difference Methods 2"
       - file: "Chapter11/Homework"
       - file: "Chapter11/Solutions"
     - file: "Chapter12/intro"
