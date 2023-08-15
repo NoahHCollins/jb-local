@@ -541,7 +541,7 @@ document.write(`
 Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2563/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2517/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
   fig1=figure()
 </pre></div>
 </div>
@@ -588,15 +588,6 @@ Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1500: resid=0.000005
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1600: resid=0.000004
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1700: resid=0.000002
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1800: resid=0.000002
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -671,12 +662,10 @@ Populating the interactive namespace from numpy and matplotlib
 <span class="g g-Whitespace">   </span><span class="mi">1316</span>     <span class="n">size</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.titlesize&#39;</span><span class="p">],</span>
 <span class="g g-Whitespace">   </span><span class="mi">1317</span>     <span class="n">weight</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.titleweight&#39;</span><span class="p">])</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:3194,</span> in <span class="ni">_AxesBase.grid</span><span class="nt">(self, visible, which, axis, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3192</span> <span class="n">_api</span><span class="o">.</span><span class="n">check_in_list</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3193</span> <span class="k">if</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">]:</span>
-<span class="ne">-&gt; </span><span class="mi">3194</span>     <span class="bp">self</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">visible</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="n">which</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:3196,</span> in <span class="ni">_AxesBase.grid</span><span class="nt">(self, visible, which, axis, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3194</span>     <span class="bp">self</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">visible</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="n">which</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">3195</span> <span class="k">if</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">]:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3196</span>     <span class="bp">self</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">visible</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="n">which</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3196</span>     <span class="bp">self</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">visible</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="n">which</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 <span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:1660,</span> in <span class="ni">Axis.grid</span><span class="nt">(self, visible, which, **kwargs)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1657</span> <span class="k">if</span> <span class="n">which</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">]:</span>
@@ -713,11 +702,11 @@ Populating the interactive namespace from numpy and matplotlib
 <span class="g g-Whitespace">   </span><span class="mi">1550</span> <span class="n">tick_kw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_major_tick_kw</span> <span class="k">if</span> <span class="n">major</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_minor_tick_kw</span>
 <span class="ne">-&gt; </span><span class="mi">1551</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tick_class</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">major</span><span class="o">=</span><span class="n">major</span><span class="p">,</span> <span class="o">**</span><span class="n">tick_kw</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:417,</span> in <span class="ni">XTick.__init__</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">416</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">417</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">418</span>     <span class="c1"># x in data coords, y in axes coords</span>
-<span class="g g-Whitespace">    </span><span class="mi">419</span>     <span class="n">ax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:478,</span> in <span class="ni">YTick.__init__</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">477</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">478</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">479</span>     <span class="c1"># x in axes coords, y in data coords</span>
+<span class="g g-Whitespace">    </span><span class="mi">480</span>     <span class="n">ax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span>
 
 <span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:172,</span> in <span class="ni">Tick.__init__</span><span class="nt">(self, axes, loc, size, width, color, tickdir, pad, labelsize, labelcolor, zorder, gridOn, tick1On, tick2On, label1On, label2On, major, labelrotation, grid_color, grid_linestyle, grid_linewidth, grid_alpha, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">161</span> <span class="bp">self</span><span class="o">.</span><span class="n">tick2line</span> <span class="o">=</span> <span class="n">mlines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">(</span>
@@ -748,13 +737,12 @@ Populating the interactive namespace from numpy and matplotlib
 <span class="ne">-&gt; </span><span class="mi">1028</span>     <span class="bp">self</span><span class="o">.</span><span class="n">recache</span><span class="p">()</span>
 <span class="g g-Whitespace">   </span><span class="mi">1029</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/lines.py:694,</span> in <span class="ni">Line2D.recache</span><span class="nt">(self, always)</span>
-<span class="g g-Whitespace">    </span><span class="mi">692</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">693</span>     <span class="n">interpolation_steps</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="ne">--&gt; </span><span class="mi">694</span> <span class="n">xy</span> <span class="o">=</span> <span class="n">STEP_LOOKUP_MAP</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_drawstyle</span><span class="p">](</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_xy</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">695</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">696</span>                   <span class="n">_interpolation_steps</span><span class="o">=</span><span class="n">interpolation_steps</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">697</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transformed_path</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/lines.py:658,</span> in <span class="ni">Line2D.recache</span><span class="nt">(self, always)</span>
+<span class="g g-Whitespace">    </span><span class="mi">656</span> <span class="k">def</span> <span class="nf">recache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">always</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">657</span>     <span class="k">if</span> <span class="n">always</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_invalidx</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">658</span>         <span class="n">xconv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_xunits</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_xorig</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">659</span>         <span class="n">x</span> <span class="o">=</span> <span class="n">_to_unmasked_float_array</span><span class="p">(</span><span class="n">xconv</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span>     <span class="k">else</span><span class="p">:</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
