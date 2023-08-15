@@ -65,6 +65,8 @@ parts:
     - file: "Chapter10/intro"
       sections:
       - file: "Chapter10/Lecture 10.1 - ODE Solver"
+      - file: "Chapter10/Homework"
+      - file: "Chapter10/Solutions"
     - file: "Chapter11/intro"
       sections:
       - file: "Chapter11/Lecture 11 - PDE Solvers - Finite Difference Methods 2"
