@@ -550,7 +550,7 @@ document.write(`
 Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2658/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2728/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
   fig1=figure()
 </pre></div>
 </div>
@@ -593,11 +593,18 @@ Populating the interactive namespace from numpy and matplotlib
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1300: resid=0.000013
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1400: resid=0.000008
-</pre></div>
-</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/cbook/__init__.py:2032,</span> in <span class="ni">_setattr_cm</span><span class="nt">(obj, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2031</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2032</span>     <span class="k">for</span> <span class="n">attr</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="g g-Whitespace">   </span><span class="mi">2033</span>         <span class="nb">setattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">37</span>
 <span class="g g-Whitespace">     </span><span class="mi">35</span>          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%g</span><span class="s2">: resid=</span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">cnt</span><span class="p">,</span><span class="n">residave</span><span class="p">))</span>
 <span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="n">fig1</span><span class="o">=</span><span class="n">figure</span><span class="p">()</span>
@@ -723,27 +730,47 @@ Populating the interactive namespace from numpy and matplotlib
 <span class="g g-Whitespace">   </span><span class="mi">1230</span>     <span class="c1"># module.</span>
 <span class="ne">-&gt; </span><span class="mi">1231</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_internal_update</span><span class="p">(</span><span class="n">cbook</span><span class="o">.</span><span class="n">normalize_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">,</span> <span class="bp">self</span><span class="p">))</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/cbook/__init__.py:1770,</span> in <span class="ni">normalize_kwargs</span><span class="nt">(kw, alias_mapping)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1766</span> <span class="k">elif</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">alias_mapping</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">alias_mapping</span><span class="p">,</span> <span class="n">Artist</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1767</span>       <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">alias_mapping</span><span class="p">,</span> <span class="n">Artist</span><span class="p">)):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1768</span>     <span class="n">alias_mapping</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">alias_mapping</span><span class="p">,</span> <span class="s2">&quot;_alias_map&quot;</span><span class="p">,</span> <span class="p">{})</span>
-<span class="ne">-&gt; </span><span class="mi">1770</span> <span class="n">to_canonical</span> <span class="o">=</span> <span class="p">{</span><span class="n">alias</span><span class="p">:</span> <span class="n">canonical</span>
-<span class="nn">   1771                 for canonical, alias_list</span> in <span class="ni">alias_mapping.items</span><span class="nt">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1772</span>                 <span class="k">for</span> <span class="n">alias</span> <span class="ow">in</span> <span class="n">alias_list</span><span class="p">}</span>
-<span class="g g-Whitespace">   </span><span class="mi">1773</span> <span class="n">canonical_to_seen</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="g g-Whitespace">   </span><span class="mi">1774</span> <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># output dictionary</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/artist.py:1223,</span> in <span class="ni">Artist._internal_update</span><span class="nt">(self, kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1216</span> <span class="k">def</span> <span class="nf">_internal_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1217</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1218</span><span class="sd">     Update artist properties without prenormalizing them, but generating</span>
+<span class="g g-Whitespace">   </span><span class="mi">1219</span><span class="sd">     errors as if calling `set`.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1220</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1221</span><span class="sd">     The lack of prenormalization is to maintain backcompatibility.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1222</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1223</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_props</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1224</span>         <span class="n">kwargs</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{cls.__name__}</span><span class="s2">.set() got an unexpected keyword argument &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1225</span>         <span class="s2">&quot;</span><span class="si">{prop_name!r}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/cbook/__init__.py:1770,</span> in <span class="ni">&lt;dictcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1766</span> <span class="k">elif</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">alias_mapping</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">alias_mapping</span><span class="p">,</span> <span class="n">Artist</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1767</span>       <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">alias_mapping</span><span class="p">,</span> <span class="n">Artist</span><span class="p">)):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1768</span>     <span class="n">alias_mapping</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">alias_mapping</span><span class="p">,</span> <span class="s2">&quot;_alias_map&quot;</span><span class="p">,</span> <span class="p">{})</span>
-<span class="ne">-&gt; </span><span class="mi">1770</span> <span class="n">to_canonical</span> <span class="o">=</span> <span class="p">{</span><span class="n">alias</span><span class="p">:</span> <span class="n">canonical</span>
-<span class="nn">   1771                 for canonical, alias_list</span> in <span class="ni">alias_mapping.items</span><span class="nt">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1772</span>                 <span class="k">for</span> <span class="n">alias</span> <span class="ow">in</span> <span class="n">alias_list</span><span class="p">}</span>
-<span class="g g-Whitespace">   </span><span class="mi">1773</span> <span class="n">canonical_to_seen</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="g g-Whitespace">   </span><span class="mi">1774</span> <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># output dictionary</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/artist.py:1188,</span> in <span class="ni">Artist._update_props</span><span class="nt">(self, props, errfmt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1181</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span><span class="sd"> Helper for `.Artist.set` and `.Artist.update`.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1183</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1184</span><span class="sd"> *errfmt* is used to generate error messages for invalid property</span>
+<span class="g g-Whitespace">   </span><span class="mi">1185</span><span class="sd"> names; it gets formatted with ``type(self)`` and the property name.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1186</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1187</span> <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="ne">-&gt; </span><span class="mi">1188</span> <span class="k">with</span> <span class="n">cbook</span><span class="o">.</span><span class="n">_setattr_cm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eventson</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1189</span>     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">props</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="g g-Whitespace">   </span><span class="mi">1190</span>         <span class="c1"># Allow attributes we want to be able to update through</span>
+<span class="g g-Whitespace">   </span><span class="mi">1191</span>         <span class="c1"># art.update, art.set, setp.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1192</span>         <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s2">&quot;axes&quot;</span><span class="p">:</span>
 
-<span class="ne">KeyboardInterrupt</span>: 
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/contextlib.py:119,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">117</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">119</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;generator didn&#39;t yield&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/cbook/__init__.py:2038,</span> in <span class="ni">_setattr_cm</span><span class="nt">(obj, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2036</span> <span class="k">for</span> <span class="n">attr</span><span class="p">,</span> <span class="n">orig</span> <span class="ow">in</span> <span class="n">origs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="g g-Whitespace">   </span><span class="mi">2037</span>     <span class="k">if</span> <span class="n">orig</span> <span class="ow">is</span> <span class="n">sentinel</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2038</span>         <span class="nb">delattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2039</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2040</span>         <span class="nb">setattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">orig</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: eventson
 </pre></div>
 </div>
 </div>
