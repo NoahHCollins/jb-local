@@ -1,0 +1,73 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+kappa = 0.005
+L = 1
+Pe = 10
+U = Pe * kappa / L
+CE = 1
+
+# set up figure with 4 subplots to plot 4 resolutions
+fig, axs = plt.subplots(2, 2, figsize=(10, 10))
+# reshape so that we can iterate below over axs[i] instead of ax[i,j]
+axs = axs.reshape(-1)
+fig.tight_layout(w_pad=4, h_pad=4)
+
+# construct the exact solution on a fine mesh
+xf = np.linspace(0, L, 1000)
+Cex = CE * (np.exp(Pe * xf / L) - 1) / (np.exp(Pe) - 1)
+
+# let's compute solution and plot for 4 different resolutions
+for (i, N) in enumerate( (32 * .5**np.arange(0, 4)).astype(np.int) ):
+    # call function to generate numerical solution
+    x, C = BVP_AD_central(L, U, kappa, CE, N)
+    axs[i].plot(xf, Cex, '-k', label='Exact solution')
+    axs[i].plot(x, C, 'ob', label='Numerical solution')
+    axs[i].set_xlabel('$x/L$', fontsize=14)
+    axs[i].set_ylabel('$C/C_E$', fontsize=14)
+    axs[i].set_title('AD BVP - central. $PE = 10$, $N=$%2i, $Pe_c$=%.4f' % (N,U*(L/N)/kappa), fontsize=14)
+    axs[i].legend(loc='best', fontsize=14)
+    # to exclude ghost points just restrict the x limit of the plot
+    axs[i].set_xlim(0, 1)
+    axs[i].set_ylim(-0.3, 1.2);
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[5], line 18[0m
+[1;32m     15[0m Cex [38;5;241m=[39m CE [38;5;241m*[39m (np[38;5;241m.[39mexp(Pe [38;5;241m*[39m xf [38;5;241m/[39m L) [38;5;241m-[39m [38;5;241m1[39m) [38;5;241m/[39m (np[38;5;241m.[39mexp(Pe) [38;5;241m-[39m [38;5;241m1[39m)
+[1;32m     17[0m [38;5;66;03m# let's compute solution and plot for 4 different resolutions[39;00m
+[0;32m---> 18[0m [38;5;28;01mfor[39;00m (i, N) [38;5;129;01min[39;00m [38;5;28menumerate[39m( ([38;5;241m32[39m [38;5;241m*[39m [38;5;241m.5[39m[38;5;241m*[39m[38;5;241m*[39mnp[38;5;241m.[39marange([38;5;241m0[39m, [38;5;241m4[39m))[38;5;241m.[39mastype([43mnp[49m[38;5;241;43m.[39;49m[43mint[49m) ):
+[1;32m     19[0m     [38;5;66;03m# call function to generate numerical solution[39;00m
+[1;32m     20[0m     x, C [38;5;241m=[39m BVP_AD_central(L, U, kappa, CE, N)
+[1;32m     21[0m     axs[i][38;5;241m.[39mplot(xf, Cex, [38;5;124m'[39m[38;5;124m-k[39m[38;5;124m'[39m, label[38;5;241m=[39m[38;5;124m'[39m[38;5;124mExact solution[39m[38;5;124m'[39m)
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/numpy/__init__.py:319[0m, in [0;36m__getattr__[0;34m(attr)[0m
+[1;32m    314[0m     warnings[38;5;241m.[39mwarn(
+[1;32m    315[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mIn the future `np.[39m[38;5;132;01m{[39;00mattr[38;5;132;01m}[39;00m[38;5;124m` will be defined as the [39m[38;5;124m"[39m
+[1;32m    316[0m         [38;5;124m"[39m[38;5;124mcorresponding NumPy scalar.[39m[38;5;124m"[39m, [38;5;167;01mFutureWarning[39;00m, stacklevel[38;5;241m=[39m[38;5;241m2[39m)
+[1;32m    318[0m [38;5;28;01mif[39;00m attr [38;5;129;01min[39;00m __former_attrs__:
+[0;32m--> 319[0m     [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m(__former_attrs__[attr])
+[1;32m    321[0m [38;5;28;01mif[39;00m attr [38;5;241m==[39m [38;5;124m'[39m[38;5;124mtesting[39m[38;5;124m'[39m:
+[1;32m    322[0m     [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtesting[39;00m [38;5;28;01mas[39;00m [38;5;21;01mtesting[39;00m
+
+[0;31mAttributeError[0m: module 'numpy' has no attribute 'int'.
+`np.int` was a deprecated alias for the builtin `int`. To avoid this error in existing code, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+
