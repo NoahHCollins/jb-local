@@ -550,7 +550,7 @@ document.write(`
 Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2690/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2731/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
   fig1=figure()
 </pre></div>
 </div>
@@ -585,6 +585,15 @@ Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1100: resid=0.000029
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1200: resid=0.000019
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1300: resid=0.000013
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1400: resid=0.000008
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -637,35 +646,54 @@ Populating the interactive namespace from numpy and matplotlib
 <span class="g g-Whitespace">    </span><span class="mi">769</span>     <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">projection_class</span><span class="p">,</span> <span class="n">pkw</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">770</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_axes_internal</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:672,</span> in <span class="ni">_AxesBase.__init__</span><span class="nt">(self, fig, facecolor, frameon, sharex, sharey, label, xscale, yscale, box_aspect, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">669</span> <span class="c1"># placeholder for any colorbars added that use this Axes.</span>
-<span class="g g-Whitespace">    </span><span class="mi">670</span> <span class="c1"># (see colorbar.py):</span>
-<span class="g g-Whitespace">    </span><span class="mi">671</span> <span class="bp">self</span><span class="o">.</span><span class="n">_colorbars</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="ne">--&gt; </span><span class="mi">672</span> <span class="bp">self</span><span class="o">.</span><span class="n">spines</span> <span class="o">=</span> <span class="n">mspines</span><span class="o">.</span><span class="n">Spines</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_gen_axes_spines</span><span class="p">())</span>
-<span class="g g-Whitespace">    </span><span class="mi">674</span> <span class="c1"># this call may differ for non-sep axes, e.g., polar</span>
-<span class="g g-Whitespace">    </span><span class="mi">675</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_axis</span><span class="p">()</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:683,</span> in <span class="ni">_AxesBase.__init__</span><span class="nt">(self, fig, facecolor, frameon, sharex, sharey, label, xscale, yscale, box_aspect, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">680</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.axisbelow&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">682</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rasterization_zorder</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">--&gt; </span><span class="mi">683</span> <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span> <span class="c1"># funcs used to format x and y - fall back on major formatters</span>
+<span class="g g-Whitespace">    </span><span class="mi">686</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmt_xdata</span> <span class="o">=</span> <span class="kc">None</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:1221,</span> in <span class="ni">_AxesBase._gen_axes_spines</span><span class="nt">(self, locations, offset, units)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1206</span> <span class="k">def</span> <span class="nf">_gen_axes_spines</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;inches&#39;</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1207</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1208</span><span class="sd">     Returns</span>
-<span class="g g-Whitespace">   </span><span class="mi">1209</span><span class="sd">     -------</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1219</span><span class="sd">     Intended to be overridden by new projection types.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1220</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1221</span>     <span class="k">return</span> <span class="p">{</span><span class="n">side</span><span class="p">:</span> <span class="n">mspines</span><span class="o">.</span><span class="n">Spine</span><span class="o">.</span><span class="n">linear_spine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1222</span>             <span class="k">for</span> <span class="n">side</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">]}</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:1395,</span> in <span class="ni">_AxesBase.clear</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1393</span>     <span class="bp">self</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1394</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1395</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__clear</span><span class="p">()</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:1221,</span> in <span class="ni">&lt;dictcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1206</span> <span class="k">def</span> <span class="nf">_gen_axes_spines</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;inches&#39;</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1207</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1208</span><span class="sd">     Returns</span>
-<span class="g g-Whitespace">   </span><span class="mi">1209</span><span class="sd">     -------</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:1312,</span> in <span class="ni">_AxesBase.__clear</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1309</span> <span class="bp">self</span><span class="o">.</span><span class="n">legend_</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1310</span> <span class="bp">self</span><span class="o">.</span><span class="n">containers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="ne">-&gt; </span><span class="mi">1312</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># Disable grid on init to use rcParameter</span>
+<span class="g g-Whitespace">   </span><span class="mi">1313</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_gridOn</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.grid.which&#39;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1314</span>           <span class="n">axis</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.grid.axis&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">   </span><span class="mi">1315</span> <span class="n">props</span> <span class="o">=</span> <span class="n">font_manager</span><span class="o">.</span><span class="n">FontProperties</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1316</span>     <span class="n">size</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.titlesize&#39;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1317</span>     <span class="n">weight</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.titleweight&#39;</span><span class="p">])</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:3194,</span> in <span class="ni">_AxesBase.grid</span><span class="nt">(self, visible, which, axis, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3192</span> <span class="n">_api</span><span class="o">.</span><span class="n">check_in_list</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3193</span> <span class="k">if</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">]:</span>
+<span class="ne">-&gt; </span><span class="mi">3194</span>     <span class="bp">self</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">visible</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="n">which</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3195</span> <span class="k">if</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">]:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3196</span>     <span class="bp">self</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">visible</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="n">which</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:1660,</span> in <span class="ni">Axis.grid</span><span class="nt">(self, visible, which, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1657</span> <span class="k">if</span> <span class="n">which</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">]:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1658</span>     <span class="n">gridkw</span><span class="p">[</span><span class="s1">&#39;gridOn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_major_tick_kw</span><span class="p">[</span><span class="s1">&#39;gridOn&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1659</span>                         <span class="k">if</span> <span class="n">visible</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">visible</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1660</span>     <span class="bp">self</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">gridkw</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1661</span> <span class="bp">self</span><span class="o">.</span><span class="n">stale</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:932,</span> in <span class="ni">Axis.set_tick_params</span><span class="nt">(self, which, reset, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">919</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">920</span><span class="sd"> Set appearance parameters for ticks, ticklabels, and gridlines.</span>
+<span class="g g-Whitespace">    </span><span class="mi">921</span><span class="sd"> </span>
 <span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1219</span><span class="sd">     Intended to be overridden by new projection types.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1220</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1221</span>     <span class="k">return</span> <span class="p">{</span><span class="n">side</span><span class="p">:</span> <span class="n">mspines</span><span class="o">.</span><span class="n">Spine</span><span class="o">.</span><span class="n">linear_spine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1222</span>             <span class="k">for</span> <span class="n">side</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">]}</span>
+<span class="g g-Whitespace">    </span><span class="mi">929</span><span class="sd">     gridlines.</span>
+<span class="g g-Whitespace">    </span><span class="mi">930</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">931</span> <span class="n">_api</span><span class="o">.</span><span class="n">check_in_list</span><span class="p">([</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">],</span> <span class="n">which</span><span class="o">=</span><span class="n">which</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">932</span> <span class="n">kwtrans</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_translate_tick_params</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">934</span> <span class="c1"># the kwargs are stored in self._major/minor_tick_kw so that any</span>
+<span class="g g-Whitespace">    </span><span class="mi">935</span> <span class="c1"># future new ticks will automatically get them</span>
+<span class="g g-Whitespace">    </span><span class="mi">936</span> <span class="k">if</span> <span class="n">reset</span><span class="p">:</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
