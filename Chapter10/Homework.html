@@ -1,0 +1,765 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Homework &#8212; Modelling and Numerical Methods</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter10/Homework';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Modelling and Numerical Methods
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 1 - Analytical Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter1/intro.html">1. Intro to Vector/Tensor Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/Lecture%201.1%20-%20Intro%20to%20Vectors.html">1.1 Continuum Mechanics and Vector Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/Lecture%201.2%20-%20Vector%20Transformations.html">1.2 Vector Transformations  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/Lecture%201.3%20-%20Intro%20to%20Tensors.html">1.3 Intro to Tensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/exercises.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/solutions.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter2/intro.html">2. Stress Tensor</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/Lecture%202%20-%20Stress%20and%20Tensors.html">2.1 Stress and Tensors  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/exercises2.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/solutions2.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter3/intro.html">3. Kinematics and Strain</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/Lecture%203%20-%20Kinematics.html">3.1 Kinematics   <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/exercises3.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/solutions3.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter4/intro.html">4. Conservation Equations</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/Lecture%204.1%20-%20Conservation%20Equations.html">4.1 Conservation Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/Lecture%204.2%20-%20Rheology.html">4.2 Rheology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/exercises4.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/solutions4.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter5/intro.html">5. Dimensional Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter5/Lecture%205%20-%20Dimensions%20and%20Dimensional%20Analysis.html">5.1 Dimensions and Dimensional Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter5/Worksheet.html">Worksheet  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter5/Solutions.html">Solutions  <a class="tocSkip"></a></a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2 - Numerical Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter6/intro.html">6. Potential Flow</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter6/Lecture%206%20-%20Potential%20Flow.html">6.1 Potential Flow  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter6/Worksheet.html">Worksheet  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter6/Solutions.html">Solutions  <a class="tocSkip"></a></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter7/intro.html">7. Navier-Stokes</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter7/Lecture%207.1%20-%20Navier-Stokes.html">7.1 Solving Navier-Stokes Numerically</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter7/Worksheet.html">Worksheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter7/SolversIntro.html">Solvers</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter8/intro.html">8. Turbulence and Non-Newtonian Flows</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter8/Lecture%208.1%20-%20Turbulent%20and%20Non-Newtonian%20Flows.html">8.1 Turbulent and Non-Newtonian Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter8/Worksheet.html">Worksheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter8/Solutions.html">Solutions</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 3 - Numerical Techniques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter9/intro.html">9. Interpolation Quadrature 2</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter9/Lecture%209.1%20-%20interpolation%20quadrature.html">9.1 Interpolation &amp; Quadrature 2 <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter9/Homework.html">Homework <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter9/Solutions.html">Solutions <a class="tocSkip"></a></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="intro.html">10. ODE Solvers 2</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Lecture%2010.1%20-%20ODE%20Solver.html">10.1 ODE solvers 2 <a class="tocSkip"></a></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter11/intro.html">11. PDE Solvers: Finite Difference Methods 2</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter11/Lecture%2011%20-%20PDE%20Solvers%20-%20Finite%20Difference%20Methods%202.html">11.1 PDE Solvers: Finite Difference Methods 2</a></li>
+
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FChapter10/Homework.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Chapter10/Homework.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Homework <a class="tocSkip"></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Homework <a class="tocSkip"></a><ul class="nav section-nav flex-column">
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#ode-solvers-or-time-stepping-methods-numerical-solution-of-ivps-2-a-class-tocskip">ODE solvers (or time-stepping methods - numerical solution of IVPs) 2 <a class="tocSkip"></a></a></li>
+</ul>
+</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#homework">Homework</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-scipy-methods-comparison">Homework - SciPy methods comparison</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-the-van-der-pol-problem">Homework - The van der Pol problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-l-stability-star">Homework - L-stability [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-implementing-runge-kutta-4-stage-method-rk4">Homework - Implementing Runge-Kutta 4 stage method (RK4)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-implementing-adams-bashforth-4-step-method-ab4">Homework - Implementing Adams-Bashforth 4-step method (AB4)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-adaptive-time-stepping-implementing-rk45-the-dormand-prince-embedded-rk-pair-star-star">Homework - Adaptive time stepping (implementing RK45 - the Dormand-Prince embedded RK pair) [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-the-lorenz-system-with-rk4-and-rk45">Homework - The Lorenz system (with RK4 and RK45)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-perturbing-initial-conditions-in-the-lorenz-problem-star">Homework - Perturbing initial conditions (in the Lorenz problem) [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-the-kepler-problem-with-adaptive-time-stepping-star">Homework - The Kepler problem with adaptive time stepping [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-structure-preservation-geometric-integrators-applied-to-the-kepler-problem-star-star">Homework - Structure preservation (geometric integrators applied to the Kepler problem) [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-ode-solver-timings-non-stiff-problems-star-star">Homework - ODE solver timings (non-stiff problems) [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-ode-solver-timings-stiff-problems-star-star">Homework - ODE solver timings (stiff problems) [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="homework-a-class-tocskip">
+<h1>Homework <a class="tocSkip"><a class="headerlink" href="#homework-a-class-tocskip" title="Permalink to this heading">#</a></h1>
+<section id="ode-solvers-or-time-stepping-methods-numerical-solution-of-ivps-2-a-class-tocskip">
+<h2>ODE solvers (or time-stepping methods - numerical solution of IVPs) 2 <a class="tocSkip"><a class="headerlink" href="#ode-solvers-or-time-stepping-methods-numerical-solution-of-ivps-2-a-class-tocskip" title="Permalink to this heading">#</a></h2>
+<h1>Table of Contents<span class="tocSkip"></span></h1>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Homework" data-toc-modified-id="Homework-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Homework</a></span><ul class="toc-item"><li><span><a href="#Homework---SciPy-methods-comparison" data-toc-modified-id="Homework---SciPy-methods-comparison-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Homework - SciPy methods comparison</a></span></li><li><span><a href="#Homework---The-van-der-Pol-problem" data-toc-modified-id="Homework---The-van-der-Pol-problem-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Homework - The van der Pol problem</a></span></li><li><span><a href="#Homework---L-stability-[$\star$]" data-toc-modified-id="Homework---L-stability-[$\star$]-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Homework - L-stability [$\star$]</a></span></li><li><span><a href="#Homework---Implementing-Runge-Kutta-4-stage-method-(RK4)" data-toc-modified-id="Homework---Implementing-Runge-Kutta-4-stage-method-(RK4)-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Homework - Implementing Runge-Kutta 4 stage method (RK4)</a></span></li><li><span><a href="#Homework---Implementing-Adams-Bashforth-4-step-method-(AB4)" data-toc-modified-id="Homework---Implementing-Adams-Bashforth-4-step-method-(AB4)-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Homework - Implementing Adams-Bashforth 4-step method (AB4)</a></span></li><li><span><a href="#Homework---Adaptive-time-stepping-(implementing-RK45---the-Dormand-Prince-embedded-RK-pair)-[$\star\star$]" data-toc-modified-id="Homework---Adaptive-time-stepping-(implementing-RK45---the-Dormand-Prince-embedded-RK-pair)-[$\star\star$]-1.6"><span class="toc-item-num">1.6&nbsp;&nbsp;</span>Homework - Adaptive time stepping (implementing RK45 - the Dormand-Prince embedded RK pair) [$\star\star$]</a></span></li><li><span><a href="#Homework---The-Lorenz-system-(with-RK4-and-RK45)" data-toc-modified-id="Homework---The-Lorenz-system-(with-RK4-and-RK45)-1.7"><span class="toc-item-num">1.7&nbsp;&nbsp;</span>Homework - The Lorenz system (with RK4 and RK45)</a></span></li><li><span><a href="#Homework---Perturbing-initial-conditions-(in-the-Lorenz-problem)-[$\star$]" data-toc-modified-id="Homework---Perturbing-initial-conditions-(in-the-Lorenz-problem)-[$\star$]-1.8"><span class="toc-item-num">1.8&nbsp;&nbsp;</span>Homework - Perturbing initial conditions (in the Lorenz problem) [$\star$]</a></span></li><li><span><a href="#Homework---The-Kepler-problem-with-adaptive-time-stepping-[$\star$]" data-toc-modified-id="Homework---The-Kepler-problem-with-adaptive-time-stepping-[$\star$]-1.9"><span class="toc-item-num">1.9&nbsp;&nbsp;</span>Homework - The Kepler problem with adaptive time stepping [$\star$]</a></span></li><li><span><a href="#Homework---Structure-preservation-(geometric-integrators-applied-to-the-Kepler-problem)-[$\star\star$]" data-toc-modified-id="Homework---Structure-preservation-(geometric-integrators-applied-to-the-Kepler-problem)-[$\star\star$]-1.10"><span class="toc-item-num">1.10&nbsp;&nbsp;</span>Homework - Structure preservation (geometric integrators applied to the Kepler problem) [$\star\star$]</a></span></li><li><span><a href="#Homework---ODE-solver-timings-(non-stiff-problems)-[$\star\star$]" data-toc-modified-id="Homework---ODE-solver-timings-(non-stiff-problems)-[$\star\star$]-1.11"><span class="toc-item-num">1.11&nbsp;&nbsp;</span>Homework - ODE solver timings (non-stiff problems) [$\star\star$]</a></span></li><li><span><a href="#Homework---ODE-solver-timings-(stiff-problems)-[$\star\star$]" data-toc-modified-id="Homework---ODE-solver-timings-(stiff-problems)-[$\star\star$]-1.12"><span class="toc-item-num">1.12&nbsp;&nbsp;</span>Homework - ODE solver timings (stiff problems) [$\star\star$]</a></span></li></ul></li></ul></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1"># the following allows us to plot triangles indicating convergence order</span>
+<span class="kn">from</span> <span class="nn">mpltools</span> <span class="kn">import</span> <span class="n">annotation</span>
+
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
+<span class="c1"># font sizes for plots</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sans-serif&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span> <span class="s1">&#39;Dejavu Sans&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="homework">
+<h1>Homework<a class="headerlink" href="#homework" title="Permalink to this heading">#</a></h1>
+<section id="homework-scipy-methods-comparison">
+<h2>Homework - SciPy methods comparison<a class="headerlink" href="#homework-scipy-methods-comparison" title="Permalink to this heading">#</a></h2>
+<p>Consider the ODE</p>
+<div class="math notranslate nohighlight">
+\[ y' = y - t^2 +1, \;\;\;\;\; y(0) = \frac{1}{2}, \]</div>
+<p>with exact solution</p>
+<div class="math notranslate nohighlight">
+\[ y(t) = (t + 1)^2 - \frac{e^{t}}{2}. \]</div>
+<p>Read the docs for some of the SciPy ODE solvers, e.g. <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html"><code class="docutils literal notranslate"><span class="pre">scipy.integrate.odeint</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html"><code class="docutils literal notranslate"><span class="pre">scipy.integrate.solve_ivp</span></code></a>.</p>
+<p>Use a range of methods to integrate this problem from <span class="math notranslate nohighlight">\(t=0\)</span> to <span class="math notranslate nohighlight">\(t=4\)</span>, vary the rtol and atol error tolerance parameters (for simplicity just set them equal to the same value for each experiment) and plot the error for each of the methods at the end of the simulation period against the tolerance value.</p>
+</section>
+<section id="homework-the-van-der-pol-problem">
+<h2>Homework - The van der Pol problem<a class="headerlink" href="#homework-the-van-der-pol-problem" title="Permalink to this heading">#</a></h2>
+<p>Consider now the van der Pol oscillator problem which can be used to model electrical circuits.</p>
+<p>For background see:</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Van_der_Pol_oscillator">https://en.wikipedia.org/wiki/Van_der_Pol_oscillator</a></p>
+<p><a class="reference external" href="http://mathworld.wolfram.com/vanderPolEquation.html">http://mathworld.wolfram.com/vanderPolEquation.html</a></p>
+<p><a class="reference external" href="https://archimede.dm.uniba.it/~testset/problems/vdpol.php">https://archimede.dm.uniba.it/~testset/problems/vdpol.php</a></p>
+<p>This second-order problem can be written as the first-order system</p>
+<div class="math notranslate nohighlight">
+\[ y_1' = y_2, \;\;\;\; y_2' = \mu (1 - y_1^2)y_2 - y_1,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is a parameter we can vary to change the characteristics of the problem. Start with a value of <span class="math notranslate nohighlight">\(\mu = 100\)</span>, and you could then try making this smaller/larger (but be careful about making it much larger as the problem becomes stiff and our solvers not designed to handle stiff problems start taking a very long time to complete! Refer to the final questions which consider errors vs CPU times for non-stiff and then stiff problem).</p>
+<p>Consider a case with initial condition <span class="math notranslate nohighlight">\(y_1 = 2\)</span> and <span class="math notranslate nohighlight">\(y_2=0\)</span>, and integrate up to time <span class="math notranslate nohighlight">\(t=2\mu\)</span>.</p>
+<p>Repeat the error vs tolerance analysis from the previous question.</p>
+<p>To compute the error use a Radau solver with a very tight tolerance.</p>
+</section>
+<section id="homework-l-stability-star">
+<h2>Homework - L-stability [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#homework-l-stability-star" title="Permalink to this heading">#</a></h2>
+<p>From the lecture (the discussion on L-stability), consider the problem</p>
+<div class="math notranslate nohighlight">
+\[y'(t) = \lambda(y - \cos(t)) - \sin(t), \;\;\;\; y(0) = y_0.\]</div>
+<p>The exact solution to this problem is</p>
+<div class="math notranslate nohighlight">
+\[y(t) = \text{e}^{\lambda t}(y_0 - 1) + \cos(t).\]</div>
+<p>Write some code that time steps this problem with the initial condition <span class="math notranslate nohighlight">\(y_0=1.5\)</span> using both the backward Euler and the trapezoidal schemes.</p>
+<p>Note that since this is a scalar linear problem, we can just rearrange our implicit schemes for this problem to arrive at updates of the form <code class="docutils literal notranslate"><span class="pre">y[n+1]</span> <span class="pre">=</span> <span class="pre">...</span></code> where the RHS of the expression contains things we know, meaning you do not have to call a nonlinear solver.</p>
+<p>Try to choose values of <span class="math notranslate nohighlight">\(\lambda\)</span> the give the behaviour for the two schemes as presented in the image in the L-stability section of the lecture.</p>
+<p>Verify the claims we made in the lecture: “Note that reducing the time step does not help. But this problem with the trapezoidal scheme does not manifest if we start with the initial condition <span class="math notranslate nohighlight">\(y_0=1\)</span>.”</p>
+</section>
+<section id="homework-implementing-runge-kutta-4-stage-method-rk4">
+<h2>Homework - Implementing Runge-Kutta 4 stage method (RK4)<a class="headerlink" href="#homework-implementing-runge-kutta-4-stage-method-rk4" title="Permalink to this heading">#</a></h2>
+<p>Write a general Python function that implements the classical RK4 method for a given RHS function, and apply it to the problem we used previously to compare the errors between forward Euler and improved Euler (recalling that we can interpret IE as a predictor-corrector LMS pair, or as a Runge-Kutta method RK2(<span class="math notranslate nohighlight">\(\alpha=1\)</span>)):</p>
+<div class="math notranslate nohighlight">
+\[y'(t)=y,\;\;\; y(0)=1,\]</div>
+<p>and where we evaluate the error at the time <span class="math notranslate nohighlight">\(t = 2\pi\)</span>.</p>
+</section>
+<section id="homework-implementing-adams-bashforth-4-step-method-ab4">
+<h2>Homework - Implementing Adams-Bashforth 4-step method (AB4)<a class="headerlink" href="#homework-implementing-adams-bashforth-4-step-method-ab4" title="Permalink to this heading">#</a></h2>
+<p>In the lecture we derived AB2 by choosing our free parameters (<span class="math notranslate nohighlight">\(\beta_0\,\)</span> and <span class="math notranslate nohighlight">\(\,\beta_1\)</span>) such that we could integrate exactly the monomials <span class="math notranslate nohighlight">\(f(t) = 1\)</span> and <span class="math notranslate nohighlight">\(f(t)=t\)</span>. This led to two simultaneous equations we could trivially solve.</p>
+<p>Try extending this to the case of AB4 - now we have four free parameters (<span class="math notranslate nohighlight">\(\beta_0, \ldots, \beta_3\)</span>) and we need to integrate polynomials up to degree 3 exactly.</p>
+<p>Derive the corresponding system of 4 equations for 4 unknowns.</p>
+<p><strong>[Hint</strong>: your life will be easier when computing the integrals if you consider a polynomial basis of the form <span class="math notranslate nohighlight">\(P_{N+1}(t) = t (t + \Delta t) \dots (t + N\Delta t)\)</span></p>
+<p>(note that this is consistent with what we did for AB2, but now we aren’t using monomials any more for <span class="math notranslate nohighlight">\(N&gt;1\)</span>, i.e. additionally consider the cases <span class="math notranslate nohighlight">\(f(t)=t(t+\Delta t)\)</span> and <span class="math notranslate nohighlight">\(f(t)=t(t+\Delta t)(t+2\Delta t)\)</span>).</p>
+<p>Can you see where this hint came from - why is this a convenient choice, if again as per the AB2 derivation in the lecture we assume <span class="math notranslate nohighlight">\(t_{n+1} = \Delta t,\; t_n = 0\)</span>, <span class="math notranslate nohighlight">\(t_{n-1} = -\Delta t\)</span>, <span class="math notranslate nohighlight">\(t_{n-2} = -2\Delta t\)</span>, …?</p>
+<p>Write a script which forms and solves the resulting linear system for the AB coefficients, for <span class="math notranslate nohighlight">\(k=4\)</span>.</p>
+<p>Check your coefficients agree with those given in the lecture, e.g. with something like</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">AB4_beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">LHS_A</span><span class="p">,</span> <span class="n">RHS_b</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Our calculated AB4 coefficients: &#39;</span><span class="p">,</span><span class="n">AB4_beta</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Our coefficient agree with what we wrote in the lecture: &#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">AB4_beta</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">55.</span><span class="o">/</span><span class="mf">24.</span><span class="p">,</span> <span class="o">-</span><span class="mf">59.</span><span class="o">/</span><span class="mf">24.</span><span class="p">,</span> <span class="mf">37.</span><span class="o">/</span><span class="mf">24.</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.</span><span class="o">/</span><span class="mf">24.</span><span class="p">])))</span>
+</pre></div>
+</div>
+<p><strong>]</strong></p>
+<p>and then implement and verify the method following the implementation and convergence approach taken in the homework exercise from the previous lecture (<code class="docutils literal notranslate"><span class="pre">Homework:</span> <span class="pre">Improved</span> <span class="pre">Euler</span> <span class="pre">and</span> <span class="pre">accuracy</span> <span class="pre">comparison</span> <span class="pre">with</span> <span class="pre">forward</span> <span class="pre">Euler</span></code>).</p>
+<p>As the scheme isn’t self-starting use the appropriate number of time steps from an appropriate order RK method to start things off.</p>
+</section>
+<section id="homework-adaptive-time-stepping-implementing-rk45-the-dormand-prince-embedded-rk-pair-star-star">
+<h2>Homework - Adaptive time stepping (implementing RK45 - the Dormand-Prince embedded RK pair) [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-adaptive-time-stepping-implementing-rk45-the-dormand-prince-embedded-rk-pair-star-star" title="Permalink to this heading">#</a></h2>
+<p>Try implementing the Dormand and Price embedded RK pair (<a class="reference external" href="https://en.wikipedia.org/wiki/Dormand%E2%80%93Prince_method">https://en.wikipedia.org/wiki/Dormand–Prince_method</a>) with adaptive time stepping.</p>
+<p>[Given 4th and 5th order approximations to the solution at the new time level (<code class="docutils literal notranslate"><span class="pre">y4</span></code> and <code class="docutils literal notranslate"><span class="pre">y5</span></code>), the error control component of the method can be written something like</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>        <span class="c1"># error control</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">y5</span> <span class="o">-</span> <span class="n">y4</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">dt_next</span> <span class="o">=</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="p">(</span><span class="n">tol</span><span class="o">/</span><span class="n">e</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">5.</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+        <span class="k">if</span> <span class="n">e</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y5</span>
+            <span class="n">y_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">dt</span>
+            <span class="n">t_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> 
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">dt_next</span>
+</pre></div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(e\)</span> is an estimate of the local error obtained as the norm of the difference between the two numerical solutions and 0.9 is a safety factor. Note that additional factors can easily be incorporated to limit how rapidly the time step size is allowed to increase or decrease. We haven’t bothered to do this here and this is why our dt’s don’t quite match those obtained with SciPy.</p>
+<p>For more information on this if interested see Chapter II.4 (Practical Error Estimation and Step Size Selection) of <em>Solving Ordinary Differential Equations I: Nonstiff Problems</em> by Hairer, Nørsett and Wanner.]</p>
+<p>To make your life easier the entries of the Butcher tableau for the scheme are given in the following cell.</p>
+<p>Test the solver of one of the problems we have seen before.</p>
+<p>You should also test that your implementation works for both scalar and vector problems.</p>
+</section>
+<section id="homework-the-lorenz-system-with-rk4-and-rk45">
+<h2>Homework - The Lorenz system (with RK4 and RK45)<a class="headerlink" href="#homework-the-lorenz-system-with-rk4-and-rk45" title="Permalink to this heading">#</a></h2>
+<p>Repeat the Lorenz system exercise from the previous lecture’s homework using our new RK4 and RK45 solvers.</p>
+</section>
+<section id="homework-perturbing-initial-conditions-in-the-lorenz-problem-star">
+<h2>Homework - Perturbing initial conditions (in the Lorenz problem) [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#homework-perturbing-initial-conditions-in-the-lorenz-problem-star" title="Permalink to this heading">#</a></h2>
+<p>In order to think about how long we can reasonably expect to follow a complex trajectory such as in the Lorenz system before we start to see divergence, see what happens if you start two simulations with slightly different initial conditions. i.e. perturb your initial condition using a small random vector and track how the trajectories diverge.</p>
+<p>I suggest you try this with RK4.</p>
+</section>
+<section id="homework-the-kepler-problem-with-adaptive-time-stepping-star">
+<h2>Homework - The Kepler problem with adaptive time stepping [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#homework-the-kepler-problem-with-adaptive-time-stepping-star" title="Permalink to this heading">#</a></h2>
+<p>Repeat the Kepler problem exercise from Lecture 5’s homework using our own RK45 method (or alternatively Scipy’s <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> with the option <code class="docutils literal notranslate"><span class="pre">RK45</span></code>).</p>
+<p>Plot how the time step size varies in time - does it make sense when you have larger vs smaller time steps?</p>
+<p>See if you get agreement for the time step sizes between our and SciPy’s RK45 implementation.</p>
+</section>
+<section id="homework-structure-preservation-geometric-integrators-applied-to-the-kepler-problem-star-star">
+<h2>Homework - Structure preservation (geometric integrators applied to the Kepler problem) [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-structure-preservation-geometric-integrators-applied-to-the-kepler-problem-star-star" title="Permalink to this heading">#</a></h2>
+<p>Implement the symplectic Euler method and compare this to our other three methods we have applied to the Kepler problem.</p>
+<p>For details of the method see <a class="reference external" href="https://en.wikipedia.org/wiki/Semi-implicit_Euler_method">https://en.wikipedia.org/wiki/Semi-implicit_Euler_method</a>.</p>
+<p>As the name implies this is an example of a <a class="reference external" href="https://en.wikipedia.org/wiki/Symplectic_integrator"><em>symplectic</em></a> time stepping method. We don’t have time to go into what this means, we simply state that methods such as this (a class of <a class="reference external" href="https://en.wikipedia.org/wiki/Geometric_integrator"><em>geometric integrator</em></a>) well suited to problems where it is important to try and preserve conservation laws (as well as related “geometric” structures.</p>
+</section>
+<section id="homework-ode-solver-timings-non-stiff-problems-star-star">
+<h2>Homework - ODE solver timings (non-stiff problems) [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-ode-solver-timings-non-stiff-problems-star-star" title="Permalink to this heading">#</a></h2>
+<p>In an earlier homework question we compared a variety of SciPy’s ODE solver methods on the problem</p>
+<div class="math notranslate nohighlight">
+\[ y' = y - t^2 +1, \;\;\;\;\; y(0) = \frac{1}{2},\]</div>
+<p>which has the exact solution</p>
+<div class="math notranslate nohighlight">
+\[ y(t) = (t + 1)^2 - \frac{e^{t}}{2}. \]</div>
+<p>We integrated from <span class="math notranslate nohighlight">\(t=0\)</span> and evaluating the error at <span class="math notranslate nohighlight">\(t=4\)</span>.</p>
+<p>We varied the rtol and atol error tolerance parameters to generate plots of the ‘error’ vs the ‘user-specified error tolerance’.</p>
+<p>This was interesting but of far more value would be an analysis of errors vs run times.</p>
+<p>Extend the homework exercise by recording solution timings (e.g. look back at Lecture 3’s use of <code class="docutils literal notranslate"><span class="pre">%timeit</span></code> to provide estimates of run times.)</p>
+<p>What do you observe from these results, and the differences observed between the ‘error’ vs ‘tolerance’ and ‘error’ vs ‘run time’ plots?</p>
+<p>Finally, see how our own implementations of improved Euler (IE), AM3, RK4 and RK45 (i.e. our Dormand &amp; Prince adaptive time stepping solver) compare. What conclusions can you draw from this comparison?</p>
+</section>
+<section id="homework-ode-solver-timings-stiff-problems-star-star">
+<h2>Homework - ODE solver timings (stiff problems) [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-ode-solver-timings-stiff-problems-star-star" title="Permalink to this heading">#</a></h2>
+<p>Consider now a vector problem demonstrating stiff behaviour.</p>
+<p>Recall from the lecture the problem of the form</p>
+<div class="math notranslate nohighlight">
+\[ y'' + (\mu + 1) y' + \mu y = 0 , \]</div>
+<p>or equivalently</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \boldsymbol{z}'=A\boldsymbol{z}\;\;\;\text{where}
+\;\;\;\; \boldsymbol{z} = 
+\begin{bmatrix}
+y\\
+y'
+\end{bmatrix}
+\;\;\;\text{and}
+\;\;\;\; 
+A =
+\begin{bmatrix}
+0 &amp; 1\\
+-\mu &amp; -(\mu + 1)
+\end{bmatrix},\end{split}\]</div>
+<p>with parameter <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<p>The general solution to this problem is given by</p>
+<div class="math notranslate nohighlight">
+\[ y(t) = C_1 \text{e}^{\lambda_1 t} + C_2 \text{e}^{\lambda_2 t}, \]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda_1\)</span> and <span class="math notranslate nohighlight">\(\lambda_2\)</span> are the eigenvalues of the matrix <span class="math notranslate nohighlight">\(A\)</span>, and with the constants <span class="math notranslate nohighlight">\(C_1\)</span> and <span class="math notranslate nohighlight">\(C_2\)</span> defined by the initial conditions specified for <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(y'\)</span>.</p>
+<p>What are the eigenvalues for this problem in terms of <span class="math notranslate nohighlight">\(\mu\)</span>?</p>
+<p>Choose values of <span class="math notranslate nohighlight">\(\mu\)</span> that lead to a problems that can be characterised as stiff and non stiff.</p>
+<p>Perform the same analysis of error vs run times as in the previous question, but focus on SciPy’s <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> with the  <code class="docutils literal notranslate"><span class="pre">RK23</span></code>, <code class="docutils literal notranslate"><span class="pre">RK45</span></code>, <code class="docutils literal notranslate"><span class="pre">BDF</span></code> and <code class="docutils literal notranslate"><span class="pre">Radau</span></code> options.</p>
+<p>I suggest you use an initial condition of <span class="math notranslate nohighlight">\(y(0)=1\)</span> and <span class="math notranslate nohighlight">\(y'(0) = \mu - 2\)</span> and integrate up to a time of <span class="math notranslate nohighlight">\(t=1\)</span>.</p>
+<p>Comment on what you observe, and if (and how) your advice on the best performing approach changes as you change the stiffness of the problem.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Chapter10"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Homework <a class="tocSkip"></a><ul class="nav section-nav flex-column">
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#ode-solvers-or-time-stepping-methods-numerical-solution-of-ivps-2-a-class-tocskip">ODE solvers (or time-stepping methods - numerical solution of IVPs) 2 <a class="tocSkip"></a></a></li>
+</ul>
+</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#homework">Homework</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-scipy-methods-comparison">Homework - SciPy methods comparison</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-the-van-der-pol-problem">Homework - The van der Pol problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-l-stability-star">Homework - L-stability [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-implementing-runge-kutta-4-stage-method-rk4">Homework - Implementing Runge-Kutta 4 stage method (RK4)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-implementing-adams-bashforth-4-step-method-ab4">Homework - Implementing Adams-Bashforth 4-step method (AB4)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-adaptive-time-stepping-implementing-rk45-the-dormand-prince-embedded-rk-pair-star-star">Homework - Adaptive time stepping (implementing RK45 - the Dormand-Prince embedded RK pair) [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-the-lorenz-system-with-rk4-and-rk45">Homework - The Lorenz system (with RK4 and RK45)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-perturbing-initial-conditions-in-the-lorenz-problem-star">Homework - Perturbing initial conditions (in the Lorenz problem) [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-the-kepler-problem-with-adaptive-time-stepping-star">Homework - The Kepler problem with adaptive time stepping [<span class="math notranslate nohighlight">\(\star\)</span>]</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-structure-preservation-geometric-integrators-applied-to-the-kepler-problem-star-star">Homework - Structure preservation (geometric integrators applied to the Kepler problem) [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-ode-solver-timings-non-stiff-problems-star-star">Homework - ODE solver timings (non-stiff problems) [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-ode-solver-timings-stiff-problems-star-star">Homework - ODE solver timings (stiff problems) [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Imperial College London
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
