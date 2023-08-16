@@ -531,7 +531,6 @@ document.write(`
 </section>
 <section id="homework-l-stability-star">
 <h2>Homework - L-stability [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#homework-l-stability-star" title="Permalink to this heading">#</a></h2>
-<div class="toggle toggle-shown docutils container">
 <p>From the lecture (the discussion on L-stability), consider the problem</p>
 <div class="math notranslate nohighlight">
 \[y'(t) = \lambda(y - \cos(t)) - \sin(t), \;\;\;\; y(0) = y_0.\]</div>
@@ -542,7 +541,6 @@ document.write(`
 <p>Note that since this is a scalar linear problem, we can just rearrange our implicit schemes for this problem to arrive at updates of the form <code class="docutils literal notranslate"><span class="pre">y[n+1]</span> <span class="pre">=</span> <span class="pre">...</span></code> where the RHS of the expression contains things we know, meaning you do not have to call a nonlinear solver.</p>
 <p>Try to choose values of <span class="math notranslate nohighlight">\(\lambda\)</span> the give the behaviour for the two schemes as presented in the image in the L-stability section of the lecture.</p>
 <p>Verify the claims we made in the lecture: “Note that reducing the time step does not help. But this problem with the trapezoidal scheme does not manifest if we start with the initial condition <span class="math notranslate nohighlight">\(y_0=1\)</span>.”</p>
-</div>
 </section>
 <section id="homework-implementing-runge-kutta-4-stage-method-rk4">
 <h2>Homework - Implementing Runge-Kutta 4 stage method (RK4)<a class="headerlink" href="#homework-implementing-runge-kutta-4-stage-method-rk4" title="Permalink to this heading">#</a></h2>
@@ -572,7 +570,6 @@ document.write(`
 </section>
 <section id="homework-adaptive-time-stepping-implementing-rk45-the-dormand-prince-embedded-rk-pair-star-star">
 <h2>Homework - Adaptive time stepping (implementing RK45 - the Dormand-Prince embedded RK pair) [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-adaptive-time-stepping-implementing-rk45-the-dormand-prince-embedded-rk-pair-star-star" title="Permalink to this heading">#</a></h2>
-<div class="toggle toggle-shown docutils container">
 <p>Try implementing the Dormand and Price embedded RK pair (<a class="reference external" href="https://en.wikipedia.org/wiki/Dormand%E2%80%93Prince_method">https://en.wikipedia.org/wiki/Dormand–Prince_method</a>) with adaptive time stepping.</p>
 <p>[Given 4th and 5th order approximations to the solution at the new time level (<code class="docutils literal notranslate"><span class="pre">y4</span></code> and <code class="docutils literal notranslate"><span class="pre">y5</span></code>), the error control component of the method can be written something like</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>        <span class="c1"># error control</span>
@@ -586,15 +583,11 @@ document.write(`
         <span class="n">dt</span> <span class="o">=</span> <span class="n">dt_next</span>
 </pre></div>
 </div>
-</div>
 <p>where <span class="math notranslate nohighlight">\(e\)</span> is an estimate of the local error obtained as the norm of the difference between the two numerical solutions and 0.9 is a safety factor. Note that additional factors can easily be incorporated to limit how rapidly the time step size is allowed to increase or decrease. We haven’t bothered to do this here and this is why our dt’s don’t quite match those obtained with SciPy.</p>
 <p>For more information on this if interested see Chapter II.4 (Practical Error Estimation and Step Size Selection) of <em>Solving Ordinary Differential Equations I: Nonstiff Problems</em> by Hairer, Nørsett and Wanner.]</p>
 <p>To make your life easier the entries of the Butcher tableau for the scheme are given in the following cell.</p>
 <p>Test the solver of one of the problems we have seen before.</p>
 <p>You should also test that your implementation works for both scalar and vector problems.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </section>
 <section id="homework-the-lorenz-system-with-rk4-and-rk45">
 <h2>Homework - The Lorenz system (with RK4 and RK45)<a class="headerlink" href="#homework-the-lorenz-system-with-rk4-and-rk45" title="Permalink to this heading">#</a></h2>
@@ -602,30 +595,23 @@ document.write(`
 </section>
 <section id="homework-perturbing-initial-conditions-in-the-lorenz-problem-star">
 <h2>Homework - Perturbing initial conditions (in the Lorenz problem) [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#homework-perturbing-initial-conditions-in-the-lorenz-problem-star" title="Permalink to this heading">#</a></h2>
-<div class="toggle toggle-shown docutils container">
 <p>In order to think about how long we can reasonably expect to follow a complex trajectory such as in the Lorenz system before we start to see divergence, see what happens if you start two simulations with slightly different initial conditions. i.e. perturb your initial condition using a small random vector and track how the trajectories diverge.</p>
 <p>I suggest you try this with RK4.</p>
-</div>
 </section>
 <section id="homework-the-kepler-problem-with-adaptive-time-stepping-star">
 <h2>Homework - The Kepler problem with adaptive time stepping [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#homework-the-kepler-problem-with-adaptive-time-stepping-star" title="Permalink to this heading">#</a></h2>
-<div class="toggle toggle-shown docutils container">
 <p>Repeat the Kepler problem exercise from Lecture 5’s homework using our own RK45 method (or alternatively Scipy’s <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> with the option <code class="docutils literal notranslate"><span class="pre">RK45</span></code>).</p>
 <p>Plot how the time step size varies in time - does it make sense when you have larger vs smaller time steps?</p>
 <p>See if you get agreement for the time step sizes between our and SciPy’s RK45 implementation.</p>
-</div>
 </section>
 <section id="homework-structure-preservation-geometric-integrators-applied-to-the-kepler-problem-star-star">
 <h2>Homework - Structure preservation (geometric integrators applied to the Kepler problem) [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-structure-preservation-geometric-integrators-applied-to-the-kepler-problem-star-star" title="Permalink to this heading">#</a></h2>
-<div class="toggle toggle-shown docutils container">
 <p>Implement the symplectic Euler method and compare this to our other three methods we have applied to the Kepler problem.</p>
 <p>For details of the method see <a class="reference external" href="https://en.wikipedia.org/wiki/Semi-implicit_Euler_method">https://en.wikipedia.org/wiki/Semi-implicit_Euler_method</a>.</p>
 <p>As the name implies this is an example of a <a class="reference external" href="https://en.wikipedia.org/wiki/Symplectic_integrator"><em>symplectic</em></a> time stepping method. We don’t have time to go into what this means, we simply state that methods such as this (a class of <a class="reference external" href="https://en.wikipedia.org/wiki/Geometric_integrator"><em>geometric integrator</em></a>) well suited to problems where it is important to try and preserve conservation laws (as well as related “geometric” structures.</p>
-</div>
 </section>
 <section id="homework-ode-solver-timings-non-stiff-problems-star-star">
 <h2>Homework - ODE solver timings (non-stiff problems) [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-ode-solver-timings-non-stiff-problems-star-star" title="Permalink to this heading">#</a></h2>
-<div class="toggle toggle-shown docutils container">
 <p>In an earlier homework question we compared a variety of SciPy’s ODE solver methods on the problem</p>
 <div class="math notranslate nohighlight">
 \[ y' = y - t^2 +1, \;\;\;\;\; y(0) = \frac{1}{2},\]</div>
@@ -638,11 +624,9 @@ document.write(`
 <p>Extend the homework exercise by recording solution timings (e.g. look back at Lecture 3’s use of <code class="docutils literal notranslate"><span class="pre">%timeit</span></code> to provide estimates of run times.)</p>
 <p>What do you observe from these results, and the differences observed between the ‘error’ vs ‘tolerance’ and ‘error’ vs ‘run time’ plots?</p>
 <p>Finally, see how our own implementations of improved Euler (IE), AM3, RK4 and RK45 (i.e. our Dormand &amp; Prince adaptive time stepping solver) compare. What conclusions can you draw from this comparison?</p>
-</div>
 </section>
 <section id="homework-ode-solver-timings-stiff-problems-star-star">
 <h2>Homework - ODE solver timings (stiff problems) [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-ode-solver-timings-stiff-problems-star-star" title="Permalink to this heading">#</a></h2>
-<div class="toggle toggle-shown docutils container">
 <p>Consider now a vector problem demonstrating stiff behaviour.</p>
 <p>Recall from the lecture the problem of the form</p>
 <div class="math notranslate nohighlight">
@@ -672,7 +656,6 @@ A =
 <p>Perform the same analysis of error vs run times as in the previous question, but focus on SciPy’s <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> with the  <code class="docutils literal notranslate"><span class="pre">RK23</span></code>, <code class="docutils literal notranslate"><span class="pre">RK45</span></code>, <code class="docutils literal notranslate"><span class="pre">BDF</span></code> and <code class="docutils literal notranslate"><span class="pre">Radau</span></code> options.</p>
 <p>I suggest you use an initial condition of <span class="math notranslate nohighlight">\(y(0)=1\)</span> and <span class="math notranslate nohighlight">\(y'(0) = \mu - 2\)</span> and integrate up to a time of <span class="math notranslate nohighlight">\(t=1\)</span>.</p>
 <p>Comment on what you observe, and if (and how) your advice on the best performing approach changes as you change the stiffness of the problem.</p>
-</div>
 </section>
 </section>
 
