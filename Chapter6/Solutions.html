@@ -553,7 +553,7 @@ document.write(`
 Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2698/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2735/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
   fig1=figure()
 </pre></div>
 </div>
@@ -591,12 +591,6 @@ Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1200: resid=0.000019
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1300: resid=0.000013
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1400: resid=0.000008
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -661,26 +655,59 @@ Populating the interactive namespace from numpy and matplotlib
 <span class="g g-Whitespace">   </span><span class="mi">1394</span> <span class="k">else</span><span class="p">:</span>
 <span class="ne">-&gt; </span><span class="mi">1395</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__clear</span><span class="p">()</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:1332,</span> in <span class="ni">_AxesBase.__clear</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1324</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_autotitlepos</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">   </span><span class="mi">1326</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">mtext</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1327</span>     <span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1328</span>     <span class="n">fontproperties</span><span class="o">=</span><span class="n">props</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1329</span>     <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;baseline&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1330</span>     <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1331</span>     <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1332</span> <span class="bp">self</span><span class="o">.</span><span class="n">_left_title</span> <span class="o">=</span> <span class="n">mtext</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1333</span>     <span class="n">x</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1334</span>     <span class="n">fontproperties</span><span class="o">=</span><span class="n">props</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1335</span>     <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;baseline&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1336</span>     <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1337</span> <span class="bp">self</span><span class="o">.</span><span class="n">_right_title</span> <span class="o">=</span> <span class="n">mtext</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1338</span>     <span class="n">x</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1339</span>     <span class="n">fontproperties</span><span class="o">=</span><span class="n">props</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1340</span>     <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;baseline&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1341</span>     <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1342</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1343</span> <span class="n">title_offset_points</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.titlepad&#39;</span><span class="p">]</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:1382,</span> in <span class="ni">_AxesBase.__clear</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1380</span>         <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;share</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)(</span><span class="n">share</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1381</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1382</span>         <span class="n">axis</span><span class="o">.</span><span class="n">_set_scale</span><span class="p">(</span><span class="s2">&quot;linear&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1383</span>         <span class="n">axis</span><span class="o">.</span><span class="n">_set_lim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1384</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_transScale</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:770,</span> in <span class="ni">Axis._set_scale</span><span class="nt">(self, value, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">768</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">769</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span> <span class="o">=</span> <span class="n">value</span>
+<span class="ne">--&gt; </span><span class="mi">770</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span><span class="o">.</span><span class="n">set_default_locators_and_formatters</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">772</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDefault_majloc</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">773</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDefault_minloc</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/scale.py:106,</span> in <span class="ni">LinearScale.set_default_locators_and_formatters</span><span class="nt">(self, axis)</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span> <span class="k">def</span> <span class="nf">set_default_locators_and_formatters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>     <span class="c1"># docstring inherited</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>     <span class="n">axis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">AutoLocator</span><span class="p">())</span>
+<span class="ne">--&gt; </span><span class="mi">106</span>     <span class="n">axis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">ScalarFormatter</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span>     <span class="n">axis</span><span class="o">.</span><span class="n">set_minor_formatter</span><span class="p">(</span><span class="n">NullFormatter</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span>     <span class="c1"># update the minor locator for x and y axis based on rcParams</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/ticker.py:434,</span> in <span class="ni">ScalarFormatter.__init__</span><span class="nt">(self, useOffset, useMathText, useLocale)</span>
+<span class="g g-Whitespace">    </span><span class="mi">432</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_useOffset</span><span class="p">(</span><span class="n">useOffset</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">433</span> <span class="bp">self</span><span class="o">.</span><span class="n">_usetex</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;text.usetex&#39;</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">434</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_useMathText</span><span class="p">(</span><span class="n">useMathText</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">435</span> <span class="bp">self</span><span class="o">.</span><span class="n">orderOfMagnitude</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="g g-Whitespace">    </span><span class="mi">436</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/ticker.py:549,</span> in <span class="ni">ScalarFormatter.set_useMathText</span><span class="nt">(self, val)</span>
+<span class="g g-Whitespace">    </span><span class="mi">547</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">548</span>     <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">font_manager</span>
+<span class="ne">--&gt; </span><span class="mi">549</span>     <span class="n">ufont</span> <span class="o">=</span> <span class="n">font_manager</span><span class="o">.</span><span class="n">findfont</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">550</span>         <span class="n">font_manager</span><span class="o">.</span><span class="n">FontProperties</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">551</span>             <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;font.family&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">552</span>         <span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">553</span>         <span class="n">fallback_to_default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">554</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">555</span> <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">556</span>     <span class="n">ufont</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/font_manager.py:1260,</span> in <span class="ni">FontManager.findfont</span><span class="nt">(self, prop, fontext, directory, fallback_to_default, rebuild_if_missing)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1254</span> <span class="c1"># Pass the relevant rcParams (and the font manager, as `self`) to</span>
+<span class="g g-Whitespace">   </span><span class="mi">1255</span> <span class="c1"># _findfont_cached so to prevent using a stale cache entry after an</span>
+<span class="g g-Whitespace">   </span><span class="mi">1256</span> <span class="c1"># rcParam was changed.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1257</span> <span class="n">rc_params</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span>
+<span class="g g-Whitespace">   </span><span class="mi">1258</span>     <span class="s2">&quot;font.serif&quot;</span><span class="p">,</span> <span class="s2">&quot;font.sans-serif&quot;</span><span class="p">,</span> <span class="s2">&quot;font.cursive&quot;</span><span class="p">,</span> <span class="s2">&quot;font.fantasy&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1259</span>     <span class="s2">&quot;font.monospace&quot;</span><span class="p">])</span>
+<span class="ne">-&gt; </span><span class="mi">1260</span> <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_findfont_cached</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1261</span>     <span class="n">prop</span><span class="p">,</span> <span class="n">fontext</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="n">fallback_to_default</span><span class="p">,</span> <span class="n">rebuild_if_missing</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1262</span>     <span class="n">rc_params</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1263</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="n">_ExceptionProxy</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1264</span>     <span class="k">raise</span> <span class="n">ret</span><span class="o">.</span><span class="n">klass</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
