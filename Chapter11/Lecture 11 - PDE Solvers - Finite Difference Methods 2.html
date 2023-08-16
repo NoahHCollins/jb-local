@@ -873,7 +873,8 @@ f''(x_0)\approx\frac{f(x_0+\Delta x)-2f(x_0)+f(x_0-\Delta x)}{\Delta x^2}
 </section>
 <section id="the-method-of-undetermined-coefficients-star">
 <h2><a class="toc-backref" href="#id23" role="doc-backlink">The method of undetermined coefficients [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#the-method-of-undetermined-coefficients-star" title="Permalink to this heading">#</a></h2>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p>A way to formalise the derivation of numerical approximations is the <em>method of undetermined coefficients</em>.</p>
 <p>We approximate the derivative in question using values of the function at neighbouring locations.</p>
 <p>For example</p>
@@ -885,7 +886,8 @@ f''(x_0)\approx\frac{f(x_0+\Delta x)-2f(x_0)+f(x_0-\Delta x)}{\Delta x^2}
 <p>In general the larger the stencil, the better the approximation to the derivative.</p>
 <p>The overall idea of this approach is to determine the most accurate discretisation of the derivative at <span class="math notranslate nohighlight">\(x_i\)</span> based on use of an <span class="math notranslate nohighlight">\(N\)</span>-point stencil.</p>
 </div>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p>Using this notation we can rewrite the approximation above as</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -893,7 +895,8 @@ f''(x_0)\approx\frac{f(x_0+\Delta x)-2f(x_0)+f(x_0-\Delta x)}{\Delta x^2}\\
 =\frac{f_{i+1} - 2f_i + f_{i-1}}{\Delta x^2}.
 \end{split}\]</div>
 </div>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p>For example, in the case of a second-order derivative and a three-point (symmetric or centred) stencil (and the fact that in the finite difference method we generally assume that <span class="math notranslate nohighlight">\(g\)</span> is a linear function) we have:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -905,7 +908,8 @@ f''(x_i)
 <p>We can draw a schematic of this stencil like this</p>
 <p>Note that some people call the computational stencil a computational <em>molecule</em></p>
 </div>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p>Using the notation <span class="math notranslate nohighlight">\(f_i = f(x_i)\)</span>, <span class="math notranslate nohighlight">\(\;f'_{i+1}=f'(x_{i+1})\)</span> etc, Taylor series tells us that</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1182,7 +1186,7 @@ x=L: &amp; \;\;\;\; \frac{1}{2}(c_N + c_{N+1}) = c_E,
 <span class="n">Cex</span> <span class="o">=</span> <span class="n">CE</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">Pe</span> <span class="o">*</span> <span class="n">xf</span> <span class="o">/</span> <span class="n">L</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">Pe</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># let&#39;s compute solution and plot for 4 different resolutions</span>
-<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span> <span class="p">(</span><span class="mi">32</span> <span class="o">*</span> <span class="mf">.5</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span> <span class="p">):</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span> <span class="p">(</span><span class="mi">32</span> <span class="o">*</span> <span class="mf">.5</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="p">):</span>
     <span class="c1"># call function to generate numerical solution</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">BVP_AD_central</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">kappa</span><span class="p">,</span> <span class="n">CE</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
     <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xf</span><span class="p">,</span> <span class="n">Cex</span><span class="p">,</span> <span class="s1">&#39;-k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Exact solution&#39;</span><span class="p">)</span>
@@ -1198,32 +1202,7 @@ x=L: &amp; \;\;\;\; \frac{1}{2}(c_N + c_{N+1}) = c_E,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
-AttributeError                            Traceback (most recent call last)
-Cell In[4], line 18
-     15 Cex = CE * (np.exp(Pe * xf / L) - 1) / (np.exp(Pe) - 1)
-     17 # let&#39;s compute solution and plot for 4 different resolutions
----&gt; 18 for (i, N) in enumerate( (32 * .5**np.arange(0, 4)).astype(np.int) ):
-     19     # call function to generate numerical solution
-     20     x, C = BVP_AD_central(L, U, kappa, CE, N)
-     21     axs[i].plot(xf, Cex, &#39;-k&#39;, label=&#39;Exact solution&#39;)
-
-File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/numpy/__init__.py:319, in __getattr__(attr)
-    314     warnings.warn(
-    315         f&quot;In the future `np.{attr}` will be defined as the &quot;
-    316         &quot;corresponding NumPy scalar.&quot;, FutureWarning, stacklevel=2)
-    318 if attr in __former_attrs__:
---&gt; 319     raise AttributeError(__former_attrs__[attr])
-    321 if attr == &#39;testing&#39;:
-    322     import numpy.testing as testing
-
-AttributeError: module &#39;numpy&#39; has no attribute &#39;int&#39;.
-`np.int` was a deprecated alias for the builtin `int`. To avoid this error in existing code, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
-The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
-    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
-</pre></div>
-</div>
-<img alt="../_images/737878e677d86ea1fa76364e7f4cc5df764ae638512e5771e748a2d708cea759.png" src="../_images/737878e677d86ea1fa76364e7f4cc5df764ae638512e5771e748a2d708cea759.png" />
+<img alt="../_images/7bdb86e1e5ec620967f45eeeaee2e96589c93281db99904ea7afa1bb17dd8bc8.png" src="../_images/7bdb86e1e5ec620967f45eeeaee2e96589c93281db99904ea7afa1bb17dd8bc8.png" />
 </div>
 </div>
 <p><em><strong>More observations</strong></em></p>
@@ -1243,7 +1222,8 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 </section>
 <section id="discrete-fluxes-star">
 <h4><a class="toc-backref" href="#id30" role="doc-backlink">Discrete fluxes [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#discrete-fluxes-star" title="Permalink to this heading">#</a></h4>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p>We can establish this limit of the cell Peclet number for the central scheme by considering <em>discrete fluxes</em>.</p>
 <p>First note that for our above discretisation options we can write the discretised form of our continuous equation</p>
 <div class="math notranslate nohighlight">
@@ -1262,7 +1242,8 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 -\kappa \frac{c_{i+1} - c_{i}}{\Delta x}. \]</div>
 <p>This quantity can be called the total (i.e. sum of the advective and diffusive) scalar flux - note that due to its definition we can interpret it as being defined between node <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(i+1\)</span>.</p>
 </div>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p><em><strong>Conservative form</strong></em></p>
 <p>This is just a discrete version of the continuous BVP written in <em>conservative form</em>:</p>
 <div class="math notranslate nohighlight">
@@ -1360,7 +1341,7 @@ c_N = c_E\left(1 - \frac{1}{2}Pe_c\right) \]</div>
 <span class="n">Cex</span> <span class="o">=</span> <span class="n">CE</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">Pe</span> <span class="o">*</span> <span class="n">xf</span> <span class="o">/</span> <span class="n">L</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">Pe</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># let&#39;s compute solution and plot for 4 different resolutions</span>
-<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">((</span><span class="mi">32</span> <span class="o">*</span> <span class="mf">.5</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)):</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">((</span><span class="mi">32</span> <span class="o">*</span> <span class="mf">.5</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)):</span>
     <span class="c1"># call function to generate numerical solution</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">BVP_AD_central</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">kappa</span><span class="p">,</span> <span class="n">CE</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
     <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="s1">&#39;ro-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;central&quot;</span><span class="p">)</span>
@@ -1380,6 +1361,9 @@ c_N = c_E\left(1 - \frac{1}{2}Pe_c\right) \]</div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/3079d95c098d774bfaf6a9ac2b575a8c999fb1107aab8b42d5a612fcf316320d.png" src="../_images/3079d95c098d774bfaf6a9ac2b575a8c999fb1107aab8b42d5a612fcf316320d.png" />
+</div>
 </div>
 <section id="observations">
 <h5><a class="toc-backref" href="#id33" role="doc-backlink">Observations</a><a class="headerlink" href="#observations" title="Permalink to this heading">#</a></h5>
@@ -1396,7 +1380,8 @@ c_N = c_E\left(1 - \frac{1}{2}Pe_c\right) \]</div>
 </section>
 <section id="analysis-of-the-upwind-scheme-star">
 <h4><a class="toc-backref" href="#id34" role="doc-backlink">Analysis of the upwind scheme [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#analysis-of-the-upwind-scheme-star" title="Permalink to this heading">#</a></h4>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p>Returning to our Taylor series derivations of the different finite difference approximations above, specifically where we wrote</p>
 <div class="math notranslate nohighlight">
 \[ \frac{f(x_0)-f(x_0-\Delta x)}{\Delta x} = f'(x_0) - \frac{\Delta x}{2} f''(x_0) + \mathcal{O}(\Delta x^2), \]</div>
@@ -1448,7 +1433,8 @@ c_N = c_E\left(1 - \frac{1}{2}Pe_c\right) \]</div>
 </section>
 <section id="non-uniform-and-adaptive-meshes-star-star">
 <h2><a class="toc-backref" href="#id37" role="doc-backlink">Non-uniform (and adaptive) meshes [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#non-uniform-and-adaptive-meshes-star-star" title="Permalink to this heading">#</a></h2>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <ul class="simple">
 <li><p>or getting resolution where you need it, …</p></li>
 <li><p>or focusing your finite precious computational resource where it will be most effective (trying to optimise stability and solution accuracy vs computational cost).</p></li>
@@ -1466,7 +1452,8 @@ c_N = c_E\left(1 - \frac{1}{2}Pe_c\right) \]</div>
 </div>
 <section id="coordinate-transformations-star-star">
 <h3><a class="toc-backref" href="#id38" role="doc-backlink">Coordinate transformations [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#coordinate-transformations-star-star" title="Permalink to this heading">#</a></h3>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>The idea here is to introduce a mapping between:</p>
 <ul class="simple">
 <li><p><em>physical space</em> - the space our problem is actually posed within and thus the space by default we will attempt to discretise and solve our problem, e.g. <span class="math notranslate nohighlight">\((x,y)\)</span>, and</p></li>
@@ -1480,7 +1467,8 @@ c_N = c_E\left(1 - \frac{1}{2}Pe_c\right) \]</div>
 </div>
 <section id="an-example-an-ocean-domain-star-star">
 <h4><a class="toc-backref" href="#id39" role="doc-backlink">An example - an ocean domain [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#an-example-an-ocean-domain-star-star" title="Permalink to this heading">#</a></h4>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>To fix ideas let’s consider an example.</p>
 <p>Imagine we are interested in modelling a vertical slice in the ocean (i.e. an <span class="math notranslate nohighlight">\((x,z)\)</span> domain with a complex shaped bottom boundary - the bathymetry). Also be aware that interesting things tend to happen in the oceans near the top and the bottom so we may well be advised to concentrate our mesh resolution in these locations.</p>
 </div>
@@ -1549,13 +1537,17 @@ c_N = c_E\left(1 - \frac{1}{2}Pe_c\right) \]</div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/37d2acc9f89fe35fbc58b46ad3ed034adde2c1a5a4bbf86f338b8668f64a6de6.png" src="../_images/37d2acc9f89fe35fbc58b46ad3ed034adde2c1a5a4bbf86f338b8668f64a6de6.png" />
+</div>
 </details>
 </div>
 </section>
 </section>
 <section id="d-theory-star-star">
 <h3><a class="toc-backref" href="#id40" role="doc-backlink">1D theory  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#d-theory-star-star" title="Permalink to this heading">#</a></h3>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>To keep things simple let’s just focus on one dimension.</p>
 <p>We introduce a mapping</p>
 <div class="math notranslate nohighlight">
@@ -1596,7 +1588,8 @@ c_N = c_E\left(1 - \frac{1}{2}Pe_c\right) \]</div>
 </div>
 <section id="choice-of-stretching-function-star-star">
 <h4><a class="toc-backref" href="#id41" role="doc-backlink">Choice of stretching function [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#choice-of-stretching-function-star-star" title="Permalink to this heading">#</a></h4>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>We will do this below, but to actually implement the code we need to choose the mapping between physical and computational space (i.e. <span class="math notranslate nohighlight">\(\,x\equiv x(\xi)\)</span>).</p>
 <p>We have essentially infinite options here. Initially choosing <span class="math notranslate nohighlight">\(\,x\equiv\xi\,\)</span> is a sensible verification test of course since our new code should recreate what we know worked previously, and being able to compare actual discretisation matrices etc provides extremely valuable debugging opportunities if needed!</p>
 <p>Once we have checked the identity mapping works, let’s consider a function which is able to concentrate resolution in the boundary layer - we want a uniform mesh in computational space to map to one where the physical mesh points are clustered close to the right-hand boundary of our domain.</p>
@@ -1646,6 +1639,9 @@ c_N = c_E\left(1 - \frac{1}{2}Pe_c\right) \]</div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/667d001e17f69b1f6e3deab3c0f50df265c9441a2906813484d61bd8a1f75448.png" src="../_images/667d001e17f69b1f6e3deab3c0f50df265c9441a2906813484d61bd8a1f75448.png" />
+</div>
 </details>
 </div>
 <section id="id1">
@@ -1660,7 +1656,8 @@ c_N = c_E\left(1 - \frac{1}{2}Pe_c\right) \]</div>
 </section>
 <section id="implementation-star-star">
 <h3><a class="toc-backref" href="#id43" role="doc-backlink">Implementation [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#implementation-star-star" title="Permalink to this heading">#</a></h3>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>As you will see below, the implementation is very similar to our previous code (as it should be as we are solving the same equation still on a uniform mesh), but now we additionally need to compute the variable coefficients.</p>
 </div>
 <div class="cell tag_hide-cell docutils container">
@@ -1738,6 +1735,9 @@ c_N = c_E\left(1 - \frac{1}{2}Pe_c\right) \]</div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/efb2516b525935fa5c482b2dcadcc0256764d0cabb301ba62cea82cbff8106dc.png" src="../_images/efb2516b525935fa5c482b2dcadcc0256764d0cabb301ba62cea82cbff8106dc.png" />
+</div>
 </details>
 </div>
 <section id="id2">
@@ -1747,7 +1747,8 @@ c_N = c_E\left(1 - \frac{1}{2}Pe_c\right) \]</div>
 </section>
 <section id="optimisation-star-star">
 <h3><a class="toc-backref" href="#id45" role="doc-backlink">Optimisation [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#optimisation-star-star" title="Permalink to this heading">#</a></h3>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>Let’s try to optimise this - i.e. let’s vary <span class="math notranslate nohighlight">\(a\)</span> and see its effect on error.  Note that this process won’t be possible in general since we won’t have access to the exact solution so we would need to come up with other approaches to select <span class="math notranslate nohighlight">\(a\)</span>, or more generally the transformation function.</p>
 </div>
 <div class="cell tag_hide-cell docutils container">
@@ -1790,6 +1791,13 @@ c_N = c_E\left(1 - \frac{1}{2}Pe_c\right) \]</div>
 <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Uniform mesh (a = 1) gives an error of 1.766687
+Minimum error of 0.036023 when a = 10.600000
+</pre></div>
+</div>
+<img alt="../_images/05645a5c3d7b6ea680db7e4e4a4aa1017b6ab7602b3959531359e3084cc27e79.png" src="../_images/05645a5c3d7b6ea680db7e4e4a4aa1017b6ab7602b3959531359e3084cc27e79.png" />
 </div>
 </details>
 </div>
@@ -1978,6 +1986,23 @@ B &amp; := \begin{pmatrix}
 <span class="n">pprint</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">A = &#39;</span><span class="p">)</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B = 
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">36</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">M</span><span class="p">)</span> <span class="o">@</span> <span class="n">B</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B = &#39;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">36</span> <span class="n">pprint</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">M = &#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="n">pprint</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;pprint&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -2590,7 +2615,8 @@ B  := \begin{pmatrix}
 </section>
 <section id="fourier-analysis-of-the-continuous-system-star-star">
 <h2><a class="toc-backref" href="#id65" role="doc-backlink">Fourier analysis of the continuous system [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#fourier-analysis-of-the-continuous-system-star-star" title="Permalink to this heading">#</a></h2>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>We will now spend some time analysing the performance of numerical solvers, we do this by considering what the solver does to certain simple types of solution (i.e. Fourier modes).</p>
 <p>But before we consider what the numerical solver does, we need to understand what the PDE does for this type of solution.</p>
 <p>[This is the analogue of considering whether or not the exact solution to the model problem <span class="math notranslate nohighlight">\(y'=\lambda\,y\)</span> tends to zero of infinity when we considered the stability of ODE solvers.  To be able to make progress analytically, there we simplified the problem but argued that it told us valuable information about more general problems. Here we take the approach of simplifying the form of the solution to our PDE problem, again arguing that it tells us very valuable things about solutions more generally.]</p>
@@ -2816,7 +2842,8 @@ c(x,t) &amp;= \hat{c}(t)\,\exp(i\,k_m\,x)\\[5pt]
 </section>
 <section id="stability-criterion-for-diffusion-star">
 <h3><a class="toc-backref" href="#id70" role="doc-backlink">Stability criterion for diffusion [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#stability-criterion-for-diffusion-star" title="Permalink to this heading">#</a></h3>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>Consider first diffusion and recall the diffusion stability (or “r”) number defined as</p>
 <div class="math notranslate nohighlight">
 \[ r := \frac{\kappa\Delta t}{\Delta x^2}.\]</div>
@@ -2841,7 +2868,8 @@ c(x,t) &amp;= \hat{c}(t)\,\exp(i\,k_m\,x)\\[5pt]
 </section>
 <section id="stability-criterion-for-advection-star">
 <h3><a class="toc-backref" href="#id71" role="doc-backlink">Stability criterion for advection [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#stability-criterion-for-advection-star" title="Permalink to this heading">#</a></h3>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p>By a very similar argument,</p>
 <p>the stability number for advection is the Courant (or CFL) number defined as</p>
 <div class="math notranslate nohighlight">
@@ -3472,7 +3500,8 @@ c(x,t) &amp;= \hat{c}(t)\,\exp(i\,k_m\,x)\\[5pt]
 </section>
 <section id="von-neumann-fourier-stability-analysis-star-star">
 <h2><a class="toc-backref" href="#id74" role="doc-backlink">Von Neumann / Fourier stability analysis [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#von-neumann-fourier-stability-analysis-star-star" title="Permalink to this heading">#</a></h2>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>A von Neumann stability analysis is similar to the Fourier analysis we performed for the full continuous system - we will derive discrete analogues of the eigenvalue for a Fourier mode, and by comparing it to the exact eigenvalue we derived above:</p>
 <div class="math notranslate nohighlight">
 \[ \lambda_m = -i\,k_m\,U - \kappa\,k_m^2,\]</div>
@@ -3571,7 +3600,8 @@ c(x,t)  = \hat{c}(0)\,\exp( - \kappa\,k_m^2\,t)\,\exp(i\,(k_m\,x\,-\,\omega_m\,t
 <p>The issue of small wavelength signals not being resolvable on the grid and thus incorrectly represented or interpreted as a lower frequency signal is called <a class="reference external" href="https://en.wikipedia.org/wiki/Aliasing"><em>aliasing</em></a>.</p>
 <section id="the-nyquist-limit-star-star">
 <h3><a class="toc-backref" href="#id76" role="doc-backlink">The Nyquist limit [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#the-nyquist-limit-star-star" title="Permalink to this heading">#</a></h3>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>The smallest wave that can be resolved on the grid has two points per wave, i.e. a wavelength of <span class="math notranslate nohighlight">\(2\Delta x\)</span>.</p>
 <p>This is sometimes termed the Nyquist limit, for which</p>
 <div class="math notranslate nohighlight">
@@ -3584,7 +3614,8 @@ c(x,t)  = \hat{c}(0)\,\exp( - \kappa\,k_m^2\,t)\,\exp(i\,(k_m\,x\,-\,\omega_m\,t
 </section>
 <section id="stability-analysis-advection-with-central-differences-star-star">
 <h2><a class="toc-backref" href="#id77" role="doc-backlink">Stability analysis - advection with central differences [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#stability-analysis-advection-with-central-differences-star-star" title="Permalink to this heading">#</a></h2>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>Let’s consider the effect of spatial discretisation of advection using a second-order central difference:</p>
 <div class="math notranslate nohighlight">
 \[ \frac{\partial c_i}{\partial t} + U\frac{c_{i+1} - c_{i-1}}{2\Delta x}  = 0. \]</div>
@@ -3648,7 +3679,8 @@ U_{\text{num}} := U \frac{\sin(\,k_m\,\Delta x)}{k_m\Delta x}.
 </div>
 <section id="id8">
 <h3><a class="toc-backref" href="#id78" role="doc-backlink">Comments</a><a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>So, the effect of the (central) spatial discretisation is to modify the propagation velocity of the Fourier mode.</p>
 <p>This is termed a <em>lagging phase error</em>, or a <a class="reference external" href="https://en.wikipedia.org/wiki/Numerical_dispersion"><em>dispersion error</em></a> where
 shorter (less well-resolved) waves propagate too slowly.</p>
@@ -3716,7 +3748,8 @@ shorter (less well-resolved) waves propagate too slowly.</p>
 </section>
 <section id="id9">
 <h3><a class="toc-backref" href="#id79" role="doc-backlink">Observations</a><a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>Note that our initial jump started at <span class="math notranslate nohighlight">\(x=0.4\)</span>, and our length if integration should have centred the jump at the plotted time level at <span class="math notranslate nohighlight">\(x=0.6\)</span>.</p>
 <p>So from the image above it is clear that some of our “error” has propagated to the right, just too slowly, while some error (the highest frequency components) has actually propagated to the left.</p>
 <p>This behaviour is consistent with the observations we made above based on the von Neumann analysis.</p>
@@ -3774,7 +3807,8 @@ shorter (less well-resolved) waves propagate too slowly.</p>
 </section>
 <section id="stability-analysis-diffusion-with-central-differences-star-star">
 <h2><a class="toc-backref" href="#id80" role="doc-backlink">Stability analysis - diffusion with central differences [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#stability-analysis-diffusion-with-central-differences-star-star" title="Permalink to this heading">#</a></h2>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>Now let’s consider the effect of spatial discretisation of diffusion using a second-order central difference:</p>
 <div class="math notranslate nohighlight">
 \[ \frac{\partial c_i}{\partial t} = \kappa \frac{c_{i+1} -2c_i +  c_{i-1}}{\Delta x^2}. \]</div>
@@ -3817,7 +3851,8 @@ shorter (less well-resolved) waves propagate too slowly.</p>
 </div>
 <section id="id10">
 <h3><a class="toc-backref" href="#id81" role="doc-backlink">Comments</a><a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>The effect of the spatial discretisation here is to modify the damping rate of the Fourier mode.</p>
 <p>This is a <em>dissipation error</em> where shorter (less well-resolved) waves are not damped as rapidly as they should be.</p>
 <p>This is a major problem for small (e.g. grid-) scale noise or “wiggles” in a simulation.</p>
@@ -3935,7 +3970,8 @@ shorter (less well-resolved) waves propagate too slowly.</p>
 </section>
 <section id="stability-analysis-advection-with-upwind-differences-star-star">
 <h2><a class="toc-backref" href="#id82" role="doc-backlink">Stability analysis - advection with upwind differences [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#stability-analysis-advection-with-upwind-differences-star-star" title="Permalink to this heading">#</a></h2>
-<div class="toggle toggle-shown docutils container">
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>Now let’s consider the effect of spatial discretisation of advection using a first-order upwind difference:</p>
 <div class="math notranslate nohighlight">
 \[ \frac{\partial c_i}{\partial t} + U \frac{c_{i} - c_{i-1}}{\Delta x}. \]</div>
