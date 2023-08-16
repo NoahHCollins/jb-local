@@ -1421,14 +1421,19 @@ z_{n+1} = (1+\lambda\Delta t)z_{n}. \]</div>
 </section>
 <section id="a-alpha-stability-star">
 <h3>A(<span class="math notranslate nohighlight">\(\alpha\)</span>) stability [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#a-alpha-stability-star" title="Permalink to this heading">#</a></h3>
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p>For many problems the eigenvalues (i.e. the <span class="math notranslate nohighlight">\(\lambda\)</span>’s in the above stability analysis) have large negative real parts, but relatively small imaginary parts.</p>
 <p>For these types of problems we don’t actually need schemes which contain the entire negative complex plane in their region of absolute stability (i.e. not fully A-stable), rather we would like the negative real axis and a certain region either side of it to be in the region of absolute stability.</p>
 <p>Methods which have a region of absolute stability that encompass a <em>wedge</em> extending to the left from the origin with angles <span class="math notranslate nohighlight">\(\alpha\)</span> above and below the real axis are termed A(<span class="math notranslate nohighlight">\(\alpha\)</span>)-stable (so full A-stability is the same as A(<span class="math notranslate nohighlight">\(\pi/2\)</span>)-stability or  A(<span class="math notranslate nohighlight">\(90\)</span>)-stability).</p>
 <p>BDF methods we introduce near the end of this lecture have this property.</p>
+</div>
 </section>
 </section>
 <section id="l-stability-star-star">
 <h2>L-stability [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#l-stability-star-star" title="Permalink to this heading">#</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>L-stability is a stronger property than full A-stability which is sometimes useful for problems with very large eigenvalues.</p>
 <p>Consider backward Euler and the Trapezoidal scheme which are both A-stable and so we should be able to take an arbitrarily large time step size and remain stable for problems where the real part of <span class="math notranslate nohighlight">\(\lambda\)</span> is negative.</p>
 <p>The amplification factors (<span class="math notranslate nohighlight">\(R(z)\)</span> where <span class="math notranslate nohighlight">\(z:=\lambda\,\Delta t\)</span>) we used in the above code to plot their stability regions tell us we can write the two schemes as</p>
@@ -1443,8 +1448,10 @@ z_{n+1} = (1+\lambda\Delta t)z_{n}. \]</div>
 <li><p><span class="math notranslate nohighlight">\(|R(z)^{\text{(TR)}}| \longrightarrow 1\)</span>, so while the solution does not diverge, it does not converge to the correct solution.</p></li>
 </ul>
 <p>We would therefore say that BE is L-stable while Trap is not.</p>
-<section id="example">
-<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
+<p class="rubric">Example</p>
 <p>Let’s see an example of this.</p>
 <p>Consider the problem</p>
 <div class="math notranslate nohighlight">
@@ -1458,8 +1465,11 @@ z_{n+1} = (1+\lambda\Delta t)z_{n}. \]</div>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/L-stability_example.png"><img alt="../_images/L-stability_example.png" src="../_images/L-stability_example.png" style="width: 75%;" /></a>
 </figure>
+</div>
 <p>Confirming this behaviour is a homework exercise. Note that reducing the time step does not help. This problem with the trapezoidal scheme does not manifest if we start with the initial condition <span class="math notranslate nohighlight">\(y_0=1\)</span>.</p>
-</section>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
 <section id="time-stepping-errors">
 <h2>Time-stepping errors<a class="headerlink" href="#time-stepping-errors" title="Permalink to this heading">#</a></h2>
