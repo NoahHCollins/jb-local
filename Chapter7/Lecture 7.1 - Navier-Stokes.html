@@ -238,7 +238,6 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter11/intro.html">11. PDE Solvers: Finite Difference Methods 2</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter11/Lecture%2011%20-%20PDE%20Solvers%20-%20Finite%20Difference%20Methods%202.html">11.1 PDE Solvers: Finite Difference Methods 2</a></li>
-
 <li class="toctree-l2"><a class="reference internal" href="../Chapter11/Homework.html">Homework <a class="tocSkip"></a></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter11/Solutions.html">Solutions <a class="tocSkip"></a></a></li>
 </ul>
@@ -1051,39 +1050,40 @@ and so are fast</p></li>
 <h3><a class="toc-backref" href="#id20" role="doc-backlink">Calculating the Intermediate Velocities</a><a class="headerlink" href="#calculating-the-intermediate-velocities" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">def calculate_intermediate_velocity(nu, u, v, u_old, v_old, dt, dx, dy):</span>
-<span class="sd">&quot;&quot; Calculate the intermediate velocities.</span>
-<span class="sd">&quot;&quot;</span>
-<span class="sd">imax = len(u)</span>
-<span class="sd">jmax = np.size(u)//imax</span>
-<span class="sd">for i in range(1,imax-1,1):</span>
-<span class="sd">for j in range(1,jmax-1,1):</span>
-<span class="sd">#viscous (diffusive) term first</span>
-<span class="sd">u[i,j] = u_old[i,j] + dt * nu * ((u_old[i+1,j]+u_old[i-1,j]-2.*u_old[i,j])/(dx**2)</span>
-<span class="sd">+(u_old[i,j+1]+u_old[i,j-1]-2.*u_old[i,j])/(dy**2))</span>
-<span class="sd">v[i,j] = v_old[i,j] + dt * nu * ((v_old[i+1,j]+v_old[i-1,j]-2.*v_old[i,j])/(dx**2)</span>
-<span class="sd">+(v_old[i,j+1]+v_old[i,j-1]-2.*v_old[i,j])/(dy**2))</span>
-<span class="sd">#add the momentum advection terms using upwinding</span>
-<span class="sd">if (u_old[i,j]&gt;0.0):</span>
-<span class="sd">u[i,j] -= dt*(u_old[i,j]*(u_old[i,j]-u_old[i-1,j])/dx)</span>
-<span class="sd">v[i,j] -= dt*(u_old[i,j]*(v_old[i,j]-v_old[i-1,j])/dx)</span>
-<span class="sd">else:</span>
-<span class="sd">u[i,j] -= dt*(u_old[i,j]*(u_old[i+1,j]-u_old[i,j])/dx)</span>
-<span class="sd">v[i,j] -= dt*(u_old[i,j]*(v_old[i+1,j]-v_old[i,j])/dx)</span>
-<span class="sd">if (v_old[i,j]&gt;0.0):</span>
-<span class="sd">u[i,j] -= dt*(v_old[i,j]*(u_old[i,j]-u_old[i,j-1])/dx)</span>
-<span class="sd">v[i,j] -= dt*(v_old[i,j]*(v_old[i,j]-v_old[i,j-1])/dx)</span>
-<span class="sd">else:</span>
-<span class="sd">u[i,j] -= dt*(v_old[i,j]*(u_old[i,j+1]-u_old[i,j])/dx)</span>
-<span class="sd">v[i,j] -= dt*(v_old[i,j]*(v_old[i,j+1]-v_old[i,j])/dx)</span>
-<span class="sd">return u, v</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_intermediate_velocity</span><span class="p">(</span><span class="n">nu</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">u_old</span><span class="p">,</span> <span class="n">v_old</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">):</span>
+<span class="sd">&quot;&quot;&quot; Calculate the intermediate velocities.</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="n">imax</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+<span class="n">jmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">//</span><span class="n">imax</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">imax</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">jmax</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+<span class="c1">#viscous (diffusive) term first</span>
+<span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">nu</span> <span class="o">*</span> <span class="p">((</span><span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="mf">2.</span><span class="o">*</span><span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">+</span><span class="p">(</span><span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mf">2.</span><span class="o">*</span><span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">dy</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">nu</span> <span class="o">*</span> <span class="p">((</span><span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="mf">2.</span><span class="o">*</span><span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">+</span><span class="p">(</span><span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mf">2.</span><span class="o">*</span><span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">dy</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="c1">#add the momentum advection terms using upwinding</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">&gt;</span><span class="mf">0.0</span><span class="p">):</span>
+<span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">-=</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span>
+<span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">-=</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+<span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">-=</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span>
+<span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">-=</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">&gt;</span><span class="mf">0.0</span><span class="p">):</span>
+<span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">-=</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span>
+<span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">-=</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+<span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">-=</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">u_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span>
+<span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">-=</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span>
+<span class="k">return</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\ndef calculate_intermediate_velocity(nu, u, v, u_old, v_old, dt, dx, dy):\n&quot;&quot; Calculate the intermediate velocities.\n&quot;&quot;\nimax = len(u)\njmax = np.size(u)//imax\nfor i in range(1,imax-1,1):\nfor j in range(1,jmax-1,1):\n#viscous (diffusive) term first\nu[i,j] = u_old[i,j] + dt * nu * ((u_old[i+1,j]+u_old[i-1,j]-2.*u_old[i,j])/(dx**2)\n+(u_old[i,j+1]+u_old[i,j-1]-2.*u_old[i,j])/(dy**2))\nv[i,j] = v_old[i,j] + dt * nu * ((v_old[i+1,j]+v_old[i-1,j]-2.*v_old[i,j])/(dx**2)\n+(v_old[i,j+1]+v_old[i,j-1]-2.*v_old[i,j])/(dy**2))\n#add the momentum advection terms using upwinding\nif (u_old[i,j]&gt;0.0):\nu[i,j] -= dt*(u_old[i,j]*(u_old[i,j]-u_old[i-1,j])/dx)\nv[i,j] -= dt*(u_old[i,j]*(v_old[i,j]-v_old[i-1,j])/dx)\nelse:\nu[i,j] -= dt*(u_old[i,j]*(u_old[i+1,j]-u_old[i,j])/dx)\nv[i,j] -= dt*(u_old[i,j]*(v_old[i+1,j]-v_old[i,j])/dx)\nif (v_old[i,j]&gt;0.0):\nu[i,j] -= dt*(v_old[i,j]*(u_old[i,j]-u_old[i,j-1])/dx)\nv[i,j] -= dt*(v_old[i,j]*(v_old[i,j]-v_old[i,j-1])/dx)\nelse:\nu[i,j] -= dt*(v_old[i,j]*(u_old[i,j+1]-u_old[i,j])/dx)\nv[i,j] -= dt*(v_old[i,j]*(v_old[i,j+1]-v_old[i,j])/dx)\nreturn u, v\n&#39;
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+    <span class="s2">&quot;&quot;&quot; Calculate the intermediate velocities.</span>
+<span class="s2">    ^</span>
+<span class="ne">IndentationError</span>: expected an indented block
 </pre></div>
 </div>
 </div>
@@ -1093,59 +1093,58 @@ and so are fast</p></li>
 <h3><a class="toc-backref" href="#id21" role="doc-backlink">Setting up and Solving the Pressure Poisson Equation</a><a class="headerlink" href="#setting-up-and-solving-the-pressure-poisson-equation" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;def calculate_ppm_RHS(rho, u, v, dt, dx, dy):</span>
-<span class="sd">&quot;&quot; Calculate the RHS of the</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_ppm_RHS</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">):</span>
+<span class="sd">&quot;&quot;&quot; Calculate the RHS of the</span>
 <span class="sd">Poisson equation resulting from the projection method.</span>
 <span class="sd">Use central differences for the first derivatives of u and v.</span>
-<span class="sd">&quot;&quot;</span>
-<span class="sd">imax = len(p)</span>
-<span class="sd">jmax = np.size(p)//imax</span>
-<span class="sd">RHS = np.zeros_like(X)</span>
-<span class="sd">for i in range(1,imax-1,1):</span>
-<span class="sd">for j in range(1,jmax-1,1):</span>
-<span class="sd">RHS[i, j] = rho * ((1.0/dt) * ( (u[i+1, j] - u[i-1, j]) / (2*dx) + (v[i, j+1] - v[i, j-1]) / (2*dy)))</span>
-<span class="sd">return RHS</span>
-<span class="sd">def pressure_poisson_jacobi(p, dx, dy, RHS, rtol = 1.e-5, logs = False):</span>
-<span class="sd">&quot;&quot; Solve the pressure Poisson equation (PPE)</span>
-<span class="sd">using Jacobi iteration assuming mesh spacing of</span>
-<span class="sd">dx and dy (we assume at the moment that dx=dy)</span>
-<span class="sd">and the RHS function given by RHS.</span>
-<span class="sd">Assumes imposition of a Neumann BC on all boundaries.</span>
-<span class="sd">Return the pressure field.</span>
-<span class="sd">&quot;&quot;</span>
-<span class="sd"># our code below is only currently for the case dx=dy</span>
-<span class="sd">assert dx==dy</span>
-<span class="sd"># iterate</span>
-<span class="sd">tol = 10.*rtol</span>
-<span class="sd">it = 0</span>
-<span class="sd">p_old = np.copy(p)</span>
-<span class="sd">imax = len(p)</span>
-
-<span class="sd">jmax = np.size(p)//imax</span>
-<span class="sd">while tol &gt; rtol:</span>
-<span class="sd">it += 1</span>
-<span class="sd">for i in range(1,imax-1,1):</span>
-<span class="sd">for j in range(1,jmax-1,1):</span>
-<span class="sd">p[i, j] = 0.25*(p_old[i+1, j] + p_old[i-1, j] + p_old[i, j+1] + p_old[i,j-1] - (dx**2)*RHS[i, j])</span>
-<span class="sd"># apply zero pressure gradient Neumann boundary conditions</span>
-<span class="sd">for i in range(imax):</span>
-<span class="sd">p[i,0] = p[i,1]</span>
-<span class="sd">p[i,jmax-1] = p[i,jmax-2]</span>
-<span class="sd">for j in range(jmax):</span>
-<span class="sd">p[0,j] = p[1,j]</span>
-<span class="sd">p[imax-1,j] = p[imax-2,j]</span>
-<span class="sd"># fix pressure level - choose an arbitrary node to set p to</span>
-<span class="sd"># be zero, avoid the corners and set it to an interior location</span>
-<span class="sd">p[1,1] = 0</span>
-<span class="sd"># relative change in pressure</span>
-<span class="sd">tol = sl.norm(p - p_old)/np.maximum(1.0e-10,sl.norm(p))</span>
-<span class="sd">#swap arrays without copying the data</span>
-<span class="sd">temp = p_old</span>
-<span class="sd">p_old = p</span>
-<span class="sd">p = temp</span>
-<span class="sd">if logs: print(&#39;pressure solve iterations = {:4d}&#39;.format(it))</span>
-<span class="sd">return p</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="n">imax</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="n">jmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">//</span><span class="n">imax</span>
+<span class="n">RHS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">imax</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">jmax</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+<span class="n">RHS</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">*</span> <span class="p">((</span><span class="mf">1.0</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">dx</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">dy</span><span class="p">)))</span>
+<span class="k">return</span> <span class="n">RHS</span>
+<span class="k">def</span> <span class="nf">pressure_poisson_jacobi</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">RHS</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1.e-5</span><span class="p">,</span> <span class="n">logs</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="s2">&quot;&quot;</span> <span class="n">Solve</span> <span class="n">the</span> <span class="n">pressure</span> <span class="n">Poisson</span> <span class="n">equation</span> <span class="p">(</span><span class="n">PPE</span><span class="p">)</span>
+<span class="n">using</span> <span class="n">Jacobi</span> <span class="n">iteration</span> <span class="n">assuming</span> <span class="n">mesh</span> <span class="n">spacing</span> <span class="n">of</span>
+<span class="n">dx</span> <span class="ow">and</span> <span class="n">dy</span> <span class="p">(</span><span class="n">we</span> <span class="n">assume</span> <span class="n">at</span> <span class="n">the</span> <span class="n">moment</span> <span class="n">that</span> <span class="n">dx</span><span class="o">=</span><span class="n">dy</span><span class="p">)</span>
+<span class="ow">and</span> <span class="n">the</span> <span class="n">RHS</span> <span class="n">function</span> <span class="n">given</span> <span class="n">by</span> <span class="n">RHS</span><span class="o">.</span>
+<span class="n">Assumes</span> <span class="n">imposition</span> <span class="n">of</span> <span class="n">a</span> <span class="n">Neumann</span> <span class="n">BC</span> <span class="n">on</span> <span class="nb">all</span> <span class="n">boundaries</span><span class="o">.</span>
+<span class="n">Return</span> <span class="n">the</span> <span class="n">pressure</span> <span class="n">field</span><span class="o">.</span>
+<span class="s2">&quot;&quot;</span>
+<span class="c1"># our code below is only currently for the case dx=dy</span>
+<span class="k">assert</span> <span class="n">dx</span><span class="o">==</span><span class="n">dy</span>
+<span class="c1"># iterate</span>
+<span class="n">tol</span> <span class="o">=</span> <span class="mf">10.</span><span class="o">*</span><span class="n">rtol</span>
+<span class="n">it</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">p_old</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="n">imax</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+<span class="n">jmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">//</span><span class="n">imax</span>
+<span class="k">while</span> <span class="n">tol</span> <span class="o">&gt;</span> <span class="n">rtol</span><span class="p">:</span>
+<span class="n">it</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">imax</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">jmax</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+<span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.25</span><span class="o">*</span><span class="p">(</span><span class="n">p_old</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">p_old</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">p_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">p_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">RHS</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+<span class="c1"># apply zero pressure gradient Neumann boundary conditions</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">imax</span><span class="p">):</span>
+<span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">jmax</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">jmax</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">jmax</span><span class="p">):</span>
+<span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+<span class="n">p</span><span class="p">[</span><span class="n">imax</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="n">imax</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+<span class="c1"># fix pressure level - choose an arbitrary node to set p to</span>
+<span class="c1"># be zero, avoid the corners and set it to an interior location</span>
+<span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># relative change in pressure</span>
+<span class="n">tol</span> <span class="o">=</span> <span class="n">sl</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">p_old</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mf">1.0e-10</span><span class="p">,</span><span class="n">sl</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+<span class="c1">#swap arrays without copying the data</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">p_old</span>
+<span class="n">p_old</span> <span class="o">=</span> <span class="n">p</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">temp</span>
+<span class="k">if</span> <span class="n">logs</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pressure solve iterations = </span><span class="si">{:4d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">it</span><span class="p">))</span>
+<span class="k">return</span> <span class="n">p</span>
 </pre></div>
 </div>
 </div>
@@ -1160,24 +1159,18 @@ and so are fast</p></li>
 <h3><a class="toc-backref" href="#id22" role="doc-backlink">Calculate Updated Velocity using Pressure Gradient</a><a class="headerlink" href="#calculate-updated-velocity-using-pressure-gradient" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;def project_velocity(rho, u, v, dt, dx, dy, p):</span>
-<span class="sd">&quot;&quot; Update the velocity to be divergence free using the pressure.</span>
-<span class="sd">&quot;&quot;</span>
-<span class="sd">imax = len(p)</span>
-<span class="sd">jmax = np.size(p)//imax</span>
-<span class="sd">for i in range(1,imax-1,1):</span>
-<span class="sd">for j in range(1,jmax-1,1):</span>
-<span class="sd">u[i, j] = u[i, j] - dt * (1./rho) * (</span>
-<span class="sd">(p[i+1, j] - p[i-1, j])/(2*dx) )</span>
-<span class="sd">v[i, j] = v[i, j] - dt * (1./rho) * (</span>
-<span class="sd">(p[i, j+1] - p[i, j-1])/(2*dy) )</span>
-<span class="sd">return u, v</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">project_velocity</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+<span class="sd">&quot;&quot;&quot; Update the velocity to be divergence free using the pressure.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;def project_velocity(rho, u, v, dt, dx, dy, p):\n&quot;&quot; Update the velocity to be divergence free using the pressure.\n&quot;&quot;\nimax = len(p)\njmax = np.size(p)//imax\nfor i in range(1,imax-1,1):\nfor j in range(1,jmax-1,1):\nu[i, j] = u[i, j] - dt * (1./rho) * (\n(p[i+1, j] - p[i-1, j])/(2*dx) )\nv[i, j] = v[i, j] - dt * (1./rho) * (\n(p[i, j+1] - p[i, j-1])/(2*dy) )\nreturn u, v\n&#39;
+<span class="n">imax</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="n">jmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">//</span><span class="n">imax</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">imax</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">jmax</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+<span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">rho</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span>
+<span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">dx</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">rho</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span>
+<span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">dy</span><span class="p">)</span> <span class="p">)</span>
+<span class="k">return</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span>
 </pre></div>
 </div>
 </div>
@@ -1187,49 +1180,42 @@ and so are fast</p></li>
 <h3><a class="toc-backref" href="#id23" role="doc-backlink">Combine the Previous Functions to solve NS</a><a class="headerlink" href="#combine-the-previous-functions-to-solve-ns" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">def solve_NS(u, v, p, rho, nu, dt, t_end, dx, dy, rtol = 1.e-5, logs = False):</span>
-<span class="sd">&quot;&quot; Solve the incompressible Navier-Stokes equations</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">solve_NS</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">nu</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">t_end</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1.e-5</span><span class="p">,</span> <span class="n">logs</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="sd">&quot;&quot;&quot; Solve the incompressible Navier-Stokes equations</span>
 <span class="sd">using a lot of the numerical choices and approaches we&#39;ve seen</span>
 <span class="sd">earlier in this lecture.</span>
-<span class="sd">&quot;&quot;</span>
-<span class="sd">t = 0</span>
-<span class="sd">u_old = u.copy()</span>
-<span class="sd">v_old = v.copy()</span>
-<span class="sd">while t &lt; t_end:</span>
-<span class="sd">t += dt</span>
-<span class="sd">if logs: print(&#39;\nTime = {:.8f}&#39;.format(t))</span>
-<span class="sd"># calculate intermediate velocities</span>
-<span class="sd">u, v = calculate_intermediate_velocity(nu, u, v, u_old, v_old, dt, dx, dy)</span>
-<span class="sd"># PPM</span>
-<span class="sd"># calculate RHS for the pressure Poisson problem</span>
-<span class="sd">p_RHS = calculate_ppm_RHS(rho, u, v, dt, dx, dy)</span>
-<span class="sd"># compute pressure - note that we use the previous p as an initial guess to the solution</span>
-<span class="sd">p = pressure_poisson_jacobi(p, dx, dy, p_RHS, 1.e-5, logs)</span>
-<span class="sd"># project velocity</span>
-<span class="sd">u, v = project_velocity(rho, u, v, dt, dx, dy, p)</span>
-<span class="sd">if logs:</span>
-<span class="sd">print(&#39;norm(u) = {0:.8f}, norm(v) = {1:.8f}&#39;.format(sl.norm(u),sl.norm(v)))</span>
-<span class="sd">print(&#39;Courant number: {0:.8f}&#39;.format(np.max(np.sqrt(u**2+v**2)) * dt / dx ))</span>
-<span class="sd"># relative change in u and v</span>
-
-<span class="sd">tolu = sl.norm(u - u_old)/np.maximum(1.0e-10,sl.norm(u))</span>
-<span class="sd">tolv = sl.norm(v - v_old)/np.maximum(1.0e-10,sl.norm(v))</span>
-<span class="sd">if tolu &lt; rtol and tolv &lt; rtol: break</span>
-<span class="sd">#swap pointers without copying data</span>
-<span class="sd">temp = u_old</span>
-<span class="sd">u_old = u</span>
-<span class="sd">u = temp</span>
-<span class="sd">temp = v_old</span>
-<span class="sd">v_old = v</span>
-<span class="sd">v = temp</span>
-<span class="sd">return u, v, p</span>
 <span class="sd">&quot;&quot;&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\ndef solve_NS(u, v, p, rho, nu, dt, t_end, dx, dy, rtol = 1.e-5, logs = False):\n&quot;&quot; Solve the incompressible Navier-Stokes equations\nusing a lot of the numerical choices and approaches we\&#39;ve seen\nearlier in this lecture.\n&quot;&quot;\nt = 0\nu_old = u.copy()\nv_old = v.copy()\nwhile t &lt; t_end:\nt += dt\nif logs: print(\&#39;\nTime = {:.8f}\&#39;.format(t))\n# calculate intermediate velocities\nu, v = calculate_intermediate_velocity(nu, u, v, u_old, v_old, dt, dx, dy)\n# PPM\n# calculate RHS for the pressure Poisson problem\np_RHS = calculate_ppm_RHS(rho, u, v, dt, dx, dy)\n# compute pressure - note that we use the previous p as an initial guess to the solution\np = pressure_poisson_jacobi(p, dx, dy, p_RHS, 1.e-5, logs)\n# project velocity\nu, v = project_velocity(rho, u, v, dt, dx, dy, p)\nif logs:\nprint(\&#39;norm(u) = {0:.8f}, norm(v) = {1:.8f}\&#39;.format(sl.norm(u),sl.norm(v)))\nprint(\&#39;Courant number: {0:.8f}\&#39;.format(np.max(np.sqrt(u**2+v**2)) * dt / dx ))\n# relative change in u and v\n\ntolu = sl.norm(u - u_old)/np.maximum(1.0e-10,sl.norm(u))\ntolv = sl.norm(v - v_old)/np.maximum(1.0e-10,sl.norm(v))\nif tolu &lt; rtol and tolv &lt; rtol: break\n#swap pointers without copying data\ntemp = u_old\nu_old = u\nu = temp\ntemp = v_old\nv_old = v\nv = temp\nreturn u, v, p\n&#39;
+<span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">u_old</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">v_old</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">t_end</span><span class="p">:</span>
+<span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span>
+<span class="k">if</span> <span class="n">logs</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Time = </span><span class="si">{:.8f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="c1"># calculate intermediate velocities</span>
+<span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">calculate_intermediate_velocity</span><span class="p">(</span><span class="n">nu</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">u_old</span><span class="p">,</span> <span class="n">v_old</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">)</span>
+<span class="c1"># PPM</span>
+<span class="c1"># calculate RHS for the pressure Poisson problem</span>
+<span class="n">p_RHS</span> <span class="o">=</span> <span class="n">calculate_ppm_RHS</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">)</span>
+<span class="c1"># compute pressure - note that we use the previous p as an initial guess to the solution</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">pressure_poisson_jacobi</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">p_RHS</span><span class="p">,</span> <span class="mf">1.e-5</span><span class="p">,</span> <span class="n">logs</span><span class="p">)</span>
+<span class="c1"># project velocity</span>
+<span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">project_velocity</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">logs</span><span class="p">:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;norm(u) = </span><span class="si">{0:.8f}</span><span class="s1">, norm(v) = </span><span class="si">{1:.8f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sl</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u</span><span class="p">),</span><span class="n">sl</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Courant number: </span><span class="si">{0:.8f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">u</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">v</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">dx</span> <span class="p">))</span>
+<span class="c1"># relative change in u and v</span>
+
+<span class="n">tolu</span> <span class="o">=</span> <span class="n">sl</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u</span> <span class="o">-</span> <span class="n">u_old</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mf">1.0e-10</span><span class="p">,</span><span class="n">sl</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+<span class="n">tolv</span> <span class="o">=</span> <span class="n">sl</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">v_old</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mf">1.0e-10</span><span class="p">,</span><span class="n">sl</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">tolu</span> <span class="o">&lt;</span> <span class="n">rtol</span> <span class="ow">and</span> <span class="n">tolv</span> <span class="o">&lt;</span> <span class="n">rtol</span><span class="p">:</span> <span class="k">break</span>
+<span class="c1">#swap pointers without copying data</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">u_old</span>
+<span class="n">u_old</span> <span class="o">=</span> <span class="n">u</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">temp</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">v_old</span>
+<span class="n">v_old</span> <span class="o">=</span> <span class="n">v</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">temp</span>
+<span class="k">return</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">p</span>
 </pre></div>
 </div>
 </div>
@@ -1279,52 +1265,50 @@ known as the nullspace is required</p></li>
 <h3><a class="toc-backref" href="#id26" role="doc-backlink">Call the Function to Solve Lid Driven Cavity</a><a class="headerlink" href="#call-the-function-to-solve-lid-driven-cavity" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd"># physical parameters</span>
-<span class="sd">rho = 1</span>
-<span class="sd">nu = 1./10.</span>
-<span class="sd"># define spatial mesh</span>
-<span class="sd"># Size of rectangular domain</span>
-<span class="sd">Lx = 1</span>
-<span class="sd">Ly = Lx</span>
-<span class="sd"># Number of grid points in each direction, including boundary nodes</span>
-<span class="sd">Nx = 51</span>
-<span class="sd">Ny = Nx</span>
-<span class="sd"># hence the mesh spacing</span>
-<span class="sd">dx = Lx/(Nx-1)</span>
-<span class="sd">dy = Ly/(Ny-1)</span>
-<span class="sd"># read the docs to see the ordering that mgrid gives us</span>
-<span class="sd">X, Y = np.mgrid[0:Nx:1, 0:Ny:1]</span>
-<span class="sd">X = dx*X</span>
-<span class="sd">Y = dy*Y</span>
-<span class="sd"># the following is an alternative to the three lines above</span>
-<span class="sd">#X, Y = np.mgrid[0: Lx + 1e-10: dx, 0: Ly + 1e-10: dy]</span>
-<span class="sd"># but without the need to add a &quot;small&quot; increment to ensure</span>
-<span class="sd"># the Lx and Ly end points are included</span>
-<span class="sd"># time stepping parameters</span>
-<span class="sd">dt = 2.e-4</span>
-<span class="sd">t_end = 2.0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># physical parameters</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">nu</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="mf">10.</span>
+<span class="c1"># define spatial mesh</span>
+<span class="c1"># Size of rectangular domain</span>
+<span class="n">Lx</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Ly</span> <span class="o">=</span> <span class="n">Lx</span>
+<span class="c1"># Number of grid points in each direction, including boundary nodes</span>
+<span class="n">Nx</span> <span class="o">=</span> <span class="mi">51</span>
+<span class="n">Ny</span> <span class="o">=</span> <span class="n">Nx</span>
+<span class="c1"># hence the mesh spacing</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">Lx</span><span class="o">/</span><span class="p">(</span><span class="n">Nx</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">dy</span> <span class="o">=</span> <span class="n">Ly</span><span class="o">/</span><span class="p">(</span><span class="n">Ny</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># read the docs to see the ordering that mgrid gives us</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">Nx</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">Ny</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">dx</span><span class="o">*</span><span class="n">X</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">dy</span><span class="o">*</span><span class="n">Y</span>
+<span class="c1"># the following is an alternative to the three lines above</span>
+<span class="c1">#X, Y = np.mgrid[0: Lx + 1e-10: dx, 0: Ly + 1e-10: dy]</span>
+<span class="c1"># but without the need to add a &quot;small&quot; increment to ensure</span>
+<span class="c1"># the Lx and Ly end points are included</span>
+<span class="c1"># time stepping parameters</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">2.e-4</span>
+<span class="n">t_end</span> <span class="o">=</span> <span class="mf">2.0</span>
 
-<span class="sd"># initialise independent variables</span>
-<span class="sd">u = np.zeros_like(X)</span>
-<span class="sd">v = np.zeros_like(X)</span>
-<span class="sd">p = np.zeros_like(X)</span>
-<span class="sd"># Apply Dirichlet BCs to u and v - the code below doesn&#39;t touch</span>
-<span class="sd"># these so we can do this once outside the time loop</span>
-<span class="sd">u[:, -1]=1 # set velocity on cavity lid equal to 1</span>
-<span class="sd">u[:, 0]=0</span>
-<span class="sd">u[0, :]=0</span>
-<span class="sd">u[-1, :]=0</span>
-<span class="sd">v[:, -1]=0</span>
-<span class="sd">v[:, 0]=0</span>
-<span class="sd">v[0, :]=0</span>
-<span class="sd">v[-1, :]=0</span>
-<span class="sd">import time</span>
-<span class="sd">start = time.time()</span>
-<span class="sd">u, v, p = solve_IN(u, v, p, rho, nu, dt, t_end, dx, dy, rtol=1.e-6, logs = True)</span>
-<span class="sd">end = time.time()</span>
-<span class="sd">print(&#39;Time taken by calculation = &#39;, end - start)</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="c1"># initialise independent variables</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="c1"># Apply Dirichlet BCs to u and v - the code below doesn&#39;t touch</span>
+<span class="c1"># these so we can do this once outside the time loop</span>
+<span class="n">u</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span> <span class="c1"># set velocity on cavity lid equal to 1</span>
+<span class="n">u</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">u</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">v</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">v</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span><span class="o">=</span><span class="mi">0</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">solve_IN</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">nu</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">t_end</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1.e-6</span><span class="p">,</span> <span class="n">logs</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time taken by calculation = &#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

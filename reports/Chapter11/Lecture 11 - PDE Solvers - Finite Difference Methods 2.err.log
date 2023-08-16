@@ -15,57 +15,59 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-fig = plt.figure(figsize=(6, 6))
-ax1 = plt.subplot(111)
-ax1.set_xlim(-0.1, 1.1)
-ax1.set_ylim(-0.1, 1.1)
-ax1.set_title('Forward difference example', fontsize=16)
-ax1.set_xlabel('$x$', fontsize=16)
-ax1.set_ylabel('$f(x)$', fontsize=16)
-# define our x for plotting purposes
-x = np.linspace(0, 1, 1000)
+kappa = 0.005
+L = 1
+Pe = 10
+U = Pe * kappa / L
+CE = 1
 
-# define our example function and its exact derivative
+# set up figure with 4 subplots to plot 4 resolutions
+fig, axs = plt.subplots(2, 2, figsize=(10, 10))
+# reshape so that we can iterate below over axs[i] instead of ax[i,j]
+axs = axs.reshape(-1)
+fig.tight_layout(w_pad=4, h_pad=4)
 
-def f(x):
-    return x**2
+# construct the exact solution on a fine mesh
+xf = np.linspace(0, L, 1000)
+Cex = CE * (np.exp(Pe * xf / L) - 1) / (np.exp(Pe) - 1)
 
-def df(x):
-    return 2 * x
-
-# plot the 'exact' solution
-ax1.plot(x, f(x), 'k')
-# choose and plot two x locations to take the difference between
-x0 = 0.35
-dx = 0.5
-x1 = x0 + dx
-# plot a line representing the discrete derivative
-ax1.plot([x0, x1], [f(x0), f(x1)], 'r', label = 'Forward diff. approx. deriv.')
-
-# plot a line representing the exact derivative (given by function f(.)) at x=x0 in blue
-# choose an h purely for plotting purposes, we use the true derivative df to find the slope
-h = dx / 2
-ax1.plot([x0 - h, x0 + h], [f(x0) - h * df(x0), f(x0) + h * df(x0)], 'b', label = 'Exact derivative')
-
-# add some axes labels and lines etc
-ax1.set_xticks((x0, x1))
-ax1.set_xticklabels(('$x_0$', '$x_0+\Delta x$'), fontsize=16)
-ax1.plot([x0, x0], [-0.1, f(x0)], 'g:')
-ax1.plot([x1, x1], [-0.1, f(x1)], 'g:')
-ax1.set_yticks((f(x0), f(x1)))
-ax1.set_yticklabels(('$f(x_0)$', '$f(x_0+\Delta x)$'), fontsize=16)
-ax1.plot([-0.1, x0], [f(x0), f(x0)], 'g:')
-ax1.plot([-0.1, x1], [f(x1), f(x1)], 'g:')
-ax1.legend(loc='best', fontsize=14);
+# let's compute solution and plot for 4 different resolutions
+for (i, N) in enumerate( (32 * .5**np.arange(0, 4)).astype(np.int) ):
+    # call function to generate numerical solution
+    x, C = BVP_AD_central(L, U, kappa, CE, N)
+    axs[i].plot(xf, Cex, '-k', label='Exact solution')
+    axs[i].plot(x, C, 'ob', label='Numerical solution')
+    axs[i].set_xlabel('$x/L$', fontsize=14)
+    axs[i].set_ylabel('$C/C_E$', fontsize=14)
+    axs[i].set_title('AD BVP - central. $PE = 10$, $N=$%2i, $Pe_c$=%.4f' % (N,U*(L/N)/kappa), fontsize=14)
+    axs[i].legend(loc='best', fontsize=14)
+    # to exclude ghost points just restrict the x limit of the plot
+    axs[i].set_xlim(0, 1)
+    axs[i].set_ylim(-0.3, 1.2);
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[1], line 1[0m
-[0;32m----> 1[0m fig [38;5;241m=[39m [43mplt[49m[38;5;241m.[39mfigure(figsize[38;5;241m=[39m([38;5;241m6[39m, [38;5;241m6[39m))
-[1;32m      2[0m ax1 [38;5;241m=[39m plt[38;5;241m.[39msubplot([38;5;241m111[39m)
-[1;32m      3[0m ax1[38;5;241m.[39mset_xlim([38;5;241m-[39m[38;5;241m0.1[39m, [38;5;241m1.1[39m)
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[4], line 18[0m
+[1;32m     15[0m Cex [38;5;241m=[39m CE [38;5;241m*[39m (np[38;5;241m.[39mexp(Pe [38;5;241m*[39m xf [38;5;241m/[39m L) [38;5;241m-[39m [38;5;241m1[39m) [38;5;241m/[39m (np[38;5;241m.[39mexp(Pe) [38;5;241m-[39m [38;5;241m1[39m)
+[1;32m     17[0m [38;5;66;03m# let's compute solution and plot for 4 different resolutions[39;00m
+[0;32m---> 18[0m [38;5;28;01mfor[39;00m (i, N) [38;5;129;01min[39;00m [38;5;28menumerate[39m( ([38;5;241m32[39m [38;5;241m*[39m [38;5;241m.5[39m[38;5;241m*[39m[38;5;241m*[39mnp[38;5;241m.[39marange([38;5;241m0[39m, [38;5;241m4[39m))[38;5;241m.[39mastype([43mnp[49m[38;5;241;43m.[39;49m[43mint[49m) ):
+[1;32m     19[0m     [38;5;66;03m# call function to generate numerical solution[39;00m
+[1;32m     20[0m     x, C [38;5;241m=[39m BVP_AD_central(L, U, kappa, CE, N)
+[1;32m     21[0m     axs[i][38;5;241m.[39mplot(xf, Cex, [38;5;124m'[39m[38;5;124m-k[39m[38;5;124m'[39m, label[38;5;241m=[39m[38;5;124m'[39m[38;5;124mExact solution[39m[38;5;124m'[39m)
 
-[0;31mNameError[0m: name 'plt' is not defined
+File [0;32m/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/numpy/__init__.py:319[0m, in [0;36m__getattr__[0;34m(attr)[0m
+[1;32m    314[0m     warnings[38;5;241m.[39mwarn(
+[1;32m    315[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mIn the future `np.[39m[38;5;132;01m{[39;00mattr[38;5;132;01m}[39;00m[38;5;124m` will be defined as the [39m[38;5;124m"[39m
+[1;32m    316[0m         [38;5;124m"[39m[38;5;124mcorresponding NumPy scalar.[39m[38;5;124m"[39m, [38;5;167;01mFutureWarning[39;00m, stacklevel[38;5;241m=[39m[38;5;241m2[39m)
+[1;32m    318[0m [38;5;28;01mif[39;00m attr [38;5;129;01min[39;00m __former_attrs__:
+[0;32m--> 319[0m     [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m(__former_attrs__[attr])
+[1;32m    321[0m [38;5;28;01mif[39;00m attr [38;5;241m==[39m [38;5;124m'[39m[38;5;124mtesting[39m[38;5;124m'[39m:
+[1;32m    322[0m     [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtesting[39;00m [38;5;28;01mas[39;00m [38;5;21;01mtesting[39;00m
+
+[0;31mAttributeError[0m: module 'numpy' has no attribute 'int'.
+`np.int` was a deprecated alias for the builtin `int`. To avoid this error in existing code, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
 
