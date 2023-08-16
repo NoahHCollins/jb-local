@@ -1462,14 +1462,11 @@ z_{n+1} = (1+\lambda\Delta t)z_{n}. \]</div>
 <p>Notice that the initial condition <span class="math notranslate nohighlight">\(y_0 = 1\)</span> leads to the simple solution <span class="math notranslate nohighlight">\(y(t) = \cos(t)\)</span>.</p>
 <p>However, for other initial conditions the additional term <span class="math notranslate nohighlight">\(\text{e}^{\lambda t}(y_0 - 1)\)</span> is non-zero. Clearly in the case of a negative real <span class="math notranslate nohighlight">\(\lambda\)</span> parameter this term decays to zero, i.e. solutions with initial condition <span class="math notranslate nohighlight">\(y_0 \ne 1\)</span> converge to the solution <span class="math notranslate nohighlight">\(y(t) = \cos(t)\)</span>.</p>
 <p>If <span class="math notranslate nohighlight">\(\lambda\)</span> is large then this initial “transient” will be very short-lived. Let’s suppose that it is the long term behaviour we want to simulate accurately. Well for a start explicit methods are out as we would need to choose a very small time step size to be in the stability region. But BE and TR are both A-stable so should be reasonable choices shouldn’t they? Let’s check this.</p>
+<p>Confirming this behaviour is a homework exercise. Note that reducing the time step does not help. This problem with the trapezoidal scheme does not manifest if we start with the initial condition <span class="math notranslate nohighlight">\(y_0=1\)</span>.</p>
+</div>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/L-stability_example.png"><img alt="../_images/L-stability_example.png" src="../_images/L-stability_example.png" style="width: 75%;" /></a>
 </figure>
-</div>
-<p>Confirming this behaviour is a homework exercise. Note that reducing the time step does not help. This problem with the trapezoidal scheme does not manifest if we start with the initial condition <span class="math notranslate nohighlight">\(y_0=1\)</span>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </section>
 <section id="time-stepping-errors">
 <h2>Time-stepping errors<a class="headerlink" href="#time-stepping-errors" title="Permalink to this heading">#</a></h2>
@@ -1478,6 +1475,8 @@ z_{n+1} = (1+\lambda\Delta t)z_{n}. \]</div>
 </section>
 <section id="a-little-bit-of-maths-to-bound-the-global-error-star-star">
 <h2>A little bit of maths to bound the global error  [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#a-little-bit-of-maths-to-bound-the-global-error-star-star" title="Permalink to this heading">#</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>Recall our definition of global error:</p>
 <div class="math notranslate nohighlight">
 \[E := \max_{t_0\, \le \, t_n \, \le \, T}\| {y}_{n} - {y}(t_{n})\|.\]</div>
@@ -1555,6 +1554,7 @@ E_{n+1} &amp; = (1+\lambda\Delta t) E_n +  \Delta t  \tau_{n}\\[10pt]
 e^{\,|\lambda|\, T} T  \max_{1\le i\le n}|\tau_{i-1}| 
 =  e^{\,|\lambda|\, T} T \left( \frac{\Delta t}{2}\,\max |y''| + \mathcal{O}(\Delta t^2)\right),\]</div>
 <p>and hence the method converges at the same order as the LTE, i.e. the global error is first-order in <span class="math notranslate nohighlight">\(\Delta t\)</span>.</p>
+</div>
 <section id="id6">
 <h3>Comments<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
@@ -1574,6 +1574,8 @@ e^{\,|\lambda|\, T} T  \max_{1\le i\le n}|\tau_{i-1}|
 </section>
 <section id="zero-stability-star-star">
 <h2>Zero stability  [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#zero-stability-star-star" title="Permalink to this heading">#</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>Note that the one-step error at step <span class="math notranslate nohighlight">\(m\)</span>: <span class="math notranslate nohighlight">\(\,\Delta t\tau_m\)</span>, contributes the term introduced in the <span class="math notranslate nohighlight">\(m\)</span>-th step: <span class="math notranslate nohighlight">\((1+\lambda\Delta t)^{n-m}\Delta t\tau_m\)</span> to the global error.</p>
 <p>Since the factor <span class="math notranslate nohighlight">\((1+\lambda\Delta t)^{n-m}\)</span> is bounded (by <span class="math notranslate nohighlight">\(e^{\,|\lambda| \,T}\)</span> - note this bound is independent of <span class="math notranslate nohighlight">\(\Delta t\)</span>) as we reduce the time step size, this tells us that each one step contribution to the global error is bounded.</p>
 <p>So although the local error can be amplified significantly by the exponential factor, and will grow with time, this factor is bounded independent of the time step size, and so does not impact on the <em>order of convergence</em> (in the asymptotic limit - this means that we might have to use an incredibly small time step to actually observe this convergence).</p>
@@ -1583,6 +1585,7 @@ e^{\,|\lambda|\, T} T  \max_{1\le i\le n}|\tau_{i-1}|
 <p>Further to this, see LeVeque - FD - section 7.1 for an example of why a zero stable method can also give useless results for a <em>finite (i.e. practical)</em> value of the time step.</p>
 <p>To establish whether a numerical method will produce reasonable results with a given finite time step size (and to guide us in the choice of a reasonable time step size), we need a different concept of stability.</p>
 <p>A common and practical example of this is termed <em><strong>absolute stability</strong></em> and was the flavour of stability we defined above and considered in the previous lecture (as well as the four ‘simple’ schemes introduced above) where we plotted forward Euler’s stability region in the complex plane - we will return to this concept for some of our new (more advanced and higher order) schemes below.</p>
+</div>
 </section>
 <section id="practical-choice-of-step-size">
 <h2>Practical choice of step size<a class="headerlink" href="#practical-choice-of-step-size" title="Permalink to this heading">#</a></h2>
@@ -1664,6 +1667,8 @@ k=4\; \textrm{(4-step AB scheme):} \;\;\;  y_{n+1} &amp;= y_{n} + \frac{\Delta t
 </section>
 <section id="adams-bashforth-scheme-sketch-of-derivation-star">
 <h2>Adams-Bashforth scheme - sketch of derivation [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#adams-bashforth-scheme-sketch-of-derivation-star" title="Permalink to this heading">#</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p>Here we sketch how the above schemes can be derived [another example is in the homework exercises].</p>
 <p>Consider as an example <span class="math notranslate nohighlight">\(k=2\)</span>, i.e. the two-step method (in the form where the newest time level we are solving for is level <span class="math notranslate nohighlight">\(\,n+1\)</span>):</p>
 <div class="math notranslate nohighlight">
@@ -1684,6 +1689,7 @@ k=4\; \textrm{(4-step AB scheme):} \;\;\;  y_{n+1} &amp;= y_{n} + \frac{\Delta t
 \[y_{n+1} = y_{n} + \Delta t \left( \beta_0 \, f_{n-1} + \beta_1 \, f_n \right) = y_{n} + \frac{\Delta t}{2}\; (-f_{n-1} + 3 f_{n}).\]</div>
 <p>By extending this analysis to more free parameters <span class="math notranslate nohighlight">\(\{\beta_j\}\)</span>, and higher-order polynomials, we can derive all the AB schemes - see the homework exercise where we do this for AB4.</p>
 <p>Note than an alternative derivation that arrives at the same scheme involves replacing the integral of <span class="math notranslate nohighlight">\(f\)</span> on the RHS with the integral of the Lagrange interpolating polynomial that passes through the function values at the appropriate time levels. Different order schemes then result from different order interpolating polynomials (equivalently number of time levels considered).</p>
+</div>
 </section>
 <section id="implicit-linear-multistep-methods-adams-moulton-schemes">
 <h2>Implicit linear multistep methods - Adams-Moulton schemes<a class="headerlink" href="#implicit-linear-multistep-methods-adams-moulton-schemes" title="Permalink to this heading">#</a></h2>
@@ -1712,6 +1718,8 @@ k=4\; \textrm{(4-step AM scheme):} \;\;\;  y_{n+4} &amp;= y_{n+3} + \frac{\Delta
 </section>
 <section id="linear-multistep-methods-error-analysis-and-consistency-order-conditions-star-star">
 <h2>Linear Multistep Methods - error analysis and consistency/order conditions  [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#linear-multistep-methods-error-analysis-and-consistency-order-conditions-star-star" title="Permalink to this heading">#</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>Through the derivations above (and in homework) we’ve seen that, by construction, the methods are consistent with a given order of accuracy (since they are based on a consistent approximation to the integral in the integrated form of the ODE).</p>
 <p>But let’s also see what an explicit derivation of the truncation error tells us.</p>
 <p>The general from of LMS schemes is given by</p>
@@ -1749,6 +1757,7 @@ k=4\; \textrm{(4-step AM scheme):} \;\;\;  y_{n+4} &amp;= y_{n+3} + \frac{\Delta
 <div class="math notranslate nohighlight">
 \[\sum_{j=0}^k\beta_j = \sum_{j=0}^k j\alpha_j = k - (k-1) = 1.\]</div>
 <p>In the cell below we can check that this is true, as well as the coefficients of even higher order terms to confirm that AB4 and AM3 are indeed both fourth oder accurate.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span>
@@ -2276,8 +2285,9 @@ RK2 (ver 2) approximation:  2.625
 </section>
 <section id="runge-kutta-scheme-derivation-via-taylor-series-methods-star">
 <h2>Runge-Kutta scheme derivation (via Taylor series methods) [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#runge-kutta-scheme-derivation-via-taylor-series-methods-star" title="Permalink to this heading">#</a></h2>
-<section id="taylor-series-methods-from-comp-math">
-<h3>Taylor series methods [from Comp Math]<a class="headerlink" href="#taylor-series-methods-from-comp-math" title="Permalink to this heading">#</a></h3>
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
+<p class="rubric">Taylor series methods [from Comp Math]</p>
 <p>The above two examples of RK2 schemes were arguably kind of easy/obvious to just write down. How can we derive a suite of (higher-order) methods more methodically?</p>
 <p>Recall the Taylor series expansion of the exact solution</p>
 <div class="math notranslate nohighlight">
@@ -2293,15 +2303,17 @@ RK2 (ver 2) approximation:  2.625
 <div class="math notranslate nohighlight">
 \[ y''' = f_{tt} + 2f\,f_{yt} + f_t\,f_y + f\,f_y^2 + f^2\,f_{yy}. \]</div>
 <p>Now since we know <span class="math notranslate nohighlight">\(f\)</span> as a function of <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(y\)</span> we can in principle compute these terms and evaluate them at the old time level to achieve a higher-order time-stepping method.</p>
-<section id="an-example">
-<h4>An example<a class="headerlink" href="#an-example" title="Permalink to this heading">#</a></h4>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
+<p class="rubric">An example</p>
 <p>The following is an example convergence test for the problem <span class="math notranslate nohighlight">\(y'=y + t^3\)</span> (chosen as <span class="math notranslate nohighlight">\(f\)</span> has both <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(t\)</span> dependence).</p>
+</div>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/Taylor_series_methods_ODE.png"><img alt="../_images/Taylor_series_methods_ODE.png" src="../_images/Taylor_series_methods_ODE.png" style="width: 75%;" /></a>
 </figure>
-</section>
 <section id="id10">
-<h4>Comments<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h4>
+<h3>Comments<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>So this approach indeed works, and the corresponding methods can be termed <em>Taylor series methods</em> [which were part of the Comp Math assessment!]</p></li>
 <li><p>and in principle this allows us to generate methods of arbitrary order.</p></li>
@@ -2309,9 +2321,10 @@ RK2 (ver 2) approximation:  2.625
 <li><p>Can we do better?</p></li>
 </ul>
 </section>
-</section>
 <section id="runge-kutta-derivation-star">
 <h3>Runge-Kutta derivation  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#runge-kutta-derivation-star" title="Permalink to this heading">#</a></h3>
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p>From the previous subsection we have</p>
 <div class="math notranslate nohighlight">
 \[ y_{n+1} = y_n + \Delta t\, y'_n + \frac{\Delta t^2}{2!}y''_n + \frac{\Delta t^3}{3!}y'''_n + \mathcal{O}(\Delta t^4),\]</div>
@@ -2324,8 +2337,11 @@ RK2 (ver 2) approximation:  2.625
 <p>(we’ve added some subscript <span class="math notranslate nohighlight">\(n\)</span>’s here to help emphasise where these functions are evaluated, i.e. at time level <span class="math notranslate nohighlight">\(n\)</span>).</p>
 <p>This is what the exact solution satisfies.</p>
 <p>To progress in the derivation of a numerical method we need to construct a discrete scheme that agrees with this up to a desired order - let’s do this now using a general two stage scheme.</p>
+</div>
 <section id="deriving-the-rk2-family">
 <h4>Deriving the RK2 family<a class="headerlink" href="#deriving-the-rk2-family" title="Permalink to this heading">#</a></h4>
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p>As already commented, and as seen in the examples presented so far, the idea behind the <em>intermediate</em> step Runge-Kutta methods is to increase accuracy by evaluating <span class="math notranslate nohighlight">\(f\)</span> at locations within a time step.</p>
 <p>The general <em>two stage</em> scheme can be written as</p>
 <div class="math notranslate nohighlight">
@@ -2377,11 +2393,14 @@ y_{n+1} &amp;= y_n + \left( 1 - \frac{1}{2\alpha}\right)\, \Delta t\, k_1 +
 \end{align*}
 \end{split}\]</div>
 <p>Notice that the choice <span class="math notranslate nohighlight">\(\alpha=1\)</span> corresponds to the explicit trapezoidal (improved Euler) scheme, and <span class="math notranslate nohighlight">\(\alpha=1/2\)</span> is the explicit midpoint scheme, both introduced above.</p>
+</div>
 </section>
 </section>
 </section>
 <section id="butcher-tableau-star">
 <h2>Butcher tableau [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#butcher-tableau-star" title="Permalink to this heading">#</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p>More generally, all <em>explicit</em> Runge–Kutta methods may be written in the form</p>
 <div class="math notranslate nohighlight">
 \[y_{n+1}=y_{n}+\Delta t\sum _{i=1}^{s}b_{i}k_{i},\]</div>
@@ -2420,6 +2439,7 @@ c_s &amp; a_{s1} &amp; a_{s2} &amp; \cdots &amp; a_{s,s-1} \\
 \end{array}
 \end{split}\]</div>
 <p>This is known as a <a class="reference external" href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods#Explicit_Runge%E2%80%93Kutta_methods"><em>Butcher tableau</em></a>.</p>
+</div>
 <section id="id11">
 <h3>Comments<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
 <p>The integer <span class="math notranslate nohighlight">\(s\)</span> refers to the number of stages, the coefficients <span class="math notranslate nohighlight">\(a_{ij}\)</span> form a matrix termed the <em>Runge–Kutta matrix</em>, the <span class="math notranslate nohighlight">\(b_i\)</span> coefficients are termed the <em>weights</em> and the <span class="math notranslate nohighlight">\(c_i\)</span> coefficients are termed the <em>nodes</em>.</p>
@@ -2432,6 +2452,8 @@ c_s &amp; a_{s1} &amp; a_{s2} &amp; \cdots &amp; a_{s,s-1} \\
 </section>
 <section id="explicit-runge-kutta-butcher-tableau-examples-star">
 <h3>Explicit Runge-Kutta Butcher tableau examples [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#explicit-runge-kutta-butcher-tableau-examples-star" title="Permalink to this heading">#</a></h3>
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p>Armed with this notation we can (a) write down the Butcher tableau for some of the schemes we’ve already encountered, and (b) write a generic implementation that takes in a Butcher tableau.</p>
 <p>Here are some examples - check that you are happy that with the above definitions of the stages and the final update that these indeed agree with the schemes we wrote our on “long-hand”.</p>
 <ul class="simple">
@@ -2477,6 +2499,7 @@ c_s &amp; a_{s1} &amp; a_{s2} &amp; \cdots &amp; a_{s,s-1} \\
 \hline
 &amp; 1 - \frac{1}{2\alpha} &amp; \frac{1}{2\alpha}
 \end{array}\end{split}\]</div>
+</div>
 </section>
 <section id="implicit-runge-kutta-butcher-tableau-examples">
 <h3>Implicit Runge-Kutta Butcher tableau examples<a class="headerlink" href="#implicit-runge-kutta-butcher-tableau-examples" title="Permalink to this heading">#</a></h3>
@@ -2504,8 +2527,11 @@ c_s &amp; a_{s1} &amp; a_{s2} &amp; \cdots &amp; a_{s,s-1} \\
 </section>
 <section id="embedded-runge-kutta-pairs-star">
 <h3>Embedded Runge-Kutta pairs [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#embedded-runge-kutta-pairs-star" title="Permalink to this heading">#</a></h3>
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p>Note finally that so-called <em>embedded Runke-Kutta</em> methods exist: <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_Runge%E2%80%93Kutta_methods#Embedded_methods">https://en.wikipedia.org/wiki/List_of_Runge–Kutta_methods#Embedded_methods</a>.</p>
 <p>These represent a pair of methods which make use of the same stage information for efficiency, i.e. the same <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol{c}\)</span> values, but two different <span class="math notranslate nohighlight">\(\boldsymbol{b}\)</span> values. These give two different estimates of the new solution, of different order which can be used as a means to provide estimates of the local truncation error, and thus select an appropriate local time step size - i.e. these approaches are used to perform <em>adaptive time-stepping</em> (see section on this below and the homework question on RK45).</p>
+</div>
 </section>
 </section>
 <section id="classical-rk4">
@@ -2611,9 +2637,10 @@ c_s &amp; a_{s1} &amp; a_{s2} &amp; \cdots &amp; a_{s,s-1} \\
 </section>
 <section id="runge-kutta-stability-analysis-star-star">
 <h2>Runge-Kutta stability analysis  [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#runge-kutta-stability-analysis-star-star" title="Permalink to this heading">#</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>In order to understand the stability of RK schemes, let’s consider again our linear model problem</p>
-<section id="rk2-stability">
-<h3>RK2 stability<a class="headerlink" href="#rk2-stability" title="Permalink to this heading">#</a></h3>
+<p class="rubric">RK2 stability</p>
 <div class="math notranslate nohighlight">
 \[y'=\lambda y, \;\;\;\;\; y(0)=y_0.\]</div>
 <p>Let’s consider our RK2(<span class="math notranslate nohighlight">\(\alpha\)</span>) scheme applied to this problem.</p>
@@ -2645,6 +2672,7 @@ y_{n+1} &amp;= y_n + \left( 1 - \frac{1}{2\alpha}\right)\, \Delta t\, k_1 +
 <div class="math notranslate nohighlight">
 \[\sigma = \left( 1 + \lambda \Delta t + \frac{\lambda^2\Delta t^2}{2}\right).\]</div>
 <p>Note from this that the stability of the scheme is not dependent on the choice of the parameter <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+</div>
 <p><strong>Aside:</strong></p>
 <p>Note that the expansion that appeared in the derivation above is equivalent to</p>
 <div class="math notranslate nohighlight">
@@ -2699,12 +2727,11 @@ y_{n+1} &amp; =  y_n + \Delta t \lambda  y_n + \frac{\Delta t^2}{2!}\lambda^2 y_
 </div>
 </div>
 <section id="id13">
-<h4>Comments<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h4>
+<h3>Comments<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>For purely real <span class="math notranslate nohighlight">\(\lambda\)</span> this represents the same stability bound as forward Euler, but there is an improvement for complex <span class="math notranslate nohighlight">\(\lambda\)</span>.</p></li>
 <li><p>The method is still unconditionally unstable for purely imaginary <span class="math notranslate nohighlight">\(\lambda\)</span>, i.e. for a purely imaginary eigenvalue no choice of time step size leads to stability.</p></li>
 </ul>
-</section>
 </section>
 <section id="rk4-stability">
 <h3>RK4 stability<a class="headerlink" href="#rk4-stability" title="Permalink to this heading">#</a></h3>
@@ -2767,6 +2794,8 @@ y_{n+1} &amp; =  y_n + \Delta t \lambda  y_n + \frac{\Delta t^2}{2!}\lambda^2 y_
 </section>
 <section id="adaptive-time-stepping-star">
 <h2>Adaptive time-stepping  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#adaptive-time-stepping-star" title="Permalink to this heading">#</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p>An advantage of multi-stage, single step methods is that it is (relatively!) easy to change the time step size.  But we need to know something about the error in the solution to decide on an appropriate local time step size.</p>
 <p>Similarly to some of the ideas from Lecture 2 on quadrature methods, there are two ways to estimate the error.</p>
 <p>The first is to apply the integration scheme with two different time step sizes and use the difference as the basis for an error estimate.</p>
@@ -2775,9 +2804,12 @@ y_{n+1} &amp; =  y_n + \Delta t \lambda  y_n + \frac{\Delta t^2}{2!}\lambda^2 y_
 <a class="reference external" href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta%E2%80%93Fehlberg_method">https://en.wikipedia.org/wiki/Runge–Kutta–Fehlberg_method</a>
 <a class="reference external" href="https://en.wikipedia.org/wiki/Dormand%E2%80%93Prince_method">https://en.wikipedia.org/wiki/Dormand–Prince_method</a></p>
 <p>For more information on error estimators, including the one we will implement in the homework, see  Chapter II.4 (Practical Error Estimation and Step Size Selection) of <em>Solving Ordinary Differential Equations I: Nonstiff Problems</em> by Hairer, Nørsett and Wanner.</p>
+</div>
 </section>
 <section id="stiff-problems-star">
 <h2>Stiff problems [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#stiff-problems-star" title="Permalink to this heading">#</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p>An ODE can be characterised as being <a class="reference external" href="https://uk.mathworks.com/company/newsletters/articles/stiff-differential-equations.html"><em>stiff</em></a> if some of the following describe it:</p>
 <ul class="simple">
 <li><p>the step size required for stability is much smaller than the step size required for accuracy</p></li>
@@ -2786,9 +2818,12 @@ y_{n+1} &amp; =  y_n + \Delta t \lambda  y_n + \frac{\Delta t^2}{2!}\lambda^2 y_
 </ul>
 <br>
 <p>Whether a problem is stiff or non-stiff has important implications for the stability and the selection of appropriate time step size as well as appropriate numerical methods to use: <a class="reference external" href="https://en.wikipedia.org/wiki/Stiff_equation">https://en.wikipedia.org/wiki/Stiff_equation</a> - stiff problems are in general more difficult to deal with numerically.</p>
+</div>
 </section>
 <section id="an-example-of-a-stiff-problem-star">
 <h2>An example of a stiff problem  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#an-example-of-a-stiff-problem-star" title="Permalink to this heading">#</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p>For example, the problem</p>
 <div class="math notranslate nohighlight">
 \[ y'' - 1001 y' + 1000y = 0 , \]</div>
@@ -2816,9 +2851,12 @@ from the previous lecture).</p>
 <p>so after the <span class="math notranslate nohighlight">\(\text{e}^{-1000t}\)</span> component has died away
 (or due to the initial conditions is never excited in the first place) we would hope to be able to use a larger time step, but the presence of the large eigenvalue prevents us from doing this.</p>
 <p>A generalisation of this problem is considered in the homework. The van der Pol oscillator is another example of a stiff  (depending on choice of a physical parameter) problem considered in the homework.</p>
+</div>
 </section>
 <section id="backward-differentiation-formula-bdf-methods-star">
 <h2>Backward differentiation formula (BDF) methods  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#backward-differentiation-formula-bdf-methods-star" title="Permalink to this heading">#</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p>Note that while the <em>Adams</em> family of LMS methods introduced above are popular for non-stiff problems,</p>
 <p>for stiff problems so-called BDF methods are preferred.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Backward_differentiation_formula"><em>Backward differentiation formula (BDF) methods</em></a> represent a family of (linear multistep) methods well-suited to solve stiff ODEs.</p>
@@ -2837,9 +2875,12 @@ from the previous lecture).</p>
 <p>and it should be no surprise that BDF1 is simply backward Euler.</p>
 <p>The order of each method is one lower than the number of levels employed, i.e. BDF1 is first-order and BDF6 is sixth-order.</p>
 <p>Note that these are clearly not of “Adams” type since they move all of the free parameter choice over to the <span class="math notranslate nohighlight">\(\alpha\)</span>’s rather than the <span class="math notranslate nohighlight">\(\beta\)</span>’s, with <span class="math notranslate nohighlight">\(f\)</span> on the RHS evaluated at the new time level only.</p>
+</div>
 </section>
 <section id="derivation-of-bdf-methods-star-star">
 <h2>Derivation of BDF methods  [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#derivation-of-bdf-methods-star-star" title="Permalink to this heading">#</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced Content</p>
 <p>The BDF schemes can be derived by fitting a Lagrange interpolating polynomial to <span class="math notranslate nohighlight">\(y\)</span> (i.e. the <span class="math notranslate nohighlight">\(y\)</span> data at a certain number of previous time levels, as well as the new level) and differentiating this to approximate the derivative of <span class="math notranslate nohighlight">\(y\)</span> w.r.t. <span class="math notranslate nohighlight">\(t\)</span> appearing on the LHS of the ODE, and then setting this equal to the RHS function evaluated at the new time leve.</p>
 <p>Consider the case <span class="math notranslate nohighlight">\(s=2\)</span>, i.e. we have data from levels <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(n+1\)</span> and are seeking the solution at time level <span class="math notranslate nohighlight">\(n+2\)</span>.</p>
 <p>Recall that the Lagrange interpolating polynomial is given by</p>
@@ -2883,10 +2924,14 @@ y_{n} \frac{1}{ 2\Delta t } - y_{n+1} \frac{2}{ \Delta t } +   y_{n+2} \frac{3}{
 <p>Therefore (multiplying through by <span class="math notranslate nohighlight">\(2\,\Delta t\)</span>) we have</p>
 <div class="math notranslate nohighlight">
 \[ 3y_{n+2} - 4y_{n+1} + y_{n} = 2 {\Delta t}\; f_{n+2}. \]</div>
+</div>
 </section>
 <section id="bdf-stability-regions-star">
 <h2>BDF stability regions  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#bdf-stability-regions-star" title="Permalink to this heading">#</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Optional Content</p>
 <p>Again, we skip the details and just plot the absolute stability regions:</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s calculate and plot the stability region for our discrete schemes</span>
