@@ -465,11 +465,11 @@ document.write(`
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="interpolation-quadrature-2-a-class-tocskip">
-<h1>9.1 Interpolation &amp; Quadrature 2 <a class="tocSkip"><a class="headerlink" href="#interpolation-quadrature-2-a-class-tocskip" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id9" role="doc-backlink">9.1 Interpolation &amp; Quadrature 2 <a class="tocSkip"></a><a class="headerlink" href="#interpolation-quadrature-2-a-class-tocskip" title="Permalink to this heading">#</a></h1>
 <p>Lecture 9.1<br />
 Matt Piggott</p>
 <section id="lecture-plan-learning-objectives-a-class-tocskip">
-<h2>Lecture plan / learning objectives: <a class="tocSkip"><a class="headerlink" href="#lecture-plan-learning-objectives-a-class-tocskip" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Lecture plan / learning objectives: <a class="tocSkip"></a><a class="headerlink" href="#lecture-plan-learning-objectives-a-class-tocskip" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Review and consolidation of some Computational Mathematics material - I will review quite a lot of key material we saw in that previous module.</p></li>
 <li><p>To cover some more advanced topics related to the approximation of data and functions.</p></li>
@@ -481,19 +481,165 @@ Matt Piggott</p>
 </ul>
 </section>
 <section id="what-s-really-important-here-a-class-tocskip">
-<h2>What’s really important here? <a class="tocSkip"><a class="headerlink" href="#what-s-really-important-here-a-class-tocskip" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">What’s really important here? <a class="tocSkip"></a><a class="headerlink" href="#what-s-really-important-here-a-class-tocskip" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>General familiarity with errors and their dependence on the specifics of the numerical method, the function being considered and the interval size (or mesh resolution).</p></li>
 <li><p>The specifics of the hat functions used as a basis for p/w linear interpolation.</p></li>
 <li><p>Anything with a double star can be completely ignored, including the similarly coloured material within that section.</p></li>
 </ul>
-<h2>Table of Contents<span class="tocSkip"></span></h2>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Interpolation" data-toc-modified-id="Interpolation-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Interpolation</a></span><ul class="toc-item"><li><span><a href="#Review" data-toc-modified-id="Review-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Review</a></span></li><li><span><a href="#Polynomial-interpolation-(revisited)" data-toc-modified-id="Polynomial-interpolation-(revisited)-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Polynomial interpolation (revisited)</a></span><ul class="toc-item"><li><span><a href="#Introduction" data-toc-modified-id="Introduction-1.2.1"><span class="toc-item-num">1.2.1&nbsp;&nbsp;</span>Introduction</a></span></li><li><span><a href="#Expansion-over-basis-functions-(e.g.-monomials)" data-toc-modified-id="Expansion-over-basis-functions-(e.g.-monomials)-1.2.2"><span class="toc-item-num">1.2.2&nbsp;&nbsp;</span>Expansion over basis functions (e.g. monomials)</a></span></li><li><span><a href="#Example" data-toc-modified-id="Example-1.2.3"><span class="toc-item-num">1.2.3&nbsp;&nbsp;</span>Example</a></span></li><li><span><a href="#Lagrange-polynomial" data-toc-modified-id="Lagrange-polynomial-1.2.4"><span class="toc-item-num">1.2.4&nbsp;&nbsp;</span>Lagrange polynomial</a></span></li></ul></li><li><span><a href="#Using-scipy.interpolate" data-toc-modified-id="Using-scipy.interpolate-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Using scipy.interpolate</a></span></li><li><span><a href="#Newton-polynomial--[$\star$]" data-toc-modified-id="Newton-polynomial--[$\star$]-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Newton polynomial  [$\star$]</a></span></li></ul></li><li><span><a href="#Approximating-a-function" data-toc-modified-id="Approximating-a-function-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Approximating a function</a></span><ul class="toc-item"><li><span><a href="#A-simple-example" data-toc-modified-id="A-simple-example-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>A simple example</a></span></li><li><span><a href="#Error-in-Lagrange-interpolation" data-toc-modified-id="Error-in-Lagrange-interpolation-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>Error in Lagrange interpolation</a></span><ul class="toc-item"><li><span><a href="#Aside:-The-Lagrange-Remainder-Theorem--[$\star$]" data-toc-modified-id="Aside:-The-Lagrange-Remainder-Theorem--[$\star$]-2.2.1"><span class="toc-item-num">2.2.1&nbsp;&nbsp;</span>Aside: The Lagrange Remainder Theorem  [$\star$]</a></span></li><li><span><a href="#Observations--[$\star$]" data-toc-modified-id="Observations--[$\star$]-2.2.2"><span class="toc-item-num">2.2.2&nbsp;&nbsp;</span>Observations  [$\star$]</a></span></li><li><span><a href="#Example--[$\star$]" data-toc-modified-id="Example--[$\star$]-2.2.3"><span class="toc-item-num">2.2.3&nbsp;&nbsp;</span>Example  [$\star$]</a></span></li><li><span><a href="#Comments--[$\star$]" data-toc-modified-id="Comments--[$\star$]-2.2.4"><span class="toc-item-num">2.2.4&nbsp;&nbsp;</span>Comments  [$\star$]</a></span></li></ul></li><li><span><a href="#A-more-problematic-example-[$\star$]" data-toc-modified-id="A-more-problematic-example-[$\star$]-2.3"><span class="toc-item-num">2.3&nbsp;&nbsp;</span>A more problematic example [$\star$]</a></span><ul class="toc-item"><li><span><a href="#Observations--[$\star$]" data-toc-modified-id="Observations--[$\star$]-2.3.1"><span class="toc-item-num">2.3.1&nbsp;&nbsp;</span>Observations  [$\star$]</a></span></li><li><span><a href="#An-explanation--[$\star$]" data-toc-modified-id="An-explanation--[$\star$]-2.3.2"><span class="toc-item-num">2.3.2&nbsp;&nbsp;</span>An explanation  [$\star$]</a></span></li></ul></li><li><span><a href="#Chebyshev-nodes--[$\star$]" data-toc-modified-id="Chebyshev-nodes--[$\star$]-2.4"><span class="toc-item-num">2.4&nbsp;&nbsp;</span>Chebyshev nodes  [$\star$]</a></span></li><li><span><a href="#Chebyshev-polynomial-interpolation--[$\star$]" data-toc-modified-id="Chebyshev-polynomial-interpolation--[$\star$]-2.5"><span class="toc-item-num">2.5&nbsp;&nbsp;</span>Chebyshev polynomial interpolation  [$\star$]</a></span></li><li><span><a href="#Piecewise-polynomial-interpolation" data-toc-modified-id="Piecewise-polynomial-interpolation-2.6"><span class="toc-item-num">2.6&nbsp;&nbsp;</span>Piecewise polynomial interpolation</a></span><ul class="toc-item"><li><span><a href="#Piecewise-linear-interpolant" data-toc-modified-id="Piecewise-linear-interpolant-2.6.1"><span class="toc-item-num">2.6.1&nbsp;&nbsp;</span>Piecewise-linear interpolant</a></span></li><li><span><a href="#Piecewise-quadratic-interpolant" data-toc-modified-id="Piecewise-quadratic-interpolant-2.6.2"><span class="toc-item-num">2.6.2&nbsp;&nbsp;</span>Piecewise-quadratic interpolant</a></span></li><li><span><a href="#Observations" data-toc-modified-id="Observations-2.6.3"><span class="toc-item-num">2.6.3&nbsp;&nbsp;</span>Observations</a></span></li></ul></li><li><span><a href="#Piecewise-polynomial-interpolation-via-an-appropriate-set-of-basis-functions" data-toc-modified-id="Piecewise-polynomial-interpolation-via-an-appropriate-set-of-basis-functions-2.7"><span class="toc-item-num">2.7&nbsp;&nbsp;</span>Piecewise-polynomial interpolation via an appropriate set of basis functions</a></span><ul class="toc-item"><li><span><a href="#The-idea" data-toc-modified-id="The-idea-2.7.1"><span class="toc-item-num">2.7.1&nbsp;&nbsp;</span>The idea</a></span></li><li><span><a href="#Example---revisiting-a-quadratic-example-we've-already-seen" data-toc-modified-id="Example---revisiting-a-quadratic-example-we've-already-seen-2.7.2"><span class="toc-item-num">2.7.2&nbsp;&nbsp;</span>Example - revisiting a quadratic example we've already seen</a></span></li><li><span><a href="#Hat-functions-and-p/w-linear-interpolation/expansions" data-toc-modified-id="Hat-functions-and-p/w-linear-interpolation/expansions-2.7.3"><span class="toc-item-num">2.7.3&nbsp;&nbsp;</span>Hat functions and p/w linear interpolation/expansions</a></span></li><li><span><a href="#Some-code-to-return-the-hat/basis-functions" data-toc-modified-id="Some-code-to-return-the-hat/basis-functions-2.7.4"><span class="toc-item-num">2.7.4&nbsp;&nbsp;</span>Some code to return the hat/basis functions</a></span></li><li><span><a href="#Support-of-basis-functions" data-toc-modified-id="Support-of-basis-functions-2.7.5"><span class="toc-item-num">2.7.5&nbsp;&nbsp;</span>Support of basis functions</a></span></li></ul></li><li><span><a href="#Cubic-splines-[$\star\star$]" data-toc-modified-id="Cubic-splines-[$\star\star$]-2.8"><span class="toc-item-num">2.8&nbsp;&nbsp;</span>Cubic splines [$\star\star$]</a></span><ul class="toc-item"><li><span><a href="#Algorithm-sketch--[$\star\star$]" data-toc-modified-id="Algorithm-sketch--[$\star\star$]-2.8.1"><span class="toc-item-num">2.8.1&nbsp;&nbsp;</span>Algorithm sketch  [$\star\star$]</a></span></li></ul></li><li><span><a href="#Piecewise-Cubic-Hermite-Interpolating-Polynomial-(PCHIP)--[$\star\star$]" data-toc-modified-id="Piecewise-Cubic-Hermite-Interpolating-Polynomial-(PCHIP)--[$\star\star$]-2.9"><span class="toc-item-num">2.9&nbsp;&nbsp;</span>Piecewise Cubic Hermite Interpolating Polynomial (PCHIP)  [$\star\star$]</a></span><ul class="toc-item"><li><span><a href="#Observations" data-toc-modified-id="Observations-2.9.1"><span class="toc-item-num">2.9.1&nbsp;&nbsp;</span>Observations</a></span></li></ul></li><li><span><a href="#Compare-interpolation-methods" data-toc-modified-id="Compare-interpolation-methods-2.10"><span class="toc-item-num">2.10&nbsp;&nbsp;</span>Compare interpolation methods</a></span></li></ul></li><li><span><a href="#Quadrature" data-toc-modified-id="Quadrature-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Quadrature</a></span><ul class="toc-item"><li><span><a href="#Review" data-toc-modified-id="Review-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Review</a></span></li><li><span><a href="#The-Midpoint-rule" data-toc-modified-id="The-Midpoint-rule-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>The Midpoint rule</a></span></li><li><span><a href="#Trapezoidal-rule" data-toc-modified-id="Trapezoidal-rule-3.3"><span class="toc-item-num">3.3&nbsp;&nbsp;</span>Trapezoidal rule</a></span><ul class="toc-item"><li><span><a href="#The-composite-version-of-the-trapezoidal-rule" data-toc-modified-id="The-composite-version-of-the-trapezoidal-rule-3.3.1"><span class="toc-item-num">3.3.1&nbsp;&nbsp;</span>The composite version of the trapezoidal rule</a></span></li></ul></li><li><span><a href="#Quadrature-Accuracy-and-Errors" data-toc-modified-id="Quadrature-Accuracy-and-Errors-3.4"><span class="toc-item-num">3.4&nbsp;&nbsp;</span>Quadrature Accuracy and Errors</a></span><ul class="toc-item"><li><span><a href="#Error-analysis-(qualitative)" data-toc-modified-id="Error-analysis-(qualitative)-3.4.1"><span class="toc-item-num">3.4.1&nbsp;&nbsp;</span>Error analysis (qualitative)</a></span></li><li><span><a href="#Error-analysis-(mathematical)-[$\star$]" data-toc-modified-id="Error-analysis-(mathematical)-[$\star$]-3.4.2"><span class="toc-item-num">3.4.2&nbsp;&nbsp;</span>Error analysis (mathematical) [$\star$]</a></span></li></ul></li><li><span><a href="#Simpson's-rule-[Review]" data-toc-modified-id="Simpson's-rule-[Review]-3.5"><span class="toc-item-num">3.5&nbsp;&nbsp;</span>Simpson's rule [Review]</a></span><ul class="toc-item"><li><span><a href="#Implementing-Simpson's-rule" data-toc-modified-id="Implementing-Simpson's-rule-3.5.1"><span class="toc-item-num">3.5.1&nbsp;&nbsp;</span>Implementing Simpson's rule</a></span></li><li><span><a href="#The-composite-version-of-Simpson's-Rule" data-toc-modified-id="The-composite-version-of-Simpson's-Rule-3.5.2"><span class="toc-item-num">3.5.2&nbsp;&nbsp;</span>The composite version of Simpson's Rule</a></span></li><li><span><a href="#Simpson's-rule-error-[$\star$]" data-toc-modified-id="Simpson's-rule-error-[$\star$]-3.5.3"><span class="toc-item-num">3.5.3&nbsp;&nbsp;</span>Simpson's rule error [$\star$]</a></span></li></ul></li><li><span><a href="#Weddle's-rule-(extrapolated-Simpson's-rule)-[$\star$]" data-toc-modified-id="Weddle's-rule-(extrapolated-Simpson's-rule)-[$\star$]-3.6"><span class="toc-item-num">3.6&nbsp;&nbsp;</span>Weddle's rule (extrapolated Simpson's rule) [$\star$]</a></span><ul class="toc-item"><li><span><a href="#Observations" data-toc-modified-id="Observations-3.6.1"><span class="toc-item-num">3.6.1&nbsp;&nbsp;</span>Observations</a></span></li></ul></li><li><span><a href="#Newton-Cotes-quadrature-rules-[$\star\star$]" data-toc-modified-id="Newton-Cotes-quadrature-rules-[$\star\star$]-3.7"><span class="toc-item-num">3.7&nbsp;&nbsp;</span>Newton-Cotes quadrature rules [$\star\star$]</a></span><ul class="toc-item"><li><span><a href="#(N=1)-Trapezoidal" data-toc-modified-id="(N=1)-Trapezoidal-3.7.1"><span class="toc-item-num">3.7.1&nbsp;&nbsp;</span>(N=1) Trapezoidal</a></span></li><li><span><a href="#(N=2)-Simpson's-rule" data-toc-modified-id="(N=2)-Simpson's-rule-3.7.2"><span class="toc-item-num">3.7.2&nbsp;&nbsp;</span>(N=2) Simpson's rule</a></span></li><li><span><a href="#Observations" data-toc-modified-id="Observations-3.7.3"><span class="toc-item-num">3.7.3&nbsp;&nbsp;</span>Observations</a></span></li><li><span><a href="#Open-vs-Closed-Newton-Cotes-formulae" data-toc-modified-id="Open-vs-Closed-Newton-Cotes-formulae-3.7.4"><span class="toc-item-num">3.7.4&nbsp;&nbsp;</span>Open vs Closed Newton-Cotes formulae</a></span></li></ul></li><li><span><a href="#(Richardson)-extrapolation-and-Romberg-integration--[$\star\star$]" data-toc-modified-id="(Richardson)-extrapolation-and-Romberg-integration--[$\star\star$]-3.8"><span class="toc-item-num">3.8&nbsp;&nbsp;</span>(Richardson) extrapolation and Romberg integration  [$\star\star$]</a></span><ul class="toc-item"><li><span><a href="#Observations" data-toc-modified-id="Observations-3.8.1"><span class="toc-item-num">3.8.1&nbsp;&nbsp;</span>Observations</a></span></li></ul></li><li><span><a href="#Adaptive-quadrature--[$\star$]" data-toc-modified-id="Adaptive-quadrature--[$\star$]-3.9"><span class="toc-item-num">3.9&nbsp;&nbsp;</span>Adaptive quadrature  [$\star$]</a></span><ul class="toc-item"><li><span><a href="#Algorithm" data-toc-modified-id="Algorithm-3.9.1"><span class="toc-item-num">3.9.1&nbsp;&nbsp;</span>Algorithm</a></span></li><li><span><a href="#Implementation" data-toc-modified-id="Implementation-3.9.2"><span class="toc-item-num">3.9.2&nbsp;&nbsp;</span>Implementation</a></span></li><li><span><a href="#Application-to-a-simple-problem" data-toc-modified-id="Application-to-a-simple-problem-3.9.3"><span class="toc-item-num">3.9.3&nbsp;&nbsp;</span>Application to a simple problem</a></span></li><li><span><a href="#Application-to-a-complex-problem" data-toc-modified-id="Application-to-a-complex-problem-3.9.4"><span class="toc-item-num">3.9.4&nbsp;&nbsp;</span>Application to a complex problem</a></span></li></ul></li><li><span><a href="#Quadrature-method-comparison" data-toc-modified-id="Quadrature-method-comparison-3.10"><span class="toc-item-num">3.10&nbsp;&nbsp;</span>Quadrature method comparison</a></span><ul class="toc-item"><li><span><a href="#Comments" data-toc-modified-id="Comments-3.10.1"><span class="toc-item-num">3.10.1&nbsp;&nbsp;</span>Comments</a></span></li></ul></li><li><span><a href="#Gaussian-quadrature--[$\star\star$]" data-toc-modified-id="Gaussian-quadrature--[$\star\star$]-3.11"><span class="toc-item-num">3.11&nbsp;&nbsp;</span>Gaussian quadrature  [$\star\star$]</a></span><ul class="toc-item"><li><span><a href="#Gauss-Legendre-quadrature" data-toc-modified-id="Gauss-Legendre-quadrature-3.11.1"><span class="toc-item-num">3.11.1&nbsp;&nbsp;</span>Gauss-Legendre quadrature</a></span></li></ul></li><li><span><a href="#Implementation" data-toc-modified-id="Implementation-3.12"><span class="toc-item-num">3.12&nbsp;&nbsp;</span>Implementation</a></span><ul class="toc-item"><li><span><a href="#Changing-integration-limits" data-toc-modified-id="Changing-integration-limits-3.12.1"><span class="toc-item-num">3.12.1&nbsp;&nbsp;</span>Changing integration limits</a></span></li><li><span><a href="#Other-Gaussian-quadrature-families" data-toc-modified-id="Other-Gaussian-quadrature-families-3.12.2"><span class="toc-item-num">3.12.2&nbsp;&nbsp;</span>Other Gaussian quadrature families</a></span></li></ul></li><li><span><a href="#Higher-dimensions--[$\star$]" data-toc-modified-id="Higher-dimensions--[$\star$]-3.13"><span class="toc-item-num">3.13&nbsp;&nbsp;</span>Higher dimensions  [$\star$]</a></span></li></ul></li><li><span><a href="#Summary" data-toc-modified-id="Summary-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>Summary</a></span><ul class="toc-item"><li><span><a href="#What-do-you-need-to-focus-on?" data-toc-modified-id="What-do-you-need-to-focus-on?-4.1"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>What do you need to focus on?</a></span></li></ul></li></ul></div></section>
+</section>
+<section id="table-of-contents">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#interpolation-quadrature-2-a-class-tocskip" id="id9">9.1 Interpolation &amp; Quadrature 2 <a class="tocSkip"></a></p>
+<ul>
+<li><p><a class="reference internal" href="#lecture-plan-learning-objectives-a-class-tocskip" id="id10">Lecture plan / learning objectives: <a class="tocSkip"></a></p></li>
+<li><p><a class="reference internal" href="#what-s-really-important-here-a-class-tocskip" id="id11">What’s really important here? <a class="tocSkip"></a></p></li>
+<li><p><a class="reference internal" href="#table-of-contents" id="id12">Table of Contents</a></p></li>
+<li><p><a class="reference internal" href="#interpolation" id="id13">Interpolation</a></p></li>
+<li><p><a class="reference internal" href="#review" id="id14">Review</a></p>
+<ul>
+<li><p><a class="reference internal" href="#some-arbitrary-test-data" id="id15">Some arbitrary test data</a></p></li>
+<li><p><a class="reference internal" href="#simple-interpolation-example" id="id16">Simple interpolation example</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#polynomial-interpolation-revisited" id="id17">Polynomial interpolation (revisited)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#introduction" id="id18">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#expansion-over-basis-functions-e-g-monomials" id="id19">Expansion over basis functions (e.g. monomials)</a></p></li>
+<li><p><a class="reference internal" href="#example" id="id20">Example</a></p></li>
+<li><p><a class="reference internal" href="#lagrange-polynomial" id="id21">Lagrange polynomial</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#using-scipy-interpolate" id="id22">Using scipy.interpolate</a></p></li>
+<li><p><a class="reference internal" href="#newton-polynomial-star" id="id23">Newton polynomial  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+<li><p><a class="reference internal" href="#approximating-a-function" id="id24">Approximating a function</a></p></li>
+<li><p><a class="reference internal" href="#a-simple-example" id="id25">A simple example</a></p></li>
+<li><p><a class="reference internal" href="#error-in-lagrange-interpolation" id="id26">Error in Lagrange interpolation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#aside-the-lagrange-remainder-theorem-star" id="id27">Aside: The Lagrange Remainder Theorem  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+<li><p><a class="reference internal" href="#observations-star" id="id28">Observations  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+<li><p><a class="reference internal" href="#example-star" id="id29">Example  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+<li><p><a class="reference internal" href="#comments-star" id="id30">Comments  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#a-more-problematic-example-star" id="id31">A more problematic example [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id32">Observations  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+<li><p><a class="reference internal" href="#an-explanation-star" id="id33">An explanation  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#chebyshev-nodes-star" id="id34">Chebyshev nodes  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+<li><p><a class="reference internal" href="#chebyshev-polynomial-interpolation-star" id="id35">Chebyshev polynomial interpolation  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+<li><p><a class="reference internal" href="#piecewise-polynomial-interpolation" id="id36">Piecewise polynomial interpolation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#piecewise-linear-interpolant" id="id37">Piecewise-linear interpolant</a></p></li>
+<li><p><a class="reference internal" href="#piecewise-quadratic-interpolant" id="id38">Piecewise-quadratic interpolant</a></p></li>
+<li><p><a class="reference internal" href="#observations" id="id39">Observations</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#piecewise-polynomial-interpolation-via-an-appropriate-set-of-basis-functions" id="id40">Piecewise-polynomial interpolation via an appropriate set of basis functions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#the-idea" id="id41">The idea</a></p></li>
+<li><p><a class="reference internal" href="#example-revisiting-a-quadratic-example-we-ve-already-seen" id="id42">Example - revisiting a quadratic example we’ve already seen</a></p></li>
+<li><p><a class="reference internal" href="#hat-functions-and-p-w-linear-interpolation-expansions" id="id43">Hat functions and p/w linear interpolation/expansions</a></p></li>
+<li><p><a class="reference internal" href="#some-code-to-return-the-hat-basis-functions" id="id44">Some code to return the hat/basis functions</a></p></li>
+<li><p><a class="reference internal" href="#support-of-basis-functions" id="id45">Support of basis functions</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#cubic-splines-star-star" id="id46">Cubic splines [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#algorithm-sketch-star-star" id="id47">Algorithm sketch  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#piecewise-cubic-hermite-interpolating-polynomial-pchip-star-star" id="id48">Piecewise Cubic Hermite Interpolating Polynomial (PCHIP)  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id49">Observations</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#compare-interpolation-methods" id="id50">Compare interpolation methods</a></p></li>
+<li><p><a class="reference internal" href="#quadrature" id="id51">Quadrature</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id52">Review</a></p></li>
+<li><p><a class="reference internal" href="#the-midpoint-rule" id="id53">The Midpoint rule</a></p></li>
+<li><p><a class="reference internal" href="#trapezoidal-rule" id="id54">Trapezoidal rule</a></p>
+<ul>
+<li><p><a class="reference internal" href="#the-composite-version-of-the-trapezoidal-rule" id="id55">The composite version of the trapezoidal rule</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#quadrature-accuracy-and-errors" id="id56">Quadrature Accuracy and Errors</a></p>
+<ul>
+<li><p><a class="reference internal" href="#error-analysis-qualitative" id="id57">Error analysis (qualitative)</a></p></li>
+<li><p><a class="reference internal" href="#error-analysis-mathematical-star" id="id58">Error analysis (mathematical) [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#simpson-s-rule-review" id="id59">Simpson’s rule [Review]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#implementing-simpson-s-rule" id="id60">Implementing Simpson’s rule</a></p></li>
+<li><p><a class="reference internal" href="#the-composite-version-of-simpson-s-rule" id="id61">The composite version of Simpson’s Rule</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id4" id="id62">Observations</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#simpson-s-rule-error-star" id="id63">Simpson’s rule error [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#weddle-s-rule-extrapolated-simpson-s-rule-star" id="id64">Weddle’s rule (extrapolated Simpson’s rule) [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id5" id="id65">Observations</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#newton-cotes-quadrature-rules-star-star" id="id66">Newton-Cotes quadrature rules [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#n-1-trapezoidal" id="id67">(N=1) Trapezoidal</a></p></li>
+<li><p><a class="reference internal" href="#n-2-simpson-s-rule" id="id68">(N=2) Simpson’s rule</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id69">Observations</a></p></li>
+<li><p><a class="reference internal" href="#open-vs-closed-newton-cotes-formulae" id="id70">Open vs Closed Newton-Cotes formulae</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#richardson-extrapolation-and-romberg-integration-star-star" id="id71">(Richardson) extrapolation and Romberg integration  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id7" id="id72">Observations</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#adaptive-quadrature-star" id="id73">Adaptive quadrature  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#algorithm" id="id74">Algorithm</a></p></li>
+<li><p><a class="reference internal" href="#implementation" id="id75">Implementation</a></p></li>
+<li><p><a class="reference internal" href="#application-to-a-simple-problem" id="id76">Application to a simple problem</a></p></li>
+<li><p><a class="reference internal" href="#application-to-a-complex-problem" id="id77">Application to a complex problem</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#quadrature-method-comparison" id="id78">Quadrature method comparison</a></p>
+<ul>
+<li><p><a class="reference internal" href="#comments" id="id79">Comments</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#gaussian-quadrature-star-star" id="id80">Gaussian quadrature  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#gauss-legendre-quadrature" id="id81">Gauss-Legendre quadrature</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id8" id="id82">Implementation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#changing-integration-limits" id="id83">Changing integration limits</a></p></li>
+<li><p><a class="reference internal" href="#other-gaussian-quadrature-families" id="id84">Other Gaussian quadrature families</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#higher-dimensions-star" id="id85">Higher dimensions  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+<li><p><a class="reference internal" href="#summary" id="id86">Summary</a></p></li>
+<li><p><a class="reference internal" href="#what-do-you-need-to-focus-on" id="id87">What do you need to focus on?</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+</section>
 <section id="interpolation">
-<h2>Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Interpolation</a><a class="headerlink" href="#interpolation" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="review">
-<h2>Review<a class="headerlink" href="#review" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Review</a><a class="headerlink" href="#review" title="Permalink to this heading">#</a></h2>
 <p>Recall that we often wish to approximate data, e.g. in 1D this might be a series of <span class="math notranslate nohighlight">\(y\)</span> values at <span class="math notranslate nohighlight">\(x\)</span> locations:</p>
 <div class="math notranslate nohighlight">
 \[ (x_i, y_i),\;\;\;\;\;\; i=0,\ldots,N,\]</div>
@@ -511,7 +657,7 @@ Matt Piggott</p>
 \[y_i = f(x_i),\;\;\;\;\;\; \forall i\]</div>
 <p>and recall that we have a lot of choice for how we construct the interpolating or curve-fitting function <span class="math notranslate nohighlight">\(f\)</span>.</p>
 <section id="some-arbitrary-test-data">
-<h3>Some arbitrary test data<a class="headerlink" href="#some-arbitrary-test-data" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Some arbitrary test data</a><a class="headerlink" href="#some-arbitrary-test-data" title="Permalink to this heading">#</a></h3>
 <p>Let’s first invent a small set of arbitrary data which we shall seek to interpolate throughout this lecture using different methods, and define a function that will save us from typing the same plotting commands multiple times.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -561,7 +707,7 @@ Matt Piggott</p>
 </div>
 </section>
 <section id="simple-interpolation-example">
-<h3>Simple interpolation example<a class="headerlink" href="#simple-interpolation-example" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Simple interpolation example</a><a class="headerlink" href="#simple-interpolation-example" title="Permalink to this heading">#</a></h3>
 <p>One of the simplest examples of interpolation is to simply fit a straight line between every two successive data points.</p>
 <p>This is termed <strong>piecewise-linear</strong> interpolation, and the resulting function is called a <strong>piecewise-linear interpolant</strong>.</p>
 <p>This is an example of the more general <strong>piecewise-polynomial</strong> interpolation - a piecewise quadratic discontinuous function was given in the example image above.</p>
@@ -598,9 +744,9 @@ Matt Piggott</p>
 </section>
 </section>
 <section id="polynomial-interpolation-revisited">
-<h2>Polynomial interpolation (revisited)<a class="headerlink" href="#polynomial-interpolation-revisited" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Polynomial interpolation (revisited)</a><a class="headerlink" href="#polynomial-interpolation-revisited" title="Permalink to this heading">#</a></h2>
 <section id="introduction">
-<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h3>
 <p>Recall that given a set of <span class="math notranslate nohighlight">\(N+1\)</span> data points <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> (with distinct <span class="math notranslate nohighlight">\(x_i\)</span>’s).</p>
 <p>We can use these <span class="math notranslate nohighlight">\(N+1\)</span> pieces of distinct information to construct a polynomial with <span class="math notranslate nohighlight">\(N+1\)</span> free parameters, i.e. a polynomial of degree <span class="math notranslate nohighlight">\(N\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -615,7 +761,7 @@ Matt Piggott</p>
 </div></blockquote>
 </section>
 <section id="expansion-over-basis-functions-e-g-monomials">
-<h3>Expansion over basis functions (e.g. monomials)<a class="headerlink" href="#expansion-over-basis-functions-e-g-monomials" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Expansion over basis functions (e.g. monomials)</a><a class="headerlink" href="#expansion-over-basis-functions-e-g-monomials" title="Permalink to this heading">#</a></h3>
 <p>Note that we can also interpret the polynomial interpolant above as a <em>linear combination</em> of a <a href="https://en.wikipedia.org/wiki/Basis_(linear_algebra)"><em>basis</em></a> made up of single-term polynomials:</p>
 <div class="math notranslate nohighlight">
 \[1, \; x, \; x^2, \; \ldots, \; x^N.\]</div>
@@ -634,7 +780,7 @@ Matt Piggott</p>
 <p>For the polynomial interpolation we are currently considering <span class="math notranslate nohighlight">\(\phi_i(x) = x^i\)</span> of course.</p>
 </section>
 <section id="example">
-<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Example</a><a class="headerlink" href="#example" title="Permalink to this heading">#</a></h3>
 <p>Recall the naive way of recovering the coefficients in polynomial interpolation …</p>
 <p>in the case of three data points where we seek to find a quadratic function, substituting the data into the quadratic yields three linear equations which we can write as the linear system</p>
 <div class="math notranslate nohighlight">
@@ -742,7 +888,7 @@ np.flip(a, 0) =
 </div>
 </section>
 <section id="lagrange-polynomial">
-<h3>Lagrange polynomial<a class="headerlink" href="#lagrange-polynomial" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Lagrange polynomial</a><a class="headerlink" href="#lagrange-polynomial" title="Permalink to this heading">#</a></h3>
 <p>Recall that we asked the question previously - can we do better?</p>
 <p>Can we avoid the need to form and invert a linear system to find our coefficient?</p>
 <p>The answer was yes and the <a class="reference external" href="http://mathworld.wolfram.com/LagrangeInterpolatingPolynomial.html">Lagrange polynomial</a> was a method to do this that required us to select a better set of basis functions.</p>
@@ -795,7 +941,7 @@ np.flip(a, 0) =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f3bbec04550&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fed4fab6fd0&gt;
 </pre></div>
 </div>
 <img alt="../_images/6c380a3719cc3539cb1888b582fcb34fa6b78d0dfa420b33688a96f2d6b6a8ee.png" src="../_images/6c380a3719cc3539cb1888b582fcb34fa6b78d0dfa420b33688a96f2d6b6a8ee.png" />
@@ -804,7 +950,7 @@ np.flip(a, 0) =
 </section>
 </section>
 <section id="using-scipy-interpolate">
-<h2>Using scipy.interpolate<a class="headerlink" href="#using-scipy-interpolate" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">Using scipy.interpolate</a><a class="headerlink" href="#using-scipy-interpolate" title="Permalink to this heading">#</a></h2>
 <p>Recall that we can use <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.lagrange.html">scipy.interpolate.lagrange</a>
 from Python’s <a class="reference external" href="http://www.scipy.org">SciPy</a> library to generate the Lagrange polynomial.</p>
 <p>First our three point example.</p>
@@ -887,7 +1033,7 @@ from Python’s <a class="reference external" href="http://www.scipy.org">SciPy<
 <p>It turns out that there is yet another way of writing the (unique) interpolating polynomial that results in an algorithm that is arguable easier to implement - this is termed the Newton polynomial.</p>
 </section>
 <section id="newton-polynomial-star">
-<h2>Newton polynomial  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#newton-polynomial-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">Newton polynomial  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#newton-polynomial-star" title="Permalink to this heading">#</a></h2>
 <div class="toggle toggle-shown docutils container">
 <p>Calculating the Newton polynomial (also called <a class="reference external" href="http://mathworld.wolfram.com/NewtonsDividedDifferenceInterpolationFormula.html">Newton’s divided difference interpolation polynomial</a>) yields the same polynomial as the Lagrange polynomial method (remember that the polynomial of minimum degree to pass through each data point is unique), but is arguably easier to implement (and this implementation is a useful coding exercise - see homework).</p>
 <br>
@@ -952,7 +1098,7 @@ P_3(x) &amp;= a_0 +(x-x_0)a_1 + (x-x_0)(x-x_1)a_2 + (x-x_0)(x-x_1)(x-x_2)a_3\\[5
 </div>
 </section>
 <section id="approximating-a-function">
-<h2>Approximating a function<a class="headerlink" href="#approximating-a-function" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">Approximating a function</a><a class="headerlink" href="#approximating-a-function" title="Permalink to this heading">#</a></h2>
 <p>Rather than approximating/interpolating arbitrary discrete data given to us somehow (e.g. from observations, or from a very expensive computer code which has been run previously), we can of course use the same methods to approximate a given function.</p>
 <p>We may want to do this in order to approximate a complex/expensive function with a simpler, cheaper interpolating function.</p>
 <p>Our “function” may be a large expensive PDE solver for example.</p>
@@ -960,7 +1106,7 @@ P_3(x) &amp;= a_0 +(x-x_0)a_1 + (x-x_0)(x-x_1)a_2 + (x-x_0)(x-x_1)(x-x_2)a_3\\[5
 <p>Note that to avoid confusion I will use <span class="math notranslate nohighlight">\(f\)</span> as the given function we wish to approximate and <span class="math notranslate nohighlight">\(f_h\)</span> as the interpolating function.</p>
 </section>
 <section id="a-simple-example">
-<h2>A simple example<a class="headerlink" href="#a-simple-example" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">A simple example</a><a class="headerlink" href="#a-simple-example" title="Permalink to this heading">#</a></h2>
 <p>For example, consider the function <span class="math notranslate nohighlight">\(y(x)=x^3\)</span> with data provided at  equally spaced points.</p>
 <p>Let’s see what happens if we evaluate with Lagrange polynomials of degree 0, 1 and 2.</p>
 <p>[Note that since in this case we are given the underlying function, we can in principle choose the locations and number of data points, so for the degree 0, 1 and 2 Lagrange polynomials we first need to evaluate the underlying function 1, 2 and 3 times respectively. For simplicity below we just choose these to be evenly distributed in our <span class="math notranslate nohighlight">\(x\)</span> domain of interest].</p>
@@ -1032,7 +1178,7 @@ P_3(x) &amp;= a_0 +(x-x_0)a_1 + (x-x_0)(x-x_1)a_2 + (x-x_0)(x-x_1)(x-x_2)a_3\\[5
 </div>
 </section>
 <section id="error-in-lagrange-interpolation">
-<h2>Error in Lagrange interpolation<a class="headerlink" href="#error-in-lagrange-interpolation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">Error in Lagrange interpolation</a><a class="headerlink" href="#error-in-lagrange-interpolation" title="Permalink to this heading">#</a></h2>
 <p>Note that it can be proven that in the case where we are interpolating a known function (e.g. a complicated non-polynomial function such as <span class="math notranslate nohighlight">\(\exp\)</span> or <span class="math notranslate nohighlight">\(\sin\)</span>) by a simpler polynomial, the error at any point we evaluate the interpolant at is proportional to:</p>
 <ul class="simple">
 <li><p>(1) the distance of that point from any of the data points (which makes sense as the error is obviously zero at the data points),</p></li>
@@ -1043,7 +1189,7 @@ P_3(x) &amp;= a_0 +(x-x_0)a_1 + (x-x_0)(x-x_1)a_2 + (x-x_0)(x-x_1)(x-x_2)a_3\\[5
 <p>This result is sometimes called the <a class="reference external" href="https://en.wikipedia.org/wiki/Polynomial_interpolation#Interpolation_error"><em>Lagrange remainder theorem</em></a>.</p>
 <p>We won’t prove this here, but it will be useful in later lectures if we write it down now.</p>
 <section id="aside-the-lagrange-remainder-theorem-star">
-<h3>Aside: The Lagrange Remainder Theorem  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#aside-the-lagrange-remainder-theorem-star" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">Aside: The Lagrange Remainder Theorem  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#aside-the-lagrange-remainder-theorem-star" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <p>For <span class="math notranslate nohighlight">\(N\ge 0\)</span>, let <span class="math notranslate nohighlight">\(f(x)\)</span> be a function with at least <span class="math notranslate nohighlight">\(N+1\)</span> continuous derivatives over the interval <span class="math notranslate nohighlight">\([a,b]\)</span>,</p>
 <p>(the mathematical way of writing this is <span class="math notranslate nohighlight">\(f \in C^{N+1}[a,b]\)</span> - see <a class="reference external" href="http://mathworld.wolfram.com/C-kFunction.html">http://mathworld.wolfram.com/C-kFunction.html</a> for more details on this if interested)</p>
@@ -1085,7 +1231,7 @@ M:=\max_{x\in(a,b)}\, \left| f^{(N+1)}(x) \right|, \\
 </div>
 </section>
 <section id="observations-star">
-<h3>Observations  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#observations-star" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">Observations  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#observations-star" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <p>This looks complicated, but we can make multiple observations based on this quite easily
 (some which just reinforce things that are obvious, or that we have seen already):</p>
@@ -1118,7 +1264,7 @@ M:=\max_{x\in(a,b)}\, \left| f^{(N+1)}(x) \right|, \\
 </div>
 </section>
 <section id="example-star">
-<h3>Example  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#example-star" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">Example  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#example-star" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <p>What does this tell us for our example <span class="math notranslate nohighlight">\(f(x)=x^3\)</span>?</p>
 <p>As for our plots above with this example, let’s assume <span class="math notranslate nohighlight">\([a,b]=[0.5, 3.5]\)</span> and compute the error (estimate or bound) based upon the above theory.</p>
@@ -1190,7 +1336,7 @@ N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0.
 </div>
 </section>
 <section id="comments-star">
-<h3>Comments  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#comments-star" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id30" role="doc-backlink">Comments  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#comments-star" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <ol class="arabic simple">
 <li><p>Our error bound is indeed an <strong>upper bound</strong> on the actual error.</p></li>
@@ -1203,7 +1349,7 @@ N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0.
 </section>
 </section>
 <section id="a-more-problematic-example-star">
-<h2>A more problematic example [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#a-more-problematic-example-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id31" role="doc-backlink">A more problematic example [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#a-more-problematic-example-star" title="Permalink to this heading">#</a></h2>
 <div class="toggle toggle-shown docutils container">
 <p>[This is an illustrative example to demonstrate how things can go wrong, especially when using high-degree approximating polynomials.]</p>
 <br>
@@ -1289,7 +1435,7 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 </div>
 </div>
 <section id="id1">
-<h3>Observations  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id32" role="doc-backlink">Observations  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <ul class="simple">
 <li><p>We see that for this problem, with increasing numbers of evenly spaced data points, the corresponding Lagrange polynomials, while doing a better and better job of approximating the underlying exact function <em>towards the middle</em> of the interval, do an increasingly bad job towards the <em>ends of the interval</em>.</p></li>
@@ -1299,7 +1445,7 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 </div>
 </section>
 <section id="an-explanation-star">
-<h3>An explanation  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#an-explanation-star" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">An explanation  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#an-explanation-star" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <p>The reason for this behaviour is a consequence of two factors:</p>
 <ul class="simple">
@@ -1341,7 +1487,7 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 </section>
 </section>
 <section id="chebyshev-nodes-star">
-<h2>Chebyshev nodes  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#chebyshev-nodes-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id34" role="doc-backlink">Chebyshev nodes  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#chebyshev-nodes-star" title="Permalink to this heading">#</a></h2>
 <div class="toggle toggle-shown docutils container">
 <p>There were three components making up the error bound - the factorial of <span class="math notranslate nohighlight">\(N+1\)</span>, a bound on the <span class="math notranslate nohighlight">\((N+1)\)</span>-st derivative of the function, and <span class="math notranslate nohighlight">\(\Psi\)</span>. For a given function and polynomial degree, we have no control over the first two, but we do have some ability to control the third, and we saw above that the behaviour of <span class="math notranslate nohighlight">\(\Psi\)</span> is indeed a problem as <span class="math notranslate nohighlight">\(N\)</span> grows.</p>
 <p>The above example can be “fixed” (or at least we can attempt to do a better job) by seeking to minimise <span class="math notranslate nohighlight">\(\Psi(x)\)</span> over our entire interval (including the outer sub-intervals where above and in the homework we see there’s a clear issue).</p>
@@ -1390,7 +1536,7 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 <br>
 </section>
 <section id="chebyshev-polynomial-interpolation-star">
-<h2>Chebyshev polynomial interpolation  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#chebyshev-polynomial-interpolation-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id35" role="doc-backlink">Chebyshev polynomial interpolation  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#chebyshev-polynomial-interpolation-star" title="Permalink to this heading">#</a></h2>
 <div class="toggle toggle-shown docutils container">
 <p>This in turn leads us to a new set of basis functions which we could use as the basis for our polynomial interpolation.</p>
 <p>In the same way that the values of the underlying function at our data point locations were, by construction, the weights for the Lagrange basis functions we defined above, the values of the underlying function at the non-uniform Chebyshev nodes are the weights for an interpolant which uses Chebyshev polynomials as basis functions [see homework exercise].</p>
@@ -1400,11 +1546,11 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 </div>
 </section>
 <section id="piecewise-polynomial-interpolation">
-<h2>Piecewise polynomial interpolation<a class="headerlink" href="#piecewise-polynomial-interpolation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id36" role="doc-backlink">Piecewise polynomial interpolation</a><a class="headerlink" href="#piecewise-polynomial-interpolation" title="Permalink to this heading">#</a></h2>
 <p>An alternative approach to overcome the issues identified above which attempted to fit a <em>single</em> <em>high-degree</em> polynomial to multiple data points, is to split the data into pieces and fit a lower degree polynomial through each of these.</p>
 <p>The piecewise (p/w) linear interpolation we saw near the start of this lecture would of course be an example of this.</p>
 <section id="piecewise-linear-interpolant">
-<h3>Piecewise-linear interpolant<a class="headerlink" href="#piecewise-linear-interpolant" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id37" role="doc-backlink">Piecewise-linear interpolant</a><a class="headerlink" href="#piecewise-linear-interpolant" title="Permalink to this heading">#</a></h3>
 <p>The implementation of piecewise (p/w) linear interpolation would simply take two data points <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> and <span class="math notranslate nohighlight">\((x_{i+1},y_{i+1})\)</span> in turn and fit a linear polynomial between them:</p>
 <div class="math notranslate nohighlight">
 \[P_1^i(x) = \frac{ y_{i+1} - y_i }{ x_{i+1} - x_i }(x - x_i) + y_i,\]</div>
@@ -1413,7 +1559,7 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 <p>Alternatively we could just use the <code class="docutils literal notranslate"><span class="pre">numpy.polyfit</span></code> function to fit the appropriate degree polynomial to the data; we will see more on this below.</p>
 </section>
 <section id="piecewise-quadratic-interpolant">
-<h3>Piecewise-quadratic interpolant<a class="headerlink" href="#piecewise-quadratic-interpolant" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id38" role="doc-backlink">Piecewise-quadratic interpolant</a><a class="headerlink" href="#piecewise-quadratic-interpolant" title="Permalink to this heading">#</a></h3>
 <p>We can extend the linear example above by fitting a quadratic to three data points.</p>
 <p>So for every 3 sets of points we fit a quadratic - to keep things simple we therefore require <span class="math notranslate nohighlight">\(3+2\times n\)</span> data points, for some integer <span class="math notranslate nohighlight">\(n\)</span> (i.e. the first set of three, and then sets of two extra as we reuse the last entry from the previous set of three as the first of the new set).  We therefore need to add a point to our example data set from above to satisfy this constraint.</p>
 <p>This time we will make use of <code class="docutils literal notranslate"><span class="pre">numpy.polyfit</span></code> to construct each quadratic for simplicity.</p>
@@ -1450,7 +1596,7 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 </div>
 </section>
 <section id="observations">
-<h3>Observations<a class="headerlink" href="#observations" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id39" role="doc-backlink">Observations</a><a class="headerlink" href="#observations" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>An obvious drawback of this we see from both the p/w linear and p/w quadratic examples above is that we lose <em>smoothness</em> - the interpolant now has jumps in its derivative (sharp corners).</p></li>
 <li><p>Since the degree two polynomial that fits through three data points is unique, we could also of course have used our Lagrange polynomial code rather than polyfit in the implementation above (ditto the linear case fit to two points). We used polyfit just to demonstrate/practice using other standard Python (NumPy) functions.</p></li>
@@ -1459,9 +1605,9 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 </section>
 </section>
 <section id="piecewise-polynomial-interpolation-via-an-appropriate-set-of-basis-functions">
-<h2>Piecewise-polynomial interpolation via an appropriate set of basis functions<a class="headerlink" href="#piecewise-polynomial-interpolation-via-an-appropriate-set-of-basis-functions" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id40" role="doc-backlink">Piecewise-polynomial interpolation via an appropriate set of basis functions</a><a class="headerlink" href="#piecewise-polynomial-interpolation-via-an-appropriate-set-of-basis-functions" title="Permalink to this heading">#</a></h2>
 <section id="the-idea">
-<h3>The idea<a class="headerlink" href="#the-idea" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id41" role="doc-backlink">The idea</a><a class="headerlink" href="#the-idea" title="Permalink to this heading">#</a></h3>
 <p>Recall that in terms of basis functions (<span class="math notranslate nohighlight">\(\phi_i(x)\)</span>) we saw above how we can write a polynomial in several different ways.</p>
 <p>Can we find an appropriate basis that allows us to represent a piece-wise polynomial?</p>
 <p>Note that this is a vital step in the finite element method which we shall return to in a later lecture.</p>
@@ -1477,7 +1623,7 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 <p>(although as we will see shortly, we can if we wish specify our basis functions to be zero almost everywhere, in which case this observation is no longer true).</p>
 </section>
 <section id="example-revisiting-a-quadratic-example-we-ve-already-seen">
-<h3>Example - revisiting a quadratic example we’ve already seen<a class="headerlink" href="#example-revisiting-a-quadratic-example-we-ve-already-seen" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id42" role="doc-backlink">Example - revisiting a quadratic example we’ve already seen</a><a class="headerlink" href="#example-revisiting-a-quadratic-example-we-ve-already-seen" title="Permalink to this heading">#</a></h3>
 <p>E.g. for our earlier example quadratic function <span class="math notranslate nohighlight">\(P(x)\)</span> we can consider each of the three monomial and Lagrange basis polynomials individually over the interval covered by three data points and demonstrate that with the correctly chosen weights we recover <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <p>For completeness, we also demonstrate this for the Newton polynomial expansion …</p>
 <div class="cell docutils container">
@@ -1576,7 +1722,7 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 </div>
 </section>
 <section id="hat-functions-and-p-w-linear-interpolation-expansions">
-<h3>Hat functions and p/w linear interpolation/expansions<a class="headerlink" href="#hat-functions-and-p-w-linear-interpolation-expansions" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id43" role="doc-backlink">Hat functions and p/w linear interpolation/expansions</a><a class="headerlink" href="#hat-functions-and-p-w-linear-interpolation-expansions" title="Permalink to this heading">#</a></h3>
 <p>For p/w linear interpolants with a bit of thought we can come up with some appropriate basis functions, which only contribute to the full interpolant locally.</p>
 <br>
 <p>These are</p>
@@ -1596,7 +1742,7 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 </figure>
 </section>
 <section id="some-code-to-return-the-hat-basis-functions">
-<h3>Some code to return the hat/basis functions<a class="headerlink" href="#some-code-to-return-the-hat-basis-functions" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id44" role="doc-backlink">Some code to return the hat/basis functions</a><a class="headerlink" href="#some-code-to-return-the-hat-basis-functions" title="Permalink to this heading">#</a></h3>
 <p>Let’s implement a function that returns the <span class="math notranslate nohighlight">\(i\)</span>-th hat function on a mesh.  You can try playing with the value for <span class="math notranslate nohighlight">\(i\)</span> and seeing how it changes the plot - this code should work find if you don’t have uniform x spacing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1731,7 +1877,7 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 <p>We can expand this to p/w higher order polynomial interpolants, e.g. by using appropriate quadratic functions only defined as being non-zero in between appropriate data locations [cf. the quadratic example above]</p>
 </section>
 <section id="support-of-basis-functions">
-<h3>Support of basis functions<a class="headerlink" href="#support-of-basis-functions" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id45" role="doc-backlink">Support of basis functions</a><a class="headerlink" href="#support-of-basis-functions" title="Permalink to this heading">#</a></h3>
 <p>An important aspect of the finite element method (which we’ll go over properly in later lecture) is appreciating when the basis functions and in particular the products of basis functions, e.g.</p>
 <div class="math notranslate nohighlight">
 \[\phi_i \, \phi_j\,,\]</div>
@@ -1751,7 +1897,7 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 </section>
 </section>
 <section id="cubic-splines-star-star">
-<h2>Cubic splines [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#cubic-splines-star-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id46" role="doc-backlink">Cubic splines [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#cubic-splines-star-star" title="Permalink to this heading">#</a></h2>
 <div class="toggle toggle-shown docutils container">
 <p>This approach interpolates data with a piecewise cubic polynomial, see
 <a class="reference external" href="https://en.wikipedia.org/wiki/Spline_interpolation">https://en.wikipedia.org/wiki/Spline_interpolation</a>.</p>
@@ -1759,7 +1905,7 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 <p>Due to the use of a cubic polynomial within each interval, this approach can now be made to be twice continuously differentiable (i.e. first as well as second order derivatives are continuous).</p>
 </div>
 <section id="algorithm-sketch-star-star">
-<h3>Algorithm sketch  [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#algorithm-sketch-star-star" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id47" role="doc-backlink">Algorithm sketch  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#algorithm-sketch-star-star" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <p>The idea behind cubic splines comes from something physical:</p>
 <p>Pass a thin beam or elastic ruler between the data points (often termed <em>knots</em> when talking about splines), the shape you get is a cubic spline.</p>
@@ -1851,7 +1997,7 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 </section>
 </section>
 <section id="piecewise-cubic-hermite-interpolating-polynomial-pchip-star-star">
-<h2>Piecewise Cubic Hermite Interpolating Polynomial (PCHIP)  [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#piecewise-cubic-hermite-interpolating-polynomial-pchip-star-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id48" role="doc-backlink">Piecewise Cubic Hermite Interpolating Polynomial (PCHIP)  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#piecewise-cubic-hermite-interpolating-polynomial-pchip-star-star" title="Permalink to this heading">#</a></h2>
 <div class="toggle toggle-shown docutils container">
 <p>If we drop the requirement for continuity over second derivatives with the cubic spline above (and hence the conditions that were used to fix all the free parameters in the cubic) we can choose the remaining free parameters to achieve a different goal …</p>
 <p>If the (continuous) slopes between intervals are chosen in order for the interpolant to <strong>preserve monotonicity</strong> of the data then we have what is termed a <a class="reference external" href="https://uk.mathworks.com/help/matlab/ref/pchip.html"><em>p/w cubic Hermite interpolating polynomial</em></a> or a <a class="reference external" href="https://en.wikipedia.org/wiki/Cubic_Hermite_spline"><em>cubic Hermite spline</em></a>.</p>
@@ -1935,7 +2081,7 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 </div>
 </div>
 <section id="id2">
-<h3>Observations<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id49" role="doc-backlink">Observations</a><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <ul class="simple">
 <li><p>Clearly within each subinterval the interpolant does not stray beyond the (<span class="math notranslate nohighlight">\(y\)</span>) bounds of the data at either end of the data (note that the simple p/w linear interpolant also has this property).</p></li>
@@ -1970,7 +2116,7 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 </section>
 </section>
 <section id="compare-interpolation-methods">
-<h2>Compare interpolation methods<a class="headerlink" href="#compare-interpolation-methods" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id50" role="doc-backlink">Compare interpolation methods</a><a class="headerlink" href="#compare-interpolation-methods" title="Permalink to this heading">#</a></h2>
 <p>We’ve discussed a lot of different methods to interpolate data in this lecture. Let’s compare them:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2008,10 +2154,10 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 </div>
 </section>
 <section id="quadrature">
-<h2>Quadrature<a class="headerlink" href="#quadrature" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id51" role="doc-backlink">Quadrature</a><a class="headerlink" href="#quadrature" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="id3">
-<h2>Review<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id52" role="doc-backlink">Review</a><a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>Recall that we are seeking to calculate the area under a curve (assuming a function of one variable)</p>
 <p>[volume under a surface for a function of two variables] ….</p>
 <div class="math notranslate nohighlight">
@@ -2034,7 +2180,7 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 <p>Let’s first quickly review some methods we say in Computational Mathematics</p>
 </section>
 <section id="the-midpoint-rule">
-<h2>The Midpoint rule<a class="headerlink" href="#the-midpoint-rule" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id53" role="doc-backlink">The Midpoint rule</a><a class="headerlink" href="#the-midpoint-rule" title="Permalink to this heading">#</a></h2>
 <p>The <em>midpoint rule</em> is perhaps the simplest quadrature rule.</p>
 <p>For reasons that should be obvious from the next figure it is sometimes also called the <em>rectangle method</em>.</p>
 <p>Consider one of the subintervals <span class="math notranslate nohighlight">\(\,[x_i, x_{i+1}].\)</span></p>
@@ -2137,7 +2283,7 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 </div>
 </section>
 <section id="trapezoidal-rule">
-<h2>Trapezoidal rule<a class="headerlink" href="#trapezoidal-rule" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id54" role="doc-backlink">Trapezoidal rule</a><a class="headerlink" href="#trapezoidal-rule" title="Permalink to this heading">#</a></h2>
 <p>If we change the shape of the rectangle to a trapezoid (i.e. the top of the shape now being a linear line fit defined by the values of the function at the two end points of the subinterval, rather than the constant value used in the midpoint rule), we arrive at the trapezoid, or trapezoidal, rule.</p>
 <p>The trapezoid rule approximates the integral by the area of a trapezoid with base <span class="math notranslate nohighlight">\((x_{i+1}-x_i)\)</span> and the left- and right-hand-sides equal to the values of the function at the two end points.</p>
 <p>In this case the area of the shape approximating the integral over one subinterval, is given by:</p>
@@ -2195,7 +2341,7 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 </div>
 </div>
 <section id="the-composite-version-of-the-trapezoidal-rule">
-<h3>The composite version of the trapezoidal rule<a class="headerlink" href="#the-composite-version-of-the-trapezoidal-rule" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id55" role="doc-backlink">The composite version of the trapezoidal rule</a><a class="headerlink" href="#the-composite-version-of-the-trapezoidal-rule" title="Permalink to this heading">#</a></h3>
 <p>Of course if we think about what we’re doing here we recognise that we can save some computational time (specifically function evaluations, which could each be very expensive so in some situations this may be especially worthwhile.).</p>
 <p>Above we wrote down the mathematical expression for the scheme:</p>
 <div class="math notranslate nohighlight">
@@ -2234,7 +2380,7 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 </section>
 </section>
 <section id="quadrature-accuracy-and-errors">
-<h2>Quadrature Accuracy and Errors<a class="headerlink" href="#quadrature-accuracy-and-errors" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id56" role="doc-backlink">Quadrature Accuracy and Errors</a><a class="headerlink" href="#quadrature-accuracy-and-errors" title="Permalink to this heading">#</a></h2>
 <p>Another observation here is that in this particular case of half a sine wave, the trapezoid rule always <em>under-estimates</em> the area, whereas the midpoint rule <em>over-estimates</em>.</p>
 <p>We noted that, perhaps surprisingl, the midpoint rule is more accurate than the trapezoid rule - the reason for this is not immediately obvious from the discussions and the images above.</p>
 <br>
@@ -2245,7 +2391,7 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 <p>[you could test our codes yourself on the function <span class="math notranslate nohighlight">\(x^2\)</span> to demonstrate this].</p>
 <p>Therefore, they both have a degree of precision of 1.</p>
 <section id="error-analysis-qualitative">
-<h3>Error analysis (qualitative)<a class="headerlink" href="#error-analysis-qualitative" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id57" role="doc-backlink">Error analysis (qualitative)</a><a class="headerlink" href="#error-analysis-qualitative" title="Permalink to this heading">#</a></h3>
 <p>For the “concave-down” (i.e. the first half of a sine wave) function we chose above, notice from the plot that the trapezoidal rule will <strong>consistently underestimate</strong> the area under the curve, as the line segments approximating the function are always under the concave function curve.</p>
 <p>In contrast, the mid-point rule will have parts of each rectangle above and below the curve, hence to a certain extent the <strong>errors will cancel</strong> each other out.</p>
 <p>This is why, <em>for this particular example</em>, the errors in the mid-point rule turn out to be approximately half those in the trapezoidal rule.</p>
@@ -2272,7 +2418,7 @@ I_T = 1 \frac {0+1^{2}}{2} = \frac {1}{2}.
 <p>We will make use of this knowledge to generate new more accurate quadrature rules below [can you think of a way we might try to do this?], but first let’s sketch how you can go about a more rigorous analysis/estimation of errors.</p>
 </section>
 <section id="error-analysis-mathematical-star">
-<h3>Error analysis (mathematical) [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#error-analysis-mathematical-star" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id58" role="doc-backlink">Error analysis (mathematical) [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#error-analysis-mathematical-star" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <p>We are approximating</p>
 <div class="math notranslate nohighlight">
@@ -2392,7 +2538,7 @@ E_1^n &amp; = -\sum_{i=0}^{n-1}\, \frac{(x_{i+1}-x_i)^3}{12} f''\left(c_{x_i}\ri
 </section>
 </section>
 <section id="simpson-s-rule-review">
-<h2>Simpson’s rule [Review]<a class="headerlink" href="#simpson-s-rule-review" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id59" role="doc-backlink">Simpson’s rule [Review]</a><a class="headerlink" href="#simpson-s-rule-review" title="Permalink to this heading">#</a></h2>
 <p>Knowing the error estimates from the two rules explored so far opens up the potential for us to combine them in an appropriate manner to create a new quadrature rule, generally more accurate than either one separately.</p>
 <p>Suppose <span class="math notranslate nohighlight">\(I_S\)</span> indicates an unknown, but more accurate, estimate of the integral over an interval.</p>
 <p>Then, as seen above, as <span class="math notranslate nohighlight">\(I_T\)</span> has an error that is approximately <span class="math notranslate nohighlight">\(-2\)</span> times the error in <span class="math notranslate nohighlight">\(I_M\)</span>, the following relation must hold approximately:</p>
@@ -2475,14 +2621,14 @@ I_S &amp;:= \frac{2}{3}I_M + \frac{1}{3}I_T \\[5pt]
 </div>
 </div>
 <section id="implementing-simpson-s-rule">
-<h3>Implementing Simpson’s rule<a class="headerlink" href="#implementing-simpson-s-rule" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id60" role="doc-backlink">Implementing Simpson’s rule</a><a class="headerlink" href="#implementing-simpson-s-rule" title="Permalink to this heading">#</a></h3>
 <p>Note in the above image the approximation of the quadratic over each subinterval is very good - visually it looks exact but of course it isn’t as we can exactly approximate a trigonometric function with a polynomial.</p>
 <p>This is confirmed by the very accurate approximation to the integral.</p>
 <p>But note that here we have had to additionally evaluate the function at the midpoints of the subintervals; we need to bear this in mind when comparing methods. With 5 subintervals the number of function evaluations we have used so far is: Midpoint - 5; Trapezoidal (the composite version) - 6; Simpson’s - 11 (that’s for the naive approach where we don’t re-use function evaluations).</p>
 <p>Of course the agreement (visually and quantitatively) won’t be quite so good for complicated, rapidly varying functions.</p>
 </section>
 <section id="the-composite-version-of-simpson-s-rule">
-<h3>The composite version of Simpson’s Rule<a class="headerlink" href="#the-composite-version-of-simpson-s-rule" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id61" role="doc-backlink">The composite version of Simpson’s Rule</a><a class="headerlink" href="#the-composite-version-of-simpson-s-rule" title="Permalink to this heading">#</a></h3>
 <p>If we assume that our interval <span class="math notranslate nohighlight">\([a,b]\)</span> has been split up into <span class="math notranslate nohighlight">\(n\)</span> intervals (or <span class="math notranslate nohighlight">\(n+1\)</span> data points) we can save some function evaluations by writing Simpson’s Rule in the following form (note here we do not introduce any additional midpoint function evaluations)</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -2570,7 +2716,7 @@ or more precisely the <em>composite Simpson’s 1/3 rule</em>.</p>
 </div>
 </div>
 <section id="id4">
-<h4>Observations<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id62" role="doc-backlink">Observations</a><a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>The errors are lower than for the midpoint and trapezoidal rules, and the method converge more rapidly - i.e. the relative improvement only gets better for more subintervals.</p></li>
 <li><p>This expression now integrates up to cubics exactly (by construction), so it has order of precision 3 (with convergence order 4 as confirmed by the convergence plot above).</p></li>
@@ -2604,7 +2750,7 @@ or more precisely the <em>composite Simpson’s 1/3 rule</em>.</p>
 </section>
 </section>
 <section id="simpson-s-rule-error-star">
-<h3>Simpson’s rule error [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#simpson-s-rule-error-star" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id63" role="doc-backlink">Simpson’s rule error [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#simpson-s-rule-error-star" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <p>We can go through the exact same mathematical steps as for the trapezoidal rule above to compute the error in Simpson’s rule applied over the full interval <span class="math notranslate nohighlight">\([a,b]\)</span> (i.e. the error over a single interval):</p>
 <div class="math notranslate nohighlight">
@@ -2636,7 +2782,7 @@ E_S
 </section>
 </section>
 <section id="weddle-s-rule-extrapolated-simpson-s-rule-star">
-<h2>Weddle’s rule (extrapolated Simpson’s rule) [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#weddle-s-rule-extrapolated-simpson-s-rule-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id64" role="doc-backlink">Weddle’s rule (extrapolated Simpson’s rule) [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#weddle-s-rule-extrapolated-simpson-s-rule-star" title="Permalink to this heading">#</a></h2>
 <div class="toggle toggle-shown docutils container">
 <p>We noted above that Simpson’s rule is fourth-order accurate.</p>
 <p>Suppose we take an approximation to <span class="math notranslate nohighlight">\(I\)</span> using <span class="math notranslate nohighlight">\(n\)</span> intervals with Simpson’s rule and call the result <span class="math notranslate nohighlight">\(I_S\)</span>, and then apply Simpson’s rule with double the number of intervals (<span class="math notranslate nohighlight">\(2n\)</span>) and call the result <span class="math notranslate nohighlight">\(I_{S_2}\)</span>.</p>
@@ -2670,7 +2816,7 @@ E_S
 </pre></div>
 </div>
 <section id="id5">
-<h3>Observations<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id65" role="doc-backlink">Observations</a><a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>You can see our final rule is much more accurate for fewer required intervals.</p></li>
 <li><p>Indeed we are down at the limits where round-off errors are clearly affecting our results and impacting on convergence rates.</p></li>
@@ -2678,7 +2824,7 @@ E_S
 </section>
 </section>
 <section id="newton-cotes-quadrature-rules-star-star">
-<h2>Newton-Cotes quadrature rules [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#newton-cotes-quadrature-rules-star-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id66" role="doc-backlink">Newton-Cotes quadrature rules [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#newton-cotes-quadrature-rules-star-star" title="Permalink to this heading">#</a></h2>
 <div class="toggle toggle-shown docutils container">
 <p>Taking the idea behind Simpson’s rule, which can be interpreted as (or derived by) fitting a quadratic Lagrange interpolating polynomial to <em>equally spaced</em> points over an interval, and extending to any order Lagrange polynomial leads to the <em>Newton-Cotes</em> family of quadrature rules.</p>
 <p>[Of course the midpoint and trapezoidal rules fit within this description as well with the fitting of a constant and a linear polynomial.]</p>
@@ -2708,7 +2854,7 @@ I &amp;\approx \int_a^b\,P_N(x)\,dx,\\[10pt]
 <p>Let’s check we can recreate the schemes we have already seen via this approach.</p>
 </div>
 <section id="n-1-trapezoidal">
-<h3>(N=1) Trapezoidal<a class="headerlink" href="#n-1-trapezoidal" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id67" role="doc-backlink">(N=1) Trapezoidal</a><a class="headerlink" href="#n-1-trapezoidal" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <p>If <span class="math notranslate nohighlight">\(N=1\)</span> (i.e. two data points) then the Lagrange basis functions are</p>
 <div class="math notranslate nohighlight">
@@ -2744,14 +2890,14 @@ A_0 f(a) + A_1 f(b) = (b - a)\frac{(f(a) + f(b))}{2},
 </div>
 </section>
 <section id="n-2-simpson-s-rule">
-<h3>(N=2) Simpson’s rule<a class="headerlink" href="#n-2-simpson-s-rule" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id68" role="doc-backlink">(N=2) Simpson’s rule</a><a class="headerlink" href="#n-2-simpson-s-rule" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <p>If we go through the same steps with <span class="math notranslate nohighlight">\(N=2\)</span> we arrive at the 1/3 Simpson rule from earlier [a homework exercise asks you to do this].</p>
 <p>[NB. We could also use the <em>method of undetermined coefficients</em> and Taylor Series - we will see this approach to constructing approximations to derivatives in a later Lecture.]</p>
 </div>
 </section>
 <section id="id6">
-<h3>Observations<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id69" role="doc-backlink">Observations</a><a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <ul class="simple">
 <li><p>Recall that fitting high-order polynomials through many (evenly spaced) data points was found to be a bad idea in the context of interpolation (we saw this in an example which used the Runge function).</p></li>
@@ -2760,7 +2906,7 @@ A_0 f(a) + A_1 f(b) = (b - a)\frac{(f(a) + f(b))}{2},
 </div>
 </section>
 <section id="open-vs-closed-newton-cotes-formulae">
-<h3>Open vs Closed Newton-Cotes formulae<a class="headerlink" href="#open-vs-closed-newton-cotes-formulae" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id70" role="doc-backlink">Open vs Closed Newton-Cotes formulae</a><a class="headerlink" href="#open-vs-closed-newton-cotes-formulae" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <p>Note that there are actually two types of Newton-Cotes formulae.</p>
 <ol class="arabic simple">
@@ -2786,7 +2932,7 @@ A_0 f(a) + A_1 f(b) = (b - a)\frac{(f(a) + f(b))}{2},
 </section>
 </section>
 <section id="richardson-extrapolation-and-romberg-integration-star-star">
-<h2>(Richardson) extrapolation and Romberg integration  [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#richardson-extrapolation-and-romberg-integration-star-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id71" role="doc-backlink">(Richardson) extrapolation and Romberg integration  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#richardson-extrapolation-and-romberg-integration-star-star" title="Permalink to this heading">#</a></h2>
 <div class="toggle toggle-shown docutils container">
 <p>Note in the above that to arrive at Simpson’s rule we combined what we knew about the leading order terms in the errors for the Midpoint and Trapezoidal rules, and sought a new (more accurate) method by combining appropriate multiples of the results from the Midpoint and Trapezoidal rules to cancel the leading order errors.</p>
 <p>Similarly, we also used Simpson’s rule with two different interval sizes to derive the more accurate Weddle’s rule by seeking to cancel the leading order error terms [see homework].</p>
@@ -2813,7 +2959,7 @@ A_0 f(a) + A_1 f(b) = (b - a)\frac{(f(a) + f(b))}{2},
 </div>
 </div>
 <section id="id7">
-<h3>Observations<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id72" role="doc-backlink">Observations</a><a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <ul class="simple">
 <li><p>We achieved an error of around 1e-12 using 33 function evaluations.</p></li>
@@ -2824,14 +2970,14 @@ A_0 f(a) + A_1 f(b) = (b - a)\frac{(f(a) + f(b))}{2},
 </section>
 </section>
 <section id="adaptive-quadrature-star">
-<h2>Adaptive quadrature  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#adaptive-quadrature-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id73" role="doc-backlink">Adaptive quadrature  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#adaptive-quadrature-star" title="Permalink to this heading">#</a></h2>
 <div class="toggle toggle-shown docutils container">
 <p>We have noted above drawbacks of using equally spaced evaluations of the function, and going to too high an order of quadrature methods.</p>
 <p>Adaptive quadrature seeks to address this through the use of relatively low-order quadrature rules over subintervals that can vary in size, with the size based on how much variation there is at that location in the function being integrated.</p>
 <p>We will demonstrate the idea below, making use of Simpson’s rule as the base low-order method.</p>
 </div>
 <section id="algorithm">
-<h3>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id74" role="doc-backlink">Algorithm</a><a class="headerlink" href="#algorithm" title="Permalink to this heading">#</a></h3>
 <p>By the same argument that was used to derive Weddle’s rule from Simpson’s (and indeed similar to how we derived Simpson from Midpoint and Trapezoidal) we know that approximately</p>
 <p>\begin{equation}
 16(I - I_{S_2}) \approx I - I_{S} ;;;; \Rightarrow ;;;;
@@ -2845,11 +2991,11 @@ I - I_{S_2} \approx \frac {\left(I_{S_2} - I_{S} \right)}{15},
 <p>At every recursive layer down we halve the tolerance so that when summed the estimated total error is below our prescribed tolerance.</p>
 </section>
 <section id="implementation">
-<h3>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id75" role="doc-backlink">Implementation</a><a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h3>
 <p>See the homework exercise for an implementation based upon iterative calls to our Simpson’s rule function.</p>
 </section>
 <section id="application-to-a-simple-problem">
-<h3>Application to a simple problem<a class="headerlink" href="#application-to-a-simple-problem" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id76" role="doc-backlink">Application to a simple problem</a><a class="headerlink" href="#application-to-a-simple-problem" title="Permalink to this heading">#</a></h3>
 <p>Let’s apply this idea to our simple function. The plot below demonstrates the locations of function evaluations.</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/adaptive_quadrature_simple_example.png"><img alt="../_images/adaptive_quadrature_simple_example.png" src="../_images/adaptive_quadrature_simple_example.png" style="width: 75%;" /></a>
@@ -2860,7 +3006,7 @@ I - I_{S_2} \approx \frac {\left(I_{S_2} - I_{S} \right)}{15},
 <p>But the story should be different for a more complex function with some regions of rapid variation, and others with more sedate variation - let’s see an example.</p>
 </section>
 <section id="application-to-a-complex-problem">
-<h3>Application to a complex problem<a class="headerlink" href="#application-to-a-complex-problem" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id77" role="doc-backlink">Application to a complex problem</a><a class="headerlink" href="#application-to-a-complex-problem" title="Permalink to this heading">#</a></h3>
 <p>We see in the plot below a far more complex function where we really are making good use of the ability to evaluate the function in an adaptive manner.</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="Chapter9/Figures/daptive_quadrature_example.png"><img alt="Chapter9/Figures/daptive_quadrature_example.png" src="Chapter9/Figures/daptive_quadrature_example.png" style="width: 75%;" /></a>
@@ -2890,20 +3036,20 @@ I - I_{S_2} \approx \frac {\left(I_{S_2} - I_{S} \right)}{15},
 </section>
 </section>
 <section id="quadrature-method-comparison">
-<h2>Quadrature method comparison<a class="headerlink" href="#quadrature-method-comparison" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id78" role="doc-backlink">Quadrature method comparison</a><a class="headerlink" href="#quadrature-method-comparison" title="Permalink to this heading">#</a></h2>
 <p>Let’s compare errors vs number of function evaluations for the more complicated problem used to demonstrate adaptive quadrature.</p>
 <p>Recreating this comparison/graph is given in the homework solutions that asks you to implement adaptive quadrature.</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/compare_quad_methods_complex_function.png"><img alt="../_images/compare_quad_methods_complex_function.png" src="../_images/compare_quad_methods_complex_function.png" style="width: 75%;" /></a>
 </figure>
 <section id="comments">
-<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id79" role="doc-backlink">Comments</a><a class="headerlink" href="#comments" title="Permalink to this heading">#</a></h3>
 <p>Note that given the higher-order Weddle rule isn’t obviously better than Simpson’s rule for this function, at least at moderate error levels and numbers of function evaluations, it isn’t a surprise that Romberg integration doesn’t do brilliantly for this complex example either.</p>
 <p>However,  this is clearly a problem which is well-suited for adaptive quadrature, as we see in the plot of the function and locations of function evaluations above - for this problem the method really is taking advantage of the ability to vary the subinterval sizes.</p>
 </section>
 </section>
 <section id="gaussian-quadrature-star-star">
-<h2>Gaussian quadrature  [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#gaussian-quadrature-star-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id80" role="doc-backlink">Gaussian quadrature  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#gaussian-quadrature-star-star" title="Permalink to this heading">#</a></h2>
 <div class="toggle toggle-shown docutils container">
 <p>The quadrature rules introduced above all had the form</p>
 <div class="math notranslate nohighlight">
@@ -2918,7 +3064,7 @@ I = \int_a^b\,f(x)\,dx \approx \sum_{i=0}^{N}\, A_i \, f(x_i),
 <p>We thus have <span class="math notranslate nohighlight">\(2N+2\)</span> free parameters in total which can be chosen to integrate polynomials of order <span class="math notranslate nohighlight">\(2N+1\)</span> exactly.</p>
 </div>
 <section id="gauss-legendre-quadrature">
-<h3>Gauss-Legendre quadrature<a class="headerlink" href="#gauss-legendre-quadrature" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id81" role="doc-backlink">Gauss-Legendre quadrature</a><a class="headerlink" href="#gauss-legendre-quadrature" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <p>To action this process for a polynomial of order <span class="math notranslate nohighlight">\(2N+1\)</span> we can simply require that the individual powers (i.e. the monomials) from 0 up to <span class="math notranslate nohighlight">\(2N + 1\)</span> are integrated exactly:</p>
 <div class="math notranslate nohighlight">
@@ -2968,7 +3114,7 @@ A_0 = 1,\;\;\; A_1 = 1,\]</div>
 </section>
 </section>
 <section id="id8">
-<h2>Implementation<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id82" role="doc-backlink">Implementation</a><a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
 <div class="toggle toggle-shown docutils container">
 <p>A nice description of the process more generally can be found here <a class="reference external" href="https://rosettacode.org/wiki/Numerical_integration/Gauss-Legendre_Quadrature">https://rosettacode.org/wiki/Numerical_integration/Gauss-Legendre_Quadrature</a></p>
 <p>We can use SciPy to compute either fixed order <a class="reference external" href="https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.integrate.fixed_quad.html#scipy.integrate.fixed_quad">scipy.integrate.fixed_quad</a> or fixed tolerance <a class="reference external" href="https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.integrate.quadrature.html">scipy.integrate.quadrature</a> Gaussian quadrature.</p>
@@ -2999,7 +3145,7 @@ A_0 = 1,\;\;\; A_1 = 1,\]</div>
 </div>
 </div>
 <section id="changing-integration-limits">
-<h3>Changing integration limits<a class="headerlink" href="#changing-integration-limits" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id83" role="doc-backlink">Changing integration limits</a><a class="headerlink" href="#changing-integration-limits" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <p>Note that the above derivation, and hence the locations of the nodes, were with respect to an integration limit of <span class="math notranslate nohighlight">\([-1,1]\)</span>.</p>
 <p>In order to evaluate an integral over a general interval <span class="math notranslate nohighlight">\([a,b]\)</span> a change of coordinates is required, but this it not difficult to come up with or implement:</p>
@@ -3048,7 +3194,7 @@ A_0 = 1,\;\;\; A_1 = 1,\]</div>
 </div>
 </section>
 <section id="other-gaussian-quadrature-families">
-<h3>Other Gaussian quadrature families<a class="headerlink" href="#other-gaussian-quadrature-families" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id84" role="doc-backlink">Other Gaussian quadrature families</a><a class="headerlink" href="#other-gaussian-quadrature-families" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <p>We obtained the <em>Gauss-Legendre</em> family of quadrature rules from the requirement that</p>
 <div class="math notranslate nohighlight">
@@ -3068,7 +3214,7 @@ different choices of weighting function lead us to other families of quadrature 
 </section>
 </section>
 <section id="higher-dimensions-star">
-<h2>Higher dimensions  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#higher-dimensions-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id85" role="doc-backlink">Higher dimensions  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#higher-dimensions-star" title="Permalink to this heading">#</a></h2>
 <div class="toggle toggle-shown docutils container">
 <p>In higher dimensions similar ideas to those presented above can also be applied.</p>
 <p>For further reading see <a class="reference external" href="https://en.wikipedia.org/wiki/Numerical_integration#Multidimensional_integrals">https://en.wikipedia.org/wiki/Numerical_integration#Multidimensional_integrals</a>.</p>
@@ -3077,7 +3223,7 @@ different choices of weighting function lead us to other families of quadrature 
 </div>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id86" role="doc-backlink">Summary</a><a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>We have taken the opportunity to revisit interpolation/the approximation of functions, and covered some new methods…</p></li>
 <li><p>in particular the use of “hat” functions as a basis for p/w linear interpolation.</p></li>
@@ -3087,7 +3233,7 @@ different choices of weighting function lead us to other families of quadrature 
 </ul>
 </section>
 <section id="what-do-you-need-to-focus-on">
-<h2>What do you need to focus on?<a class="headerlink" href="#what-do-you-need-to-focus-on" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id87" role="doc-backlink">What do you need to focus on?</a><a class="headerlink" href="#what-do-you-need-to-focus-on" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>General familiarity with errors and their dependence on the specifics of the numerical method, the function being considered and the interval size (or mesh resolution).</p></li>
 <li><p>The specifics of the hat functions used as a basis for p/w linear interpolation.</p></li>
