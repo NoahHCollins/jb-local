@@ -446,11 +446,29 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="homework-a-class-tocskip">
-<h1>Homework <a class="tocSkip"><a class="headerlink" href="#homework-a-class-tocskip" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Homework <a class="tocSkip"></a><a class="headerlink" href="#homework-a-class-tocskip" title="Permalink to this heading">#</a></h1>
 <section id="pde-solvers-finite-difference-methods-2-a-class-tocskip">
-<h2>PDE Solvers: Finite Difference Methods 2 <a class="tocSkip"><a class="headerlink" href="#pde-solvers-finite-difference-methods-2-a-class-tocskip" title="Permalink to this heading">#</a></h2>
-<h2>Table of Contents<span class="tocSkip"></span></h2>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Homework" data-toc-modified-id="Homework-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Homework</a></span><ul class="toc-item"><li><span><a href="#Homework---Upwind-vs-central-discretrisation" data-toc-modified-id="Homework---Upwind-vs-central-discretrisation-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Homework - Upwind vs central discretrisation</a></span></li><li><span><a href="#Homework---Larger-stencils-/-higher-orders-of-accuracy-[$\star$]-[from-Comp-Math]" data-toc-modified-id="Homework---Larger-stencils-/-higher-orders-of-accuracy-[$\star$]-[from-Comp-Math]-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Homework - Larger stencils / higher orders of accuracy [$\star$] [from Comp Math]</a></span></li><li><span><a href="#Homework---Stability-study-for-advection-diffusion-using-FTCS" data-toc-modified-id="Homework---Stability-study-for-advection-diffusion-using-FTCS-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Homework - Stability study for advection-diffusion using FTCS</a></span></li><li><span><a href="#Homework---An-analytical-solution-to-advection-diffusion-[from-Comp-Math]" data-toc-modified-id="Homework---An-analytical-solution-to-advection-diffusion-[from-Comp-Math]-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Homework - An analytical solution to advection-diffusion [from Comp Math]</a></span></li><li><span><a href="#Homework---Pure-advection---impact-of-time-step-[from-Comp-Math]" data-toc-modified-id="Homework---Pure-advection---impact-of-time-step-[from-Comp-Math]-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Homework - Pure advection - impact of time step [from Comp Math]</a></span></li></ul></li></ul></div><div class="cell docutils container">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">PDE Solvers: Finite Difference Methods 2 <a class="tocSkip"></a><a class="headerlink" href="#pde-solvers-finite-difference-methods-2-a-class-tocskip" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="table-of-contents">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#homework-a-class-tocskip" id="id1">Homework <a class="tocSkip"></a></p>
+<ul>
+<li><p><a class="reference internal" href="#pde-solvers-finite-difference-methods-2-a-class-tocskip" id="id2">PDE Solvers: Finite Difference Methods 2 <a class="tocSkip"></a></p></li>
+<li><p><a class="reference internal" href="#table-of-contents" id="id3">Table of Contents</a></p></li>
+<li><p><a class="reference internal" href="#homework-upwind-vs-central-discretrisation" id="id4">Homework - Upwind vs central discretrisation</a></p></li>
+<li><p><a class="reference internal" href="#homework-larger-stencils-higher-orders-of-accuracy-star-from-comp-math" id="id5">Homework - Larger stencils / higher orders of accuracy [<span class="math notranslate nohighlight">\(\star\)</span>] [from Comp Math]</a></p></li>
+<li><p><a class="reference internal" href="#homework-stability-study-for-advection-diffusion-using-ftcs" id="id6">Homework - Stability study for advection-diffusion using FTCS</a></p></li>
+<li><p><a class="reference internal" href="#homework-an-analytical-solution-to-advection-diffusion-from-comp-math" id="id7">Homework - An analytical solution to advection-diffusion [from Comp Math]</a></p></li>
+<li><p><a class="reference internal" href="#homework-pure-advection-impact-of-time-step-from-comp-math" id="id8">Homework - Pure advection - impact of time step [from Comp Math]</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -473,12 +491,12 @@ document.write(`
 </div>
 </section>
 <section id="homework-upwind-vs-central-discretrisation">
-<h2>Homework - Upwind vs central discretrisation<a class="headerlink" href="#homework-upwind-vs-central-discretrisation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Homework - Upwind vs central discretrisation</a><a class="headerlink" href="#homework-upwind-vs-central-discretrisation" title="Permalink to this heading">#</a></h2>
 <p>Use our codes <code class="docutils literal notranslate"><span class="pre">BVP_AD_central</span></code> and <code class="docutils literal notranslate"><span class="pre">BVP_AD_upwind</span></code> to compute and plot error convergence for these two schemes for our test problem from the lecture with a Peclet number of 10.</p>
 <p>Hence, establish that even though the upwind scheme is coupled with a second-order scheme for diffusion, it is the first-order contribution to the overall error which ultimately dominates and so the overall scheme is only first-order accurate.</p>
 </section>
 <section id="homework-larger-stencils-higher-orders-of-accuracy-star-from-comp-math">
-<h2>Homework - Larger stencils / higher orders of accuracy [<span class="math notranslate nohighlight">\(\star\)</span>] [from Comp Math]<a class="headerlink" href="#homework-larger-stencils-higher-orders-of-accuracy-star-from-comp-math" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Homework - Larger stencils / higher orders of accuracy [<span class="math notranslate nohighlight">\(\star\)</span>] [from Comp Math]</a><a class="headerlink" href="#homework-larger-stencils-higher-orders-of-accuracy-star-from-comp-math" title="Permalink to this heading">#</a></h2>
 <p>We saw in the lecture first- and second-order approximations to the first derivative.</p>
 <p>By making use of more points (expanding the stencil) it is possible to come up with approximations of arbitrary order.</p>
 <p>Tables of coefficients, assuming a uniform mesh, can be found at:
@@ -491,11 +509,11 @@ document.write(`
 <p>Write some code to construct and solve this matrix system, and hence extend the convergence plot we presented above for the first derivative of <span class="math notranslate nohighlight">\(\sin(x)\)</span> and <span class="math notranslate nohighlight">\(x=0.8\)</span> for orders 1-6.</p>
 </section>
 <section id="homework-stability-study-for-advection-diffusion-using-ftcs">
-<h2>Homework - Stability study for advection-diffusion using FTCS<a class="headerlink" href="#homework-stability-study-for-advection-diffusion-using-ftcs" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Homework - Stability study for advection-diffusion using FTCS</a><a class="headerlink" href="#homework-stability-study-for-advection-diffusion-using-ftcs" title="Permalink to this heading">#</a></h2>
 <p>Play around with the example from the lecture in the section “Stability study for advection-diffusion”. In particular play around with the physical and numerical parameters and investigate further the interplay between these, the locations of eigenvalues in the complex plane, and the observed stability of the numerical solver.</p>
 </section>
 <section id="homework-an-analytical-solution-to-advection-diffusion-from-comp-math">
-<h2>Homework - An analytical solution to advection-diffusion [from Comp Math]<a class="headerlink" href="#homework-an-analytical-solution-to-advection-diffusion-from-comp-math" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Homework - An analytical solution to advection-diffusion [from Comp Math]</a><a class="headerlink" href="#homework-an-analytical-solution-to-advection-diffusion-from-comp-math" title="Permalink to this heading">#</a></h2>
 <p>An exact solution to the advection-diffusion equation is given by</p>
 <div class="math notranslate nohighlight">
 \[ c(x,t) = \frac{1}{\sqrt{4\pi \, \kappa \,t}}\exp\left  (-\frac{(x-Ut)^2}{4\kappa \, t}\right).\]</div>
@@ -508,7 +526,7 @@ document.write(`
 <p>First try selecting some appropriate physical and numerical parameters such that you have a stable solution and avoid boundaries. Then try refining the spatial and temporal mesh to see if your solution gets closer to the exact solution.</p>
 </section>
 <section id="homework-pure-advection-impact-of-time-step-from-comp-math">
-<h2>Homework - Pure advection - impact of time step [from Comp Math]<a class="headerlink" href="#homework-pure-advection-impact-of-time-step-from-comp-math" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Homework - Pure advection - impact of time step [from Comp Math]</a><a class="headerlink" href="#homework-pure-advection-impact-of-time-step-from-comp-math" title="Permalink to this heading">#</a></h2>
 <p>Write a solver for a pure advection problem in a periodic domain using forward Euler with upwind differences in space and with a Gaussian initial condition.</p>
 <p>First test that it works/fails based on the CFL condition.</p>
 <p>Then update the solver such that it selects the timestep automatically to satisfy a user-defined target Courant number, e.g. look to enforce a Courant number of 0.8.</p>
