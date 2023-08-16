@@ -647,6 +647,7 @@ In 1D in particularly FD and FV aren’t that different conceptually and lead to
 </section>
 <section id="error-bounds-formulae-star">
 <h3>Error bounds formulae  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#error-bounds-formulae-star" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <p>We will state the following standard results without proving them.</p>
 <p>Over a single element <span class="math notranslate nohighlight">\(e_i\)</span> we have the (linear) interpolation error bound</p>
 <div class="math notranslate nohighlight">
@@ -656,6 +657,7 @@ In 1D in particularly FD and FV aren’t that different conceptually and lead to
 <p>We can sum up this result over our entire domain:</p>
 <div class="math notranslate nohighlight">
 \[ \| f - \pi f\|_{L^2(I)} \leq C \sum_{i=0}^N \Delta x_i^2 \, ||f''||_{L^2(e_i)}.\]</div>
+</div>
 </section>
 <section id="id1">
 <h3>Comments<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
@@ -1076,6 +1078,7 @@ M_{i,i+1} = \int_{x_{i-1}}^{x_{i+1}} ,\phi_i(x),\phi_{i+1}(x),  dx.
 <p>From our analytical evaluation of the integrals above we know that we should obtain the values 2/3 and 1/6 respectively.  And in the case of the <span class="math notranslate nohighlight">\((0,0)\)</span> and <span class="math notranslate nohighlight">\((n,n)\)</span> entries of the matrix we should obtain half of the internal main diagonal values, i.e. here 1/3.</p>
 <section id="application-of-simpson-s-rule-star">
 <h3>Application of Simpson’s rule [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#application-of-simpson-s-rule-star" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <p>We note that the integrands of the integrals we need to compute are quadratic over an element for our current case (the product of two linear functions), and so can be exactly integrated using Simpson’s rule applied over those individual elements where it is non-zero.</p>
 <p>Recall from a previous lecture that Simpson’s quadrature rule was</p>
 <div class="math notranslate nohighlight">
@@ -1144,6 +1147,7 @@ function evaluations at (number_intervals + 1) points.`
 </pre></div>
 </div>
 <p>]</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># verify values in our mass matrix</span>
@@ -1494,7 +1498,7 @@ K\boldsymbol{u} &amp;= \boldsymbol{b}.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f2c8af6eac0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fdab0abc2e0&gt;
 </pre></div>
 </div>
 <img alt="../_images/3b357ba2b4c19ef78ed77a209ba777f6bcc2677173c01155e0a450d0d3ad2fe8.png" src="../_images/3b357ba2b4c19ef78ed77a209ba777f6bcc2677173c01155e0a450d0d3ad2fe8.png" />
@@ -2345,7 +2349,7 @@ x &amp;= \frac{1}{2}\left(x_L+x_R\right) + \frac{1}{2}\left(x_R - x_L\right)\xi 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f2c8ad7a790&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fdab0b3c190&gt;
 </pre></div>
 </div>
 <img alt="../_images/fba9a9ecf301958c4e973253e5bfa4c5dfbf2529dfb8d42a7a986f104129b734.png" src="../_images/fba9a9ecf301958c4e973253e5bfa4c5dfbf2529dfb8d42a7a986f104129b734.png" />
