@@ -939,7 +939,7 @@ np.flip(a, 0) =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f18d6f77fd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f3f25ba6eb0&gt;
 </pre></div>
 </div>
 <img alt="../_images/6c380a3719cc3539cb1888b582fcb34fa6b78d0dfa420b33688a96f2d6b6a8ee.png" src="../_images/6c380a3719cc3539cb1888b582fcb34fa6b78d0dfa420b33688a96f2d6b6a8ee.png" />
@@ -1278,7 +1278,12 @@ N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0.
 \end{split}\]</div>
 <p>Let’s now evaluate the actual error between the function and the interpolating polynomials and see how well these error estimates agree, or bound this error.</p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span>
 
@@ -1331,6 +1336,7 @@ N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0.
 <div class="cell_output docutils container">
 <img alt="../_images/a46cfe6f7536e3a91d1716eee06282dbdd827c0b1c11fbe4f0e14d03fcf3d70c.png" src="../_images/a46cfe6f7536e3a91d1716eee06282dbdd827c0b1c11fbe4f0e14d03fcf3d70c.png" />
 </div>
+</details>
 </div>
 </section>
 <section id="comments-star">
@@ -1356,7 +1362,12 @@ N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0.
 \[f(x) := \frac{1}{1 + 25 x^2},\]</div>
 <p>using equally spaced data points in the interval <span class="math notranslate nohighlight">\([-1,1]\)</span> is a famous example demonstrating how/where polynomial interpolation can go wrong!</p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the runge function</span>
 <span class="k">def</span> <span class="nf">runge</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -1408,6 +1419,7 @@ N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0.
 <div class="cell_output docutils container">
 <img alt="../_images/4cf55f94c87bdb2894395e14c9d928333d59a5c51789e8be60460c8a6ce54553.png" src="../_images/4cf55f94c87bdb2894395e14c9d928333d59a5c51789e8be60460c8a6ce54553.png" />
 </div>
+</details>
 </div>
 <section id="id1">
 <h3><a class="toc-backref" href="#id32" role="doc-backlink">Observations  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
@@ -1429,7 +1441,12 @@ N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0.
 </ul>
 <p>One of the homework exercises involves plotting the error bound - and the byproduct of multiplying things together which are very large/small is an error bound which we can indeed show gets very large with <span class="math notranslate nohighlight">\(N\)</span> and with the error largest at the end points.</p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot Psi for different N values:</span>
 <span class="n">Ns</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">20</span><span class="p">]</span>
@@ -1462,6 +1479,7 @@ N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0.
 <img alt="../_images/e11bbe9ba40056b57da8c11c66d5068e97fca8045b92bec78bee0550b9e9d6e0.png" src="../_images/e11bbe9ba40056b57da8c11c66d5068e97fca8045b92bec78bee0550b9e9d6e0.png" />
 <img alt="../_images/f19bd497817d766c62bf9e060f02b9b73619e2e1df38d5f3b4d2b9a013fe28e6.png" src="../_images/f19bd497817d766c62bf9e060f02b9b73619e2e1df38d5f3b4d2b9a013fe28e6.png" />
 </div>
+</details>
 </div>
 </section>
 </section>
@@ -1482,7 +1500,12 @@ N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0.
 <p>and as we will see in the following example, evaluating our function at these non-uniform locations and using this data to construct our interpolating polynomial fixes the problem we saw above for the case where we used evenly spaced data.</p>
 <p>In the next cell we again compute and plot the Lagrange polynomial interpolant for differing <span class="math notranslate nohighlight">\(N\)</span>, but simply change the location of the data sampling points <code class="docutils literal notranslate"><span class="pre">xi</span></code>.</p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we don&#39;t need to consider quite so many cases now to prove the point that</span>
 <span class="c1"># things have improved substantially.</span>
@@ -1514,6 +1537,7 @@ N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0.
 <img alt="../_images/33162aae9608bb973064b2bf98d5a58b282a734a2447cd2f3c7c26b60cbc14be.png" src="../_images/33162aae9608bb973064b2bf98d5a58b282a734a2447cd2f3c7c26b60cbc14be.png" />
 <img alt="../_images/f55d9e9b7d8844488ca01f9c79ccca917d405b40d8adc8e1e71e8e9ff9bc9f04.png" src="../_images/f55d9e9b7d8844488ca01f9c79ccca917d405b40d8adc8e1e71e8e9ff9bc9f04.png" />
 </div>
+</details>
 </div>
 <p>We see that rather than being evenly distribute the data points are now clustered towards the extremes of the domain.</p>
 <br>
@@ -1641,7 +1665,7 @@ N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f18d48a6ee0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f3f2347d130&gt;
 </pre></div>
 </div>
 <img alt="../_images/55667119b08df9a8bb13d2b2b9b847958c58f3669a9289d8555d7c7ff5d883ac.png" src="../_images/55667119b08df9a8bb13d2b2b9b847958c58f3669a9289d8555d7c7ff5d883ac.png" />
@@ -1681,7 +1705,7 @@ N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f18d4c54520&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f3f238e65e0&gt;
 </pre></div>
 </div>
 <img alt="../_images/d9b7fb8279c46cbe57209d2f7da2ea03f747a211effaf47e26558061cb50b508.png" src="../_images/d9b7fb8279c46cbe57209d2f7da2ea03f747a211effaf47e26558061cb50b508.png" />
@@ -1718,7 +1742,7 @@ N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f18d4b3d7f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f3f25bbb6d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/0119761896121c5dfa426b192940a11eed431bfd3af781cfc746cc93262d65d3.png" src="../_images/0119761896121c5dfa426b192940a11eed431bfd3af781cfc746cc93262d65d3.png" />
@@ -1934,7 +1958,12 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 <p>[If you’re feeling brave there is a <strong>homework exercise</strong> asking you to implement cubic spline interpolation.].</p>
 <p>Let’s see what it does for our data set case, as well as the problematic Runge function in the two cells below - we see that it performs well.</p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># consider the above example data again</span>
 <span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">])</span>
@@ -1970,8 +1999,14 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 <div class="cell_output docutils container">
 <img alt="../_images/01404cfa74ddfb2d5c89084f0cbca06aea941d808656699b788ba045b2a55542.png" src="../_images/01404cfa74ddfb2d5c89084f0cbca06aea941d808656699b788ba045b2a55542.png" />
 </div>
+</details>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s test on the Runge function which caused problems from Lagrange interpolation</span>
 <span class="k">def</span> <span class="nf">runge</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -2012,6 +2047,7 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 <div class="cell_output docutils container">
 <img alt="../_images/5e068f778e077df05ccb66804c34e09fcde915777ca8453f13e5626301c6f35d.png" src="../_images/5e068f778e077df05ccb66804c34e09fcde915777ca8453f13e5626301c6f35d.png" />
 </div>
+</details>
 </div>
 </section>
 </section>
@@ -2029,7 +2065,12 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 </ul>
 <p>Let’s see what it does for our data set case, and the problematic Runge function.</p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># consider the above example data again</span>
 <span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">])</span>
@@ -2057,8 +2098,14 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 <div class="cell_output docutils container">
 <img alt="../_images/363bc46980a3d28602f148ed5cbce02d8fa4a6d8023993e0485556a9d02230b1.png" src="../_images/363bc46980a3d28602f148ed5cbce02d8fa4a6d8023993e0485556a9d02230b1.png" />
 </div>
+</details>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s test on the Runge function which caused problems from Lagrange interpolation</span>
 <span class="k">def</span> <span class="nf">runge</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -2104,6 +2151,7 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 <div class="cell_output docutils container">
 <img alt="../_images/db250f36cc37e2d45d2f6870dcb173f62aef65045a2bfb549537a9ef7afdf0fa.png" src="../_images/db250f36cc37e2d45d2f6870dcb173f62aef65045a2bfb549537a9ef7afdf0fa.png" />
 </div>
+</details>
 </div>
 <section id="id2">
 <h3><a class="toc-backref" href="#id49" role="doc-backlink">Observations</a><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
@@ -2114,7 +2162,12 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 <li><p>Of course this problem would go away if we had a data point at the middle (which we have if we choose an odd number of data points):</p></li>
 </ul>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 
@@ -2140,6 +2193,7 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 <div class="cell_output docutils container">
 <img alt="../_images/e61daf2e1a4d821dfb0a98185c13a0516a96081a46817ef20c55214c6a36bf6c.png" src="../_images/e61daf2e1a4d821dfb0a98185c13a0516a96081a46817ef20c55214c6a36bf6c.png" />
 </div>
+</details>
 </div>
 </section>
 </section>
@@ -2455,13 +2509,15 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 <div class="math notranslate nohighlight">
 \[\int_{0}^{1} x^{2}\,dx = \left.\frac{1}{3}x^3\right|_0^1=\frac {1}{3}.\]</div>
 <p>Whereas numerically the midpoint rule on a single interval gives an approximation of</p>
-<p>\begin{equation}
+<div class="math notranslate nohighlight">
+\[
 I_M = 1 \left(\frac {1}{2}\right)^{2} = \frac {1}{4},
-\end{equation}</p>
+\]</div>
 <p>while the trapezoidal rule gives</p>
-<p>\begin{equation}
+<div class="math notranslate nohighlight">
+\[
 I_T = 1 \frac {0+1^{2}}{2} = \frac {1}{2}.
-\end{equation}</p>
+\]</div>
 <p>The error for <span class="math notranslate nohighlight">\(I_M\)</span> is therefore <span class="math notranslate nohighlight">\(1/3 - 1/4 = 1/12\)</span>, while the error for <span class="math notranslate nohighlight">\(I_T\)</span> is <span class="math notranslate nohighlight">\(1/3 - 1/2 = -1/6\)</span>.</p>
 <p>Therefore, the midpoint rule is twice as accurate as the trapezoid rule:</p>
 <div class="math notranslate nohighlight">
@@ -3038,7 +3094,12 @@ A_0 f(a) + A_1 f(b) = (b - a)\frac{(f(a) + f(b))}{2},
 <p>This is in contrast to the SciPy methods we have seen above which have generally taken the pre-computed function <em>values</em> at a fixed number of points, hence it is these values rather than the underlying function which are passed as arguments. Clearly this means that Romberg integration is not suitable for situations where we only have data points and no access to an underlying function.</p>
 <p>Let’s call SciPy’s Romberg integration function on our <span class="math notranslate nohighlight">\(f(x) = \sin(x)\)</span> problem to see what it does:</p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;The function we wish to integrate&quot;&quot;&quot;</span>
@@ -3051,7 +3112,7 @@ A_0 f(a) + A_1 f(b) = (b - a)\frac{(f(a) + f(b))}{2},
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Romberg integration of &lt;function vectorize1.&lt;locals&gt;.vfunc at 0x7f18cd347c10&gt; from [0.0, 3.141592653589793]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Romberg integration of &lt;function vectorize1.&lt;locals&gt;.vfunc at 0x7f3f1be835e0&gt; from [0.0, 3.141592653589793]
 
  Steps  StepSize   Results
      1  3.141593  0.000000 
@@ -3067,6 +3128,7 @@ Romberg integration error = 1.3211653993039363e-12
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <section id="id7">
 <h3><a class="toc-backref" href="#id72" role="doc-backlink">Observations</a><a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
@@ -3089,10 +3151,11 @@ Romberg integration error = 1.3211653993039363e-12
 <section id="algorithm">
 <h3><a class="toc-backref" href="#id74" role="doc-backlink">Algorithm</a><a class="headerlink" href="#algorithm" title="Permalink to this heading">#</a></h3>
 <p>By the same argument that was used to derive Weddle’s rule from Simpson’s (and indeed similar to how we derived Simpson from Midpoint and Trapezoidal) we know that approximately</p>
-<p>\begin{equation}
-16(I - I_{S_2}) \approx I - I_{S} ;;;; \Rightarrow ;;;;
+<div class="math notranslate nohighlight">
+\[
+16(I - I_{S_2}) \approx I - I_{S} \;\;\;\; \Rightarrow \;\;\;\;
 I - I_{S_2} \approx \frac {\left(I_{S_2} - I_{S} \right)}{15},
-\end{equation}</p>
+\]</div>
 <p>i.e. the error between the <span class="math notranslate nohighlight">\(I_{S_2}\)</span> approximation of the integral and the true integral <span class="math notranslate nohighlight">\(I\)</span> is approximately <span class="math notranslate nohighlight">\(1/15\)</span> the difference in <span class="math notranslate nohighlight">\(I_{S_2}\)</span> and <span class="math notranslate nohighlight">\(I_{S}\)</span>.</p>
 <p>Adaptive quadrature evaluates the integral with <span class="math notranslate nohighlight">\(I_S\)</span> and <span class="math notranslate nohighlight">\(I_{S_2}\)</span> over the entire interval <span class="math notranslate nohighlight">\([a,b]\)</span>.</p>
 <p>If the error estimate provided by the formula above (<span class="math notranslate nohighlight">\((I_{S_2} - I_{S})/15\)</span>) is below a <em>user-defined tolerance</em> then <span class="math notranslate nohighlight">\(I_{S_2}\)</span> is returned as the numerical approximation to the integral (actually since we know <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(S_2\)</span> we might as well return the more accurate Weddle approximation: <span class="math notranslate nohighlight">\(I_W = I_{S_2} + (I_{S_2} - I_{S})/15\)</span>).</p>
@@ -3119,7 +3182,7 @@ I - I_{S_2} \approx \frac {\left(I_{S_2} - I_{S} \right)}{15},
 <h3><a class="toc-backref" href="#id77" role="doc-backlink">Application to a complex problem</a><a class="headerlink" href="#application-to-a-complex-problem" title="Permalink to this heading">#</a></h3>
 <p>We see in the plot below a far more complex function where we really are making good use of the ability to evaluate the function in an adaptive manner.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="Chapter9/Figures/daptive_quadrature_example.png"><img alt="Chapter9/Figures/daptive_quadrature_example.png" src="Chapter9/Figures/daptive_quadrature_example.png" style="width: 75%;" /></a>
+<a class="reference internal image-reference" href="../_images/adaptive_quadrature_example.png"><img alt="../_images/adaptive_quadrature_example.png" src="../_images/adaptive_quadrature_example.png" style="width: 75%;" /></a>
 </figure>
 <br>
 <p>Again, this plot is showing the non-uniform, or adaptive, locations at which the function has been evaluated by the algorith.</p>
@@ -3231,7 +3294,12 @@ A_0 = 1,\;\;\; A_1 = 1,\]</div>
 <p>We can also access the Gauss-Legendre quadrature rule using <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.polynomial.legendre.leggauss.html">numpy.polynomial.legendre.leggauss</a> as we see below.</p>
 <p>NB. we can check that the <span class="math notranslate nohighlight">\(x\)</span> values for degree 2 are indeed the <span class="math notranslate nohighlight">\(\pm 1/\sqrt{3}\)</span> we calculated above:</p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute the Gauss-Legendre nodes and weights</span>
 <span class="n">degree</span> <span class="o">=</span> <span class="mi">2</span>
@@ -3247,8 +3315,14 @@ Weights, w:  [1. 1.]
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># default print precision is 8 - let&#39;s get more s.f.s</span>
 <span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
@@ -3280,6 +3354,7 @@ degree 4:
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <section id="changing-integration-limits">
 <h3><a class="toc-backref" href="#id83" role="doc-backlink">Changing integration limits</a><a class="headerlink" href="#changing-integration-limits" title="Permalink to this heading">#</a></h3>
@@ -3331,7 +3406,7 @@ degree 4:
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Integrals from our code and SciPy for degree 1 = 3.141592653589793, 3.141592653589793
 Integrals from our code and SciPy for degree 2 = 1.9358195746511373, 1.9358195746511373
-Integrals from our code and SciPy for degree 3 = 2.0013889136077436, 2.001388913607743
+Integrals from our code and SciPy for degree 3 = 2.0013889136077436, 2.0013889136077427
 Integrals from our code and SciPy for degree 4 = 1.999984228457722, 1.999984228457722
 Integrals from our code and SciPy for degree 5 = 2.0000001102844718, 2.0000001102844727
 Integrals from our code and SciPy for degree 6 = 1.9999999994772721, 1.9999999994772708
