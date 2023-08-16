@@ -439,8 +439,6 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-content">Types of content</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-for-notebook">Settings for notebook</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuum-mechanics-equations">Continuum mechanics equations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-continuity-equation-conservation-of-mass">The continuity equation (conservation of mass)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="nav section-nav flex-column">
@@ -473,7 +471,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-5">Answer 5</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6">Exercise 6</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-advanced">Exercise 6 (Advanced)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-6">Answer 6</a></li>
 </ul>
 </li>
@@ -597,16 +595,7 @@ document.write(`
             </ul>
         </ul>
     </ul>
-</li></ul></div></section>
-<section id="types-of-content">
-<h2>Types of content<a class="headerlink" href="#types-of-content" title="Permalink to this heading">#</a></h2>
-<div class="alert alert-info"> <b><font color=black>Exercises for all</font></b> </div>
-<div class="alert alert-success"> <b><font color=black>Optional additional practise</font></b> </div>
-<div class="alert alert-warning"> <b><font color=black>Optional advanced practise/content</font></b> </div>
-</section>
-<section id="settings-for-notebook">
-<h2>Settings for notebook<a class="headerlink" href="#settings-for-notebook" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
+</li></ul></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages for notebook here</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -676,7 +665,6 @@ document.write(`
 <p>or in material description:</p>
 <div class="math notranslate nohighlight">
 \[\frac{D\rho}{Dt} + \rho\nabla\cdot\v = 0 .\]</div>
-<div class="alert alert-info"> <font color=black>
 <section id="exercise-1">
 <h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
 <p>Given the following 3D velocity field,</p>
@@ -832,7 +820,6 @@ document.write(`
 <p>The term on the left-hand side is the mass (per unit volume) times the acceleration; the terms on the right-hand side are therefore the sum of the forces (per unit mass) acting on the body, which for each coordinate direction include the net body force (per unit mass) <span class="math notranslate nohighlight">\(\vector{f}\)</span> and the sum of the stress gradients <span class="math notranslate nohighlight">\(\nabla\cdot\tensor{\sigma}\)</span> acting in that direction.</p>
 <p>This implies that if the continuum is in equilibrium at a point (i.e., no acceleration), the body force and stress gradients must be in exact balance in each direction.</p>
 <p>If there is no body force then the sum of the stress gradients in each coordinate direction must be zero.</p>
-<div class="alert alert-info"> <font color=black>
 <section id="exercise-2">
 <h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
 <p>Consider the following stress distribution:</p>
@@ -929,7 +916,6 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(v_z\)</span> vertical velocity (in m/s)</p></li>
 </ul>
 <p>Use the code below to calculate and plot analytical solutions to the 1-D steady state advection-diffusion equation for the transport of heat, with constant temperature boundary conditions at <span class="math notranslate nohighlight">\(z=0\)</span> and <span class="math notranslate nohighlight">\(z=L\)</span>.</p>
-<div class="alert alert-info"> <font color=black>
 </section>
 <section id="exercise-3">
 <h3>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
@@ -975,7 +961,6 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="alert alert-info"> <font color=black>
 <p><strong>Step 2:</strong> Compute and plot temperature solutions for the range of advection velocities</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1006,7 +991,6 @@ document.write(`
 <img alt="../_images/0017a463420528af2c308d846d8211c75c4ea3d32db6f13776ce315679d8d7f5.png" src="../_images/0017a463420528af2c308d846d8211c75c4ea3d32db6f13776ce315679d8d7f5.png" />
 </div>
 </div>
-<div class="alert alert-info"> <font color=black>
 <p>The relative importance of heat advection and heat conduction determines the shape of the temperature-depth profiles. The dimensionless parameter that captures this relative importance is called the <strong>Peclet number</strong>, <span class="math notranslate nohighlight">\(Pe\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[ Pe = \frac{v_z L}{\kappa}\]</div>
@@ -1029,14 +1013,13 @@ Peclet number:  [47.215  9.443  4.722  0.944  0.094  0.009]
 </div>
 </div>
 </div>
-<div class="alert alert-success"> <font color=black>
-Things you could try yourself:
+<p><strong>(Optional)</strong></p>
+<p>Things you could try yourself:</p>
 <ul class="simple">
 <li><p>Evaluate how the profile and Peclet number change with advection velocity. At what velocity does the solution become essentially conductive?</p></li>
 <li><p>Add a heat production term (e.g. A = 0.4 <span class="math notranslate nohighlight">\(\mu\)</span>W/m<span class="math notranslate nohighlight">\(^3\)</span>)</p></li>
 <li><p>Find solution for boundary conditions: <span class="math notranslate nohighlight">\(T\)</span>(<span class="math notranslate nohighlight">\(z\)</span>=0)=0 <span class="math notranslate nohighlight">\(^{\circ}\)</span>C and <span class="math notranslate nohighlight">\(\partial T/\partial z\)</span>(<span class="math notranslate nohighlight">\(z\)</span>=0)=20<span class="math notranslate nohighlight">\(^{\circ}\)</span>C/km and plot for different values of <span class="math notranslate nohighlight">\(v_z\)</span>.</p></li>
 </ul>
-<div class="alert alert-info"> <font color=black>
 </section>
 </section>
 <section id="exercise-4">
@@ -1111,7 +1094,7 @@ $<span class="math notranslate nohighlight">\(\frac{dT}{dy} = -\frac{Ay}{k} + C_
 <img alt="../_images/d7f024dfa112b1e0c94901464e871e625e5ce29d6a08fcf9f3142e8fc73282e2.png" src="../_images/d7f024dfa112b1e0c94901464e871e625e5ce29d6a08fcf9f3142e8fc73282e2.png" />
 </div>
 </div>
-<div class="alert alert-success"> <font color=black>
+<p><strong>(Optional)</strong></p>
 <p><strong>(d)</strong> You could vary the values of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(k\)</span> to get more insight in the relative effects of heat production and conductivity on the temperature profile.</p>
 </section>
 </section>
@@ -1121,8 +1104,9 @@ $<span class="math notranslate nohighlight">\(\frac{dT}{dy} = -\frac{Ay}{k} + C_
 <p>In the lecture, we saw how combining the conservation of momentum equation with the constitutive equation for an elastic material leads to the elastic wave equation.</p>
 <p>For an isotropic Hookean solid, the constitutive equation only involves two elastic parameters, taking the following form when cast in terms of the two Lamé constants:
 $<span class="math notranslate nohighlight">\(\sigma_{ij}=\lambda \epsilon_{kk} \delta_{ij} + 2 \mu \epsilon_{ij}\)</span>$</p>
-<div class="alert alert-success"> <font color=black>
-Writing out the missing steps in the derivation in the lecture slides is a good practise of tensor and index notation skills<p>Remembering that the conservation of momentum, in index notation is:
+<p><strong>(Optional)</strong>
+<em>Writing out the missing steps in the derivation in the lecture slides is a good practise of tensor and index notation skills</em></p>
+<p>Remembering that the conservation of momentum, in index notation is:
 $<span class="math notranslate nohighlight">\(\rho\frac{\partial^2 u_{i}}{\partial t^2} = f_{i} + \frac{\partial{\sigma_{ji}}}{\partial{x_{j}}}\)</span>$</p>
 <p>With the above elastic constitutive equation, the divergence of the stress tensor is:
 $$ \frac{\partial{\sigma_{ji}}}{\partial{x_{j}}} =
@@ -1141,7 +1125,6 @@ $<span class="math notranslate nohighlight">\(\nabla^2\vector{u}=\nabla(\nabla\c
 \vector{f} + (\lambda+2\mu)\nabla(\nabla\cdot\vector{u}) 
 - \mu \nabla\times\nabla\times\vector{u}\]</div>
 <p>The term with <span class="math notranslate nohighlight">\(\nabla\cdot\vector{u}\)</span> describes changes in volume due to the displacement field and is related to compressional waves, while the term with <span class="math notranslate nohighlight">\(\nabla\times\vector{u}\)</span> describes the rotational component of the displacement field and is related to shear waves.</p>
-<div class="alert alert-info"> <font color=black>
 <section id="exercise-5">
 <h3>Exercise 5<a class="headerlink" href="#exercise-5" title="Permalink to this heading">#</a></h3>
 <p>Two alternative elastic parameters often used are the bulk modulus <span class="math notranslate nohighlight">\(K\)</span> and shear modulus <span class="math notranslate nohighlight">\(G\)</span>. These two moduli are linked, respectively, to isotropic stress (i.e. pressure <span class="math notranslate nohighlight">\(p\)</span>) and strain (<span class="math notranslate nohighlight">\(\theta\)</span>):
@@ -1163,11 +1146,10 @@ $<span class="math notranslate nohighlight">\( \sigma'_{ij} = \sigma_{ij} + p \d
 $<span class="math notranslate nohighlight">\(\sigma'_{ij} = 2 \mu  \epsilon'_{ij} \)</span><span class="math notranslate nohighlight">\(
 \)</span><span class="math notranslate nohighlight">\(\Rightarrow  G = \mu \)</span>$</p>
 <p>Note that the term in the wave equation that pertains to compressional waves is scaled by <span class="math notranslate nohighlight">\((\lambda + 2\mu)\)</span>, i.e. a parameter closely related to <span class="math notranslate nohighlight">\(K\)</span>, while the term that pertains to shear waves is scaled by the shear modulus <span class="math notranslate nohighlight">\(G\)</span>.</p>
-<div class="alert alert-warning"> <font color=black>
 </section>
 </section>
-<section id="exercise-6">
-<h3>Exercise 6<a class="headerlink" href="#exercise-6" title="Permalink to this heading">#</a></h3>
+<section id="exercise-6-advanced">
+<h3>Exercise 6 (Advanced)<a class="headerlink" href="#exercise-6-advanced" title="Permalink to this heading">#</a></h3>
 <p><strong>(a)</strong>	Show that for an isotropic Hookean solid, the principal directions of stress and strain coincide.</p>
 <p><strong>(b)</strong>	Find a relation between the principal values of stress and strain using the two Lamé parameters.</p>
 <p><strong>(c)</strong> For the same Hookean solid, express the elastic Young’s modulus <span class="math notranslate nohighlight">\(E\)</span> and Poisson’s ratio <span class="math notranslate nohighlight">\(\nu\)</span>, which are often used in engineering, in terms of the Lamé parameters <span class="math notranslate nohighlight">\(\lambda\)</span> and <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
@@ -1271,7 +1253,6 @@ assuming that \)</span>\zeta<span class="math notranslate nohighlight">\( and \)
 = \rho (\frac{\partial{\vector{v}}}{\partial{t}} + \vector{v} \cdot \nabla \vector{v})\]</div>
 <p><strong>Navier-Stokes + continuity equations</strong></p>
 <p>In 3-D, this Navier-Stokes equations above correspond to three equations (force balance in <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> direction) and has four unknowns: pressure <span class="math notranslate nohighlight">\(p\)</span>, and the three components of velocity <span class="math notranslate nohighlight">\(\vector{v}=(v_x,v_y,v_z)\)</span>. By solving it together with the continuity equation <span class="math notranslate nohighlight">\(\nabla\cdot\vector{v}=0\)</span>, this yields a system of four equations with four unknowns.</p>
-<div class="alert alert-info"> <font color=black>
 <section id="exercise-7">
 <h3>Exercise 7<a class="headerlink" href="#exercise-7" title="Permalink to this heading">#</a></h3>
 <p>Consider a Newtonian shear flow with velocity field <span class="math notranslate nohighlight">\(v_1(x_2), v_2=v_3=0\)</span>.</p>
@@ -1295,7 +1276,6 @@ $<span class="math notranslate nohighlight">\(\sigma_{11}=\sigma_{22}=\sigma_{33
 \)</span><span class="math notranslate nohighlight">\(\sigma_{12}=\sigma_{21}=\eta \frac{1}{2} \frac{d v_1}{d x_2}\)</span><span class="math notranslate nohighlight">\(
 \)</span><span class="math notranslate nohighlight">\(\sigma_{13}=\sigma_{31}=\sigma_{23}=\sigma_{32}=0\)</span>$</p>
 <p>This example illustrates that <span class="math notranslate nohighlight">\(\eta\)</span> represents the resistance to shearing.</p>
-<div class="alert alert-info"> <font color=black>
 </section>
 </section>
 <section id="exercise-8">
@@ -1486,8 +1466,6 @@ $<span class="math notranslate nohighlight">\(\sigma_{11}=\sigma_{22}=\sigma_{33
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-content">Types of content</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-for-notebook">Settings for notebook</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuum-mechanics-equations">Continuum mechanics equations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-continuity-equation-conservation-of-mass">The continuity equation (conservation of mass)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="nav section-nav flex-column">
@@ -1520,7 +1498,7 @@ $<span class="math notranslate nohighlight">\(\sigma_{11}=\sigma_{22}=\sigma_{33
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-5">Answer 5</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6">Exercise 6</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-advanced">Exercise 6 (Advanced)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-6">Answer 6</a></li>
 </ul>
 </li>

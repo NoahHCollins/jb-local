@@ -439,8 +439,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-content">Types of content</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-for-notebook">Settings for notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuum-mechanics-equations">Continuum mechanics equations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-continuity-equation-conservation-of-mass">The continuity equation (conservation of mass)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
@@ -458,7 +457,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-momentum-hookean-elasticity">Conservation of Momentum: Hookean Elasticity</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6">Exercise 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-advanced">Exercise 6 (Advanced)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-momentum-navier-stokes">Conservation of Momentum: Navier-Stokes</a><ul class="nav section-nav flex-column">
@@ -478,9 +477,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exercises">
-<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
 <section id="learning-outcomes-a-class-tocskip">
-<h2>Learning outcomes  <a class="tocSkip"><a class="headerlink" href="#learning-outcomes-a-class-tocskip" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Learning outcomes  <a class="tocSkip"></a><a class="headerlink" href="#learning-outcomes-a-class-tocskip" title="Permalink to this heading">#</a></h2>
 <p>At the end of this session, you should:</p>
 <ol class="arabic simple">
 <li><p>Know the main conservation equations used in continuum mechanics modelling and understand what different terms in these equations represent</p></li>
@@ -488,68 +487,50 @@ document.write(`
 <li><p>Understand basic properties of elastic and viscous rheology and understand how the choice of rheology leads to different forms of the momentum conservation equation</p></li>
 <li><p>Using tensor analysis to obtain relations between the main isotropic elastic parameters</p></li>
 </ol>
-<h2>Table of Contents<span class="tocSkip"></span></h2>
-</br>
-<div class="toc"><ul class="toc-item">
-<li><span><a href="#Continuum-mechanics-equations" data-toc-modified-id="Continuum-mechanics-equations-0">
-    <span class="toc-item-num">0&nbsp;&nbsp;</span>Continuum mechanics equations</a></span></li>
-<li><span><a href="#The-continuity-equation-(conservation-of-mass)" data-toc-modified-id="The-continuity-equation-(conservation-of-mass)-1">
-    <span class="toc-item-num">1&nbsp;&nbsp;</span>The continuity equation (conservation of mass)</a></span></li>
-    <ul class="toc-item">
-        <ul class="toc-item">
-        <li><span><a href="#Exercise-1" data-toc-modified-id="Exercise-1-1.0.1">
-            <span class="toc-item-num">1.0.1&nbsp;&nbsp;</span>Exercise 1</a></span></li>
-        </ul>
-    </ul>
-<li><span><a href="#The-equation-of-motion-and-force-equilibrium" data-toc-modified-id="The-equation-of-motion-and-force-equilibrium-2">
-    <span class="toc-item-num">2&nbsp;&nbsp;</span>The equation of motion and force equilibrium</a></span></li>
-    <ul class="toc-item">
-        <ul class="toc-item">
-        <li><span><a href="#Exercise-2" data-toc-modified-id="Exercise-2-2.0.1">
-            <span class="toc-item-num">2.0.1&nbsp;&nbsp;</span>Exercise 2</a></span></li>
-        </ul>
-    </ul>
-<li><span><a href="#Conservation-of-Energy" data-toc-modified-id="Conservation-of-Energy-3">
-    <span class="toc-item-num">3&nbsp;&nbsp;</span>Conservation of Energy</a></span></li>
-    <ul class="toc-item">
-    <li><span><a href="#1D-Advection-Diffusion" data-toc-modified-id="1D-Advection-Diffusion-3.1">
-        <span class="toc-item-num">3.1&nbsp;&nbsp;</span>1D Advection-Diffusion</a></span>
-         <ul class="toc-item">
-        <li><span><a href="#Exercise-3" data-toc-modified-id="Exercise-3-3.1.1">
-            <span class="toc-item-num">3.1.1&nbsp;&nbsp;</span>Exercise 3</a></span></li>
-        <li><span><a href="#Exercise-4" data-toc-modified-id="Exercise-4-3.1.2">
-            <span class="toc-item-num">3.1.2&nbsp;&nbsp;</span>Exercise 4</a></span></li>
-        </ul>
-    </ul>
-<li><span><a href="#Conservation-of-Momentum:-Hookean-Elasticity" data-toc-modified-id="Conservation-of-Momentum:-Hookean-Elasticity-4">
-    <span class="toc-item-num">4&nbsp;&nbsp;</span>Conservation of Momentum: Hookean Elasticity</a></span></li>
-    <ul class="toc-item">
-        <ul class="toc-item">
-        <li><span><a href="#Exercise-5" data-toc-modified-id="Exercise-5-4.0.1">
-            <span class="toc-item-num">4.0.1&nbsp;&nbsp;</span>Exercise 5</a></span></li>
-        <li><span><a href="#Exercise-6" data-toc-modified-id="Exercise-6-4.0.2">
-            <span class="toc-item-num">4.0.2&nbsp;&nbsp;</span>Exercise 6</a></span></li>
-        </ul>
-    </ul>
-<li><span><a href="#Conservation-of-Momentum:-Navier-Stokes" data-toc-modified-id="Conservation-of-Momentum:-Navier-Stokes-5">
-    <span class="toc-item-num">5&nbsp;&nbsp;</span>Conservation of Momentum: Navier-Stokes<a></span></li>
-    <ul class="toc-item">
-        <ul class="toc-item">
-        <li><span><a href="#Exercise-7" data-toc-modified-id="Exercise-7-5.0.1">
-            <span class="toc-item-num">5.0.1&nbsp;&nbsp;</span>Exercise 7</a></span></li>
-        <li><span><a href="#Exercise-8" data-toc-modified-id="Exercise-8-5.0.2">
-            <span class="toc-item-num">5.0.2&nbsp;&nbsp;</span>Exercise 8</a></span></li>
-        </ul>
-    </ul>
-</li></ul></div></section>
-<section id="types-of-content">
-<h2>Types of content<a class="headerlink" href="#types-of-content" title="Permalink to this heading">#</a></h2>
-<div class="alert alert-info"> <b><font color=black>Exercises for all</font></b> </div>
-<div class="alert alert-success"> <b><font color=black>Optional additional practise</font></b> </div>
-<div class="alert alert-warning"> <b><font color=black>Optional advanced practise/content</font></b> </div>
 </section>
-<section id="settings-for-notebook">
-<h2>Settings for notebook<a class="headerlink" href="#settings-for-notebook" title="Permalink to this heading">#</a></h2>
+<section id="table-of-contents">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#exercises" id="id1">Exercises</a></p>
+<ul>
+<li><p><a class="reference internal" href="#learning-outcomes-a-class-tocskip" id="id2">Learning outcomes  <a class="tocSkip"></a></p></li>
+<li><p><a class="reference internal" href="#table-of-contents" id="id3">Table of Contents</a></p></li>
+<li><p><a class="reference internal" href="#continuum-mechanics-equations" id="id4">Continuum mechanics equations</a></p></li>
+<li><p><a class="reference internal" href="#the-continuity-equation-conservation-of-mass" id="id5">The continuity equation (conservation of mass)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#exercise-1" id="id6">Exercise 1</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#the-equation-of-motion-and-force-equilibrium" id="id7">The equation of motion and force equilibrium</a></p>
+<ul>
+<li><p><a class="reference internal" href="#exercise-2" id="id8">Exercise 2</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#conservation-of-energy" id="id9">Conservation of Energy</a></p>
+<ul>
+<li><p><a class="reference internal" href="#d-advection-diffusion" id="id10">1D Advection-Diffusion</a></p></li>
+<li><p><a class="reference internal" href="#exercise-3" id="id11">Exercise 3</a></p></li>
+<li><p><a class="reference internal" href="#exercise-4" id="id12">Exercise 4</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#conservation-of-momentum-hookean-elasticity" id="id13">Conservation of Momentum: Hookean Elasticity</a></p>
+<ul>
+<li><p><a class="reference internal" href="#exercise-5" id="id14">Exercise 5</a></p></li>
+<li><p><a class="reference internal" href="#exercise-6-advanced" id="id15">Exercise 6 (Advanced)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#conservation-of-momentum-navier-stokes" id="id16">Conservation of Momentum: Navier-Stokes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#exercise-7" id="id17">Exercise 7</a></p></li>
+<li><p><a class="reference internal" href="#exercise-8" id="id18">Exercise 8</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages for notebook here</span>
@@ -590,7 +571,7 @@ document.write(`
 \[\newcommand{\u}{\vector{u}}\]</div>
 </section>
 <section id="continuum-mechanics-equations">
-<h2>Continuum mechanics equations<a class="headerlink" href="#continuum-mechanics-equations" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Continuum mechanics equations</a><a class="headerlink" href="#continuum-mechanics-equations" title="Permalink to this heading">#</a></h2>
 <p>Continuum mechanical modelling involves solving one or more of a set of equations that capture:</p>
 <ol class="arabic simple">
 <li><p>Kinematics - describing deformation and velocity without considering forces</p></li>
@@ -608,7 +589,7 @@ document.write(`
 <p>If material properties vary with any of the primary parameters, then additional equations, describing for example viscosity or thermal conductivity, need to be added.</p>
 </section>
 <section id="the-continuity-equation-conservation-of-mass">
-<h2>The continuity equation (conservation of mass)<a class="headerlink" href="#the-continuity-equation-conservation-of-mass" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">The continuity equation (conservation of mass)</a><a class="headerlink" href="#the-continuity-equation-conservation-of-mass" title="Permalink to this heading">#</a></h2>
 <p>The continuity equation captures the requirement that no mass is lost during deformation or flow.</p>
 <p>As discussed in the lecture, if material is incompressible, i.e. its density does not change during flow or deformation, this equation reduces to the form:</p>
 <div class="math notranslate nohighlight">
@@ -620,9 +601,8 @@ document.write(`
 <p>or in material description:</p>
 <div class="math notranslate nohighlight">
 \[\frac{D\rho}{Dt} + \rho\nabla\cdot\v = 0 .\]</div>
-<div class="alert alert-info"> <font color=black>
 <section id="exercise-1">
-<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Exercise 1</a><a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
 <p>Given the following 3D velocity field,</p>
 <div class="math notranslate nohighlight">
 \[v_i=\frac{kx_i}{(1+kt)}, \]</div>
@@ -743,7 +723,7 @@ document.write(`
 </section>
 </section>
 <section id="the-equation-of-motion-and-force-equilibrium">
-<h2>The equation of motion and force equilibrium<a class="headerlink" href="#the-equation-of-motion-and-force-equilibrium" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">The equation of motion and force equilibrium</a><a class="headerlink" href="#the-equation-of-motion-and-force-equilibrium" title="Permalink to this heading">#</a></h2>
 <p>In the lecture we saw how taking a force balance acting on an infinitesimal cube in a continuum results in a partial differential equation that describes the conservation of momentum,</p>
 <div class="math notranslate nohighlight">
 \[\rho\frac{\partial^2 \u}{\partial t^2} = \vector{f} + \nabla\cdot\tensor{\sigma} \]</div>
@@ -753,9 +733,8 @@ document.write(`
 <p>The term on the left-hand side is the mass (per unit volume) times the acceleration; the terms on the right-hand side are therefore the sum of the forces (per unit mass) acting on the body, which for each coordinate direction include the net body force (per unit mass) <span class="math notranslate nohighlight">\(\vector{f}\)</span> and the sum of the stress gradients <span class="math notranslate nohighlight">\(\nabla\cdot\tensor{\sigma}\)</span> acting in that direction.</p>
 <p>This implies that if the continuum is in equilibrium at a point (i.e., no acceleration), the body force and stress gradients must be in exact balance in each direction.</p>
 <p>If there is no body force then the sum of the stress gradients in each coordinate direction must be zero.</p>
-<div class="alert alert-info"> <font color=black>
 <section id="exercise-2">
-<h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Exercise 2</a><a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
 <p>Consider the following stress distribution:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\tensor{\sigma} = \left[\begin{array}{ccc}
@@ -771,7 +750,7 @@ document.write(`
 </section>
 </section>
 <section id="conservation-of-energy">
-<h2>Conservation of Energy<a class="headerlink" href="#conservation-of-energy" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Conservation of Energy</a><a class="headerlink" href="#conservation-of-energy" title="Permalink to this heading">#</a></h2>
 <p>The general form of the conservation of energy equation that we considered in the lecture is:</p>
 <div class="math notranslate nohighlight">
 \[\frac{D\rho C_pT}{Dt} = \nabla\cdot k\nabla T + A + \tensor{\sigma}:\tensor{D} ,\]</div>
@@ -783,7 +762,7 @@ document.write(`
 <li><p>heat generated by internal deformation</p></li>
 </ol>
 <section id="d-advection-diffusion">
-<h3>1D Advection-Diffusion<a class="headerlink" href="#d-advection-diffusion" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">1D Advection-Diffusion</a><a class="headerlink" href="#d-advection-diffusion" title="Permalink to this heading">#</a></h3>
 <p>In the lecture, we saw how the conservation of energy equation simplifies to the 1-D steady-state advection-diffusion equation in the absence of spatial variation in material parameters, internal deformation and heat production <span class="math notranslate nohighlight">\(A\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\kappa {\frac {\partial ^2 T}{\partial z^2}}+ v_z\frac{\partial T}{\partial z} = 0\]</div>
@@ -795,10 +774,9 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(v_z\)</span> vertical velocity (in m/s)</p></li>
 </ul>
 <p>Use the code below to calculate and plot analytical solutions to the 1-D steady state advection-diffusion equation for the transport of heat, with constant temperature boundary conditions at <span class="math notranslate nohighlight">\(z=0\)</span> and <span class="math notranslate nohighlight">\(z=L\)</span>.</p>
-<div class="alert alert-info"> <font color=black>
 </section>
 <section id="exercise-3">
-<h3>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Exercise 3</a><a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
 <p>Use the code below to calculate and plot analytical solutions to the 1-D steady state advection-diffusion equation for the transport of heat, with constant temperature boundary conditions at <span class="math notranslate nohighlight">\(z=0\)</span> and <span class="math notranslate nohighlight">\(z=L\)</span>.</p>
 <p><strong>Step 1:</strong> Set parameter values. In the example, values applicable to Earth’s crust are chosen, but feel free to try others appropriate for a different problem</p>
 <div class="cell docutils container">
@@ -839,7 +817,6 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="alert alert-info"> <font color=black>
 <p><strong>Step 2:</strong> Compute and plot temperature solutions for the range of advection velocities</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -870,7 +847,6 @@ document.write(`
 <img alt="../_images/0017a463420528af2c308d846d8211c75c4ea3d32db6f13776ce315679d8d7f5.png" src="../_images/0017a463420528af2c308d846d8211c75c4ea3d32db6f13776ce315679d8d7f5.png" />
 </div>
 </div>
-<div class="alert alert-info"> <font color=black>
 <p>The relative importance of heat advection and heat conduction determines the shape of the temperature-depth profiles. The dimensionless parameter that captures this relative importance is called the <strong>Peclet number</strong>, <span class="math notranslate nohighlight">\(Pe\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[ Pe = \frac{v_z L}{\kappa}\]</div>
@@ -893,33 +869,33 @@ Peclet number:  [47.215  9.443  4.722  0.944  0.094  0.009]
 </div>
 </div>
 </div>
-<div class="alert alert-success"> <font color=black>
-Things you could try yourself:
+<p><strong>(Optional)</strong></p>
+<p>Things you could try yourself:</p>
 <ul class="simple">
 <li><p>Evaluate how the profile and Peclet number change with advection velocity. At what velocity does the solution become essentially conductive?</p></li>
 <li><p>Add a heat production term (e.g. A = 0.4 <span class="math notranslate nohighlight">\(\mu\)</span>W/m<span class="math notranslate nohighlight">\(^3\)</span>)</p></li>
 <li><p>Find solution for boundary conditions: <span class="math notranslate nohighlight">\(T\)</span>(<span class="math notranslate nohighlight">\(z\)</span>=0)=0 <span class="math notranslate nohighlight">\(^{\circ}\)</span>C and <span class="math notranslate nohighlight">\(\partial T/\partial z\)</span>(<span class="math notranslate nohighlight">\(z\)</span>=0)=20<span class="math notranslate nohighlight">\(^{\circ}\)</span>C/km and plot for different values of <span class="math notranslate nohighlight">\(v_z\)</span>.</p></li>
 </ul>
-<div class="alert alert-info"> <font color=black>
 </section>
 <section id="exercise-4">
-<h3>Exercise 4<a class="headerlink" href="#exercise-4" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Exercise 4</a><a class="headerlink" href="#exercise-4" title="Permalink to this heading">#</a></h3>
 <p><strong>(a)</strong> Write down the energy equation for a 1-D steady state problem with internal heat production, but without any contribution of strain or flow.</p>
 <p><strong>(b)</strong> Solve this equation for a layer with constant material properties, with a fixed temperature on the bottom and an insulating top:</p>
 <div class="math notranslate nohighlight">
 \[T(y=0)=T_0, \ \ \ \frac{dT}{dy}(y=h)=0.\]</div>
 <p><strong>(c)</strong> Plot the solution for the following parameter values: <span class="math notranslate nohighlight">\(T_0 = 0^\circ\)</span>C, <span class="math notranslate nohighlight">\(k = 80\)</span> Wm<span class="math notranslate nohighlight">\(^{-1}\)</span>K<span class="math notranslate nohighlight">\(^{-1}\)</span>, <span class="math notranslate nohighlight">\(A = 200\)</span> Wm<span class="math notranslate nohighlight">\(^{-3}\)</span>, <span class="math notranslate nohighlight">\(h = 2\)</span> m.</p>
-<div class="alert alert-success"> <font color=black>
+<p><strong>(Optional)</strong></p>
 <p><strong>(d)</strong> You could vary the values of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(k\)</span> to get more insight in the relative effects of heat production and conductivity on the temperature profile.</p>
 </section>
 </section>
 <section id="conservation-of-momentum-hookean-elasticity">
-<h2>Conservation of Momentum: Hookean Elasticity<a class="headerlink" href="#conservation-of-momentum-hookean-elasticity" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Conservation of Momentum: Hookean Elasticity</a><a class="headerlink" href="#conservation-of-momentum-hookean-elasticity" title="Permalink to this heading">#</a></h2>
 <p>In the lecture, we saw how combining the conservation of momentum equation with the constitutive equation for an elastic material leads to the elastic wave equation.</p>
 <p>For an isotropic Hookean solid, the constitutive equation only involves two elastic parameters, taking the following form when cast in terms of the two Lamé constants:
 $<span class="math notranslate nohighlight">\(\sigma_{ij}=\lambda \epsilon_{kk} \delta_{ij} + 2 \mu \epsilon_{ij}\)</span>$</p>
-<div class="alert alert-success"> <font color=black>
-Writing out the missing steps in the derivation in the lecture slides is a good practise of tensor and index notation skills<p>Remembering that the conservation of momentum, in index notation is:
+<p><strong>(Optional)</strong></p>
+<p><em>Writing out the missing steps in the derivation in the lecture slides is a good practise of tensor and index notation skills</em></p>
+<p>Remembering that the conservation of momentum, in index notation is:
 $<span class="math notranslate nohighlight">\(\rho\frac{\partial^2 u_{i}}{\partial t^2} = f_{i} + \frac{\partial{\sigma_{ji}}}{\partial{x_{j}}}\)</span>$</p>
 <p>With the above elastic constitutive equation, the divergence of the stress tensor is:
 $$ \frac{\partial{\sigma_{ji}}}{\partial{x_{j}}} =
@@ -938,18 +914,16 @@ $<span class="math notranslate nohighlight">\(\nabla^2\vector{u}=\nabla(\nabla\c
 \vector{f} + (\lambda+2\mu)\nabla(\nabla\cdot\vector{u}) 
 - \mu \nabla\times\nabla\times\vector{u}\]</div>
 <p>The term with <span class="math notranslate nohighlight">\(\nabla\cdot\vector{u}\)</span> describes changes in volume due to the displacement field and is related to compressional waves, while the term with <span class="math notranslate nohighlight">\(\nabla\times\vector{u}\)</span> describes the rotational component of the displacement field and is related to shear waves.</p>
-<div class="alert alert-info"> <font color=black>
 <section id="exercise-5">
-<h3>Exercise 5<a class="headerlink" href="#exercise-5" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Exercise 5</a><a class="headerlink" href="#exercise-5" title="Permalink to this heading">#</a></h3>
 <p>Two alternative elastic parameters often used are the bulk modulus <span class="math notranslate nohighlight">\(K\)</span> and shear modulus <span class="math notranslate nohighlight">\(G\)</span>. These two moduli are linked, respectively, to isotropic stress (i.e. pressure <span class="math notranslate nohighlight">\(p\)</span>) and strain (<span class="math notranslate nohighlight">\(\theta\)</span>):
 $<span class="math notranslate nohighlight">\( -p = \frac{\sigma_{kk}}{3} = K \epsilon_{kk} = K \theta \)</span>$</p>
 <p>and deviatoric stress <span class="math notranslate nohighlight">\(\sigma'_{ij}\)</span> and strain <span class="math notranslate nohighlight">\(\epsilon'_{ij}\)</span>:
 $<span class="math notranslate nohighlight">\( \sigma'_{ij} = \sigma_{ij} + p \delta_{ij} = 2 G \epsilon'_{ij} \)</span>$</p>
 <p>Derive the expressions relating <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(G\)</span> to the Lamé constants <span class="math notranslate nohighlight">\(\lambda\)</span> and <span class="math notranslate nohighlight">\(\mu\)</span></p>
-<div class="alert alert-warning"> <font color=black>
 </section>
-<section id="exercise-6">
-<h3>Exercise 6<a class="headerlink" href="#exercise-6" title="Permalink to this heading">#</a></h3>
+<section id="exercise-6-advanced">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Exercise 6 (Advanced)</a><a class="headerlink" href="#exercise-6-advanced" title="Permalink to this heading">#</a></h3>
 <p><strong>(a)</strong>	Show that for an isotropic Hookean solid, the principal directions of stress and strain coincide.</p>
 <p><strong>(b)</strong>	Find a relation between the principal values of stress and strain using the two Lamé parameters.</p>
 <p><strong>(c)</strong> For the same Hookean solid, express the elastic Young’s modulus <span class="math notranslate nohighlight">\(E\)</span> and Poisson’s ratio <span class="math notranslate nohighlight">\(\nu\)</span>, which are often used in engineering, in terms of the Lamé parameters <span class="math notranslate nohighlight">\(\lambda\)</span> and <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
@@ -960,7 +934,7 @@ $<span class="math notranslate nohighlight">\( \sigma'_{ij} = \sigma_{ij} + p \d
 </section>
 </section>
 <section id="conservation-of-momentum-navier-stokes">
-<h2>Conservation of Momentum: Navier-Stokes<a class="headerlink" href="#conservation-of-momentum-navier-stokes" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Conservation of Momentum: Navier-Stokes</a><a class="headerlink" href="#conservation-of-momentum-navier-stokes" title="Permalink to this heading">#</a></h2>
 <p>The lecture discussed that combining the conservation of momentum equation with the constitutive equation for an viscous material leads to the so-called Navier-Stokes equation for viscous flow and deformation.</p>
 <p>To consider this case, we decomposed the stress tensor, <span class="math notranslate nohighlight">\(\vector{\sigma}\)</span>, into an isotropic part, <span class="math notranslate nohighlight">\(p \vector{I}\)</span>, and a <strong>deviatoric</strong> part, <span class="math notranslate nohighlight">\(\matrix{\sigma'}\)</span>.</p>
 <p><strong>Hydrostatic state of stress</strong></p>
@@ -984,15 +958,13 @@ assuming that \)</span>\zeta<span class="math notranslate nohighlight">\( and \)
 = \rho (\frac{\partial{\vector{v}}}{\partial{t}} + \vector{v} \cdot \nabla \vector{v})\]</div>
 <p><strong>Navier-Stokes + continuity equations</strong></p>
 <p>In 3-D, this Navier-Stokes equations above correspond to three equations (force balance in <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> direction) and has four unknowns: pressure <span class="math notranslate nohighlight">\(p\)</span>, and the three components of velocity <span class="math notranslate nohighlight">\(\vector{v}=(v_x,v_y,v_z)\)</span>. By solving it together with the continuity equation <span class="math notranslate nohighlight">\(\nabla\cdot\vector{v}=0\)</span>, this yields a system of four equations with four unknowns.</p>
-<div class="alert alert-info"> <font color=black>
 <section id="exercise-7">
-<h3>Exercise 7<a class="headerlink" href="#exercise-7" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Exercise 7</a><a class="headerlink" href="#exercise-7" title="Permalink to this heading">#</a></h3>
 <p>Consider a Newtonian shear flow with velocity field <span class="math notranslate nohighlight">\(v_1(x_2), v_2=v_3=0\)</span>.</p>
 <p>Write out all components of the strain rate tensor <strong>D</strong> and the stres tensor <span class="math notranslate nohighlight">\(\vector{\sigma}\)</span>.</p>
-<div class="alert alert-info"> <font color=black>
 </section>
 <section id="exercise-8">
-<h3>Exercise 8<a class="headerlink" href="#exercise-8" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Exercise 8</a><a class="headerlink" href="#exercise-8" title="Permalink to this heading">#</a></h3>
 <p>Consider the case of steady unidirectional flow of an incompressible fluid with constant viscosity <span class="math notranslate nohighlight">\(\eta\)</span> between two parallel fixed plates, both with a normal pointing in the <span class="math notranslate nohighlight">\(x_2\)</span> direction. Assume flow is in the <span class="math notranslate nohighlight">\(x_1\)</span> direction, and the plates extend infinitely in the <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_3\)</span> directions (i.e., the distance between the plates is much smaller than the size of the plates). This type of flow is called plane Poiseuille flow. The velocity field for this flow has the form:</p>
 <div class="math notranslate nohighlight">
 \[v_1=v(x_2), \ \  v_2 = v_3 =0.\]</div>
@@ -1074,8 +1046,7 @@ assuming that \)</span>\zeta<span class="math notranslate nohighlight">\( and \)
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-content">Types of content</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-for-notebook">Settings for notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuum-mechanics-equations">Continuum mechanics equations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-continuity-equation-conservation-of-mass">The continuity equation (conservation of mass)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
@@ -1093,7 +1064,7 @@ assuming that \)</span>\zeta<span class="math notranslate nohighlight">\( and \)
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-momentum-hookean-elasticity">Conservation of Momentum: Hookean Elasticity</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6">Exercise 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-advanced">Exercise 6 (Advanced)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-momentum-navier-stokes">Conservation of Momentum: Navier-Stokes</a><ul class="nav section-nav flex-column">
