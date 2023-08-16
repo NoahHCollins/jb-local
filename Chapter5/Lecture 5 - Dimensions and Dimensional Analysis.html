@@ -485,11 +485,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimension-analysis">Dimension Analysis</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-1-a-id-exercise51-a">Exercise 5.1 <a id="Exercise51"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-2-a-name-exercise52-a">Exercise 5.2 <a name="Exercise52"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-3-a-name-exercise53-a">Exercise 5.3 <a name="Exercise53"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-4-a-name-exercise54-a">Exercise 5.4 <a name="Exercise54"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-5-a-name-exercise55-a">Exercise 5.5 <a name="Exercise55"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-1">Exercise 5.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-4">Exercise 5.4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-5">Exercise 5.5</a></li>
 </ul>
 </li>
 </ul>
@@ -1049,10 +1047,11 @@ N_p = \frac{\rho_h}{\rho_l}
 <a class="reference internal image-reference" href="../_images/CommonNumbers.png"><img alt="../_images/CommonNumbers.png" src="../_images/CommonNumbers.png" style="width: 50%;" /></a>
 </figure>
 <div class="exercise">
+<a id = "Exercise51"></a>
 </section>
 </section>
-<section id="exercise-5-1-a-id-exercise51-a">
-<h2>Exercise 5.1 <a id = "Exercise51"></a><a class="headerlink" href="#exercise-5-1-a-id-exercise51-a" title="Permalink to this heading">#</a></h2>
+<section id="exercise-5-1">
+<h2>Exercise 5.1<a class="headerlink" href="#exercise-5-1" title="Permalink to this heading">#</a></h2>
 <p>Try experimenting with the code below:</p>
 <p><strong>How does changing the Peclet Number change the solution</strong></p>
 <div class="cell docutils container">
@@ -1121,9 +1120,8 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 </div>
 <div class="exercise">
-</section>
-<section id="exercise-5-2-a-name-exercise52-a">
-<h2>Exercise 5.2 <a name = "Exercise52"></a><a class="headerlink" href="#exercise-5-2-a-name-exercise52-a" title="Permalink to this heading">#</a></h2>
+<a id = "Exercise52"></a>
+### Exercise 5.2 
 <p>Try showing that to solution to</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1136,9 +1134,8 @@ Populating the interactive namespace from numpy and matplotlib
 \]</div>
 <p>assuming that <span class="math notranslate nohighlight">\(C^*\)</span> is 1 at <span class="math notranslate nohighlight">\(x^* = 0\)</span> and <span class="math notranslate nohighlight">\(C^*\)</span> is 0 at <span class="math notranslate nohighlight">\(x^* = 1\)</span>.</p>
 <div class="exercise">
-</section>
-<section id="exercise-5-3-a-name-exercise53-a">
-<h2>Exercise 5.3 <a name = "Exercise53"></a><a class="headerlink" href="#exercise-5-3-a-name-exercise53-a" title="Permalink to this heading">#</a></h2>
+<a id = "Exercise53"></a>   
+### Exercise 5.3 
 <p>We wish to analyse a droplet of water emerging from a needle and, in particular, its average diameter <span class="math notranslate nohighlight">\(d_d\)</span> when it detaches from a needle of diameter <span class="math notranslate nohighlight">\(d_n\)</span></p>
 <p>Initially we can assume that the droplets are being formed slowly. We therefore only need to consider the variables associated with the static shape:</p>
 <ul class="simple">
@@ -1149,9 +1146,10 @@ Populating the interactive namespace from numpy and matplotlib
 <p>How many dimensionless groups are required to satisfy this system? Derive suitable ones.</p>
 <p>What additional variables may be required in a dynamic system? What additional dimensionless groups may this require?</p>
 <div class="exercise">
+<a id = "Exercise55"></a>  
 </section>
-<section id="exercise-5-4-a-name-exercise54-a">
-<h2>Exercise 5.4 <a name = "Exercise54"></a><a class="headerlink" href="#exercise-5-4-a-name-exercise54-a" title="Permalink to this heading">#</a></h2>
+<section id="exercise-5-4">
+<h2>Exercise 5.4<a class="headerlink" href="#exercise-5-4" title="Permalink to this heading">#</a></h2>
 <p>We have 6 variables (<span class="math notranslate nohighlight">\(\rho\)</span>, <span class="math notranslate nohighlight">\(v\)</span>, <span class="math notranslate nohighlight">\(\lambda\)</span>, <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(l_{crit}\)</span>, <span class="math notranslate nohighlight">\(t_{crit}\)</span>) and 3 dimensions (M,L,T)</p>
 <p>There are therefore 3 dimensionless groups.</p>
 <p>Show that a suitable set are:</p>
@@ -1165,9 +1163,10 @@ N_2 = \frac{v^2 \rho r}{\gamma}}
 \]</div>
 <p>If you wish to include viscosity, <span class="math notranslate nohighlight">\(\mu\)</span>, what would be an appropriate additional dimensionless group? Hint: It is mainly the inertia that the viscosity will be acting against</p>
 <div class="exercise">
+<a id = "Exercise55"></a>  
 </section>
-<section id="exercise-5-5-a-name-exercise55-a">
-<h2>Exercise 5.5 <a name = "Exercise55"></a><a class="headerlink" href="#exercise-5-5-a-name-exercise55-a" title="Permalink to this heading">#</a></h2>
+<section id="exercise-5-5">
+<h2>Exercise 5.5<a class="headerlink" href="#exercise-5-5" title="Permalink to this heading">#</a></h2>
 <p>We wish to investigate the size of the instability generated - <span class="math notranslate nohighlight">\(h\)</span></p>
 <p>Derive  set of dimensionless groups to characterise this problem. Ensure that one of them represents a dimensionless height - <span class="math notranslate nohighlight">\(h^*\)</span></p>
 </section>
@@ -1282,11 +1281,9 @@ N_2 = \frac{v^2 \rho r}{\gamma}}
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimension-analysis">Dimension Analysis</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-1-a-id-exercise51-a">Exercise 5.1 <a id="Exercise51"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-2-a-name-exercise52-a">Exercise 5.2 <a name="Exercise52"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-3-a-name-exercise53-a">Exercise 5.3 <a name="Exercise53"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-4-a-name-exercise54-a">Exercise 5.4 <a name="Exercise54"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-5-a-name-exercise55-a">Exercise 5.5 <a name="Exercise55"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-1">Exercise 5.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-4">Exercise 5.4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-5">Exercise 5.5</a></li>
 </ul>
 </li>
 </ul>
