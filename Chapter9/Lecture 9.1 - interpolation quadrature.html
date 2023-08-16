@@ -795,7 +795,7 @@ np.flip(a, 0) =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa67417cf10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6a5d968f10&gt;
 </pre></div>
 </div>
 <img alt="../_images/6c380a3719cc3539cb1888b582fcb34fa6b78d0dfa420b33688a96f2d6b6a8ee.png" src="../_images/6c380a3719cc3539cb1888b582fcb34fa6b78d0dfa420b33688a96f2d6b6a8ee.png" />
@@ -888,6 +888,7 @@ from Python’s <a class="reference external" href="http://www.scipy.org">SciPy<
 </section>
 <section id="newton-polynomial-star">
 <h2>Newton polynomial  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#newton-polynomial-star" title="Permalink to this heading">#</a></h2>
+<div class="toggle toggle-shown docutils container">
 <p>Calculating the Newton polynomial (also called <a class="reference external" href="http://mathworld.wolfram.com/NewtonsDividedDifferenceInterpolationFormula.html">Newton’s divided difference interpolation polynomial</a>) yields the same polynomial as the Lagrange polynomial method (remember that the polynomial of minimum degree to pass through each data point is unique), but is arguably easier to implement (and this implementation is a useful coding exercise - see homework).</p>
 <br>
 <p>To derive this approach we write our degree <span class="math notranslate nohighlight">\(N\)</span> polynomial in the following form</p>
@@ -948,6 +949,7 @@ P_3(x) &amp;= a_0 +(x-x_0)a_1 + (x-x_0)(x-x_1)a_2 + (x-x_0)(x-x_1)(x-x_2)a_3\\[5
 <div class="math notranslate nohighlight">
 \[a_0=y_0,\;\;\;\;\; a_1 = \Delta y_1, \;\;\;\;\; a_2 = \Delta^2 y_2, \;\;\;\;\; \ldots \;\;\;\;\; a_N = \Delta^N y_N.\]</div>
 <p>See the homework exercise for an implementation of functions to construct and evaluate the Newton polynomial.</p>
+</div>
 </section>
 <section id="approximating-a-function">
 <h2>Approximating a function<a class="headerlink" href="#approximating-a-function" title="Permalink to this heading">#</a></h2>
@@ -1042,6 +1044,7 @@ P_3(x) &amp;= a_0 +(x-x_0)a_1 + (x-x_0)(x-x_1)a_2 + (x-x_0)(x-x_1)(x-x_2)a_3\\[5
 <p>We won’t prove this here, but it will be useful in later lectures if we write it down now.</p>
 <section id="aside-the-lagrange-remainder-theorem-star">
 <h3>Aside: The Lagrange Remainder Theorem  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#aside-the-lagrange-remainder-theorem-star" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <p>For <span class="math notranslate nohighlight">\(N\ge 0\)</span>, let <span class="math notranslate nohighlight">\(f(x)\)</span> be a function with at least <span class="math notranslate nohighlight">\(N+1\)</span> continuous derivatives over the interval <span class="math notranslate nohighlight">\([a,b]\)</span>,</p>
 <p>(the mathematical way of writing this is <span class="math notranslate nohighlight">\(f \in C^{N+1}[a,b]\)</span> - see <a class="reference external" href="http://mathworld.wolfram.com/C-kFunction.html">http://mathworld.wolfram.com/C-kFunction.html</a> for more details on this if interested)</p>
 <p>and let <span class="math notranslate nohighlight">\(\;\;x_0&lt;x_1&lt;\ldots&lt;x_N\;\;\)</span> be <span class="math notranslate nohighlight">\(N+1\)</span> distinct points in <span class="math notranslate nohighlight">\([a,b]\)</span>.</p>
@@ -1079,9 +1082,11 @@ M:=\max_{x\in(a,b)}\, \left| f^{(N+1)}(x) \right|, \\
 \Psi_N(x) := \prod^N_{i=0} (x - x_i) = (x-x_0)(x-x_1)\cdots(x-x_N).
 }
 \end{split}\]</div>
+</div>
 </section>
 <section id="observations-star">
 <h3>Observations  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#observations-star" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <p>This looks complicated, but we can make multiple observations based on this quite easily
 (some which just reinforce things that are obvious, or that we have seen already):</p>
 <br>
@@ -1110,9 +1115,11 @@ M:=\max_{x\in(a,b)}\, \left| f^{(N+1)}(x) \right|, \\
 </ul>
 <br>
 <p>The final point is important - we will return to this shortly.</p>
+</div>
 </section>
 <section id="example-star">
 <h3>Example  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#example-star" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <p>What does this tell us for our example <span class="math notranslate nohighlight">\(f(x)=x^3\)</span>?</p>
 <p>As for our plots above with this example, let’s assume <span class="math notranslate nohighlight">\([a,b]=[0.5, 3.5]\)</span> and compute the error (estimate or bound) based upon the above theory.</p>
 <p>We need the maximum value of the appropriate (i.e. dependent on our polynomial degree) degree derivative over the interval:</p>
@@ -1126,6 +1133,7 @@ N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0.
 \end{align*}
 \end{split}\]</div>
 <p>Let’s now evaluate the actual error between the function and the interpolating polynomials and see how well these error estimates agree, or bound this error.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span>
@@ -1183,6 +1191,7 @@ N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0.
 </section>
 <section id="comments-star">
 <h3>Comments  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#comments-star" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <ol class="arabic simple">
 <li><p>Our error bound is indeed an <strong>upper bound</strong> on the actual error.</p></li>
 <li><p>Both the actual error and the error bound are zero at the data locations.</p></li>
@@ -1190,16 +1199,19 @@ N &amp; = 3: \;\;\;\; &amp; \max_{x\in(a,b)}f^{(4)}(x) &amp; = 0.
 </ol>
 <br>
 <p>[When an error bound value is very close to the actual error we call it a <em>tight</em> bound - tighter bounds are obviously more useful in practice although not always necessary for proving theoretical results - <a class="reference external" href="https://en.wikipedia.org/wiki/Upper_and_lower_bounds">https://en.wikipedia.org/wiki/Upper_and_lower_bounds</a>].</p>
+</div>
 </section>
 </section>
 <section id="a-more-problematic-example-star">
 <h2>A more problematic example [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#a-more-problematic-example-star" title="Permalink to this heading">#</a></h2>
+<div class="toggle toggle-shown docutils container">
 <p>[This is an illustrative example to demonstrate how things can go wrong, especially when using high-degree approximating polynomials.]</p>
 <br>
 <p>Approximating the <a class="reference external" href="https://en.wikipedia.org/wiki/Runge%27s_phenomenon">Runge function</a>:</p>
 <div class="math notranslate nohighlight">
 \[f(x) := \frac{1}{1 + 25 x^2},\]</div>
 <p>using equally spaced data points in the interval <span class="math notranslate nohighlight">\([-1,1]\)</span> is a famous example demonstrating how/where polynomial interpolation can go wrong!</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the runge function</span>
@@ -1278,20 +1290,24 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 </div>
 <section id="id1">
 <h3>Observations  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <ul class="simple">
 <li><p>We see that for this problem, with increasing numbers of evenly spaced data points, the corresponding Lagrange polynomials, while doing a better and better job of approximating the underlying exact function <em>towards the middle</em> of the interval, do an increasingly bad job towards the <em>ends of the interval</em>.</p></li>
 <li><p><strong>Take home message:</strong>  Try to avoid high-degree interpolants when the data is evenly spaced - as high-degree polynomials have a tendency to oscillate strongly between data points, especially at the ends.</p></li>
 <li><p>So interpolation here in regions of the domain would give huge errors. Imagine further what would happen if you tried to use one of these Lagrange polynomials to estimate a value for the Runge function slightly outside the <span class="math notranslate nohighlight">\([-1,1]\)</span> interval considered here (i.e. to <strong>extrapolate</strong>) - the result would clearly be terrible. This is therefore <strong>also</strong> a good example of why extrapolation in general should be undertaken with extreme caution!</p></li>
 </ul>
+</div>
 </section>
 <section id="an-explanation-star">
 <h3>An explanation  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#an-explanation-star" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <p>The reason for this behaviour is a consequence of two factors:</p>
 <ul class="simple">
 <li><p>Although smooth, the magnitude of the derivative of this function grows with <span class="math notranslate nohighlight">\(N\)</span> [see homework exercise].</p></li>
 <li><p>The behaviour of the <span class="math notranslate nohighlight">\(\Psi\)</span> quantity is such that, relatively speaking, with evenly spaced data points <span class="math notranslate nohighlight">\(\Psi(x)\)</span> is much larger in the outer sub-intervals than it is the middle of the domain - as we can see in the following plot.</p></li>
 </ul>
 <p>One of the homework exercises involves plotting the error bound - and the byproduct of multiplying things together which are very large/small is an error bound which we can indeed show gets very large with <span class="math notranslate nohighlight">\(N\)</span> and with the error largest at the end points.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot Psi for different N values:</span>
@@ -1326,6 +1342,7 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 </section>
 <section id="chebyshev-nodes-star">
 <h2>Chebyshev nodes  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#chebyshev-nodes-star" title="Permalink to this heading">#</a></h2>
+<div class="toggle toggle-shown docutils container">
 <p>There were three components making up the error bound - the factorial of <span class="math notranslate nohighlight">\(N+1\)</span>, a bound on the <span class="math notranslate nohighlight">\((N+1)\)</span>-st derivative of the function, and <span class="math notranslate nohighlight">\(\Psi\)</span>. For a given function and polynomial degree, we have no control over the first two, but we do have some ability to control the third, and we saw above that the behaviour of <span class="math notranslate nohighlight">\(\Psi\)</span> is indeed a problem as <span class="math notranslate nohighlight">\(N\)</span> grows.</p>
 <p>The above example can be “fixed” (or at least we can attempt to do a better job) by seeking to minimise <span class="math notranslate nohighlight">\(\Psi(x)\)</span> over our entire interval (including the outer sub-intervals where above and in the homework we see there’s a clear issue).</p>
 <p>For a fixed <span class="math notranslate nohighlight">\(N\)</span>, the only thing we have the ability to change is to choose different <span class="math notranslate nohighlight">\(x_i\)</span> data points, i.e. to sample our function at non-uniformly spaced <em>locations</em>.</p>
@@ -1339,6 +1356,7 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 \[x_i = \cos \left (\frac{2i - 1}{2N}\pi \right ), \;\;\;\; i = 1, \ldots, N,\]</div>
 <p>and as we will see in the following example, evaluating our function at these non-uniform locations and using this data to construct our interpolating polynomial fixes the problem we saw above for the case where we used evenly spaced data.</p>
 <p>In the next cell we again compute and plot the Lagrange polynomial interpolant for differing <span class="math notranslate nohighlight">\(N\)</span>, but simply change the location of the data sampling points <code class="docutils literal notranslate"><span class="pre">xi</span></code>.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we don&#39;t need to consider quite so many cases now to prove the point that</span>
@@ -1373,11 +1391,13 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 </section>
 <section id="chebyshev-polynomial-interpolation-star">
 <h2>Chebyshev polynomial interpolation  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#chebyshev-polynomial-interpolation-star" title="Permalink to this heading">#</a></h2>
+<div class="toggle toggle-shown docutils container">
 <p>This in turn leads us to a new set of basis functions which we could use as the basis for our polynomial interpolation.</p>
 <p>In the same way that the values of the underlying function at our data point locations were, by construction, the weights for the Lagrange basis functions we defined above, the values of the underlying function at the non-uniform Chebyshev nodes are the weights for an interpolant which uses Chebyshev polynomials as basis functions [see homework exercise].</p>
 <p>Summing, the resulting function is called the <em>Chebyshev polynomial interpolant</em>.</p>
 <p>Chebyshev nodes/interpolation have many nice theoretical properties, which we won’t cover here.</p>
 <p>Note that the construction of these basis functions is a homework exercise, where the exact details are explained in the question.</p>
+</div>
 </section>
 <section id="piecewise-polynomial-interpolation">
 <h2>Piecewise polynomial interpolation<a class="headerlink" href="#piecewise-polynomial-interpolation" title="Permalink to this heading">#</a></h2>
@@ -1732,12 +1752,15 @@ The aliases was originally deprecated in NumPy 1.20; for more details and guidan
 </section>
 <section id="cubic-splines-star-star">
 <h2>Cubic splines [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#cubic-splines-star-star" title="Permalink to this heading">#</a></h2>
+<div class="toggle toggle-shown docutils container">
 <p>This approach interpolates data with a piecewise cubic polynomial, see
 <a class="reference external" href="https://en.wikipedia.org/wiki/Spline_interpolation">https://en.wikipedia.org/wiki/Spline_interpolation</a>.</p>
 <p>Note that as opposed to the p/w quadratic example above, a cubic spline assumes a cubic polynomial <strong>within</strong> each interval between two data points.</p>
 <p>Due to the use of a cubic polynomial within each interval, this approach can now be made to be twice continuously differentiable (i.e. first as well as second order derivatives are continuous).</p>
+</div>
 <section id="algorithm-sketch-star-star">
 <h3>Algorithm sketch  [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#algorithm-sketch-star-star" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <p>The idea behind cubic splines comes from something physical:</p>
 <p>Pass a thin beam or elastic ruler between the data points (often termed <em>knots</em> when talking about splines), the shape you get is a cubic spline.</p>
 <p>The term spline comes form the name of the <a class="reference external" href="https://en.wikipedia.org/wiki/Flat_spline">thin flexible strip</a> used by draftsmen for engineering design before computers.</p>
@@ -1751,6 +1774,7 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 <p>Rather than implementing ourselves we will make use of the SciPy function <a class="reference external" href="https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.interpolate.CubicSpline.html#scipy.interpolate.CubicSpline">scipy.interpolate.CubicSpline</a>.</p>
 <p>[If you’re feeling brave there is a <strong>homework exercise</strong> asking you to implement cubic spline interpolation.].</p>
 <p>Let’s see what it does for our data set case, as well as the problematic Runge function in the two cells below - we see that it performs well.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># consider the above example data again</span>
@@ -1828,6 +1852,7 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 </section>
 <section id="piecewise-cubic-hermite-interpolating-polynomial-pchip-star-star">
 <h2>Piecewise Cubic Hermite Interpolating Polynomial (PCHIP)  [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#piecewise-cubic-hermite-interpolating-polynomial-pchip-star-star" title="Permalink to this heading">#</a></h2>
+<div class="toggle toggle-shown docutils container">
 <p>If we drop the requirement for continuity over second derivatives with the cubic spline above (and hence the conditions that were used to fix all the free parameters in the cubic) we can choose the remaining free parameters to achieve a different goal …</p>
 <p>If the (continuous) slopes between intervals are chosen in order for the interpolant to <strong>preserve monotonicity</strong> of the data then we have what is termed a <a class="reference external" href="https://uk.mathworks.com/help/matlab/ref/pchip.html"><em>p/w cubic Hermite interpolating polynomial</em></a> or a <a class="reference external" href="https://en.wikipedia.org/wiki/Cubic_Hermite_spline"><em>cubic Hermite spline</em></a>.</p>
 <p><em>Monotonicity</em> here means that the interpolant remains within the bounds of the <span class="math notranslate nohighlight">\(y\)</span>-data - <a class="reference external" href="https://en.wikipedia.org/wiki/Monotone_cubic_interpolation">https://en.wikipedia.org/wiki/Monotone_cubic_interpolation</a></p>
@@ -1838,6 +1863,7 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 <li><p>The first derivatives are guaranteed to be continuous, but the second derivatives may jump at the <span class="math notranslate nohighlight">\(x_i\)</span> locations. So while being monotonic/bounded, the result is a bit less smooth than for cubic splines.</p></li>
 </ul>
 <p>Let’s see what it does for our data set case, and the problematic Runge function.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># consider the above example data again</span>
@@ -1910,11 +1936,13 @@ See <code class="docutils literal notranslate"><span class="pre">bc_type</span><
 </div>
 <section id="id2">
 <h3>Observations<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <ul class="simple">
 <li><p>Clearly within each subinterval the interpolant does not stray beyond the (<span class="math notranslate nohighlight">\(y\)</span>) bounds of the data at either end of the data (note that the simple p/w linear interpolant also has this property).</p></li>
 <li><p>Note the impact of the monotonicity property on our ability to represent the peak in the Runge case.</p></li>
 <li><p>Of course this problem would go away if we had a data point at the middle (which we have if we choose an odd number of data points):</p></li>
 </ul>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -2245,6 +2273,7 @@ I_T = 1 \frac {0+1^{2}}{2} = \frac {1}{2}.
 </section>
 <section id="error-analysis-mathematical-star">
 <h3>Error analysis (mathematical) [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#error-analysis-mathematical-star" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <p>We are approximating</p>
 <div class="math notranslate nohighlight">
 \[ I := \int_{a}^{b} f\left ( x \right )\,dx, \]</div>
@@ -2277,8 +2306,7 @@ E_N
 &amp;= \int_{a}^{b} R_N\left ( x \right )\, dx.
 \end{align*}
 \end{split}\]</div>
-<section id="trapezoidal-rule-error-one-interval">
-<h4>Trapezoidal rule error (one interval)<a class="headerlink" href="#trapezoidal-rule-error-one-interval" title="Permalink to this heading">#</a></h4>
+<p class="rubric">Trapezoidal rule error (one interval)</p>
 <p>The trapezoidal rule follows from taking <span class="math notranslate nohighlight">\(N=1\)</span> in which case we have the interpolation error over the interval <span class="math notranslate nohighlight">\([a,b]\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[R_1(x) = (x - a) (x - b) \frac{f''(c_x)}{2},\]</div>
@@ -2298,17 +2326,13 @@ E_T \equiv E_1
 &amp; = -\frac{(b-a)^3}{12} f''(c_x).
 \end{align*}
 \end{split}\]</div>
-</section>
-<section id="id4">
-<h4>Observations<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
+<p class="rubric">Observations</p>
 <ul class="simple">
 <li><p>If <span class="math notranslate nohighlight">\(f''&gt;0\)</span> (i.e. the function is concave up), then this tells us that the error is negative (as we assume <span class="math notranslate nohighlight">\(b&gt;a\)</span>) and the trapezoidal rule in this case over-estimates the true value.</p></li>
 <li><p>Similarly, if it is concave down (<span class="math notranslate nohighlight">\(f''&lt;0\)</span>) then the estimate is an under-estimate (as we saw above).</p></li>
 <li><p>Over a single interval the error is cubically dependent on the interval size (interval_size = <span class="math notranslate nohighlight">\(b-a\)</span>).</p></li>
 </ul>
-</section>
-<section id="trapezoidal-rule-error-multiple-sub-intervals">
-<h4>Trapezoidal rule error (multiple sub-intervals)<a class="headerlink" href="#trapezoidal-rule-error-multiple-sub-intervals" title="Permalink to this heading">#</a></h4>
+<p class="rubric">Trapezoidal rule error (multiple sub-intervals)</p>
 <p>The trapezoidal rule over multiple sub-intervals took the form</p>
 <div class="math notranslate nohighlight">
 \[ \int_{a}^{b} f\left ( x \right )\, dx \approx \sum_{i=0}^{n-1}\,   \left(\frac{f(x_{i+1}) + f(x_{i})}{2}\right )\, (x_{i+1}-x_i),\]</div>
@@ -2352,9 +2376,7 @@ E_1^n &amp; = -\sum_{i=0}^{n-1}\, \frac{(x_{i+1}-x_i)^3}{12} f''\left(c_{x_i}\ri
 <p>Note further that in the limit of a large number of subintervals the mathematical expression for the average value of the second-derivative actually converges to the integral of <span class="math notranslate nohighlight">\(f''\)</span> over <span class="math notranslate nohighlight">\([a,b]\)</span>, divided by <span class="math notranslate nohighlight">\((b-a)\)</span>, which by the <a class="reference external" href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_calculus#Second_part">fundamental theorem of calculus</a> is equal to <span class="math notranslate nohighlight">\((f'(b) - f'(a))/(b-a)\)</span> and therefore in this asymptotic limit we have</p>
 <div class="math notranslate nohighlight">
 \[ E_1^n = -\frac{1}{12} \Delta x^2 \left( f'(b) - f'(a) \right). \]</div>
-</section>
-<section id="midpoint-rule-error">
-<h4>Midpoint rule error<a class="headerlink" href="#midpoint-rule-error" title="Permalink to this heading">#</a></h4>
+<p class="rubric">Midpoint rule error</p>
 <p>We won’t go through the same derivation for the midpoint rule here (but see the homework exercise).</p>
 <p>We will simply state that the formal analysis for the midpoint rule indeed arrives at an error estimate which is exactly half that of the Trapezoidal rule, i.e.</p>
 <div class="math notranslate nohighlight">
@@ -2366,7 +2388,7 @@ E_1^n &amp; = -\sum_{i=0}^{n-1}\, \frac{(x_{i+1}-x_i)^3}{12} f''\left(c_{x_i}\ri
 <br>
 <p>Note also that, as argued above, the actual signs of the Midpoint and Trapezoidal rule errors will be opposite to one another.</p>
 <p>This hints to the fact that if we sum suitable multiples of the two estimates of the integral we obtain for Midpoint and Trapezoidal, we should to a certain extent be able to cancel out this error. We will do this next.</p>
-</section>
+</div>
 </section>
 </section>
 <section id="simpson-s-rule-review">
@@ -2547,8 +2569,8 @@ or more precisely the <em>composite Simpson’s 1/3 rule</em>.</p>
 </div>
 </div>
 </div>
-<section id="id5">
-<h4>Observations<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
+<section id="id4">
+<h4>Observations<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>The errors are lower than for the midpoint and trapezoidal rules, and the method converge more rapidly - i.e. the relative improvement only gets better for more subintervals.</p></li>
 <li><p>This expression now integrates up to cubics exactly (by construction), so it has order of precision 3 (with convergence order 4 as confirmed by the convergence plot above).</p></li>
@@ -2583,6 +2605,7 @@ or more precisely the <em>composite Simpson’s 1/3 rule</em>.</p>
 </section>
 <section id="simpson-s-rule-error-star">
 <h3>Simpson’s rule error [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#simpson-s-rule-error-star" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <p>We can go through the exact same mathematical steps as for the trapezoidal rule above to compute the error in Simpson’s rule applied over the full interval <span class="math notranslate nohighlight">\([a,b]\)</span> (i.e. the error over a single interval):</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -2609,10 +2632,12 @@ E_S
 <p>where the <span class="math notranslate nohighlight">\(\Delta x\)</span> and <span class="math notranslate nohighlight">\(n\)</span> here refer to the spacing between function evaluations, and the corresponding number of subintervals (i.e. the approach we took in <code class="docutils literal notranslate"><span class="pre">composite_simpsons_rule</span></code> where we do not perform additional function evaluations at the midpoints of subintervals, but rather span two subintervals).</p>
 <p>The presence of the fourth derivative in the leading order error shows that Simpson integrates third-order polynomials exactly, i.e. its degree of precision is 4.</p>
 <p>The presence of the <span class="math notranslate nohighlight">\(1/n^4\)</span> factor shows that for every doubling of <span class="math notranslate nohighlight">\(n\)</span>, or halving of <span class="math notranslate nohighlight">\(\Delta x\)</span>, the error drops by a factor of 16 (i.e. <span class="math notranslate nohighlight">\(2^4\)</span>) - the method is fourth-order accurate. This agrees with what we saw in the convergence plot above.</p>
+</div>
 </section>
 </section>
 <section id="weddle-s-rule-extrapolated-simpson-s-rule-star">
 <h2>Weddle’s rule (extrapolated Simpson’s rule) [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#weddle-s-rule-extrapolated-simpson-s-rule-star" title="Permalink to this heading">#</a></h2>
+<div class="toggle toggle-shown docutils container">
 <p>We noted above that Simpson’s rule is fourth-order accurate.</p>
 <p>Suppose we take an approximation to <span class="math notranslate nohighlight">\(I\)</span> using <span class="math notranslate nohighlight">\(n\)</span> intervals with Simpson’s rule and call the result <span class="math notranslate nohighlight">\(I_S\)</span>, and then apply Simpson’s rule with double the number of intervals (<span class="math notranslate nohighlight">\(2n\)</span>) and call the result <span class="math notranslate nohighlight">\(I_{S_2}\)</span>.</p>
 <p>Then we have two estimates for the integral where we expect <span class="math notranslate nohighlight">\(I_{S_2}\)</span> to be approximately <span class="math notranslate nohighlight">\(2^4=16\)</span> times more accurate than <span class="math notranslate nohighlight">\(S\)</span>. In particular, we expect the lowest (i.e. the leading) order error term in <span class="math notranslate nohighlight">\(I_{S_2}\)</span> to be precisely one sixteenth that of <span class="math notranslate nohighlight">\(I_S\)</span>.</p>
@@ -2640,8 +2665,12 @@ E_S
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/weddle_convergence.png"><img alt="../_images/weddle_convergence.png" src="../_images/weddle_convergence.png" style="width: 75%;" /></a>
 </figure>
-<section id="id6">
-<h3>Observations<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<section id="id5">
+<h3>Observations<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>You can see our final rule is much more accurate for fewer required intervals.</p></li>
 <li><p>Indeed we are down at the limits where round-off errors are clearly affecting our results and impacting on convergence rates.</p></li>
@@ -2650,6 +2679,7 @@ E_S
 </section>
 <section id="newton-cotes-quadrature-rules-star-star">
 <h2>Newton-Cotes quadrature rules [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#newton-cotes-quadrature-rules-star-star" title="Permalink to this heading">#</a></h2>
+<div class="toggle toggle-shown docutils container">
 <p>Taking the idea behind Simpson’s rule, which can be interpreted as (or derived by) fitting a quadratic Lagrange interpolating polynomial to <em>equally spaced</em> points over an interval, and extending to any order Lagrange polynomial leads to the <em>Newton-Cotes</em> family of quadrature rules.</p>
 <p>[Of course the midpoint and trapezoidal rules fit within this description as well with the fitting of a constant and a linear polynomial.]</p>
 <p>Assume we have <span class="math notranslate nohighlight">\(N+1\)</span> equally spaced data points <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> [we will see examples where these points are not fixed in advance below]. We will assume we are dealing with the integration of a known function and so <span class="math notranslate nohighlight">\(y_i = f(x_i)\)</span>.</p>
@@ -2676,8 +2706,10 @@ I &amp;\approx \int_a^b\,P_N(x)\,dx,\\[10pt]
 \[ A_i := \int_a^b\, \ell_i(x)\, dx, \;\;\;\; i = 0,1,\ldots,N. \]</div>
 <p>Simply by varying <span class="math notranslate nohighlight">\(N\)</span> we can come up with quadrature rules of arbitrary order.</p>
 <p>Let’s check we can recreate the schemes we have already seen via this approach.</p>
+</div>
 <section id="n-1-trapezoidal">
 <h3>(N=1) Trapezoidal<a class="headerlink" href="#n-1-trapezoidal" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <p>If <span class="math notranslate nohighlight">\(N=1\)</span> (i.e. two data points) then the Lagrange basis functions are</p>
 <div class="math notranslate nohighlight">
 \[\ell_0(x) = \frac{x-x_1}{x_0-x_1}= \frac{x-b}{a-b}, \;\;\;\;\;\;\;\;
@@ -2709,21 +2741,27 @@ A_0 f(a) + A_1 f(b) = (b - a)\frac{(f(a) + f(b))}{2},
 \end{align*}
 \]</div>
 <p>which we indeed recognise as the Trapezoidal scheme from earlier.</p>
+</div>
 </section>
 <section id="n-2-simpson-s-rule">
 <h3>(N=2) Simpson’s rule<a class="headerlink" href="#n-2-simpson-s-rule" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <p>If we go through the same steps with <span class="math notranslate nohighlight">\(N=2\)</span> we arrive at the 1/3 Simpson rule from earlier [a homework exercise asks you to do this].</p>
 <p>[NB. We could also use the <em>method of undetermined coefficients</em> and Taylor Series - we will see this approach to constructing approximations to derivatives in a later Lecture.]</p>
+</div>
 </section>
-<section id="id7">
-<h3>Observations<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
+<section id="id6">
+<h3>Observations<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <ul class="simple">
 <li><p>Recall that fitting high-order polynomials through many (evenly spaced) data points was found to be a bad idea in the context of interpolation (we saw this in an example which used the Runge function).</p></li>
 <li><p>This will of course also compromise the corresponding quadrature rules, and so we should be very careful about the use of high-order Newton-Cotes based quadrature.</p></li>
 </ul>
+</div>
 </section>
 <section id="open-vs-closed-newton-cotes-formulae">
 <h3>Open vs Closed Newton-Cotes formulae<a class="headerlink" href="#open-vs-closed-newton-cotes-formulae" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <p>Note that there are actually two types of Newton-Cotes formulae.</p>
 <ol class="arabic simple">
 <li><p>“Closed” rules make use of function evaluations at the end points of an interval (e.g. all the schemes we have seen so far apart from midpoint).</p></li>
@@ -2740,11 +2778,16 @@ A_0 f(a) + A_1 f(b) = (b - a)\frac{(f(a) + f(b))}{2},
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/open_vs_closed_newton_cotes.png"><img alt="../_images/open_vs_closed_newton_cotes.png" src="../_images/open_vs_closed_newton_cotes.png" style="width: 75%;" /></a>
 </figure>
+</div>
 <p>We have lost our theoretical order of convergence for the open rule (and the closed rule of course gives garbage) - our analysis no longer applies since the function is singular at <span class="math notranslate nohighlight">\(x=0\)</span>, and our analysis based upon Taylor series does not hold for non-smooth functions (e.g. we cannot assume that higher-order terms in the Taylor series expansion can be ignored).  But still, the open rule is doing a whole lot better than the closed rule!</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
 </section>
 <section id="richardson-extrapolation-and-romberg-integration-star-star">
 <h2>(Richardson) extrapolation and Romberg integration  [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#richardson-extrapolation-and-romberg-integration-star-star" title="Permalink to this heading">#</a></h2>
+<div class="toggle toggle-shown docutils container">
 <p>Note in the above that to arrive at Simpson’s rule we combined what we knew about the leading order terms in the errors for the Midpoint and Trapezoidal rules, and sought a new (more accurate) method by combining appropriate multiples of the results from the Midpoint and Trapezoidal rules to cancel the leading order errors.</p>
 <p>Similarly, we also used Simpson’s rule with two different interval sizes to derive the more accurate Weddle’s rule by seeking to cancel the leading order error terms [see homework].</p>
 <p>Note that we could also have used Trapezoidal with two interval sizes (one half the other) to arrive at Simpson’s rule.</p>
@@ -2755,6 +2798,7 @@ A_0 f(a) + A_1 f(b) = (b - a)\frac{(f(a) + f(b))}{2},
 <p>Hence, the implementation in SciPy takes as an argument the function to be integrated itself.</p>
 <p>This is in contrast to the SciPy methods we have seen above which have generally taken the pre-computed function <em>values</em> at a fixed number of points, hence it is these values rather than the underlying function which are passed as arguments. Clearly this means that Romberg integration is not suitable for situations where we only have data points and no access to an underlying function.</p>
 <p>Let’s call SciPy’s Romberg integration function on our <span class="math notranslate nohighlight">\(f(x) = \sin(x)\)</span> problem to see what it does:</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -2768,20 +2812,24 @@ A_0 f(a) + A_1 f(b) = (b - a)\frac{(f(a) + f(b))}{2},
 </div>
 </div>
 </div>
-<section id="id8">
-<h3>Observations<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<section id="id7">
+<h3>Observations<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <ul class="simple">
 <li><p>We achieved an error of around 1e-12 using 33 function evaluations.</p></li>
 <li><p>Notice that for an error of ~1e-12 using <code class="docutils literal notranslate"><span class="pre">composite_simpsons_rule</span></code> we required around 1000 function evaluations; for an error of ~1e-12 with Weddle’s rule we needed around 250 function evaluations.</p></li>
 <li><p>A drawback of this approach is that it uses equally spaced evaluations of the function, which we know from earlier is highly problematic for certain functions when we try to go to high order. In addition it may be more efficient to space our intervals (or data points/function evaluations) in some sense based on how the variability of the function varies across our interval - this is covered next.</p></li>
 </ul>
+</div>
 </section>
 </section>
 <section id="adaptive-quadrature-star">
 <h2>Adaptive quadrature  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#adaptive-quadrature-star" title="Permalink to this heading">#</a></h2>
+<div class="toggle toggle-shown docutils container">
 <p>We have noted above drawbacks of using equally spaced evaluations of the function, and going to too high an order of quadrature methods.</p>
 <p>Adaptive quadrature seeks to address this through the use of relatively low-order quadrature rules over subintervals that can vary in size, with the size based on how much variation there is at that location in the function being integrated.</p>
 <p>We will demonstrate the idea below, making use of Simpson’s rule as the base low-order method.</p>
+</div>
 <section id="algorithm">
 <h3>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this heading">#</a></h3>
 <p>By the same argument that was used to derive Weddle’s rule from Simpson’s (and indeed similar to how we derived Simpson from Midpoint and Trapezoidal) we know that approximately</p>
@@ -2856,6 +2904,7 @@ I - I_{S_2} \approx \frac {\left(I_{S_2} - I_{S} \right)}{15},
 </section>
 <section id="gaussian-quadrature-star-star">
 <h2>Gaussian quadrature  [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#gaussian-quadrature-star-star" title="Permalink to this heading">#</a></h2>
+<div class="toggle toggle-shown docutils container">
 <p>The quadrature rules introduced above all had the form</p>
 <div class="math notranslate nohighlight">
 \[
@@ -2867,8 +2916,10 @@ I = \int_a^b\,f(x)\,dx \approx \sum_{i=0}^{N}\, A_i \, f(x_i),
 <p>In particular, for Newton-Cotes we used Lagrange interpolation such that with our <span class="math notranslate nohighlight">\(N+1\)</span> free parameters, <span class="math notranslate nohighlight">\(A_i\)</span>, we were able to integrate exactly polynomials of order <em>N</em> (or order <span class="math notranslate nohighlight">\(N+1\)</span> in the case of even <span class="math notranslate nohighlight">\(N\)</span>).</p>
 <p>The idea behind Gaussian quadrature is to start from the same formula as above, but to consider both the weights <strong>and the nodes</strong> as free parameters with which to formulate quadrature rules.</p>
 <p>We thus have <span class="math notranslate nohighlight">\(2N+2\)</span> free parameters in total which can be chosen to integrate polynomials of order <span class="math notranslate nohighlight">\(2N+1\)</span> exactly.</p>
+</div>
 <section id="gauss-legendre-quadrature">
 <h3>Gauss-Legendre quadrature<a class="headerlink" href="#gauss-legendre-quadrature" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <p>To action this process for a polynomial of order <span class="math notranslate nohighlight">\(2N+1\)</span> we can simply require that the individual powers (i.e. the monomials) from 0 up to <span class="math notranslate nohighlight">\(2N + 1\)</span> are integrated exactly:</p>
 <div class="math notranslate nohighlight">
 \[\int_{-1}^{1} x^j \,dx = \sum_{i=0}^{N}\, A_i \, f(x_i) = \sum_{i=0}^{N}\, A_i \, x_i^j
@@ -2913,14 +2964,17 @@ A_0 = 1,\;\;\; A_1 = 1,\]</div>
 <div class="math notranslate nohighlight">
 \[\int_{-1}^{1} x^j \,dx = \sum_{i=0}^{N}\, A_i \, f(x_i) = \sum_{i=0}^{N}\, A_i \, x_i^j, \;\;\;\; \text{for} \;\;\;\; j = 0, 1, \dots, 2 N + 1.\]</div>
 <p>For a table of rules see <a class="reference external" href="https://en.wikipedia.org/wiki/Gaussian_quadrature#Gauss%E2%80%93Legendre_quadrature">https://en.wikipedia.org/wiki/Gaussian_quadrature#Gauss–Legendre_quadrature</a>.</p>
+</div>
 </section>
 </section>
-<section id="id9">
-<h2>Implementation<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+<section id="id8">
+<h2>Implementation<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<div class="toggle toggle-shown docutils container">
 <p>A nice description of the process more generally can be found here <a class="reference external" href="https://rosettacode.org/wiki/Numerical_integration/Gauss-Legendre_Quadrature">https://rosettacode.org/wiki/Numerical_integration/Gauss-Legendre_Quadrature</a></p>
 <p>We can use SciPy to compute either fixed order <a class="reference external" href="https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.integrate.fixed_quad.html#scipy.integrate.fixed_quad">scipy.integrate.fixed_quad</a> or fixed tolerance <a class="reference external" href="https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.integrate.quadrature.html">scipy.integrate.quadrature</a> Gaussian quadrature.</p>
 <p>We can also access the Gauss-Legendre quadrature rule using <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.polynomial.legendre.leggauss.html">numpy.polynomial.legendre.leggauss</a> as we see below.</p>
 <p>NB. we can check that the <span class="math notranslate nohighlight">\(x\)</span> values for degree 2 are indeed the <span class="math notranslate nohighlight">\(\pm 1/\sqrt{3}\)</span> we calculated above:</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute the Gauss-Legendre nodes and weights</span>
@@ -2946,6 +3000,7 @@ A_0 = 1,\;\;\; A_1 = 1,\]</div>
 </div>
 <section id="changing-integration-limits">
 <h3>Changing integration limits<a class="headerlink" href="#changing-integration-limits" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <p>Note that the above derivation, and hence the locations of the nodes, were with respect to an integration limit of <span class="math notranslate nohighlight">\([-1,1]\)</span>.</p>
 <p>In order to evaluate an integral over a general interval <span class="math notranslate nohighlight">\([a,b]\)</span> a change of coordinates is required, but this it not difficult to come up with or implement:</p>
 <p>An appropriate transformation between <span class="math notranslate nohighlight">\(x\in[a,b]\)</span> and <span class="math notranslate nohighlight">\(\xi\in[-1,1]\)</span> is:</p>
@@ -2957,6 +3012,7 @@ A_0 = 1,\;\;\; A_1 = 1,\]</div>
 <p>the desired integral can then be evaluated via</p>
 <div class="math notranslate nohighlight">
 \[\int_a^b f(x)\,dx = \frac{b-a}{2} \sum_{i=0}^{N}\, A_i \, f\left( \frac{b+a}{2} + \frac{b-a}{2}\xi_i \right).\]</div>
+</div>
 <p>Let’s use this knowledge to write our own Gauss-Legendre quadrature function over a single interval and apply it to our simple example function, comparing our results to the SciPy function <code class="docutils literal notranslate"><span class="pre">scipy.integrate.fixed_quad</span></code>.</p>
 <p>Note that the implementation of a composite version of Gauss-Legendre is a homework exercise.</p>
 <div class="cell docutils container">
@@ -2993,6 +3049,7 @@ A_0 = 1,\;\;\; A_1 = 1,\]</div>
 </section>
 <section id="other-gaussian-quadrature-families">
 <h3>Other Gaussian quadrature families<a class="headerlink" href="#other-gaussian-quadrature-families" title="Permalink to this heading">#</a></h3>
+<div class="toggle toggle-shown docutils container">
 <p>We obtained the <em>Gauss-Legendre</em> family of quadrature rules from the requirement that</p>
 <div class="math notranslate nohighlight">
 \[\int_{-1}^{1} x^j \,dx = \sum_{i=0}^{N}\, A_i \, f(x_i) = \sum_{i=0}^{N}\, A_i \, x_i^j, \;\;\;\; \text{for} \;\;\;\; j = 0, 1, \dots, 2 N + 1.\]</div>
@@ -3007,14 +3064,17 @@ different choices of weighting function lead us to other families of quadrature 
 <p>For more information see <a class="reference external" href="https://en.wikipedia.org/wiki/Gaussian_quadrature">https://en.wikipedia.org/wiki/Gaussian_quadrature</a></p>
 <p>We can generalise our <code class="docutils literal notranslate"><span class="pre">gauss_legendre</span></code> code above to implement rules with standard weighting functions by accessing the appropriate pre-computed nodes and weights using, e.g.,
 <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.polynomial.chebyshev.chebgauss.html#numpy.polynomial.chebyshev.chebgauss"><code class="docutils literal notranslate"><span class="pre">numpy.polynomial.chebyshev.chebgauss</span></code></a> or <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.polynomial.laguerre.laggauss.html#numpy.polynomial.laguerre.laggauss"><code class="docutils literal notranslate"><span class="pre">numpy.polynomial.laguerre.laggauss</span></code></a>, etc.</p>
+</div>
 </section>
 </section>
 <section id="higher-dimensions-star">
 <h2>Higher dimensions  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#higher-dimensions-star" title="Permalink to this heading">#</a></h2>
+<div class="toggle toggle-shown docutils container">
 <p>In higher dimensions similar ideas to those presented above can also be applied.</p>
 <p>For further reading see <a class="reference external" href="https://en.wikipedia.org/wiki/Numerical_integration#Multidimensional_integrals">https://en.wikipedia.org/wiki/Numerical_integration#Multidimensional_integrals</a>.</p>
 <p>Note that sometimes higher dimensional quadrature is called “cubature”: <a class="reference external" href="http://mathworld.wolfram.com/Cubature.html">http://mathworld.wolfram.com/Cubature.html</a>.</p>
 <p>For a SciPy method see <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.nquad.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.nquad.html</a>.</p>
+</div>
 </section>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
