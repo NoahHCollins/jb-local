@@ -443,14 +443,14 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-operations">Vector Operations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-dot-product">Scalar (dot) product</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-cross-product">Vector (cross) product</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-optional">Exercise 1 (Optional)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinate-transformations">Coordinate Transformations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orthonormal-bases">Orthonormal Bases</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-optional">Exercise 4 (Optional)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-calculus">Vector Calculus</a><ul class="nav section-nav flex-column">
@@ -460,13 +460,13 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-notation">Index Notation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7">Exercise 7</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8">Exercise 8</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-advanced">Exercise 8 (Advanced)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-and-tensor-calculus">Vector and Tensor Calculus</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-on-inner-dot-product-operations-with-tensors">A Note on Inner/Dot Product Operations with Tensors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9">Exercise 9</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-10">Exercise 10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-10-advanced">Exercise 10 (Advanced)</a></li>
 </ul>
 </li>
 </ul>
@@ -506,7 +506,7 @@ document.write(`
 <ul>
 <li><p><a class="reference internal" href="#scalar-dot-product" id="id5">Scalar (dot) product</a></p></li>
 <li><p><a class="reference internal" href="#vector-cross-product" id="id6">Vector (cross) product</a></p></li>
-<li><p><a class="reference internal" href="#exercise-1" id="id7">Exercise 1</a></p></li>
+<li><p><a class="reference internal" href="#exercise-1-optional" id="id7">Exercise 1 (Optional)</a></p></li>
 <li><p><a class="reference internal" href="#exercise-2" id="id8">Exercise 2</a></p></li>
 </ul>
 </li>
@@ -514,7 +514,7 @@ document.write(`
 <ul>
 <li><p><a class="reference internal" href="#orthonormal-bases" id="id10">Orthonormal Bases</a></p></li>
 <li><p><a class="reference internal" href="#exercise-3" id="id11">Exercise 3</a></p></li>
-<li><p><a class="reference internal" href="#exercise-4" id="id12">Exercise 4</a></p></li>
+<li><p><a class="reference internal" href="#exercise-4-optional" id="id12">Exercise 4 (Optional)</a></p></li>
 </ul>
 </li>
 <li><p><a class="reference internal" href="#vector-calculus" id="id13">Vector Calculus</a></p>
@@ -526,14 +526,14 @@ document.write(`
 <li><p><a class="reference internal" href="#index-notation" id="id16">Index Notation</a></p>
 <ul>
 <li><p><a class="reference internal" href="#exercise-7" id="id17">Exercise 7</a></p></li>
-<li><p><a class="reference internal" href="#exercise-8" id="id18">Exercise 8</a></p></li>
+<li><p><a class="reference internal" href="#exercise-8-advanced" id="id18">Exercise 8 (Advanced)</a></p></li>
 </ul>
 </li>
 <li><p><a class="reference internal" href="#vector-and-tensor-calculus" id="id19">Vector and Tensor Calculus</a></p>
 <ul>
 <li><p><a class="reference internal" href="#a-note-on-inner-dot-product-operations-with-tensors" id="id20">A Note on Inner/Dot Product Operations with Tensors</a></p></li>
 <li><p><a class="reference internal" href="#exercise-9" id="id21">Exercise 9</a></p></li>
-<li><p><a class="reference internal" href="#exercise-10" id="id22">Exercise 10</a></p></li>
+<li><p><a class="reference internal" href="#exercise-10-advanced" id="id22">Exercise 10 (Advanced)</a></p></li>
 </ul>
 </li>
 </ul>
@@ -695,8 +695,8 @@ b_1 &amp; b_2 &amp; b_3
 <li><p>The individual components of the cross product vector are therefore each a measure of <em>directional dissimilarity</em> between <span class="math notranslate nohighlight">\(\vector{a}\)</span> and <span class="math notranslate nohighlight">\(\vector{b}\)</span> in the plane normal to that direction. In other words, if the cross product of <span class="math notranslate nohighlight">\(\vector{a}\)</span> and <span class="math notranslate nohighlight">\(\vector{b}\)</span> has a component of zero in the <span class="math notranslate nohighlight">\(\ey\)</span> direction, for example, this implies that the projections of <span class="math notranslate nohighlight">\(\vector{a}\)</span> and <span class="math notranslate nohighlight">\(\vector{b}\)</span> onto the <span class="math notranslate nohighlight">\(x_1\)</span>-<span class="math notranslate nohighlight">\(x_3\)</span> plane are parallel.</p></li>
 </ul>
 </section>
-<section id="exercise-1">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Exercise 1</a><a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<section id="exercise-1-optional">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Exercise 1 (Optional)</a><a class="headerlink" href="#exercise-1-optional" title="Permalink to this heading">#</a></h3>
 <p>The following problems ask you to calculate various vector operations. If it’s been a while since you did these or they are new, have a go at calculating them by hand first. Then see if you can code up and compute them using <span class="math notranslate nohighlight">\(\texttt{numpy}\)</span>. Otherwise, you may want to skip directly to coding these operations up using <code class="docutils literal notranslate"><span class="pre">np.dot</span></code>, <code class="docutils literal notranslate"><span class="pre">np.cross</span></code> and <code class="docutils literal notranslate"><span class="pre">np.linalg.norm</span></code>.</p>
 <p>Assuming</p>
 <p><span class="math notranslate nohighlight">\(\vector{a} = \begin{pmatrix}2 \\ -1 \\ 4 \end{pmatrix}\)</span> and <span class="math notranslate nohighlight">\(\vector{b} = \begin{pmatrix}8 \\ 5 \\ -7 \end{pmatrix}\)</span></p>
@@ -709,6 +709,7 @@ b_1 &amp; b_2 &amp; b_3
 <h3><a class="toc-backref" href="#id8" role="doc-backlink">Exercise 2</a><a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
 <p>a) What steps would be required to determine in a code whether two 2D vectors, <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>, are linearly independent or not? Write them out.</p>
 <p>b) How would you find components of a 3D vector <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> normal and parallel to 3D vector <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>?</p>
+<p><strong>(Optional)</strong></p>
 <p>c) Plot up different assumed <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> vectors and test the identities derived above.
 </font></p>
 <div class="cell docutils container">
@@ -863,8 +864,8 @@ b_1 &amp; b_2 &amp; b_3
 </div>
 </div>
 </section>
-<section id="exercise-4">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">Exercise 4</a><a class="headerlink" href="#exercise-4" title="Permalink to this heading">#</a></h3>
+<section id="exercise-4-optional">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Exercise 4 (Optional)</a><a class="headerlink" href="#exercise-4-optional" title="Permalink to this heading">#</a></h3>
 <p>Plot what happens to a unit cube when transformed into the new basis defined in Exercise 3. What kind of transformation does the change of basis represent?</p>
 <p><em>NB - The code to plot the faces of a unit cube are already provided.</em></p>
 <div class="cell docutils container">
@@ -1050,8 +1051,8 @@ b_1 &amp; b_2 &amp; b_3
 <p>      ii) <span class="math notranslate nohighlight">\(x_ix_i=r^2\)</span>;</p>
 <p>      iii) <span class="math notranslate nohighlight">\(a_ib_jc_j=3\)</span>.</p>
 </section>
-<section id="exercise-8">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink">Exercise 8</a><a class="headerlink" href="#exercise-8" title="Permalink to this heading">#</a></h3>
+<section id="exercise-8-advanced">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Exercise 8 (Advanced)</a><a class="headerlink" href="#exercise-8-advanced" title="Permalink to this heading">#</a></h3>
 <p>a) Simplify <span class="math notranslate nohighlight">\(\delta_{ij}\delta_{jk}\delta_{kp}\delta_{pi}\)</span></p>
 <p><em>Hint - Start with simplifying the product of <span class="math notranslate nohighlight">\(\delta_{kp}\delta_{pi}\)</span>.</em></p>
 <p>b) Assuming n=3, show that <span class="math notranslate nohighlight">\(\epsilon_{ijk}\epsilon_{lmk} = \delta_{il}\delta_{jm}-\delta_{im}\delta_{jl}\)</span>.</p>
@@ -1069,7 +1070,10 @@ b_1 &amp; b_2 &amp; b_3
 <section id="a-note-on-inner-dot-product-operations-with-tensors">
 <h3><a class="toc-backref" href="#id20" role="doc-backlink">A Note on Inner/Dot Product Operations with Tensors</a><a class="headerlink" href="#a-note-on-inner-dot-product-operations-with-tensors" title="Permalink to this heading">#</a></h3>
 <p>In the lecture notes it is mentioned that the inner/dot product of two tensors involves contraction over one index such that the expression <span class="math notranslate nohighlight">\(\mathbf{W} = \mathbf{T}\cdot\mathbf{S}\)</span>, can also be written <span class="math notranslate nohighlight">\(W_{ik} = T_{ij}S_{jk}\)</span>. The contraction in this case is over the <span class="math notranslate nohighlight">\(j\)</span> index, i.e., for a fixed value of <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(k\)</span>, all terms for different values of <span class="math notranslate nohighlight">\(j\)</span> are summed together. The full matrix expression is then:</p>
-<p>$<span class="math notranslate nohighlight">\( \mathbf{W} = \begin{bmatrix} \left(T_{11}S_{11}+T_{12}S_{21}+T_{13}S_{31}\right) &amp; \left(T_{11}S_{12}+T_{12}S_{22}+T_{13}S_{32}\right) &amp; \left(T_{11}S_{13}+T_{12}S_{23}+T_{13}S_{33}\right) \\ \left(T_{21}S_{11}+T_{22}S_{21}+T_{23}S_{31}\right) &amp; \left(T_{21}S_{12}+T_{22}S_{22}+T_{23}S_{32}\right) &amp; \left(T_{21}S_{13}+T_{22}S_{23}+T_{23}S_{33}\right) \\ \left(T_{31}S_{11}+T_{32}S_{21}+T_{33}S_{31}\right) &amp; \left(T_{31}S_{12}+T_{32}S_{22}+T_{33}S_{32}\right) &amp; \left(T_{31}S_{13}+T_{32}S_{23}+T_{33}S_{33}\right) \end{bmatrix}\)</span>$.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\mathbf{W} = \begin{bmatrix} \left(T_{11}S_{11}+T_{12}S_{21}+T_{13}S_{31}\right) &amp; \left(T_{11}S_{12}+T_{12}S_{22}+T_{13}S_{32}\right) &amp; \left(T_{11}S_{13}+T_{12}S_{23}+T_{13}S_{33}\right) \\ \left(T_{21}S_{11}+T_{22}S_{21}+T_{23}S_{31}\right) &amp; \left(T_{21}S_{12}+T_{22}S_{22}+T_{23}S_{32}\right) &amp; \left(T_{21}S_{13}+T_{22}S_{23}+T_{23}S_{33}\right) \\ \left(T_{31}S_{11}+T_{32}S_{21}+T_{33}S_{31}\right) &amp; \left(T_{31}S_{12}+T_{32}S_{22}+T_{33}S_{32}\right) &amp; \left(T_{31}S_{13}+T_{32}S_{23}+T_{33}S_{33}\right) \end{bmatrix} 
+\end{split}\]</div>
 <p>As you can see this dot product operation takes two rank-2 tensors and returns a rank-2 tensor. This operation can be done for two tensors, <span class="math notranslate nohighlight">\(\mathbf{T}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{S}\)</span>, of any rank provided they share the same dimension. In such a case, the rank of the resulting tensor, <span class="math notranslate nohighlight">\(\mathbf{W}\)</span>, can be determined using <span class="math notranslate nohighlight">\(\textrm{rank}(\mathbf{W_{\cdot}}) = \textrm{rank}(\mathbf{T})+\textrm{rank}(\mathbf{S})-2\)</span>.</p>
 <p>The notes on multiplication of tensors also include an expression for Hooke’s law containing the “:” symbol (i.e., <span class="math notranslate nohighlight">\(\mathbf{\sigma}=\mathbf{C}:\mathbf{\epsilon}\)</span> ). This symbol represents the <strong>double</strong> inner/dot product, which involves contraction over two indices. Since the stiffness matrix, <span class="math notranslate nohighlight">\(\mathbf{C}\)</span>, is a rank-4 tensor and strain, <span class="math notranslate nohighlight">\(\mathbf{\epsilon}\)</span>, is a rank-2 tensor, Hooke’s law can be rewritten as <span class="math notranslate nohighlight">\(\sigma_{ij} = C_{ijkl}\epsilon_{kl}\)</span>, where a contraction occurs over both the <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(l\)</span> indices. Similarly, in the simpler case of our two rank-2 tensors <span class="math notranslate nohighlight">\(\mathbf{T}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{S}\)</span>, we can write their double dot product as <span class="math notranslate nohighlight">\(W=S_{ij}T_{ij}\)</span> where contraction occurs over both <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>, giving:</p>
 <p>$<span class="math notranslate nohighlight">\( W = \begin{bmatrix} \left(T_{11}S_{11}+T_{12}S_{12}+T_{13}S_{13}\right)+ \left(T_{21}S_{21}+T_{22}S_{22}+T_{23}S_{23}\right) + \left(T_{31}S_{31}+T_{32}S_{32}+T_{33}S_{33}\right)\end{bmatrix}\)</span>$.</p>
@@ -1091,8 +1095,8 @@ b_1 &amp; b_2 &amp; b_3
 <p>h) <span class="math notranslate nohighlight">\(\mathbf{b}\otimes\mathbf{a}\)</span>.</p>
 <p><em>Hint - When computing these identities with <span class="math notranslate nohighlight">\(\texttt{numpy}\)</span>, these functions will be helpful: <code class="docutils literal notranslate"><span class="pre">np.dot</span></code>, <code class="docutils literal notranslate"><span class="pre">np.outer</span></code>, <code class="docutils literal notranslate"><span class="pre">np.tensordot</span></code>, <code class="docutils literal notranslate"><span class="pre">np.trace</span></code>, and <code class="docutils literal notranslate"><span class="pre">np.transpose</span></code></em></p>
 </section>
-<section id="exercise-10">
-<h3><a class="toc-backref" href="#id22" role="doc-backlink">Exercise 10</a><a class="headerlink" href="#exercise-10" title="Permalink to this heading">#</a></h3>
+<section id="exercise-10-advanced">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Exercise 10 (Advanced)</a><a class="headerlink" href="#exercise-10-advanced" title="Permalink to this heading">#</a></h3>
 <p>Read up on the Einstein summation function <code class="docutils literal notranslate"><span class="pre">np.einsum</span></code> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.einsum.html">https://numpy.org/doc/stable/reference/generated/numpy.einsum.html</a>). Try using the index notation form of the Exercise 9 operations to recalculate the answers using <code class="docutils literal notranslate"><span class="pre">numpy.einsum</span></code>.</p>
 </section>
 </section>
@@ -1170,14 +1174,14 @@ b_1 &amp; b_2 &amp; b_3
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-operations">Vector Operations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-dot-product">Scalar (dot) product</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-cross-product">Vector (cross) product</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-optional">Exercise 1 (Optional)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinate-transformations">Coordinate Transformations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orthonormal-bases">Orthonormal Bases</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-optional">Exercise 4 (Optional)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-calculus">Vector Calculus</a><ul class="nav section-nav flex-column">
@@ -1187,13 +1191,13 @@ b_1 &amp; b_2 &amp; b_3
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-notation">Index Notation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7">Exercise 7</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8">Exercise 8</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-advanced">Exercise 8 (Advanced)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-and-tensor-calculus">Vector and Tensor Calculus</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-on-inner-dot-product-operations-with-tensors">A Note on Inner/Dot Product Operations with Tensors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9">Exercise 9</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-10">Exercise 10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-10-advanced">Exercise 10 (Advanced)</a></li>
 </ul>
 </li>
 </ul>
