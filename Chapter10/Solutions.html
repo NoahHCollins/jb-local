@@ -445,6 +445,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Solutions <a class="tocSkip"></a><ul class="nav section-nav flex-column">
 <li class="nav-item toc-entry"><a class="reference internal nav-link" href="#ode-solvers-or-time-stepping-methods-numerical-solution-of-ivps-2-a-class-tocskip">ODE solvers (or time-stepping methods - numerical solution of IVPs) 2 <a class="tocSkip"></a></a></li>
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
 </ul>
 </a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#homework">Homework</a><ul class="visible nav section-nav flex-column">
@@ -511,13 +512,90 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="solutions-a-class-tocskip">
-<h1>Solutions <a class="tocSkip"><a class="headerlink" href="#solutions-a-class-tocskip" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Solutions <a class="tocSkip"></a><a class="headerlink" href="#solutions-a-class-tocskip" title="Permalink to this heading">#</a></h1>
 <section id="ode-solvers-or-time-stepping-methods-numerical-solution-of-ivps-2-a-class-tocskip">
-<h2>ODE solvers (or time-stepping methods - numerical solution of IVPs) 2 <a class="tocSkip"><a class="headerlink" href="#ode-solvers-or-time-stepping-methods-numerical-solution-of-ivps-2-a-class-tocskip" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">ODE solvers (or time-stepping methods - numerical solution of IVPs) 2 <a class="tocSkip"></a><a class="headerlink" href="#ode-solvers-or-time-stepping-methods-numerical-solution-of-ivps-2-a-class-tocskip" title="Permalink to this heading">#</a></h2>
 <p><strong>WARNING</strong></p>
 <p>Note that some of the cells below take quite a few minutes to run since we consider multiple methods and multiple time step sizes in some of the convergence comparison tests.</p>
-<h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Homework" data-toc-modified-id="Homework-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Homework</a></span><ul class="toc-item"><li><span><a href="#Homework---SciPy-methods-comparison" data-toc-modified-id="Homework---SciPy-methods-comparison-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Homework - SciPy methods comparison</a></span><ul class="toc-item"><li><span><a href="#Solution---SciPy-methods-comparison" data-toc-modified-id="Solution---SciPy-methods-comparison-1.1.1"><span class="toc-item-num">1.1.1&nbsp;&nbsp;</span>Solution - SciPy methods comparison</a></span></li></ul></li><li><span><a href="#Homework---The-van-der-Pol-problem" data-toc-modified-id="Homework---The-van-der-Pol-problem-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Homework - The van der Pol problem</a></span><ul class="toc-item"><li><span><a href="#Solution---The-van-der-Pol-problem" data-toc-modified-id="Solution---The-van-der-Pol-problem-1.2.1"><span class="toc-item-num">1.2.1&nbsp;&nbsp;</span>Solution - The van der Pol problem</a></span></li></ul></li><li><span><a href="#Homework---L-stability-[$\star$]" data-toc-modified-id="Homework---L-stability-[$\star$]-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Homework - L-stability [$\star$]</a></span><ul class="toc-item"><li><span><a href="#Solution---L-stability" data-toc-modified-id="Solution---L-stability-1.3.1"><span class="toc-item-num">1.3.1&nbsp;&nbsp;</span>Solution - L-stability</a></span></li></ul></li><li><span><a href="#Homework---Implementing-Runge-Kutta-4-stage-method-(RK4)" data-toc-modified-id="Homework---Implementing-Runge-Kutta-4-stage-method-(RK4)-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Homework - Implementing Runge-Kutta 4 stage method (RK4)</a></span><ul class="toc-item"><li><span><a href="#Solution---Implementing-Runge-Kutta-4-stage-method-(RK4)" data-toc-modified-id="Solution---Implementing-Runge-Kutta-4-stage-method-(RK4)-1.4.1"><span class="toc-item-num">1.4.1&nbsp;&nbsp;</span>Solution - Implementing Runge-Kutta 4 stage method (RK4)</a></span></li></ul></li><li><span><a href="#Homework---Implementing-Adams-Bashforth-4-step-method-(AB4)" data-toc-modified-id="Homework---Implementing-Adams-Bashforth-4-step-method-(AB4)-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Homework - Implementing Adams-Bashforth 4-step method (AB4)</a></span><ul class="toc-item"><li><span><a href="#Solution---Implementing-Adams-Bashforth-4-step-method-(AB4)" data-toc-modified-id="Solution---Implementing-Adams-Bashforth-4-step-method-(AB4)-1.5.1"><span class="toc-item-num">1.5.1&nbsp;&nbsp;</span>Solution - Implementing Adams-Bashforth 4-step method (AB4)</a></span></li></ul></li><li><span><a href="#Homework---Adaptive-time-stepping-(implementing-RK45---the-Dormand-Prince-embedded-RK-pair)-[$\star\star$]" data-toc-modified-id="Homework---Adaptive-time-stepping-(implementing-RK45---the-Dormand-Prince-embedded-RK-pair)-[$\star\star$]-1.6"><span class="toc-item-num">1.6&nbsp;&nbsp;</span>Homework - Adaptive time stepping (implementing RK45 - the Dormand-Prince embedded RK pair) [$\star\star$]</a></span><ul class="toc-item"><li><span><a href="#Solution---Adaptive-time-stepping-(implementing-RK45---the-Dormand-Prince-embedded-RK-pair)" data-toc-modified-id="Solution---Adaptive-time-stepping-(implementing-RK45---the-Dormand-Prince-embedded-RK-pair)-1.6.1"><span class="toc-item-num">1.6.1&nbsp;&nbsp;</span>Solution - Adaptive time stepping (implementing RK45 - the Dormand-Prince embedded RK pair)</a></span></li></ul></li><li><span><a href="#Homework---The-Lorenz-system-(with-RK4-and-RK45)" data-toc-modified-id="Homework---The-Lorenz-system-(with-RK4-and-RK45)-1.7"><span class="toc-item-num">1.7&nbsp;&nbsp;</span>Homework - The Lorenz system (with RK4 and RK45)</a></span><ul class="toc-item"><li><span><a href="#Solution---The-Lorenz-system--(with-RK4-and-RK45)" data-toc-modified-id="Solution---The-Lorenz-system--(with-RK4-and-RK45)-1.7.1"><span class="toc-item-num">1.7.1&nbsp;&nbsp;</span>Solution - The Lorenz system  (with RK4 and RK45)</a></span></li></ul></li><li><span><a href="#Homework---Perturbing-initial-conditions-(in-the-Lorenz-problem)-[$\star$]" data-toc-modified-id="Homework---Perturbing-initial-conditions-(in-the-Lorenz-problem)-[$\star$]-1.8"><span class="toc-item-num">1.8&nbsp;&nbsp;</span>Homework - Perturbing initial conditions (in the Lorenz problem) [$\star$]</a></span><ul class="toc-item"><li><span><a href="#Solution---Perturbing-initial-conditions-(in-the-Lorenz-problem)" data-toc-modified-id="Solution---Perturbing-initial-conditions-(in-the-Lorenz-problem)-1.8.1"><span class="toc-item-num">1.8.1&nbsp;&nbsp;</span>Solution - Perturbing initial conditions (in the Lorenz problem)</a></span></li></ul></li><li><span><a href="#Homework---The-Kepler-problem-with-adaptive-time-stepping-[$\star$]" data-toc-modified-id="Homework---The-Kepler-problem-with-adaptive-time-stepping-[$\star$]-1.9"><span class="toc-item-num">1.9&nbsp;&nbsp;</span>Homework - The Kepler problem with adaptive time stepping [$\star$]</a></span><ul class="toc-item"><li><span><a href="#Solution---The-Kepler-problem-with-adaptive-time-stepping" data-toc-modified-id="Solution---The-Kepler-problem-with-adaptive-time-stepping-1.9.1"><span class="toc-item-num">1.9.1&nbsp;&nbsp;</span>Solution - The Kepler problem with adaptive time stepping</a></span></li></ul></li><li><span><a href="#Homework---Structure-preservation-(geometric-integrators-applied-to-the-Kepler-problem)-[$\star\star$]" data-toc-modified-id="Homework---Structure-preservation-(geometric-integrators-applied-to-the-Kepler-problem)-[$\star\star$]-1.10"><span class="toc-item-num">1.10&nbsp;&nbsp;</span>Homework - Structure preservation (geometric integrators applied to the Kepler problem) [$\star\star$]</a></span><ul class="toc-item"><li><span><a href="#Solution---Structure-preservation--(geometric-integrators-applied-to-the-Kepler-problem)" data-toc-modified-id="Solution---Structure-preservation--(geometric-integrators-applied-to-the-Kepler-problem)-1.10.1"><span class="toc-item-num">1.10.1&nbsp;&nbsp;</span>Solution - Structure preservation  (geometric integrators applied to the Kepler problem)</a></span></li></ul></li><li><span><a href="#Homework---ODE-solver-timings-(non-stiff-problems)-[$\star\star$]" data-toc-modified-id="Homework---ODE-solver-timings-(non-stiff-problems)-[$\star\star$]-1.11"><span class="toc-item-num">1.11&nbsp;&nbsp;</span>Homework - ODE solver timings (non-stiff problems) [$\star\star$]</a></span><ul class="toc-item"><li><span><a href="#Solution---ODE-solver-timings-(non-stiff-problems)" data-toc-modified-id="Solution---ODE-solver-timings-(non-stiff-problems)-1.11.1"><span class="toc-item-num">1.11.1&nbsp;&nbsp;</span>Solution - ODE solver timings (non-stiff problems)</a></span></li></ul></li><li><span><a href="#Homework---ODE-solver-timings-(stiff-problems)-[$\star\star$]" data-toc-modified-id="Homework---ODE-solver-timings-(stiff-problems)-[$\star\star$]-1.12"><span class="toc-item-num">1.12&nbsp;&nbsp;</span>Homework - ODE solver timings (stiff problems) [$\star\star$]</a></span><ul class="toc-item"><li><span><a href="#Solution---ODE-solver-timings-(stiff-problems)" data-toc-modified-id="Solution---ODE-solver-timings-(stiff-problems)-1.12.1"><span class="toc-item-num">1.12.1&nbsp;&nbsp;</span>Solution - ODE solver timings (stiff problems)</a></span></li></ul></li></ul></li></ul></div><div class="cell docutils container">
+</section>
+<section id="table-of-contents">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#solutions-a-class-tocskip" id="id1">Solutions <a class="tocSkip"></a></p>
+<ul>
+<li><p><a class="reference internal" href="#ode-solvers-or-time-stepping-methods-numerical-solution-of-ivps-2-a-class-tocskip" id="id2">ODE solvers (or time-stepping methods - numerical solution of IVPs) 2 <a class="tocSkip"></a></p></li>
+<li><p><a class="reference internal" href="#table-of-contents" id="id3">Table of Contents</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#homework" id="id4">Homework</a></p>
+<ul>
+<li><p><a class="reference internal" href="#homework-scipy-methods-comparison" id="id5">Homework - SciPy methods comparison</a></p>
+<ul>
+<li><p><a class="reference internal" href="#solution-scipy-methods-comparison" id="id6">Solution - SciPy methods comparison</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#homework-the-van-der-pol-problem" id="id7">Homework - The van der Pol problem</a></p>
+<ul>
+<li><p><a class="reference internal" href="#solution-the-van-der-pol-problem" id="id8">Solution - The van der Pol problem</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#homework-l-stability-star" id="id9">Homework - L-stability [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#solution-l-stability" id="id10">Solution - L-stability</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#homework-implementing-runge-kutta-4-stage-method-rk4" id="id11">Homework - Implementing Runge-Kutta 4 stage method (RK4)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#solution-implementing-runge-kutta-4-stage-method-rk4" id="id12">Solution - Implementing Runge-Kutta 4 stage method (RK4)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#homework-implementing-adams-bashforth-4-step-method-ab4" id="id13">Homework - Implementing Adams-Bashforth 4-step method (AB4)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#solution-implementing-adams-bashforth-4-step-method-ab4" id="id14">Solution - Implementing Adams-Bashforth 4-step method (AB4)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#homework-adaptive-time-stepping-implementing-rk45-the-dormand-prince-embedded-rk-pair-star-star" id="id15">Homework - Adaptive time stepping (implementing RK45 - the Dormand-Prince embedded RK pair) [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#solution-adaptive-time-stepping-implementing-rk45-the-dormand-prince-embedded-rk-pair" id="id16">Solution - Adaptive time stepping (implementing RK45 - the Dormand-Prince embedded RK pair)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#homework-the-lorenz-system-with-rk4-and-rk45" id="id17">Homework - The Lorenz system (with RK4 and RK45)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#solution-the-lorenz-system-with-rk4-and-rk45" id="id18">Solution - The Lorenz system  (with RK4 and RK45)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#homework-perturbing-initial-conditions-in-the-lorenz-problem-star" id="id19">Homework - Perturbing initial conditions (in the Lorenz problem) [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#solution-perturbing-initial-conditions-in-the-lorenz-problem" id="id20">Solution - Perturbing initial conditions (in the Lorenz problem)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#homework-the-kepler-problem-with-adaptive-time-stepping-star" id="id21">Homework - The Kepler problem with adaptive time stepping [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#solution-the-kepler-problem-with-adaptive-time-stepping" id="id22">Solution - The Kepler problem with adaptive time stepping</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#homework-structure-preservation-geometric-integrators-applied-to-the-kepler-problem-star-star" id="id23">Homework - Structure preservation (geometric integrators applied to the Kepler problem) [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#solution-structure-preservation-geometric-integrators-applied-to-the-kepler-problem" id="id24">Solution - Structure preservation  (geometric integrators applied to the Kepler problem)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#homework-ode-solver-timings-non-stiff-problems-star-star" id="id25">Homework - ODE solver timings (non-stiff problems) [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#solution-ode-solver-timings-non-stiff-problems" id="id26">Solution - ODE solver timings (non-stiff problems)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#homework-ode-solver-timings-stiff-problems-star-star" id="id27">Homework - ODE solver timings (stiff problems) [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#solution-ode-solver-timings-stiff-problems" id="id28">Solution - ODE solver timings (stiff problems)</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -540,9 +618,9 @@ document.write(`
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="homework">
-<h1>Homework<a class="headerlink" href="#homework" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id4" role="doc-backlink">Homework</a><a class="headerlink" href="#homework" title="Permalink to this heading">#</a></h1>
 <section id="homework-scipy-methods-comparison">
-<h2>Homework - SciPy methods comparison<a class="headerlink" href="#homework-scipy-methods-comparison" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Homework - SciPy methods comparison</a><a class="headerlink" href="#homework-scipy-methods-comparison" title="Permalink to this heading">#</a></h2>
 <p>Consider the ODE</p>
 <div class="math notranslate nohighlight">
 \[ y' = y - t^2 +1, \;\;\;\;\; y(0) = \frac{1}{2},\]</div>
@@ -552,7 +630,7 @@ document.write(`
 <p>Read the docs for some of the SciPy ODE solvers, e.g. <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html"><code class="docutils literal notranslate"><span class="pre">scipy.integrate.odeint</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html"><code class="docutils literal notranslate"><span class="pre">scipy.integrate.solve_ivp</span></code></a>.</p>
 <p>Use a range of methods to integrate this problem from <span class="math notranslate nohighlight">\(t=0\)</span> to <span class="math notranslate nohighlight">\(t=4\)</span>, vary the rtol and atol error tolerance parameters (for simplicity just set them equal to the same value for each experiment) and plot the error for each of the methods at the end of the simulation period against the tolerance value.</p>
 <section id="solution-scipy-methods-comparison">
-<h3>Solution - SciPy methods comparison<a class="headerlink" href="#solution-scipy-methods-comparison" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Solution - SciPy methods comparison</a><a class="headerlink" href="#solution-scipy-methods-comparison" title="Permalink to this heading">#</a></h3>
 <p>Read the docs to understand the different methods, whether they are wrappers for other Python or Fortran routines etc.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -586,7 +664,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fae0211f880&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f832abe6880&gt;
 </pre></div>
 </div>
 <img alt="../_images/f88d39b027e4047df9873d9ef02cdddd994a95050bb4c5638d054ade35986585.png" src="../_images/f88d39b027e4047df9873d9ef02cdddd994a95050bb4c5638d054ade35986585.png" />
@@ -652,7 +730,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fadffd37970&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8328802790&gt;
 </pre></div>
 </div>
 <img alt="../_images/ee521d3d6da56d18d3b0776366f1e682225161e00708f124f1855c2399d38caa.png" src="../_images/ee521d3d6da56d18d3b0776366f1e682225161e00708f124f1855c2399d38caa.png" />
@@ -661,7 +739,7 @@ document.write(`
 </section>
 </section>
 <section id="homework-the-van-der-pol-problem">
-<h2>Homework - The van der Pol problem<a class="headerlink" href="#homework-the-van-der-pol-problem" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Homework - The van der Pol problem</a><a class="headerlink" href="#homework-the-van-der-pol-problem" title="Permalink to this heading">#</a></h2>
 <p>Consider now the van der Pol oscillator problem which can be used to model electrical circuits.</p>
 <p>For background see:</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Van_der_Pol_oscillator">https://en.wikipedia.org/wiki/Van_der_Pol_oscillator</a></p>
@@ -675,7 +753,7 @@ document.write(`
 <p>Repeat the error vs tolerance analysis from the previous question.</p>
 <p>To compute the error use a Radau solver with a very tight tolerance.</p>
 <section id="solution-the-van-der-pol-problem">
-<h3>Solution - The van der Pol problem<a class="headerlink" href="#solution-the-van-der-pol-problem" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Solution - The van der Pol problem</a><a class="headerlink" href="#solution-the-van-der-pol-problem" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
@@ -782,7 +860,7 @@ document.write(`
 </section>
 </section>
 <section id="homework-l-stability-star">
-<h2>Homework - L-stability [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#homework-l-stability-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Homework - L-stability [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#homework-l-stability-star" title="Permalink to this heading">#</a></h2>
 <p>From the lecture (the discussion on L-stability), consider the problem</p>
 <div class="math notranslate nohighlight">
 \[y'(t) = \lambda(y - \cos(t)) - \sin(t), \;\;\;\; y(0) = y_0.\]</div>
@@ -794,7 +872,7 @@ document.write(`
 <p>Try to choose values of <span class="math notranslate nohighlight">\(\lambda\)</span> the give the behaviour for the two schemes as presented in the image in the L-stability section of the lecture.</p>
 <p>Verify the claims we made in the lecture: “Note that reducing the time step does not help. But this problem with the trapezoidal scheme does not manifest if we start with the initial condition <span class="math notranslate nohighlight">\(y_0=1\)</span>.”</p>
 <section id="solution-l-stability">
-<h3>Solution - L-stability<a class="headerlink" href="#solution-l-stability" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Solution - L-stability</a><a class="headerlink" href="#solution-l-stability" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># a large negative eigenvalue</span>
@@ -856,7 +934,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fae02012430&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f832aadccd0&gt;
 </pre></div>
 </div>
 <img alt="../_images/73ebeddc73000ba0415b0f8af7be2f191d06a0d0fc0427f7a94fb2d1e17e5c61.png" src="../_images/73ebeddc73000ba0415b0f8af7be2f191d06a0d0fc0427f7a94fb2d1e17e5c61.png" />
@@ -865,13 +943,13 @@ document.write(`
 </section>
 </section>
 <section id="homework-implementing-runge-kutta-4-stage-method-rk4">
-<h2>Homework - Implementing Runge-Kutta 4 stage method (RK4)<a class="headerlink" href="#homework-implementing-runge-kutta-4-stage-method-rk4" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Homework - Implementing Runge-Kutta 4 stage method (RK4)</a><a class="headerlink" href="#homework-implementing-runge-kutta-4-stage-method-rk4" title="Permalink to this heading">#</a></h2>
 <p>Write a general Python function that implements the classical RK4 method for a given RHS function, and apply it to the problem we used previously to compare the errors between forward Euler and improved Euler (recalling that we can interpret IE as a predictor-corrector LMS pair, or as a Runge-Kutta method RK2(<span class="math notranslate nohighlight">\(\alpha=1\)</span>)):</p>
 <div class="math notranslate nohighlight">
 \[y'(t)=y,\;\;\; y(0)=1,\]</div>
 <p>and where we evaluate the error at the time <span class="math notranslate nohighlight">\(t = 2\pi\)</span>.</p>
 <section id="solution-implementing-runge-kutta-4-stage-method-rk4">
-<h3>Solution - Implementing Runge-Kutta 4 stage method (RK4)<a class="headerlink" href="#solution-implementing-runge-kutta-4-stage-method-rk4" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Solution - Implementing Runge-Kutta 4 stage method (RK4)</a><a class="headerlink" href="#solution-implementing-runge-kutta-4-stage-method-rk4" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -983,7 +1061,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fadfcf02700&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f83219ca760&gt;
 </pre></div>
 </div>
 <img alt="../_images/581ee879a4868e3f8a2eadb1720012b626418bb79bb98cdc96f36d8041a1528d.png" src="../_images/581ee879a4868e3f8a2eadb1720012b626418bb79bb98cdc96f36d8041a1528d.png" />
@@ -992,7 +1070,7 @@ document.write(`
 </section>
 </section>
 <section id="homework-implementing-adams-bashforth-4-step-method-ab4">
-<h2>Homework - Implementing Adams-Bashforth 4-step method (AB4)<a class="headerlink" href="#homework-implementing-adams-bashforth-4-step-method-ab4" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Homework - Implementing Adams-Bashforth 4-step method (AB4)</a><a class="headerlink" href="#homework-implementing-adams-bashforth-4-step-method-ab4" title="Permalink to this heading">#</a></h2>
 <p>In the lecture we derived AB2 by choosing our free parameters (<span class="math notranslate nohighlight">\(\beta_0\,\)</span> and <span class="math notranslate nohighlight">\(\,\beta_1\)</span>) such that we could integrate exactly the monomials <span class="math notranslate nohighlight">\(f(t) = 1\)</span> and <span class="math notranslate nohighlight">\(f(t)=t\)</span>. This led to two simultaneous equations we could trivially solve.</p>
 <p>Try extending this to the case of AB4 - now we have four free parameters (<span class="math notranslate nohighlight">\(\beta_0, \ldots, \beta_3\)</span>) and we need to integrate polynomials up to degree 3 exactly.</p>
 <p>Derive the corresponding system of 4 equations for 4 unknowns.</p>
@@ -1010,7 +1088,7 @@ document.write(`
 <p>and then implement and verify the method following the implementation and convergence approach taken in the homework exercise from the previous lecture (<code class="docutils literal notranslate"><span class="pre">Homework:</span> <span class="pre">Improved</span> <span class="pre">Euler</span> <span class="pre">and</span> <span class="pre">accuracy</span> <span class="pre">comparison</span> <span class="pre">with</span> <span class="pre">forward</span> <span class="pre">Euler</span></code>).</p>
 <p>As the scheme isn’t self-starting use the appropriate number of time steps from an appropriate order RK method to start things off.</p>
 <section id="solution-implementing-adams-bashforth-4-step-method-ab4">
-<h3>Solution - Implementing Adams-Bashforth 4-step method (AB4)<a class="headerlink" href="#solution-implementing-adams-bashforth-4-step-method-ab4" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Solution - Implementing Adams-Bashforth 4-step method (AB4)</a><a class="headerlink" href="#solution-implementing-adams-bashforth-4-step-method-ab4" title="Permalink to this heading">#</a></h3>
 <p>We now have a scheme in the form (a 4 step scheme)</p>
 <div class="math notranslate nohighlight">
 \[y_{n+1} - y_n = \Delta t \left( \beta_3 f_{n} + \beta_2 f_{n-1} + \beta_1 f_{n-2} + \beta_0 f_{n-3} \right).\]</div>
@@ -1207,7 +1285,7 @@ Our coefficient agree with what we wrote in the lecture:  True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fadfcca7220&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f832176c280&gt;
 </pre></div>
 </div>
 <img alt="../_images/f46694a4976bb5aa5bce78f59e6add953322af6efcd92ac0a0e399dcff9e8b80.png" src="../_images/f46694a4976bb5aa5bce78f59e6add953322af6efcd92ac0a0e399dcff9e8b80.png" />
@@ -1216,7 +1294,7 @@ Our coefficient agree with what we wrote in the lecture:  True
 </section>
 </section>
 <section id="homework-adaptive-time-stepping-implementing-rk45-the-dormand-prince-embedded-rk-pair-star-star">
-<h2>Homework - Adaptive time stepping (implementing RK45 - the Dormand-Prince embedded RK pair) [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-adaptive-time-stepping-implementing-rk45-the-dormand-prince-embedded-rk-pair-star-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Homework - Adaptive time stepping (implementing RK45 - the Dormand-Prince embedded RK pair) [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#homework-adaptive-time-stepping-implementing-rk45-the-dormand-prince-embedded-rk-pair-star-star" title="Permalink to this heading">#</a></h2>
 <p>Try implementing the Dormand and Price embedded RK pair (<a class="reference external" href="https://en.wikipedia.org/wiki/Dormand%E2%80%93Prince_method">https://en.wikipedia.org/wiki/Dormand–Prince_method</a>) with adaptive time stepping.</p>
 <p>[Given 4th and 5th order approximations to the solution at the new time level (<code class="docutils literal notranslate"><span class="pre">y4</span></code> and <code class="docutils literal notranslate"><span class="pre">y5</span></code>), the error control component of the method can be written something like</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>        <span class="c1"># error control</span>
@@ -1291,7 +1369,7 @@ Our coefficient agree with what we wrote in the lecture:  True
 </div>
 </div>
 <section id="solution-adaptive-time-stepping-implementing-rk45-the-dormand-prince-embedded-rk-pair">
-<h3>Solution - Adaptive time stepping (implementing RK45 - the Dormand-Prince embedded RK pair)<a class="headerlink" href="#solution-adaptive-time-stepping-implementing-rk45-the-dormand-prince-embedded-rk-pair" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Solution - Adaptive time stepping (implementing RK45 - the Dormand-Prince embedded RK pair)</a><a class="headerlink" href="#solution-adaptive-time-stepping-implementing-rk45-the-dormand-prince-embedded-rk-pair" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a21</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="mf">5.</span>
@@ -1405,7 +1483,7 @@ Our coefficient agree with what we wrote in the lecture:  True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fadfcdb6100&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f83218362b0&gt;
 </pre></div>
 </div>
 <img alt="../_images/837103c3dfbb14015738e63f8723c5e4db27f83595f0dc2d2705620c9a0b9cda.png" src="../_images/837103c3dfbb14015738e63f8723c5e4db27f83595f0dc2d2705620c9a0b9cda.png" />
@@ -1414,10 +1492,10 @@ Our coefficient agree with what we wrote in the lecture:  True
 </section>
 </section>
 <section id="homework-the-lorenz-system-with-rk4-and-rk45">
-<h2>Homework - The Lorenz system (with RK4 and RK45)<a class="headerlink" href="#homework-the-lorenz-system-with-rk4-and-rk45" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Homework - The Lorenz system (with RK4 and RK45)</a><a class="headerlink" href="#homework-the-lorenz-system-with-rk4-and-rk45" title="Permalink to this heading">#</a></h2>
 <p>Repeat the Lorenz system exercise from the previous lecture’s homework using our new RK4 and RK45 solvers.</p>
 <section id="solution-the-lorenz-system-with-rk4-and-rk45">
-<h3>Solution - The Lorenz system  (with RK4 and RK45)<a class="headerlink" href="#solution-the-lorenz-system-with-rk4-and-rk45" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Solution - The Lorenz system  (with RK4 and RK45)</a><a class="headerlink" href="#solution-the-lorenz-system-with-rk4-and-rk45" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
@@ -1607,11 +1685,11 @@ Our coefficient agree with what we wrote in the lecture:  True
 </section>
 </section>
 <section id="homework-perturbing-initial-conditions-in-the-lorenz-problem-star">
-<h2>Homework - Perturbing initial conditions (in the Lorenz problem) [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#homework-perturbing-initial-conditions-in-the-lorenz-problem-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Homework - Perturbing initial conditions (in the Lorenz problem) [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#homework-perturbing-initial-conditions-in-the-lorenz-problem-star" title="Permalink to this heading">#</a></h2>
 <p>In order to think about how long we can reasonably expect to follow a complex trajectory such as in the Lorenz system before we start to see divergence, see what happens if you start two simulations with slightly different initial conditions. i.e. perturb your initial condition using a small random vector and track how the trajectories diverge.</p>
 <p>I suggest you try this with RK4.</p>
 <section id="solution-perturbing-initial-conditions-in-the-lorenz-problem">
-<h3>Solution - Perturbing initial conditions (in the Lorenz problem)<a class="headerlink" href="#solution-perturbing-initial-conditions-in-the-lorenz-problem" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Solution - Perturbing initial conditions (in the Lorenz problem)</a><a class="headerlink" href="#solution-perturbing-initial-conditions-in-the-lorenz-problem" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initial condition</span>
@@ -1649,25 +1727,25 @@ Our coefficient agree with what we wrote in the lecture:  True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00186145 1.00001302 1.00123524]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00007713 1.00155703 1.00163312]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;mpl_toolkits.mplot3d.art3d.Line3D at 0x7fadfd4134c0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;mpl_toolkits.mplot3d.art3d.Line3D at 0x7f8321e7f5b0&gt;]
 </pre></div>
 </div>
-<img alt="../_images/29e16b3d1a2179c3b5f6c9ea9c9f9bf9ebed0bb6b3104b2fe538c99dca1a274b.png" src="../_images/29e16b3d1a2179c3b5f6c9ea9c9f9bf9ebed0bb6b3104b2fe538c99dca1a274b.png" />
-<img alt="../_images/8a4d2c434ce542e78000e6bdc7e0e1b849538f3ab7ffb6b5e7c30979c7d6a02d.png" src="../_images/8a4d2c434ce542e78000e6bdc7e0e1b849538f3ab7ffb6b5e7c30979c7d6a02d.png" />
+<img alt="../_images/200db748f8d29361415ac118c18f8637890df05f54351684606dcdbba085c64a.png" src="../_images/200db748f8d29361415ac118c18f8637890df05f54351684606dcdbba085c64a.png" />
+<img alt="../_images/a424ddc2602081035a88f1dcdadcdf83fb91b563e5fd5e233b304497ad8d7c21.png" src="../_images/a424ddc2602081035a88f1dcdadcdf83fb91b563e5fd5e233b304497ad8d7c21.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="homework-the-kepler-problem-with-adaptive-time-stepping-star">
-<h2>Homework - The Kepler problem with adaptive time stepping [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#homework-the-kepler-problem-with-adaptive-time-stepping-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Homework - The Kepler problem with adaptive time stepping [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#homework-the-kepler-problem-with-adaptive-time-stepping-star" title="Permalink to this heading">#</a></h2>
 <p>Repeat the Kepler problem exercise from Lecture 5’s homework using our own RK45 method (or alternatively Scipy’s <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> with the option <code class="docutils literal notranslate"><span class="pre">RK45</span></code>).</p>
 <p>Plot how the time step size varies in time - does it make sense when you have larger vs smaller time steps?</p>
 <p>See if you get agreement for the time step sizes between our and SciPy’s RK45 implementation.</p>
 <section id="solution-the-kepler-problem-with-adaptive-time-stepping">
-<h3>Solution - The Kepler problem with adaptive time stepping<a class="headerlink" href="#solution-the-kepler-problem-with-adaptive-time-stepping" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Solution - The Kepler problem with adaptive time stepping</a><a class="headerlink" href="#solution-the-kepler-problem-with-adaptive-time-stepping" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this is code from L5 - homework to remind us what FE and IE did</span>
@@ -1877,7 +1955,7 @@ Our coefficient agree with what we wrote in the lecture:  True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fadfc4bb100&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8321002160&gt;
 </pre></div>
 </div>
 <img alt="../_images/b93bf6699e059ce4a4c11f1ed4ea7901aaec2d18092c7185b1707840334bc753.png" src="../_images/b93bf6699e059ce4a4c11f1ed4ea7901aaec2d18092c7185b1707840334bc753.png" />
@@ -1989,7 +2067,7 @@ Our coefficient agree with what we wrote in the lecture:  True
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>max/min dt for RK45 (after first orbit):  0.4356220541477427 0.07771238172673378
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fadfc3f3670&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f83208395e0&gt;
 </pre></div>
 </div>
 <img alt="../_images/70835410c5385fdc75febbc8ef78e9232ac375b0abc84c21103d211a6c2f6889.png" src="../_images/70835410c5385fdc75febbc8ef78e9232ac375b0abc84c21103d211a6c2f6889.png" />
@@ -2134,7 +2212,7 @@ Our coefficient agree with what we wrote in the lecture:  True
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>max/min dt for RK45 (after first orbit):  0.5792222442452157 0.0052540849774551646
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fadf7af3d30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f83208bd8e0&gt;
 </pre></div>
 </div>
 <img alt="../_images/48ff4277e5b1e526320843448ed9aa4aa13beb86b6ec51e15aba5a7a1631504d.png" src="../_images/48ff4277e5b1e526320843448ed9aa4aa13beb86b6ec51e15aba5a7a1631504d.png" />
@@ -2181,12 +2259,12 @@ Our coefficient agree with what we wrote in the lecture:  True
 </section>
 </section>
 <section id="homework-structure-preservation-geometric-integrators-applied-to-the-kepler-problem-star-star">
-<h2>Homework - Structure preservation (geometric integrators applied to the Kepler problem) [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-structure-preservation-geometric-integrators-applied-to-the-kepler-problem-star-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">Homework - Structure preservation (geometric integrators applied to the Kepler problem) [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#homework-structure-preservation-geometric-integrators-applied-to-the-kepler-problem-star-star" title="Permalink to this heading">#</a></h2>
 <p>Implement the symplectic Euler method and compare this to our other three methods we have applied to the Kepler problem.</p>
 <p>For details of the method see <a class="reference external" href="https://en.wikipedia.org/wiki/Semi-implicit_Euler_method">https://en.wikipedia.org/wiki/Semi-implicit_Euler_method</a>.</p>
 <p>As the name implies this is an example of a <a class="reference external" href="https://en.wikipedia.org/wiki/Symplectic_integrator"><em>symplectic</em></a> time stepping method. We don’t have time to go into what this means, we simply state that methods such as this (a class of <a class="reference external" href="https://en.wikipedia.org/wiki/Geometric_integrator"><em>geometric integrator</em></a>) well suited to problems where it is important to try and preserve conservation laws (as well as related “geometric” structures.</p>
 <section id="solution-structure-preservation-geometric-integrators-applied-to-the-kepler-problem">
-<h3>Solution - Structure preservation  (geometric integrators applied to the Kepler problem)<a class="headerlink" href="#solution-structure-preservation-geometric-integrators-applied-to-the-kepler-problem" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">Solution - Structure preservation  (geometric integrators applied to the Kepler problem)</a><a class="headerlink" href="#solution-structure-preservation-geometric-integrators-applied-to-the-kepler-problem" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># split the function to facilitate our symplectic Euler implementation</span>
@@ -2338,7 +2416,7 @@ Our coefficient agree with what we wrote in the lecture:  True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fadfc43fb50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8320ebd400&gt;
 </pre></div>
 </div>
 <img alt="../_images/7307307049aa9725bf2975e11943ebb643a0e0a008f140b96be89fd5f26c5176.png" src="../_images/7307307049aa9725bf2975e11943ebb643a0e0a008f140b96be89fd5f26c5176.png" />
@@ -2452,7 +2530,7 @@ Our coefficient agree with what we wrote in the lecture:  True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fadf6f70700&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f83202eac40&gt;
 </pre></div>
 </div>
 <img alt="../_images/8b762ba31145dd1c48d5599795a6c2565ed5ca3f90cdd2c156d10f9cffd55835.png" src="../_images/8b762ba31145dd1c48d5599795a6c2565ed5ca3f90cdd2c156d10f9cffd55835.png" />
@@ -2557,29 +2635,12 @@ Our coefficient agree with what we wrote in the lecture:  True
 <span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="n">H_rk4</span> <span class="o">=</span> <span class="n">compute_Kepler_energy</span><span class="p">(</span><span class="n">y_rk4</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="n">L_rk4</span> <span class="o">=</span> <span class="n">compute_Kepler_angular_mom</span><span class="p">(</span><span class="n">y_rk4</span><span class="p">)</span>
 
-<span class="nn">Cell In[6], line 11,</span> in <span class="ni">RK4</span><span class="nt">(f, y0, t0, t_max, dt)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">t_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">t0</span><span class="p">]</span>                 
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">while</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">t_max</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">11</span>     <span class="n">k1</span> <span class="o">=</span> <span class="n">dt</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="n">k2</span> <span class="o">=</span> <span class="n">dt</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">k1</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">k3</span> <span class="o">=</span> <span class="n">dt</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">k2</span><span class="p">)</span>
-
-<span class="nn">Cell In[18], line 11,</span> in <span class="ni">f_planetary</span><span class="nt">(t, y)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">f_planetary</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span><span class="w">     </span><span class="sd">&quot;&quot;&quot; RHS function for orbital motion example.</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span><span class="sd">     y = (q_1,q_2, p_1,p_1)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span><span class="sd">     The q&#39;s are the position coordinates</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span><span class="sd">     and the p&#39;s are the velocity components.</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">11</span>     <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/numpy/core/numeric.py:132,</span> in <span class="ni">zeros_like</span><span class="nt">(a, dtype, order, subok, shape)</span>
-<span class="g g-Whitespace">    </span><span class="mi">130</span> <span class="c1"># needed instead of a 0 to get same result as zeros for string dtypes</span>
-<span class="g g-Whitespace">    </span><span class="mi">131</span> <span class="n">z</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">132</span> <span class="n">multiarray</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">casting</span><span class="o">=</span><span class="s1">&#39;unsafe&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">133</span> <span class="k">return</span> <span class="n">res</span>
+<span class="nn">Cell In[6], line 15,</span> in <span class="ni">RK4</span><span class="nt">(f, y0, t0, t_max, dt)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">k3</span> <span class="o">=</span> <span class="n">dt</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">k2</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">k4</span> <span class="o">=</span> <span class="n">dt</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">dt</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">k3</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">15</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">6.</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">y_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">dt</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -2928,7 +2989,7 @@ Our coefficient agree with what we wrote in the lecture:  True
 </section>
 </section>
 <section id="homework-ode-solver-timings-non-stiff-problems-star-star">
-<h2>Homework - ODE solver timings (non-stiff problems) [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-ode-solver-timings-non-stiff-problems-star-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">Homework - ODE solver timings (non-stiff problems) [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#homework-ode-solver-timings-non-stiff-problems-star-star" title="Permalink to this heading">#</a></h2>
 <p>In an earlier homework question we compared a variety of SciPy’s ODE solver methods on the problem</p>
 <div class="math notranslate nohighlight">
 \[ y' = y - t^2 +1, \;\;\;\;\; y(0) = \frac{1}{2},\]</div>
@@ -2942,7 +3003,7 @@ Our coefficient agree with what we wrote in the lecture:  True
 <p>What do you observe from these results, and the differences observed between the ‘error’ vs ‘tolerance’ and ‘error’ vs ‘run time’ plots?</p>
 <p>Finally, see how our own implementations of improved Euler (IE), AM3, RK4 and RK45 (i.e. our Dormand &amp; Prince adaptive time stepping solver) compare. What conclusions can you draw from this comparison?</p>
 <section id="solution-ode-solver-timings-non-stiff-problems">
-<h3>Solution - ODE solver timings (non-stiff problems)<a class="headerlink" href="#solution-ode-solver-timings-non-stiff-problems" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id26" role="doc-backlink">Solution - ODE solver timings (non-stiff problems)</a><a class="headerlink" href="#solution-ode-solver-timings-non-stiff-problems" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
@@ -3235,7 +3296,7 @@ Our coefficient agree with what we wrote in the lecture:  True
 </section>
 </section>
 <section id="homework-ode-solver-timings-stiff-problems-star-star">
-<h2>Homework - ODE solver timings (stiff problems) [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#homework-ode-solver-timings-stiff-problems-star-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id27" role="doc-backlink">Homework - ODE solver timings (stiff problems) [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#homework-ode-solver-timings-stiff-problems-star-star" title="Permalink to this heading">#</a></h2>
 <p>Consider now a vector problem demonstrating stiff behaviour.</p>
 <p>Recall from the lecture the problem of the form</p>
 <div class="math notranslate nohighlight">
@@ -3266,7 +3327,7 @@ A =
 <p>I suggest you use an initial condition of <span class="math notranslate nohighlight">\(y(0)=1\)</span> and <span class="math notranslate nohighlight">\(y'(0) = \mu - 2\)</span> and integrate up to a time of <span class="math notranslate nohighlight">\(t=1\)</span>.</p>
 <p>Comment on what you observe, and if (and how) your advice on the best performing approach changes as you change the stiffness of the problem.</p>
 <section id="solution-ode-solver-timings-stiff-problems">
-<h3>Solution - ODE solver timings (stiff problems)<a class="headerlink" href="#solution-ode-solver-timings-stiff-problems" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">Solution - ODE solver timings (stiff problems)</a><a class="headerlink" href="#solution-ode-solver-timings-stiff-problems" title="Permalink to this heading">#</a></h3>
 <p>The eigenvalues for this <span class="math notranslate nohighlight">\(A\)</span> matrix are 1 and <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3694,6 +3755,7 @@ A =
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Solutions <a class="tocSkip"></a><ul class="nav section-nav flex-column">
 <li class="nav-item toc-entry"><a class="reference internal nav-link" href="#ode-solvers-or-time-stepping-methods-numerical-solution-of-ivps-2-a-class-tocskip">ODE solvers (or time-stepping methods - numerical solution of IVPs) 2 <a class="tocSkip"></a></a></li>
+<li class="nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
 </ul>
 </a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#homework">Homework</a><ul class="visible nav section-nav flex-column">

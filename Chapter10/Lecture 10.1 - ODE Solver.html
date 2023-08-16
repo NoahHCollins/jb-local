@@ -463,12 +463,170 @@ document.write(`
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="ode-solvers-2-a-class-tocskip">
-<h1>10.1 ODE solvers 2 <a class="tocSkip"><a class="headerlink" href="#ode-solvers-2-a-class-tocskip" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id16" role="doc-backlink">10.1 ODE solvers 2 <a class="tocSkip"></a><a class="headerlink" href="#ode-solvers-2-a-class-tocskip" title="Permalink to this heading">#</a></h1>
 <p>Lecture 10.1<br />
 Matt Piggott</p>
-<h2>Table of Contents<span class="tocSkip"></span></h2>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Review" data-toc-modified-id="Review-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Review</a></span><ul class="toc-item"><li><span><a href="#Problem-definition" data-toc-modified-id="Problem-definition-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Problem definition</a></span></li><li><span><a href="#Notation" data-toc-modified-id="Notation-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Notation</a></span></li><li><span><a href="#Convergence" data-toc-modified-id="Convergence-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Convergence</a></span></li><li><span><a href="#Model-Problem:-exponential-decay" data-toc-modified-id="Model-Problem:-exponential-decay-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Model Problem: exponential decay</a></span></li></ul></li><li><span><a href="#Simple-numerical-approximations" data-toc-modified-id="Simple-numerical-approximations-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Simple numerical approximations</a></span><ul class="toc-item"><li><span><a href="#Forward-Euler" data-toc-modified-id="Forward-Euler-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Forward Euler</a></span></li><li><span><a href="#Taylor-series-approximation" data-toc-modified-id="Taylor-series-approximation-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>Taylor series approximation</a></span></li><li><span><a href="#Using-numerical-differentiation" data-toc-modified-id="Using-numerical-differentiation-2.3"><span class="toc-item-num">2.3&nbsp;&nbsp;</span>Using numerical differentiation</a></span><ul class="toc-item"><li><span><a href="#Four-simple-schemes" data-toc-modified-id="Four-simple-schemes-2.3.1"><span class="toc-item-num">2.3.1&nbsp;&nbsp;</span>Four simple schemes</a></span></li></ul></li><li><span><a href="#An-example-application" data-toc-modified-id="An-example-application-2.4"><span class="toc-item-num">2.4&nbsp;&nbsp;</span>An example application</a></span><ul class="toc-item"><li><span><a href="#Convergence" data-toc-modified-id="Convergence-2.4.1"><span class="toc-item-num">2.4.1&nbsp;&nbsp;</span>Convergence</a></span></li></ul></li><li><span><a href="#Implementing-implicit-schemes" data-toc-modified-id="Implementing-implicit-schemes-2.5"><span class="toc-item-num">2.5&nbsp;&nbsp;</span>Implementing implicit schemes</a></span></li><li><span><a href="#Using-numerical-quadrature" data-toc-modified-id="Using-numerical-quadrature-2.6"><span class="toc-item-num">2.6&nbsp;&nbsp;</span>Using numerical quadrature</a></span></li></ul></li><li><span><a href="#Errors" data-toc-modified-id="Errors-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Errors</a></span><ul class="toc-item"><li><span><a href="#Definitions-(errors)" data-toc-modified-id="Definitions-(errors)-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Definitions (errors)</a></span><ul class="toc-item"><li><span><a href="#Local-truncation-error" data-toc-modified-id="Local-truncation-error-3.1.1"><span class="toc-item-num">3.1.1&nbsp;&nbsp;</span>Local truncation error</a></span></li><li><span><a href="#Order-of-convergence-&amp;-consistency" data-toc-modified-id="Order-of-convergence-&amp;-consistency-3.1.2"><span class="toc-item-num">3.1.2&nbsp;&nbsp;</span>Order of convergence &amp; consistency</a></span></li><li><span><a href="#Local-error" data-toc-modified-id="Local-error-3.1.3"><span class="toc-item-num">3.1.3&nbsp;&nbsp;</span>Local error</a></span></li><li><span><a href="#Global-error" data-toc-modified-id="Global-error-3.1.4"><span class="toc-item-num">3.1.4&nbsp;&nbsp;</span>Global error</a></span></li><li><span><a href="#Links-between-errors-and-stability" data-toc-modified-id="Links-between-errors-and-stability-3.1.5"><span class="toc-item-num">3.1.5&nbsp;&nbsp;</span>Links between errors and stability</a></span></li></ul></li></ul></li><li><span><a href="#Stability" data-toc-modified-id="Stability-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>Stability</a></span><ul class="toc-item"><li><span><a href="#Continuous-case" data-toc-modified-id="Continuous-case-4.1"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>Continuous case</a></span></li><li><span><a href="#Discrete-case" data-toc-modified-id="Discrete-case-4.2"><span class="toc-item-num">4.2&nbsp;&nbsp;</span>Discrete case</a></span><ul class="toc-item"><li><span><a href="#Backward-Euler-excess-stability-test" data-toc-modified-id="Backward-Euler-excess-stability-test-4.2.1"><span class="toc-item-num">4.2.1&nbsp;&nbsp;</span>Backward Euler excess stability test</a></span></li></ul></li><li><span><a href="#Absolute-stability" data-toc-modified-id="Absolute-stability-4.3"><span class="toc-item-num">4.3&nbsp;&nbsp;</span>Absolute stability</a></span><ul class="toc-item"><li><span><a href="#&quot;A&quot;-stability-/-A-stable-methods" data-toc-modified-id="&quot;A&quot;-stability-/-A-stable-methods-4.3.1"><span class="toc-item-num">4.3.1&nbsp;&nbsp;</span>"A" stability / A-stable methods</a></span></li><li><span><a href="#A($\alpha$)-stability-[$\star$]" data-toc-modified-id="A($\alpha$)-stability-[$\star$]-4.3.2"><span class="toc-item-num">4.3.2&nbsp;&nbsp;</span>A($\alpha$) stability [$\star$]</a></span></li></ul></li><li><span><a href="#L-stability-[$\star\star$]" data-toc-modified-id="L-stability-[$\star\star$]-4.4"><span class="toc-item-num">4.4&nbsp;&nbsp;</span>L-stability [$\star\star$]</a></span></li></ul></li><li><span><a href="#Time-stepping-errors" data-toc-modified-id="Time-stepping-errors-5"><span class="toc-item-num">5&nbsp;&nbsp;</span>Time-stepping errors</a></span><ul class="toc-item"><li><span><a href="#A-little-bit-of-maths-to-bound-the-global-error--[$\star\star$]" data-toc-modified-id="A-little-bit-of-maths-to-bound-the-global-error--[$\star\star$]-5.1"><span class="toc-item-num">5.1&nbsp;&nbsp;</span>A little bit of maths to bound the global error  [$\star\star$]</a></span></li><li><span><a href="#Zero-stability--[$\star\star$]" data-toc-modified-id="Zero-stability--[$\star\star$]-5.2"><span class="toc-item-num">5.2&nbsp;&nbsp;</span>Zero stability  [$\star\star$]</a></span></li><li><span><a href="#Practical-choice-of-step-size" data-toc-modified-id="Practical-choice-of-step-size-5.3"><span class="toc-item-num">5.3&nbsp;&nbsp;</span>Practical choice of step size</a></span></li></ul></li><li><span><a href="#Linear-multistep-(LMS)-methods" data-toc-modified-id="Linear-multistep-(LMS)-methods-6"><span class="toc-item-num">6&nbsp;&nbsp;</span>Linear multistep (LMS) methods</a></span><ul class="toc-item"><li><span><a href="#Popular-time-stepping-schemes" data-toc-modified-id="Popular-time-stepping-schemes-6.1"><span class="toc-item-num">6.1&nbsp;&nbsp;</span>Popular time-stepping schemes</a></span></li><li><span><a href="#Introduction---LMS" data-toc-modified-id="Introduction---LMS-6.2"><span class="toc-item-num">6.2&nbsp;&nbsp;</span>Introduction - LMS</a></span></li><li><span><a href="#Explicit-linear-multistep-methods---Adams-Bashforth-schemes" data-toc-modified-id="Explicit-linear-multistep-methods---Adams-Bashforth-schemes-6.3"><span class="toc-item-num">6.3&nbsp;&nbsp;</span>Explicit linear multistep methods - Adams-Bashforth schemes</a></span></li><li><span><a href="#Adams-Bashforth-scheme---sketch-of-derivation-[$\star$]" data-toc-modified-id="Adams-Bashforth-scheme---sketch-of-derivation-[$\star$]-6.4"><span class="toc-item-num">6.4&nbsp;&nbsp;</span>Adams-Bashforth scheme - sketch of derivation [$\star$]</a></span></li><li><span><a href="#Implicit-linear-multistep-methods---Adams-Moulton-schemes" data-toc-modified-id="Implicit-linear-multistep-methods---Adams-Moulton-schemes-6.5"><span class="toc-item-num">6.5&nbsp;&nbsp;</span>Implicit linear multistep methods - Adams-Moulton schemes</a></span></li><li><span><a href="#Linear-Multistep-Methods---error-analysis-and-consistency/order-conditions--[$\star\star$]" data-toc-modified-id="Linear-Multistep-Methods---error-analysis-and-consistency/order-conditions--[$\star\star$]-6.6"><span class="toc-item-num">6.6&nbsp;&nbsp;</span>Linear Multistep Methods - error analysis and consistency/order conditions  [$\star\star$]</a></span></li><li><span><a href="#Linear-Multistep-Methods---Predictor-Corrector-approach" data-toc-modified-id="Linear-Multistep-Methods---Predictor-Corrector-approach-6.7"><span class="toc-item-num">6.7&nbsp;&nbsp;</span>Linear Multistep Methods - Predictor-Corrector approach</a></span><ul class="toc-item"><li><span><a href="#Stability-of-predictor-corrector-methods" data-toc-modified-id="Stability-of-predictor-corrector-methods-6.7.1"><span class="toc-item-num">6.7.1&nbsp;&nbsp;</span>Stability of predictor-corrector methods</a></span></li></ul></li><li><span><a href="#Linear-Multistep-Methods---stability" data-toc-modified-id="Linear-Multistep-Methods---stability-6.8"><span class="toc-item-num">6.8&nbsp;&nbsp;</span>Linear Multistep Methods - stability</a></span></li></ul></li><li><span><a href="#Runge-Kutta-(RK)-methods" data-toc-modified-id="Runge-Kutta-(RK)-methods-7"><span class="toc-item-num">7&nbsp;&nbsp;</span>Runge-Kutta (RK) methods</a></span><ul class="toc-item"><li><span><a href="#LMS-vs-RK-methods" data-toc-modified-id="LMS-vs-RK-methods-7.1"><span class="toc-item-num">7.1&nbsp;&nbsp;</span>LMS vs RK methods</a></span></li><li><span><a href="#Two-stage-Runge-Kutta-example-(RK2)---aka-improved-Euler-/-explicit-trapezoidal-/-Euler-trapezoidal-/-Heun's-method-[from-Comp-Math]" data-toc-modified-id="Two-stage-Runge-Kutta-example-(RK2)---aka-improved-Euler-/-explicit-trapezoidal-/-Euler-trapezoidal-/-Heun's-method-[from-Comp-Math]-7.2"><span class="toc-item-num">7.2&nbsp;&nbsp;</span>Two stage Runge-Kutta example (RK2) - aka improved Euler / explicit trapezoidal / Euler-trapezoidal / Heun's method [from Comp Math]</a></span><ul class="toc-item"><li><span><a href="#RK2---schematic-visualisation-of-method" data-toc-modified-id="RK2---schematic-visualisation-of-method-7.2.1"><span class="toc-item-num">7.2.1&nbsp;&nbsp;</span>RK2 - schematic visualisation of method</a></span></li></ul></li><li><span><a href="#Another-RK2-example-(RK2-version-2)---aka-explicit-midpoint-/-modified-Euler-...-[from-Comp-Math]" data-toc-modified-id="Another-RK2-example-(RK2-version-2)---aka-explicit-midpoint-/-modified-Euler-...-[from-Comp-Math]-7.3"><span class="toc-item-num">7.3&nbsp;&nbsp;</span>Another RK2 example (RK2 version 2) - aka explicit midpoint / modified Euler ... [from Comp Math]</a></span></li><li><span><a href="#Runge-Kutta-scheme-derivation-(via-Taylor-series-methods)-[$\star$]" data-toc-modified-id="Runge-Kutta-scheme-derivation-(via-Taylor-series-methods)-[$\star$]-7.4"><span class="toc-item-num">7.4&nbsp;&nbsp;</span>Runge-Kutta scheme derivation (via Taylor series methods) [$\star$]</a></span><ul class="toc-item"><li><span><a href="#Taylor-series-methods-[from-Comp-Math]" data-toc-modified-id="Taylor-series-methods-[from-Comp-Math]-7.4.1"><span class="toc-item-num">7.4.1&nbsp;&nbsp;</span>Taylor series methods [from Comp Math]</a></span></li><li><span><a href="#Runge-Kutta-derivation--[$\star$]" data-toc-modified-id="Runge-Kutta-derivation--[$\star$]-7.4.2"><span class="toc-item-num">7.4.2&nbsp;&nbsp;</span>Runge-Kutta derivation  [$\star$]</a></span></li></ul></li><li><span><a href="#Butcher-tableau-[$\star$]" data-toc-modified-id="Butcher-tableau-[$\star$]-7.5"><span class="toc-item-num">7.5&nbsp;&nbsp;</span>Butcher tableau [$\star$]</a></span><ul class="toc-item"><li><span><a href="#Explicit-Runge-Kutta-Butcher-tableau-examples-[$\star$]" data-toc-modified-id="Explicit-Runge-Kutta-Butcher-tableau-examples-[$\star$]-7.5.1"><span class="toc-item-num">7.5.1&nbsp;&nbsp;</span>Explicit Runge-Kutta Butcher tableau examples [$\star$]</a></span></li><li><span><a href="#Implicit-Runge-Kutta-Butcher-tableau-examples" data-toc-modified-id="Implicit-Runge-Kutta-Butcher-tableau-examples-7.5.2"><span class="toc-item-num">7.5.2&nbsp;&nbsp;</span>Implicit Runge-Kutta Butcher tableau examples</a></span></li><li><span><a href="#Embedded-Runge-Kutta-pairs-[$\star$]" data-toc-modified-id="Embedded-Runge-Kutta-pairs-[$\star$]-7.5.3"><span class="toc-item-num">7.5.3&nbsp;&nbsp;</span>Embedded Runge-Kutta pairs [$\star$]</a></span></li></ul></li><li><span><a href="#Classical-RK4" data-toc-modified-id="Classical-RK4-7.6"><span class="toc-item-num">7.6&nbsp;&nbsp;</span>Classical RK4</a></span></li><li><span><a href="#An-RK4-schematic" data-toc-modified-id="An-RK4-schematic-7.7"><span class="toc-item-num">7.7&nbsp;&nbsp;</span>An RK4 schematic</a></span></li><li><span><a href="#Runge-Kutta-stability-analysis--[$\star\star$]" data-toc-modified-id="Runge-Kutta-stability-analysis--[$\star\star$]-7.8"><span class="toc-item-num">7.8&nbsp;&nbsp;</span>Runge-Kutta stability analysis  [$\star\star$]</a></span><ul class="toc-item"><li><span><a href="#RK2-stability" data-toc-modified-id="RK2-stability-7.8.1"><span class="toc-item-num">7.8.1&nbsp;&nbsp;</span>RK2 stability</a></span></li><li><span><a href="#RK4-stability" data-toc-modified-id="RK4-stability-7.8.2"><span class="toc-item-num">7.8.2&nbsp;&nbsp;</span>RK4 stability</a></span></li></ul></li><li><span><a href="#Adaptive-time-stepping--[$\star$]" data-toc-modified-id="Adaptive-time-stepping--[$\star$]-7.9"><span class="toc-item-num">7.9&nbsp;&nbsp;</span>Adaptive time-stepping  [$\star$]</a></span></li></ul></li><li><span><a href="#Stiff-problems-[$\star$]" data-toc-modified-id="Stiff-problems-[$\star$]-8"><span class="toc-item-num">8&nbsp;&nbsp;</span>Stiff problems [$\star$]</a></span><ul class="toc-item"><li><span><a href="#An-example-of-a-stiff-problem--[$\star$]" data-toc-modified-id="An-example-of-a-stiff-problem--[$\star$]-8.1"><span class="toc-item-num">8.1&nbsp;&nbsp;</span>An example of a stiff problem  [$\star$]</a></span></li><li><span><a href="#Backward-differentiation-formula-(BDF)-methods--[$\star$]" data-toc-modified-id="Backward-differentiation-formula-(BDF)-methods--[$\star$]-8.2"><span class="toc-item-num">8.2&nbsp;&nbsp;</span>Backward differentiation formula (BDF) methods  [$\star$]</a></span></li><li><span><a href="#Derivation-of-BDF-methods--[$\star\star$]" data-toc-modified-id="Derivation-of-BDF-methods--[$\star\star$]-8.3"><span class="toc-item-num">8.3&nbsp;&nbsp;</span>Derivation of BDF methods  [$\star\star$]</a></span></li><li><span><a href="#BDF-stability-regions--[$\star$]" data-toc-modified-id="BDF-stability-regions--[$\star$]-8.4"><span class="toc-item-num">8.4&nbsp;&nbsp;</span>BDF stability regions  [$\star$]</a></span></li></ul></li><li><span><a href="#Final-remarks" data-toc-modified-id="Final-remarks-9"><span class="toc-item-num">9&nbsp;&nbsp;</span>Final remarks</a></span></li><li><span><a href="#Summary" data-toc-modified-id="Summary-10"><span class="toc-item-num">10&nbsp;&nbsp;</span>Summary</a></span></li></ul></div><section id="learning-objectives-a-class-tocskip">
-<h2>Learning objectives:  <a class="tocSkip"><a class="headerlink" href="#learning-objectives-a-class-tocskip" title="Permalink to this heading">#</a></h2>
+<section id="table-of-contents">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#ode-solvers-2-a-class-tocskip" id="id16">10.1 ODE solvers 2 <a class="tocSkip"></a></p>
+<ul>
+<li><p><a class="reference internal" href="#table-of-contents" id="id17">Table of Contents</a></p></li>
+<li><p><a class="reference internal" href="#learning-objectives-a-class-tocskip" id="id18">Learning objectives:  <a class="tocSkip"></a></p></li>
+<li><p><a class="reference internal" href="#review" id="id19">Review</a></p></li>
+<li><p><a class="reference internal" href="#problem-definition" id="id20">Problem definition</a></p></li>
+<li><p><a class="reference internal" href="#notation" id="id21">Notation</a></p></li>
+<li><p><a class="reference internal" href="#convergence" id="id22">Convergence</a></p></li>
+<li><p><a class="reference internal" href="#model-problem-exponential-decay" id="id23">Model Problem: exponential decay</a></p></li>
+<li><p><a class="reference internal" href="#simple-numerical-approximations" id="id24">Simple numerical approximations</a></p></li>
+<li><p><a class="reference internal" href="#forward-euler" id="id25">Forward Euler</a></p>
+<ul>
+<li><p><a class="reference internal" href="#comments" id="id26">Comments</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#taylor-series-approximation" id="id27">Taylor series approximation</a></p></li>
+<li><p><a class="reference internal" href="#using-numerical-differentiation" id="id28">Using numerical differentiation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#four-simple-schemes" id="id29">Four simple schemes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id30">Comments</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#an-example-application" id="id31">An example application</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id32">Comments</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id33">Convergence</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id4" id="id34">Comments</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#implementing-implicit-schemes" id="id35">Implementing implicit schemes</a></p></li>
+<li><p><a class="reference internal" href="#using-numerical-quadrature" id="id36">Using numerical quadrature</a></p></li>
+<li><p><a class="reference internal" href="#errors" id="id37">Errors</a></p></li>
+<li><p><a class="reference internal" href="#definitions-errors" id="id38">Definitions (errors)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#local-truncation-error" id="id39">Local truncation error</a></p></li>
+<li><p><a class="reference internal" href="#order-of-convergence-consistency" id="id40">Order of convergence &amp; consistency</a></p></li>
+<li><p><a class="reference internal" href="#local-error" id="id41">Local error</a></p></li>
+<li><p><a class="reference internal" href="#global-error" id="id42">Global error</a></p></li>
+<li><p><a class="reference internal" href="#links-between-errors-and-stability" id="id43">Links between errors and stability</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#stability" id="id44">Stability</a></p></li>
+<li><p><a class="reference internal" href="#continuous-case" id="id45">Continuous case</a></p></li>
+<li><p><a class="reference internal" href="#discrete-case" id="id46">Discrete case</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id5" id="id47">Comments</a></p></li>
+<li><p><a class="reference internal" href="#backward-euler-excess-stability-test" id="id48">Backward Euler excess stability test</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#absolute-stability" id="id49">Absolute stability</a></p>
+<ul>
+<li><p><a class="reference internal" href="#a-stability-a-stable-methods" id="id50">“A” stability / A-stable methods</a></p></li>
+<li><p><a class="reference internal" href="#a-alpha-stability-star" id="id51">A(<span class="math notranslate nohighlight">\(\alpha\)</span>) stability [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#l-stability-star-star" id="id52">L-stability [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></p></li>
+<li><p><a class="reference internal" href="#time-stepping-errors" id="id53">Time-stepping errors</a></p></li>
+<li><p><a class="reference internal" href="#a-little-bit-of-maths-to-bound-the-global-error-star-star" id="id54">A little bit of maths to bound the global error  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id6" id="id55">Comments</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#zero-stability-star-star" id="id56">Zero stability  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></p></li>
+<li><p><a class="reference internal" href="#practical-choice-of-step-size" id="id57">Practical choice of step size</a></p></li>
+<li><p><a class="reference internal" href="#linear-multistep-lms-methods" id="id58">Linear multistep (LMS) methods</a></p></li>
+<li><p><a class="reference internal" href="#popular-time-stepping-schemes" id="id59">Popular time-stepping schemes</a></p></li>
+<li><p><a class="reference internal" href="#introduction-lms" id="id60">Introduction - LMS</a></p></li>
+<li><p><a class="reference internal" href="#explicit-linear-multistep-methods-adams-bashforth-schemes" id="id61">Explicit linear multistep methods - Adams-Bashforth schemes</a></p></li>
+<li><p><a class="reference internal" href="#adams-bashforth-scheme-sketch-of-derivation-star" id="id62">Adams-Bashforth scheme - sketch of derivation [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+<li><p><a class="reference internal" href="#implicit-linear-multistep-methods-adams-moulton-schemes" id="id63">Implicit linear multistep methods - Adams-Moulton schemes</a></p></li>
+<li><p><a class="reference internal" href="#linear-multistep-methods-error-analysis-and-consistency-order-conditions-star-star" id="id64">Linear Multistep Methods - error analysis and consistency/order conditions  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id7" id="id65">Comments</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#linear-multistep-methods-predictor-corrector-approach" id="id66">Linear Multistep Methods - Predictor-Corrector approach</a></p>
+<ul>
+<li><p><a class="reference internal" href="#stability-of-predictor-corrector-methods" id="id67">Stability of predictor-corrector methods</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#linear-multistep-methods-stability" id="id68">Linear Multistep Methods - stability</a></p></li>
+<li><p><a class="reference internal" href="#runge-kutta-rk-methods" id="id69">Runge-Kutta (RK) methods</a></p></li>
+<li><p><a class="reference internal" href="#lms-vs-rk-methods" id="id70">LMS vs RK methods</a></p></li>
+<li><p><a class="reference internal" href="#two-stage-runge-kutta-example-rk2-aka-improved-euler-explicit-trapezoidal-euler-trapezoidal-heun-s-method-from-comp-math" id="id71">Two stage Runge-Kutta example (RK2) - aka improved Euler / explicit trapezoidal / Euler-trapezoidal / Heun’s method [from Comp Math]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#rk2-schematic-visualisation-of-method" id="id72">RK2 - schematic visualisation of method</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id8" id="id73">Comments</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#another-rk2-example-rk2-version-2-aka-explicit-midpoint-modified-euler-from-comp-math" id="id74">Another RK2 example (RK2 version 2) - aka explicit midpoint / modified Euler … [from Comp Math]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id9" id="id75">Comments</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#runge-kutta-scheme-derivation-via-taylor-series-methods-star" id="id76">Runge-Kutta scheme derivation (via Taylor series methods) [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id10" id="id77">Comments</a></p></li>
+<li><p><a class="reference internal" href="#runge-kutta-derivation-star" id="id78">Runge-Kutta derivation  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#deriving-the-rk2-family" id="id79">Deriving the RK2 family</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#butcher-tableau-star" id="id80">Butcher tableau [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id11" id="id81">Comments</a></p></li>
+<li><p><a class="reference internal" href="#explicit-runge-kutta-butcher-tableau-examples-star" id="id82">Explicit Runge-Kutta Butcher tableau examples [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+<li><p><a class="reference internal" href="#implicit-runge-kutta-butcher-tableau-examples" id="id83">Implicit Runge-Kutta Butcher tableau examples</a></p></li>
+<li><p><a class="reference internal" href="#embedded-runge-kutta-pairs-star" id="id84">Embedded Runge-Kutta pairs [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#classical-rk4" id="id85">Classical RK4</a></p></li>
+<li><p><a class="reference internal" href="#an-rk4-schematic" id="id86">An RK4 schematic</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id12" id="id87">Comments</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#runge-kutta-stability-analysis-star-star" id="id88">Runge-Kutta stability analysis  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id13" id="id89">Comments</a></p></li>
+<li><p><a class="reference internal" href="#rk4-stability" id="id90">RK4 stability</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id14" id="id91">Comments</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#adaptive-time-stepping-star" id="id92">Adaptive time-stepping  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+<li><p><a class="reference internal" href="#stiff-problems-star" id="id93">Stiff problems [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+<li><p><a class="reference internal" href="#an-example-of-a-stiff-problem-star" id="id94">An example of a stiff problem  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+<li><p><a class="reference internal" href="#backward-differentiation-formula-bdf-methods-star" id="id95">Backward differentiation formula (BDF) methods  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+<li><p><a class="reference internal" href="#derivation-of-bdf-methods-star-star" id="id96">Derivation of BDF methods  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a></p></li>
+<li><p><a class="reference internal" href="#bdf-stability-regions-star" id="id97">BDF stability regions  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id15" id="id98">Comments</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#final-remarks" id="id99">Final remarks</a></p></li>
+<li><p><a class="reference internal" href="#summary" id="id100">Summary</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+</section>
+<section id="learning-objectives-a-class-tocskip">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Learning objectives:  <a class="tocSkip"></a><a class="headerlink" href="#learning-objectives-a-class-tocskip" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>To extend the simple time-stepping schemes seen previously to families of far more sophisticated and powerful methods, including more on RK methods briefly introduced in Comp Math.</p></li>
 <li><p>To introduce linear multistep methods as a second family/class of methods.</p></li>
@@ -480,10 +638,10 @@ Matt Piggott</p>
 <p><strong>Note that there are many optional and advanced sections indicated in these notes - as always you can safely ignore all of these.</strong></p>
 </section>
 <section id="review">
-<h2>Review<a class="headerlink" href="#review" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Review</a><a class="headerlink" href="#review" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="problem-definition">
-<h2>Problem definition<a class="headerlink" href="#problem-definition" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Problem definition</a><a class="headerlink" href="#problem-definition" title="Permalink to this heading">#</a></h2>
 <p>Recall that the numerical solution of ODEs involves solving approximating the solution to problems such as</p>
 <div class="math notranslate nohighlight">
 \[\text{find} \;\;\;\; \boldsymbol{y}\equiv\boldsymbol{y}\,(t) \;\;\;\;\;\; \text{such that} \;\;\;\;\;\; 
@@ -514,7 +672,7 @@ Matt Piggott</p>
 <p>Recall also that the RHS function may be a function of the independent variable (here <span class="math notranslate nohighlight">\(t\)</span>), the dependent variable(s) (here <span class="math notranslate nohighlight">\(\boldsymbol{y}\)</span>) or both.</p>
 </section>
 <section id="notation">
-<h2>Notation<a class="headerlink" href="#notation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Notation</a><a class="headerlink" href="#notation" title="Permalink to this heading">#</a></h2>
 <p>To form a discrete version of our problem, i.e. one that is solvable on a finite computer, we approximate the problem/solution at a series of time levels</p>
 <div class="math notranslate nohighlight">
 \[t_0&lt;t_1&lt;t_2&lt;\cdots\]</div>
@@ -530,7 +688,7 @@ Matt Piggott</p>
 <p>In later lectures where we are solving PDEs in time and space we will use <em>sub</em>scripts <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(j\)</span> and <span class="math notranslate nohighlight">\(k\)</span> (with the number of indices needed depending on the number of spatial dimensions) to represent spatial points, and will still use <span class="math notranslate nohighlight">\(n\)</span> to indicate time level but will use a superscript following standard convention (i.e. <span class="math notranslate nohighlight">\(u_{ij}^n \approx u(x_i,y_j,t_{n})\)</span>). Here, as we have no spatial indices to worry about and get in the way, the norm is generally for <span class="math notranslate nohighlight">\(n\)</span> to be written as a subscript.</p>
 </section>
 <section id="convergence">
-<h2>Convergence<a class="headerlink" href="#convergence" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">Convergence</a><a class="headerlink" href="#convergence" title="Permalink to this heading">#</a></h2>
 <p>We will generally require that our numerical solution satisfies two properties:</p>
 <ol class="arabic simple">
 <li><p><strong>Convergence</strong> - this can be defined formally as</p></li>
@@ -542,7 +700,7 @@ Matt Piggott</p>
 </ol>
 </section>
 <section id="model-problem-exponential-decay">
-<h2>Model Problem: exponential decay<a class="headerlink" href="#model-problem-exponential-decay" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">Model Problem: exponential decay</a><a class="headerlink" href="#model-problem-exponential-decay" title="Permalink to this heading">#</a></h2>
 <p>Recall our model problem</p>
 <div class="math notranslate nohighlight">
 \[\frac{dy}{dt} = K(y_r - y),\]</div>
@@ -589,11 +747,11 @@ Matt Piggott</p>
 </div>
 </section>
 <section id="simple-numerical-approximations">
-<h2>Simple numerical approximations<a class="headerlink" href="#simple-numerical-approximations" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">Simple numerical approximations</a><a class="headerlink" href="#simple-numerical-approximations" title="Permalink to this heading">#</a></h2>
 <p>Recall that there are several approaches for us to formulate a numerical approximation to this problem.</p>
 </section>
 <section id="forward-euler">
-<h2>Forward Euler<a class="headerlink" href="#forward-euler" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">Forward Euler</a><a class="headerlink" href="#forward-euler" title="Permalink to this heading">#</a></h2>
 <p>The first is to note that this ODE provides information about the local gradient of the solution.</p>
 <p>If we decide to use information about the current time <span class="math notranslate nohighlight">\(t_{n}\)</span> and state <span class="math notranslate nohighlight">\(y_{n} \approx y(t_{n})\)</span> only, then the simplest possible discretisation of our ODE <span class="math notranslate nohighlight">\(\,(\dot{y}=f(y))\,\)</span>  is to use a so-called <em>forward difference</em> to approximate the gradient:</p>
 <div class="math notranslate nohighlight">
@@ -644,7 +802,7 @@ Matt Piggott</p>
 </div>
 </div>
 <section id="comments">
-<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id26" role="doc-backlink">Comments</a><a class="headerlink" href="#comments" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>In the above image we assume we know the exact solution, i.e. we start from the red dot that lies on the exact solution (i.e. the curve the solution makes in <span class="math notranslate nohighlight">\((t, y(t))\)</span> space).</p></li>
 <li><p>At a later time the black dot shows where we should be; the green dot shows where the numerical method takes us; the difference is the error.</p></li>
@@ -654,7 +812,7 @@ Matt Piggott</p>
 </section>
 </section>
 <section id="taylor-series-approximation">
-<h2>Taylor series approximation<a class="headerlink" href="#taylor-series-approximation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id27" role="doc-backlink">Taylor series approximation</a><a class="headerlink" href="#taylor-series-approximation" title="Permalink to this heading">#</a></h2>
 <p>Recall that Taylor series in one dimension tells us that we can approximate the value of the function at a location in terms of its value, and value of its derivative, at a nearby point:</p>
 <div class="math notranslate nohighlight">
 \[ y(t+\Delta t) = y(t) + \Delta t \, y'(t) + \frac{\Delta t^2}{2!}y''(t) + \frac{\Delta t^3}{3!}y'''(t) + \mathcal{O}(\Delta t^4),\]</div>
@@ -668,7 +826,7 @@ Matt Piggott</p>
 <p>i.e. our forward Euler method from just above.</p>
 </section>
 <section id="using-numerical-differentiation">
-<h2>Using numerical differentiation<a class="headerlink" href="#using-numerical-differentiation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id28" role="doc-backlink">Using numerical differentiation</a><a class="headerlink" href="#using-numerical-differentiation" title="Permalink to this heading">#</a></h2>
 <p>Another approach is to consider the ODE at a single point in time (assuming for simplicity we have a scalar system so drop the bold vector notation):</p>
 <div class="math notranslate nohighlight">
 \[\left.\frac{d{y}}{dt}\right|_{t=t_{n}} =\; {f}(t_{n},{y}(t_{n})).\]</div>
@@ -691,7 +849,7 @@ Matt Piggott</p>
 <p>with the three approximate expressions all being valid
 discretisations of the derivative; with all of them being increasingly accurate for smaller choices of <span class="math notranslate nohighlight">\(\Delta t\)</span>.]</p>
 <section id="four-simple-schemes">
-<h3>Four simple schemes<a class="headerlink" href="#four-simple-schemes" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">Four simple schemes</a><a class="headerlink" href="#four-simple-schemes" title="Permalink to this heading">#</a></h3>
 <p>With this approach we can immediately write down forward Euler as well as three new equally valid schemes:</p>
 <ul class="simple">
 <li><p>a <em>forward difference</em> leads to</p></li>
@@ -712,7 +870,7 @@ discretisations of the derivative; with all of them being increasingly accurate 
 \[\frac{y_{n+1} - y_{n-1}}{2\Delta t} = {f}(t_{n},{y}_{n}) \;\;\; \iff \;\;\;  y_{n+1} = y_{n-1} + 2\,{\Delta t}\,{f}(t_{n},{y}_{n})  \]</div>
 <p>which is called the <strong>leapfrog</strong> method.</p>
 <section id="id1">
-<h4>Comments<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id30" role="doc-backlink">Comments</a><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>One observation here is that forward Euler and leapfrog are what are termed <em>explicit</em> schemes in that <span class="math notranslate nohighlight">\(y_{n+1}\)</span> can be computed explicitly using information already available (e.g. from previous time levels), this leads to simple time stepping loops (and implementations in code).</p></li>
 <li><p>Backward Euler on the other hand is what is termed an <em>implicit</em> scheme in that it leads to an equation for <span class="math notranslate nohighlight">\(y_{n+1}\)</span> which can not be written in the form of <span class="math notranslate nohighlight">\(y_{n+1}=\)</span> <em>some combination of known values</em>, as <span class="math notranslate nohighlight">\(y_{n+1}\)</span> appears on both sides of the equation.</p></li>
@@ -734,7 +892,7 @@ discretisations of the derivative; with all of them being increasingly accurate 
 </section>
 </section>
 <section id="an-example-application">
-<h2>An example application<a class="headerlink" href="#an-example-application" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id31" role="doc-backlink">An example application</a><a class="headerlink" href="#an-example-application" title="Permalink to this heading">#</a></h2>
 <p>Let’s now write some code to see how these four simple methods perform for our exponential decay model problem (where for simplicity we set the value we relax to, <span class="math notranslate nohighlight">\(y_r\)</span>, to zero).</p>
 <p>Note that in the case of a <em><strong>scalar linear</strong></em> problem, as is the current case we’re considering, it’s easy for us to deal with the issue of implicit schemes simply by rearranging our time-stepping update formula.</p>
 <p>Note that this won’t be the case for vector and/or nonlinear systems as we shall see later, and thus more work is required in these cases.</p>
@@ -846,14 +1004,14 @@ discretisations of the derivative; with all of them being increasingly accurate 
 </div>
 </div>
 <section id="id2">
-<h3>Comments<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id32" role="doc-backlink">Comments</a><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Note that in the implementations above we stored the solution at all time levels - this is because this is cheap for us to do here, and we want the option of plotting the whole solution trajectory. In general, and for larger problems, this won’t be feasible. In which case we might just return the final solution, or the solution at specified times (as the SciPy solvers typically do for example). If we don’t store all time levels we need to think what information we do need to know for each update. Notice in the code above that the leapfrog scheme is the only one where we need to keep track of anything other than the <em>current</em> solution value to compute the next solution value - for leapfrog we also need to store the immediately previous solution. This is therefore a <em>two step (or level) scheme</em>, whereas the other three are all <em>single step</em>. We will return to this point shortly.</p></li>
 <li><p>For each of these cases think about where the gradient is being evaluated, and hence why (given knowledge of the qualitative behaviour of the exact solution trajectory for this test case) the above behaviour for each numerical scheme is exactly as we would expect.</p></li>
 </ul>
 </section>
 <section id="id3">
-<h3>Convergence<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">Convergence</a><a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>We’re given the exact solution in the above code for plotting purposes, but we can of course also use knowledge of this to compute the exact errors in our numerical solution. Let’s compute the errors for each scheme, and see how this changes as we change the time step size. (Q: what error norm are we computing and plotting in the code below?)</p></li>
 </ul>
@@ -955,7 +1113,7 @@ discretisations of the derivative; with all of them being increasingly accurate 
 </div>
 </div>
 <section id="id4">
-<h4>Comments<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id34" role="doc-backlink">Comments</a><a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>We see that <em>for this problem</em> that forward and backward Euler are both first-order accurate and that their errors, at least in the asymptotic limit, are pretty much identical.</p></li>
 <li><p>Leapfrog and trapezoidal are both second-order accurate.</p></li>
@@ -966,7 +1124,7 @@ discretisations of the derivative; with all of them being increasingly accurate 
 </section>
 </section>
 <section id="implementing-implicit-schemes">
-<h2>Implementing implicit schemes<a class="headerlink" href="#implementing-implicit-schemes" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id35" role="doc-backlink">Implementing implicit schemes</a><a class="headerlink" href="#implementing-implicit-schemes" title="Permalink to this heading">#</a></h2>
 <p>We’ve seen two implicit methods</p>
 <ul class="simple">
 <li><p>the <strong>backward Euler</strong> or <strong>implicit Euler</strong> method:</p></li>
@@ -1020,7 +1178,7 @@ y_{n+1} =   \frac{\left(1 -  \frac{\Delta t}{2}\,  K\right)}{\left(1 +  \frac{\D
 <p>The hardest case is where we have a system of nonlinear ODEs - then we need to use a nonlinear <em>system</em> solver.</p>
 </section>
 <section id="using-numerical-quadrature">
-<h2>Using numerical quadrature<a class="headerlink" href="#using-numerical-quadrature" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id36" role="doc-backlink">Using numerical quadrature</a><a class="headerlink" href="#using-numerical-quadrature" title="Permalink to this heading">#</a></h2>
 <p>Another, essentially equivalent, way of thinking about how we can go about tackling our problem numerically is to start by integrating both sides of our ODE over a small interval <span class="math notranslate nohighlight">\([t_{n},t_{n+1}]\)</span> to yield (assuming again for notational simplicity that we have a scalar system):</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1051,12 +1209,12 @@ y_{n+1} =   \frac{\left(1 -  \frac{\Delta t}{2}\,  K\right)}{\left(1 +  \frac{\D
 <p>We can therefore derive a number of schemes either through thinking about numerical differentiation (equivalently through Taylor series analysis) or via the integral based derivation above and choices of different quadrature schemes to evaluate <span class="math notranslate nohighlight">\(\bar{f}\)</span>.</p>
 </section>
 <section id="errors">
-<h2>Errors<a class="headerlink" href="#errors" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id37" role="doc-backlink">Errors</a><a class="headerlink" href="#errors" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="definitions-errors">
-<h2>Definitions (errors)<a class="headerlink" href="#definitions-errors" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id38" role="doc-backlink">Definitions (errors)</a><a class="headerlink" href="#definitions-errors" title="Permalink to this heading">#</a></h2>
 <section id="local-truncation-error">
-<h3>Local truncation error<a class="headerlink" href="#local-truncation-error" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id39" role="doc-backlink">Local truncation error</a><a class="headerlink" href="#local-truncation-error" title="Permalink to this heading">#</a></h3>
 <p>The <em>local truncation error</em> (LTE; or often just <em>truncation error</em>) is defined, and computed, by <em>substituting the exact solution to the problem into the numerical scheme</em>.</p>
 <p>[Note that this definition requires that the numerical scheme is scaled such that it approximates the derivatives in the differential equations, i.e. in the form</p>
 <div class="math notranslate nohighlight">
@@ -1076,7 +1234,7 @@ y_{n+1} =   \frac{\left(1 -  \frac{\Delta t}{2}\,  K\right)}{\left(1 +  \frac{\D
 \[ \tau = \frac{y_{n+1} -  y_n}{\Delta t} - f(t_n,y_n) = \frac{\Delta t}{2!}y''_n + \frac{\Delta t^2}{3!}y'''_n + \mathcal{O}(\Delta t^3).\]</div>
 </section>
 <section id="order-of-convergence-consistency">
-<h3>Order of convergence &amp; consistency<a class="headerlink" href="#order-of-convergence-consistency" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id40" role="doc-backlink">Order of convergence &amp; consistency</a><a class="headerlink" href="#order-of-convergence-consistency" title="Permalink to this heading">#</a></h3>
 <p>A scheme is said to have an <em>order of accuracy</em> (or a <em>convergence order</em>) of <span class="math notranslate nohighlight">\(p\)</span> if</p>
 <div class="math notranslate nohighlight">
 \[ |\tau|\le C \Delta t ^p \;\;\;\; \text{as} \;\;\;\; \Delta t \longrightarrow 0, \]</div>
@@ -1089,7 +1247,7 @@ y_{n+1} =   \frac{\left(1 -  \frac{\Delta t}{2}\,  K\right)}{\left(1 +  \frac{\D
 <p>Based on the above Taylor series analysis we can say that the forward Euler method has a leading order term in its local truncation error of order <span class="math notranslate nohighlight">\(\mathcal{\Delta t}\)</span> and so is consistent, with an order of accuracy (<span class="math notranslate nohighlight">\(p\)</span>) of one.</p>
 </section>
 <section id="local-error">
-<h3>Local error<a class="headerlink" href="#local-error" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id41" role="doc-backlink">Local error</a><a class="headerlink" href="#local-error" title="Permalink to this heading">#</a></h3>
 <p>Assuming previous time levels are known exactly, the <em>local error</em> can be defined as the error committed by the numerical method in one time step. As we shall see below, it is equal to the LTE multiplied by the time step size.</p>
 <p>Or said another way the LTE is the local error per time step.</p>
 <br>
@@ -1108,14 +1266,14 @@ y_{n+1} =   \frac{\left(1 -  \frac{\Delta t}{2}\,  K\right)}{\left(1 +  \frac{\D
 \[\text{Local error} = \Delta t \, \times \, \tau\]</div>
 </section>
 <section id="global-error">
-<h3>Global error<a class="headerlink" href="#global-error" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id42" role="doc-backlink">Global error</a><a class="headerlink" href="#global-error" title="Permalink to this heading">#</a></h3>
 <p>The <em>global error</em> was given in the definition of convergence above:</p>
 <div class="math notranslate nohighlight">
 \[E := \max_{t_0 \, \le \, t_n \, \le \, T}\| \boldsymbol{y}_{n} - \boldsymbol{y}\,(t_{n})\|.\]</div>
 <p>[Recall that convergence was defined as <span class="math notranslate nohighlight">\(E \longrightarrow 0\)</span> as <span class="math notranslate nohighlight">\(\Delta t \longrightarrow 0\)</span>.]</p>
 </section>
 <section id="links-between-errors-and-stability">
-<h3>Links between errors and stability<a class="headerlink" href="#links-between-errors-and-stability" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id43" role="doc-backlink">Links between errors and stability</a><a class="headerlink" href="#links-between-errors-and-stability" title="Permalink to this heading">#</a></h3>
 <p>Note that consistency alone does not imply convergence of the overall scheme as defined above.</p>
 <p>Instead</p>
 <blockquote>
@@ -1124,11 +1282,11 @@ y_{n+1} =   \frac{\left(1 -  \frac{\Delta t}{2}\,  K\right)}{\left(1 +  \frac{\D
 </section>
 </section>
 <section id="stability">
-<h2>Stability<a class="headerlink" href="#stability" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id44" role="doc-backlink">Stability</a><a class="headerlink" href="#stability" title="Permalink to this heading">#</a></h2>
 <p>Recall that we said that stability of a numerical solver is established by considering when does a continuous (linear) model problem converge to zero, or diverge to infinity, and when does a numerical solver exhibit consistent behaviour when applied to the same linear model problem.</p>
 </section>
 <section id="continuous-case">
-<h2>Continuous case<a class="headerlink" href="#continuous-case" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id45" role="doc-backlink">Continuous case</a><a class="headerlink" href="#continuous-case" title="Permalink to this heading">#</a></h2>
 <p>The linear model problem we need to consider is</p>
 <div class="math notranslate nohighlight">
 \[\frac{dz}{dt} = \lambda z, \]</div>
@@ -1149,7 +1307,7 @@ y_{n+1} =   \frac{\left(1 -  \frac{\Delta t}{2}\,  K\right)}{\left(1 +  \frac{\D
 <p>However, it is very important that we extend the above analysis to systems (i.e. vector problems with more than one component):</p>
 </section>
 <section id="discrete-case">
-<h2>Discrete case<a class="headerlink" href="#discrete-case" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id46" role="doc-backlink">Discrete case</a><a class="headerlink" href="#discrete-case" title="Permalink to this heading">#</a></h2>
 <p>To analyse the stability of our numerical method we perform a similar analysis.</p>
 <p>Or said another way, we ask the question: how does the act of discretising the problem change the solution behaviour we found above for this test problem?</p>
 <p>[We will see that the answer to this question is dependent on the underlying problem’s physical parameters (which here in this abstract test problem are all encoded within the <span class="math notranslate nohighlight">\(\,\lambda\,\)</span> parameter), but is also a function of numerical parameters such as the time step size <span class="math notranslate nohighlight">\(\Delta t\)</span>].</p>
@@ -1314,7 +1472,7 @@ z_{n+1} = (1+\lambda\Delta t)z_{n}. \]</div>
 </div>
 </div>
 <section id="id5">
-<h3>Comments<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id47" role="doc-backlink">Comments</a><a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Recall that the stability region for the <em>continuous problem</em> is given by <span class="math notranslate nohighlight">\(Re(\lambda)&lt;0\)</span>, so ideally we would like the numerical scheme to be consistent with this, if it isn’t we need to choose our time step size carefully to ensure stability (and for some schemes note that this may not be possible).</p></li>
 <li><p>Backward Euler’s stability region <em>contains</em> that of the continuous problem and so the scheme is termed <strong>unconditionally stable</strong> - this analysis indicates that the scheme should be stable (for problems with  <span class="math notranslate nohighlight">\(Re(\lambda)&lt;0\)</span>) no matter how large we choose <span class="math notranslate nohighlight">\(\Delta t\)</span>.</p></li>
@@ -1324,7 +1482,7 @@ z_{n+1} = (1+\lambda\Delta t)z_{n}. \]</div>
 </ul>
 </section>
 <section id="backward-euler-excess-stability-test">
-<h3>Backward Euler excess stability test<a class="headerlink" href="#backward-euler-excess-stability-test" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id48" role="doc-backlink">Backward Euler excess stability test</a><a class="headerlink" href="#backward-euler-excess-stability-test" title="Permalink to this heading">#</a></h3>
 <p>We should say more about what Backward Euler and what it means for its stability region to be larger than that of the continuous problem.</p>
 <p>Let’s consider a continuous problem whose true solution behaviour involves exponential growth to infinity, and see what happens if we use FE and BE on this case with a relatively large time step size.</p>
 <div class="cell docutils container">
@@ -1411,7 +1569,7 @@ z_{n+1} = (1+\lambda\Delta t)z_{n}. \]</div>
 </section>
 </section>
 <section id="absolute-stability">
-<h2>Absolute stability<a class="headerlink" href="#absolute-stability" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id49" role="doc-backlink">Absolute stability</a><a class="headerlink" href="#absolute-stability" title="Permalink to this heading">#</a></h2>
 <p>Note that this form of stability is actually termed <strong>absolute stability</strong> and is concerned with <em>practical limitations</em> on time step sizes which give reasonable numerical results - i.e. for a given problem (e.g. here for a given value of <span class="math notranslate nohighlight">\(\lambda\)</span>) the choice of a time step size <span class="math notranslate nohighlight">\(\Delta t\)</span> that places us inside that schemes stability region.</p>
 <p>And even before we get to that point, importantly this concept also gives us a means to select an appropriate time stepping scheme which allows us to use a reasonable time step.</p>
 <br>
@@ -1421,11 +1579,11 @@ z_{n+1} = (1+\lambda\Delta t)z_{n}. \]</div>
 <p>For forward Euler we state the method is absolutely stable provided the time step is chosen such that <span class="math notranslate nohighlight">\(|1+\lambda\Delta t| \le 1\)</span> (we call the region of the complex plane where this is true the <em><strong>region of absolute stability</strong></em>); otherwise it is unstable.</p>
 <br>
 <section id="a-stability-a-stable-methods">
-<h3>“A” stability / A-stable methods<a class="headerlink" href="#a-stability-a-stable-methods" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id50" role="doc-backlink">“A” stability / A-stable methods</a><a class="headerlink" href="#a-stability-a-stable-methods" title="Permalink to this heading">#</a></h3>
 <p>For a method such as backward Euler (and trapezoidal) where its region of absolute stability contains all of the left hand complex plane, we call the method <em>A-stable</em>.</p>
 </section>
 <section id="a-alpha-stability-star">
-<h3>A(<span class="math notranslate nohighlight">\(\alpha\)</span>) stability [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#a-alpha-stability-star" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id51" role="doc-backlink">A(<span class="math notranslate nohighlight">\(\alpha\)</span>) stability [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#a-alpha-stability-star" title="Permalink to this heading">#</a></h3>
 <div class="dropdown admonition">
 <p class="admonition-title">Optional Content</p>
 <p>For many problems the eigenvalues (i.e. the <span class="math notranslate nohighlight">\(\lambda\)</span>’s in the above stability analysis) have large negative real parts, but relatively small imaginary parts.</p>
@@ -1436,7 +1594,7 @@ z_{n+1} = (1+\lambda\Delta t)z_{n}. \]</div>
 </section>
 </section>
 <section id="l-stability-star-star">
-<h2>L-stability [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#l-stability-star-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id52" role="doc-backlink">L-stability [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#l-stability-star-star" title="Permalink to this heading">#</a></h2>
 <div class="dropdown admonition">
 <p class="admonition-title">Advanced Content</p>
 <p>L-stability is a stronger property than full A-stability which is sometimes useful for problems with very large eigenvalues.</p>
@@ -1474,12 +1632,12 @@ z_{n+1} = (1+\lambda\Delta t)z_{n}. \]</div>
 </figure>
 </section>
 <section id="time-stepping-errors">
-<h2>Time-stepping errors<a class="headerlink" href="#time-stepping-errors" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id53" role="doc-backlink">Time-stepping errors</a><a class="headerlink" href="#time-stepping-errors" title="Permalink to this heading">#</a></h2>
 <p>Recall from a previous lecture on numerical integration that we performed a mathematical analysis to compute local quadrature errors over each sub-interval, and then summed these to calculate/estimate a global error for composite schemes over the total interval we cared about.</p>
 <p>As we see from the discussion above, we can think of time here as being the equivalent of this integration interval, and hence approximation of the integral over each sub-interval introduces a <em>local error</em>, but now in the time-stepping case we cannot simply sum these to compute a global error as we use the numerical solution (which contains all the errors up to that point), to compute the next step along the solution trajectory. Thus errors <em>accumulate</em> and we need to take this into account in our analysis.</p>
 </section>
 <section id="a-little-bit-of-maths-to-bound-the-global-error-star-star">
-<h2>A little bit of maths to bound the global error  [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#a-little-bit-of-maths-to-bound-the-global-error-star-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id54" role="doc-backlink">A little bit of maths to bound the global error  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#a-little-bit-of-maths-to-bound-the-global-error-star-star" title="Permalink to this heading">#</a></h2>
 <div class="dropdown admonition">
 <p class="admonition-title">Advanced Content</p>
 <p>Recall our definition of global error:</p>
@@ -1561,7 +1719,7 @@ e^{\,|\lambda|\, T} T  \max_{1\le i\le n}|\tau_{i-1}|
 <p>and hence the method converges at the same order as the LTE, i.e. the global error is first-order in <span class="math notranslate nohighlight">\(\Delta t\)</span>.</p>
 </div>
 <section id="id6">
-<h3>Comments<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id55" role="doc-backlink">Comments</a><a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>A key thing to note here is that the global error is the same order as the LTE, hence a truncation error analysis also tells us about the expected convergence order globally (although we showed this for forward Euler, this result holds more generally for all stable schemes).</p></li>
 <li><p>The <span class="math notranslate nohighlight">\(e^{\,|\lambda|\, T} T\)</span> factor grows with <span class="math notranslate nohighlight">\(T\)</span> and hence the global error can only get larger the larger time interval we consider.</p></li>
@@ -1578,7 +1736,7 @@ e^{\,|\lambda|\, T} T  \max_{1\le i\le n}|\tau_{i-1}|
 </section>
 </section>
 <section id="zero-stability-star-star">
-<h2>Zero stability  [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#zero-stability-star-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id56" role="doc-backlink">Zero stability  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#zero-stability-star-star" title="Permalink to this heading">#</a></h2>
 <div class="dropdown admonition">
 <p class="admonition-title">Advanced Content</p>
 <p>Note that the one-step error at step <span class="math notranslate nohighlight">\(m\)</span>: <span class="math notranslate nohighlight">\(\,\Delta t\tau_m\)</span>, contributes the term introduced in the <span class="math notranslate nohighlight">\(m\)</span>-th step: <span class="math notranslate nohighlight">\((1+\lambda\Delta t)^{n-m}\Delta t\tau_m\)</span> to the global error.</p>
@@ -1593,7 +1751,7 @@ e^{\,|\lambda|\, T} T  \max_{1\le i\le n}|\tau_{i-1}|
 </div>
 </section>
 <section id="practical-choice-of-step-size">
-<h2>Practical choice of step size<a class="headerlink" href="#practical-choice-of-step-size" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id57" role="doc-backlink">Practical choice of step size</a><a class="headerlink" href="#practical-choice-of-step-size" title="Permalink to this heading">#</a></h2>
 <p>NB. This text is taken essentially directly from LeVeque - FD - section 7.5:</p>
 <p>” … obtaining computed results that are within some error tolerance requires two conditions:</p>
 <ol class="arabic simple">
@@ -1610,10 +1768,10 @@ e^{\,|\lambda|\, T} T  \max_{1\le i\le n}|\tau_{i-1}|
 <p>If stability considerations force us to use a much smaller time step than the local truncation error indicates should be needed, then this particular method is probably not optimal for this problem. This happens, for example, if we try to use an explicit method on a “stiff” problem, for which special methods have been developed” [as discussed below]</p>
 </section>
 <section id="linear-multistep-lms-methods">
-<h2>Linear multistep (LMS) methods<a class="headerlink" href="#linear-multistep-lms-methods" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id58" role="doc-backlink">Linear multistep (LMS) methods</a><a class="headerlink" href="#linear-multistep-lms-methods" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="popular-time-stepping-schemes">
-<h2>Popular time-stepping schemes<a class="headerlink" href="#popular-time-stepping-schemes" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id59" role="doc-backlink">Popular time-stepping schemes</a><a class="headerlink" href="#popular-time-stepping-schemes" title="Permalink to this heading">#</a></h2>
 <p>Two very famous/popular families of time-stepping schemes are:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Linear_multistep_method"><em>Linear multistep (LMS) methods</em></a></p></li>
@@ -1622,7 +1780,7 @@ e^{\,|\lambda|\, T} T  \max_{1\le i\le n}|\tau_{i-1}|
 <p>They take fundamentally different approaches which have major implications for their implementations in code and suitability for different applications.</p>
 </section>
 <section id="introduction-lms">
-<h2>Introduction - LMS<a class="headerlink" href="#introduction-lms" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id60" role="doc-backlink">Introduction - LMS</a><a class="headerlink" href="#introduction-lms" title="Permalink to this heading">#</a></h2>
 <p>As an extension of the (four simple) example time-stepping schemes above, consider the most general linear relation between solutions spanning <span class="math notranslate nohighlight">\(k+1\)</span> levels (termed a <span class="math notranslate nohighlight">\(k\)</span>-step method):</p>
 <div class="math notranslate nohighlight">
 \[\sum_{j=0}^k \alpha_j \, y_{n+j} = \Delta t \sum_{j=0}^k \beta_j \, f(t_{n+j},y_{n+j}).\]</div>
@@ -1636,7 +1794,7 @@ e^{\,|\lambda|\, T} T  \max_{1\le i\le n}|\tau_{i-1}|
 <p>Not every method can be written in this form, consider for example the improved Euler method introduced at the end of the previous lecture (although note that IE can be interpreted as a predictor-corrector type of LMS method - see below).</p>
 </section>
 <section id="explicit-linear-multistep-methods-adams-bashforth-schemes">
-<h2>Explicit linear multistep methods - Adams-Bashforth schemes<a class="headerlink" href="#explicit-linear-multistep-methods-adams-bashforth-schemes" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id61" role="doc-backlink">Explicit linear multistep methods - Adams-Bashforth schemes</a><a class="headerlink" href="#explicit-linear-multistep-methods-adams-bashforth-schemes" title="Permalink to this heading">#</a></h2>
 <p>So-called <em>Adams</em> schemes can be thought of as methods which start from the expression we saw above linking time stepping to quadrature:</p>
 <div class="math notranslate nohighlight">
 \[y_{n+1} - y_{n} = \int_{t_{n}}^{t_{n+1}} {f}(t,{y}(t))\, dt.\]</div>
@@ -1671,7 +1829,7 @@ k=4\; \textrm{(4-step AB scheme):} \;\;\;  y_{n+1} &amp;= y_{n} + \frac{\Delta t
 \]</div>
 </section>
 <section id="adams-bashforth-scheme-sketch-of-derivation-star">
-<h2>Adams-Bashforth scheme - sketch of derivation [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#adams-bashforth-scheme-sketch-of-derivation-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id62" role="doc-backlink">Adams-Bashforth scheme - sketch of derivation [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#adams-bashforth-scheme-sketch-of-derivation-star" title="Permalink to this heading">#</a></h2>
 <div class="dropdown admonition">
 <p class="admonition-title">Optional Content</p>
 <p>Here we sketch how the above schemes can be derived [another example is in the homework exercises].</p>
@@ -1697,7 +1855,7 @@ k=4\; \textrm{(4-step AB scheme):} \;\;\;  y_{n+1} &amp;= y_{n} + \frac{\Delta t
 </div>
 </section>
 <section id="implicit-linear-multistep-methods-adams-moulton-schemes">
-<h2>Implicit linear multistep methods - Adams-Moulton schemes<a class="headerlink" href="#implicit-linear-multistep-methods-adams-moulton-schemes" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id63" role="doc-backlink">Implicit linear multistep methods - Adams-Moulton schemes</a><a class="headerlink" href="#implicit-linear-multistep-methods-adams-moulton-schemes" title="Permalink to this heading">#</a></h2>
 <p>The <em><strong>Adams-Moulton schemes</strong></em> are the <strong>implicit</strong> variants of the Adams family - they are very similar to the AB schemes in that the same ‘Adams’ constraint applies to the <span class="math notranslate nohighlight">\(\alpha\)</span> parameters, but now  <span class="math notranslate nohighlight">\(\beta_k\ne 0\)</span>, and hence the schemes are all <em>implicit</em>.</p>
 <p>The first five schemes in this family are:</p>
 <div class="math notranslate nohighlight">
@@ -1722,7 +1880,7 @@ k=4\; \textrm{(4-step AM scheme):} \;\;\;  y_{n+4} &amp;= y_{n+3} + \frac{\Delta
 9 f_{n+1} + 19 f_{n} - 5 f_{n-1}  + f_{n-2}).\]</div>
 </section>
 <section id="linear-multistep-methods-error-analysis-and-consistency-order-conditions-star-star">
-<h2>Linear Multistep Methods - error analysis and consistency/order conditions  [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#linear-multistep-methods-error-analysis-and-consistency-order-conditions-star-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id64" role="doc-backlink">Linear Multistep Methods - error analysis and consistency/order conditions  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#linear-multistep-methods-error-analysis-and-consistency-order-conditions-star-star" title="Permalink to this heading">#</a></h2>
 <div class="dropdown admonition">
 <p class="admonition-title">Advanced Content</p>
 <p>Through the derivations above (and in homework) we’ve seen that, by construction, the methods are consistent with a given order of accuracy (since they are based on a consistent approximation to the integral in the integrated form of the ODE).</p>
@@ -1825,14 +1983,14 @@ Fourth-order coefficient for AM3:  -0.026388888888888795
 </div>
 </div>
 <section id="id7">
-<h3>Comments<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id65" role="doc-backlink">Comments</a><a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>So AB4 and AM3 are both expected to be fourth-order accurate (as for both schemes the first, second and third order terms are zero (to round-off), while the fourth order term is non zero.</p></li>
 </ul>
 </section>
 </section>
 <section id="linear-multistep-methods-predictor-corrector-approach">
-<h2>Linear Multistep Methods - Predictor-Corrector approach<a class="headerlink" href="#linear-multistep-methods-predictor-corrector-approach" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id66" role="doc-backlink">Linear Multistep Methods - Predictor-Corrector approach</a><a class="headerlink" href="#linear-multistep-methods-predictor-corrector-approach" title="Permalink to this heading">#</a></h2>
 <p>Note that to avoid the problem of needing to solve an implicit system to realise an Adams-Moulton (i.e. an implicit LMS) scheme, a standard approach is to use replace the  function evaluation at the newest time levels (i.e. <span class="math notranslate nohighlight">\(f_{n+k}\)</span>) on the RHS of the AM methods, with an approximation based on substituting in a value for this obtained from an explicit AB method, i.e. computing an estimate, or a <em>prediction</em>, of the solution <span class="math notranslate nohighlight">\(y_{n+k}\)</span>, calling this <span class="math notranslate nohighlight">\(y^*\)</span>, and substituting in <span class="math notranslate nohighlight">\(f(t_{n+k}, y^*)\)</span> into the AM formula, and solving the resulting now explicit relation for a new, or <em>corrected</em>, <span class="math notranslate nohighlight">\(y_{n+k}\)</span>.</p>
 <br>
 <p>Notice that the combination of AB1 (forward Euler) with AM2 (trapezoidal) as a predictor-corrector pair, is exactly the method introduced in the Comp Math ODE lecture and variously known as
@@ -1847,13 +2005,13 @@ Fourth-order coefficient for AM3:  -0.026388888888888795
 <br>
 <p>Another popular example of a predictor-corrector pair based upon LMS methods (but not of Adams type) is the Milne or Milne-Simpson method: <a class="reference external" href="http://mathworld.wolfram.com/MilnesMethod.html">http://mathworld.wolfram.com/MilnesMethod.html</a>.</p>
 <section id="stability-of-predictor-corrector-methods">
-<h3>Stability of predictor-corrector methods<a class="headerlink" href="#stability-of-predictor-corrector-methods" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id67" role="doc-backlink">Stability of predictor-corrector methods</a><a class="headerlink" href="#stability-of-predictor-corrector-methods" title="Permalink to this heading">#</a></h3>
 <p>Since the overall method is explicit a PC pair cannot have as large a stability region as the implicit scheme on its own.</p>
 <p>As an example, improved Euler is made up of AB1 (forward Euler) and AM1 (trapezoidal) whose stability regions are plotted near the start of this lecture.  It turns our that this pair can also be interpreted as the method RK2 described shortly, and whose stability region is plotted a little later in this context - you will see that the stability region is somewhere in between that of AB1 and AM1 (a little larger than AB1 in the imaginary direction, but no-where near as large as the A-stable AM1!)</p>
 </section>
 </section>
 <section id="linear-multistep-methods-stability">
-<h2>Linear Multistep Methods - stability<a class="headerlink" href="#linear-multistep-methods-stability" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id68" role="doc-backlink">Linear Multistep Methods - stability</a><a class="headerlink" href="#linear-multistep-methods-stability" title="Permalink to this heading">#</a></h2>
 <p>We won’t go through the derivation of the following absolute stability regions for the AB and AM families of the LMS schemes, but will plot them via the code below.</p>
 <p>Note that the lowest order AB and AM methods are the same as schemes we plotted the stability region for above. Also note that AM1 is the trapezoidal scheme, whose stability region we also plotted above, and so we omit this in the plots below in the interests of space.</p>
 <p>If interested in the formal derivations for the expressions that yield these plots, and more on LMS stability in general, see LeVeque - FD section 7.3 and 7.6 for details.</p>
@@ -2050,14 +2208,14 @@ Fourth-order coefficient for AM3:  -0.026388888888888795
 </div>
 </section>
 <section id="runge-kutta-rk-methods">
-<h2>Runge-Kutta (RK) methods<a class="headerlink" href="#runge-kutta-rk-methods" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id69" role="doc-backlink">Runge-Kutta (RK) methods</a><a class="headerlink" href="#runge-kutta-rk-methods" title="Permalink to this heading">#</a></h2>
 <p>As was already discussed in Computational Mathematics, Runge-Kutta (RK) methods are perhaps the most popular class of time-stepping schemes.</p>
 <p>Rather than using information from previous time levels to increase accuracy, they make use of <em>intermediate steps</em>, that is the RHS function is evaluated at locations in between <span class="math notranslate nohighlight">\(t_n\)</span> and <span class="math notranslate nohighlight">\(t_{n+1}\)</span>.</p>
 <p>Hence they can be referred to as <em>intermediate step methods</em>.</p>
 <p>With RK methods these intermediate steps are often called <em>stages</em>.</p>
 </section>
 <section id="lms-vs-rk-methods">
-<h2>LMS vs RK methods<a class="headerlink" href="#lms-vs-rk-methods" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id70" role="doc-backlink">LMS vs RK methods</a><a class="headerlink" href="#lms-vs-rk-methods" title="Permalink to this heading">#</a></h2>
 <p>Before we even get into any details on RK methods, we can make a few comments based on the above description:</p>
 <ol class="arabic simple">
 <li><p>As a single step method, we do not have the self-starting issue we identified with LMS schemes. Indeed a RK method is often used to provide the initial data required to get an LMS method started.</p></li>
@@ -2066,7 +2224,7 @@ Fourth-order coefficient for AM3:  -0.026388888888888795
 </ol>
 </section>
 <section id="two-stage-runge-kutta-example-rk2-aka-improved-euler-explicit-trapezoidal-euler-trapezoidal-heun-s-method-from-comp-math">
-<h2>Two stage Runge-Kutta example (RK2) - aka improved Euler / explicit trapezoidal / Euler-trapezoidal / Heun’s method [from Comp Math]<a class="headerlink" href="#two-stage-runge-kutta-example-rk2-aka-improved-euler-explicit-trapezoidal-euler-trapezoidal-heun-s-method-from-comp-math" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id71" role="doc-backlink">Two stage Runge-Kutta example (RK2) - aka improved Euler / explicit trapezoidal / Euler-trapezoidal / Heun’s method [from Comp Math]</a><a class="headerlink" href="#two-stage-runge-kutta-example-rk2-aka-improved-euler-explicit-trapezoidal-euler-trapezoidal-heun-s-method-from-comp-math" title="Permalink to this heading">#</a></h2>
 <p>We saw above that the trapezoidal rule had good stability and accuracy properties, its drawback is that it’s implicit and so in general requires the solution of a nonlinear and/or matrix system.</p>
 <p>The scheme takes the form</p>
 <div class="math notranslate nohighlight">
@@ -2086,7 +2244,7 @@ Fourth-order coefficient for AM3:  -0.026388888888888795
 <p>However, it can also be considered as an example of a single step, multi-stage method, i.e. can also be interpreted as an explicit Runge-Kutta method.</p>
 <p>[So note that there is some degree of overlap between time-stepping ODE solver families, with some simple schemes being interetable  in several different ways, and as examples of different families. This overlap lessens as we move to more complex, higher order schemes of course].</p>
 <section id="rk2-schematic-visualisation-of-method">
-<h3>RK2 - schematic visualisation of method<a class="headerlink" href="#rk2-schematic-visualisation-of-method" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id72" role="doc-backlink">RK2 - schematic visualisation of method</a><a class="headerlink" href="#rk2-schematic-visualisation-of-method" title="Permalink to this heading">#</a></h3>
 <p>The figure below demonstrates what RK2 is doing for an ODE problem with RHS function  <span class="math notranslate nohighlight">\(\,f(t,{y}(t)) = y+t^3\,\)</span> which has the  exact solution
 <span class="math notranslate nohighlight">\(\,y(t) =  7\exp(t) - t^3 - 3t^2 - 6t - 6\)</span>.</p>
 <p>NB. this problem is taken from the Wikipedia page on RK methods: <a class="reference external" href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">https://en.wikipedia.org/wiki/Runge–Kutta_methods</a>.</p>
@@ -2160,7 +2318,7 @@ RK2 approximation:  3.0
 </div>
 </div>
 <section id="id8">
-<h4>Comments<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id73" role="doc-backlink">Comments</a><a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h4>
 <p>What is happening here?  These are the key steps in the code above:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># the stages k </span>
 <span class="n">k1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span> <span class="n">y0</span><span class="p">)</span>
@@ -2179,7 +2337,7 @@ RK2 approximation:  3.0
 </section>
 </section>
 <section id="another-rk2-example-rk2-version-2-aka-explicit-midpoint-modified-euler-from-comp-math">
-<h2>Another RK2 example (RK2 version 2) - aka explicit midpoint / modified Euler … [from Comp Math]<a class="headerlink" href="#another-rk2-example-rk2-version-2-aka-explicit-midpoint-modified-euler-from-comp-math" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id74" role="doc-backlink">Another RK2 example (RK2 version 2) - aka explicit midpoint / modified Euler … [from Comp Math]</a><a class="headerlink" href="#another-rk2-example-rk2-version-2-aka-explicit-midpoint-modified-euler-from-comp-math" title="Permalink to this heading">#</a></h2>
 <p>Note that the <em>explicit two stage RK method</em> introduced above is not the only example of such a scheme.</p>
 <p>If instead of trapezoidal, we start from the <em>implicit midpoint rule</em>:</p>
 <div class="math notranslate nohighlight">
@@ -2271,7 +2429,7 @@ RK2 (ver 2) approximation:  2.625
 </div>
 </div>
 <section id="id9">
-<h3>Comments<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id75" role="doc-backlink">Comments</a><a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
 <p>For this method the key code is:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># the stages k </span>
 <span class="n">k1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span> <span class="n">y0</span><span class="p">)</span>
@@ -2289,7 +2447,7 @@ RK2 (ver 2) approximation:  2.625
 </section>
 </section>
 <section id="runge-kutta-scheme-derivation-via-taylor-series-methods-star">
-<h2>Runge-Kutta scheme derivation (via Taylor series methods) [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#runge-kutta-scheme-derivation-via-taylor-series-methods-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id76" role="doc-backlink">Runge-Kutta scheme derivation (via Taylor series methods) [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#runge-kutta-scheme-derivation-via-taylor-series-methods-star" title="Permalink to this heading">#</a></h2>
 <div class="dropdown admonition">
 <p class="admonition-title">Optional Content</p>
 <p class="rubric">Taylor series methods [from Comp Math]</p>
@@ -2318,7 +2476,7 @@ RK2 (ver 2) approximation:  2.625
 <a class="reference internal image-reference" href="../_images/Taylor_series_methods_ODE.png"><img alt="../_images/Taylor_series_methods_ODE.png" src="../_images/Taylor_series_methods_ODE.png" style="width: 75%;" /></a>
 </figure>
 <section id="id10">
-<h3>Comments<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id77" role="doc-backlink">Comments</a><a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>So this approach indeed works, and the corresponding methods can be termed <em>Taylor series methods</em> [which were part of the Comp Math assessment!]</p></li>
 <li><p>and in principle this allows us to generate methods of arbitrary order.</p></li>
@@ -2327,7 +2485,7 @@ RK2 (ver 2) approximation:  2.625
 </ul>
 </section>
 <section id="runge-kutta-derivation-star">
-<h3>Runge-Kutta derivation  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#runge-kutta-derivation-star" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id78" role="doc-backlink">Runge-Kutta derivation  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#runge-kutta-derivation-star" title="Permalink to this heading">#</a></h3>
 <div class="dropdown admonition">
 <p class="admonition-title">Optional Content</p>
 <p>From the previous subsection we have</p>
@@ -2344,7 +2502,7 @@ RK2 (ver 2) approximation:  2.625
 <p>To progress in the derivation of a numerical method we need to construct a discrete scheme that agrees with this up to a desired order - let’s do this now using a general two stage scheme.</p>
 </div>
 <section id="deriving-the-rk2-family">
-<h4>Deriving the RK2 family<a class="headerlink" href="#deriving-the-rk2-family" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id79" role="doc-backlink">Deriving the RK2 family</a><a class="headerlink" href="#deriving-the-rk2-family" title="Permalink to this heading">#</a></h4>
 <div class="dropdown admonition">
 <p class="admonition-title">Optional Content</p>
 <p>As already commented, and as seen in the examples presented so far, the idea behind the <em>intermediate</em> step Runge-Kutta methods is to increase accuracy by evaluating <span class="math notranslate nohighlight">\(f\)</span> at locations within a time step.</p>
@@ -2403,7 +2561,7 @@ y_{n+1} &amp;= y_n + \left( 1 - \frac{1}{2\alpha}\right)\, \Delta t\, k_1 +
 </section>
 </section>
 <section id="butcher-tableau-star">
-<h2>Butcher tableau [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#butcher-tableau-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id80" role="doc-backlink">Butcher tableau [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#butcher-tableau-star" title="Permalink to this heading">#</a></h2>
 <div class="dropdown admonition">
 <p class="admonition-title">Optional Content</p>
 <p>More generally, all <em>explicit</em> Runge–Kutta methods may be written in the form</p>
@@ -2446,7 +2604,7 @@ c_s &amp; a_{s1} &amp; a_{s2} &amp; \cdots &amp; a_{s,s-1} \\
 <p>This is known as a <a class="reference external" href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods#Explicit_Runge%E2%80%93Kutta_methods"><em>Butcher tableau</em></a>.</p>
 </div>
 <section id="id11">
-<h3>Comments<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id81" role="doc-backlink">Comments</a><a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
 <p>The integer <span class="math notranslate nohighlight">\(s\)</span> refers to the number of stages, the coefficients <span class="math notranslate nohighlight">\(a_{ij}\)</span> form a matrix termed the <em>Runge–Kutta matrix</em>, the <span class="math notranslate nohighlight">\(b_i\)</span> coefficients are termed the <em>weights</em> and the <span class="math notranslate nohighlight">\(c_i\)</span> coefficients are termed the <em>nodes</em>.</p>
 <p>We haven’t bothered to explicitly write out the zeros that appear above the main diagonal in the <span class="math notranslate nohighlight">\(A\)</span> matrix.</p>
 <p>Note that the fact that only zeros appear above the diagonal is equivalent to saying that the corresponding scheme is <em>explicit</em>.</p>
@@ -2456,7 +2614,7 @@ c_s &amp; a_{s1} &amp; a_{s2} &amp; \cdots &amp; a_{s,s-1} \\
 <p>Below we give a few examples.</p>
 </section>
 <section id="explicit-runge-kutta-butcher-tableau-examples-star">
-<h3>Explicit Runge-Kutta Butcher tableau examples [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#explicit-runge-kutta-butcher-tableau-examples-star" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id82" role="doc-backlink">Explicit Runge-Kutta Butcher tableau examples [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#explicit-runge-kutta-butcher-tableau-examples-star" title="Permalink to this heading">#</a></h3>
 <div class="dropdown admonition">
 <p class="admonition-title">Optional Content</p>
 <p>Armed with this notation we can (a) write down the Butcher tableau for some of the schemes we’ve already encountered, and (b) write a generic implementation that takes in a Butcher tableau.</p>
@@ -2507,7 +2665,7 @@ c_s &amp; a_{s1} &amp; a_{s2} &amp; \cdots &amp; a_{s,s-1} \\
 </div>
 </section>
 <section id="implicit-runge-kutta-butcher-tableau-examples">
-<h3>Implicit Runge-Kutta Butcher tableau examples<a class="headerlink" href="#implicit-runge-kutta-butcher-tableau-examples" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id83" role="doc-backlink">Implicit Runge-Kutta Butcher tableau examples</a><a class="headerlink" href="#implicit-runge-kutta-butcher-tableau-examples" title="Permalink to this heading">#</a></h3>
 <p>Some examples of implicit Runge-Kutta schemes include:</p>
 <ul class="simple">
 <li><p>backward Euler</p></li>
@@ -2531,7 +2689,7 @@ c_s &amp; a_{s1} &amp; a_{s2} &amp; \cdots &amp; a_{s,s-1} \\
 \end{array}\end{split}\]</div>
 </section>
 <section id="embedded-runge-kutta-pairs-star">
-<h3>Embedded Runge-Kutta pairs [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#embedded-runge-kutta-pairs-star" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id84" role="doc-backlink">Embedded Runge-Kutta pairs [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#embedded-runge-kutta-pairs-star" title="Permalink to this heading">#</a></h3>
 <div class="dropdown admonition">
 <p class="admonition-title">Optional Content</p>
 <p>Note finally that so-called <em>embedded Runke-Kutta</em> methods exist: <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_Runge%E2%80%93Kutta_methods#Embedded_methods">https://en.wikipedia.org/wiki/List_of_Runge–Kutta_methods#Embedded_methods</a>.</p>
@@ -2540,7 +2698,7 @@ c_s &amp; a_{s1} &amp; a_{s2} &amp; \cdots &amp; a_{s,s-1} \\
 </section>
 </section>
 <section id="classical-rk4">
-<h2>Classical RK4<a class="headerlink" href="#classical-rk4" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id85" role="doc-backlink">Classical RK4</a><a class="headerlink" href="#classical-rk4" title="Permalink to this heading">#</a></h2>
 <p>Perhaps the most widely used multi-(i.e. <span class="math notranslate nohighlight">\(&gt;2\)</span>)-stage RK method is the four stage explicit method often termed as the <em>classical RK(4) method</em> or just <em>RK4</em>.</p>
 <p>It has the <a class="reference external" href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods#Explicit_Runge%E2%80%93Kutta_methods"><em>Butcher tableau</em></a> [which we haven’t explained so you can ignore this and focus on the code and images below]</p>
 <div class="math notranslate nohighlight">
@@ -2555,7 +2713,7 @@ c_s &amp; a_{s1} &amp; a_{s2} &amp; \cdots &amp; a_{s,s-1} \\
 \end{array}\end{split}\]</div>
 </section>
 <section id="an-rk4-schematic">
-<h2>An RK4 schematic<a class="headerlink" href="#an-rk4-schematic" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id86" role="doc-backlink">An RK4 schematic</a><a class="headerlink" href="#an-rk4-schematic" title="Permalink to this heading">#</a></h2>
 <p>The figure below demonstrates what RK4 is doing for the problem where <span class="math notranslate nohighlight">\(f(t,{y}(t)) = y+t^3\)</span> with exact solution
 <span class="math notranslate nohighlight">\(y(t) =  7\exp(t) - t^3 - 3t^2 - 6t - 6\)</span>.</p>
 <div class="cell docutils container">
@@ -2636,12 +2794,12 @@ c_s &amp; a_{s1} &amp; a_{s2} &amp; \cdots &amp; a_{s,s-1} \\
 </div>
 </div>
 <section id="id12">
-<h3>Comments<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id87" role="doc-backlink">Comments</a><a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
 <p>As we hoped, we’ve clearly done more work here but have got a more accurate result.</p>
 </section>
 </section>
 <section id="runge-kutta-stability-analysis-star-star">
-<h2>Runge-Kutta stability analysis  [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#runge-kutta-stability-analysis-star-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id88" role="doc-backlink">Runge-Kutta stability analysis  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#runge-kutta-stability-analysis-star-star" title="Permalink to this heading">#</a></h2>
 <div class="dropdown admonition">
 <p class="admonition-title">Advanced Content</p>
 <p>In order to understand the stability of RK schemes, let’s consider again our linear model problem</p>
@@ -2732,14 +2890,14 @@ y_{n+1} &amp; =  y_n + \Delta t \lambda  y_n + \frac{\Delta t^2}{2!}\lambda^2 y_
 </div>
 </div>
 <section id="id13">
-<h3>Comments<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id89" role="doc-backlink">Comments</a><a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>For purely real <span class="math notranslate nohighlight">\(\lambda\)</span> this represents the same stability bound as forward Euler, but there is an improvement for complex <span class="math notranslate nohighlight">\(\lambda\)</span>.</p></li>
 <li><p>The method is still unconditionally unstable for purely imaginary <span class="math notranslate nohighlight">\(\lambda\)</span>, i.e. for a purely imaginary eigenvalue no choice of time step size leads to stability.</p></li>
 </ul>
 </section>
 <section id="rk4-stability">
-<h3>RK4 stability<a class="headerlink" href="#rk4-stability" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id90" role="doc-backlink">RK4 stability</a><a class="headerlink" href="#rk4-stability" title="Permalink to this heading">#</a></h3>
 <p>If we go through the same process for RK4 we arrive at the amplification factor</p>
 <div class="math notranslate nohighlight">
 \[\sigma =  \left( 1 + \lambda \Delta t + \frac{\lambda^2\Delta t^2}{2} + \frac{\lambda^3\Delta t^3}{6} + \frac{\lambda^4\Delta t^4}{24} \right).\]</div>
@@ -2785,7 +2943,7 @@ y_{n+1} &amp; =  y_n + \Delta t \lambda  y_n + \frac{\Delta t^2}{2!}\lambda^2 y_
 </div>
 </div>
 <section id="id14">
-<h4>Comments<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id91" role="doc-backlink">Comments</a><a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>So this represents a significant improvement for both purely real, as well as complex valued <span class="math notranslate nohighlight">\(\lambda\)</span>.</p></li>
 <li><p>Note that it is also stable for a large range of purely imaginary values.</p></li>
@@ -2798,7 +2956,7 @@ y_{n+1} &amp; =  y_n + \Delta t \lambda  y_n + \frac{\Delta t^2}{2!}\lambda^2 y_
 </section>
 </section>
 <section id="adaptive-time-stepping-star">
-<h2>Adaptive time-stepping  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#adaptive-time-stepping-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id92" role="doc-backlink">Adaptive time-stepping  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#adaptive-time-stepping-star" title="Permalink to this heading">#</a></h2>
 <div class="dropdown admonition">
 <p class="admonition-title">Optional Content</p>
 <p>An advantage of multi-stage, single step methods is that it is (relatively!) easy to change the time step size.  But we need to know something about the error in the solution to decide on an appropriate local time step size.</p>
@@ -2812,7 +2970,7 @@ y_{n+1} &amp; =  y_n + \Delta t \lambda  y_n + \frac{\Delta t^2}{2!}\lambda^2 y_
 </div>
 </section>
 <section id="stiff-problems-star">
-<h2>Stiff problems [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#stiff-problems-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id93" role="doc-backlink">Stiff problems [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#stiff-problems-star" title="Permalink to this heading">#</a></h2>
 <div class="dropdown admonition">
 <p class="admonition-title">Optional Content</p>
 <p>An ODE can be characterised as being <a class="reference external" href="https://uk.mathworks.com/company/newsletters/articles/stiff-differential-equations.html"><em>stiff</em></a> if some of the following describe it:</p>
@@ -2826,7 +2984,7 @@ y_{n+1} &amp; =  y_n + \Delta t \lambda  y_n + \frac{\Delta t^2}{2!}\lambda^2 y_
 </div>
 </section>
 <section id="an-example-of-a-stiff-problem-star">
-<h2>An example of a stiff problem  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#an-example-of-a-stiff-problem-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id94" role="doc-backlink">An example of a stiff problem  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#an-example-of-a-stiff-problem-star" title="Permalink to this heading">#</a></h2>
 <div class="dropdown admonition">
 <p class="admonition-title">Optional Content</p>
 <p>For example, the problem</p>
@@ -2859,7 +3017,7 @@ from the previous lecture).</p>
 </div>
 </section>
 <section id="backward-differentiation-formula-bdf-methods-star">
-<h2>Backward differentiation formula (BDF) methods  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#backward-differentiation-formula-bdf-methods-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id95" role="doc-backlink">Backward differentiation formula (BDF) methods  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#backward-differentiation-formula-bdf-methods-star" title="Permalink to this heading">#</a></h2>
 <div class="dropdown admonition">
 <p class="admonition-title">Optional Content</p>
 <p>Note that while the <em>Adams</em> family of LMS methods introduced above are popular for non-stiff problems,</p>
@@ -2883,7 +3041,7 @@ from the previous lecture).</p>
 </div>
 </section>
 <section id="derivation-of-bdf-methods-star-star">
-<h2>Derivation of BDF methods  [<span class="math notranslate nohighlight">\(\star\star\)</span>]<a class="headerlink" href="#derivation-of-bdf-methods-star-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id96" role="doc-backlink">Derivation of BDF methods  [<span class="math notranslate nohighlight">\(\star\star\)</span>]</a><a class="headerlink" href="#derivation-of-bdf-methods-star-star" title="Permalink to this heading">#</a></h2>
 <div class="dropdown admonition">
 <p class="admonition-title">Advanced Content</p>
 <p>The BDF schemes can be derived by fitting a Lagrange interpolating polynomial to <span class="math notranslate nohighlight">\(y\)</span> (i.e. the <span class="math notranslate nohighlight">\(y\)</span> data at a certain number of previous time levels, as well as the new level) and differentiating this to approximate the derivative of <span class="math notranslate nohighlight">\(y\)</span> w.r.t. <span class="math notranslate nohighlight">\(t\)</span> appearing on the LHS of the ODE, and then setting this equal to the RHS function evaluated at the new time leve.</p>
@@ -2932,7 +3090,7 @@ y_{n} \frac{1}{ 2\Delta t } - y_{n+1} \frac{2}{ \Delta t } +   y_{n+2} \frac{3}{
 </div>
 </section>
 <section id="bdf-stability-regions-star">
-<h2>BDF stability regions  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#bdf-stability-regions-star" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id97" role="doc-backlink">BDF stability regions  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#bdf-stability-regions-star" title="Permalink to this heading">#</a></h2>
 <div class="dropdown admonition">
 <p class="admonition-title">Optional Content</p>
 <p>Again, we skip the details and just plot the absolute stability regions:</p>
@@ -3029,7 +3187,7 @@ y_{n} \frac{1}{ 2\Delta t } - y_{n+1} \frac{2}{ \Delta t } +   y_{n+2} \frac{3}{
 </div>
 </div>
 <section id="id15">
-<h3>Comments<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id98" role="doc-backlink">Comments</a><a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Recall our definition of A(<span class="math notranslate nohighlight">\(\alpha\)</span>) stability from above - the BDF methods are A(<span class="math notranslate nohighlight">\(\alpha\)</span>) with <span class="math notranslate nohighlight">\(\alpha\)</span> values of 90, 90, 88, 73, 51 and 18 <em>degrees</em> for BDF 1 - 6 respectively [LeVeque - FD - section 8.4].</p></li>
 <li><p>BDF methods of order greater than 6, i.e. which use more than 7 levels, are not zero stable and so are unusable.</p></li>
@@ -3037,7 +3195,7 @@ y_{n} \frac{1}{ 2\Delta t } - y_{n+1} \frac{2}{ \Delta t } +   y_{n+2} \frac{3}{
 </section>
 </section>
 <section id="final-remarks">
-<h2>Final remarks<a class="headerlink" href="#final-remarks" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id99" role="doc-backlink">Final remarks</a><a class="headerlink" href="#final-remarks" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Stability increases robustness but generally comes at computational expense, particularly if the ODE is nonlinear.</p></li>
 <li><p>Stability does not imply accuracy!</p></li>
@@ -3046,7 +3204,7 @@ y_{n} \frac{1}{ 2\Delta t } - y_{n+1} \frac{2}{ \Delta t } +   y_{n+2} \frac{3}{
 </ul>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id100" role="doc-backlink">Summary</a><a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <p>In this lecture we extended our knowledge of ODE solvers through the introduction and derivation of both the linear multi-step (LMS) and Runge-Kutta (RK) families of methods, including implicit versions of these.</p>
 <p>We went into more detail on stability, error analysis and time step size selection.</p>
 <p>We discussed some of the practical considerations.</p>
