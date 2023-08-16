@@ -486,6 +486,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-1">Exercise 5.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-2">Exercise 5.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-3">Exercise 5.3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-4">Exercise 5.4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-5">Exercise 5.5</a></li>
 </ul>
@@ -613,7 +615,8 @@ t^* = \frac{Dt}{h^2}
 <p>Substituting for the dimensional variables and rearranging the equation leads to the following expression (using the diffusive time scale):</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{\partial C^*}{\partial t^*} = - \color{blue}{\frac{vh}{D}} \frac{\partial C^*}{\partial x^*} + \frac{\partial^2 C^*}{\partial x^{*2}}
+\frac{\partial C^*}{\partial t^*} = - \color{blue}{\frac{vh}{D}} 
+\frac{\partial C^*}{\partial x^*} + \frac{\partial^2 C^*}{\partial x^{*2}}
 \]</div>
 <div class="math notranslate nohighlight">
 \[
@@ -672,6 +675,7 @@ Pe = \frac{vh}{D}
 \[
 C^*_{i, \hspace{0.1cm} j + 1} \approx C^*_{i, \hspace{0.1cm} j} + \Delta t^* \Biggl(\frac{-Pe \hspace{0.1cm} (C^*_{i, \hspace{0.1cm} j} - C^*_{i - 1, \hspace{0.1cm} j})}{\Delta x^*} + \frac{(C^*_{i + 1, \hspace{0.1cm}j} + C^*_{i - 1, \hspace{0.1cm}j} - 2C*_{i, \hspace{0.1cm}j})}{\Delta x^{*2}} \Biggr)
 \]</div>
+<p>where <span class="math notranslate nohighlight">\(C^*_{i, j} = C \hspace{0.1cm} (x^*_0 + i\Delta x^*, t^*_0 + j \Delta t^*)\)</span></p>
 <p>For stability in this explicit scheme:
 The dimensionless rate of advection is <em>Pe</em>, while the dimensionless diffusion coefficient 1.</p>
 <div class="math notranslate nohighlight">
@@ -680,7 +684,7 @@ The dimensionless rate of advection is <em>Pe</em>, while the dimensionless diff
 \hspace{3cm}
 \Delta t^* &lt;&lt; min \Bigl(\frac{\Delta x^*}{&quot;v&quot;}\hspace{0.1cm} \frac{\Delta x^{*2}}{2&quot;D&quot;} \Bigr)
 \]</div>
-<p>Try <a class="reference internal" href="#my-label"><span class="std std-ref">Exercise 5.1</span></a></p>
+<p>Try <a class="reference internal" href="#exercise-5-1"><span class="std std-ref">Exercise 5.1</span></a></p>
 </section>
 <section id="analytical-solutions">
 <h2>Analytical Solutions<a class="headerlink" href="#analytical-solutions" title="Permalink to this heading">#</a></h2>
@@ -690,14 +694,15 @@ The dimensionless rate of advection is <em>Pe</em>, while the dimensionless diff
 \large{\frac{d^2 C^*}{dx^{*2}}} = Pe \frac{dC^*}{dx^*}
 \]</div>
 <p>Since <span class="math notranslate nohighlight">\(C^*\)</span> is 1 and <span class="math notranslate nohighlight">\(x^* = 0\)</span> and <span class="math notranslate nohighlight">\(C^*\)</span> is 0 and <span class="math notranslate nohighlight">\(x^* = 1\)</span>, the following expression can be obtained (simple calculus, but quite a bit of algebra):</p>
+<p>Try <a class="reference internal" href="#exercise-5-2"><span class="std std-ref">Exercise 5.2</span></a></p>
 <div class="math notranslate nohighlight">
 \[
 \large{C^*} = \frac{e^{Pe} - e^{Pex^*}}{e^{Pe} - 1} 
 \]</div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../_images/Fig12.PNG"><img alt="../_images/Fig12.PNG" src="../_images/Fig12.PNG" style="width: 50%;" /></a>
+<a class="reference internal image-reference" href="../_images/Fig12.PNG"><img alt="../_images/Fig12.PNG" src="../_images/Fig12.PNG" style="width: 70%;" /></a>
 </figure>
-<p>Try <span class="xref myst">Excercise 5.2</span></p>
+<p>Does the analytical solution make sense?</p>
 </section>
 </section>
 <section id="dimensional-analysis">
@@ -732,7 +737,7 @@ d = L
 \hspace{1.5cm}
 v = \frac{L}{T}
 \hspace{1.5cm}
-G = \frac{L}{T^3}
+g = \frac{L}{T^2}
 \hspace{1.5cm}
 \]</div>
 <p>We can already determine the number of dimensionless groups required to describe this system. There are 5 variables and 3 base dimensions, therefore the system requires 2 dimensionless groups to describe it (the number of variables minus the number of base dimensions).</p>
@@ -924,7 +929,8 @@ Ga \propto \frac{\text{Inertial Force} \times \text{Gravitational Force}}{\text{
 \]</div>
 <p>As all of these are valid combinations, the appropriate ones to use are subjective but should be based on an understanding of the system.</p>
 <p>Use dimensionless groups that represent the main interactions in the system. It is often useful to try and keep the dimensionless groups associated with the main input and output variables in dimensionless groups of their own. This will allow us to study the dimensionless outputs as functions of the dimensionless inputs</p>
-<p>Try <span class="xref myst">Exercise 5.3</span></p>
+<p>Try <a class="reference internal" href="#exercise-5-3"><span class="std std-ref">Exercise 5.3</span></a></p>
+<p>Dimensional analysis gives a method for determining appropriate combinations of dimensional quanitites. Remember that any quantities that are already dimensionless need also be included in any analysis such as exponents or shape. For simple shapes there may be dimensionless groups made of dimensional variables that can specify the problem (for example, aspect ratios) however, more complex shapes may not be as simply quantified.</p>
 </section>
 </section>
 <section id="instabilities">
@@ -1017,7 +1023,7 @@ N_p = \frac{\rho_h}{\rho_l}
 <li><p>The size of the instabilities formed (related to the size of the droplets formed), <span class="math notranslate nohighlight">\(l_{crit}\)</span>.</p></li>
 <li><p>The time taken for the instability to grow, <span class="math notranslate nohighlight">\(t_{crit}\)</span></p></li>
 </ul>
-<p>Now try <span class="xref myst">Exercise 5.4</span></p>
+<p>Now try <a class="reference internal" href="#exercise-5-4"><span class="std std-ref">Exercise 5.4</span></a></p>
 </section>
 </section>
 <section id="kelvin-helmholtz-instabilities">
@@ -1042,14 +1048,14 @@ N_p = \frac{\rho_h}{\rho_l}
 <li><p>Difference in velocity between the fluids, <span class="math notranslate nohighlight">\(\nabla v\)</span></p></li>
 <li><p>Viscosity, <span class="math notranslate nohighlight">\(\mu\)</span>.</p></li>
 </ul>
-<p>Try <span class="xref myst">Exercise 5.5</span></p>
+<p>Try <a class="reference internal" href="#exercise-5-5"><span class="std std-ref">Exercise 5.5</span></a></p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/CommonNumbers.png"><img alt="../_images/CommonNumbers.png" src="../_images/CommonNumbers.png" style="width: 50%;" /></a>
 </figure>
 </section>
 </section>
 <section id="exercise-5-1">
-<span id="my-label"></span><h2>Exercise 5.1<a class="headerlink" href="#exercise-5-1" title="Permalink to this heading">#</a></h2>
+<span id="id3"></span><h2>Exercise 5.1<a class="headerlink" href="#exercise-5-1" title="Permalink to this heading">#</a></h2>
 <p>Try experimenting with the code below:</p>
 <p><strong>How does changing the Peclet Number change the solution</strong></p>
 <div class="cell docutils container">
@@ -1117,9 +1123,9 @@ Populating the interactive namespace from numpy and matplotlib
 <img alt="../_images/ebfe391b22b2be82f528390551f7e83ed6a21ad13cc50787b3d443976c76c29b.png" src="../_images/ebfe391b22b2be82f528390551f7e83ed6a21ad13cc50787b3d443976c76c29b.png" />
 </div>
 </div>
-<div class="exercise">
-<a id = "Exercise52"></a>
-### Exercise 5.2 
+</section>
+<section id="exercise-5-2">
+<span id="id4"></span><h2>Exercise 5.2<a class="headerlink" href="#exercise-5-2" title="Permalink to this heading">#</a></h2>
 <p>Try showing that to solution to</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1131,9 +1137,9 @@ Populating the interactive namespace from numpy and matplotlib
 \large{C^* = \frac{e^{Pe} - e^{Pe \hspace{0.1cm} x^*}}{e^{Pe} - 1}}
 \]</div>
 <p>assuming that <span class="math notranslate nohighlight">\(C^*\)</span> is 1 at <span class="math notranslate nohighlight">\(x^* = 0\)</span> and <span class="math notranslate nohighlight">\(C^*\)</span> is 0 at <span class="math notranslate nohighlight">\(x^* = 1\)</span>.</p>
-<div class="exercise">
-<a id = "Exercise53"></a>   
-### Exercise 5.3 
+</section>
+<section id="exercise-5-3">
+<span id="id5"></span><h2>Exercise 5.3<a class="headerlink" href="#exercise-5-3" title="Permalink to this heading">#</a></h2>
 <p>We wish to analyse a droplet of water emerging from a needle and, in particular, its average diameter <span class="math notranslate nohighlight">\(d_d\)</span> when it detaches from a needle of diameter <span class="math notranslate nohighlight">\(d_n\)</span></p>
 <p>Initially we can assume that the droplets are being formed slowly. We therefore only need to consider the variables associated with the static shape:</p>
 <ul class="simple">
@@ -1143,11 +1149,9 @@ Populating the interactive namespace from numpy and matplotlib
 </ul>
 <p>How many dimensionless groups are required to satisfy this system? Derive suitable ones.</p>
 <p>What additional variables may be required in a dynamic system? What additional dimensionless groups may this require?</p>
-<div class="exercise">
-<a id = "Exercise55"></a>  
 </section>
 <section id="exercise-5-4">
-<h2>Exercise 5.4<a class="headerlink" href="#exercise-5-4" title="Permalink to this heading">#</a></h2>
+<span id="id6"></span><h2>Exercise 5.4<a class="headerlink" href="#exercise-5-4" title="Permalink to this heading">#</a></h2>
 <p>We have 6 variables (<span class="math notranslate nohighlight">\(\rho\)</span>, <span class="math notranslate nohighlight">\(v\)</span>, <span class="math notranslate nohighlight">\(\lambda\)</span>, <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(l_{crit}\)</span>, <span class="math notranslate nohighlight">\(t_{crit}\)</span>) and 3 dimensions (M,L,T)</p>
 <p>There are therefore 3 dimensionless groups.</p>
 <p>Show that a suitable set are:</p>
@@ -1160,11 +1164,9 @@ t^* = t_{crit} \sqrt{\frac{\gamma}{\rho r^3}}
 N_2 = \frac{v^2 \rho r}{\gamma}}
 \]</div>
 <p>If you wish to include viscosity, <span class="math notranslate nohighlight">\(\mu\)</span>, what would be an appropriate additional dimensionless group? Hint: It is mainly the inertia that the viscosity will be acting against</p>
-<div class="exercise">
-<a id = "Exercise55"></a>  
 </section>
 <section id="exercise-5-5">
-<h2>Exercise 5.5<a class="headerlink" href="#exercise-5-5" title="Permalink to this heading">#</a></h2>
+<span id="id7"></span><h2>Exercise 5.5<a class="headerlink" href="#exercise-5-5" title="Permalink to this heading">#</a></h2>
 <p>We wish to investigate the size of the instability generated - <span class="math notranslate nohighlight">\(h\)</span></p>
 <p>Derive  set of dimensionless groups to characterise this problem. Ensure that one of them represents a dimensionless height - <span class="math notranslate nohighlight">\(h^*\)</span></p>
 </section>
@@ -1280,6 +1282,8 @@ N_2 = \frac{v^2 \rho r}{\gamma}}
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-1">Exercise 5.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-2">Exercise 5.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-3">Exercise 5.3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-4">Exercise 5.4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-5">Exercise 5.5</a></li>
 </ul>
