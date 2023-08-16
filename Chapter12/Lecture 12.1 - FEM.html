@@ -446,12 +446,103 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="finite-element-methods-a-class-tocskip">
-<h1>12.1 Finite Element Methods <a class="tocSkip"><a class="headerlink" href="#finite-element-methods-a-class-tocskip" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id5" role="doc-backlink">12.1 Finite Element Methods <a class="tocSkip"></a><a class="headerlink" href="#finite-element-methods-a-class-tocskip" title="Permalink to this heading">#</a></h1>
 <p>Lecture 12.1<br />
 Matt Piggott</p>
-<h2>Table of Contents<span class="tocSkip"></span></h2>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Introduction:-finite-elements-vs-volumes-vs-differences" data-toc-modified-id="Introduction:-finite-elements-vs-volumes-vs-differences-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Introduction: finite elements vs volumes vs differences</a></span></li><li><span><a href="#Approximating-a-function" data-toc-modified-id="Approximating-a-function-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Approximating a function</a></span><ul class="toc-item"><li><span><a href="#Piecewise-polynomials" data-toc-modified-id="Piecewise-polynomials-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Piecewise-polynomials</a></span></li><li><span><a href="#An-example" data-toc-modified-id="An-example-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>An example</a></span></li><li><span><a href="#Interpolation-of-a-function-(Lagrange-polynomial---a-reminder)" data-toc-modified-id="Interpolation-of-a-function-(Lagrange-polynomial---a-reminder)-2.3"><span class="toc-item-num">2.3&nbsp;&nbsp;</span>Interpolation of a function (Lagrange polynomial - a reminder)</a></span><ul class="toc-item"><li><span><a href="#Comments" data-toc-modified-id="Comments-2.3.1"><span class="toc-item-num">2.3.1&nbsp;&nbsp;</span>Comments</a></span></li></ul></li><li><span><a href="#Interpolation-errors" data-toc-modified-id="Interpolation-errors-2.4"><span class="toc-item-num">2.4&nbsp;&nbsp;</span>Interpolation errors</a></span><ul class="toc-item"><li><span><a href="#Norms" data-toc-modified-id="Norms-2.4.1"><span class="toc-item-num">2.4.1&nbsp;&nbsp;</span>Norms</a></span></li><li><span><a href="#Error-bounds-formulae--[$\star$]" data-toc-modified-id="Error-bounds-formulae--[$\star$]-2.4.2"><span class="toc-item-num">2.4.2&nbsp;&nbsp;</span>Error bounds formulae  [$\star$]</a></span></li><li><span><a href="#Comments" data-toc-modified-id="Comments-2.4.3"><span class="toc-item-num">2.4.3&nbsp;&nbsp;</span>Comments</a></span></li></ul></li></ul></li><li><span><a href="#Basis-functions-[reminder-from-a-previous-lecture]" data-toc-modified-id="Basis-functions-[reminder-from-a-previous-lecture]-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Basis functions [reminder from a previous lecture]</a></span><ul class="toc-item"><li><span><a href="#Hat-functions" data-toc-modified-id="Hat-functions-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Hat functions</a></span></li><li><span><a href="#Support-of-basis-functions" data-toc-modified-id="Support-of-basis-functions-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>Support of basis functions</a></span></li><li><span><a href="#Some-code-to-return-the-hat/basis-functions" data-toc-modified-id="Some-code-to-return-the-hat/basis-functions-3.3"><span class="toc-item-num">3.3&nbsp;&nbsp;</span>Some code to return the hat/basis functions</a></span></li><li><span><a href="#Unstructured-mesh-data-structures" data-toc-modified-id="Unstructured-mesh-data-structures-3.4"><span class="toc-item-num">3.4&nbsp;&nbsp;</span>Unstructured mesh data structures</a></span><ul class="toc-item"><li><span><a href="#Terminology" data-toc-modified-id="Terminology-3.4.1"><span class="toc-item-num">3.4.1&nbsp;&nbsp;</span>Terminology</a></span></li></ul></li></ul></li><li><span><a href="#$L^2$-projection-of-a-function" data-toc-modified-id="$L^2$-projection-of-a-function-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>$L^2$ projection of a function</a></span><ul class="toc-item"><li><span><a href="#Theory" data-toc-modified-id="Theory-4.1"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>Theory</a></span><ul class="toc-item"><li><span><a href="#Finite-dimensional-example" data-toc-modified-id="Finite-dimensional-example-4.1.1"><span class="toc-item-num">4.1.1&nbsp;&nbsp;</span>Finite-dimensional example</a></span></li></ul></li><li><span><a href="#Theory---continued" data-toc-modified-id="Theory---continued-4.2"><span class="toc-item-num">4.2&nbsp;&nbsp;</span>Theory - continued</a></span></li><li><span><a href="#Link-to-the-finite-element-method" data-toc-modified-id="Link-to-the-finite-element-method-4.3"><span class="toc-item-num">4.3&nbsp;&nbsp;</span>Link to the finite element method</a></span></li><li><span><a href="#Implementation---the-mass-matrix" data-toc-modified-id="Implementation---the-mass-matrix-4.4"><span class="toc-item-num">4.4&nbsp;&nbsp;</span>Implementation - the mass matrix</a></span></li><li><span><a href="#Implementation-in-code" data-toc-modified-id="Implementation-in-code-4.5"><span class="toc-item-num">4.5&nbsp;&nbsp;</span>Implementation in code</a></span></li><li><span><a href="#Quadrature" data-toc-modified-id="Quadrature-4.6"><span class="toc-item-num">4.6&nbsp;&nbsp;</span>Quadrature</a></span><ul class="toc-item"><li><span><a href="#Application-of-Simpson's-rule-[$\star$]" data-toc-modified-id="Application-of-Simpson's-rule-[$\star$]-4.6.1"><span class="toc-item-num">4.6.1&nbsp;&nbsp;</span>Application of Simpson's rule [$\star$]</a></span></li></ul></li><li><span><a href="#Approximation-using-a-continuous-function" data-toc-modified-id="Approximation-using-a-continuous-function-4.7"><span class="toc-item-num">4.7&nbsp;&nbsp;</span>Approximation using a continuous function</a></span></li><li><span><a href="#Quality-of-approximation" data-toc-modified-id="Quality-of-approximation-4.8"><span class="toc-item-num">4.8&nbsp;&nbsp;</span>Quality of approximation</a></span></li><li><span><a href="#RMS-(root-mean-square)-vs-$L^2$-norm-[reminder-from-Comp-Math]" data-toc-modified-id="RMS-(root-mean-square)-vs-$L^2$-norm-[reminder-from-Comp-Math]-4.9"><span class="toc-item-num">4.9&nbsp;&nbsp;</span>RMS (root mean square) vs $L^2$ norm [reminder from Comp Math]</a></span></li></ul></li><li><span><a href="#Solving-boundary-value-problems-(BVPs)-using-the-FEM" data-toc-modified-id="Solving-boundary-value-problems-(BVPs)-using-the-FEM-5"><span class="toc-item-num">5&nbsp;&nbsp;</span>Solving boundary value problems (BVPs) using the FEM</a></span><ul class="toc-item"><li><span><a href="#The-fundamental-form-of-the-discretisation-ignoring-BCs" data-toc-modified-id="The-fundamental-form-of-the-discretisation-ignoring-BCs-5.1"><span class="toc-item-num">5.1&nbsp;&nbsp;</span>The fundamental form of the discretisation ignoring BCs</a></span><ul class="toc-item"><li><span><a href="#Weak-or-variational-form-of-problem" data-toc-modified-id="Weak-or-variational-form-of-problem-5.1.1"><span class="toc-item-num">5.1.1&nbsp;&nbsp;</span>Weak or variational form of problem</a></span></li><li><span><a href="#Discretisation-by-restricting-the-function-space-to-be-finite-dimensional" data-toc-modified-id="Discretisation-by-restricting-the-function-space-to-be-finite-dimensional-5.1.2"><span class="toc-item-num">5.1.2&nbsp;&nbsp;</span>Discretisation by restricting the function space to be finite-dimensional</a></span></li><li><span><a href="#Choice-of-basis-functions-(a.k.a.-choice-of-function-space-a.k.a.-choice-of-&quot;finite-element&quot;)" data-toc-modified-id="Choice-of-basis-functions-(a.k.a.-choice-of-function-space-a.k.a.-choice-of-&quot;finite-element&quot;)-5.1.3"><span class="toc-item-num">5.1.3&nbsp;&nbsp;</span>Choice of basis functions (a.k.a. choice of function space a.k.a. choice of "finite element")</a></span></li><li><span><a href="#Finite-element-approximation" data-toc-modified-id="Finite-element-approximation-5.1.4"><span class="toc-item-num">5.1.4&nbsp;&nbsp;</span>Finite element approximation</a></span></li><li><span><a href="#Terminology" data-toc-modified-id="Terminology-5.1.5"><span class="toc-item-num">5.1.5&nbsp;&nbsp;</span>Terminology</a></span></li><li><span><a href="#Implementation" data-toc-modified-id="Implementation-5.1.6"><span class="toc-item-num">5.1.6&nbsp;&nbsp;</span>Implementation</a></span></li></ul></li><li><span><a href="#A-simple-problem-with-homogeneous-Dirichlet-BCs" data-toc-modified-id="A-simple-problem-with-homogeneous-Dirichlet-BCs-5.2"><span class="toc-item-num">5.2&nbsp;&nbsp;</span>A simple problem with homogeneous Dirichlet BCs</a></span><ul class="toc-item"><li><span><a href="#Problem-description" data-toc-modified-id="Problem-description-5.2.1"><span class="toc-item-num">5.2.1&nbsp;&nbsp;</span>Problem description</a></span></li><li><span><a href="#Finite-element-approximation" data-toc-modified-id="Finite-element-approximation-5.2.2"><span class="toc-item-num">5.2.2&nbsp;&nbsp;</span>Finite element approximation</a></span></li><li><span><a href="#Comments" data-toc-modified-id="Comments-5.2.3"><span class="toc-item-num">5.2.3&nbsp;&nbsp;</span>Comments</a></span></li></ul></li></ul></li><li><span><a href="#Practical-implementation-of-the-FEM---local-assembly-over-elements" data-toc-modified-id="Practical-implementation-of-the-FEM---local-assembly-over-elements-6"><span class="toc-item-num">6&nbsp;&nbsp;</span>Practical implementation of the FEM - local assembly over elements</a></span><ul class="toc-item"><li><span><a href="#The-underlying-idea" data-toc-modified-id="The-underlying-idea-6.1"><span class="toc-item-num">6.1&nbsp;&nbsp;</span>The underlying idea</a></span></li><li><span><a href="#Local-assembly-for-the-mass-matrix" data-toc-modified-id="Local-assembly-for-the-mass-matrix-6.2"><span class="toc-item-num">6.2&nbsp;&nbsp;</span>Local assembly for the mass matrix</a></span></li><li><span><a href="#Example---projection" data-toc-modified-id="Example---projection-6.3"><span class="toc-item-num">6.3&nbsp;&nbsp;</span>Example - projection</a></span></li><li><span><a href="#Unstructured-mesh-data-structures-(the-connectivity-matrix)" data-toc-modified-id="Unstructured-mesh-data-structures-(the-connectivity-matrix)-6.4"><span class="toc-item-num">6.4&nbsp;&nbsp;</span>Unstructured mesh data structures (the connectivity matrix)</a></span></li><li><span><a href="#Quadrature-over-the-local-element-(change-of-variables-to-a-reference-element)" data-toc-modified-id="Quadrature-over-the-local-element-(change-of-variables-to-a-reference-element)-6.5"><span class="toc-item-num">6.5&nbsp;&nbsp;</span>Quadrature over the local element (change of variables to a reference element)</a></span></li><li><span><a href="#Transformation-to-the-reference-element" data-toc-modified-id="Transformation-to-the-reference-element-6.6"><span class="toc-item-num">6.6&nbsp;&nbsp;</span>Transformation to the reference element</a></span><ul class="toc-item"><li><span><a href="#Aside:-quadratic-basis-functions" data-toc-modified-id="Aside:-quadratic-basis-functions-6.6.1"><span class="toc-item-num">6.6.1&nbsp;&nbsp;</span>Aside: quadratic basis functions</a></span></li></ul></li><li><span><a href="#Local-assembly-for-integrands-that-involve-derivatives" data-toc-modified-id="Local-assembly-for-integrands-that-involve-derivatives-6.7"><span class="toc-item-num">6.7&nbsp;&nbsp;</span>Local assembly for integrands that involve derivatives</a></span></li></ul></li><li><span><a href="#Using-the-FEM-to-solve-time-dependent-PDEs" data-toc-modified-id="Using-the-FEM-to-solve-time-dependent-PDEs-7"><span class="toc-item-num">7&nbsp;&nbsp;</span>Using the FEM to solve time-dependent PDEs</a></span></li><li><span><a href="#Higher-dimensions-and-unstructured-meshes" data-toc-modified-id="Higher-dimensions-and-unstructured-meshes-8"><span class="toc-item-num">8&nbsp;&nbsp;</span>Higher dimensions and unstructured meshes</a></span></li><li><span><a href="#Final-comments" data-toc-modified-id="Final-comments-9"><span class="toc-item-num">9&nbsp;&nbsp;</span>Final comments</a></span></li><li><span><a href="#The-perodic-table-of-finite-elements" data-toc-modified-id="The-perodic-table-of-finite-elements-10"><span class="toc-item-num">10&nbsp;&nbsp;</span>The perodic table of finite elements</a></span></li></ul></div><section id="learning-objectives-a-class-tocskip">
-<h2>Learning objectives <a class="tocSkip"><a class="headerlink" href="#learning-objectives-a-class-tocskip" title="Permalink to this heading">#</a></h2>
+<section id="table-of-contents">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#finite-element-methods-a-class-tocskip" id="id5">12.1 Finite Element Methods <a class="tocSkip"></a></p>
+<ul>
+<li><p><a class="reference internal" href="#table-of-contents" id="id6">Table of Contents</a></p></li>
+<li><p><a class="reference internal" href="#learning-objectives-a-class-tocskip" id="id7">Learning objectives <a class="tocSkip"></a></p></li>
+<li><p><a class="reference internal" href="#introductory-comments-a-class-tocskip" id="id8">Introductory comments <a class="tocSkip"></a></p></li>
+<li><p><a class="reference internal" href="#introduction-finite-elements-vs-volumes-vs-differences" id="id9">Introduction: finite elements vs volumes vs differences</a></p></li>
+<li><p><a class="reference internal" href="#approximating-a-function" id="id10">Approximating a function</a></p></li>
+<li><p><a class="reference internal" href="#piecewise-polynomials" id="id11">Piecewise-polynomials</a></p></li>
+<li><p><a class="reference internal" href="#an-example" id="id12">An example</a></p></li>
+<li><p><a class="reference internal" href="#interpolation-of-a-function-lagrange-polynomial-a-reminder" id="id13">Interpolation of a function (Lagrange polynomial - a reminder)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#comments" id="id14">Comments</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#interpolation-errors" id="id15">Interpolation errors</a></p>
+<ul>
+<li><p><a class="reference internal" href="#norms" id="id16">Norms</a></p></li>
+<li><p><a class="reference internal" href="#error-bounds-formulae-star" id="id17">Error bounds formulae  [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id18">Comments</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#basis-functions-reminder-from-a-previous-lecture" id="id19">Basis functions [reminder from a previous lecture]</a></p></li>
+<li><p><a class="reference internal" href="#hat-functions" id="id20">Hat functions</a></p></li>
+<li><p><a class="reference internal" href="#support-of-basis-functions" id="id21">Support of basis functions</a></p></li>
+<li><p><a class="reference internal" href="#some-code-to-return-the-hat-basis-functions" id="id22">Some code to return the hat/basis functions</a></p></li>
+<li><p><a class="reference internal" href="#unstructured-mesh-data-structures" id="id23">Unstructured mesh data structures</a></p>
+<ul>
+<li><p><a class="reference internal" href="#terminology" id="id24">Terminology</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#l-2-projection-of-a-function" id="id25"><span class="math notranslate nohighlight">\(L^2\)</span> projection of a function</a></p></li>
+<li><p><a class="reference internal" href="#theory" id="id26">Theory</a></p>
+<ul>
+<li><p><a class="reference internal" href="#finite-dimensional-example" id="id27">Finite-dimensional example</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#theory-continued" id="id28">Theory - continued</a></p></li>
+<li><p><a class="reference internal" href="#link-to-the-finite-element-method" id="id29">Link to the finite element method</a></p></li>
+<li><p><a class="reference internal" href="#implementation-the-mass-matrix" id="id30">Implementation - the mass matrix</a></p></li>
+<li><p><a class="reference internal" href="#implementation-in-code" id="id31">Implementation in code</a></p></li>
+<li><p><a class="reference internal" href="#quadrature" id="id32">Quadrature</a></p>
+<ul>
+<li><p><a class="reference internal" href="#application-of-simpson-s-rule-star" id="id33">Application of Simpson’s rule [<span class="math notranslate nohighlight">\(\star\)</span>]</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#approximation-using-a-continuous-function" id="id34">Approximation using a continuous function</a></p></li>
+<li><p><a class="reference internal" href="#quality-of-approximation" id="id35">Quality of approximation</a></p></li>
+<li><p><a class="reference internal" href="#rms-root-mean-square-vs-l-2-norm-reminder-from-comp-math" id="id36">RMS (root mean square) vs <span class="math notranslate nohighlight">\(L^2\)</span> norm [reminder from Comp Math]</a></p></li>
+<li><p><a class="reference internal" href="#solving-boundary-value-problems-bvps-using-the-fem" id="id37">Solving boundary value problems (BVPs) using the FEM</a></p></li>
+<li><p><a class="reference internal" href="#the-fundamental-form-of-the-discretisation-ignoring-bcs" id="id38">The fundamental form of the discretisation ignoring BCs</a></p>
+<ul>
+<li><p><a class="reference internal" href="#weak-or-variational-form-of-problem" id="id39">Weak or variational form of problem</a></p></li>
+<li><p><a class="reference internal" href="#discretisation-by-restricting-the-function-space-to-be-finite-dimensional" id="id40">Discretisation by restricting the function space to be finite-dimensional</a></p></li>
+<li><p><a class="reference internal" href="#choice-of-basis-functions-a-k-a-choice-of-function-space-a-k-a-choice-of-finite-element" id="id41">Choice of basis functions (a.k.a. choice of function space a.k.a. choice of “finite element”)</a></p></li>
+<li><p><a class="reference internal" href="#finite-element-approximation" id="id42">Finite element approximation</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id43">Terminology</a></p></li>
+<li><p><a class="reference internal" href="#implementation" id="id44">Implementation</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#a-simple-problem-with-homogeneous-dirichlet-bcs" id="id45">A simple problem with homogeneous Dirichlet BCs</a></p>
+<ul>
+<li><p><a class="reference internal" href="#problem-description" id="id46">Problem description</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id47">Finite element approximation</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id48">Comments</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#practical-implementation-of-the-fem-local-assembly-over-elements" id="id49">Practical implementation of the FEM - local assembly over elements</a></p></li>
+<li><p><a class="reference internal" href="#the-underlying-idea" id="id50">The underlying idea</a></p></li>
+<li><p><a class="reference internal" href="#local-assembly-for-the-mass-matrix" id="id51">Local assembly for the mass matrix</a></p></li>
+<li><p><a class="reference internal" href="#example-projection" id="id52">Example - projection</a></p></li>
+<li><p><a class="reference internal" href="#unstructured-mesh-data-structures-the-connectivity-matrix" id="id53">Unstructured mesh data structures (the connectivity matrix)</a></p></li>
+<li><p><a class="reference internal" href="#quadrature-over-the-local-element-change-of-variables-to-a-reference-element" id="id54">Quadrature over the local element (change of variables to a reference element)</a></p></li>
+<li><p><a class="reference internal" href="#transformation-to-the-reference-element" id="id55">Transformation to the reference element</a></p>
+<ul>
+<li><p><a class="reference internal" href="#aside-quadratic-basis-functions" id="id56">Aside: quadratic basis functions</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#local-assembly-for-integrands-that-involve-derivatives" id="id57">Local assembly for integrands that involve derivatives</a></p></li>
+<li><p><a class="reference internal" href="#using-the-fem-to-solve-time-dependent-pdes" id="id58">Using the FEM to solve time-dependent PDEs</a></p></li>
+<li><p><a class="reference internal" href="#higher-dimensions-and-unstructured-meshes" id="id59">Higher dimensions and unstructured meshes</a></p></li>
+<li><p><a class="reference internal" href="#final-comments" id="id60">Final comments</a></p></li>
+<li><p><a class="reference internal" href="#the-perodic-table-of-finite-elements" id="id61">The perodic table of finite elements</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+</section>
+<section id="learning-objectives-a-class-tocskip">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Learning objectives <a class="tocSkip"></a><a class="headerlink" href="#learning-objectives-a-class-tocskip" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>To introduce the finite element method</p></li>
 <li><p>To review how basis functions can be used to approximate functions,</p></li>
@@ -469,7 +560,7 @@ Matt Piggott</p>
 </ul>
 </section>
 <section id="introductory-comments-a-class-tocskip">
-<h2>Introductory comments <a class="tocSkip"><a class="headerlink" href="#introductory-comments-a-class-tocskip" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Introductory comments <a class="tocSkip"></a><a class="headerlink" href="#introductory-comments-a-class-tocskip" title="Permalink to this heading">#</a></h2>
 <p>Note that there are numerous ways that the finite element method can be introduced and derived.</p>
 <p>A significant subset of these go about this task in a very abstract/mathematical way.</p>
 <p>Here we will take a more practical perspective, but be warned if you pick up a random textbook it may well go about things in a very different manner. Ultimately though we will end up at the same place.</p>
@@ -501,7 +592,7 @@ Matt Piggott</p>
 </div>
 </section>
 <section id="introduction-finite-elements-vs-volumes-vs-differences">
-<h2>Introduction: finite elements vs volumes vs differences<a class="headerlink" href="#introduction-finite-elements-vs-volumes-vs-differences" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Introduction: finite elements vs volumes vs differences</a><a class="headerlink" href="#introduction-finite-elements-vs-volumes-vs-differences" title="Permalink to this heading">#</a></h2>
 <p>The finite element method can be interpreted in a way that sets it somewhat apart from finite difference and finite volume methods.</p>
 <p>In any numerical method our aim is generally to replace or approximate something that is continuous (infinite dimensional) with something that is discrete (finite dimensional). We need to do this in order to allow us to find the approximation on a finite computer.</p>
 <p>FD and FV methods sought to approximate derivatives or fluxes in the underlying equation in terms of discrete (i.e. discretised) solution information, i.e. it “discretised the underlying equation”.
@@ -517,10 +608,10 @@ In 1D in particularly FD and FV aren’t that different conceptually and lead to
 <p>Rather than diving straight into discretising a differential equation problem, we will start our discussion of the finite element method by first considering ways in which we can approximate/discretise a function (which we can think of as the exact solution to our differential equation).</p>
 </section>
 <section id="approximating-a-function">
-<h2>Approximating a function<a class="headerlink" href="#approximating-a-function" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Approximating a function</a><a class="headerlink" href="#approximating-a-function" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="piecewise-polynomials">
-<h2>Piecewise-polynomials<a class="headerlink" href="#piecewise-polynomials" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Piecewise-polynomials</a><a class="headerlink" href="#piecewise-polynomials" title="Permalink to this heading">#</a></h2>
 <p>One way to start a description of the finite element method is to consider how we can approximate functions.</p>
 <p>Suppose we have a function <span class="math notranslate nohighlight">\(f(x)\)</span> and approximate it using a finite number of basis functions:</p>
 <div class="math notranslate nohighlight">
@@ -540,7 +631,7 @@ In 1D in particularly FD and FV aren’t that different conceptually and lead to
 <p>In addition, we look for basis functions which are easy to integrate.  The finite element method generally makes use of piecewise polynomial basis functions, which leads to our approximation <span class="math notranslate nohighlight">\(f_h(x)\)</span> being a piecewise polynomial.</p>
 </section>
 <section id="an-example">
-<h2>An example<a class="headerlink" href="#an-example" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">An example</a><a class="headerlink" href="#an-example" title="Permalink to this heading">#</a></h2>
 <p>To help clarify these ideas let’s consider a continuous and relatively complex function:</p>
 <div class="math notranslate nohighlight">
 \[ f(x) = \sin(2\pi x) + \frac{3}{10}\cos(6\pi x^2).\]</div>
@@ -568,7 +659,7 @@ In 1D in particularly FD and FV aren’t that different conceptually and lead to
 </div>
 </section>
 <section id="interpolation-of-a-function-lagrange-polynomial-a-reminder">
-<h2>Interpolation of a function (Lagrange polynomial - a reminder)<a class="headerlink" href="#interpolation-of-a-function-lagrange-polynomial-a-reminder" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Interpolation of a function (Lagrange polynomial - a reminder)</a><a class="headerlink" href="#interpolation-of-a-function-lagrange-polynomial-a-reminder" title="Permalink to this heading">#</a></h2>
 <p>Perhaps the obvious way to approximate this with a sum over piecewise polynomials is to construct the piecewise linear interpolant, as we did in the lectures on interpolation.</p>
 <p>We take a finite number of sample points (we assume 4 evenly distributed points in the examples below), and then for every pair of these find the linear polynomial that passes through or joins them.</p>
 <p>We made the point in L1 that this is what you get if you plot the discrete data using default plotting options, but let’s remind ourselves how we can use <code class="docutils literal notranslate"><span class="pre">numpy.polyfit</span></code> to find the linear polynomial approximation in between each pair of sample points.</p>
@@ -620,7 +711,7 @@ In 1D in particularly FD and FV aren’t that different conceptually and lead to
 </div>
 </div>
 <section id="comments">
-<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Comments</a><a class="headerlink" href="#comments" title="Permalink to this heading">#</a></h3>
 <p>NB. a common notation for an <em>interpolant</em> of a function <span class="math notranslate nohighlight">\(f\)</span>, is the function <span class="math notranslate nohighlight">\(\pi f\)</span> - think of <span class="math notranslate nohighlight">\(\pi\)</span> as an operator that turns a function <span class="math notranslate nohighlight">\(f\)</span> into its interpolant.</p>
 <ul class="simple">
 <li><p>Recall that an interpolant passes through the underlying function (or rather discrete data obtained from evaluating the function) exactly at the data points: <span class="math notranslate nohighlight">\(\pi f(x_i)=f(x_i)\)</span> <span class="math notranslate nohighlight">\(\forall i\)</span>.</p></li>
@@ -630,9 +721,9 @@ In 1D in particularly FD and FV aren’t that different conceptually and lead to
 </section>
 </section>
 <section id="interpolation-errors">
-<h2>Interpolation errors<a class="headerlink" href="#interpolation-errors" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Interpolation errors</a><a class="headerlink" href="#interpolation-errors" title="Permalink to this heading">#</a></h2>
 <section id="norms">
-<h3>Norms<a class="headerlink" href="#norms" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Norms</a><a class="headerlink" href="#norms" title="Permalink to this heading">#</a></h3>
 <p>Note that unless our function itself is linear, a linear interpolant will have errors in between the data points (where the approximation is by definition exact).</p>
 <p>The difference</p>
 <div class="math notranslate nohighlight">
@@ -646,7 +737,7 @@ In 1D in particularly FD and FV aren’t that different conceptually and lead to
 <p>where <span class="math notranslate nohighlight">\(I\)</span> might be our entire domain, or a single sub-interval/element.</p>
 </section>
 <section id="error-bounds-formulae-star">
-<h3>Error bounds formulae  [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#error-bounds-formulae-star" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Error bounds formulae  [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#error-bounds-formulae-star" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <p>We will state the following standard results without proving them.</p>
 <p>Over a single element <span class="math notranslate nohighlight">\(e_i\)</span> we have the (linear) interpolation error bound</p>
@@ -660,7 +751,7 @@ In 1D in particularly FD and FV aren’t that different conceptually and lead to
 </div>
 </section>
 <section id="id1">
-<h3>Comments<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Comments</a><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>This is consistent with what we’ve seen before with Taylor series analysis in previous lectures - the error is zero for a p/w linear interpolant if <span class="math notranslate nohighlight">\(f\)</span> is linear (as the second derivative is zero), and is larger for a larger mesh spacing or a more complex function. The error converges at second order with mesh spacing.</p></li>
 <li><p>It turns our that while being exact at the nodes, when considered in terms of the <span class="math notranslate nohighlight">\(L^2\)</span> (and other) norm we can do better</p></li>
@@ -669,7 +760,7 @@ In 1D in particularly FD and FV aren’t that different conceptually and lead to
 </section>
 </section>
 <section id="basis-functions-reminder-from-a-previous-lecture">
-<h2>Basis functions [reminder from a previous lecture]<a class="headerlink" href="#basis-functions-reminder-from-a-previous-lecture" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Basis functions [reminder from a previous lecture]</a><a class="headerlink" href="#basis-functions-reminder-from-a-previous-lecture" title="Permalink to this heading">#</a></h2>
 <p>To progress we need to introduce basis functions, which are a critical component of the finite element method.</p>
 <p>So far we have considered a piecewise linear approximation to our function.</p>
 <p>But how can we write this as an expansion of the form from earlier:</p>
@@ -679,7 +770,7 @@ In 1D in particularly FD and FV aren’t that different conceptually and lead to
 <p>[Why am I using <span class="math notranslate nohighlight">\(j\)</span> here for the sum rather than the more obvious <span class="math notranslate nohighlight">\(i\)</span> (they’re <em>dummy indices</em> so it of course doesn’t actually matter which I use) - we will see why later.]</p>
 </section>
 <section id="hat-functions">
-<h2>Hat functions<a class="headerlink" href="#hat-functions" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Hat functions</a><a class="headerlink" href="#hat-functions" title="Permalink to this heading">#</a></h2>
 <p>If you think about it the answer is the following</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -696,7 +787,7 @@ In 1D in particularly FD and FV aren’t that different conceptually and lead to
 </figure>
 </section>
 <section id="support-of-basis-functions">
-<h2>Support of basis functions<a class="headerlink" href="#support-of-basis-functions" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Support of basis functions</a><a class="headerlink" href="#support-of-basis-functions" title="Permalink to this heading">#</a></h2>
 <p>An important aspect of the finite element method is appreciating when the basis functions and the products of basis functions, e.g.</p>
 <div class="math notranslate nohighlight">
 \[\phi_i \, \phi_j\,,\]</div>
@@ -709,7 +800,7 @@ In 1D in particularly FD and FV aren’t that different conceptually and lead to
 <p>where the subscript “comma <span class="math notranslate nohighlight">\(x\)</span>” and the primes in the line above are just notation to indicate the <span class="math notranslate nohighlight">\(x\)</span> derivatives of the basis functions.</p>
 </section>
 <section id="some-code-to-return-the-hat-basis-functions">
-<h2>Some code to return the hat/basis functions<a class="headerlink" href="#some-code-to-return-the-hat-basis-functions" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">Some code to return the hat/basis functions</a><a class="headerlink" href="#some-code-to-return-the-hat-basis-functions" title="Permalink to this heading">#</a></h2>
 <p>First let’s implement a function that returns the <span class="math notranslate nohighlight">\(i\)</span>-th hat function on a mesh.  You can try playing with the value for <span class="math notranslate nohighlight">\(i\)</span> and seeing how it changes the plot.</p>
 <p>Second we show how we can make use of these basis functions to implement a function returning <span class="math notranslate nohighlight">\(f_h(x)\)</span> for given weights.</p>
 <div class="cell docutils container">
@@ -817,7 +908,7 @@ In 1D in particularly FD and FV aren’t that different conceptually and lead to
 <p>So as expected the expansion of these hat (basis) functions goes through the values given by the weights, with straight lines in between.</p>
 </section>
 <section id="unstructured-mesh-data-structures">
-<h2>Unstructured mesh data structures<a class="headerlink" href="#unstructured-mesh-data-structures" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">Unstructured mesh data structures</a><a class="headerlink" href="#unstructured-mesh-data-structures" title="Permalink to this heading">#</a></h2>
 <p>[Note we’ll return to this topic in more detail when discussing local assembly].</p>
 <p>The following image presents a schematic of an unstructured mesh data structure, or connectivity, in the simple 1D case and assuming that we have two nodes per element, and that these are located at the ends of the elements (other more complex choices are possible!)</p>
 <figure class="align-default">
@@ -841,7 +932,7 @@ In 1D in particularly FD and FV aren’t that different conceptually and lead to
 <div class="math notranslate nohighlight">
 \[\text{the number of local nodes per element}\;\;\times\;\;\text{the number of elements}.\]</div>
 <section id="terminology">
-<h3>Terminology<a class="headerlink" href="#terminology" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">Terminology</a><a class="headerlink" href="#terminology" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><em>element</em>, cell, “finite volume” essentially mean the same thing - discrete objects used to cover or <em>tessellate</em> the entire domain</p></li>
 <li><p><em>vertices</em> are the geometrical objects used to define the elements, e.g. the two end points of each sub-interval in 1D,  3 corners of a triangle etc.</p></li>
@@ -851,7 +942,7 @@ In 1D in particularly FD and FV aren’t that different conceptually and lead to
 </section>
 </section>
 <section id="l-2-projection-of-a-function">
-<h2><span class="math notranslate nohighlight">\(L^2\)</span> projection of a function<a class="headerlink" href="#l-2-projection-of-a-function" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id25" role="doc-backlink"><span class="math notranslate nohighlight">\(L^2\)</span> projection of a function</a><a class="headerlink" href="#l-2-projection-of-a-function" title="Permalink to this heading">#</a></h2>
 <p>Of course interpolation is not the only way to approximate a function.</p>
 <p>Indeed interpolation is really developed primarily for the use case where we are given finite <span class="math notranslate nohighlight">\((x,y)\)</span> data, and we don’t have enough information to do anything other than pass through these values as well as possible.</p>
 <p>In the case here (projection) we actually have access to the underlying function and so we should be able to do better than what we obtain with interpolation.</p>
@@ -865,7 +956,7 @@ define a space <span class="math notranslate nohighlight">\(V_h\)</span> - which
 <p>We want to find the function in this space which minimises the error.  The interpolant <span class="math notranslate nohighlight">\(\,\pi f\,\)</span> is clearly <em><strong>a</strong></em> member of this space, but as we shall see not necessarily the best solution for us.</p>
 </section>
 <section id="theory">
-<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">Theory</a><a class="headerlink" href="#theory" title="Permalink to this heading">#</a></h2>
 <p>So we want to</p>
 <div class="math notranslate nohighlight">
 \[\text{find} \;\;\;v\in V_h\;\;\; \text{which minimises }
@@ -882,12 +973,12 @@ define a space <span class="math notranslate nohighlight">\(V_h\)</span> - which
 <li><p>This means that in the case that <span class="math notranslate nohighlight">\(f\in V_h\)</span>, i.e. if <span class="math notranslate nohighlight">\(f\)</span> is itself p/w linear, then our result is exact: <span class="math notranslate nohighlight">\(P_h\,f\equiv f\)</span>.</p></li>
 </ol>
 <section id="finite-dimensional-example">
-<h3>Finite-dimensional example<a class="headerlink" href="#finite-dimensional-example" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">Finite-dimensional example</a><a class="headerlink" href="#finite-dimensional-example" title="Permalink to this heading">#</a></h3>
 <p>Visually, pretend that <span class="math notranslate nohighlight">\(V_h\)</span> is represented by a straight line in 2D space, and we want to find the point on the line closest to an arbitrary point anywhere in 2D - sketch this case.</p>
 </section>
 </section>
 <section id="theory-continued">
-<h2>Theory - continued<a class="headerlink" href="#theory-continued" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id28" role="doc-backlink">Theory - continued</a><a class="headerlink" href="#theory-continued" title="Permalink to this heading">#</a></h2>
 <p>How does us satisfying the above constraints “uniquely define” <span class="math notranslate nohighlight">\(P_h\,f\)</span>?</p>
 <p>Well notice that <span class="math notranslate nohighlight">\(\,P_h\,f = \sum_{j=0}^N \alpha_j \phi_j(x)\,\)</span> has <span class="math notranslate nohighlight">\(N+1\)</span> free parameters, and the requirement that the above integral is zero for all <span class="math notranslate nohighlight">\(v\in V_h\)</span> actually yields us <span class="math notranslate nohighlight">\(N+1\)</span> pieces of information, as <span class="math notranslate nohighlight">\(V_h\)</span> also has dimension <span class="math notranslate nohighlight">\(n+1\)</span>.</p>
 <p>So we have <span class="math notranslate nohighlight">\(N+1\)</span> unknowns and <span class="math notranslate nohighlight">\(N+1\)</span> equations and we know that we can in principle solve this system uniquely.</p>
@@ -920,12 +1011,12 @@ i.e.</p>
 <p>The point I’m making here is to emphasise that we solved the <em>equation</em> <span class="math notranslate nohighlight">\(v=f\)</span>, using the “finite element method” (which invovles discretising <span class="math notranslate nohighlight">\(v\)</span> and utilising the weak form of the equation).</p>
 </section>
 <section id="link-to-the-finite-element-method">
-<h2>Link to the finite element method<a class="headerlink" href="#link-to-the-finite-element-method" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id29" role="doc-backlink">Link to the finite element method</a><a class="headerlink" href="#link-to-the-finite-element-method" title="Permalink to this heading">#</a></h2>
 <p>This is basically the crux of the finite element method, but when solving a <strong>differential equation</strong> instead of starting from the <strong>equation</strong>  <span class="math notranslate nohighlight">\(\,v = f\,\)</span> and going through the above <span class="math notranslate nohighlight">\(L^2\)</span> projection procedure to find the best approximation (which we know to be <span class="math notranslate nohighlight">\(\,v=P_h\,f\)</span>) from within the function space our basis functions span, we instead start from our <em>differential equation</em> and consider the weak form of that.</p>
 <p>In the case of a differential equation we shall see that we get different, or additional, matrices on the LHS, and we also need to deal with boundary conditions. We will see plenty of examples in the context of BVPs and PDEs.</p>
 </section>
 <section id="implementation-the-mass-matrix">
-<h2>Implementation - the mass matrix<a class="headerlink" href="#implementation-the-mass-matrix" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id30" role="doc-backlink">Implementation - the mass matrix</a><a class="headerlink" href="#implementation-the-mass-matrix" title="Permalink to this heading">#</a></h2>
 <p>Define the mass matrix to be the matrix <span class="math notranslate nohighlight">\(M\)</span> with entries</p>
 <div class="math notranslate nohighlight">
 \[ M_{ij} = \int_\Omega \,\phi_i(x)\,\phi_j(x)\,  dx. \]</div>
@@ -994,7 +1085,7 @@ M_{i,i+1} = \ldots =  \frac{\Delta x_{i}}{6}.
 <p>Note that the details of how to compute these integrals exactly aren’t that important, as in practice we will make use of quadrature rules.</p>
 </section>
 <section id="implementation-in-code">
-<h2>Implementation in code<a class="headerlink" href="#implementation-in-code" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id31" role="doc-backlink">Implementation in code</a><a class="headerlink" href="#implementation-in-code" title="Permalink to this heading">#</a></h2>
 <p>First let’s construct the mass matrix explicitly “by hand” using our derivation of the entries above and assuming <span class="math notranslate nohighlight">\(\Delta x\)</span> is constant.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1048,7 +1139,7 @@ M_{i,i+1} = \ldots =  \frac{\Delta x_{i}}{6}.
 </div>
 </section>
 <section id="quadrature">
-<h2>Quadrature<a class="headerlink" href="#quadrature" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id32" role="doc-backlink">Quadrature</a><a class="headerlink" href="#quadrature" title="Permalink to this heading">#</a></h2>
 <p>While we can compute these integrals of basis functions exactly (at least in this simple case - see later material on “assembly” for the general way to do this), we are going to need to perform numerical integration in order to compute other more complex integrals.</p>
 <p>Of course we could use SciPy here, but let’s use our own implementation.</p>
 <div class="cell docutils container">
@@ -1098,7 +1189,7 @@ M_{i,i+1} = \int_{x_{i-1}}^{x_{i+1}} \,\phi_i(x)\,\phi_{i+1}(x)\,  dx.
 <p>Let’s consider the simple case <span class="math notranslate nohighlight">\(\Delta x_{i}=1,\)</span>  <span class="math notranslate nohighlight">\(\forall i\)</span>.</p>
 <p>From our analytical evaluation of the integrals above we know that we should obtain the values 2/3 and 1/6 respectively.  And in the case of the <span class="math notranslate nohighlight">\((0,0)\)</span> and <span class="math notranslate nohighlight">\((n,n)\)</span> entries of the matrix we should obtain half of the internal main diagonal values, i.e. here 1/3.</p>
 <section id="application-of-simpson-s-rule-star">
-<h3>Application of Simpson’s rule [<span class="math notranslate nohighlight">\(\star\)</span>]<a class="headerlink" href="#application-of-simpson-s-rule-star" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">Application of Simpson’s rule [<span class="math notranslate nohighlight">\(\star\)</span>]</a><a class="headerlink" href="#application-of-simpson-s-rule-star" title="Permalink to this heading">#</a></h3>
 <div class="toggle toggle-shown docutils container">
 <p>We note that the integrands of the integrals we need to compute are quadratic over an element for our current case (the product of two linear functions), and so can be exactly integrated using Simpson’s rule applied over those individual elements where it is non-zero.</p>
 <p>Recall from a previous lecture that Simpson’s quadrature rule was</p>
@@ -1219,7 +1310,7 @@ The (0,0) value:  0.3333333333333333
 </section>
 </section>
 <section id="approximation-using-a-continuous-function">
-<h2>Approximation using a continuous function<a class="headerlink" href="#approximation-using-a-continuous-function" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id34" role="doc-backlink">Approximation using a continuous function</a><a class="headerlink" href="#approximation-using-a-continuous-function" title="Permalink to this heading">#</a></h2>
 <p>Now let’s actually apply all of this to our simple test case. We need to form and solve</p>
 <div class="math notranslate nohighlight">
 \[M\,\boldsymbol{\alpha} =  \boldsymbol{RHS},\]</div>
@@ -1294,7 +1385,7 @@ The (0,0) value:  0.3333333333333333
 </div>
 </section>
 <section id="quality-of-approximation">
-<h2>Quality of approximation<a class="headerlink" href="#quality-of-approximation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id35" role="doc-backlink">Quality of approximation</a><a class="headerlink" href="#quality-of-approximation" title="Permalink to this heading">#</a></h2>
 <p>Which of these is a better approximation?</p>
 <p>Clearly the P1 interpolant if we ask the question of accuracy at the nodes only.</p>
 <p>But above we established that, by construction, our projection approach should yield a result that is optimal w.r.t. the <span class="math notranslate nohighlight">\(L^2\)</span> norm, i.e. we cannot do any better when measuring agreement using this norm.</p>
@@ -1309,7 +1400,7 @@ The (0,0) value:  0.3333333333333333
 <p>if we relax the requirement of continuity between elements (and so effectively have twice as many degrees of freedom to solve for) we can achieve an even better approximation.</p>
 </section>
 <section id="rms-root-mean-square-vs-l-2-norm-reminder-from-comp-math">
-<h2>RMS (root mean square) vs <span class="math notranslate nohighlight">\(L^2\)</span> norm [reminder from Comp Math]<a class="headerlink" href="#rms-root-mean-square-vs-l-2-norm-reminder-from-comp-math" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id36" role="doc-backlink">RMS (root mean square) vs <span class="math notranslate nohighlight">\(L^2\)</span> norm [reminder from Comp Math]</a><a class="headerlink" href="#rms-root-mean-square-vs-l-2-norm-reminder-from-comp-math" title="Permalink to this heading">#</a></h2>
 <p>Notice that I labeled the <span class="math notranslate nohighlight">\(y\)</span> axes with RMS error rather than the <span class="math notranslate nohighlight">\(L^2\)</span> norm. Why?</p>
 <p>We want to compute</p>
 <div class="math notranslate nohighlight">
@@ -1348,12 +1439,12 @@ e_{L^2} &amp; := \| f - P_h\, f\|^2_{L^2(I)}\\[10pt]
 <p>But be careful with its use on a non-uniform mesh!</p>
 </section>
 <section id="solving-boundary-value-problems-bvps-using-the-fem">
-<h2>Solving boundary value problems (BVPs) using the FEM<a class="headerlink" href="#solving-boundary-value-problems-bvps-using-the-fem" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id37" role="doc-backlink">Solving boundary value problems (BVPs) using the FEM</a><a class="headerlink" href="#solving-boundary-value-problems-bvps-using-the-fem" title="Permalink to this heading">#</a></h2>
 <p>Recall that we considered BVPs in a previous lecture where we introduced them in the context of the steady state solution to a PDE.</p>
 <p>As with the finite difference method, BVPs provide a useful way to explain spatial discretisation via the finite element method without needing to worry about variations in the time dimension.</p>
 </section>
 <section id="the-fundamental-form-of-the-discretisation-ignoring-bcs">
-<h2>The fundamental form of the discretisation ignoring BCs<a class="headerlink" href="#the-fundamental-form-of-the-discretisation-ignoring-bcs" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id38" role="doc-backlink">The fundamental form of the discretisation ignoring BCs</a><a class="headerlink" href="#the-fundamental-form-of-the-discretisation-ignoring-bcs" title="Permalink to this heading">#</a></h2>
 <p>As we shall see below the details of the BCs we want to apply will change some of the discretisation details quite a lot, so initially we will explain things ignoring the BCs.</p>
 <p>Our problem is to
 find <span class="math notranslate nohighlight">\(u\equiv u(x)\)</span> which satisfies the ODE over the interval <span class="math notranslate nohighlight">\(I=[0,1]\)</span></p>
@@ -1361,7 +1452,7 @@ find <span class="math notranslate nohighlight">\(u\equiv u(x)\)</span> which sa
 \[-u'' = f,\]</div>
 <p>for a given source term <span class="math notranslate nohighlight">\(\,f\)</span> (subject to some BCs yet to be defined).</p>
 <section id="weak-or-variational-form-of-problem">
-<h3>Weak or variational form of problem<a class="headerlink" href="#weak-or-variational-form-of-problem" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id39" role="doc-backlink">Weak or variational form of problem</a><a class="headerlink" href="#weak-or-variational-form-of-problem" title="Permalink to this heading">#</a></h3>
 <p>To progress with a FE discretisation we start from our continuous equation:</p>
 <div class="math notranslate nohighlight">
 \[-u'' = f.\]</div>
@@ -1375,7 +1466,7 @@ find <span class="math notranslate nohighlight">\(u\equiv u(x)\)</span> which sa
 <p>We call the original equation the <em>strong form</em> of the problem, while we call the version where we have multiplied by <span class="math notranslate nohighlight">\(v\)</span> and integrated the <em>weak</em> or the variational form of the problem.</p>
 </section>
 <section id="discretisation-by-restricting-the-function-space-to-be-finite-dimensional">
-<h3>Discretisation by restricting the function space to be finite-dimensional<a class="headerlink" href="#discretisation-by-restricting-the-function-space-to-be-finite-dimensional" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id40" role="doc-backlink">Discretisation by restricting the function space to be finite-dimensional</a><a class="headerlink" href="#discretisation-by-restricting-the-function-space-to-be-finite-dimensional" title="Permalink to this heading">#</a></h3>
 <p>To discretise we simply replace the infinite-dimensional space <span class="math notranslate nohighlight">\(V\)</span> with a finite-dimensional space <span class="math notranslate nohighlight">\(V_h\)</span>, e.g. the space of p/w linear functions we saw earlier!</p>
 <p>This is what we mean by the finite element method approximating the solution function but not the underlying equation (or at least its weak form).</p>
 <p>In practice we write the solution as</p>
@@ -1389,7 +1480,7 @@ find <span class="math notranslate nohighlight">\(u\equiv u(x)\)</span> which sa
 \[\int_I \,-u_h''\,\phi_i\,dx = \int_I \,f\,\phi_i\,dx, \;\;\;\;\text{for}\;\;\;\; i=0,\ldots,N.\]</div>
 </section>
 <section id="choice-of-basis-functions-a-k-a-choice-of-function-space-a-k-a-choice-of-finite-element">
-<h3>Choice of basis functions (a.k.a. choice of function space a.k.a. choice of “finite element”)<a class="headerlink" href="#choice-of-basis-functions-a-k-a-choice-of-function-space-a-k-a-choice-of-finite-element" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id41" role="doc-backlink">Choice of basis functions (a.k.a. choice of function space a.k.a. choice of “finite element”)</a><a class="headerlink" href="#choice-of-basis-functions-a-k-a-choice-of-function-space-a-k-a-choice-of-finite-element" title="Permalink to this heading">#</a></h3>
 <p>But now we’re confronted with a problem - assuming that we’ve made the choice to use linear basis functions then our discrete solution <span class="math notranslate nohighlight">\(u_h\)</span> is p/w linear, so the second derivative appearing in the above is zero everywhere and this equation doesn’t make any sense.</p>
 <p>However, since we’re asking for the weak (or variational or integral) form of the problem to be satisfied, we can perform <a class="reference external" href="https://en.wikipedia.org/wiki/Integration_by_parts"><em>integration by parts</em></a> and instead require that</p>
 <div class="math notranslate nohighlight">
@@ -1400,7 +1491,7 @@ find <span class="math notranslate nohighlight">\(u\equiv u(x)\)</span> which sa
 <p>Things can get very “exotic” when we consider that we can choose discontinuous functions as well, and also in higher dimensions locate our nodes at the faces or edges of elements, rather than at the nodes as we would with the simplest basis functions (<em><strong>see the very final cell of this notebook to see just how exotic!</strong></em>).</p>
 </section>
 <section id="finite-element-approximation">
-<h3>Finite element approximation<a class="headerlink" href="#finite-element-approximation" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id42" role="doc-backlink">Finite element approximation</a><a class="headerlink" href="#finite-element-approximation" title="Permalink to this heading">#</a></h3>
 <p>We now substitute our approximate solution function</p>
 <div class="math notranslate nohighlight">
 \[u_h := \sum_{j=0}^{N} u_j\,\phi_j,\]</div>
@@ -1440,7 +1531,7 @@ K\boldsymbol{u} &amp;= \boldsymbol{b}.
 <p>This is just as it was for simple <span class="math notranslate nohighlight">\(L^2\)</span> projection of a function, but now the mass matrix has been replaced by a similar discretisation matrix.  “Similar” in the sense that it is also tridiagonal and we can compute its entries in a very similar manner.</p>
 </section>
 <section id="id2">
-<h3>Terminology<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id43" role="doc-backlink">Terminology</a><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>The basis function that appears in the expansion of the solution, i.e. the <span class="math notranslate nohighlight">\(\phi\)</span> that appears in <span class="math notranslate nohighlight">\(u_h := \sum_j u_j\,\phi_j\)</span> is termed a <em><strong>trial function</strong></em> - as it’s used to form a “<em><strong>trial</strong></em> solution”.  The corresponding function space <span class="math notranslate nohighlight">\(V\)</span> the <span class="math notranslate nohighlight">\(\phi\)</span>’s are a basis for, and hence the space our numerical solution lives in, is called the “<em><strong>trial space</strong></em>”.</p></li>
 <li><p>The basis function we multiply our equation by before integrating is called a “<em><strong>test function</strong></em>” as we are “testing” for orthogonality of this solution’s residual to a function space spanned by these test functions. This function space is called the “<em><strong>test space</strong></em>”.</p></li>
@@ -1449,7 +1540,7 @@ K\boldsymbol{u} &amp;= \boldsymbol{b}.
 </ol>
 </section>
 <section id="implementation">
-<h3>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id44" role="doc-backlink">Implementation</a><a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h3>
 <p>Recall that our basis functions are defined as</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1528,7 +1619,7 @@ K\boldsymbol{u} &amp;= \boldsymbol{b}.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb803d44c70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f70fbd161f0&gt;
 </pre></div>
 </div>
 <img alt="../_images/3b357ba2b4c19ef78ed77a209ba777f6bcc2677173c01155e0a450d0d3ad2fe8.png" src="../_images/3b357ba2b4c19ef78ed77a209ba777f6bcc2677173c01155e0a450d0d3ad2fe8.png" />
@@ -1677,10 +1768,10 @@ M=
 </section>
 </section>
 <section id="a-simple-problem-with-homogeneous-dirichlet-bcs">
-<h2>A simple problem with homogeneous Dirichlet BCs<a class="headerlink" href="#a-simple-problem-with-homogeneous-dirichlet-bcs" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id45" role="doc-backlink">A simple problem with homogeneous Dirichlet BCs</a><a class="headerlink" href="#a-simple-problem-with-homogeneous-dirichlet-bcs" title="Permalink to this heading">#</a></h2>
 <p>Now let’s complete the description of our problem through the addition of some boundary conditions - our problem is not well-posed (we cannot solve it) without the addition of appropriate BCs.</p>
 <section id="problem-description">
-<h3>Problem description<a class="headerlink" href="#problem-description" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id46" role="doc-backlink">Problem description</a><a class="headerlink" href="#problem-description" title="Permalink to this heading">#</a></h3>
 <p>Find <span class="math notranslate nohighlight">\(u\equiv u(x)\)</span> which satisfies the ODE over the interval <span class="math notranslate nohighlight">\([0,1]\)</span></p>
 <div class="math notranslate nohighlight">
 \[-u'' = f,\]</div>
@@ -1691,7 +1782,7 @@ M=
 <p>To begin let’s consider the problem with <span class="math notranslate nohighlight">\(f\equiv 1\)</span> which with these BCs has the exact solution <span class="math notranslate nohighlight">\(u=-x(x-1)/2\)</span>.</p>
 </section>
 <section id="id3">
-<h3>Finite element approximation<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id47" role="doc-backlink">Finite element approximation</a><a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <p>For this version of the problem (i.e. with Dirichlet boundary conditions) we have to make a few changes to what we did above for the generic case with no boundary conditions.</p>
 <p>In the case of Dirichlet BCs we know the value of the solution at the ends of the domain, and so we do not need to solve for the discrete values <span class="math notranslate nohighlight">\(u_0\)</span> and <span class="math notranslate nohighlight">\(u_N\)</span>.</p>
 <p>Furthermore, since these take the values zero in this case
@@ -1849,7 +1940,7 @@ this justified why in this case we can simply ignore the boundary term in our we
 </div>
 </section>
 <section id="id4">
-<h3>Comments<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id48" role="doc-backlink">Comments</a><a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>We could of course add back in the fact that <span class="math notranslate nohighlight">\(u_h(0)=u_h(1)=0\)</span> values to get a solution plot that extends all the way to the boundaries.</p></li>
 <li><p>Notice that we have obtained a solution in this case that is exact (to round off error) at the nodes. This is because we can evaluate the RHS vector exactly (i.e. no errors are introduced in this step) and also as our scheme is of high enough order to be able to integrate this problem exactly.</p></li>
@@ -1860,10 +1951,10 @@ this justified why in this case we can simply ignore the boundary term in our we
 </section>
 </section>
 <section id="practical-implementation-of-the-fem-local-assembly-over-elements">
-<h2>Practical implementation of the FEM - local assembly over elements<a class="headerlink" href="#practical-implementation-of-the-fem-local-assembly-over-elements" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id49" role="doc-backlink">Practical implementation of the FEM - local assembly over elements</a><a class="headerlink" href="#practical-implementation-of-the-fem-local-assembly-over-elements" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="the-underlying-idea">
-<h2>The underlying idea<a class="headerlink" href="#the-underlying-idea" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id50" role="doc-backlink">The underlying idea</a><a class="headerlink" href="#the-underlying-idea" title="Permalink to this heading">#</a></h2>
 <p>When we formed the discretisation matrices in the examples we considered earlier (both the projection of a given function as well as the solution of BVPs examples), recall that we <em><strong>looped over the nodes</strong></em> and did an integral over the elements either side (in 1D, and apart from at boundaries).</p>
 <p>These nodes corresponded with a particular trial function.</p>
 <p>For each node we constructed the corresponding entry of the <strong>load vector</strong> by integrating using Simpson’s rule the appropriate integral (<span class="math notranslate nohighlight">\(f\,\phi_i\)</span>) over the elements on each side of that node [in homework exercise].</p>
@@ -1878,7 +1969,7 @@ In general we constructed the left hand side **discretisation matrix** directly 
 <p>To help clarify this idea let’s consider the example of the mass matrix.</p>
 </section>
 <section id="local-assembly-for-the-mass-matrix">
-<h2>Local assembly for the mass matrix<a class="headerlink" href="#local-assembly-for-the-mass-matrix" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id51" role="doc-backlink">Local assembly for the mass matrix</a><a class="headerlink" href="#local-assembly-for-the-mass-matrix" title="Permalink to this heading">#</a></h2>
 <p>Recall that the mass matrix <span class="math notranslate nohighlight">\(M\)</span> is defined to be the matrix with the entries</p>
 <div class="math notranslate nohighlight">
 \[ M_{ij} = \int_\Omega \,\phi_i(x)\,\phi_j(x)\,  dx. \]</div>
@@ -1987,7 +2078,7 @@ M_{ii}
 <p>Note also that exactly the same assembly procedure can be used to construct more complex discretisation matrices (e.g. the matrix <span class="math notranslate nohighlight">\(A\)</span> in the BVP section) as well as the RHS load vectors.</p>
 </section>
 <section id="example-projection">
-<h2>Example - projection<a class="headerlink" href="#example-projection" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id52" role="doc-backlink">Example - projection</a><a class="headerlink" href="#example-projection" title="Permalink to this heading">#</a></h2>
 <p>Let’s demonstrate the assembly process through an example.</p>
 <p>Recall our initial example from earlier where we “projected” a general function <span class="math notranslate nohighlight">\(\,f\,\)</span> into the space of p/w linear functions.</p>
 <p>First let’s run our code from earlier which involved us defining the mass matrix analytically, and computing the RHS load vector through a <strong>loop over nodes</strong> (and evaluating the integrals on the elements either side to compute the nodal entry in one go) - an approach we just said isn’t really a viable approach in higher dimensions.</p>
@@ -2160,7 +2251,7 @@ array([ 0.137,  0.197, -0.199, -0.092])
 </ol>
 </section>
 <section id="unstructured-mesh-data-structures-the-connectivity-matrix">
-<h2>Unstructured mesh data structures (the connectivity matrix)<a class="headerlink" href="#unstructured-mesh-data-structures-the-connectivity-matrix" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id53" role="doc-backlink">Unstructured mesh data structures (the connectivity matrix)</a><a class="headerlink" href="#unstructured-mesh-data-structures-the-connectivity-matrix" title="Permalink to this heading">#</a></h2>
 <p>In order to know where the local contributions contribute to the global matrices, we make use of the so-called <em>connectivity matrix</em>.</p>
 <p>It will seem a triviality in 1D, but it’s vitally important in higher dimensions. We’ll give the 2D generalisation later.</p>
 <p>The following image presents a schematic of an unstructured mesh data structure, or connectivity, in the simple 1D case and assuming that we have two nodes per element (i.e. the p/w linear case), and that these are located at the ends of the elements (other more complex choices are possible!)</p>
@@ -2318,7 +2409,7 @@ array([ 0.748,  0.967, -1.061, -0.302])
 </div>
 </section>
 <section id="quadrature-over-the-local-element-change-of-variables-to-a-reference-element">
-<h2>Quadrature over the local element (change of variables to a reference element)<a class="headerlink" href="#quadrature-over-the-local-element-change-of-variables-to-a-reference-element" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id54" role="doc-backlink">Quadrature over the local element (change of variables to a reference element)</a><a class="headerlink" href="#quadrature-over-the-local-element-change-of-variables-to-a-reference-element" title="Permalink to this heading">#</a></h2>
 <p>We’ve played one final trick in the implementation above.</p>
 <p>It turns out that, especially in higher dimensions and for more complicated basis functions, that it is advantageous to transform our integrals over each individual element (which each could be a different shape and size) so that they are all performed over the same “reference” element.</p>
 <p>Consider the schematic below.</p>
@@ -2329,7 +2420,7 @@ array([ 0.748,  0.967, -1.061, -0.302])
 <p>The left part shows the mesh in the real physical coordinate we want to compute our solution over; the right shows the reference element we compute integrals over, with the mappings between the two also indicated.</p>
 </section>
 <section id="transformation-to-the-reference-element">
-<h2>Transformation to the reference element<a class="headerlink" href="#transformation-to-the-reference-element" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id55" role="doc-backlink">Transformation to the reference element</a><a class="headerlink" href="#transformation-to-the-reference-element" title="Permalink to this heading">#</a></h2>
 <p>It is common to define the reference element in 1D to be either <span class="math notranslate nohighlight">\(\,e_\text{ref}:=[0,1]\,\)</span> or <span class="math notranslate nohighlight">\(\,e_\text{ref}:=[-1,1]\,\)</span>.</p>
 <p>As per the schematic we shall choose the latter option.</p>
 <p>We use <span class="math notranslate nohighlight">\(\,\xi\,\)</span> as the notation of the coordinate over the reference element.</p>
@@ -2379,7 +2470,7 @@ x &amp;= \frac{1}{2}\left(x_L+x_R\right) + \frac{1}{2}\left(x_R - x_L\right)\xi 
 </div></blockquote>
 <p>where we use the fact that <span class="math notranslate nohighlight">\(\frac{1}{2}\left(x_L+x_R\right)+ \frac{1}{2}\Delta x\,\xi= \left(x_L + \frac{1}{2}\Delta x\right) + \frac{1}{2}\Delta x\,\xi\)</span>.</p>
 <section id="aside-quadratic-basis-functions">
-<h3>Aside: quadratic basis functions<a class="headerlink" href="#aside-quadratic-basis-functions" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id56" role="doc-backlink">Aside: quadratic basis functions</a><a class="headerlink" href="#aside-quadratic-basis-functions" title="Permalink to this heading">#</a></h3>
 <p>As a further example let’s consider what quadratic basis functions would look like, and how easily they can be defined, on the reference element:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2409,7 +2500,7 @@ x &amp;= \frac{1}{2}\left(x_L+x_R\right) + \frac{1}{2}\left(x_R - x_L\right)\xi 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb80389d5e0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f70fb85c610&gt;
 </pre></div>
 </div>
 <img alt="../_images/fba9a9ecf301958c4e973253e5bfa4c5dfbf2529dfb8d42a7a986f104129b734.png" src="../_images/fba9a9ecf301958c4e973253e5bfa4c5dfbf2529dfb8d42a7a986f104129b734.png" />
@@ -2463,7 +2554,7 @@ x &amp;= \frac{1}{2}\left(x_L+x_R\right) + \frac{1}{2}\left(x_R - x_L\right)\xi 
 </section>
 </section>
 <section id="local-assembly-for-integrands-that-involve-derivatives">
-<h2>Local assembly for integrands that involve derivatives<a class="headerlink" href="#local-assembly-for-integrands-that-involve-derivatives" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id57" role="doc-backlink">Local assembly for integrands that involve derivatives</a><a class="headerlink" href="#local-assembly-for-integrands-that-involve-derivatives" title="Permalink to this heading">#</a></h2>
 <p>So now we know how to assemble the contributions which feed into the mass matrix and the RHS load vector.</p>
 <p>The final issue we need to consider is how to deal with derivatives of basis functions.</p>
 <p>For example, from the BVP section earlier we know that we needed to consider integrals of the form</p>
@@ -2493,7 +2584,7 @@ x = \frac{1}{2}\left(x_L+x_R\right) + \frac{1}{2}\Delta x\,\xi,
 <p>In higher dimensions we have something similar, we just need to make use of the Jacobian matrix.</p>
 </section>
 <section id="using-the-fem-to-solve-time-dependent-pdes">
-<h2>Using the FEM to solve time-dependent PDEs<a class="headerlink" href="#using-the-fem-to-solve-time-dependent-pdes" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id58" role="doc-backlink">Using the FEM to solve time-dependent PDEs</a><a class="headerlink" href="#using-the-fem-to-solve-time-dependent-pdes" title="Permalink to this heading">#</a></h2>
 <p>Whether or not we use the local assembly approach, or the first approach we encountered for BVPs, to construct the discretisation matrices,
 we now have all we need to implement a FEM based solver for pretty much any PDE in any spatial dimension.</p>
 <br>
@@ -2537,7 +2628,7 @@ M \,\frac{\boldsymbol{u}^{n+1} - \boldsymbol{u}^{n}}{\Delta t} + \kappa\, K\,\le
 <p>But this is just a matrix system for the solution at the new time level we can solve using linear solvers.</p>
 </section>
 <section id="higher-dimensions-and-unstructured-meshes">
-<h2>Higher dimensions and unstructured meshes<a class="headerlink" href="#higher-dimensions-and-unstructured-meshes" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id59" role="doc-backlink">Higher dimensions and unstructured meshes</a><a class="headerlink" href="#higher-dimensions-and-unstructured-meshes" title="Permalink to this heading">#</a></h2>
 <p>In 1D we could form a basis for the space of piecewise linear continuous functions, from “hat” (or “tent”) functions that take the value unity at a single node, and are zero at all others, e.g.:</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/hat-function-1d.png"><img alt="../_images/hat-function-1d.png" src="../_images/hat-function-1d.png" style="width: 50%;" /></a>
@@ -2560,7 +2651,7 @@ M \,\frac{\boldsymbol{u}^{n+1} - \boldsymbol{u}^{n}}{\Delta t} + \kappa\, K\,\le
 basis functions and perform integrals over that shape with ease.</p>
 </section>
 <section id="final-comments">
-<h2>Final comments<a class="headerlink" href="#final-comments" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id60" role="doc-backlink">Final comments</a><a class="headerlink" href="#final-comments" title="Permalink to this heading">#</a></h2>
 <p>That might have all seemed like a lot of work (to essentially arrive at something not completely  dis-similar to what FDM could do) with a lot of additional steps and computational overhead (e.g. all those quadratures we did not need with FDM).</p>
 <p>The power of the FEM really comes into play when</p>
 <ol class="arabic simple">
@@ -2572,7 +2663,7 @@ basis functions and perform integrals over that shape with ease.</p>
 <p>An important final thing for you to understand is how we would go about discretising more complex equations - to help with this a homework questions asks you to consider the problem <span class="math notranslate nohighlight">\(u''+u=f\)</span>.</p>
 </section>
 <section id="the-perodic-table-of-finite-elements">
-<h2>The perodic table of finite elements<a class="headerlink" href="#the-perodic-table-of-finite-elements" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id61" role="doc-backlink">The perodic table of finite elements</a><a class="headerlink" href="#the-perodic-table-of-finite-elements" title="Permalink to this heading">#</a></h2>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/femtable.png"><img alt="../_images/femtable.png" src="../_images/femtable.png" style="width: 75%;" /></a>
 </figure>
