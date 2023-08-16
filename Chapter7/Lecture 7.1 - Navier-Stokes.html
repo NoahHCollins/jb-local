@@ -606,6 +606,17 @@ equation, including the appropriate use of up-winding</p></li>
 <li><p>Combine the solvers into a single Navier-Stokes solver capable of
 solving a range of fluid flow problems</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages for notebook here</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="the-navier-stokes-equation">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">The Navier-Stokes Equation</a><a class="headerlink" href="#the-navier-stokes-equation" title="Permalink to this heading">#</a></h2>
@@ -737,7 +748,7 @@ values</p></li>
 </li>
 </ul>
 <div class="math notranslate nohighlight">
-\[ \frac{\mathbf{u}^{n+1} - \mathbf{u}^n}{\Delta t} + \mathbf{A(\tilde{u})} + \frac{1}{2} (\mathbf{u}^{n+1} + \mathbf{u}^n) - \mathbf{K} \frac{1}{2} (\mathbf{u}^{n+1} - \mathbf{u}^n) + \mathbf{C P^{n+1}} = \mathbf{0} \]</div>
+\[ \frac{\mathbf{u}^{n+1} - \mathbf{u}^n}{\Delta t} + \mathbf{A(\tilde{u})} \frac{1}{2} (\mathbf{u}^{n+1} + \mathbf{u}^n) - \mathbf{K} \frac{1}{2} (\mathbf{u}^{n+1} - \mathbf{u}^n) + \mathbf{C \hspace{0.1cm} P^{n+1}} = \mathbf{0} \]</div>
 <div class="math notranslate nohighlight">
 \[ \mathbf{C}^T \mathbf{u}^{n+1} = 0 \]</div>
 <ul class="simple">
@@ -1039,15 +1050,191 @@ and so are fast</p></li>
 </ul>
 <section id="calculating-the-intermediate-velocities">
 <h3><a class="toc-backref" href="#id20" role="doc-backlink">Calculating the Intermediate Velocities</a><a class="headerlink" href="#calculating-the-intermediate-velocities" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">def calculate_intermediate_velocity(nu, u, v, u_old, v_old, dt, dx, dy):</span>
+<span class="sd">&quot;&quot; Calculate the intermediate velocities.</span>
+<span class="sd">&quot;&quot;</span>
+<span class="sd">imax = len(u)</span>
+<span class="sd">jmax = np.size(u)//imax</span>
+<span class="sd">for i in range(1,imax-1,1):</span>
+<span class="sd">for j in range(1,jmax-1,1):</span>
+<span class="sd">#viscous (diffusive) term first</span>
+<span class="sd">u[i,j] = u_old[i,j] + dt * nu * ((u_old[i+1,j]+u_old[i-1,j]-2.*u_old[i,j])/(dx**2)</span>
+<span class="sd">+(u_old[i,j+1]+u_old[i,j-1]-2.*u_old[i,j])/(dy**2))</span>
+<span class="sd">v[i,j] = v_old[i,j] + dt * nu * ((v_old[i+1,j]+v_old[i-1,j]-2.*v_old[i,j])/(dx**2)</span>
+<span class="sd">+(v_old[i,j+1]+v_old[i,j-1]-2.*v_old[i,j])/(dy**2))</span>
+<span class="sd">#add the momentum advection terms using upwinding</span>
+<span class="sd">if (u_old[i,j]&gt;0.0):</span>
+<span class="sd">u[i,j] -= dt*(u_old[i,j]*(u_old[i,j]-u_old[i-1,j])/dx)</span>
+<span class="sd">v[i,j] -= dt*(u_old[i,j]*(v_old[i,j]-v_old[i-1,j])/dx)</span>
+<span class="sd">else:</span>
+<span class="sd">u[i,j] -= dt*(u_old[i,j]*(u_old[i+1,j]-u_old[i,j])/dx)</span>
+<span class="sd">v[i,j] -= dt*(u_old[i,j]*(v_old[i+1,j]-v_old[i,j])/dx)</span>
+<span class="sd">if (v_old[i,j]&gt;0.0):</span>
+<span class="sd">u[i,j] -= dt*(v_old[i,j]*(u_old[i,j]-u_old[i,j-1])/dx)</span>
+<span class="sd">v[i,j] -= dt*(v_old[i,j]*(v_old[i,j]-v_old[i,j-1])/dx)</span>
+<span class="sd">else:</span>
+<span class="sd">u[i,j] -= dt*(v_old[i,j]*(u_old[i,j+1]-u_old[i,j])/dx)</span>
+<span class="sd">v[i,j] -= dt*(v_old[i,j]*(v_old[i,j+1]-v_old[i,j])/dx)</span>
+<span class="sd">return u, v</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\ndef calculate_intermediate_velocity(nu, u, v, u_old, v_old, dt, dx, dy):\n&quot;&quot; Calculate the intermediate velocities.\n&quot;&quot;\nimax = len(u)\njmax = np.size(u)//imax\nfor i in range(1,imax-1,1):\nfor j in range(1,jmax-1,1):\n#viscous (diffusive) term first\nu[i,j] = u_old[i,j] + dt * nu * ((u_old[i+1,j]+u_old[i-1,j]-2.*u_old[i,j])/(dx**2)\n+(u_old[i,j+1]+u_old[i,j-1]-2.*u_old[i,j])/(dy**2))\nv[i,j] = v_old[i,j] + dt * nu * ((v_old[i+1,j]+v_old[i-1,j]-2.*v_old[i,j])/(dx**2)\n+(v_old[i,j+1]+v_old[i,j-1]-2.*v_old[i,j])/(dy**2))\n#add the momentum advection terms using upwinding\nif (u_old[i,j]&gt;0.0):\nu[i,j] -= dt*(u_old[i,j]*(u_old[i,j]-u_old[i-1,j])/dx)\nv[i,j] -= dt*(u_old[i,j]*(v_old[i,j]-v_old[i-1,j])/dx)\nelse:\nu[i,j] -= dt*(u_old[i,j]*(u_old[i+1,j]-u_old[i,j])/dx)\nv[i,j] -= dt*(u_old[i,j]*(v_old[i+1,j]-v_old[i,j])/dx)\nif (v_old[i,j]&gt;0.0):\nu[i,j] -= dt*(v_old[i,j]*(u_old[i,j]-u_old[i,j-1])/dx)\nv[i,j] -= dt*(v_old[i,j]*(v_old[i,j]-v_old[i,j-1])/dx)\nelse:\nu[i,j] -= dt*(v_old[i,j]*(u_old[i,j+1]-u_old[i,j])/dx)\nv[i,j] -= dt*(v_old[i,j]*(v_old[i,j+1]-v_old[i,j])/dx)\nreturn u, v\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="setting-up-and-solving-the-pressure-poisson-equation">
 <h3><a class="toc-backref" href="#id21" role="doc-backlink">Setting up and Solving the Pressure Poisson Equation</a><a class="headerlink" href="#setting-up-and-solving-the-pressure-poisson-equation" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;def calculate_ppm_RHS(rho, u, v, dt, dx, dy):</span>
+<span class="sd">&quot;&quot; Calculate the RHS of the</span>
+<span class="sd">Poisson equation resulting from the projection method.</span>
+<span class="sd">Use central differences for the first derivatives of u and v.</span>
+<span class="sd">&quot;&quot;</span>
+<span class="sd">imax = len(p)</span>
+<span class="sd">jmax = np.size(p)//imax</span>
+<span class="sd">RHS = np.zeros_like(X)</span>
+<span class="sd">for i in range(1,imax-1,1):</span>
+<span class="sd">for j in range(1,jmax-1,1):</span>
+<span class="sd">RHS[i, j] = rho * ((1.0/dt) * ( (u[i+1, j] - u[i-1, j]) / (2*dx) + (v[i, j+1] - v[i, j-1]) / (2*dy)))</span>
+<span class="sd">return RHS</span>
+<span class="sd">def pressure_poisson_jacobi(p, dx, dy, RHS, rtol = 1.e-5, logs = False):</span>
+<span class="sd">&quot;&quot; Solve the pressure Poisson equation (PPE)</span>
+<span class="sd">using Jacobi iteration assuming mesh spacing of</span>
+<span class="sd">dx and dy (we assume at the moment that dx=dy)</span>
+<span class="sd">and the RHS function given by RHS.</span>
+<span class="sd">Assumes imposition of a Neumann BC on all boundaries.</span>
+<span class="sd">Return the pressure field.</span>
+<span class="sd">&quot;&quot;</span>
+<span class="sd"># our code below is only currently for the case dx=dy</span>
+<span class="sd">assert dx==dy</span>
+<span class="sd"># iterate</span>
+<span class="sd">tol = 10.*rtol</span>
+<span class="sd">it = 0</span>
+<span class="sd">p_old = np.copy(p)</span>
+<span class="sd">imax = len(p)</span>
+
+<span class="sd">jmax = np.size(p)//imax</span>
+<span class="sd">while tol &gt; rtol:</span>
+<span class="sd">it += 1</span>
+<span class="sd">for i in range(1,imax-1,1):</span>
+<span class="sd">for j in range(1,jmax-1,1):</span>
+<span class="sd">p[i, j] = 0.25*(p_old[i+1, j] + p_old[i-1, j] + p_old[i, j+1] + p_old[i,j-1] - (dx**2)*RHS[i, j])</span>
+<span class="sd"># apply zero pressure gradient Neumann boundary conditions</span>
+<span class="sd">for i in range(imax):</span>
+<span class="sd">p[i,0] = p[i,1]</span>
+<span class="sd">p[i,jmax-1] = p[i,jmax-2]</span>
+<span class="sd">for j in range(jmax):</span>
+<span class="sd">p[0,j] = p[1,j]</span>
+<span class="sd">p[imax-1,j] = p[imax-2,j]</span>
+<span class="sd"># fix pressure level - choose an arbitrary node to set p to</span>
+<span class="sd"># be zero, avoid the corners and set it to an interior location</span>
+<span class="sd">p[1,1] = 0</span>
+<span class="sd"># relative change in pressure</span>
+<span class="sd">tol = sl.norm(p - p_old)/np.maximum(1.0e-10,sl.norm(p))</span>
+<span class="sd">#swap arrays without copying the data</span>
+<span class="sd">temp = p_old</span>
+<span class="sd">p_old = p</span>
+<span class="sd">p = temp</span>
+<span class="sd">if logs: print(&#39;pressure solve iterations = {:4d}&#39;.format(it))</span>
+<span class="sd">return p</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;def calculate_ppm_RHS(rho, u, v, dt, dx, dy):\n&quot;&quot; Calculate the RHS of the\nPoisson equation resulting from the projection method.\nUse central differences for the first derivatives of u and v.\n&quot;&quot;\nimax = len(p)\njmax = np.size(p)//imax\nRHS = np.zeros_like(X)\nfor i in range(1,imax-1,1):\nfor j in range(1,jmax-1,1):\nRHS[i, j] = rho * ((1.0/dt) * ( (u[i+1, j] - u[i-1, j]) / (2*dx) + (v[i, j+1] - v[i, j-1]) / (2*dy)))\nreturn RHS\ndef pressure_poisson_jacobi(p, dx, dy, RHS, rtol = 1.e-5, logs = False):\n&quot;&quot; Solve the pressure Poisson equation (PPE)\nusing Jacobi iteration assuming mesh spacing of\ndx and dy (we assume at the moment that dx=dy)\nand the RHS function given by RHS.\nAssumes imposition of a Neumann BC on all boundaries.\nReturn the pressure field.\n&quot;&quot;\n# our code below is only currently for the case dx=dy\nassert dx==dy\n# iterate\ntol = 10.*rtol\nit = 0\np_old = np.copy(p)\nimax = len(p)\n\njmax = np.size(p)//imax\nwhile tol &gt; rtol:\nit += 1\nfor i in range(1,imax-1,1):\nfor j in range(1,jmax-1,1):\np[i, j] = 0.25*(p_old[i+1, j] + p_old[i-1, j] + p_old[i, j+1] + p_old[i,j-1] - (dx**2)*RHS[i, j])\n# apply zero pressure gradient Neumann boundary conditions\nfor i in range(imax):\np[i,0] = p[i,1]\np[i,jmax-1] = p[i,jmax-2]\nfor j in range(jmax):\np[0,j] = p[1,j]\np[imax-1,j] = p[imax-2,j]\n# fix pressure level - choose an arbitrary node to set p to\n# be zero, avoid the corners and set it to an interior location\np[1,1] = 0\n# relative change in pressure\ntol = sl.norm(p - p_old)/np.maximum(1.0e-10,sl.norm(p))\n#swap arrays without copying the data\ntemp = p_old\np_old = p\np = temp\nif logs: print(\&#39;pressure solve iterations = {:4d}\&#39;.format(it))\nreturn p\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="calculate-updated-velocity-using-pressure-gradient">
 <h3><a class="toc-backref" href="#id22" role="doc-backlink">Calculate Updated Velocity using Pressure Gradient</a><a class="headerlink" href="#calculate-updated-velocity-using-pressure-gradient" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;def project_velocity(rho, u, v, dt, dx, dy, p):</span>
+<span class="sd">&quot;&quot; Update the velocity to be divergence free using the pressure.</span>
+<span class="sd">&quot;&quot;</span>
+<span class="sd">imax = len(p)</span>
+<span class="sd">jmax = np.size(p)//imax</span>
+<span class="sd">for i in range(1,imax-1,1):</span>
+<span class="sd">for j in range(1,jmax-1,1):</span>
+<span class="sd">u[i, j] = u[i, j] - dt * (1./rho) * (</span>
+<span class="sd">(p[i+1, j] - p[i-1, j])/(2*dx) )</span>
+<span class="sd">v[i, j] = v[i, j] - dt * (1./rho) * (</span>
+<span class="sd">(p[i, j+1] - p[i, j-1])/(2*dy) )</span>
+<span class="sd">return u, v</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;def project_velocity(rho, u, v, dt, dx, dy, p):\n&quot;&quot; Update the velocity to be divergence free using the pressure.\n&quot;&quot;\nimax = len(p)\njmax = np.size(p)//imax\nfor i in range(1,imax-1,1):\nfor j in range(1,jmax-1,1):\nu[i, j] = u[i, j] - dt * (1./rho) * (\n(p[i+1, j] - p[i-1, j])/(2*dx) )\nv[i, j] = v[i, j] - dt * (1./rho) * (\n(p[i, j+1] - p[i, j-1])/(2*dy) )\nreturn u, v\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="combine-the-previous-functions-to-solve-ns">
 <h3><a class="toc-backref" href="#id23" role="doc-backlink">Combine the Previous Functions to solve NS</a><a class="headerlink" href="#combine-the-previous-functions-to-solve-ns" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">def solve_NS(u, v, p, rho, nu, dt, t_end, dx, dy, rtol = 1.e-5, logs = False):</span>
+<span class="sd">&quot;&quot; Solve the incompressible Navier-Stokes equations</span>
+<span class="sd">using a lot of the numerical choices and approaches we&#39;ve seen</span>
+<span class="sd">earlier in this lecture.</span>
+<span class="sd">&quot;&quot;</span>
+<span class="sd">t = 0</span>
+<span class="sd">u_old = u.copy()</span>
+<span class="sd">v_old = v.copy()</span>
+<span class="sd">while t &lt; t_end:</span>
+<span class="sd">t += dt</span>
+<span class="sd">if logs: print(&#39;\nTime = {:.8f}&#39;.format(t))</span>
+<span class="sd"># calculate intermediate velocities</span>
+<span class="sd">u, v = calculate_intermediate_velocity(nu, u, v, u_old, v_old, dt, dx, dy)</span>
+<span class="sd"># PPM</span>
+<span class="sd"># calculate RHS for the pressure Poisson problem</span>
+<span class="sd">p_RHS = calculate_ppm_RHS(rho, u, v, dt, dx, dy)</span>
+<span class="sd"># compute pressure - note that we use the previous p as an initial guess to the solution</span>
+<span class="sd">p = pressure_poisson_jacobi(p, dx, dy, p_RHS, 1.e-5, logs)</span>
+<span class="sd"># project velocity</span>
+<span class="sd">u, v = project_velocity(rho, u, v, dt, dx, dy, p)</span>
+<span class="sd">if logs:</span>
+<span class="sd">print(&#39;norm(u) = {0:.8f}, norm(v) = {1:.8f}&#39;.format(sl.norm(u),sl.norm(v)))</span>
+<span class="sd">print(&#39;Courant number: {0:.8f}&#39;.format(np.max(np.sqrt(u**2+v**2)) * dt / dx ))</span>
+<span class="sd"># relative change in u and v</span>
+
+<span class="sd">tolu = sl.norm(u - u_old)/np.maximum(1.0e-10,sl.norm(u))</span>
+<span class="sd">tolv = sl.norm(v - v_old)/np.maximum(1.0e-10,sl.norm(v))</span>
+<span class="sd">if tolu &lt; rtol and tolv &lt; rtol: break</span>
+<span class="sd">#swap pointers without copying data</span>
+<span class="sd">temp = u_old</span>
+<span class="sd">u_old = u</span>
+<span class="sd">u = temp</span>
+<span class="sd">temp = v_old</span>
+<span class="sd">v_old = v</span>
+<span class="sd">v = temp</span>
+<span class="sd">return u, v, p</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\ndef solve_NS(u, v, p, rho, nu, dt, t_end, dx, dy, rtol = 1.e-5, logs = False):\n&quot;&quot; Solve the incompressible Navier-Stokes equations\nusing a lot of the numerical choices and approaches we\&#39;ve seen\nearlier in this lecture.\n&quot;&quot;\nt = 0\nu_old = u.copy()\nv_old = v.copy()\nwhile t &lt; t_end:\nt += dt\nif logs: print(\&#39;\nTime = {:.8f}\&#39;.format(t))\n# calculate intermediate velocities\nu, v = calculate_intermediate_velocity(nu, u, v, u_old, v_old, dt, dx, dy)\n# PPM\n# calculate RHS for the pressure Poisson problem\np_RHS = calculate_ppm_RHS(rho, u, v, dt, dx, dy)\n# compute pressure - note that we use the previous p as an initial guess to the solution\np = pressure_poisson_jacobi(p, dx, dy, p_RHS, 1.e-5, logs)\n# project velocity\nu, v = project_velocity(rho, u, v, dt, dx, dy, p)\nif logs:\nprint(\&#39;norm(u) = {0:.8f}, norm(v) = {1:.8f}\&#39;.format(sl.norm(u),sl.norm(v)))\nprint(\&#39;Courant number: {0:.8f}\&#39;.format(np.max(np.sqrt(u**2+v**2)) * dt / dx ))\n# relative change in u and v\n\ntolu = sl.norm(u - u_old)/np.maximum(1.0e-10,sl.norm(u))\ntolv = sl.norm(v - v_old)/np.maximum(1.0e-10,sl.norm(v))\nif tolu &lt; rtol and tolv &lt; rtol: break\n#swap pointers without copying data\ntemp = u_old\nu_old = u\nu = temp\ntemp = v_old\nv_old = v\nv = temp\nreturn u, v, p\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="test-example">
@@ -1091,6 +1278,63 @@ known as the nullspace is required</p></li>
 </section>
 <section id="call-the-function-to-solve-lid-driven-cavity">
 <h3><a class="toc-backref" href="#id26" role="doc-backlink">Call the Function to Solve Lid Driven Cavity</a><a class="headerlink" href="#call-the-function-to-solve-lid-driven-cavity" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"># physical parameters</span>
+<span class="sd">rho = 1</span>
+<span class="sd">nu = 1./10.</span>
+<span class="sd"># define spatial mesh</span>
+<span class="sd"># Size of rectangular domain</span>
+<span class="sd">Lx = 1</span>
+<span class="sd">Ly = Lx</span>
+<span class="sd"># Number of grid points in each direction, including boundary nodes</span>
+<span class="sd">Nx = 51</span>
+<span class="sd">Ny = Nx</span>
+<span class="sd"># hence the mesh spacing</span>
+<span class="sd">dx = Lx/(Nx-1)</span>
+<span class="sd">dy = Ly/(Ny-1)</span>
+<span class="sd"># read the docs to see the ordering that mgrid gives us</span>
+<span class="sd">X, Y = np.mgrid[0:Nx:1, 0:Ny:1]</span>
+<span class="sd">X = dx*X</span>
+<span class="sd">Y = dy*Y</span>
+<span class="sd"># the following is an alternative to the three lines above</span>
+<span class="sd">#X, Y = np.mgrid[0: Lx + 1e-10: dx, 0: Ly + 1e-10: dy]</span>
+<span class="sd"># but without the need to add a &quot;small&quot; increment to ensure</span>
+<span class="sd"># the Lx and Ly end points are included</span>
+<span class="sd"># time stepping parameters</span>
+<span class="sd">dt = 2.e-4</span>
+<span class="sd">t_end = 2.0</span>
+
+<span class="sd"># initialise independent variables</span>
+<span class="sd">u = np.zeros_like(X)</span>
+<span class="sd">v = np.zeros_like(X)</span>
+<span class="sd">p = np.zeros_like(X)</span>
+<span class="sd"># Apply Dirichlet BCs to u and v - the code below doesn&#39;t touch</span>
+<span class="sd"># these so we can do this once outside the time loop</span>
+<span class="sd">u[:, -1]=1 # set velocity on cavity lid equal to 1</span>
+<span class="sd">u[:, 0]=0</span>
+<span class="sd">u[0, :]=0</span>
+<span class="sd">u[-1, :]=0</span>
+<span class="sd">v[:, -1]=0</span>
+<span class="sd">v[:, 0]=0</span>
+<span class="sd">v[0, :]=0</span>
+<span class="sd">v[-1, :]=0</span>
+<span class="sd">import time</span>
+<span class="sd">start = time.time()</span>
+<span class="sd">u, v, p = solve_IN(u, v, p, rho, nu, dt, t_end, dx, dy, rtol=1.e-6, logs = True)</span>
+<span class="sd">end = time.time()</span>
+<span class="sd">print(&#39;Time taken by calculation = &#39;, end - start)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\n# physical parameters\nrho = 1\nnu = 1./10.\n# define spatial mesh\n# Size of rectangular domain\nLx = 1\nLy = Lx\n# Number of grid points in each direction, including boundary nodes\nNx = 51\nNy = Nx\n# hence the mesh spacing\ndx = Lx/(Nx-1)\ndy = Ly/(Ny-1)\n# read the docs to see the ordering that mgrid gives us\nX, Y = np.mgrid[0:Nx:1, 0:Ny:1]\nX = dx*X\nY = dy*Y\n# the following is an alternative to the three lines above\n#X, Y = np.mgrid[0: Lx + 1e-10: dx, 0: Ly + 1e-10: dy]\n# but without the need to add a &quot;small&quot; increment to ensure\n# the Lx and Ly end points are included\n# time stepping parameters\ndt = 2.e-4\nt_end = 2.0\n\n# initialise independent variables\nu = np.zeros_like(X)\nv = np.zeros_like(X)\np = np.zeros_like(X)\n# Apply Dirichlet BCs to u and v - the code below doesn\&#39;t touch\n# these so we can do this once outside the time loop\nu[:, -1]=1 # set velocity on cavity lid equal to 1\nu[:, 0]=0\nu[0, :]=0\nu[-1, :]=0\nv[:, -1]=0\nv[:, 0]=0\nv[0, :]=0\nv[-1, :]=0\nimport time\nstart = time.time()\nu, v, p = solve_IN(u, v, p, rho, nu, dt, t_end, dx, dy, rtol=1.e-6, logs = True)\nend = time.time()\nprint(\&#39;Time taken by calculation = \&#39;, end - start)\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="solution-for-re-10">
 <h3><a class="toc-backref" href="#id27" role="doc-backlink">Solution for Re = 10</a><a class="headerlink" href="#solution-for-re-10" title="Permalink to this heading">#</a></h3>
