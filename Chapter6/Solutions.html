@@ -550,7 +550,7 @@ document.write(`
 Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2715/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2684/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
   fig1=figure()
 </pre></div>
 </div>
@@ -587,22 +587,84 @@ Populating the interactive namespace from numpy and matplotlib
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1100: resid=0.000029
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1200: resid=0.000019
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1300: resid=0.000013
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1400: resid=0.000008
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1500: resid=0.000005
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1600: resid=0.000004
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1700: resid=0.000002
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">36</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span>     <span class="k">if</span> <span class="n">cnt</span><span class="o">%</span><span class="k">100</span>==0:
+<span class="g g-Whitespace">     </span><span class="mi">35</span>          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%g</span><span class="s2">: resid=</span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">cnt</span><span class="p">,</span><span class="n">residave</span><span class="p">))</span>
+<span class="ne">---&gt; </span><span class="mi">36</span>     <span class="n">fig1</span><span class="o">=</span><span class="n">figure</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span>     <span class="n">imshow</span><span class="p">(</span><span class="n">Psi</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span><span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="c1">## Question 3</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/_api/deprecation.py:454,</span> in <span class="ni">make_keyword_only.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">name_idx</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span>     <span class="n">warn_deprecated</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span>         <span class="n">since</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Passing the </span><span class="si">%(name)s</span><span class="s2"> </span><span class="si">%(obj_type)s</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span>         <span class="s2">&quot;positionally is deprecated since Matplotlib </span><span class="si">%(since)s</span><span class="s2">; the &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span>         <span class="s2">&quot;parameter will become keyword-only </span><span class="si">%(removal)s</span><span class="s2">.&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span>         <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">obj_type</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;parameter of </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">()&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">454</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/pyplot.py:840,</span> in <span class="ni">figure</span><span class="nt">(num, figsize, dpi, facecolor, edgecolor, frameon, FigureClass, clear, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">830</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">allnums</span><span class="p">)</span> <span class="o">==</span> <span class="n">max_open_warning</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">831</span>     <span class="n">_api</span><span class="o">.</span><span class="n">warn_external</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">832</span>         <span class="sa">f</span><span class="s2">&quot;More than </span><span class="si">{</span><span class="n">max_open_warning</span><span class="si">}</span><span class="s2"> figures have been opened. &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">833</span>         <span class="sa">f</span><span class="s2">&quot;Figures created through the pyplot interface &quot;</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">837</span>         <span class="sa">f</span><span class="s2">&quot;Consider using `matplotlib.pyplot.close()`.&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">838</span>         <span class="ne">RuntimeWarning</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">840</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">new_figure_manager</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">841</span>     <span class="n">num</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">842</span>     <span class="n">facecolor</span><span class="o">=</span><span class="n">facecolor</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">edgecolor</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="n">frameon</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">843</span>     <span class="n">FigureClass</span><span class="o">=</span><span class="n">FigureClass</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">844</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">figure</span>
+<span class="g g-Whitespace">    </span><span class="mi">845</span> <span class="k">if</span> <span class="n">fig_label</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/pyplot.py:384,</span> in <span class="ni">new_figure_manager</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">382</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Create a new figure manager instance.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">383</span> <span class="n">_warn_if_gui_out_of_main_thread</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">384</span> <span class="k">return</span> <span class="n">_get_backend_mod</span><span class="p">()</span><span class="o">.</span><span class="n">new_figure_manager</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib_inline/backend_inline.py:27,</span> in <span class="ni">new_figure_manager</span><span class="nt">(num, FigureClass, *args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="k">def</span> <span class="nf">new_figure_manager</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">FigureClass</span><span class="o">=</span><span class="n">Figure</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span><span class="sd">     Return a new figure manager for a new figure instance.</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span><span class="sd">     This function is part of the API expected by Matplotlib backends.</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">27</span>     <span class="k">return</span> <span class="n">new_figure_manager_given_figure</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">FigureClass</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/_api/deprecation.py:454,</span> in <span class="ni">make_keyword_only.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">name_idx</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span>     <span class="n">warn_deprecated</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span>         <span class="n">since</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Passing the </span><span class="si">%(name)s</span><span class="s2"> </span><span class="si">%(obj_type)s</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span>         <span class="s2">&quot;positionally is deprecated since Matplotlib </span><span class="si">%(since)s</span><span class="s2">; the &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span>         <span class="s2">&quot;parameter will become keyword-only </span><span class="si">%(removal)s</span><span class="s2">.&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span>         <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">obj_type</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;parameter of </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">()&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">454</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/figure.py:2573,</span> in <span class="ni">Figure.__init__</span><span class="nt">(self, figsize, dpi, facecolor, edgecolor, linewidth, frameon, subplotpars, tight_layout, constrained_layout, layout, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2569</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;figure size must be positive finite not &#39;</span>
+<span class="g g-Whitespace">   </span><span class="mi">2570</span>                      <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">figsize</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2571</span> <span class="bp">self</span><span class="o">.</span><span class="n">bbox_inches</span> <span class="o">=</span> <span class="n">Bbox</span><span class="o">.</span><span class="n">from_bounds</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="n">figsize</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2573</span> <span class="bp">self</span><span class="o">.</span><span class="n">dpi_scale_trans</span> <span class="o">=</span> <span class="n">Affine2D</span><span class="p">()</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">dpi</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2574</span> <span class="c1"># do not use property as it will trigger</span>
+<span class="g g-Whitespace">   </span><span class="mi">2575</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dpi</span> <span class="o">=</span> <span class="n">dpi</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/transforms.py:1899,</span> in <span class="ni">Affine2D.__init__</span><span class="nt">(self, matrix, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1889</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">matrix</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1890</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1891</span><span class="sd">     Initialize an Affine transform from a 3x3 numpy float array::</span>
+<span class="g g-Whitespace">   </span><span class="mi">1892</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1897</span><span class="sd">     If *matrix* is None, initialize with the identity transform.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1898</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1899</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1900</span>     <span class="k">if</span> <span class="n">matrix</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1901</span>         <span class="c1"># A bit faster than np.identity(3).</span>
+<span class="g g-Whitespace">   </span><span class="mi">1902</span>         <span class="n">matrix</span> <span class="o">=</span> <span class="n">IdentityTransform</span><span class="o">.</span><span class="n">_mtx</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
