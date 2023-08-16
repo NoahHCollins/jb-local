@@ -439,19 +439,18 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-content">Types of content</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-for-notebook">Settings for notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-vs-spatial-descriptions">Material vs spatial descriptions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-field">Spatial field</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pathlines">Pathlines</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relating-spatial-and-material-descriptions">Relating spatial and material descriptions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-optional">Exercise 3 (Optional)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-advanced">Exercise 4 (Advanced)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-derivative">Time derivative</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6">Exercise 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-optional">Exercise 6 (Optional)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infinitesimal-strain">Infinitesimal strain</a><ul class="nav section-nav flex-column">
@@ -461,7 +460,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displacement-and-strain-fields">Displacement and strain fields</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8">Exercise 8</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-optional">Exercise 8 (Optional)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-strains-and-strain-invariants">Principal strains and strain invariants</a><ul class="nav section-nav flex-column">
@@ -470,7 +469,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strain-rate">Strain rate</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-strain">Finite strain</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-10">Exercise 10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-10-advanced">Exercise 10 (Advanced)</a></li>
 </ul>
 </li>
 </ul>
@@ -485,87 +484,66 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exercises">
-<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Exercises</a><a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
 <section id="learning-outcomes-a-class-tocskip">
-<h2>Learning outcomes  <a class="tocSkip"><a class="headerlink" href="#learning-outcomes-a-class-tocskip" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Learning outcomes  <a class="tocSkip"></a><a class="headerlink" href="#learning-outcomes-a-class-tocskip" title="Permalink to this heading">#</a></h2>
 <p>At the end of this session, you should be able to:</p>
 <ol class="arabic simple">
 <li><p>Use material and spatial descriptions of variables and their time derivatives.</p></li>
 <li><p>Compute infinitesimal strain (strain rate) tensor given a displacement (velocity) field.</p></li>
 <li><p>Interpret the different components of the infinitesimal strain (rate) tensor</p></li>
 </ol>
-<h2>Table of Contents<span class="tocSkip"></span></h2>
-</br>
-<div class="toc"><ul class="toc-item">
-<li><span><a href="#Material-vs-spatial-descriptions" data-toc-modified-id="Material-vs-spatial-descriptions-1">
-    <span class="toc-item-num">1&nbsp;&nbsp;</span>Material vs spatial descriptions</a></span></li>
-    <ul class="toc-item">
-    <li><span><a href="#Spatial-field" data-toc-modified-id="Spatial-field-1.1">
-        <span class="toc-item-num">1.1&nbsp;&nbsp;</span>Spatial field</a></span></li>
-    <li><span><a href="#Pathlines" data-toc-modified-id="Pathlines-1.2">
-        <span class="toc-item-num">1.2&nbsp;&nbsp;</span>Pathlines</a></span></li>
-        <ul class="toc-item">
-        <li><span><a href="#Exercise-1" data-toc-modified-id="Exercise-1-1.2.1">
-            <span class="toc-item-num">1.2.1&nbsp;&nbsp;</span>Exercise 1</a></span></li>
-        </ul>
-    <li><span><a href="#Relating-spatial-and-material-descriptions" data-toc-modified-id="Relating-spatial-and-material-descriptions-1.3">
-        <span class="toc-item-num">1.3&nbsp;&nbsp;</span>Relating spatial and material descriptions</a></span></li>
-        <ul class="toc-item">
-        <li><span><a href="#Exercise-2" data-toc-modified-id="Exercise-2-1.3.1">
-            <span class="toc-item-num">1.3.1&nbsp;&nbsp;</span>Exercise 2</a></span></li>
-        <li><span><a href="#Exercise-3" data-toc-modified-id="Exercise-3-1.3.2">
-            <span class="toc-item-num">1.3.2&nbsp;&nbsp;</span>Exercise 3</a></span></li>
-        <li><span><a href="#Exercise-4" data-toc-modified-id="Exercise-4-1.3.3">
-            <span class="toc-item-num">1.3.3&nbsp;&nbsp;</span>Exercise 4</a></span></li>
-        </ul>
-    <li><span><a href="#Time-derivative" data-toc-modified-id="Time-derivative-1.4">
-        <span class="toc-item-num">1.4&nbsp;&nbsp;</span>Time derivative</a></span></li>
-        <ul class="toc-item">
-        <li><span><a href="#Exercise-5" data-toc-modified-id="Exercise-5-1.4.1">
-            <span class="toc-item-num">1.4.1&nbsp;&nbsp;</span>Exercise 5</a></span></li>
-        <li><span><a href="#Exercise-6" data-toc-modified-id="Exercise-6-1.4.2">
-            <span class="toc-item-num">1.4.2&nbsp;&nbsp;</span>Exercise 6</a></span></li>
-        </ul>
-    </ul>
-<li><span><a href="#Infinitesimal-strain" data-toc-modified-id="Infinitesimal-strain-1">
-    <span class="toc-item-num">2&nbsp;&nbsp;</span>Infinitesimal strain</a></span></li>
-    <ul class="toc-item">
-    <li><span><a href="#Strain-and-rotation-tensors" data-toc-modified-id="Strain-and-rotation-tensors-2.1">
-        <span class="toc-item-num">2.1&nbsp;&nbsp;</span>Strain and rotation tensors</a></span></li>
-    <li><span><a href="#Strain-tensor-components" data-toc-modified-id="Strain-tensor-components-2.2">
-        <span class="toc-item-num">2.2&nbsp;&nbsp;</span>Strain tensor components</a></span></li>
-        <ul class="toc-item">
-        <li><span><a href="#Exercise-7" data-toc-modified-id="Exercise-7-2.2.1">
-            <span class="toc-item-num">2.2.1&nbsp;&nbsp;</span>Exercise 7</a></span></li>
-        </ul>
-    <li><span><a href="#Displacement-and-strain-fields" data-toc-modified-id="Displacement-and-strain-fields-2.3">
-        <span class="toc-item-num">2.3&nbsp;&nbsp;</span>Displacement and strain fields</a></span></li>
-        <ul class="toc-item">
-        <li><span><a href="#Exercise-8" data-toc-modified-id="Exercise-8-2.3.1">
-            <span class="toc-item-num">2.3.1&nbsp;&nbsp;</span>Exercise 8</a></span></li>
-        </ul>
-    <li><span><a href="#Principal-strains-and-strain-invariants" data-toc-modified-id="Principal-strains-and-strain-invariants-2.4">
-        <span class="toc-item-num">2.4&nbsp;&nbsp;</span>Principal strains and strain invariants</a></span></li>
-        <ul class="toc-item">
-        <li><span><a href="#Exercise-9" data-toc-modified-id="Exercise-9-2.4.1">
-            <span class="toc-item-num">2.4.1&nbsp;&nbsp;</span>Exercise 9</a></span></li>
-        </ul>
-    <li><span><a href="#Finite-strain" data-toc-modified-id="Finite-strain-2.5">
-        <span class="toc-item-num">2.5&nbsp;&nbsp;</span>Finite strain</a></span></li>
-        <ul class="toc-item">
-        <li><span><a href="#Exercise-10" data-toc-modified-id="Exercise-10-2.5.1">
-            <span class="toc-item-num">2.5.1&nbsp;&nbsp;</span>Exercise 10</a></span></li>
-        </ul>
-    </ul>
-</ul></div></section>
-<section id="types-of-content">
-<h2>Types of content<a class="headerlink" href="#types-of-content" title="Permalink to this heading">#</a></h2>
-<div class="alert alert-info"> <b><font color=black>Exercises for all</font></b> </div>
-<div class="alert alert-success"> <b><font color=black>Optional additional practise</font></b> </div>
-<div class="alert alert-warning"> <b><font color=black>Optional advanced practise/content</font></b> </div>
 </section>
-<section id="settings-for-notebook">
-<h2>Settings for notebook<a class="headerlink" href="#settings-for-notebook" title="Permalink to this heading">#</a></h2>
+<section id="table-of-contents">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#exercises" id="id1">Exercises</a></p>
+<ul>
+<li><p><a class="reference internal" href="#learning-outcomes-a-class-tocskip" id="id2">Learning outcomes  <a class="tocSkip"></a></p></li>
+<li><p><a class="reference internal" href="#table-of-contents" id="id3">Table of Contents</a></p></li>
+<li><p><a class="reference internal" href="#material-vs-spatial-descriptions" id="id4">Material vs spatial descriptions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#spatial-field" id="id5">Spatial field</a></p></li>
+<li><p><a class="reference internal" href="#pathlines" id="id6">Pathlines</a></p></li>
+<li><p><a class="reference internal" href="#exercise-1" id="id7">Exercise 1</a></p></li>
+<li><p><a class="reference internal" href="#relating-spatial-and-material-descriptions" id="id8">Relating spatial and material descriptions</a></p></li>
+<li><p><a class="reference internal" href="#exercise-2" id="id9">Exercise 2</a></p></li>
+<li><p><a class="reference internal" href="#exercise-3-optional" id="id10">Exercise 3 (Optional)</a></p></li>
+<li><p><a class="reference internal" href="#exercise-4-advanced" id="id11">Exercise 4 (Advanced)</a></p></li>
+<li><p><a class="reference internal" href="#time-derivative" id="id12">Time derivative</a></p></li>
+<li><p><a class="reference internal" href="#exercise-5" id="id13">Exercise 5</a></p></li>
+<li><p><a class="reference internal" href="#exercise-6-optional" id="id14">Exercise 6 (Optional)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#infinitesimal-strain" id="id15">Infinitesimal strain</a></p>
+<ul>
+<li><p><a class="reference internal" href="#strain-and-rotation-tensors" id="id16">Strain and rotation tensors</a></p></li>
+<li><p><a class="reference internal" href="#strain-tensor-components" id="id17">Strain tensor components</a></p></li>
+<li><p><a class="reference internal" href="#exercise-7" id="id18">Exercise 7</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#displacement-and-strain-fields" id="id19">Displacement and strain fields</a></p>
+<ul>
+<li><p><a class="reference internal" href="#exercise-8-optional" id="id20">Exercise 8 (Optional)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#principal-strains-and-strain-invariants" id="id21">Principal strains and strain invariants</a></p>
+<ul>
+<li><p><a class="reference internal" href="#exercise-9" id="id22">Exercise 9</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#strain-rate" id="id23">Strain rate</a></p></li>
+<li><p><a class="reference internal" href="#finite-strain" id="id24">Finite strain</a></p>
+<ul>
+<li><p><a class="reference internal" href="#exercise-10-advanced" id="id25">Exercise 10 (Advanced)</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages for notebook here</span>
@@ -724,7 +702,7 @@ document.write(`
 </div>
 </section>
 <section id="material-vs-spatial-descriptions">
-<h2>Material vs spatial descriptions<a class="headerlink" href="#material-vs-spatial-descriptions" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Material vs spatial descriptions</a><a class="headerlink" href="#material-vs-spatial-descriptions" title="Permalink to this heading">#</a></h2>
 <p>In the lecture we introduced two alternative ways in which motion (flow or deformation) can be described: the material (Lagrangian) description or the spatial (Eulerian) description.</p>
 <p>As an example, we considered the spatial description of a 2D velocity field given by:</p>
 <div class="math notranslate nohighlight">
@@ -738,8 +716,7 @@ document.write(`
 </ul>
 <p>We then showed how to define the spatial description of acceleration in this case. We then went on to derive the corresponding material description of the displacement (path lines), velocity and acceleration of a particle in the flow.</p>
 <section id="spatial-field">
-<h3>Spatial field<a class="headerlink" href="#spatial-field" title="Permalink to this heading">#</a></h3>
-<div class="alert alert-info"> <font color=black>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Spatial field</a><a class="headerlink" href="#spatial-field" title="Permalink to this heading">#</a></h3>
 <p>Let’s visualise what we did using Python. We start by defining the spatial description of our velocity field as a function of <span class="math notranslate nohighlight">\(x\)</span> (<span class="math notranslate nohighlight">\(x_1\)</span>), <span class="math notranslate nohighlight">\(y\)</span> (<span class="math notranslate nohighlight">\(x_2\)</span>) and <span class="math notranslate nohighlight">\(t\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -769,7 +746,6 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="alert alert-info"> <font color=black>
 <p>We can now plot the velocity vector field, the velocity magnitude scalar field and our particle positions at the intial time, 𝑡=0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -814,8 +790,7 @@ document.write(`
 </div>
 </section>
 <section id="pathlines">
-<h3>Pathlines<a class="headerlink" href="#pathlines" title="Permalink to this heading">#</a></h3>
-<div class="alert alert-info"> <font color=black>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Pathlines</a><a class="headerlink" href="#pathlines" title="Permalink to this heading">#</a></h3>
 <p>To visualise the particle positions at different times, we can integrate their motion using the spatial velocity field. We will use a simple approximation to do this. We can then compare the predicted particle motion with what we get by considering the material description of the same flow field.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -869,10 +844,9 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[x_i'(\mathbf{\xi}, t) = (1+kt)\xi_i = \xi_i + kt\xi_i \ ,\]</div>
 <p>where <span class="math notranslate nohighlight">\(\xi_i\)</span> is the <span class="math notranslate nohighlight">\(i^\textrm{th}\)</span> component of the initial position of the material and <span class="math notranslate nohighlight">\(kt\xi_i\)</span> is the displacement of the particle as a function of time. As <span class="math notranslate nohighlight">\(k\)</span> is a constant, this shows that for a given initial position the particle does indeed move a constant distance in the same time (or at a constant velocity).</p>
-<div class="alert alert-info"> <font color=black>
 </section>
 <section id="exercise-1">
-<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Exercise 1</a><a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
 <p>Implement this equation for the material position as a function of time in the plot above and show that it gives the same results as our numerical integration (to some numerical precision).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -922,15 +896,14 @@ document.write(`
 </div>
 </section>
 <section id="relating-spatial-and-material-descriptions">
-<h3>Relating spatial and material descriptions<a class="headerlink" href="#relating-spatial-and-material-descriptions" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Relating spatial and material descriptions</a><a class="headerlink" href="#relating-spatial-and-material-descriptions" title="Permalink to this heading">#</a></h3>
 <p>Note that the expression above tells us the position <span class="math notranslate nohighlight">\(x_i'\)</span> of a particle at time that was at the original position <span class="math notranslate nohighlight">\(\vector{\xi}\)</span>. If this expression is invertible (as it is in this case), we can rearrange it to give the initial position of a particle that is at any position <span class="math notranslate nohighlight">\(\x\)</span> in the flow at time <span class="math notranslate nohighlight">\(t\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\xi(\x, t) = \frac{x_i}{(1+kt)}\ .\]</div>
 <p>This allows us to convert between the spatial and material description of position.</p>
-<div class="alert alert-info"> <font color=black>
 </section>
 <section id="exercise-2">
-<h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Exercise 2</a><a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
 <p>Let’s consider a similar problem, but defined the other way round. Suppose that we know the material description of position, such that the motion of a particle of the continuum is described as:</p>
 <div class="math notranslate nohighlight">
 \[x' = \xi_1 + kt\xi_2 \ , \, y' = \xi_2 + kt\xi_2 \ .\]</div>
@@ -938,10 +911,9 @@ document.write(`
 <p><strong>(a)</strong> Obtain the velocity of a particle in the material <span class="math notranslate nohighlight">\(\mathbf{v}(\mathbf{\xi}, t)\)</span> and spatial <span class="math notranslate nohighlight">\(\v(\x, t)\)</span> description.</p>
 <p><strong>(b)</strong> Modify the functions above for the new spatial velocity field and material position and visualise the pathlines.</p>
 <p><strong>(c)</strong> Sketch how a unit square with one corner at the origin is deformed by the field after one second and two seconds.</p>
-<div class="alert alert-success"> <font color=black>
 </section>
-<section id="exercise-3">
-<h3>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
+<section id="exercise-3-optional">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Exercise 3 (Optional)</a><a class="headerlink" href="#exercise-3-optional" title="Permalink to this heading">#</a></h3>
 <p>If you are confused by the examples above and want to consider a simpler scenario to better understand these concepts, try to repeat this exercise with a simpler velocity field.</p>
 <p>For example, consider the spatial description of a velocity field:</p>
 <div class="math notranslate nohighlight">
@@ -949,17 +921,16 @@ document.write(`
 <p>In other words, the velocity field is constant everywhere; it does not depend on time or position.</p>
 <p><strong>(a)</strong> Integrate this expression with respect to time to derive the material description of position with time.</p>
 <p><strong>(b)</strong> Plot the velocity field and pathlines of particles in this case.</p>
-<div class="alert alert-warning"> <font color=black>
 </section>
-<section id="exercise-4">
-<h3>Exercise 4<a class="headerlink" href="#exercise-4" title="Permalink to this heading">#</a></h3>
+<section id="exercise-4-advanced">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Exercise 4 (Advanced)</a><a class="headerlink" href="#exercise-4-advanced" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Try a velocity field that does not lead to a zero acceleration.</p></li>
 <li><p>Change initial tracer positions to get a further idea of how tracers move in different parts of the velocity field</p></li>
 </ul>
 </section>
 <section id="time-derivative">
-<h3>Time derivative<a class="headerlink" href="#time-derivative" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Time derivative</a><a class="headerlink" href="#time-derivative" title="Permalink to this heading">#</a></h3>
 <p>The time derivative of any quantity in the material description is given by:</p>
 <div class="math notranslate nohighlight">
 \[\frac{DP}{Dt} = \frac{\partial P}{\partial t} + \v \cdot \nabla P,\]</div>
@@ -970,10 +941,9 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(\nabla P\)</span> is the gradient of <span class="math notranslate nohighlight">\(P\)</span>.</p></li>
 </ul>
 <p>In the lecture, we used this expression to derive the material description of acceleration (the rate of change of velocity with time) for our example velocity field. We found that the acceleration in the material description was zero, implying that any particle in the flow experiences no acceleration, exactly as shown above.</p>
-<div class="alert alert-info"> <font color=black>
 </section>
 <section id="exercise-5">
-<h3>Exercise 5<a class="headerlink" href="#exercise-5" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Exercise 5</a><a class="headerlink" href="#exercise-5" title="Permalink to this heading">#</a></h3>
 <p>Consider the temperature field in spatial coordinates <span class="math notranslate nohighlight">\(\x\)</span> described by:</p>
 <div class="math notranslate nohighlight">
 \[T(\x, t) = \alpha(x + y)\]</div>
@@ -983,10 +953,9 @@ document.write(`
 <p>where <span class="math notranslate nohighlight">\(k\)</span> is a constant as before.</p>
 <p><strong>(b)</strong> Determine the material time derivative of the temperature in both material and
 spatial descriptions.</p>
-<div class="alert alert-success"> <font color=black>
 </section>
-<section id="exercise-6">
-<h3>Exercise 6<a class="headerlink" href="#exercise-6" title="Permalink to this heading">#</a></h3>
+<section id="exercise-6-optional">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Exercise 6 (Optional)</a><a class="headerlink" href="#exercise-6-optional" title="Permalink to this heading">#</a></h3>
 <p><strong>(a)</strong> For the same temperature field, find the material description of temperature if the spatial velocity field is given by:</p>
 <div class="math notranslate nohighlight">
 \[v_i=\frac{kx_i}{(1+kt)},\]</div>
@@ -997,9 +966,9 @@ spatial descriptions.</p>
 </section>
 </section>
 <section id="infinitesimal-strain">
-<h2>Infinitesimal strain<a class="headerlink" href="#infinitesimal-strain" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Infinitesimal strain</a><a class="headerlink" href="#infinitesimal-strain" title="Permalink to this heading">#</a></h2>
 <section id="strain-and-rotation-tensors">
-<h3>Strain and rotation tensors<a class="headerlink" href="#strain-and-rotation-tensors" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Strain and rotation tensors</a><a class="headerlink" href="#strain-and-rotation-tensors" title="Permalink to this heading">#</a></h3>
 <p>In the lecture we derived the infinitesimal strain tensor <span class="math notranslate nohighlight">\(\tensor{\epsilon}\)</span>, which describes internal deformation of material in a displacement field. It is related to the displacement gradient by:</p>
 <div class="math notranslate nohighlight">
 \[\tensor{\epsilon} = \frac{1}{2}\left(\nabla \u + \nabla\u^T\right) ,\]</div>
@@ -1018,7 +987,7 @@ spatial descriptions.</p>
 \[ \nabla \u = \tensor{\epsilon} + \tensor{\omega}.\]</div>
 </section>
 <section id="strain-tensor-components">
-<h3>Strain tensor components<a class="headerlink" href="#strain-tensor-components" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Strain tensor components</a><a class="headerlink" href="#strain-tensor-components" title="Permalink to this heading">#</a></h3>
 <p>Similar to the stress tensor, we can define the following results:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\tensor{\epsilon} \cdot \ex = \vector{d\ex}' = (\epsilon_{11}, \epsilon_{21}, \epsilon_{31})\)</span> is the change in the unit vector in the <span class="math notranslate nohighlight">\(x_1\)</span> direction caused by the deformation.</p></li>
@@ -1030,10 +999,9 @@ spatial descriptions.</p>
 <li><p><span class="math notranslate nohighlight">\(\tensor{\epsilon}\cdot \hat{\x} = \vector{dx}'\)</span>, where the deformation of <span class="math notranslate nohighlight">\(\hat{\x}\)</span> by strain <span class="math notranslate nohighlight">\(\tensor{\epsilon}\)</span> results in the new vector <span class="math notranslate nohighlight">\(\x' = \hat{\x} + \vector{dx}'\)</span>;</p></li>
 <li><p><span class="math notranslate nohighlight">\(\hat{\x} \cdot \tensor{\epsilon}\cdot \hat{\x} = \hat{\x} \cdot \vector{dx}'\)</span>, which is the component of the deformation <span class="math notranslate nohighlight">\(\vector{dx}'\)</span> in the direction of <span class="math notranslate nohighlight">\(\hat{\x}\)</span>.</p></li>
 </ul>
-<div class="alert alert-info"> <font color=black>
 </section>
 <section id="exercise-7">
-<h3>Exercise 7<a class="headerlink" href="#exercise-7" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Exercise 7</a><a class="headerlink" href="#exercise-7" title="Permalink to this heading">#</a></h3>
 <p>With reference to a rectangular Cartesian coordinate system, the state of strain at a point is given by:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \tensor{\epsilon} = \left[\begin{array}{rrr}
@@ -1046,8 +1014,7 @@ spatial descriptions.</p>
 </section>
 </section>
 <section id="displacement-and-strain-fields">
-<h2>Displacement and strain fields<a class="headerlink" href="#displacement-and-strain-fields" title="Permalink to this heading">#</a></h2>
-<div class="alert alert-info"> <font color=black>
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Displacement and strain fields</a><a class="headerlink" href="#displacement-and-strain-fields" title="Permalink to this heading">#</a></h2>
 <p>In the lecture, we considered an example displacement field to develop our insight into strain.</p>
 <p>We considered the displacement field: <span class="math notranslate nohighlight">\(u_x = 0.1x^2, \, u_y = 0.4xy\)</span>. Let’s have a look at this field.</p>
 <div class="cell docutils container">
@@ -1085,8 +1052,8 @@ spatial descriptions.</p>
 <img alt="../_images/4f7ba2c85df9e64596fb2495adfe7b2023654a8cf218c2ffacd6f584e687da7c.png" src="../_images/4f7ba2c85df9e64596fb2495adfe7b2023654a8cf218c2ffacd6f584e687da7c.png" />
 </div>
 </div>
-<div class="alert alert-info"> <font color=black>
-We see that the field is quite complex. Can you anticipate what type of deformation such a field would result in? This is what the strain tensor tells us, so let's remind ourselves of how we determine this.<p>For this field the displacement gradient tensor <span class="math notranslate nohighlight">\(\nabla \u\)</span> is:</p>
+<p>We see that the field is quite complex. Can you anticipate what type of deformation such a field would result in? This is what the strain tensor tells us, so let’s remind ourselves of how we determine this.</p>
+<p>For this field the displacement gradient tensor <span class="math notranslate nohighlight">\(\nabla \u\)</span> is:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\nabla \u =  \left[\begin{array}{cc}
                                 \frac{\partial u_x}{\partial x} &amp; \frac{\partial u_y}{\partial x} \\
@@ -1103,7 +1070,6 @@ We see that the field is quite complex. Can you anticipate what type of deformat
                                 0.2 x &amp; 0 \\
                                 0.4y &amp; 0.4x
                              \end{array} \right].\end{split}\]</div>
-<div class="alert alert-info"> <font color=black>
 <p>Let’s visualise the displacement gradients for our field using a scalar field to represent each component of the <span class="math notranslate nohighlight">\(\nabla \u\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1142,7 +1108,6 @@ We see that the field is quite complex. Can you anticipate what type of deformat
 <p>Armed with the displacement gradients, we can now calculate the infinitesimal strain tensor field:</p>
 <div class="math notranslate nohighlight">
 \[\tensor{\epsilon} = \frac{1}{2}\left(\nabla \u + \nabla\u^T\right) .\]</div>
-<div class="alert alert-info"> <font color=black>
 <p>Let’s visualise this in a similar way with a scalar field for each component of the tensor…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1188,7 +1153,6 @@ We see that the field is quite complex. Can you anticipate what type of deformat
 <li><p>Elongation in both directions increases with <span class="math notranslate nohighlight">\(x\)</span>, but is constant in <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
 <li><p>The strain tensor is symmetric, so the shear strains <span class="math notranslate nohighlight">\(\epsilon_{xy}\)</span> and <span class="math notranslate nohighlight">\(\epsilon_{yx}\)</span> are the same.</p></li>
 </ul>
-<div class="alert alert-info"> <font color=black>
 <p>With this insight, let’s now look at how some simple shapes (squares) are deformed by the displacement field.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1233,7 +1197,6 @@ We see that the field is quite complex. Can you anticipate what type of deformat
 </div>
 </div>
 <p>Here we see that the square on the right has undergone more extension in <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> (as well as more translation), but has been sheared slightly less in the <span class="math notranslate nohighlight">\(y\)</span> direction. The sides of the square that were vertical have not been rotated, while the initially horizontal sides have been rotated.</p>
-<div class="alert alert-info"> <font color=black>
 <p>We can also plot the pathlines of the corner points to visualise the stages of deformation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1261,7 +1224,6 @@ We see that the field is quite complex. Can you anticipate what type of deformat
 <img alt="../_images/c5d4742514e76342981c1255a45a5586421ef7337c466b4fdff31d84b1e652a0.png" src="../_images/c5d4742514e76342981c1255a45a5586421ef7337c466b4fdff31d84b1e652a0.png" />
 </div>
 </div>
-<div class="alert alert-info"> <font color=black>
 <p>We can also visualise the rotation tensor in a similar way.</p>
 <p>Recall that the rotation tensor in 2D Cartesian coordinates is given by:</p>
 <div class="math notranslate nohighlight">
@@ -1303,9 +1265,8 @@ We see that the field is quite complex. Can you anticipate what type of deformat
 <img alt="../_images/e03e6b95194862b9b0990edf35cd8e7845973cb190dccb018e783c5a61a52794.png" src="../_images/e03e6b95194862b9b0990edf35cd8e7845973cb190dccb018e783c5a61a52794.png" />
 </div>
 </div>
-<div class="alert alert-success"> <font color=black>
-<section id="exercise-8">
-<h3>Exercise 8<a class="headerlink" href="#exercise-8" title="Permalink to this heading">#</a></h3>
+<section id="exercise-8-optional">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Exercise 8 (Optional)</a><a class="headerlink" href="#exercise-8-optional" title="Permalink to this heading">#</a></h3>
 <p>If you find the example above too complicated and/or you would like to develop more intuition about the deformation described by different displacement fields and strain tensors, you might like to implement different <code class="docutils literal notranslate"><span class="pre">displacement_spatial</span></code> functions and their corresponding <code class="docutils literal notranslate"><span class="pre">gradient_displacement</span></code> function, which you will have to work out by hand.</p>
 <p>Some displacement fields you might analyse, in order of complexity are:</p>
 <p>Pure translation:
@@ -1317,7 +1278,7 @@ $<span class="math notranslate nohighlight">\(u_x = k_1x, \, u_y = -k_2y\)</span
 </section>
 </section>
 <section id="principal-strains-and-strain-invariants">
-<h2>Principal strains and strain invariants<a class="headerlink" href="#principal-strains-and-strain-invariants" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Principal strains and strain invariants</a><a class="headerlink" href="#principal-strains-and-strain-invariants" title="Permalink to this heading">#</a></h2>
 <p>As with the stress tensor, we can define a rotated coordinate system in which the strain tensor is diagonal–i.e., all off-diagonal components are zero. The diagonal components of this tensor are the <em>principal</em> strains (maximum, minimum and intermediate fractional length changes) and the corresponding coordinate directions are the principal strain directions.</p>
 <p>To find the principal strains and associated directions we need to solve the eigenvalue problem for the strain tensor.</p>
 <p>We can also define measures of strain that are invariant to the coordinate system. For example, the trace of the strain tensor (the sum of the diagonal components) is the volume change associated with the deformation.</p>
@@ -1327,17 +1288,16 @@ $<span class="math notranslate nohighlight">\(u_x = k_1x, \, u_y = -k_2y\)</span
 <div class="math notranslate nohighlight">
 \[\epsilon_{ij} = \frac{\theta}{3}\delta_{ij} + \epsilon_{ij}' .\]</div>
 <p>where <span class="math notranslate nohighlight">\(\epsilon_{ij}'\)</span> is known as the deviatoric strain. The isotropic part describes volume change only; the deviatoric part describes change in shape only and involves no change in volume.</p>
-<div class="alert alert-info"> <font color=black>
 <section id="exercise-9">
-<h3>Exercise 9<a class="headerlink" href="#exercise-9" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Exercise 9</a><a class="headerlink" href="#exercise-9" title="Permalink to this heading">#</a></h3>
 <p>For the displacement field <span class="math notranslate nohighlight">\(u_1 = k\xi_1^2, \, u_2 = k\xi_2\xi_3, \, u_3 = k(2\xi_1\xi_3 + \xi_1^2)\)</span> and <span class="math notranslate nohighlight">\(k = 10^{-6}\)</span>, find:</p>
 <p><strong>(a)</strong> the infinitesimal strain tensor <span class="math notranslate nohighlight">\(\tensor{\epsilon}\)</span></p>
-<div class="alert alert-warning"> <font color=black>
+<p><strong>(Advanced)</strong></p>
 <p><strong>(b)</strong> the <em>maximum</em> unit elongation for an element initially at <span class="math notranslate nohighlight">\(\xi = (1, 0, 0)\)</span>.</p>
 </section>
 </section>
 <section id="strain-rate">
-<h2>Strain rate<a class="headerlink" href="#strain-rate" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">Strain rate</a><a class="headerlink" href="#strain-rate" title="Permalink to this heading">#</a></h2>
 <p>In similar way as for the strain tensor, a tensor that describes the rate of change of deformation can be defined from the velocity gradient:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\nabla \v  = \frac{\partial v_i}{\partial x_j} = \left[\begin{array}{ccc}
@@ -1356,7 +1316,7 @@ $<span class="math notranslate nohighlight">\(u_x = k_1x, \, u_y = -k_2y\)</span
 \[ \nabla \v = \tensor{D} + \tensor{W}.\]</div>
 </section>
 <section id="finite-strain">
-<h2>Finite strain<a class="headerlink" href="#finite-strain" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">Finite strain</a><a class="headerlink" href="#finite-strain" title="Permalink to this heading">#</a></h2>
 <p>The <em>infinitesimal</em> strain tensor and our analysis up to this point has assumed that in any given increment of deformation, the strain is small or, equivalently, that the displacement gradient is constant over the strain increment. For non-linear displacement fields, this assumption will not be valid and so we must either apply the infinitesimal strain tensor many times in small increments to describe the deformation or use so-called <em>finite</em> strain theory, which uses fewer approximations to describe deformation.</p>
 <p>Recall that the deformation of an element <span class="math notranslate nohighlight">\(\vector{dx}'\)</span> caused by a displacement field is given by:</p>
 <div class="math notranslate nohighlight">
@@ -1365,9 +1325,8 @@ $<span class="math notranslate nohighlight">\(u_x = k_1x, \, u_y = -k_2y\)</span
 <div class="math notranslate nohighlight">
 \[\tensor{E^*} = \frac{1}{2}\left[\nabla\u + (\nabla\u)^T + (\nabla\u)^T\cdot\nabla\u\right] ,\]</div>
 <p>which we note includes extra terms <span class="math notranslate nohighlight">\((\nabla\u)^T.\nabla\u\)</span> that are not part of the infinitesismal strain tensor <span class="math notranslate nohighlight">\(\tensor{E}\)</span>. As a result, the components of <span class="math notranslate nohighlight">\(\tensor{E^*}\)</span> and <span class="math notranslate nohighlight">\(\tensor{\epsilon}\)</span> will differ for large strains and have slightly different interpretations. The advanced exercise below will help build your intuition for this.</p>
-<div class="alert alert-warning"> <font color=black>
-<section id="exercise-10">
-<h3>Exercise 10<a class="headerlink" href="#exercise-10" title="Permalink to this heading">#</a></h3>
+<section id="exercise-10-advanced">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">Exercise 10 (Advanced)</a><a class="headerlink" href="#exercise-10-advanced" title="Permalink to this heading">#</a></h3>
 <p>Given the 2D displacement field: <span class="math notranslate nohighlight">\(u_1= k\xi_2^2\)</span>, <span class="math notranslate nohighlight">\(u_2=0\)</span>, where <span class="math notranslate nohighlight">\(k=10^{-4}\)</span>:</p>
 <p><strong>(a)</strong> Sketch the deformation of a unit square OABC, with as corner points: <span class="math notranslate nohighlight">\(O=(0,0)\)</span>, <span class="math notranslate nohighlight">\(A=(1,0)\)</span>, <span class="math notranslate nohighlight">\(B=(1,1)\)</span>, <span class="math notranslate nohighlight">\(C(0,1)\)</span>.</p>
 <p><strong>(b)</strong> Calculate <span class="math notranslate nohighlight">\(\nabla\u\)</span>, <span class="math notranslate nohighlight">\((\nabla\u)^T\)</span> and <span class="math notranslate nohighlight">\((\nabla\u)^T.\nabla\u\)</span> and therefore write down the Lagrange strain tensor <span class="math notranslate nohighlight">\(\tensor{E^*}\)</span>.</p>
@@ -1525,19 +1484,18 @@ $<span class="math notranslate nohighlight">\(u_x = k_1x, \, u_y = -k_2y\)</span
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes-a-class-tocskip">Learning outcomes  <a class="tocSkip"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-content">Types of content</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-for-notebook">Settings for notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-vs-spatial-descriptions">Material vs spatial descriptions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-field">Spatial field</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pathlines">Pathlines</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relating-spatial-and-material-descriptions">Relating spatial and material descriptions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-optional">Exercise 3 (Optional)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-advanced">Exercise 4 (Advanced)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-derivative">Time derivative</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6">Exercise 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-optional">Exercise 6 (Optional)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infinitesimal-strain">Infinitesimal strain</a><ul class="nav section-nav flex-column">
@@ -1547,7 +1505,7 @@ $<span class="math notranslate nohighlight">\(u_x = k_1x, \, u_y = -k_2y\)</span
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displacement-and-strain-fields">Displacement and strain fields</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8">Exercise 8</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-optional">Exercise 8 (Optional)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-strains-and-strain-invariants">Principal strains and strain invariants</a><ul class="nav section-nav flex-column">
@@ -1556,7 +1514,7 @@ $<span class="math notranslate nohighlight">\(u_x = k_1x, \, u_y = -k_2y\)</span
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strain-rate">Strain rate</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-strain">Finite strain</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-10">Exercise 10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-10-advanced">Exercise 10 (Advanced)</a></li>
 </ul>
 </li>
 </ul>

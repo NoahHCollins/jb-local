@@ -550,7 +550,7 @@ document.write(`
 Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2647/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2734/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
   fig1=figure()
 </pre></div>
 </div>
@@ -587,15 +587,6 @@ Populating the interactive namespace from numpy and matplotlib
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1100: resid=0.000029
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1200: resid=0.000019
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1300: resid=0.000013
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1400: resid=0.000008
-</pre></div>
-</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">37</span>
@@ -623,85 +614,64 @@ Populating the interactive namespace from numpy and matplotlib
 <span class="g g-Whitespace">   </span><span class="mi">2703</span>     <span class="n">sci</span><span class="p">(</span><span class="n">__ret</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">2704</span>     <span class="k">return</span> <span class="n">__ret</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/pyplot.py:2309,</span> in <span class="ni">gca</span><span class="nt">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">2307</span> <span class="nd">@_copy_docstring_and_deprecators</span><span class="p">(</span><span class="n">Figure</span><span class="o">.</span><span class="n">gca</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2308</span> <span class="k">def</span> <span class="nf">gca</span><span class="p">():</span>
-<span class="ne">-&gt; </span><span class="mi">2309</span>     <span class="k">return</span> <span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/__init__.py:1446,</span> in <span class="ni">_preprocess_data.&lt;locals&gt;.inner</span><span class="nt">(ax, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1443</span> <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1444</span> <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1445</span>     <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1446</span>         <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="n">sanitize_sequence</span><span class="p">,</span> <span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1448</span>     <span class="n">bound</span> <span class="o">=</span> <span class="n">new_sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1449</span>     <span class="n">auto_label</span> <span class="o">=</span> <span class="p">(</span><span class="n">bound</span><span class="o">.</span><span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1450</span>                   <span class="ow">or</span> <span class="n">bound</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">))</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/figure.py:1660,</span> in <span class="ni">FigureBase.gca</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1650</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1651</span><span class="sd"> Get the current Axes.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1652</span><span class="sd"> </span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_axes.py:5667,</span> in <span class="ni">Axes.imshow</span><span class="nt">(self, X, cmap, norm, aspect, interpolation, alpha, vmin, vmax, origin, extent, interpolation_stage, filternorm, filterrad, resample, url, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5664</span> <span class="n">im</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5665</span> <span class="k">if</span> <span class="n">im</span><span class="o">.</span><span class="n">get_clip_path</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">5666</span>     <span class="c1"># image does not already have clipping set, clip to axes patch</span>
+<span class="ne">-&gt; </span><span class="mi">5667</span>     <span class="n">im</span><span class="o">.</span><span class="n">set_clip_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">patch</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5668</span> <span class="n">im</span><span class="o">.</span><span class="n">_scale_norm</span><span class="p">(</span><span class="n">norm</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5669</span> <span class="n">im</span><span class="o">.</span><span class="n">set_url</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/artist.py:809,</span> in <span class="ni">Artist.set_clip_path</span><span class="nt">(self, path, transform)</span>
+<span class="g g-Whitespace">    </span><span class="mi">806</span> <span class="k">if</span> <span class="n">transform</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">807</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">Rectangle</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">808</span>         <span class="bp">self</span><span class="o">.</span><span class="n">clipbox</span> <span class="o">=</span> <span class="n">TransformedBbox</span><span class="p">(</span><span class="n">Bbox</span><span class="o">.</span><span class="n">unit</span><span class="p">(),</span>
+<span class="ne">--&gt; </span><span class="mi">809</span>                                        <span class="n">path</span><span class="o">.</span><span class="n">get_transform</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">810</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_clippath</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">811</span>         <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/patches.py:264,</span> in <span class="ni">Patch.get_transform</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">262</span> <span class="k">def</span> <span class="nf">get_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">263</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return the `~.transforms.Transform` applied to the `Patch`.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">264</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_patch_transform</span><span class="p">()</span> <span class="o">+</span> <span class="n">artist</span><span class="o">.</span><span class="n">Artist</span><span class="o">.</span><span class="n">get_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/patches.py:756,</span> in <span class="ni">Rectangle.get_patch_transform</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">753</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">754</span>     <span class="n">rotation_point</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rotation_point</span>
+<span class="g g-Whitespace">    </span><span class="mi">755</span> <span class="k">return</span> <span class="n">transforms</span><span class="o">.</span><span class="n">BboxTransformTo</span><span class="p">(</span><span class="n">bbox</span><span class="p">)</span> \
+<span class="ne">--&gt; </span><span class="mi">756</span>         <span class="o">+</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Affine2D</span><span class="p">()</span> \
+<span class="g g-Whitespace">    </span><span class="mi">757</span>         <span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="n">rotation_point</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="n">rotation_point</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> \
+<span class="g g-Whitespace">    </span><span class="mi">758</span>         <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_aspect_ratio_correction</span><span class="p">)</span> \
+<span class="g g-Whitespace">    </span><span class="mi">759</span>         <span class="o">.</span><span class="n">rotate_deg</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">angle</span><span class="p">)</span> \
+<span class="g g-Whitespace">    </span><span class="mi">760</span>         <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_aspect_ratio_correction</span><span class="p">)</span> \
+<span class="g g-Whitespace">    </span><span class="mi">761</span>         <span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="o">*</span><span class="n">rotation_point</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/transforms.py:1899,</span> in <span class="ni">Affine2D.__init__</span><span class="nt">(self, matrix, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1889</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">matrix</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1890</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1891</span><span class="sd">     Initialize an Affine transform from a 3x3 numpy float array::</span>
+<span class="g g-Whitespace">   </span><span class="mi">1892</span><span class="sd"> </span>
 <span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1657</span><span class="sd"> whether `.pyplot.get_fignums()` is empty.)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1658</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1659</span> <span class="n">ax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axstack</span><span class="o">.</span><span class="n">current</span><span class="p">()</span>
-<span class="ne">-&gt; </span><span class="mi">1660</span> <span class="k">return</span> <span class="n">ax</span> <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1897</span><span class="sd">     If *matrix* is None, initialize with the identity transform.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1898</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1899</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1900</span>     <span class="k">if</span> <span class="n">matrix</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1901</span>         <span class="c1"># A bit faster than np.identity(3).</span>
+<span class="g g-Whitespace">   </span><span class="mi">1902</span>         <span class="n">matrix</span> <span class="o">=</span> <span class="n">IdentityTransform</span><span class="o">.</span><span class="n">_mtx</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/figure.py:768,</span> in <span class="ni">FigureBase.add_subplot</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">765</span>         <span class="n">args</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
-<span class="g g-Whitespace">    </span><span class="mi">766</span>     <span class="n">projection_class</span><span class="p">,</span> <span class="n">pkw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_projection_requirements</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">767</span>         <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">768</span>     <span class="n">ax</span> <span class="o">=</span> <span class="n">projection_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">pkw</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">769</span>     <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">projection_class</span><span class="p">,</span> <span class="n">pkw</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">770</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_axes_internal</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:683,</span> in <span class="ni">_AxesBase.__init__</span><span class="nt">(self, fig, facecolor, frameon, sharex, sharey, label, xscale, yscale, box_aspect, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">680</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.axisbelow&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">    </span><span class="mi">682</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rasterization_zorder</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">--&gt; </span><span class="mi">683</span> <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">685</span> <span class="c1"># funcs used to format x and y - fall back on major formatters</span>
-<span class="g g-Whitespace">    </span><span class="mi">686</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmt_xdata</span> <span class="o">=</span> <span class="kc">None</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:1395,</span> in <span class="ni">_AxesBase.clear</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1393</span>     <span class="bp">self</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1394</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1395</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__clear</span><span class="p">()</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:1279,</span> in <span class="ni">_AxesBase.__clear</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1276</span> <span class="n">yaxis_visible</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">get_visible</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1278</span> <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axis_map</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-<span class="ne">-&gt; </span><span class="mi">1279</span>     <span class="n">axis</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>  <span class="c1"># Also resets the scale to linear.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1280</span> <span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-<span class="g g-Whitespace">   </span><span class="mi">1281</span>     <span class="n">spine</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:879,</span> in <span class="ni">Axis.clear</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">875</span> <span class="bp">self</span><span class="o">.</span><span class="n">labelpad</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.labelpad&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">877</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init</span><span class="p">()</span>
-<span class="ne">--&gt; </span><span class="mi">879</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_scale</span><span class="p">(</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">881</span> <span class="c1"># Clear the callback registry for this axis, or it may &quot;leak&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">882</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span> <span class="o">=</span> <span class="n">cbook</span><span class="o">.</span><span class="n">CallbackRegistry</span><span class="p">(</span><span class="n">signals</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">])</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:767,</span> in <span class="ni">Axis._set_scale</span><span class="nt">(self, value, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">765</span> <span class="k">def</span> <span class="nf">_set_scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">766</span>     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">mscale</span><span class="o">.</span><span class="n">ScaleBase</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">767</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span> <span class="o">=</span> <span class="n">mscale</span><span class="o">.</span><span class="n">scale_factory</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">768</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">769</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span> <span class="o">=</span> <span class="n">value</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/scale.py:709,</span> in <span class="ni">scale_factory</span><span class="nt">(scale, axis, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">700</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">701</span><span class="sd"> Return a scale class by name.</span>
-<span class="g g-Whitespace">    </span><span class="mi">702</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span><span class="sd"> axis : `~matplotlib.axis.Axis`</span>
-<span class="g g-Whitespace">    </span><span class="mi">707</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">708</span> <span class="n">scale_cls</span> <span class="o">=</span> <span class="n">_api</span><span class="o">.</span><span class="n">check_getitem</span><span class="p">(</span><span class="n">_scale_mapping</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">709</span> <span class="k">return</span> <span class="n">scale_cls</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/scale.py:96,</span> in <span class="ni">LinearScale.__init__</span><span class="nt">(self, axis)</span>
-<span class="g g-Whitespace">     </span><span class="mi">90</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">91</span><span class="sd"> The default linear scale.</span>
-<span class="g g-Whitespace">     </span><span class="mi">92</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">94</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span>
-<span class="ne">---&gt; </span><span class="mi">96</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">97</span>     <span class="c1"># This method is present only to prevent inheritance of the base class&#39;</span>
-<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="c1"># constructor docstring, which would otherwise end up interpolated into</span>
-<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="c1"># the docstring of Axis.set_scale.</span>
-<span class="g g-Whitespace">    </span><span class="mi">100</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">101</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">103</span> <span class="k">def</span> <span class="nf">set_default_locators_and_formatters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span>     <span class="c1"># docstring inherited</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/transforms.py:1773,</span> in <span class="ni">AffineBase.__init__</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1772</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1773</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1774</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_inverted</span> <span class="o">=</span> <span class="kc">None</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
