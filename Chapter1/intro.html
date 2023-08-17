@@ -416,7 +416,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -432,6 +434,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -443,7 +453,17 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="intro-to-vector-tensor-calculus">
 <h1>1. Intro to Vector/Tensor Calculus<a class="headerlink" href="#intro-to-vector-tensor-calculus" title="Permalink to this heading">#</a></h1>
-<p>Put a table of contents for the lectures here and an overview of topic?</p>
+<p>The first chapter of this course will cover vectors and tensors, introducing them both conceptually and practically. By the end of this chapter you should be confident with vectors and tensors, as they will be used throught the module. The Learning objectives of the chapter are as follows:</p>
+<ul class="simple">
+<li><p>Be able to perform vector/tensor operations (addition, multiplication) on Cartesian orthonormal bases</p></li>
+<li><p>Be able to do basic vector/tensor calculus (time and space derivatives, divergence, curl of a vector field) on these bases.</p></li>
+<li><p>Perform transformation of a vector from one Cartesian basis to another.</p></li>
+<li><p>Understand differences/commonalities between tensor and vector</p></li>
+<li><p>Familiarity with index notation and Einstein convention</p></li>
+</ul>
+<p>The chapter will consist of three lectures, with practice exercises to ensure you are confident in using vectors and tensors</p>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Lecture%201.1%20-%20Intro%20to%20Vectors.html">1.1 Continuum Mechanics and Vector Calculus</a></li>
@@ -453,6 +473,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="solutions.html">Solutions</a></li>
 </ul>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -513,6 +534,20 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
