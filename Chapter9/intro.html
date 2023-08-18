@@ -410,7 +410,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -426,6 +428,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -437,7 +447,13 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="interpolation-quadrature-2">
 <h1>9. Interpolation Quadrature 2<a class="headerlink" href="#interpolation-quadrature-2" title="Permalink to this heading">#</a></h1>
-<p>Put a table of contents for the lectures here and an overview of topic?</p>
+<p>Chapter 9 will cover interpolation quadrature. The lecture will review and consolidation of some Computational Mathematics material. More advanced topics relating to the approximation of data and functions will be covered. Picewise-linear basis functions and expansions will be introduced which will be important for the finite element method in chapter 12. Topics relating to the approximation of integrals will also be covered. Through examples in the lecture and the worksheet, you will gain more exposure to error analysis and convergence rates, as well as practicing your coding skills. The key point for this chapter are:</p>
+<ul class="simple">
+<li><p>General familiarity with errors and their dependence on the specifics of the numerical method, the function being considered and the interval size (or mesh resolution).</p></li>
+<li><p>The specifics of the hat functions used as a basis for p/w linear interpolation.</p></li>
+</ul>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Lecture%209.1%20-%20interpolation%20quadrature.html">9.1 Interpolation &amp; Quadrature 2 <a class="tocSkip"></a></li>
@@ -445,6 +461,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="Solutions.html">Solutions <a class="tocSkip"></a></li>
 </ul>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -505,6 +522,20 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
