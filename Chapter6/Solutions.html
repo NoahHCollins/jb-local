@@ -143,8 +143,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -547,7 +547,7 @@ document.write(`
 Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2634/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2639/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
   fig1=figure()
 </pre></div>
 </div>
@@ -594,15 +594,6 @@ Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1500: resid=0.000005
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1600: resid=0.000004
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1700: resid=0.000002
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1800: resid=0.000002
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -667,18 +658,12 @@ Populating the interactive namespace from numpy and matplotlib
 <span class="g g-Whitespace">   </span><span class="mi">1394</span> <span class="k">else</span><span class="p">:</span>
 <span class="ne">-&gt; </span><span class="mi">1395</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__clear</span><span class="p">()</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:1281,</span> in <span class="ni">_AxesBase.__clear</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1279</span>     <span class="n">axis</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>  <span class="c1"># Also resets the scale to linear.</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:1279,</span> in <span class="ni">_AxesBase.__clear</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1276</span> <span class="n">yaxis_visible</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">get_visible</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1278</span> <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axis_map</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+<span class="ne">-&gt; </span><span class="mi">1279</span>     <span class="n">axis</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>  <span class="c1"># Also resets the scale to linear.</span>
 <span class="g g-Whitespace">   </span><span class="mi">1280</span> <span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-<span class="ne">-&gt; </span><span class="mi">1281</span>     <span class="n">spine</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1283</span> <span class="bp">self</span><span class="o">.</span><span class="n">ignore_existing_data_limits</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="g g-Whitespace">   </span><span class="mi">1284</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span> <span class="o">=</span> <span class="n">cbook</span><span class="o">.</span><span class="n">CallbackRegistry</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1285</span>     <span class="n">signals</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;xlim_changed&quot;</span><span class="p">,</span> <span class="s2">&quot;ylim_changed&quot;</span><span class="p">,</span> <span class="s2">&quot;zlim_changed&quot;</span><span class="p">])</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/spines.py:225,</span> in <span class="ni">Spine.clear</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">223</span> <span class="bp">self</span><span class="o">.</span><span class="n">_position</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># clear position</span>
-<span class="g g-Whitespace">    </span><span class="mi">224</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">225</span>     <span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1281</span>     <span class="n">spine</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 
 <span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:879,</span> in <span class="ni">Axis.clear</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">    </span><span class="mi">875</span> <span class="bp">self</span><span class="o">.</span><span class="n">labelpad</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.labelpad&#39;</span><span class="p">]</span>
@@ -694,33 +679,45 @@ Populating the interactive namespace from numpy and matplotlib
 <span class="g g-Whitespace">    </span><span class="mi">772</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDefault_majloc</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="g g-Whitespace">    </span><span class="mi">773</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDefault_minloc</span> <span class="o">=</span> <span class="kc">True</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/scale.py:106,</span> in <span class="ni">LinearScale.set_default_locators_and_formatters</span><span class="nt">(self, axis)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/scale.py:105,</span> in <span class="ni">LinearScale.set_default_locators_and_formatters</span><span class="nt">(self, axis)</span>
 <span class="g g-Whitespace">    </span><span class="mi">103</span> <span class="k">def</span> <span class="nf">set_default_locators_and_formatters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
 <span class="g g-Whitespace">    </span><span class="mi">104</span>     <span class="c1"># docstring inherited</span>
-<span class="g g-Whitespace">    </span><span class="mi">105</span>     <span class="n">axis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">AutoLocator</span><span class="p">())</span>
-<span class="ne">--&gt; </span><span class="mi">106</span>     <span class="n">axis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">ScalarFormatter</span><span class="p">())</span>
+<span class="ne">--&gt; </span><span class="mi">105</span>     <span class="n">axis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">AutoLocator</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span>     <span class="n">axis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">ScalarFormatter</span><span class="p">())</span>
 <span class="g g-Whitespace">    </span><span class="mi">107</span>     <span class="n">axis</span><span class="o">.</span><span class="n">set_minor_formatter</span><span class="p">(</span><span class="n">NullFormatter</span><span class="p">())</span>
-<span class="g g-Whitespace">    </span><span class="mi">108</span>     <span class="c1"># update the minor locator for x and y axis based on rcParams</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:1816,</span> in <span class="ni">Axis.set_major_formatter</span><span class="nt">(self, formatter)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1792</span> <span class="k">def</span> <span class="nf">set_major_formatter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">formatter</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1793</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1794</span><span class="sd">     Set the formatter of the major ticker.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1795</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1814</span><span class="sd">     formatter : `~matplotlib.ticker.Formatter`, ``str``, or function</span>
-<span class="g g-Whitespace">   </span><span class="mi">1815</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1816</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_set_formatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">major</span><span class="p">)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/ticker.py:2900,</span> in <span class="ni">AutoLocator.__init__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2898</span>     <span class="n">nbins</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span>
+<span class="g g-Whitespace">   </span><span class="mi">2899</span>     <span class="n">steps</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">2900</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nbins</span><span class="o">=</span><span class="n">nbins</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">steps</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:1841,</span> in <span class="ni">Axis._set_formatter</span><span class="nt">(self, formatter, level)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1839</span>     <span class="n">formatter</span> <span class="o">=</span> <span class="n">mticker</span><span class="o">.</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1840</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1841</span>     <span class="n">_api</span><span class="o">.</span><span class="n">check_isinstance</span><span class="p">(</span><span class="n">mticker</span><span class="o">.</span><span class="n">Formatter</span><span class="p">,</span> <span class="n">formatter</span><span class="o">=</span><span class="n">formatter</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1843</span> <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">formatter</span><span class="p">,</span> <span class="n">mticker</span><span class="o">.</span><span class="n">FixedFormatter</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1844</span>         <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">formatter</span><span class="o">.</span><span class="n">seq</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
-<span class="g g-Whitespace">   </span><span class="mi">1845</span>         <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">level</span><span class="o">.</span><span class="n">locator</span><span class="p">,</span> <span class="n">mticker</span><span class="o">.</span><span class="n">FixedLocator</span><span class="p">)):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1846</span>     <span class="n">_api</span><span class="o">.</span><span class="n">warn_external</span><span class="p">(</span><span class="s1">&#39;FixedFormatter should only be used together &#39;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1847</span>                        <span class="s1">&#39;with FixedLocator&#39;</span><span class="p">)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/ticker.py:2008,</span> in <span class="ni">MaxNLocator.__init__</span><span class="nt">(self, nbins, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2006</span> <span class="k">if</span> <span class="n">nbins</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2007</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;nbins&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nbins</span>
+<span class="ne">-&gt; </span><span class="mi">2008</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">default_params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">})</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/ticker.py:2067,</span> in <span class="ni">MaxNLocator.set_params</span><span class="nt">(self, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2065</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_steps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="g g-Whitespace">   </span><span class="mi">2066</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2067</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_steps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_steps</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2068</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_extended_steps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_staircase</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_steps</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2069</span> <span class="k">if</span> <span class="s1">&#39;integer&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/ticker.py:2016,</span> in <span class="ni">MaxNLocator._validate_steps</span><span class="nt">(steps)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2013</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;steps argument must be an increasing sequence &#39;</span>
+<span class="g g-Whitespace">   </span><span class="mi">2014</span>                      <span class="s1">&#39;of numbers between 1 and 10 inclusive&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2015</span> <span class="n">steps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2016</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="n">steps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="ow">or</span> <span class="n">steps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2017</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;steps argument must be an increasing sequence &#39;</span>
+<span class="g g-Whitespace">   </span><span class="mi">2018</span>                      <span class="s1">&#39;of numbers between 1 and 10 inclusive&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2019</span> <span class="k">if</span> <span class="n">steps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/numpy/lib/function_base.py:1443,</span> in <span class="ni">diff</span><span class="nt">(a, n, axis, prepend, append)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1440</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">combined</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1441</span>     <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">combined</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1443</span> <span class="n">slice1</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="n">nd</span>
+<span class="g g-Whitespace">   </span><span class="mi">1444</span> <span class="n">slice2</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="n">nd</span>
+<span class="g g-Whitespace">   </span><span class="mi">1445</span> <span class="n">slice1</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
