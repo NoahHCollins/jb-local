@@ -15,4 +15,4 @@ Welcome to the Modelling and Numerical Methods course.
 ### Jupyter Book Compilation:
 - Noah Collins
 - Karthik Krishnan
-- Supervised by Dr Nelson Rhodri
+- Supervised by Dr Rhodri Nelson
