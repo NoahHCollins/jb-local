@@ -138,14 +138,8 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
-    
-    
-      
-    
-    
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
+    <p class="title logo__title">Modelling and Numerical Methods</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -547,7 +541,7 @@ document.write(`
 Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2639/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2739/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
   fig1=figure()
 </pre></div>
 </div>
@@ -582,18 +576,6 @@ Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1100: resid=0.000029
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1200: resid=0.000019
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1300: resid=0.000013
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1400: resid=0.000008
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1500: resid=0.000005
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -646,78 +628,94 @@ Populating the interactive namespace from numpy and matplotlib
 <span class="g g-Whitespace">    </span><span class="mi">769</span>     <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">projection_class</span><span class="p">,</span> <span class="n">pkw</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">770</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_axes_internal</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:683,</span> in <span class="ni">_AxesBase.__init__</span><span class="nt">(self, fig, facecolor, frameon, sharex, sharey, label, xscale, yscale, box_aspect, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">680</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.axisbelow&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">    </span><span class="mi">682</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rasterization_zorder</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">--&gt; </span><span class="mi">683</span> <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">685</span> <span class="c1"># funcs used to format x and y - fall back on major formatters</span>
-<span class="g g-Whitespace">    </span><span class="mi">686</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmt_xdata</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:672,</span> in <span class="ni">_AxesBase.__init__</span><span class="nt">(self, fig, facecolor, frameon, sharex, sharey, label, xscale, yscale, box_aspect, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">669</span> <span class="c1"># placeholder for any colorbars added that use this Axes.</span>
+<span class="g g-Whitespace">    </span><span class="mi">670</span> <span class="c1"># (see colorbar.py):</span>
+<span class="g g-Whitespace">    </span><span class="mi">671</span> <span class="bp">self</span><span class="o">.</span><span class="n">_colorbars</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="ne">--&gt; </span><span class="mi">672</span> <span class="bp">self</span><span class="o">.</span><span class="n">spines</span> <span class="o">=</span> <span class="n">mspines</span><span class="o">.</span><span class="n">Spines</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_gen_axes_spines</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">674</span> <span class="c1"># this call may differ for non-sep axes, e.g., polar</span>
+<span class="g g-Whitespace">    </span><span class="mi">675</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_axis</span><span class="p">()</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:1395,</span> in <span class="ni">_AxesBase.clear</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1393</span>     <span class="bp">self</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1394</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1395</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__clear</span><span class="p">()</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:1221,</span> in <span class="ni">_AxesBase._gen_axes_spines</span><span class="nt">(self, locations, offset, units)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1206</span> <span class="k">def</span> <span class="nf">_gen_axes_spines</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;inches&#39;</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1207</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1208</span><span class="sd">     Returns</span>
+<span class="g g-Whitespace">   </span><span class="mi">1209</span><span class="sd">     -------</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1219</span><span class="sd">     Intended to be overridden by new projection types.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1220</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1221</span>     <span class="k">return</span> <span class="p">{</span><span class="n">side</span><span class="p">:</span> <span class="n">mspines</span><span class="o">.</span><span class="n">Spine</span><span class="o">.</span><span class="n">linear_spine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1222</span>             <span class="k">for</span> <span class="n">side</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">]}</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:1279,</span> in <span class="ni">_AxesBase.__clear</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1276</span> <span class="n">yaxis_visible</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">get_visible</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1278</span> <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axis_map</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-<span class="ne">-&gt; </span><span class="mi">1279</span>     <span class="n">axis</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>  <span class="c1"># Also resets the scale to linear.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1280</span> <span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-<span class="g g-Whitespace">   </span><span class="mi">1281</span>     <span class="n">spine</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:1221,</span> in <span class="ni">&lt;dictcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1206</span> <span class="k">def</span> <span class="nf">_gen_axes_spines</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;inches&#39;</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1207</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1208</span><span class="sd">     Returns</span>
+<span class="g g-Whitespace">   </span><span class="mi">1209</span><span class="sd">     -------</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1219</span><span class="sd">     Intended to be overridden by new projection types.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1220</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1221</span>     <span class="k">return</span> <span class="p">{</span><span class="n">side</span><span class="p">:</span> <span class="n">mspines</span><span class="o">.</span><span class="n">Spine</span><span class="o">.</span><span class="n">linear_spine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1222</span>             <span class="k">for</span> <span class="n">side</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">]}</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:879,</span> in <span class="ni">Axis.clear</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">875</span> <span class="bp">self</span><span class="o">.</span><span class="n">labelpad</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.labelpad&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">877</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init</span><span class="p">()</span>
-<span class="ne">--&gt; </span><span class="mi">879</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_scale</span><span class="p">(</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">881</span> <span class="c1"># Clear the callback registry for this axis, or it may &quot;leak&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">882</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span> <span class="o">=</span> <span class="n">cbook</span><span class="o">.</span><span class="n">CallbackRegistry</span><span class="p">(</span><span class="n">signals</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">])</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/spines.py:439,</span> in <span class="ni">Spine.linear_spine</span><span class="nt">(cls, axes, spine_type, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">437</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">438</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;unable to make path for spine &quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span> <span class="o">%</span> <span class="n">spine_type</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">439</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">spine_type</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">440</span> <span class="n">result</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.spines.</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">spine_type</span><span class="p">)])</span>
+<span class="g g-Whitespace">    </span><span class="mi">442</span> <span class="k">return</span> <span class="n">result</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:770,</span> in <span class="ni">Axis._set_scale</span><span class="nt">(self, value, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">768</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">769</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span> <span class="o">=</span> <span class="n">value</span>
-<span class="ne">--&gt; </span><span class="mi">770</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span><span class="o">.</span><span class="n">set_default_locators_and_formatters</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">772</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDefault_majloc</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="g g-Whitespace">    </span><span class="mi">773</span> <span class="bp">self</span><span class="o">.</span><span class="n">isDefault_minloc</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/spines.py:54,</span> in <span class="ni">Spine.__init__</span><span class="nt">(self, axes, spine_type, path, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="nd">@_docstring</span><span class="o">.</span><span class="n">dedent_interpd</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">spine_type</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span><span class="sd">     Parameters</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span><span class="sd">     ----------</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span><span class="sd">         %(Patch:kwdoc)s</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">54</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="bp">self</span><span class="o">.</span><span class="n">axes</span> <span class="o">=</span> <span class="n">axes</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="bp">self</span><span class="o">.</span><span class="n">set_figure</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">figure</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/scale.py:105,</span> in <span class="ni">LinearScale.set_default_locators_and_formatters</span><span class="nt">(self, axis)</span>
-<span class="g g-Whitespace">    </span><span class="mi">103</span> <span class="k">def</span> <span class="nf">set_default_locators_and_formatters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span>     <span class="c1"># docstring inherited</span>
-<span class="ne">--&gt; </span><span class="mi">105</span>     <span class="n">axis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">AutoLocator</span><span class="p">())</span>
-<span class="g g-Whitespace">    </span><span class="mi">106</span>     <span class="n">axis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">ScalarFormatter</span><span class="p">())</span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span>     <span class="n">axis</span><span class="o">.</span><span class="n">set_minor_formatter</span><span class="p">(</span><span class="n">NullFormatter</span><span class="p">())</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/_api/deprecation.py:454,</span> in <span class="ni">make_keyword_only.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">name_idx</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span>     <span class="n">warn_deprecated</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span>         <span class="n">since</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Passing the </span><span class="si">%(name)s</span><span class="s2"> </span><span class="si">%(obj_type)s</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span>         <span class="s2">&quot;positionally is deprecated since Matplotlib </span><span class="si">%(since)s</span><span class="s2">; the &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span>         <span class="s2">&quot;parameter will become keyword-only </span><span class="si">%(removal)s</span><span class="s2">.&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span>         <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">obj_type</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;parameter of </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">()&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">454</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/ticker.py:2900,</span> in <span class="ni">AutoLocator.__init__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2898</span>     <span class="n">nbins</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span>
-<span class="g g-Whitespace">   </span><span class="mi">2899</span>     <span class="n">steps</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
-<span class="ne">-&gt; </span><span class="mi">2900</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nbins</span><span class="o">=</span><span class="n">nbins</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">steps</span><span class="p">)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/patches.py:75,</span> in <span class="ni">Patch.__init__</span><span class="nt">(self, edgecolor, facecolor, color, linewidth, linestyle, antialiased, hatch, fill, capstyle, joinstyle, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span> <span class="k">if</span> <span class="n">joinstyle</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="n">joinstyle</span> <span class="o">=</span> <span class="n">JoinStyle</span><span class="o">.</span><span class="n">miter</span>
+<span class="ne">---&gt; </span><span class="mi">75</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hatch_color</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">to_rgba</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;hatch.color&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fill</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># needed for set_facecolor call</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span> <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/ticker.py:2008,</span> in <span class="ni">MaxNLocator.__init__</span><span class="nt">(self, nbins, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2006</span> <span class="k">if</span> <span class="n">nbins</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2007</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;nbins&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nbins</span>
-<span class="ne">-&gt; </span><span class="mi">2008</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">default_params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">})</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/colors.py:290,</span> in <span class="ni">to_rgba</span><span class="nt">(c, alpha)</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">267</span><span class="sd"> Convert *c* to an RGBA color.</span>
+<span class="g g-Whitespace">    </span><span class="mi">268</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">287</span><span class="sd">     alpha) can assume values between 0 and 1.</span>
+<span class="g g-Whitespace">    </span><span class="mi">288</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">289</span> <span class="c1"># Special-case nth color syntax because it should not be cached.</span>
+<span class="ne">--&gt; </span><span class="mi">290</span> <span class="k">if</span> <span class="n">_is_nth_color</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">291</span>     <span class="n">prop_cycler</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.prop_cycle&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">292</span>     <span class="n">colors</span> <span class="o">=</span> <span class="n">prop_cycler</span><span class="o">.</span><span class="n">by_key</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">])</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/ticker.py:2067,</span> in <span class="ni">MaxNLocator.set_params</span><span class="nt">(self, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2065</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_steps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
-<span class="g g-Whitespace">   </span><span class="mi">2066</span>     <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2067</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_steps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_steps</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2068</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_extended_steps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_staircase</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_steps</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2069</span> <span class="k">if</span> <span class="s1">&#39;integer&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/colors.py:215,</span> in <span class="ni">_is_nth_color</span><span class="nt">(c)</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span> <span class="k">def</span> <span class="nf">_is_nth_color</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return whether *c* can be interpreted as an item in the color cycle.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">215</span>     <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\AC[0-9]+\Z&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/ticker.py:2016,</span> in <span class="ni">MaxNLocator._validate_steps</span><span class="nt">(steps)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2013</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;steps argument must be an increasing sequence &#39;</span>
-<span class="g g-Whitespace">   </span><span class="mi">2014</span>                      <span class="s1">&#39;of numbers between 1 and 10 inclusive&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2015</span> <span class="n">steps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2016</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="n">steps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="ow">or</span> <span class="n">steps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2017</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;steps argument must be an increasing sequence &#39;</span>
-<span class="g g-Whitespace">   </span><span class="mi">2018</span>                      <span class="s1">&#39;of numbers between 1 and 10 inclusive&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2019</span> <span class="k">if</span> <span class="n">steps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/numpy/lib/function_base.py:1443,</span> in <span class="ni">diff</span><span class="nt">(a, n, axis, prepend, append)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1440</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">combined</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1441</span>     <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">combined</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1443</span> <span class="n">slice1</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="n">nd</span>
-<span class="g g-Whitespace">   </span><span class="mi">1444</span> <span class="n">slice2</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="n">nd</span>
-<span class="g g-Whitespace">   </span><span class="mi">1445</span> <span class="n">slice1</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/re.py:191,</span> in <span class="ni">match</span><span class="nt">(pattern, string, flags)</span>
+<span class="g g-Whitespace">    </span><span class="mi">188</span> <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">189</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Try to apply the pattern at the start of the string, returning</span>
+<span class="g g-Whitespace">    </span><span class="mi">190</span><span class="sd">     a Match object, or None if no match was found.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">191</span>     <span class="k">return</span> <span class="n">_compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
