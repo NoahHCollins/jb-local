@@ -547,7 +547,7 @@ document.write(`
 Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2671/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2659/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
   fig1=figure()
 </pre></div>
 </div>
@@ -584,92 +584,22 @@ Populating the interactive namespace from numpy and matplotlib
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1100: resid=0.000029
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">37</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span>          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%g</span><span class="s2">: resid=</span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">cnt</span><span class="p">,</span><span class="n">residave</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="n">fig1</span><span class="o">=</span><span class="n">figure</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">37</span>     <span class="n">imshow</span><span class="p">(</span><span class="n">Psi</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span><span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="c1">## Question 3</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="n">fx</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">imax</span><span class="p">,</span><span class="n">jmax</span><span class="p">))</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/pyplot.py:2695,</span> in <span class="ni">imshow</span><span class="nt">(X, cmap, norm, aspect, interpolation, alpha, vmin, vmax, origin, extent, interpolation_stage, filternorm, filterrad, resample, url, data, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2689</span> <span class="nd">@_copy_docstring_and_deprecators</span><span class="p">(</span><span class="n">Axes</span><span class="o">.</span><span class="n">imshow</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2690</span> <span class="k">def</span> <span class="nf">imshow</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2691</span>         <span class="n">X</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2692</span>         <span class="n">alpha</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2693</span>         <span class="n">interpolation_stage</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filternorm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">filterrad</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2694</span>         <span class="n">resample</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">2695</span>     <span class="n">__ret</span> <span class="o">=</span> <span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2696</span>         <span class="n">X</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="n">aspect</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2697</span>         <span class="n">interpolation</span><span class="o">=</span><span class="n">interpolation</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2698</span>         <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2699</span>         <span class="n">interpolation_stage</span><span class="o">=</span><span class="n">interpolation_stage</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2700</span>         <span class="n">filternorm</span><span class="o">=</span><span class="n">filternorm</span><span class="p">,</span> <span class="n">filterrad</span><span class="o">=</span><span class="n">filterrad</span><span class="p">,</span> <span class="n">resample</span><span class="o">=</span><span class="n">resample</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2701</span>         <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="p">({</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">}</span> <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">{}),</span>
-<span class="g g-Whitespace">   </span><span class="mi">2702</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2703</span>     <span class="n">sci</span><span class="p">(</span><span class="n">__ret</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2704</span>     <span class="k">return</span> <span class="n">__ret</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/__init__.py:1446,</span> in <span class="ni">_preprocess_data.&lt;locals&gt;.inner</span><span class="nt">(ax, data, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1443</span> <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1444</span> <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1445</span>     <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1446</span>         <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="n">sanitize_sequence</span><span class="p">,</span> <span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1448</span>     <span class="n">bound</span> <span class="o">=</span> <span class="n">new_sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1449</span>     <span class="n">auto_label</span> <span class="o">=</span> <span class="p">(</span><span class="n">bound</span><span class="o">.</span><span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1450</span>                   <span class="ow">or</span> <span class="n">bound</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">))</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_axes.py:5663,</span> in <span class="ni">Axes.imshow</span><span class="nt">(self, X, cmap, norm, aspect, interpolation, alpha, vmin, vmax, origin, extent, interpolation_stage, filternorm, filterrad, resample, url, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5655</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="n">aspect</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5656</span> <span class="n">im</span> <span class="o">=</span> <span class="n">mimage</span><span class="o">.</span><span class="n">AxesImage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">5657</span>                       <span class="n">interpolation</span><span class="o">=</span><span class="n">interpolation</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">5658</span>                       <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span> <span class="n">filternorm</span><span class="o">=</span><span class="n">filternorm</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">5659</span>                       <span class="n">filterrad</span><span class="o">=</span><span class="n">filterrad</span><span class="p">,</span> <span class="n">resample</span><span class="o">=</span><span class="n">resample</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">5660</span>                       <span class="n">interpolation_stage</span><span class="o">=</span><span class="n">interpolation_stage</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">5661</span>                       <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">5663</span> <span class="n">im</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5664</span> <span class="n">im</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5665</span> <span class="k">if</span> <span class="n">im</span><span class="o">.</span><span class="n">get_clip_path</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">5666</span>     <span class="c1"># image does not already have clipping set, clip to axes patch</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/image.py:697,</span> in <span class="ni">_ImageBase.set_data</span><span class="nt">(self, A)</span>
-<span class="g g-Whitespace">    </span><span class="mi">695</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">696</span>     <span class="n">A</span> <span class="o">=</span> <span class="n">pil_to_array</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>  <span class="c1"># Needed e.g. to apply png palette.</span>
-<span class="ne">--&gt; </span><span class="mi">697</span> <span class="bp">self</span><span class="o">.</span><span class="n">_A</span> <span class="o">=</span> <span class="n">cbook</span><span class="o">.</span><span class="n">safe_masked_invalid</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">699</span> <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span> <span class="ow">and</span>
-<span class="g g-Whitespace">    </span><span class="mi">700</span>         <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">can_cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;same_kind&quot;</span><span class="p">)):</span>
-<span class="g g-Whitespace">    </span><span class="mi">701</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Image data of dtype </span><span class="si">{}</span><span class="s2"> cannot be converted to &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">702</span>                     <span class="s2">&quot;float&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/cbook/__init__.py:721,</span> in <span class="ni">safe_masked_invalid</span><span class="nt">(x, copy)</span>
-<span class="g g-Whitespace">    </span><span class="mi">719</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">720</span>     <span class="n">xm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">721</span>     <span class="n">xm</span><span class="o">.</span><span class="n">shrink_mask</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">722</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">723</span>     <span class="k">return</span> <span class="n">x</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/numpy/ma/core.py:3684,</span> in <span class="ni">MaskedArray.shrink_mask</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3656</span> <span class="k">def</span> <span class="nf">shrink_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">3657</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">3658</span><span class="sd">     Reduce a mask to nomask when possible.</span>
-<span class="g g-Whitespace">   </span><span class="mi">3659</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3682</span><span class="sd"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">3683</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">3684</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_mask</span> <span class="o">=</span> <span class="n">_shrink_mask</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mask</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3685</span>     <span class="k">return</span> <span class="bp">self</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/numpy/ma/core.py:1549,</span> in <span class="ni">_shrink_mask</span><span class="nt">(m)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1545</span> <span class="k">def</span> <span class="nf">_shrink_mask</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1546</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1547</span><span class="sd">     Shrink a mask to nomask if possible</span>
-<span class="g g-Whitespace">   </span><span class="mi">1548</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1549</span>     <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">names</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">m</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-<span class="g g-Whitespace">   </span><span class="mi">1550</span>         <span class="k">return</span> <span class="n">nomask</span>
-<span class="g g-Whitespace">   </span><span class="mi">1551</span>     <span class="k">else</span><span class="p">:</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1200: resid=0.000019
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1300: resid=0.000013
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1400: resid=0.000008
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1500: resid=0.000005
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1600: resid=0.000004
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1700: resid=0.000002
 </pre></div>
 </div>
 </div>
