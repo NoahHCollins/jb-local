@@ -547,7 +547,7 @@ document.write(`
 Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2679/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2699/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
   fig1=figure()
 </pre></div>
 </div>
@@ -600,9 +600,6 @@ Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1700: resid=0.000002
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1800: resid=0.000002
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -725,29 +722,20 @@ Populating the interactive namespace from numpy and matplotlib
 <span class="g g-Whitespace">    </span><span class="mi">418</span>     <span class="c1"># x in data coords, y in axes coords</span>
 <span class="g g-Whitespace">    </span><span class="mi">419</span>     <span class="n">ax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:166,</span> in <span class="ni">Tick.__init__</span><span class="nt">(self, axes, loc, size, width, color, tickdir, pad, labelsize, labelcolor, zorder, gridOn, tick1On, tick2On, label1On, label2On, major, labelrotation, grid_color, grid_linestyle, grid_linewidth, grid_alpha, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">156</span> <span class="bp">self</span><span class="o">.</span><span class="n">tick1line</span> <span class="o">=</span> <span class="n">mlines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">157</span>     <span class="p">[],</span> <span class="p">[],</span>
-<span class="g g-Whitespace">    </span><span class="mi">158</span>     <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="n">zorder</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="n">tick1On</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">159</span>     <span class="n">markeredgecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">160</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">161</span> <span class="bp">self</span><span class="o">.</span><span class="n">tick2line</span> <span class="o">=</span> <span class="n">mlines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">162</span>     <span class="p">[],</span> <span class="p">[],</span>
-<span class="g g-Whitespace">    </span><span class="mi">163</span>     <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="n">zorder</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="n">tick2On</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">164</span>     <span class="n">markeredgecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">165</span> <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">166</span> <span class="bp">self</span><span class="o">.</span><span class="n">gridline</span> <span class="o">=</span> <span class="n">mlines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">167</span>     <span class="p">[],</span> <span class="p">[],</span>
-<span class="g g-Whitespace">    </span><span class="mi">168</span>     <span class="n">color</span><span class="o">=</span><span class="n">grid_color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">grid_alpha</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="n">gridOn</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">169</span>     <span class="n">linestyle</span><span class="o">=</span><span class="n">grid_linestyle</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">grid_linewidth</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">170</span>     <span class="o">**</span><span class="n">grid_kw</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">171</span> <span class="p">)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:178,</span> in <span class="ni">Tick.__init__</span><span class="nt">(self, axes, loc, size, width, color, tickdir, pad, labelsize, labelcolor, zorder, gridOn, tick1On, tick2On, label1On, label2On, major, labelrotation, grid_color, grid_linestyle, grid_linewidth, grid_alpha, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">172</span> <span class="bp">self</span><span class="o">.</span><span class="n">gridline</span><span class="o">.</span><span class="n">get_path</span><span class="p">()</span><span class="o">.</span><span class="n">_interpolation_steps</span> <span class="o">=</span> \
 <span class="g g-Whitespace">    </span><span class="mi">173</span>     <span class="n">GRIDLINE_INTERPOLATION_STEPS</span>
 <span class="g g-Whitespace">    </span><span class="mi">174</span> <span class="bp">self</span><span class="o">.</span><span class="n">label1</span> <span class="o">=</span> <span class="n">mtext</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span>
 <span class="g g-Whitespace">    </span><span class="mi">175</span>     <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
 <span class="g g-Whitespace">    </span><span class="mi">176</span>     <span class="n">fontsize</span><span class="o">=</span><span class="n">labelsize</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">labelcolor</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="n">label1On</span><span class="p">,</span>
 <span class="g g-Whitespace">    </span><span class="mi">177</span>     <span class="n">rotation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_labelrotation</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="ne">--&gt; </span><span class="mi">178</span> <span class="bp">self</span><span class="o">.</span><span class="n">label2</span> <span class="o">=</span> <span class="n">mtext</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">179</span>     <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">180</span>     <span class="n">fontsize</span><span class="o">=</span><span class="n">labelsize</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">labelcolor</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="n">label2On</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">181</span>     <span class="n">rotation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_labelrotation</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">183</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply_tickdir</span><span class="p">(</span><span class="n">tickdir</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">185</span> <span class="k">for</span> <span class="n">artist</span> <span class="ow">in</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">tick1line</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tick2line</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gridline</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span>                <span class="bp">self</span><span class="o">.</span><span class="n">label1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">label2</span><span class="p">]:</span>
 
 <span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/_api/deprecation.py:454,</span> in <span class="ni">make_keyword_only.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">448</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">name_idx</span><span class="p">:</span>
@@ -758,28 +746,65 @@ Populating the interactive namespace from numpy and matplotlib
 <span class="g g-Whitespace">    </span><span class="mi">453</span>         <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">obj_type</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;parameter of </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">()&quot;</span><span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">454</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/lines.py:310,</span> in <span class="ni">Line2D.__init__</span><span class="nt">(self, xdata, ydata, linewidth, linestyle, color, gapcolor, marker, markersize, markeredgewidth, markeredgecolor, markerfacecolor, markerfacecoloralt, fillstyle, antialiased, dash_capstyle, solid_capstyle, dash_joinstyle, solid_joinstyle, pickradius, drawstyle, markevery, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">274</span> <span class="nd">@_api</span><span class="o">.</span><span class="n">make_keyword_only</span><span class="p">(</span><span class="s2">&quot;3.6&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;linewidth&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">275</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">276</span>              <span class="n">linewidth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1"># all Nones default to rc</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/text.py:183,</span> in <span class="ni">Text.__init__</span><span class="nt">(self, x, y, text, color, verticalalignment, horizontalalignment, multialignment, fontproperties, rotation, linespacing, rotation_mode, usetex, wrap, transform_rotates_text, parse_math, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">167</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">168</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reset_visual_defaults</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">169</span>     <span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">170</span>     <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
    <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">295</span>              <span class="o">**</span><span class="n">kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">296</span>              <span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">297</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">298</span><span class="sd">     Create a `.Line2D` instance with *x* and *y* data in sequences of</span>
-<span class="g g-Whitespace">    </span><span class="mi">299</span><span class="sd">     *xdata*, *ydata*.</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">308</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">309</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">310</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">312</span>     <span class="c1"># Convert sequences to NumPy arrays.</span>
-<span class="g g-Whitespace">    </span><span class="mi">313</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">iterable</span><span class="p">(</span><span class="n">xdata</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">181</span>     <span class="n">rotation_mode</span><span class="o">=</span><span class="n">rotation_mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">182</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">183</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/artist.py:213,</span> in <span class="ni">Artist.__init__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">211</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sketch</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;path.sketch&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path_effects</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;path.effects&#39;</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">213</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sticky_edges</span> <span class="o">=</span> <span class="n">_XYPair</span><span class="p">([],</span> <span class="p">[])</span>
-<span class="g g-Whitespace">    </span><span class="mi">214</span> <span class="bp">self</span><span class="o">.</span><span class="n">_in_layout</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/text.py:231,</span> in <span class="ni">Text.update</span><span class="nt">(self, kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">229</span> <span class="c1"># Update bbox last, as it depends on font properties.</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span> <span class="n">bbox</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;bbox&quot;</span><span class="p">,</span> <span class="n">sentinel</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">231</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">232</span> <span class="k">if</span> <span class="n">bbox</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">sentinel</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">233</span>     <span class="bp">self</span><span class="o">.</span><span class="n">set_bbox</span><span class="p">(</span><span class="n">bbox</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/artist.py:1213,</span> in <span class="ni">Artist.update</span><span class="nt">(self, props)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1205</span> <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">props</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1206</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1207</span><span class="sd">     Update this artist&#39;s properties from the dict *props*.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1208</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1211</span><span class="sd">     props : dict</span>
+<span class="g g-Whitespace">   </span><span class="mi">1212</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1213</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_props</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1214</span>         <span class="n">props</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{cls.__name__!r}</span><span class="s2"> object has no property </span><span class="si">{prop_name!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/artist.py:1188,</span> in <span class="ni">Artist._update_props</span><span class="nt">(self, props, errfmt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1181</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span><span class="sd"> Helper for `.Artist.set` and `.Artist.update`.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1183</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1184</span><span class="sd"> *errfmt* is used to generate error messages for invalid property</span>
+<span class="g g-Whitespace">   </span><span class="mi">1185</span><span class="sd"> names; it gets formatted with ``type(self)`` and the property name.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1186</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1187</span> <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="ne">-&gt; </span><span class="mi">1188</span> <span class="k">with</span> <span class="n">cbook</span><span class="o">.</span><span class="n">_setattr_cm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eventson</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1189</span>     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">props</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="g g-Whitespace">   </span><span class="mi">1190</span>         <span class="c1"># Allow attributes we want to be able to update through</span>
+<span class="g g-Whitespace">   </span><span class="mi">1191</span>         <span class="c1"># art.update, art.set, setp.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1192</span>         <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s2">&quot;axes&quot;</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/contextlib.py:119,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">117</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">119</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;generator didn&#39;t yield&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/cbook/__init__.py:2008,</span> in <span class="ni">_setattr_cm</span><span class="nt">(obj, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2006</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2007</span>     <span class="n">orig</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">sentinel</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2008</span>     <span class="k">if</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__dict__</span> <span class="ow">or</span> <span class="n">orig</span> <span class="ow">is</span> <span class="n">sentinel</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2009</span>         <span class="c1"># if we are pulling from the instance dict or the object</span>
+<span class="g g-Whitespace">   </span><span class="mi">2010</span>         <span class="c1"># does not have this attribute we can trust the above</span>
+<span class="g g-Whitespace">   </span><span class="mi">2011</span>         <span class="n">origs</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span> <span class="o">=</span> <span class="n">orig</span>
+<span class="g g-Whitespace">   </span><span class="mi">2012</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2013</span>         <span class="c1"># if the attribute is not in the instance dict it must be</span>
+<span class="g g-Whitespace">   </span><span class="mi">2014</span>         <span class="c1"># from the class level</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>

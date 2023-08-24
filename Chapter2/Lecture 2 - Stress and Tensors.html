@@ -677,9 +677,20 @@ where <span class="math notranslate nohighlight">\(n\)</span> is the dimension o
 <p>Assuming static equilibrium, we can take a moment balance in the <span class="math notranslate nohighlight">\(x_3\)</span> direction. This gives:</p>
 <div class="math notranslate nohighlight">
 \[
-m_3 = [\sigma_{12} + (\sigma_{12} + \Delta x_1 \frac{\partial \sigma_{12}}{\partial x_1})] \Delta x_2 \Delta x_3 \cdot \frac{\Delta x_1}{2} - [\sigma_{21} + (\sigma_{21} + \Delta x_2 \frac{\partial \sigma_{21}}{\partial x_2})] \Delta x_1 \Delta x_3 \cdot \frac{\Delta x_2}{2}
+m_3 = [\sigma_{12} + (\sigma_{12} + \Delta x_1 \frac{\partial \sigma_{12}}{\partial x_1})] \Delta x_2 \Delta x_3 \cdot \frac{\Delta x_1}{2}
 \]</div>
-<p><span class="math notranslate nohighlight">\( \hspace{7.2cm} \color{blue}{\text{stress couple 1}} \hspace{1.1cm} \color{blue}{\text{area 1}} \hspace{0.4cm} \color{blue}{\text{arm 1}} \hspace{1.4cm} \color{red}{\text{stress couple 2}} \hspace{0.8cm}  \color{red}{\text{area 2}} \hspace{0.6cm} \color{red}{\text{arm 2}} \)</span></p>
+<div class="math notranslate nohighlight">
+\[
+\hspace{1.5cm} \color{blue}{\text{stress couple 1} \hspace{1.4cm} \text{area 1} \hspace{0.4cm} \text{arm 1}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+- [\sigma_{21} + (\sigma_{21} + \Delta x_2 \frac{\partial \sigma_{21}}{\partial x_2})] \Delta x_1 \Delta x_3 \cdot \frac{\Delta x_2}{2} = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\hspace{1.2cm} \color{red}{\text{stress couple 2} \hspace{0.5cm} \text{area 2} \hspace{0.4cm} \text{arm 2}}
+\]</div>
 <div class="math notranslate nohighlight">
 \[
 \Rightarrow [2\sigma_{12} + \Delta x_1 \frac{\partial \sigma_{12}}{\partial x_1}] - [2\sigma_{21} + \Delta x_2 \frac{\partial \sigma_{21}}{\partial x_2}] = 0
@@ -698,6 +709,7 @@ m_3 = [\sigma_{12} + (\sigma_{12} + \Delta x_1 \frac{\partial \sigma_{12}}{\part
 \mathbf{t = \sigma^{T} \cdot \hat{n} \Rightarrow t = \sigma \cdot \hat{n}} 
 \]</div>
 <p>Thus, the stress tensor is <strong>symmetric</strong>.</p>
+<p>Now try <a class="reference internal" href="exercises2.html"><span class="doc std std-doc">Exercises 1 &amp; 2</span></a></p>
 </section>
 </section>
 <section id="transformations-of-tensors-a-name-transformations-a">
