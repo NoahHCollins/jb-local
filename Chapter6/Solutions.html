@@ -547,7 +547,7 @@ document.write(`
 Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2719/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2688/2075778828.py:36: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
   fig1=figure()
 </pre></div>
 </div>
@@ -585,18 +585,6 @@ Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1200: resid=0.000019
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1300: resid=0.000013
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1400: resid=0.000008
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1500: resid=0.000005
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1600: resid=0.000004
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -649,35 +637,39 @@ Populating the interactive namespace from numpy and matplotlib
 <span class="g g-Whitespace">    </span><span class="mi">769</span>     <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">projection_class</span><span class="p">,</span> <span class="n">pkw</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">770</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_axes_internal</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:719,</span> in <span class="ni">_AxesBase.__init__</span><span class="nt">(self, fig, facecolor, frameon, sharex, sharey, label, xscale, yscale, box_aspect, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">703</span> <span class="n">rcParams</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span>
-<span class="g g-Whitespace">    </span><span class="mi">704</span> <span class="bp">self</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span>     <span class="n">top</span><span class="o">=</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.top&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.minor.top&#39;</span><span class="p">],</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span>     <span class="n">bottom</span><span class="o">=</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.bottom&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.minor.bottom&#39;</span><span class="p">],</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">716</span>                 <span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.minor.right&#39;</span><span class="p">]),</span>
-<span class="g g-Whitespace">    </span><span class="mi">717</span>     <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">719</span> <span class="bp">self</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">720</span>     <span class="n">top</span><span class="o">=</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.top&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.major.top&#39;</span><span class="p">],</span>
-<span class="g g-Whitespace">    </span><span class="mi">721</span>     <span class="n">bottom</span><span class="o">=</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.bottom&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.major.bottom&#39;</span><span class="p">],</span>
-<span class="g g-Whitespace">    </span><span class="mi">722</span>     <span class="n">labeltop</span><span class="o">=</span><span class="p">(</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.labeltop&#39;</span><span class="p">]</span> <span class="ow">and</span>
-<span class="g g-Whitespace">    </span><span class="mi">723</span>               <span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.major.top&#39;</span><span class="p">]),</span>
-<span class="g g-Whitespace">    </span><span class="mi">724</span>     <span class="n">labelbottom</span><span class="o">=</span><span class="p">(</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.labelbottom&#39;</span><span class="p">]</span> <span class="ow">and</span>
-<span class="g g-Whitespace">    </span><span class="mi">725</span>                  <span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.major.bottom&#39;</span><span class="p">]),</span>
-<span class="g g-Whitespace">    </span><span class="mi">726</span>     <span class="n">left</span><span class="o">=</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.left&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.major.left&#39;</span><span class="p">],</span>
-<span class="g g-Whitespace">    </span><span class="mi">727</span>     <span class="n">right</span><span class="o">=</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.right&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.major.right&#39;</span><span class="p">],</span>
-<span class="g g-Whitespace">    </span><span class="mi">728</span>     <span class="n">labelleft</span><span class="o">=</span><span class="p">(</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.labelleft&#39;</span><span class="p">]</span> <span class="ow">and</span>
-<span class="g g-Whitespace">    </span><span class="mi">729</span>                <span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.major.left&#39;</span><span class="p">]),</span>
-<span class="g g-Whitespace">    </span><span class="mi">730</span>     <span class="n">labelright</span><span class="o">=</span><span class="p">(</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.labelright&#39;</span><span class="p">]</span> <span class="ow">and</span>
-<span class="g g-Whitespace">    </span><span class="mi">731</span>                 <span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.major.right&#39;</span><span class="p">]),</span>
-<span class="g g-Whitespace">    </span><span class="mi">732</span>     <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:683,</span> in <span class="ni">_AxesBase.__init__</span><span class="nt">(self, fig, facecolor, frameon, sharex, sharey, label, xscale, yscale, box_aspect, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">680</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.axisbelow&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">682</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rasterization_zorder</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">--&gt; </span><span class="mi">683</span> <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span> <span class="c1"># funcs used to format x and y - fall back on major formatters</span>
+<span class="g g-Whitespace">    </span><span class="mi">686</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmt_xdata</span> <span class="o">=</span> <span class="kc">None</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:3385,</span> in <span class="ni">_AxesBase.tick_params</span><span class="nt">(self, axis, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3383</span>     <span class="n">xkw</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;labelleft&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3384</span>     <span class="n">xkw</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;labelright&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3385</span>     <span class="bp">self</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="o">**</span><span class="n">xkw</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3386</span> <span class="k">if</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">]:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3387</span>     <span class="n">ykw</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:1395,</span> in <span class="ni">_AxesBase.clear</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1393</span>     <span class="bp">self</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1394</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1395</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__clear</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:1312,</span> in <span class="ni">_AxesBase.__clear</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1309</span> <span class="bp">self</span><span class="o">.</span><span class="n">legend_</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1310</span> <span class="bp">self</span><span class="o">.</span><span class="n">containers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="ne">-&gt; </span><span class="mi">1312</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># Disable grid on init to use rcParameter</span>
+<span class="g g-Whitespace">   </span><span class="mi">1313</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_gridOn</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.grid.which&#39;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1314</span>           <span class="n">axis</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.grid.axis&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">   </span><span class="mi">1315</span> <span class="n">props</span> <span class="o">=</span> <span class="n">font_manager</span><span class="o">.</span><span class="n">FontProperties</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1316</span>     <span class="n">size</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.titlesize&#39;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1317</span>     <span class="n">weight</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.titleweight&#39;</span><span class="p">])</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axes/_base.py:3196,</span> in <span class="ni">_AxesBase.grid</span><span class="nt">(self, visible, which, axis, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3194</span>     <span class="bp">self</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">visible</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="n">which</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3195</span> <span class="k">if</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">]:</span>
+<span class="ne">-&gt; </span><span class="mi">3196</span>     <span class="bp">self</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">visible</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="n">which</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:1660,</span> in <span class="ni">Axis.grid</span><span class="nt">(self, visible, which, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1657</span> <span class="k">if</span> <span class="n">which</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">]:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1658</span>     <span class="n">gridkw</span><span class="p">[</span><span class="s1">&#39;gridOn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_major_tick_kw</span><span class="p">[</span><span class="s1">&#39;gridOn&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1659</span>                         <span class="k">if</span> <span class="n">visible</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">visible</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1660</span>     <span class="bp">self</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">gridkw</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1661</span> <span class="bp">self</span><span class="o">.</span><span class="n">stale</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:948,</span> in <span class="ni">Axis.set_tick_params</span><span class="nt">(self, which, reset, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">946</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_major_tick_kw</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwtrans</span><span class="p">)</span>
@@ -686,14 +678,12 @@ Populating the interactive namespace from numpy and matplotlib
 <span class="g g-Whitespace">    </span><span class="mi">949</span> <span class="k">if</span> <span class="n">which</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">]:</span>
 <span class="g g-Whitespace">    </span><span class="mi">950</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_minor_tick_kw</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwtrans</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:392,</span> in <span class="ni">Tick._apply_params</span><span class="nt">(self, **kwargs)</span>
-<span class="nn">    389 label_kw = {k[5:]: v for k, v</span> in <span class="ni">kwargs.items</span><span class="nt">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">390</span>             <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;labelsize&#39;</span><span class="p">,</span> <span class="s1">&#39;labelcolor&#39;</span><span class="p">]}</span>
-<span class="g g-Whitespace">    </span><span class="mi">391</span> <span class="bp">self</span><span class="o">.</span><span class="n">label1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">**</span><span class="n">label_kw</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">392</span> <span class="bp">self</span><span class="o">.</span><span class="n">label2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">**</span><span class="n">label_kw</span><span class="p">)</span>
-<span class="nn">    394 grid_kw = {k[5:]: v for k, v</span> in <span class="ni">kwargs.items</span><span class="nt">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">395</span>            <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">_gridline_param_names</span><span class="p">}</span>
-<span class="g g-Whitespace">    </span><span class="mi">396</span> <span class="bp">self</span><span class="o">.</span><span class="n">gridline</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">**</span><span class="n">grid_kw</span><span class="p">)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/axis.py:379,</span> in <span class="ni">Tick._apply_params</span><span class="nt">(self, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">377</span> <span class="k">if</span> <span class="s1">&#39;color&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">378</span>     <span class="n">tick_kw</span><span class="p">[</span><span class="s1">&#39;markeredgecolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">379</span> <span class="bp">self</span><span class="o">.</span><span class="n">tick1line</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">**</span><span class="n">tick_kw</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">380</span> <span class="bp">self</span><span class="o">.</span><span class="n">tick2line</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">**</span><span class="n">tick_kw</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">381</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">tick_kw</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 
 <span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/artist.py:147,</span> in <span class="ni">Artist.__init_subclass__.&lt;locals&gt;.&lt;lambda&gt;</span><span class="nt">(self, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">139</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">set</span><span class="p">,</span> <span class="s1">&#39;_autogenerated_signature&#39;</span><span class="p">):</span>
@@ -740,18 +730,21 @@ Populating the interactive namespace from numpy and matplotlib
 <span class="g g-Whitespace">   </span><span class="mi">1191</span>         <span class="c1"># art.update, art.set, setp.</span>
 <span class="g g-Whitespace">   </span><span class="mi">1192</span>         <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s2">&quot;axes&quot;</span><span class="p">:</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/contextlib.py:114,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span> <span class="k">class</span> <span class="nc">_GeneratorContextManager</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">108</span>     <span class="n">_GeneratorContextManagerBase</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">109</span>     <span class="n">AbstractContextManager</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">110</span>     <span class="n">ContextDecorator</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">111</span> <span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">112</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Helper for @contextmanager decorator.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">114</span>     <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">115</span>         <span class="c1"># do not keep args and kwds alive unnecessarily</span>
-<span class="g g-Whitespace">    </span><span class="mi">116</span>         <span class="c1"># they are only needed for recreation, which is not possible anymore</span>
-<span class="g g-Whitespace">    </span><span class="mi">117</span>         <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
-<span class="g g-Whitespace">    </span><span class="mi">118</span>         <span class="k">try</span><span class="p">:</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/contextlib.py:119,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">117</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">119</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;generator didn&#39;t yield&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/matplotlib/cbook/__init__.py:2007,</span> in <span class="ni">_setattr_cm</span><span class="nt">(obj, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2005</span> <span class="n">origs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="g g-Whitespace">   </span><span class="mi">2006</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2007</span>     <span class="n">orig</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">sentinel</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2008</span>     <span class="k">if</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__dict__</span> <span class="ow">or</span> <span class="n">orig</span> <span class="ow">is</span> <span class="n">sentinel</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2009</span>         <span class="c1"># if we are pulling from the instance dict or the object</span>
+<span class="g g-Whitespace">   </span><span class="mi">2010</span>         <span class="c1"># does not have this attribute we can trust the above</span>
+<span class="g g-Whitespace">   </span><span class="mi">2011</span>         <span class="n">origs</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span> <span class="o">=</span> <span class="n">orig</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
