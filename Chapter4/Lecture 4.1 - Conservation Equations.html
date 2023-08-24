@@ -591,17 +591,17 @@ unit: <span class="math notranslate nohighlight">\(W/m/K\)</span></p></li>
 </section>
 <section id="d-energy-equation">
 <h3><a class="toc-backref" href="#id9" role="doc-backlink">2-D Energy Equation</a><a class="headerlink" href="#d-energy-equation" title="Permalink to this heading">#</a></h3>
-<p><em>Spatial, constant r, CP, k, incompressible, no heat sources</em></p>
+<p><em>Spatial, constant <span class="math notranslate nohighlight">\(\mathit{\rho}\)</span>, <span class="math notranslate nohighlight">\(\mathit{C_P}\)</span>, k, incompressible, no heat sources</em></p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/control_vol.PNG"><img alt="../_images/control_vol.PNG" src="../_images/control_vol.PNG" style="width: 75%;" /></a>
 </figure>
 <ul class="simple">
-<li><p>Change in heat content:</p></li>
+<li><p><strong>Change in heat content:</strong></p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\frac{\partial(\rho C_p T)}{\partial t}\delta x \delta y\]</div>
 <ul class="simple">
-<li><p>Advection:</p></li>
+<li><p><strong>Advection:</strong></p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[ \left[ \frac{\partial(\rho C_p u T)}{\partial x} + \frac{\partial(\rho C_p u T)}{\partial y} \right] \delta x \delta y\]</div>
@@ -609,7 +609,7 @@ unit: <span class="math notranslate nohighlight">\(W/m/K\)</span></p></li>
 <div class="math notranslate nohighlight">
 \[ \rho C_P \left[ u \frac{\partial T}{\partial x} + v \frac{\partial T}{\partial y} \right] \delta x \delta y\]</div>
 <ul class="simple">
-<li><p>Conduction:</p></li>
+<li><p><strong>Conduction:</strong></p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[ -k \left( \frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2}\right) \delta x \delta y \]</div>
@@ -622,20 +622,20 @@ unit: <span class="math notranslate nohighlight">\(W/m/K\)</span></p></li>
 <section id="energy-equation">
 <h3><a class="toc-backref" href="#id10" role="doc-backlink">Energy Equation</a><a class="headerlink" href="#energy-equation" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Material derivative internal heat</p></li>
+<li><p><strong>Material derivative internal heat</strong></p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[ \rho C_P \left[\frac{\partial T}{\partial t} + \mathbf{u} \cdot \nabla T \right] = \rho C_P \frac{DT}{Dt} \Rightarrow \frac{D(\rho C_P T)}{Dt} \]</div>
 <p>Allowing for spatial variations of material parameters</p>
 <ul class="simple">
-<li><p>Heat input</p></li>
+<li><p><strong>Heat input</strong></p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[ k \nabla^2 T \Rightarrow \nabla \cdot k \nabla T + A \]</div>
 <p><span class="math notranslate nohighlight">\(\nabla \cdot k \nabla T\)</span> - Conduction,<br />
 <span class="math notranslate nohighlight">\(A\)</span> - Internal heat production</p>
 <ul class="simple">
-<li><p>Work done</p></li>
+<li><p><strong>Work done</strong></p></li>
 </ul>
 <p>Change in <em>motion</em> (kinetic energy) and <em>internal deformation</em></p>
 <p>Net effect of <span class="math notranslate nohighlight">\(W - \frac{DK}{Dt}\)</span> becomes <span class="math notranslate nohighlight">\(\mathbf{\sigma : D}\)</span>, where <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> is strain rate</p>
