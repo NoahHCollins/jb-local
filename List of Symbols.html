@@ -1,0 +1,743 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>List of Symbols &#8212; Modelling and Numerical Methods</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'List of Symbols';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Intro to Vector/Tensor Calculus" href="Chapter1/intro.html" />
+    <link rel="prev" title="Modelling and Numerical Methods" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Modelling and Numerical Methods
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">List of Symbols</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 1 - Analytical Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter1/intro.html">1. Intro to Vector/Tensor Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Chapter1/Lecture%201.1%20-%20Intro%20to%20Vectors.html">1.1 Continuum Mechanics and Vector Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter1/Lecture%201.2%20-%20Vector%20Transformations.html">1.2 Vector Transformations  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter1/Lecture%201.3%20-%20Intro%20to%20Tensors.html">1.3 Intro to Tensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter1/exercises.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter1/solutions.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter2/intro.html">2 Stress and Tensors</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Chapter2/Lecture%202%20-%20Stress%20and%20Tensors.html">2.1 Stress and Tensors  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter2/exercises2.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter2/solutions2.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter3/intro.html">3. Kinematics and Strain</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Chapter3/Lecture%203%20-%20Kinematics.html">3.1 Kinematics   <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter3/exercises3.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter3/solutions3.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter4/intro.html">4 Conservation Equations</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Chapter4/Lecture%204.1%20-%20Conservation%20Equations.html">4.1 Conservation Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter4/Lecture%204.2%20-%20Rheology.html">4.2 Rheology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter4/exercises4.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter4/solutions4.html">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter5/intro.html">5. Dimensional Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Chapter5/Lecture%205%20-%20Dimensions%20and%20Dimensional%20Analysis.html">5.1 Dimensions and Dimensional Analysis  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter5/Worksheet.html">Worksheet  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter5/Solutions.html">Solutions  <a class="tocSkip"></a></a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2 - Numerical Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter6/intro.html">6 Potential Flow</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Chapter6/Lecture%206%20-%20Potential%20Flow.html">6.1 Potential Flow  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter6/Worksheet.html">Worksheet  <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter6/Solutions.html">Solutions  <a class="tocSkip"></a></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter7/intro.html">7. Navier-Stokes</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Chapter7/Lecture%207.1%20-%20Navier-Stokes.html">7.1 Solving Navier-Stokes Numerically</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter7/Worksheet.html">Worksheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter7/SolversIntro.html">Solvers</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter8/intro.html">8 Turbulence and Non-Newtonian Flows</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Chapter8/Lecture%208.1%20-%20Turbulent%20and%20Non-Newtonian%20Flows.html">8.1 Turbulent and Non-Newtonian Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter8/Worksheet.html">Worksheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter8/Solutions.html">Solutions</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 3 - Numerical Techniques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter9/intro.html">9. Interpolation Quadrature 2</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Chapter9/Lecture%209.1%20-%20interpolation%20quadrature.html">9.1 Interpolation &amp; Quadrature 2 <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter9/Homework.html">Homework <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter9/Solutions.html">Solutions <a class="tocSkip"></a></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter10/intro.html">10 ODE Solvers 2</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Chapter10/Lecture%2010.1%20-%20ODE%20Solver.html">10.1 ODE solvers 2 <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter10/Homework.html">Homework <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter10/Solutions.html">Solutions <a class="tocSkip"></a></a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter11/intro.html">11. PDE Solvers: Finite Difference Methods 2</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Chapter11/Lecture%2011%20-%20PDE%20Solvers%20-%20Finite%20Difference%20Methods%202.html">11.1 PDE Solvers: Finite Difference Methods 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter11/Homework.html">Homework <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter11/Solutions.html">Solutions <a class="tocSkip"></a></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter12/intro.html">12 Finite Element Methods</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Chapter12/Lecture%2012.1%20-%20FEM.html">12.1 Finite Element Methods <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter12/Homework.html">Homework <a class="tocSkip"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter12/Solutions.html">Solutions <a class="tocSkip"></a></a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FList of Symbols.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/List of Symbols.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>List of Symbols</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general">General</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-vector-tensor-calculus">Intro to Vector/Tensor Calculus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stress-and-tensors">Stress and Tensors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinematics">Kinematics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-equations">Conservation Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensional-analysis">Dimensional Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-flow">Potential Flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navier-stokes">Navier-Stokes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turbulent-and-non-newtonian-flows">Turbulent and Non-Newtonian Flows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation-quadrature">Interpolation Quadrature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ode-solvers">ODE Solvers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pde-solvers">PDE Solvers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-element-methods">Finite Element Methods</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="list-of-symbols">
+<h1>List of Symbols<a class="headerlink" href="#list-of-symbols" title="Permalink to this heading">#</a></h1>
+<p>This page contains a list of symbols used in all the following chapters</p>
+<section id="general">
+<h2>General<a class="headerlink" href="#general" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(\rho\)</span> - Density <span class="math notranslate nohighlight">\(kg/m^3\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mu\)</span> - Viscosity <span class="math notranslate nohighlight">\(N s/m\)</span></p>
+<p><span class="math notranslate nohighlight">\(\nu\)</span> - Kinematic viscosity <span class="math notranslate nohighlight">\(J s / kg\)</span></p>
+<p><span class="math notranslate nohighlight">\(M\)</span> - Mass  <span class="math notranslate nohighlight">\(kg\)</span></p>
+<p><span class="math notranslate nohighlight">\(L\)</span> - Length  <span class="math notranslate nohighlight">\(m\)</span></p>
+<p><span class="math notranslate nohighlight">\(T\)</span> - Time  <span class="math notranslate nohighlight">\(s\)</span></p>
+<p><span class="math notranslate nohighlight">\(T\)</span> - Temperature <span class="math notranslate nohighlight">\(K\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathbf{v}\)</span> - Velocity  <span class="math notranslate nohighlight">\(m/s\)</span></p>
+</section>
+<section id="intro-to-vector-tensor-calculus">
+<h2>Intro to Vector/Tensor Calculus<a class="headerlink" href="#intro-to-vector-tensor-calculus" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(\nabla\)</span> - Del Operator/Gradient</p>
+<p><span class="math notranslate nohighlight">\(\nabla \cdot \mathbf{v}\)</span> - Divergence of vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\nabla \times \mathbf{v}\)</span> - Curl of vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathbf{T}\)</span> - Tensor</p>
+<p><span class="math notranslate nohighlight">\(\bar{\bar{\mathbf{T}}}\)</span> or <span class="math notranslate nohighlight">\(\underline{\underline{\mathbf{T}}}\)</span>  - second order Tensor</p>
+<p><span class="math notranslate nohighlight">\(\delta_{ij}\)</span> - Kronecker delta</p>
+<p><span class="math notranslate nohighlight">\(\epsilon_{ijk}\)</span> - Permutation symbol</p>
+</section>
+<section id="stress-and-tensors">
+<h2>Stress and Tensors<a class="headerlink" href="#stress-and-tensors" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(\sigma\)</span> - Stress <span class="math notranslate nohighlight">\(N/m^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(\epsilon\)</span> - Strain</p>
+<p><span class="math notranslate nohighlight">\(\sigma'_{ij}\)</span> - Deviatoric stress <span class="math notranslate nohighlight">\(N/m^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(g\)</span> - Acceleration due to gravity <span class="math notranslate nohighlight">\(m/s^2\)</span></p>
+</section>
+<section id="kinematics">
+<h2>Kinematics<a class="headerlink" href="#kinematics" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(\mathbf{a}\)</span> - Acceleration <span class="math notranslate nohighlight">\(m/s^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(v\)</span> or <span class="math notranslate nohighlight">\(v'\)</span> - Velocity/Velocity Field <span class="math notranslate nohighlight">\(m/s\)</span></p>
+<p><span class="math notranslate nohighlight">\(x'\)</span> - Displacement path lines <span class="math notranslate nohighlight">\(m\)</span></p>
+<p><span class="math notranslate nohighlight">\(u\)</span> or <span class="math notranslate nohighlight">\(u'\)</span> - Displacement field <span class="math notranslate nohighlight">\(m\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathbf{R(t)}\)</span> - Rotation tensor</p>
+<p><span class="math notranslate nohighlight">\(\omega\)</span> - Rigid body rotation</p>
+<p><span class="math notranslate nohighlight">\(\varepsilon\)</span> - Internal deformation/strain</p>
+</section>
+<section id="conservation-equations">
+<h2>Conservation Equations<a class="headerlink" href="#conservation-equations" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(K\)</span> - Kinetic energy <span class="math notranslate nohighlight">\(J\)</span></p>
+<p><span class="math notranslate nohighlight">\(U\)</span> - Internal energy <span class="math notranslate nohighlight">\(J\)</span></p>
+<p><span class="math notranslate nohighlight">\(W\)</span> - Power input <span class="math notranslate nohighlight">\(J/s\)</span></p>
+<p><span class="math notranslate nohighlight">\(Q\)</span> - Heat input <span class="math notranslate nohighlight">\(J\)</span></p>
+<p><span class="math notranslate nohighlight">\(q\)</span> - Heat flux or Heat per unit area <span class="math notranslate nohighlight">\(W/m^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(k\)</span> - Thermal conductivity <span class="math notranslate nohighlight">\(W\)</span></p>
+<p><span class="math notranslate nohighlight">\(H\)</span> - Heat production per unit mass</p>
+<p><span class="math notranslate nohighlight">\(A\)</span> Heat production per unit volume/Internal heat production $W/m^3</p>
+<p><span class="math notranslate nohighlight">\(C_P\)</span> - Heat capacity <span class="math notranslate nohighlight">\(J/kg K\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathbf{D}\)</span> - Strain rate <span class="math notranslate nohighlight">\(s^-1\)</span></p>
+<p><span class="math notranslate nohighlight">\(\lambda\)</span> and <span class="math notranslate nohighlight">\(\mu\)</span> - Lame constants <span class="math notranslate nohighlight">\(N/mm^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathbf{K}\)</span> - Bulk modulus <span class="math notranslate nohighlight">\(N/m^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathbf{G}\)</span> - Shear modulus <span class="math notranslate nohighlight">\(N/m^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathbf{E}\)</span> - Youngs modulus <span class="math notranslate nohighlight">\(N/m^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(v\)</span> - Poisson’s ratio</p>
+<p><span class="math notranslate nohighlight">\(p\)</span> - Hydrostatic pressure <span class="math notranslate nohighlight">\(N/m^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(\zeta\)</span> - Bulk viscosity <span class="math notranslate nohighlight">\(Pa \hspace{0.1cm} s\)</span></p>
+<p><span class="math notranslate nohighlight">\(\eta\)</span> - Shear viscosity <span class="math notranslate nohighlight">\(s^{-1}\)</span></p>
+</section>
+<section id="dimensional-analysis">
+<h2>Dimensional Analysis<a class="headerlink" href="#dimensional-analysis" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(\mathbf{D}\)</span> - Diffusivity  <span class="math notranslate nohighlight">\(m^2/s\)</span></p>
+<p><span class="math notranslate nohighlight">\(C\)</span> - Concentration</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{h}\)</span> - Thickness  <span class="math notranslate nohighlight">\(m\)</span></p>
+<p><span class="math notranslate nohighlight">\(h\)</span> - External heat transfer coefficient</p>
+<p><span class="math notranslate nohighlight">\(Pe\)</span> - Peclet number</p>
+<p><span class="math notranslate nohighlight">\(Re\)</span> - Reynolds number</p>
+<p><span class="math notranslate nohighlight">\(Ga\)</span> - Galileo number</p>
+<p><span class="math notranslate nohighlight">\(Fr\)</span> - Froude number</p>
+<p><span class="math notranslate nohighlight">\(\lambda\)</span> - Wavelength of an instability <span class="math notranslate nohighlight">\(m\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gamma\)</span> - Surface tension  <span class="math notranslate nohighlight">\(N/m\)</span></p>
+<p><span class="math notranslate nohighlight">\(Q\)</span> - Rate of energy transfer <span class="math notranslate nohighlight">\(W\)</span></p>
+<p><span class="math notranslate nohighlight">\(V\)</span> - Volumetric fluid flow rate <span class="math notranslate nohighlight">\(m^3/s\)</span></p>
+</section>
+<section id="potential-flow">
+<h2>Potential Flow<a class="headerlink" href="#potential-flow" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(\phi\)</span> - Potential</p>
+<p><span class="math notranslate nohighlight">\(k\)</span> - Permeability</p>
+<p><span class="math notranslate nohighlight">\(F\)</span> - Flux</p>
+<p><span class="math notranslate nohighlight">\(\xi\)</span> - Residual</p>
+</section>
+<section id="navier-stokes">
+<h2>Navier-Stokes<a class="headerlink" href="#navier-stokes" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(\tau\)</span> - Shear stress <span class="math notranslate nohighlight">\(N/m^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathbf{S}\)</span> - Strain rate (fluid) <span class="math notranslate nohighlight">\(s^-1\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathbf{K}\)</span> - Matrix for discretisation of viscosity</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{C}\)</span> - Matrix for discretisation of gradient operator</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{C^T}\)</span> - Matrix for discretisation of divergence</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{A}\)</span> - matrix containing the discretisation for the momentum advection term</p>
+</section>
+<section id="turbulent-and-non-newtonian-flows">
+<h2>Turbulent and Non-Newtonian Flows<a class="headerlink" href="#turbulent-and-non-newtonian-flows" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(f\)</span> - Fanning Friction Factor</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{u}\)</span> - Instantaneous velocity <span class="math notranslate nohighlight">\(m/s\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathbf{U}\)</span> - Average velocity  <span class="math notranslate nohighlight">\(m/s\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathbf{u^{'}}\)</span> - Fluctuating component of velocity <span class="math notranslate nohighlight">\(m/s\)</span></p>
+<p><span class="math notranslate nohighlight">\(k\)</span> - Tubulent kinetic energy <span class="math notranslate nohighlight">\(J\)</span></p>
+<p><span class="math notranslate nohighlight">\(\varepsilon\)</span> - Turbulent dissipation rate</p>
+</section>
+<section id="interpolation-quadrature">
+<h2>Interpolation Quadrature<a class="headerlink" href="#interpolation-quadrature" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(P_N(x)\)</span> - Interpolated polynomial</p>
+<p><span class="math notranslate nohighlight">\(\alpha_i\)</span> - Weight for interpolation function</p>
+<p><span class="math notranslate nohighlight">\(\phi_i\)</span> - Basis functions for interpolation function</p>
+<p><span class="math notranslate nohighlight">\(L(x)\)</span> - Lagrange polynomial</p>
+<p><span class="math notranslate nohighlight">\(l_i(x)\)</span> - Lagrange basis polynomial</p>
+<p><span class="math notranslate nohighlight">\(R_N(x)\)</span> - Remainder function/Interpolation error</p>
+<p><span class="math notranslate nohighlight">\(I_M\)</span> - Integral by using midpoint rule</p>
+<p><span class="math notranslate nohighlight">\(I_T\)</span> - Integral by using trapezoidal rule</p>
+<p><span class="math notranslate nohighlight">\(I_S\)</span> - Integral by using Simpson’s rule</p>
+<p><span class="math notranslate nohighlight">\(I_W\)</span> - Integral by using Weddle’s rule</p>
+</section>
+<section id="ode-solvers">
+<h2>ODE Solvers<a class="headerlink" href="#ode-solvers" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(t_0\)</span> - Initial time</p>
+<p><span class="math notranslate nohighlight">\(T\)</span> - Upper limit of integral in time</p>
+<p><span class="math notranslate nohighlight">\(\Delta t_n\)</span> - Step size</p>
+<p><span class="math notranslate nohighlight">\(\mathcal{O}\)</span> - Big O approximation for higher order terms</p>
+<p><span class="math notranslate nohighlight">\(\bar{f}\)</span> - Average value of a function</p>
+<p><span class="math notranslate nohighlight">\(\tau\)</span> - Local truncation error</p>
+<p><span class="math notranslate nohighlight">\(E\)</span> - Global error</p>
+</section>
+<section id="pde-solvers">
+<h2>PDE Solvers<a class="headerlink" href="#pde-solvers" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(c\)</span> - Concentration</p>
+<p><span class="math notranslate nohighlight">\(\kappa\)</span> - Diffusivity coefficient</p>
+<p><span class="math notranslate nohighlight">\(\xi\)</span> - Computational coordinate</p>
+<p><span class="math notranslate nohighlight">\(C\)</span> - Courant number</p>
+<p><span class="math notranslate nohighlight">\(r\)</span> - r-parameter</p>
+<p><span class="math notranslate nohighlight">\(k_m\)</span> - Wavenumber</p>
+</section>
+<section id="finite-element-methods">
+<h2>Finite Element Methods<a class="headerlink" href="#finite-element-methods" title="Permalink to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(e\)</span> - Single element</p>
+<p><span class="math notranslate nohighlight">\(C\)</span> - Constant</p>
+<p><span class="math notranslate nohighlight">\(\phi\)</span> - Basis function</p>
+<p><span class="math notranslate nohighlight">\(\alpha\)</span> - Weights</p>
+<p><span class="math notranslate nohighlight">\(P_h\)</span> - <span class="math notranslate nohighlight">\(L^2\)</span> norm</p>
+<p><span class="math notranslate nohighlight">\(K\)</span> - Discretisation matrix</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Modelling and Numerical Methods</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter1/intro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">1. Intro to Vector/Tensor Calculus</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general">General</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-vector-tensor-calculus">Intro to Vector/Tensor Calculus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stress-and-tensors">Stress and Tensors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinematics">Kinematics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-equations">Conservation Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensional-analysis">Dimensional Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-flow">Potential Flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navier-stokes">Navier-Stokes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turbulent-and-non-newtonian-flows">Turbulent and Non-Newtonian Flows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation-quadrature">Interpolation Quadrature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ode-solvers">ODE Solvers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pde-solvers">PDE Solvers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-element-methods">Finite Element Methods</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Imperial College London
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
