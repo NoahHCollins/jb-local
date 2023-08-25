@@ -3,9 +3,9 @@
 
 format: jb-book
 root: intro
-parts:
-    chapters:
-    - file: "List of Symbols"	
+chapters:
+- file: "List of Symbols"
+parts:	
   - caption: Part 1 - Analytical Background
     chapters:
     - file: "Chapter1/intro"
