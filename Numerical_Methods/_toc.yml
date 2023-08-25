@@ -1,82 +1,82 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-
 format: jb-book
 root: intro
 parts:
-  - captions: test
+  - part:
     chapters:
-    - file: "List of Symbols"
-  - caption: Part 1 - Analytical Background
+      - file: "List of Symbols"
+  - part:
+      caption: Part 1 - Analytical Background
     chapters:
-    - file: "Chapter1/intro"
-      sections:
-      - file: "Chapter1/Lecture 1.1 - Intro to Vectors"
-      - file: "Chapter1/Lecture 1.2 - Vector Transformations"
-      - file: "Chapter1/Lecture 1.3 - Intro to Tensors"
-      - file: "Chapter1/exercises"
-      - file: "Chapter1/solutions"
-    - file: "Chapter2/intro"
-      sections:
-      - file: "Chapter2/Lecture 2 - Stress and Tensors"
-      - file: "Chapter2/exercises2"
-      - file: "Chapter2/solutions2"
-    - file: "Chapter3/intro"
-      sections:
-      - file: "Chapter3/Lecture 3 - Kinematics"
-      - file: "Chapter3/exercises3"
-      - file: "Chapter3/solutions3"
-    - file: "Chapter4/intro"
-      sections:
-      - file: "Chapter4/Lecture 4.1 - Conservation Equations"
-      - file: "Chapter4/Lecture 4.2 - Rheology"
-      - file: "Chapter4/exercises4"
-      - file: "Chapter4/solutions4"
-    - file: "Chapter5/intro"
-      sections:
-      - file: "Chapter5/Lecture 5 - Dimensions and Dimensional Analysis"
-      - file: "Chapter5/Worksheet"
-      - file: "Chapter5/Solutions"
-  - caption: Part 2 - Numerical Solutions
+      - file: "Chapter1/intro"
+        sections:
+          - file: "Chapter1/Lecture 1.1 - Intro to Vectors"
+          - file: "Chapter1/Lecture 1.2 - Vector Transformations"
+          - file: "Chapter1/Lecture 1.3 - Intro to Tensors"
+          - file: "Chapter1/exercises"
+          - file: "Chapter1/solutions"
+      - file: "Chapter2/intro"
+        sections:
+          - file: "Chapter2/Lecture 2 - Stress and Tensors"
+          - file: "Chapter2/exercises2"
+          - file: "Chapter2/solutions2"
+      - file: "Chapter3/intro"
+        sections:
+          - file: "Chapter3/Lecture 3 - Kinematics"
+          - file: "Chapter3/exercises3"
+          - file: "Chapter3/solutions3"
+      - file: "Chapter4/intro"
+        sections:
+          - file: "Chapter4/Lecture 4.1 - Conservation Equations"
+          - file: "Chapter4/Lecture 4.2 - Rheology"
+          - file: "Chapter4/exercises4"
+          - file: "Chapter4/solutions4"
+      - file: "Chapter5/intro"
+        sections:
+          - file: "Chapter5/Lecture 5 - Dimensions and Dimensional Analysis"
+          - file: "Chapter5/Worksheet"
+          - file: "Chapter5/Solutions"
+  - part:
+      caption: Part 2 - Numerical Solutions
     chapters:
-    - file: "Chapter6/intro"
-      sections:
-      - file: "Chapter6/Lecture 6 - Potential Flow"
-      - file: "Chapter6/Worksheet"
-      - file: "Chapter6/Solutions"
-    - file: "Chapter7/intro"
-      sections:
-      - file: "Chapter7/Lecture 7.1 - Navier-Stokes"
-      - file: "Chapter7/Worksheet"
-      - file: "Chapter7/SolversIntro"
-      - file: "Chapter7/Solvers/Solver_lid_driven_Loops"
-      - file: "Chapter7/Solvers/Solver_lid_driven_Vectorised"
-      - file: "Chapter7/Solvers/Solver_pressure_driven_Vectorised"
-      - file: "Chapter7/Solvers/Solver_pressure_driven_uneven_Vectorised"
-    - file: "Chapter8/intro"
-      sections:
-      - file: "Chapter8/Lecture 8.1 - Turbulent and Non-Newtonian Flows"
-      - file: "Chapter8/Worksheet"
-      - file: "Chapter8/Solutions"
-  - caption: Part 3 - Numerical Techniques
+      - file: "Chapter6/intro"
+        sections:
+          - file: "Chapter6/Lecture 6 - Potential Flow"
+          - file: "Chapter6/Worksheet"
+          - file: "Chapter6/Solutions"
+      - file: "Chapter7/intro"
+        sections:
+          - file: "Chapter7/Lecture 7.1 - Navier-Stokes"
+          - file: "Chapter7/Worksheet"
+          - file: "Chapter7/SolversIntro"
+          - file: "Chapter7/Solvers/Solver_lid_driven_Loops"
+          - file: "Chapter7/Solvers/Solver_lid_driven_Vectorised"
+          - file: "Chapter7/Solvers/Solver_pressure_driven_Vectorised"
+          - file: "Chapter7/Solvers/Solver_pressure_driven_uneven_Vectorised"
+      - file: "Chapter8/intro"
+        sections:
+          - file: "Chapter8/Lecture 8.1 - Turbulent and Non-Newtonian Flows"
+          - file: "Chapter8/Worksheet"
+          - file: "Chapter8/Solutions"
+  - part:
+      caption: Part 3 - Numerical Techniques
     chapters:
-    - file: "Chapter9/intro"
-      sections: 
-      - file: "Chapter9/Lecture 9.1 - interpolation quadrature"
-      - file: "Chapter9/Homework"
-      - file: "Chapter9/Solutions"
-    - file: "Chapter10/intro"
-      sections:
-      - file: "Chapter10/Lecture 10.1 - ODE Solver"
-      - file: "Chapter10/Homework"
-      - file: "Chapter10/Solutions"
-    - file: "Chapter11/intro"
-      sections:
-      - file: "Chapter11/Lecture 11 - PDE Solvers - Finite Difference Methods 2"
-      - file: "Chapter11/Homework"
-      - file: "Chapter11/Solutions"
-    - file: "Chapter12/intro"
-      sections:
-      - file: "Chapter12/Lecture 12.1 - FEM"
-      - file: "Chapter12/Homework"
-      - file: "Chapter12/Solutions"
+      - file: "Chapter9/intro"
+        sections:
+          - file: "Chapter9/Lecture 9.1 - interpolation quadrature"
+          - file: "Chapter9/Homework"
+          - file: "Chapter9/Solutions"
+      - file: "Chapter10/intro"
+        sections:
+          - file: "Chapter10/Lecture 10.1 - ODE Solver"
+          - file: "Chapter10/Homework"
+          - file: "Chapter10/Solutions"
+      - file: "Chapter11/intro"
+        sections:
+          - file: "Chapter11/Lecture 11 - PDE Solvers - Finite Difference Methods 2"
+          - file: "Chapter11/Homework"
+          - file: "Chapter11/Solutions"
+      - file: "Chapter12/intro"
+        sections:
+          - file: "Chapter12/Lecture 12.1 - FEM"
+          - file: "Chapter12/Homework"
+          - file: "Chapter12/Solutions"
